@@ -1,2 +1,4 @@
-LIB/
+LIB/OpenCV/robidouille/.git
+LIB/OpenCV/userland/.git
+LIB/wiringPi/.git
 SRC/build/

@@ -17,15 +17,19 @@ set(CMAKE_BUILD_TYPE Release)
 # OpenCV Library
 find_package(OpenCV REQUIRED)
 
+set( RCR2015_DIR
+  /home/pi/RCR2015
+)
+
 # Raspberry Pi OpenCV --------------- 
 # インクルードディレクトリ
 include_directories(
-  /home/pi/RCR/LIB/OpenCV/robidouille/raspicam_cv
+  ${RCR2015_DIR}/LIB/OpenCV/robidouille/raspicam_cv
 )
 # ライブラリディレクトリ
 link_directories(
-  /home/pi/RCR/LIB/OpenCV/robidouille/raspicam_cv
-  /home/pi/RCR/LIB/OpenCV/userland/build/lib
+  ${RCR2015_DIR}/LIB/OpenCV/robidoulle/raspicam_cv
+  ${RCR2015_DIR}/LIB/OpenCV/userland/build/lib
 )
 #-------------------------------------
 
