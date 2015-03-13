@@ -55,16 +55,16 @@ link_directories(
   /usr/local/lib
 )
 
-
 # プロジェクト名
 project(RCR)
 # 静的リンクライブラリの追加
 # add_subdirectory(Camera)
 add_subdirectory(Motor)
+add_subdirectory(Encoder)
 
 # Mainビルド
 add_executable (main main.cpp)
 
 # ターゲットリンクライブラリ
-target_link_libraries(main Motor wiringPi pthread boost_thread m)
+target_link_libraries(main Motor Encoder wiringPi pthread boost_thread m)
 
