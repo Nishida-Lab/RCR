@@ -16,47 +16,55 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ../)
 #----------------------------------------------------
 # ライブラリの追加
 #----------------------------------------------------
-# OpenCV Library
-find_package(OpenCV REQUIRED)
+# # OpenCV Library
+# find_package(OpenCV REQUIRED)
 
-set( RCR2015_DIR
-  /home/pi/RCR2015
-)
+# set( RCR2015_DIR
+#   /home/pi/RCR2015
+# )
 
-# Raspberry Pi OpenCV --------------- 
-# インクルードディレクトリ
+# # Raspberry Pi OpenCV --------------- 
+# # インクルードディレクトリ
+# include_directories(
+#   ${RCR2015_DIR}/LIB/OpenCV/robidouille/raspicam_cv
+# )
+# # ライブラリディレクトリ
+# link_directories(
+#   ${RCR2015_DIR}/LIB/OpenCV/robidoulle/raspicam_cv
+#   ${RCR2015_DIR}/LIB/OpenCV/userland/build/lib
+# )
+# #-------------------------------------
+
+# # ライブラリ郡の設定
+# set( RASPI_OPENCV_LIBS
+#   raspicamcv 
+#   mmal_core 
+#   mmal 
+#   mmal_util 
+#   vcos 
+#   bcm_host
+# )
+
+#-----------------------------------------------------
+
 include_directories(
-  ${RCR2015_DIR}/LIB/OpenCV/robidouille/raspicam_cv
+  /usr/local/include
 )
 # ライブラリディレクトリ
 link_directories(
-  ${RCR2015_DIR}/LIB/OpenCV/robidoulle/raspicam_cv
-  ${RCR2015_DIR}/LIB/OpenCV/userland/build/lib
+  /usr/local/lib
 )
-#-------------------------------------
-
-# ライブラリ郡の設定
-set( RASPI_OPENCV_LIBS
-  raspicamcv 
-  mmal_core 
-  mmal 
-  mmal_util 
-  vcos 
-  bcm_host
-)
-
-#-----------------------------------------------------
 
 
 # プロジェクト名
 project(RCR)
 # 静的リンクライブラリの追加
-add_subdirectory(Camera)
+# add_subdirectory(Camera)
 add_subdirectory(Motor)
 
 # Mainビルド
 add_executable (main main.cpp)
 
 # ターゲットリンクライブラリ
-target_link_libraries(main Camera Motor ${OpenCV_LIBS} ${RASPI_OPENCV_LIBS} wiringPi pthread m)
+target_link_libraries(main Motor wiringPi pthread boost_thread m)
 
