@@ -29,8 +29,10 @@ Encoder::Encoder() :
   pullUpDnControl(front_pin.first, PUD_UP); 
   pullUpDnControl(front_pin.second, PUD_UP);
 
-  wiringPiISR(rear_pin.first, INT_EDGE_BOTH, RearEncCnt); 
-  wiringPiISR(rear_pin.second, INT_EDGE_BOTH,RearEncCnt);
+  wiringPiISR(rear_pin.first, INT_EDGE_FALLING, RearEncCnt); 
+  //wiringPiISR(rear_pin.second, INT_EDGE_BOTH,RearEncCnt);
+  wiringPiISR(front_pin.first, INT_EDGE_BOTH, FrontEncCnt); 
+  // wiringPiISR(front_pin.second, INT_EDGE_BOTH,FrontEncCnt);
   
   local_rear_pin = rear_pin;
   local_front_pin = front_pin;
@@ -53,21 +55,30 @@ void Encoder::GetCnt(long &front_cnt, long &rear_cnt)
   front_cnt = local_front_cnt;
 }
 
+int cnt=0;
+
 void RearEncCnt(void)
 {
-  // Now Phase
+  // // Now Phase
   rear_data[0].first = digitalRead(local_rear_pin.first);
-  rear_data[0].second = digitalRead(local_rear_pin.second);
+  //  cout << local_rear_pin.first << " " << rear_data[0].first << endl;
+  //  rear_data[0].second = digitalRead(local_rear_pin.second);
 
-  if(rear_data[0].first == rear_data[1].second){
+  // cout << rear_data[0].first << " " << rear_data[0].second << " " << rear_data[1].first << " " << rear_data[1].second << endl;
+
+  if(rear_data[0].first != rear_data[1].first)
+    local_rear_cnt +=2;
+  else
     local_rear_cnt++;
-    cout << "REAR CW : " << local_rear_cnt << endl;
+  // if(rear_data[0].first != rear_data[1].second){
+  //   local_rear_cnt++;
+  //   //    cout << "REAR CW : " << local_rear_cnt << endl;
 
-  }else{
-    local_rear_cnt--;
-    cout << "REAR CCW : " << local_rear_cnt << endl;
-  }
-
+  // }else{
+  //   local_rear_cnt--;
+  //   // cout << "REAR CCW : " << local_rear_cnt << endl;
+  // }
+  //cout << "here " << cnt << endl;
   rear_data[1] = rear_data[0];
 }
 
@@ -76,13 +87,15 @@ void FrontEncCnt(void)
   // Now Phase
   front_data[0].first = digitalRead(local_front_pin.first);
   front_data[0].second = digitalRead(local_front_pin.second);
+  
+  //cout << front_data[0].first << " " << front_data[0].second << " " << front_data[1].first << " " << front_data[1].second << endl;
 
-  if(front_data[0].first == front_data[1].second){
+  if(front_data[0].first != front_data[1].second){
     local_front_cnt++;
-    cout << "FRONT CW : " << local_front_cnt << endl;
+    // cout << "FRONT CW : " << endl;
   }else{
     local_front_cnt--;
-    cout << "FRONT CCW : " << local_front_cnt << endl;
+    // cout << "FRONT CCW : " << endl;
   }
 
   front_data[1] = front_data[0];
