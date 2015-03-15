@@ -4,16 +4,16 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_C
-  "/home/pi/RCR/LIB/OpenCV/userland/interface/mmal/core/mmal_buffer.c" "/home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/core/CMakeFiles/mmal_core.dir/mmal_buffer.c.o"
-  "/home/pi/RCR/LIB/OpenCV/userland/interface/mmal/core/mmal_clock.c" "/home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/core/CMakeFiles/mmal_core.dir/mmal_clock.c.o"
-  "/home/pi/RCR/LIB/OpenCV/userland/interface/mmal/core/mmal_component.c" "/home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/core/CMakeFiles/mmal_core.dir/mmal_component.c.o"
-  "/home/pi/RCR/LIB/OpenCV/userland/interface/mmal/core/mmal_events.c" "/home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/core/CMakeFiles/mmal_core.dir/mmal_events.c.o"
-  "/home/pi/RCR/LIB/OpenCV/userland/interface/mmal/core/mmal_format.c" "/home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/core/CMakeFiles/mmal_core.dir/mmal_format.c.o"
-  "/home/pi/RCR/LIB/OpenCV/userland/interface/mmal/core/mmal_logging.c" "/home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/core/CMakeFiles/mmal_core.dir/mmal_logging.c.o"
-  "/home/pi/RCR/LIB/OpenCV/userland/interface/mmal/core/mmal_pool.c" "/home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/core/CMakeFiles/mmal_core.dir/mmal_pool.c.o"
-  "/home/pi/RCR/LIB/OpenCV/userland/interface/mmal/core/mmal_port.c" "/home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/core/CMakeFiles/mmal_core.dir/mmal_port.c.o"
-  "/home/pi/RCR/LIB/OpenCV/userland/interface/mmal/core/mmal_port_clock.c" "/home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/core/CMakeFiles/mmal_core.dir/mmal_port_clock.c.o"
-  "/home/pi/RCR/LIB/OpenCV/userland/interface/mmal/core/mmal_queue.c" "/home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/core/CMakeFiles/mmal_core.dir/mmal_queue.c.o"
+  "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/core/mmal_buffer.c" "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/core/CMakeFiles/mmal_core.dir/mmal_buffer.c.o"
+  "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/core/mmal_clock.c" "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/core/CMakeFiles/mmal_core.dir/mmal_clock.c.o"
+  "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/core/mmal_component.c" "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/core/CMakeFiles/mmal_core.dir/mmal_component.c.o"
+  "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/core/mmal_events.c" "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/core/CMakeFiles/mmal_core.dir/mmal_events.c.o"
+  "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/core/mmal_format.c" "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/core/CMakeFiles/mmal_core.dir/mmal_format.c.o"
+  "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/core/mmal_logging.c" "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/core/CMakeFiles/mmal_core.dir/mmal_logging.c.o"
+  "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/core/mmal_pool.c" "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/core/CMakeFiles/mmal_core.dir/mmal_pool.c.o"
+  "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/core/mmal_port.c" "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/core/CMakeFiles/mmal_core.dir/mmal_port.c.o"
+  "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/core/mmal_port_clock.c" "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/core/CMakeFiles/mmal_core.dir/mmal_port_clock.c.o"
+  "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/core/mmal_queue.c" "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/core/CMakeFiles/mmal_core.dir/mmal_queue.c.o"
   )
 SET(CMAKE_C_COMPILER_ID "GNU")
 
@@ -38,7 +38,7 @@ SET(CMAKE_TARGET_DEFINITIONS
 
 # Targets to which this target links.
 SET(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/interface/vcos/pthreads/CMakeFiles/vcos.dir/DependInfo.cmake"
+  "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/vcos/pthreads/CMakeFiles/vcos.dir/DependInfo.cmake"
   )
 
 # The include file search paths:

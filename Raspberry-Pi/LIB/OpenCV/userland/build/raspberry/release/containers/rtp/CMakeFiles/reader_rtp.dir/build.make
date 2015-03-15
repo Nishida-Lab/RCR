@@ -34,11 +34,14 @@ RM = /usr/bin/cmake -E remove -f
 # Escaping for special characters.
 EQUALS = =
 
+# The program to use to edit the cache.
+CMAKE_EDIT_COMMAND = /usr/bin/cmake-gui
+
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/RCR/LIB/OpenCV/userland
+CMAKE_SOURCE_DIR = /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release
+CMAKE_BINARY_DIR = /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release
 
 # Include any dependencies generated for this target.
 include containers/rtp/CMakeFiles/reader_rtp.dir/depend.make
@@ -51,17 +54,17 @@ include containers/rtp/CMakeFiles/reader_rtp.dir/flags.make
 
 containers/rtp/CMakeFiles/reader_rtp.dir/rtp_reader.c.o: containers/rtp/CMakeFiles/reader_rtp.dir/flags.make
 containers/rtp/CMakeFiles/reader_rtp.dir/rtp_reader.c.o: ../../../containers/rtp/rtp_reader.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object containers/rtp/CMakeFiles/reader_rtp.dir/rtp_reader.c.o"
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/containers/rtp && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/reader_rtp.dir/rtp_reader.c.o   -c /home/pi/RCR/LIB/OpenCV/userland/containers/rtp/rtp_reader.c
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers/rtp && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/reader_rtp.dir/rtp_reader.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/rtp/rtp_reader.c
 
 containers/rtp/CMakeFiles/reader_rtp.dir/rtp_reader.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/reader_rtp.dir/rtp_reader.c.i"
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/containers/rtp && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/LIB/OpenCV/userland/containers/rtp/rtp_reader.c > CMakeFiles/reader_rtp.dir/rtp_reader.c.i
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers/rtp && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/rtp/rtp_reader.c > CMakeFiles/reader_rtp.dir/rtp_reader.c.i
 
 containers/rtp/CMakeFiles/reader_rtp.dir/rtp_reader.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/reader_rtp.dir/rtp_reader.c.s"
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/containers/rtp && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/LIB/OpenCV/userland/containers/rtp/rtp_reader.c -o CMakeFiles/reader_rtp.dir/rtp_reader.c.s
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers/rtp && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/rtp/rtp_reader.c -o CMakeFiles/reader_rtp.dir/rtp_reader.c.s
 
 containers/rtp/CMakeFiles/reader_rtp.dir/rtp_reader.c.o.requires:
 .PHONY : containers/rtp/CMakeFiles/reader_rtp.dir/rtp_reader.c.o.requires
@@ -74,17 +77,17 @@ containers/rtp/CMakeFiles/reader_rtp.dir/rtp_reader.c.o.provides.build: containe
 
 containers/rtp/CMakeFiles/reader_rtp.dir/rtp_h264.c.o: containers/rtp/CMakeFiles/reader_rtp.dir/flags.make
 containers/rtp/CMakeFiles/reader_rtp.dir/rtp_h264.c.o: ../../../containers/rtp/rtp_h264.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object containers/rtp/CMakeFiles/reader_rtp.dir/rtp_h264.c.o"
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/containers/rtp && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/reader_rtp.dir/rtp_h264.c.o   -c /home/pi/RCR/LIB/OpenCV/userland/containers/rtp/rtp_h264.c
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers/rtp && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/reader_rtp.dir/rtp_h264.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/rtp/rtp_h264.c
 
 containers/rtp/CMakeFiles/reader_rtp.dir/rtp_h264.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/reader_rtp.dir/rtp_h264.c.i"
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/containers/rtp && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/LIB/OpenCV/userland/containers/rtp/rtp_h264.c > CMakeFiles/reader_rtp.dir/rtp_h264.c.i
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers/rtp && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/rtp/rtp_h264.c > CMakeFiles/reader_rtp.dir/rtp_h264.c.i
 
 containers/rtp/CMakeFiles/reader_rtp.dir/rtp_h264.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/reader_rtp.dir/rtp_h264.c.s"
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/containers/rtp && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/LIB/OpenCV/userland/containers/rtp/rtp_h264.c -o CMakeFiles/reader_rtp.dir/rtp_h264.c.s
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers/rtp && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/rtp/rtp_h264.c -o CMakeFiles/reader_rtp.dir/rtp_h264.c.s
 
 containers/rtp/CMakeFiles/reader_rtp.dir/rtp_h264.c.o.requires:
 .PHONY : containers/rtp/CMakeFiles/reader_rtp.dir/rtp_h264.c.o.requires
@@ -97,17 +100,17 @@ containers/rtp/CMakeFiles/reader_rtp.dir/rtp_h264.c.o.provides.build: containers
 
 containers/rtp/CMakeFiles/reader_rtp.dir/rtp_mpeg4.c.o: containers/rtp/CMakeFiles/reader_rtp.dir/flags.make
 containers/rtp/CMakeFiles/reader_rtp.dir/rtp_mpeg4.c.o: ../../../containers/rtp/rtp_mpeg4.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object containers/rtp/CMakeFiles/reader_rtp.dir/rtp_mpeg4.c.o"
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/containers/rtp && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/reader_rtp.dir/rtp_mpeg4.c.o   -c /home/pi/RCR/LIB/OpenCV/userland/containers/rtp/rtp_mpeg4.c
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers/rtp && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/reader_rtp.dir/rtp_mpeg4.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/rtp/rtp_mpeg4.c
 
 containers/rtp/CMakeFiles/reader_rtp.dir/rtp_mpeg4.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/reader_rtp.dir/rtp_mpeg4.c.i"
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/containers/rtp && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/LIB/OpenCV/userland/containers/rtp/rtp_mpeg4.c > CMakeFiles/reader_rtp.dir/rtp_mpeg4.c.i
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers/rtp && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/rtp/rtp_mpeg4.c > CMakeFiles/reader_rtp.dir/rtp_mpeg4.c.i
 
 containers/rtp/CMakeFiles/reader_rtp.dir/rtp_mpeg4.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/reader_rtp.dir/rtp_mpeg4.c.s"
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/containers/rtp && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/LIB/OpenCV/userland/containers/rtp/rtp_mpeg4.c -o CMakeFiles/reader_rtp.dir/rtp_mpeg4.c.s
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers/rtp && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/rtp/rtp_mpeg4.c -o CMakeFiles/reader_rtp.dir/rtp_mpeg4.c.s
 
 containers/rtp/CMakeFiles/reader_rtp.dir/rtp_mpeg4.c.o.requires:
 .PHONY : containers/rtp/CMakeFiles/reader_rtp.dir/rtp_mpeg4.c.o.requires
@@ -120,17 +123,17 @@ containers/rtp/CMakeFiles/reader_rtp.dir/rtp_mpeg4.c.o.provides.build: container
 
 containers/rtp/CMakeFiles/reader_rtp.dir/rtp_base64.c.o: containers/rtp/CMakeFiles/reader_rtp.dir/flags.make
 containers/rtp/CMakeFiles/reader_rtp.dir/rtp_base64.c.o: ../../../containers/rtp/rtp_base64.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_4)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object containers/rtp/CMakeFiles/reader_rtp.dir/rtp_base64.c.o"
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/containers/rtp && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/reader_rtp.dir/rtp_base64.c.o   -c /home/pi/RCR/LIB/OpenCV/userland/containers/rtp/rtp_base64.c
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers/rtp && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/reader_rtp.dir/rtp_base64.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/rtp/rtp_base64.c
 
 containers/rtp/CMakeFiles/reader_rtp.dir/rtp_base64.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/reader_rtp.dir/rtp_base64.c.i"
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/containers/rtp && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/LIB/OpenCV/userland/containers/rtp/rtp_base64.c > CMakeFiles/reader_rtp.dir/rtp_base64.c.i
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers/rtp && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/rtp/rtp_base64.c > CMakeFiles/reader_rtp.dir/rtp_base64.c.i
 
 containers/rtp/CMakeFiles/reader_rtp.dir/rtp_base64.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/reader_rtp.dir/rtp_base64.c.s"
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/containers/rtp && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/LIB/OpenCV/userland/containers/rtp/rtp_base64.c -o CMakeFiles/reader_rtp.dir/rtp_base64.c.s
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers/rtp && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/rtp/rtp_base64.c -o CMakeFiles/reader_rtp.dir/rtp_base64.c.s
 
 containers/rtp/CMakeFiles/reader_rtp.dir/rtp_base64.c.o.requires:
 .PHONY : containers/rtp/CMakeFiles/reader_rtp.dir/rtp_base64.c.o.requires
@@ -160,7 +163,7 @@ reader_rtp_EXTERNAL_OBJECTS =
 ../../lib/reader_rtp.so: ../../lib/libvcos.so
 ../../lib/reader_rtp.so: containers/rtp/CMakeFiles/reader_rtp.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking C shared library ../../../../lib/reader_rtp.so"
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/containers/rtp && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/reader_rtp.dir/link.txt --verbose=$(VERBOSE)
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers/rtp && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/reader_rtp.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 containers/rtp/CMakeFiles/reader_rtp.dir/build: ../../lib/reader_rtp.so
@@ -173,10 +176,10 @@ containers/rtp/CMakeFiles/reader_rtp.dir/requires: containers/rtp/CMakeFiles/rea
 .PHONY : containers/rtp/CMakeFiles/reader_rtp.dir/requires
 
 containers/rtp/CMakeFiles/reader_rtp.dir/clean:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/containers/rtp && $(CMAKE_COMMAND) -P CMakeFiles/reader_rtp.dir/cmake_clean.cmake
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers/rtp && $(CMAKE_COMMAND) -P CMakeFiles/reader_rtp.dir/cmake_clean.cmake
 .PHONY : containers/rtp/CMakeFiles/reader_rtp.dir/clean
 
 containers/rtp/CMakeFiles/reader_rtp.dir/depend:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pi/RCR/LIB/OpenCV/userland /home/pi/RCR/LIB/OpenCV/userland/containers/rtp /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/containers/rtp /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/containers/rtp/CMakeFiles/reader_rtp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/rtp /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers/rtp /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers/rtp/CMakeFiles/reader_rtp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : containers/rtp/CMakeFiles/reader_rtp.dir/depend
 

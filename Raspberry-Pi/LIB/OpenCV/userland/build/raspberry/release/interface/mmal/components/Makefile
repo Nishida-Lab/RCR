@@ -38,19 +38,22 @@ RM = /usr/bin/cmake -E remove -f
 # Escaping for special characters.
 EQUALS = =
 
+# The program to use to edit the cache.
+CMAKE_EDIT_COMMAND = /usr/bin/cmake-gui
+
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/RCR/LIB/OpenCV/userland
+CMAKE_SOURCE_DIR = /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release
+CMAKE_BINARY_DIR = /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release
 
 #=============================================================================
 # Targets provided globally by CMake.
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running interactive CMake command-line interface..."
-	/usr/bin/cmake -i .
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/cmake-gui -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -101,7 +104,7 @@ list_install_components/fast: list_install_components
 # Special rule for the target package
 package: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool..."
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && /usr/bin/cpack --config ./CPackConfig.cmake
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && /usr/bin/cpack --config ./CPackConfig.cmake
 .PHONY : package
 
 # Special rule for the target package
@@ -111,7 +114,7 @@ package/fast: package
 # Special rule for the target package_source
 package_source:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/CPackSourceConfig.cmake
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CPackSourceConfig.cmake
 .PHONY : package_source
 
 # Special rule for the target package_source
@@ -130,14 +133,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -E cmake_progress_start /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components/CMakeFiles/progress.marks
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/mmal/components/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles 0
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -E cmake_progress_start /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components/CMakeFiles/progress.marks
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/mmal/components/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/mmal/components/clean
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/mmal/components/clean
 .PHONY : clean
 
 # The main clean target
@@ -146,22 +149,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/mmal/components/preinstall
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/mmal/components/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/mmal/components/preinstall
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/mmal/components/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 interface/mmal/components/CMakeFiles/mmal_components.dir/rule:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/mmal/components/CMakeFiles/mmal_components.dir/rule
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/mmal/components/CMakeFiles/mmal_components.dir/rule
 .PHONY : interface/mmal/components/CMakeFiles/mmal_components.dir/rule
 
 # Convenience name for target.
@@ -170,12 +173,12 @@ mmal_components: interface/mmal/components/CMakeFiles/mmal_components.dir/rule
 
 # fast build rule for target.
 mmal_components/fast:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/build
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/build
 .PHONY : mmal_components/fast
 
 # Convenience name for target.
 interface/mmal/components/CMakeFiles/mmal_components_extra.dir/rule:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/mmal/components/CMakeFiles/mmal_components_extra.dir/rule
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/mmal/components/CMakeFiles/mmal_components_extra.dir/rule
 .PHONY : interface/mmal/components/CMakeFiles/mmal_components_extra.dir/rule
 
 # Convenience name for target.
@@ -184,7 +187,7 @@ mmal_components_extra: interface/mmal/components/CMakeFiles/mmal_components_extr
 
 # fast build rule for target.
 mmal_components_extra/fast:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components_extra.dir/build.make interface/mmal/components/CMakeFiles/mmal_components_extra.dir/build
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components_extra.dir/build.make interface/mmal/components/CMakeFiles/mmal_components_extra.dir/build
 .PHONY : mmal_components_extra/fast
 
 aggregator.o: aggregator.c.o
@@ -192,7 +195,7 @@ aggregator.o: aggregator.c.o
 
 # target to build an object file
 aggregator.c.o:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/aggregator.c.o
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/aggregator.c.o
 .PHONY : aggregator.c.o
 
 aggregator.i: aggregator.c.i
@@ -200,7 +203,7 @@ aggregator.i: aggregator.c.i
 
 # target to preprocess a source file
 aggregator.c.i:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/aggregator.c.i
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/aggregator.c.i
 .PHONY : aggregator.c.i
 
 aggregator.s: aggregator.c.s
@@ -208,7 +211,7 @@ aggregator.s: aggregator.c.s
 
 # target to generate assembly for a file
 aggregator.c.s:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/aggregator.c.s
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/aggregator.c.s
 .PHONY : aggregator.c.s
 
 artificial_camera.o: artificial_camera.c.o
@@ -216,7 +219,7 @@ artificial_camera.o: artificial_camera.c.o
 
 # target to build an object file
 artificial_camera.c.o:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/artificial_camera.c.o
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/artificial_camera.c.o
 .PHONY : artificial_camera.c.o
 
 artificial_camera.i: artificial_camera.c.i
@@ -224,7 +227,7 @@ artificial_camera.i: artificial_camera.c.i
 
 # target to preprocess a source file
 artificial_camera.c.i:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/artificial_camera.c.i
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/artificial_camera.c.i
 .PHONY : artificial_camera.c.i
 
 artificial_camera.s: artificial_camera.c.s
@@ -232,7 +235,7 @@ artificial_camera.s: artificial_camera.c.s
 
 # target to generate assembly for a file
 artificial_camera.c.s:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/artificial_camera.c.s
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/artificial_camera.c.s
 .PHONY : artificial_camera.c.s
 
 clock.o: clock.c.o
@@ -240,7 +243,7 @@ clock.o: clock.c.o
 
 # target to build an object file
 clock.c.o:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/clock.c.o
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/clock.c.o
 .PHONY : clock.c.o
 
 clock.i: clock.c.i
@@ -248,7 +251,7 @@ clock.i: clock.c.i
 
 # target to preprocess a source file
 clock.c.i:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/clock.c.i
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/clock.c.i
 .PHONY : clock.c.i
 
 clock.s: clock.c.s
@@ -256,7 +259,7 @@ clock.s: clock.c.s
 
 # target to generate assembly for a file
 clock.c.s:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/clock.c.s
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/clock.c.s
 .PHONY : clock.c.s
 
 container_reader.o: container_reader.c.o
@@ -264,7 +267,7 @@ container_reader.o: container_reader.c.o
 
 # target to build an object file
 container_reader.c.o:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/container_reader.c.o
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/container_reader.c.o
 .PHONY : container_reader.c.o
 
 container_reader.i: container_reader.c.i
@@ -272,7 +275,7 @@ container_reader.i: container_reader.c.i
 
 # target to preprocess a source file
 container_reader.c.i:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/container_reader.c.i
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/container_reader.c.i
 .PHONY : container_reader.c.i
 
 container_reader.s: container_reader.c.s
@@ -280,7 +283,7 @@ container_reader.s: container_reader.c.s
 
 # target to generate assembly for a file
 container_reader.c.s:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/container_reader.c.s
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/container_reader.c.s
 .PHONY : container_reader.c.s
 
 copy.o: copy.c.o
@@ -288,7 +291,7 @@ copy.o: copy.c.o
 
 # target to build an object file
 copy.c.o:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/copy.c.o
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/copy.c.o
 .PHONY : copy.c.o
 
 copy.i: copy.c.i
@@ -296,7 +299,7 @@ copy.i: copy.c.i
 
 # target to preprocess a source file
 copy.c.i:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/copy.c.i
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/copy.c.i
 .PHONY : copy.c.i
 
 copy.s: copy.c.s
@@ -304,7 +307,7 @@ copy.s: copy.c.s
 
 # target to generate assembly for a file
 copy.c.s:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/copy.c.s
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/copy.c.s
 .PHONY : copy.c.s
 
 null_sink.o: null_sink.c.o
@@ -312,7 +315,7 @@ null_sink.o: null_sink.c.o
 
 # target to build an object file
 null_sink.c.o:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/null_sink.c.o
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/null_sink.c.o
 .PHONY : null_sink.c.o
 
 null_sink.i: null_sink.c.i
@@ -320,7 +323,7 @@ null_sink.i: null_sink.c.i
 
 # target to preprocess a source file
 null_sink.c.i:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/null_sink.c.i
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/null_sink.c.i
 .PHONY : null_sink.c.i
 
 null_sink.s: null_sink.c.s
@@ -328,7 +331,7 @@ null_sink.s: null_sink.c.s
 
 # target to generate assembly for a file
 null_sink.c.s:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/null_sink.c.s
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/null_sink.c.s
 .PHONY : null_sink.c.s
 
 passthrough.o: passthrough.c.o
@@ -336,7 +339,7 @@ passthrough.o: passthrough.c.o
 
 # target to build an object file
 passthrough.c.o:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/passthrough.c.o
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/passthrough.c.o
 .PHONY : passthrough.c.o
 
 passthrough.i: passthrough.c.i
@@ -344,7 +347,7 @@ passthrough.i: passthrough.c.i
 
 # target to preprocess a source file
 passthrough.c.i:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/passthrough.c.i
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/passthrough.c.i
 .PHONY : passthrough.c.i
 
 passthrough.s: passthrough.c.s
@@ -352,7 +355,7 @@ passthrough.s: passthrough.c.s
 
 # target to generate assembly for a file
 passthrough.c.s:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/passthrough.c.s
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/passthrough.c.s
 .PHONY : passthrough.c.s
 
 scheduler.o: scheduler.c.o
@@ -360,7 +363,7 @@ scheduler.o: scheduler.c.o
 
 # target to build an object file
 scheduler.c.o:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/scheduler.c.o
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/scheduler.c.o
 .PHONY : scheduler.c.o
 
 scheduler.i: scheduler.c.i
@@ -368,7 +371,7 @@ scheduler.i: scheduler.c.i
 
 # target to preprocess a source file
 scheduler.c.i:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/scheduler.c.i
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/scheduler.c.i
 .PHONY : scheduler.c.i
 
 scheduler.s: scheduler.c.s
@@ -376,7 +379,7 @@ scheduler.s: scheduler.c.s
 
 # target to generate assembly for a file
 scheduler.c.s:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/scheduler.c.s
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/scheduler.c.s
 .PHONY : scheduler.c.s
 
 spdif.o: spdif.c.o
@@ -384,7 +387,7 @@ spdif.o: spdif.c.o
 
 # target to build an object file
 spdif.c.o:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/spdif.c.o
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/spdif.c.o
 .PHONY : spdif.c.o
 
 spdif.i: spdif.c.i
@@ -392,7 +395,7 @@ spdif.i: spdif.c.i
 
 # target to preprocess a source file
 spdif.c.i:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/spdif.c.i
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/spdif.c.i
 .PHONY : spdif.c.i
 
 spdif.s: spdif.c.s
@@ -400,7 +403,7 @@ spdif.s: spdif.c.s
 
 # target to generate assembly for a file
 spdif.c.s:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/spdif.c.s
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/spdif.c.s
 .PHONY : spdif.c.s
 
 splitter.o: splitter.c.o
@@ -408,7 +411,7 @@ splitter.o: splitter.c.o
 
 # target to build an object file
 splitter.c.o:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/splitter.c.o
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/splitter.c.o
 .PHONY : splitter.c.o
 
 splitter.i: splitter.c.i
@@ -416,7 +419,7 @@ splitter.i: splitter.c.i
 
 # target to preprocess a source file
 splitter.c.i:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/splitter.c.i
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/splitter.c.i
 .PHONY : splitter.c.i
 
 splitter.s: splitter.c.s
@@ -424,7 +427,7 @@ splitter.s: splitter.c.s
 
 # target to generate assembly for a file
 splitter.c.s:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/splitter.c.s
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/components/CMakeFiles/mmal_components.dir/build.make interface/mmal/components/CMakeFiles/mmal_components.dir/splitter.c.s
 .PHONY : splitter.c.s
 
 # Help Target
@@ -484,6 +487,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

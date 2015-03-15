@@ -38,19 +38,22 @@ RM = /usr/bin/cmake -E remove -f
 # Escaping for special characters.
 EQUALS = =
 
+# The program to use to edit the cache.
+CMAKE_EDIT_COMMAND = /usr/bin/cmake-gui
+
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/RCR/LIB/OpenCV/userland
+CMAKE_SOURCE_DIR = /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release
+CMAKE_BINARY_DIR = /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release
 
 #=============================================================================
 # Targets provided globally by CMake.
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running interactive CMake command-line interface..."
-	/usr/bin/cmake -i .
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/cmake-gui -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -101,7 +104,7 @@ list_install_components/fast: list_install_components
 # Special rule for the target package
 package: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool..."
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && /usr/bin/cpack --config ./CPackConfig.cmake
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && /usr/bin/cpack --config ./CPackConfig.cmake
 .PHONY : package
 
 # Special rule for the target package
@@ -111,7 +114,7 @@ package/fast: package
 # Special rule for the target package_source
 package_source:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/CPackSourceConfig.cmake
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CPackSourceConfig.cmake
 .PHONY : package_source
 
 # Special rule for the target package_source
@@ -130,14 +133,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -E cmake_progress_start /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/host_applications/android/apps/vidtex/CMakeFiles/progress.marks
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/android/apps/vidtex/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles 0
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -E cmake_progress_start /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/android/apps/vidtex/CMakeFiles/progress.marks
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/android/apps/vidtex/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/android/apps/vidtex/clean
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/android/apps/vidtex/clean
 .PHONY : clean
 
 # The main clean target
@@ -146,22 +149,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/android/apps/vidtex/preinstall
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/android/apps/vidtex/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/android/apps/vidtex/preinstall
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/android/apps/vidtex/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/rule:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/rule
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/rule
 .PHONY : host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/rule
 
 # Convenience name for target.
@@ -170,7 +173,7 @@ vidtex: host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/rule
 
 # fast build rule for target.
 vidtex/fast:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/build.make host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/build
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/build.make host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/build
 .PHONY : vidtex/fast
 
 launcher_rpi.o: launcher_rpi.c.o
@@ -178,7 +181,7 @@ launcher_rpi.o: launcher_rpi.c.o
 
 # target to build an object file
 launcher_rpi.c.o:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/build.make host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/launcher_rpi.c.o
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/build.make host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/launcher_rpi.c.o
 .PHONY : launcher_rpi.c.o
 
 launcher_rpi.i: launcher_rpi.c.i
@@ -186,7 +189,7 @@ launcher_rpi.i: launcher_rpi.c.i
 
 # target to preprocess a source file
 launcher_rpi.c.i:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/build.make host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/launcher_rpi.c.i
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/build.make host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/launcher_rpi.c.i
 .PHONY : launcher_rpi.c.i
 
 launcher_rpi.s: launcher_rpi.c.s
@@ -194,7 +197,7 @@ launcher_rpi.s: launcher_rpi.c.s
 
 # target to generate assembly for a file
 launcher_rpi.c.s:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/build.make host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/launcher_rpi.c.s
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/build.make host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/launcher_rpi.c.s
 .PHONY : launcher_rpi.c.s
 
 main.o: main.cpp.o
@@ -202,7 +205,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/build.make host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/main.cpp.o
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/build.make host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -210,7 +213,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/build.make host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/main.cpp.i
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/build.make host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -218,7 +221,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/build.make host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/main.cpp.s
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/build.make host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 svp.o: svp.c.o
@@ -226,7 +229,7 @@ svp.o: svp.c.o
 
 # target to build an object file
 svp.c.o:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/build.make host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/svp.c.o
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/build.make host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/svp.c.o
 .PHONY : svp.c.o
 
 svp.i: svp.c.i
@@ -234,7 +237,7 @@ svp.i: svp.c.i
 
 # target to preprocess a source file
 svp.c.i:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/build.make host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/svp.c.i
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/build.make host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/svp.c.i
 .PHONY : svp.c.i
 
 svp.s: svp.c.s
@@ -242,7 +245,7 @@ svp.s: svp.c.s
 
 # target to generate assembly for a file
 svp.c.s:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/build.make host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/svp.c.s
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/build.make host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/svp.c.s
 .PHONY : svp.c.s
 
 vidtex.o: vidtex.c.o
@@ -250,7 +253,7 @@ vidtex.o: vidtex.c.o
 
 # target to build an object file
 vidtex.c.o:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/build.make host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/vidtex.c.o
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/build.make host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/vidtex.c.o
 .PHONY : vidtex.c.o
 
 vidtex.i: vidtex.c.i
@@ -258,7 +261,7 @@ vidtex.i: vidtex.c.i
 
 # target to preprocess a source file
 vidtex.c.i:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/build.make host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/vidtex.c.i
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/build.make host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/vidtex.c.i
 .PHONY : vidtex.c.i
 
 vidtex.s: vidtex.c.s
@@ -266,7 +269,7 @@ vidtex.s: vidtex.c.s
 
 # target to generate assembly for a file
 vidtex.c.s:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/build.make host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/vidtex.c.s
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/build.make host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/vidtex.c.s
 .PHONY : vidtex.c.s
 
 # Help Target
@@ -307,6 +310,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

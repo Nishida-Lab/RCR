@@ -38,19 +38,22 @@ RM = /usr/bin/cmake -E remove -f
 # Escaping for special characters.
 EQUALS = =
 
+# The program to use to edit the cache.
+CMAKE_EDIT_COMMAND = /usr/bin/cmake-gui
+
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/RCR/LIB/OpenCV/userland
+CMAKE_SOURCE_DIR = /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release
+CMAKE_BINARY_DIR = /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release
 
 #=============================================================================
 # Targets provided globally by CMake.
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running interactive CMake command-line interface..."
-	/usr/bin/cmake -i .
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/cmake-gui -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -101,7 +104,7 @@ list_install_components/fast: list_install_components
 # Special rule for the target package
 package: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool..."
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && /usr/bin/cpack --config ./CPackConfig.cmake
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && /usr/bin/cpack --config ./CPackConfig.cmake
 .PHONY : package
 
 # Special rule for the target package
@@ -111,7 +114,7 @@ package/fast: package
 # Special rule for the target package_source
 package_source:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/CPackSourceConfig.cmake
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CPackSourceConfig.cmake
 .PHONY : package_source
 
 # Special rule for the target package_source
@@ -130,14 +133,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -E cmake_progress_start /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/util/CMakeFiles/progress.marks
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/mmal/util/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles 0
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -E cmake_progress_start /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/util/CMakeFiles/progress.marks
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/mmal/util/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/mmal/util/clean
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/mmal/util/clean
 .PHONY : clean
 
 # The main clean target
@@ -146,22 +149,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/mmal/util/preinstall
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/mmal/util/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/mmal/util/preinstall
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/mmal/util/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 interface/mmal/util/CMakeFiles/mmal_util.dir/rule:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/mmal/util/CMakeFiles/mmal_util.dir/rule
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/mmal/util/CMakeFiles/mmal_util.dir/rule
 .PHONY : interface/mmal/util/CMakeFiles/mmal_util.dir/rule
 
 # Convenience name for target.
@@ -170,7 +173,7 @@ mmal_util: interface/mmal/util/CMakeFiles/mmal_util.dir/rule
 
 # fast build rule for target.
 mmal_util/fast:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/build
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/build
 .PHONY : mmal_util/fast
 
 mmal_component_wrapper.o: mmal_component_wrapper.c.o
@@ -178,7 +181,7 @@ mmal_component_wrapper.o: mmal_component_wrapper.c.o
 
 # target to build an object file
 mmal_component_wrapper.c.o:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_component_wrapper.c.o
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_component_wrapper.c.o
 .PHONY : mmal_component_wrapper.c.o
 
 mmal_component_wrapper.i: mmal_component_wrapper.c.i
@@ -186,7 +189,7 @@ mmal_component_wrapper.i: mmal_component_wrapper.c.i
 
 # target to preprocess a source file
 mmal_component_wrapper.c.i:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_component_wrapper.c.i
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_component_wrapper.c.i
 .PHONY : mmal_component_wrapper.c.i
 
 mmal_component_wrapper.s: mmal_component_wrapper.c.s
@@ -194,7 +197,7 @@ mmal_component_wrapper.s: mmal_component_wrapper.c.s
 
 # target to generate assembly for a file
 mmal_component_wrapper.c.s:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_component_wrapper.c.s
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_component_wrapper.c.s
 .PHONY : mmal_component_wrapper.c.s
 
 mmal_connection.o: mmal_connection.c.o
@@ -202,7 +205,7 @@ mmal_connection.o: mmal_connection.c.o
 
 # target to build an object file
 mmal_connection.c.o:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_connection.c.o
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_connection.c.o
 .PHONY : mmal_connection.c.o
 
 mmal_connection.i: mmal_connection.c.i
@@ -210,7 +213,7 @@ mmal_connection.i: mmal_connection.c.i
 
 # target to preprocess a source file
 mmal_connection.c.i:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_connection.c.i
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_connection.c.i
 .PHONY : mmal_connection.c.i
 
 mmal_connection.s: mmal_connection.c.s
@@ -218,7 +221,7 @@ mmal_connection.s: mmal_connection.c.s
 
 # target to generate assembly for a file
 mmal_connection.c.s:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_connection.c.s
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_connection.c.s
 .PHONY : mmal_connection.c.s
 
 mmal_graph.o: mmal_graph.c.o
@@ -226,7 +229,7 @@ mmal_graph.o: mmal_graph.c.o
 
 # target to build an object file
 mmal_graph.c.o:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_graph.c.o
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_graph.c.o
 .PHONY : mmal_graph.c.o
 
 mmal_graph.i: mmal_graph.c.i
@@ -234,7 +237,7 @@ mmal_graph.i: mmal_graph.c.i
 
 # target to preprocess a source file
 mmal_graph.c.i:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_graph.c.i
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_graph.c.i
 .PHONY : mmal_graph.c.i
 
 mmal_graph.s: mmal_graph.c.s
@@ -242,7 +245,7 @@ mmal_graph.s: mmal_graph.c.s
 
 # target to generate assembly for a file
 mmal_graph.c.s:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_graph.c.s
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_graph.c.s
 .PHONY : mmal_graph.c.s
 
 mmal_il.o: mmal_il.c.o
@@ -250,7 +253,7 @@ mmal_il.o: mmal_il.c.o
 
 # target to build an object file
 mmal_il.c.o:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_il.c.o
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_il.c.o
 .PHONY : mmal_il.c.o
 
 mmal_il.i: mmal_il.c.i
@@ -258,7 +261,7 @@ mmal_il.i: mmal_il.c.i
 
 # target to preprocess a source file
 mmal_il.c.i:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_il.c.i
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_il.c.i
 .PHONY : mmal_il.c.i
 
 mmal_il.s: mmal_il.c.s
@@ -266,7 +269,7 @@ mmal_il.s: mmal_il.c.s
 
 # target to generate assembly for a file
 mmal_il.c.s:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_il.c.s
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_il.c.s
 .PHONY : mmal_il.c.s
 
 mmal_list.o: mmal_list.c.o
@@ -274,7 +277,7 @@ mmal_list.o: mmal_list.c.o
 
 # target to build an object file
 mmal_list.c.o:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_list.c.o
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_list.c.o
 .PHONY : mmal_list.c.o
 
 mmal_list.i: mmal_list.c.i
@@ -282,7 +285,7 @@ mmal_list.i: mmal_list.c.i
 
 # target to preprocess a source file
 mmal_list.c.i:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_list.c.i
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_list.c.i
 .PHONY : mmal_list.c.i
 
 mmal_list.s: mmal_list.c.s
@@ -290,7 +293,7 @@ mmal_list.s: mmal_list.c.s
 
 # target to generate assembly for a file
 mmal_list.c.s:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_list.c.s
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_list.c.s
 .PHONY : mmal_list.c.s
 
 mmal_param_convert.o: mmal_param_convert.c.o
@@ -298,7 +301,7 @@ mmal_param_convert.o: mmal_param_convert.c.o
 
 # target to build an object file
 mmal_param_convert.c.o:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_param_convert.c.o
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_param_convert.c.o
 .PHONY : mmal_param_convert.c.o
 
 mmal_param_convert.i: mmal_param_convert.c.i
@@ -306,7 +309,7 @@ mmal_param_convert.i: mmal_param_convert.c.i
 
 # target to preprocess a source file
 mmal_param_convert.c.i:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_param_convert.c.i
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_param_convert.c.i
 .PHONY : mmal_param_convert.c.i
 
 mmal_param_convert.s: mmal_param_convert.c.s
@@ -314,7 +317,7 @@ mmal_param_convert.s: mmal_param_convert.c.s
 
 # target to generate assembly for a file
 mmal_param_convert.c.s:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_param_convert.c.s
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_param_convert.c.s
 .PHONY : mmal_param_convert.c.s
 
 mmal_util.o: mmal_util.c.o
@@ -322,7 +325,7 @@ mmal_util.o: mmal_util.c.o
 
 # target to build an object file
 mmal_util.c.o:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_util.c.o
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_util.c.o
 .PHONY : mmal_util.c.o
 
 mmal_util.i: mmal_util.c.i
@@ -330,7 +333,7 @@ mmal_util.i: mmal_util.c.i
 
 # target to preprocess a source file
 mmal_util.c.i:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_util.c.i
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_util.c.i
 .PHONY : mmal_util.c.i
 
 mmal_util.s: mmal_util.c.s
@@ -338,7 +341,7 @@ mmal_util.s: mmal_util.c.s
 
 # target to generate assembly for a file
 mmal_util.c.s:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_util.c.s
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_util.c.s
 .PHONY : mmal_util.c.s
 
 mmal_util_params.o: mmal_util_params.c.o
@@ -346,7 +349,7 @@ mmal_util_params.o: mmal_util_params.c.o
 
 # target to build an object file
 mmal_util_params.c.o:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_util_params.c.o
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_util_params.c.o
 .PHONY : mmal_util_params.c.o
 
 mmal_util_params.i: mmal_util_params.c.i
@@ -354,7 +357,7 @@ mmal_util_params.i: mmal_util_params.c.i
 
 # target to preprocess a source file
 mmal_util_params.c.i:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_util_params.c.i
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_util_params.c.i
 .PHONY : mmal_util_params.c.i
 
 mmal_util_params.s: mmal_util_params.c.s
@@ -362,7 +365,7 @@ mmal_util_params.s: mmal_util_params.c.s
 
 # target to generate assembly for a file
 mmal_util_params.c.s:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_util_params.c.s
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_util_params.c.s
 .PHONY : mmal_util_params.c.s
 
 mmal_util_rational.o: mmal_util_rational.c.o
@@ -370,7 +373,7 @@ mmal_util_rational.o: mmal_util_rational.c.o
 
 # target to build an object file
 mmal_util_rational.c.o:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_util_rational.c.o
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_util_rational.c.o
 .PHONY : mmal_util_rational.c.o
 
 mmal_util_rational.i: mmal_util_rational.c.i
@@ -378,7 +381,7 @@ mmal_util_rational.i: mmal_util_rational.c.i
 
 # target to preprocess a source file
 mmal_util_rational.c.i:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_util_rational.c.i
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_util_rational.c.i
 .PHONY : mmal_util_rational.c.i
 
 mmal_util_rational.s: mmal_util_rational.c.s
@@ -386,7 +389,7 @@ mmal_util_rational.s: mmal_util_rational.c.s
 
 # target to generate assembly for a file
 mmal_util_rational.c.s:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_util_rational.c.s
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/util/CMakeFiles/mmal_util.dir/build.make interface/mmal/util/CMakeFiles/mmal_util.dir/mmal_util_rational.c.s
 .PHONY : mmal_util_rational.c.s
 
 # Help Target
@@ -442,6 +445,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

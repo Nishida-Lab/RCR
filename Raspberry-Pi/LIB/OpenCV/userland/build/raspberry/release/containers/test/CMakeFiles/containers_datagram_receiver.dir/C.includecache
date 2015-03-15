@@ -30,7 +30,7 @@ stdint.h
 containers/containers_types.h
 ../../../containers/net/containers/containers_types.h
 
-/home/pi/RCR/LIB/OpenCV/userland/containers/test/datagram_receiver.c
+/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/test/datagram_receiver.c
 stdlib.h
 -
 string.h
@@ -38,5 +38,5 @@ string.h
 stdio.h
 -
 containers/net/net_sockets.h
-/home/pi/RCR/LIB/OpenCV/userland/containers/test/containers/net/net_sockets.h
+/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/test/containers/net/net_sockets.h
 

@@ -38,19 +38,22 @@ RM = /usr/bin/cmake -E remove -f
 # Escaping for special characters.
 EQUALS = =
 
+# The program to use to edit the cache.
+CMAKE_EDIT_COMMAND = /usr/bin/cmake-gui
+
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/RCR/LIB/OpenCV/userland
+CMAKE_SOURCE_DIR = /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release
+CMAKE_BINARY_DIR = /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release
 
 #=============================================================================
 # Targets provided globally by CMake.
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running interactive CMake command-line interface..."
-	/usr/bin/cmake -i .
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/cmake-gui -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -101,7 +104,7 @@ list_install_components/fast: list_install_components
 # Special rule for the target package
 package: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool..."
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && /usr/bin/cpack --config ./CPackConfig.cmake
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && /usr/bin/cpack --config ./CPackConfig.cmake
 .PHONY : package
 
 # Special rule for the target package
@@ -111,7 +114,7 @@ package/fast: package
 # Special rule for the target package_source
 package_source:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/CPackSourceConfig.cmake
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CPackSourceConfig.cmake
 .PHONY : package_source
 
 # Special rule for the target package_source
@@ -130,14 +133,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -E cmake_progress_start /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/interface/vmcs_host/linux/vcfiled/CMakeFiles/progress.marks
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/vmcs_host/linux/vcfiled/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles 0
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -E cmake_progress_start /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/vmcs_host/linux/vcfiled/CMakeFiles/progress.marks
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/vmcs_host/linux/vcfiled/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/vmcs_host/linux/vcfiled/clean
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/vmcs_host/linux/vcfiled/clean
 .PHONY : clean
 
 # The main clean target
@@ -146,22 +149,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/vmcs_host/linux/vcfiled/preinstall
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/vmcs_host/linux/vcfiled/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/vmcs_host/linux/vcfiled/preinstall
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/vmcs_host/linux/vcfiled/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled.dir/rule:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled.dir/rule
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled.dir/rule
 .PHONY : interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled.dir/rule
 
 # Convenience name for target.
@@ -170,12 +173,12 @@ vcfiled: interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled.dir/rule
 
 # fast build rule for target.
 vcfiled/fast:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled.dir/build.make interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled.dir/build
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled.dir/build.make interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled.dir/build
 .PHONY : vcfiled/fast
 
 # Convenience name for target.
 interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled_check.dir/rule:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled_check.dir/rule
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled_check.dir/rule
 .PHONY : interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled_check.dir/rule
 
 # Convenience name for target.
@@ -184,12 +187,12 @@ vcfiled_check: interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled_check.dir/ru
 
 # fast build rule for target.
 vcfiled_check/fast:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled_check.dir/build.make interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled_check.dir/build
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled_check.dir/build.make interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled_check.dir/build
 .PHONY : vcfiled_check/fast
 
 # Convenience name for target.
 interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled_lock_test.dir/rule:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled_lock_test.dir/rule
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled_lock_test.dir/rule
 .PHONY : interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled_lock_test.dir/rule
 
 # Convenience name for target.
@@ -198,7 +201,7 @@ vcfiled_lock_test: interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled_lock_tes
 
 # fast build rule for target.
 vcfiled_lock_test/fast:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled_lock_test.dir/build.make interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled_lock_test.dir/build
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled_lock_test.dir/build.make interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled_lock_test.dir/build
 .PHONY : vcfiled_lock_test/fast
 
 vcfiled.o: vcfiled.c.o
@@ -206,7 +209,7 @@ vcfiled.o: vcfiled.c.o
 
 # target to build an object file
 vcfiled.c.o:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled.dir/build.make interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled.dir/vcfiled.c.o
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled.dir/build.make interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled.dir/vcfiled.c.o
 .PHONY : vcfiled.c.o
 
 vcfiled.i: vcfiled.c.i
@@ -214,7 +217,7 @@ vcfiled.i: vcfiled.c.i
 
 # target to preprocess a source file
 vcfiled.c.i:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled.dir/build.make interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled.dir/vcfiled.c.i
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled.dir/build.make interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled.dir/vcfiled.c.i
 .PHONY : vcfiled.c.i
 
 vcfiled.s: vcfiled.c.s
@@ -222,7 +225,7 @@ vcfiled.s: vcfiled.c.s
 
 # target to generate assembly for a file
 vcfiled.c.s:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled.dir/build.make interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled.dir/vcfiled.c.s
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled.dir/build.make interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled.dir/vcfiled.c.s
 .PHONY : vcfiled.c.s
 
 vcfiled_check.o: vcfiled_check.c.o
@@ -230,7 +233,7 @@ vcfiled_check.o: vcfiled_check.c.o
 
 # target to build an object file
 vcfiled_check.c.o:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled_check.dir/build.make interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled_check.dir/vcfiled_check.c.o
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled_check.dir/build.make interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled_check.dir/vcfiled_check.c.o
 .PHONY : vcfiled_check.c.o
 
 vcfiled_check.i: vcfiled_check.c.i
@@ -238,7 +241,7 @@ vcfiled_check.i: vcfiled_check.c.i
 
 # target to preprocess a source file
 vcfiled_check.c.i:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled_check.dir/build.make interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled_check.dir/vcfiled_check.c.i
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled_check.dir/build.make interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled_check.dir/vcfiled_check.c.i
 .PHONY : vcfiled_check.c.i
 
 vcfiled_check.s: vcfiled_check.c.s
@@ -246,7 +249,7 @@ vcfiled_check.s: vcfiled_check.c.s
 
 # target to generate assembly for a file
 vcfiled_check.c.s:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled_check.dir/build.make interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled_check.dir/vcfiled_check.c.s
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled_check.dir/build.make interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled_check.dir/vcfiled_check.c.s
 .PHONY : vcfiled_check.c.s
 
 vcfiled_lock_test.o: vcfiled_lock_test.c.o
@@ -254,7 +257,7 @@ vcfiled_lock_test.o: vcfiled_lock_test.c.o
 
 # target to build an object file
 vcfiled_lock_test.c.o:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled_lock_test.dir/build.make interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled_lock_test.dir/vcfiled_lock_test.c.o
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled_lock_test.dir/build.make interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled_lock_test.dir/vcfiled_lock_test.c.o
 .PHONY : vcfiled_lock_test.c.o
 
 vcfiled_lock_test.i: vcfiled_lock_test.c.i
@@ -262,7 +265,7 @@ vcfiled_lock_test.i: vcfiled_lock_test.c.i
 
 # target to preprocess a source file
 vcfiled_lock_test.c.i:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled_lock_test.dir/build.make interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled_lock_test.dir/vcfiled_lock_test.c.i
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled_lock_test.dir/build.make interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled_lock_test.dir/vcfiled_lock_test.c.i
 .PHONY : vcfiled_lock_test.c.i
 
 vcfiled_lock_test.s: vcfiled_lock_test.c.s
@@ -270,7 +273,7 @@ vcfiled_lock_test.s: vcfiled_lock_test.c.s
 
 # target to generate assembly for a file
 vcfiled_lock_test.c.s:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled_lock_test.dir/build.make interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled_lock_test.dir/vcfiled_lock_test.c.s
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled_lock_test.dir/build.make interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled_lock_test.dir/vcfiled_lock_test.c.s
 .PHONY : vcfiled_lock_test.c.s
 
 # Help Target
@@ -310,6 +313,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

@@ -65,8 +65,8 @@ interface/mmal/test/CMakeFiles/mmalplay.dir/__/__/__/host_applications/vmcs/test
  ../../inc/interface/vcos/vcos_timer.h
  ../../inc/interface/vcos/vcos_tls.h
  ../../inc/interface/vcos/vcos_types.h
- /home/pi/RCR/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalplay/mmalplay.c
- /home/pi/RCR/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalplay/mmalplay.h
+ /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalplay/mmalplay.c
+ /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalplay/mmalplay.h
 interface/mmal/test/CMakeFiles/mmalplay.dir/__/__/__/host_applications/vmcs/test_apps/mmalplay/playback.c.o
  ../../../interface/mmal/mmal.h
  ../../../interface/mmal/mmal_buffer.h
@@ -134,5 +134,5 @@ interface/mmal/test/CMakeFiles/mmalplay.dir/__/__/__/host_applications/vmcs/test
  ../../inc/interface/vcos/vcos_timer.h
  ../../inc/interface/vcos/vcos_tls.h
  ../../inc/interface/vcos/vcos_types.h
- /home/pi/RCR/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalplay/mmalplay.h
- /home/pi/RCR/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalplay/playback.c
+ /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalplay/mmalplay.h
+ /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalplay/playback.c

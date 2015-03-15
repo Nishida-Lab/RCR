@@ -34,11 +34,14 @@ RM = /usr/bin/cmake -E remove -f
 # Escaping for special characters.
 EQUALS = =
 
+# The program to use to edit the cache.
+CMAKE_EDIT_COMMAND = /usr/bin/cmake-gui
+
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/RCR/LIB/OpenCV/userland
+CMAKE_SOURCE_DIR = /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release
+CMAKE_BINARY_DIR = /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release
 
 # Include any dependencies generated for this target.
 include interface/mmal/test/CMakeFiles/mmal_example_connections.dir/depend.make
@@ -51,17 +54,17 @@ include interface/mmal/test/CMakeFiles/mmal_example_connections.dir/flags.make
 
 interface/mmal/test/CMakeFiles/mmal_example_connections.dir/examples/example_connections.c.o: interface/mmal/test/CMakeFiles/mmal_example_connections.dir/flags.make
 interface/mmal/test/CMakeFiles/mmal_example_connections.dir/examples/example_connections.c.o: ../../../interface/mmal/test/examples/example_connections.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object interface/mmal/test/CMakeFiles/mmal_example_connections.dir/examples/example_connections.c.o"
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/mmal_example_connections.dir/examples/example_connections.c.o   -c /home/pi/RCR/LIB/OpenCV/userland/interface/mmal/test/examples/example_connections.c
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/mmal_example_connections.dir/examples/example_connections.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/test/examples/example_connections.c
 
 interface/mmal/test/CMakeFiles/mmal_example_connections.dir/examples/example_connections.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/mmal_example_connections.dir/examples/example_connections.c.i"
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/LIB/OpenCV/userland/interface/mmal/test/examples/example_connections.c > CMakeFiles/mmal_example_connections.dir/examples/example_connections.c.i
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/test/examples/example_connections.c > CMakeFiles/mmal_example_connections.dir/examples/example_connections.c.i
 
 interface/mmal/test/CMakeFiles/mmal_example_connections.dir/examples/example_connections.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/mmal_example_connections.dir/examples/example_connections.c.s"
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/LIB/OpenCV/userland/interface/mmal/test/examples/example_connections.c -o CMakeFiles/mmal_example_connections.dir/examples/example_connections.c.s
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/test/examples/example_connections.c -o CMakeFiles/mmal_example_connections.dir/examples/example_connections.c.s
 
 interface/mmal/test/CMakeFiles/mmal_example_connections.dir/examples/example_connections.c.o.requires:
 .PHONY : interface/mmal/test/CMakeFiles/mmal_example_connections.dir/examples/example_connections.c.o.requires
@@ -90,7 +93,7 @@ mmal_example_connections_EXTERNAL_OBJECTS =
 ../../bin/mmal_example_connections: ../../lib/libvcos.so
 ../../bin/mmal_example_connections: interface/mmal/test/CMakeFiles/mmal_example_connections.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking C executable ../../../../../bin/mmal_example_connections"
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/mmal_example_connections.dir/link.txt --verbose=$(VERBOSE)
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/mmal_example_connections.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 interface/mmal/test/CMakeFiles/mmal_example_connections.dir/build: ../../bin/mmal_example_connections
@@ -100,10 +103,10 @@ interface/mmal/test/CMakeFiles/mmal_example_connections.dir/requires: interface/
 .PHONY : interface/mmal/test/CMakeFiles/mmal_example_connections.dir/requires
 
 interface/mmal/test/CMakeFiles/mmal_example_connections.dir/clean:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test && $(CMAKE_COMMAND) -P CMakeFiles/mmal_example_connections.dir/cmake_clean.cmake
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test && $(CMAKE_COMMAND) -P CMakeFiles/mmal_example_connections.dir/cmake_clean.cmake
 .PHONY : interface/mmal/test/CMakeFiles/mmal_example_connections.dir/clean
 
 interface/mmal/test/CMakeFiles/mmal_example_connections.dir/depend:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pi/RCR/LIB/OpenCV/userland /home/pi/RCR/LIB/OpenCV/userland/interface/mmal/test /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test/CMakeFiles/mmal_example_connections.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/test /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test/CMakeFiles/mmal_example_connections.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : interface/mmal/test/CMakeFiles/mmal_example_connections.dir/depend
 

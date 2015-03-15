@@ -1,5 +1,5 @@
 objs/RaspiCLI.o: \
- /home/pi/RCR/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiCLI.c \
+ /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiCLI.c \
  /usr/include/stdio.h /usr/include/features.h \
  /usr/include/arm-linux-gnueabihf/bits/predefs.h \
  /usr/include/arm-linux-gnueabihf/sys/cdefs.h \
@@ -25,17 +25,17 @@ objs/RaspiCLI.o: \
  /usr/include/arm-linux-gnueabihf/bits/pthreadtypes.h \
  /usr/include/alloca.h /usr/include/string.h /usr/include/xlocale.h \
  /usr/include/memory.h \
- /home/pi/RCR/LIB/OpenCV/userland/interface/vcos/vcos.h \
- /home/pi/RCR/LIB/OpenCV/userland/interface/vcos/vcos_assert.h \
- /home/pi/RCR/LIB/OpenCV/userland/interface/vcos/vcos_types.h \
- /home/pi/RCR/LIB/OpenCV/userland/interface/vcos/pthreads/vcos_platform_types.h \
- /home/pi/RCR/LIB/OpenCV/userland/interface/vcos/vcos_inttypes.h \
+ /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/vcos.h \
+ /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/vcos_assert.h \
+ /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/vcos_types.h \
+ /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/pthreads/vcos_platform_types.h \
+ /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/vcos_inttypes.h \
  /usr/include/inttypes.h \
  /usr/lib/gcc/arm-linux-gnueabihf/4.6/include/stdint.h \
  /usr/include/stdint.h /usr/include/arm-linux-gnueabihf/bits/wchar.h \
- /home/pi/RCR/LIB/OpenCV/userland/interface/vcos/vcos_attr.h \
- /home/pi/RCR/LIB/OpenCV/userland/interface/vcos/vcos_types.h \
- /home/pi/RCR/LIB/OpenCV/userland/interface/vcos/pthreads/vcos_platform.h \
+ /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/vcos_attr.h \
+ /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/vcos_types.h \
+ /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/pthreads/vcos_platform.h \
  /usr/include/pthread.h /usr/include/sched.h \
  /usr/include/arm-linux-gnueabihf/bits/sched.h \
  /usr/include/arm-linux-gnueabihf/bits/setjmp.h /usr/include/semaphore.h \
@@ -56,32 +56,32 @@ objs/RaspiCLI.o: \
  /usr/include/arm-linux-gnueabihf/sys/ucontext.h \
  /usr/include/arm-linux-gnueabihf/bits/sigthread.h /usr/include/dlfcn.h \
  /usr/include/arm-linux-gnueabihf/bits/dlfcn.h \
- /home/pi/RCR/LIB/OpenCV/userland/interface/vcos/generic/vcos_generic_event_flags.h \
- /home/pi/RCR/LIB/OpenCV/userland/interface/vcos/generic/vcos_generic_blockpool.h \
- /home/pi/RCR/LIB/OpenCV/userland/interface/vcos/generic/vcos_mem_from_malloc.h \
- /home/pi/RCR/LIB/OpenCV/userland/interface/vcos/generic/vcos_generic_reentrant_mtx.h \
- /home/pi/RCR/LIB/OpenCV/userland/interface/vcos/generic/vcos_generic_named_sem.h \
- /home/pi/RCR/LIB/OpenCV/userland/interface/vcos/generic/vcos_generic_quickslow_mutex.h \
- /home/pi/RCR/LIB/OpenCV/userland/interface/vcos/generic/vcos_common.h \
- /home/pi/RCR/LIB/OpenCV/userland/interface/vcos/vcos_init.h \
- /home/pi/RCR/LIB/OpenCV/userland/interface/vcos/vcos_semaphore.h \
- /home/pi/RCR/LIB/OpenCV/userland/interface/vcos/vcos_thread.h \
- /home/pi/RCR/LIB/OpenCV/userland/interface/vcos/vcos_mutex.h \
- /home/pi/RCR/LIB/OpenCV/userland/interface/vcos/vcos_mem.h \
- /home/pi/RCR/LIB/OpenCV/userland/interface/vcos/vcos_logging.h \
- /home/pi/RCR/LIB/OpenCV/userland/interface/vcos/vcos_logging_control.h \
- /home/pi/RCR/LIB/OpenCV/userland/interface/vcos/vcos_cmd.h \
- /home/pi/RCR/LIB/OpenCV/userland/interface/vcos/vcos_stdint.h \
- /home/pi/RCR/LIB/OpenCV/userland/interface/vcos/vcos_string.h \
- /home/pi/RCR/LIB/OpenCV/userland/interface/vcos/vcos_event.h \
- /home/pi/RCR/LIB/OpenCV/userland/interface/vcos/vcos_thread_attr.h \
- /home/pi/RCR/LIB/OpenCV/userland/interface/vcos/vcos_tls.h \
- /home/pi/RCR/LIB/OpenCV/userland/interface/vcos/vcos_reentrant_mutex.h \
- /home/pi/RCR/LIB/OpenCV/userland/interface/vcos/vcos_named_semaphore.h \
- /home/pi/RCR/LIB/OpenCV/userland/interface/vcos/vcos_quickslow_mutex.h \
- /home/pi/RCR/LIB/OpenCV/userland/interface/vcos/vcos_event_flags.h \
- /home/pi/RCR/LIB/OpenCV/userland/interface/vcos/vcos_timer.h \
- /home/pi/RCR/LIB/OpenCV/userland/interface/vcos/vcos_atomic_flags.h \
- /home/pi/RCR/LIB/OpenCV/userland/interface/vcos/vcos_once.h \
- /home/pi/RCR/LIB/OpenCV/userland/interface/vcos/vcos_blockpool.h \
- /home/pi/RCR/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiCLI.h
+ /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/generic/vcos_generic_event_flags.h \
+ /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/generic/vcos_generic_blockpool.h \
+ /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/generic/vcos_mem_from_malloc.h \
+ /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/generic/vcos_generic_reentrant_mtx.h \
+ /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/generic/vcos_generic_named_sem.h \
+ /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/generic/vcos_generic_quickslow_mutex.h \
+ /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/generic/vcos_common.h \
+ /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/vcos_init.h \
+ /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/vcos_semaphore.h \
+ /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/vcos_thread.h \
+ /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/vcos_mutex.h \
+ /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/vcos_mem.h \
+ /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/vcos_logging.h \
+ /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/vcos_logging_control.h \
+ /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/vcos_cmd.h \
+ /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/vcos_stdint.h \
+ /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/vcos_string.h \
+ /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/vcos_event.h \
+ /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/vcos_thread_attr.h \
+ /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/vcos_tls.h \
+ /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/vcos_reentrant_mutex.h \
+ /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/vcos_named_semaphore.h \
+ /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/vcos_quickslow_mutex.h \
+ /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/vcos_event_flags.h \
+ /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/vcos_timer.h \
+ /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/vcos_atomic_flags.h \
+ /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/vcos_once.h \
+ /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/vcos_blockpool.h \
+ /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiCLI.h

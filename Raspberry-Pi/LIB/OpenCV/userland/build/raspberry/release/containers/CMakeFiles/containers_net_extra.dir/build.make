@@ -34,11 +34,14 @@ RM = /usr/bin/cmake -E remove -f
 # Escaping for special characters.
 EQUALS = =
 
+# The program to use to edit the cache.
+CMAKE_EDIT_COMMAND = /usr/bin/cmake-gui
+
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/RCR/LIB/OpenCV/userland
+CMAKE_SOURCE_DIR = /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release
+CMAKE_BINARY_DIR = /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release
 
 # Utility rule file for containers_net_extra.
 
@@ -46,7 +49,7 @@ CMAKE_BINARY_DIR = /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release
 include containers/CMakeFiles/containers_net_extra.dir/progress.make
 
 containers/CMakeFiles/containers_net_extra:
-	cd /home/pi/RCR/LIB/OpenCV/userland/containers/net && touch net_sockets_win32.c net_sockets_win32.h net_sockets_null.c
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/net && touch net_sockets_win32.c net_sockets_win32.h net_sockets_null.c
 
 containers_net_extra: containers/CMakeFiles/containers_net_extra
 containers_net_extra: containers/CMakeFiles/containers_net_extra.dir/build.make
@@ -57,10 +60,10 @@ containers/CMakeFiles/containers_net_extra.dir/build: containers_net_extra
 .PHONY : containers/CMakeFiles/containers_net_extra.dir/build
 
 containers/CMakeFiles/containers_net_extra.dir/clean:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/containers && $(CMAKE_COMMAND) -P CMakeFiles/containers_net_extra.dir/cmake_clean.cmake
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && $(CMAKE_COMMAND) -P CMakeFiles/containers_net_extra.dir/cmake_clean.cmake
 .PHONY : containers/CMakeFiles/containers_net_extra.dir/clean
 
 containers/CMakeFiles/containers_net_extra.dir/depend:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pi/RCR/LIB/OpenCV/userland /home/pi/RCR/LIB/OpenCV/userland/containers /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/containers /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/containers/CMakeFiles/containers_net_extra.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers/CMakeFiles/containers_net_extra.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : containers/CMakeFiles/containers_net_extra.dir/depend
 

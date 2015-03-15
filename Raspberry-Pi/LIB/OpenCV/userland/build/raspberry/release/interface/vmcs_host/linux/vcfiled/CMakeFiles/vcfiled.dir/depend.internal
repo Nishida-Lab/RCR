@@ -59,5 +59,5 @@ interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled.dir/vcfiled.c.o
  ../../inc/interface/vcos/vcos_timer.h
  ../../inc/interface/vcos/vcos_tls.h
  ../../inc/interface/vcos/vcos_types.h
- /home/pi/RCR/LIB/OpenCV/userland/interface/vmcs_host/linux/vcfiled/vcfiled.c
- /home/pi/RCR/LIB/OpenCV/userland/interface/vmcs_host/linux/vcfiled/vcfiled_check.h
+ /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vmcs_host/linux/vcfiled/vcfiled.c
+ /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vmcs_host/linux/vcfiled/vcfiled_check.h
