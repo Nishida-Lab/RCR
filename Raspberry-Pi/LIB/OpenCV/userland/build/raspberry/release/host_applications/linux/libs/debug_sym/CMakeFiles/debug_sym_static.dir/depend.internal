@@ -46,5 +46,5 @@ host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym_static.dir/debug_sym
  ../../inc/interface/vcos/vcos_timer.h
  ../../inc/interface/vcos/vcos_tls.h
  ../../inc/interface/vcos/vcos_types.h
- /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/libs/debug_sym/debug_sym.c
- /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/libs/debug_sym/debug_sym.h
+ /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/libs/debug_sym/debug_sym.c
+ /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/libs/debug_sym/debug_sym.h

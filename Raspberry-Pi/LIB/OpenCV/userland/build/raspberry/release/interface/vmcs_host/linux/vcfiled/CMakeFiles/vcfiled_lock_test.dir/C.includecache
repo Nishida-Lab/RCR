@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vmcs_host/linux/vcfiled/vcfiled_check.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/vmcs_host/linux/vcfiled/vcfiled_check.h
 
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vmcs_host/linux/vcfiled/vcfiled_lock_test.c
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/vmcs_host/linux/vcfiled/vcfiled_lock_test.c
 vcfiled_check.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vmcs_host/linux/vcfiled/vcfiled_check.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/vmcs_host/linux/vcfiled/vcfiled_check.h
 stdio.h
 -
 unistd.h

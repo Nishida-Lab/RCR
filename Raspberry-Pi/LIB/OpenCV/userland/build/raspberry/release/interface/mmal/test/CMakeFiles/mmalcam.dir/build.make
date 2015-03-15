@@ -38,10 +38,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/cmake-gui
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland
+CMAKE_SOURCE_DIR = /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release
+CMAKE_BINARY_DIR = /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release
 
 # Include any dependencies generated for this target.
 include interface/mmal/test/CMakeFiles/mmalcam.dir/depend.make
@@ -54,17 +54,17 @@ include interface/mmal/test/CMakeFiles/mmalcam.dir/flags.make
 
 interface/mmal/test/CMakeFiles/mmalcam.dir/__/__/__/host_applications/vmcs/test_apps/mmalcam/viewfinder.c.o: interface/mmal/test/CMakeFiles/mmalcam.dir/flags.make
 interface/mmal/test/CMakeFiles/mmalcam.dir/__/__/__/host_applications/vmcs/test_apps/mmalcam/viewfinder.c.o: ../../../host_applications/vmcs/test_apps/mmalcam/viewfinder.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object interface/mmal/test/CMakeFiles/mmalcam.dir/__/__/__/host_applications/vmcs/test_apps/mmalcam/viewfinder.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/mmalcam.dir/__/__/__/host_applications/vmcs/test_apps/mmalcam/viewfinder.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalcam/viewfinder.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/mmalcam.dir/__/__/__/host_applications/vmcs/test_apps/mmalcam/viewfinder.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalcam/viewfinder.c
 
 interface/mmal/test/CMakeFiles/mmalcam.dir/__/__/__/host_applications/vmcs/test_apps/mmalcam/viewfinder.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/mmalcam.dir/__/__/__/host_applications/vmcs/test_apps/mmalcam/viewfinder.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalcam/viewfinder.c > CMakeFiles/mmalcam.dir/__/__/__/host_applications/vmcs/test_apps/mmalcam/viewfinder.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalcam/viewfinder.c > CMakeFiles/mmalcam.dir/__/__/__/host_applications/vmcs/test_apps/mmalcam/viewfinder.c.i
 
 interface/mmal/test/CMakeFiles/mmalcam.dir/__/__/__/host_applications/vmcs/test_apps/mmalcam/viewfinder.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/mmalcam.dir/__/__/__/host_applications/vmcs/test_apps/mmalcam/viewfinder.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalcam/viewfinder.c -o CMakeFiles/mmalcam.dir/__/__/__/host_applications/vmcs/test_apps/mmalcam/viewfinder.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalcam/viewfinder.c -o CMakeFiles/mmalcam.dir/__/__/__/host_applications/vmcs/test_apps/mmalcam/viewfinder.c.s
 
 interface/mmal/test/CMakeFiles/mmalcam.dir/__/__/__/host_applications/vmcs/test_apps/mmalcam/viewfinder.c.o.requires:
 .PHONY : interface/mmal/test/CMakeFiles/mmalcam.dir/__/__/__/host_applications/vmcs/test_apps/mmalcam/viewfinder.c.o.requires
@@ -77,17 +77,17 @@ interface/mmal/test/CMakeFiles/mmalcam.dir/__/__/__/host_applications/vmcs/test_
 
 interface/mmal/test/CMakeFiles/mmalcam.dir/__/__/__/host_applications/vmcs/test_apps/mmalcam/mmalcam.c.o: interface/mmal/test/CMakeFiles/mmalcam.dir/flags.make
 interface/mmal/test/CMakeFiles/mmalcam.dir/__/__/__/host_applications/vmcs/test_apps/mmalcam/mmalcam.c.o: ../../../host_applications/vmcs/test_apps/mmalcam/mmalcam.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object interface/mmal/test/CMakeFiles/mmalcam.dir/__/__/__/host_applications/vmcs/test_apps/mmalcam/mmalcam.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/mmalcam.dir/__/__/__/host_applications/vmcs/test_apps/mmalcam/mmalcam.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalcam/mmalcam.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/mmalcam.dir/__/__/__/host_applications/vmcs/test_apps/mmalcam/mmalcam.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalcam/mmalcam.c
 
 interface/mmal/test/CMakeFiles/mmalcam.dir/__/__/__/host_applications/vmcs/test_apps/mmalcam/mmalcam.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/mmalcam.dir/__/__/__/host_applications/vmcs/test_apps/mmalcam/mmalcam.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalcam/mmalcam.c > CMakeFiles/mmalcam.dir/__/__/__/host_applications/vmcs/test_apps/mmalcam/mmalcam.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalcam/mmalcam.c > CMakeFiles/mmalcam.dir/__/__/__/host_applications/vmcs/test_apps/mmalcam/mmalcam.c.i
 
 interface/mmal/test/CMakeFiles/mmalcam.dir/__/__/__/host_applications/vmcs/test_apps/mmalcam/mmalcam.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/mmalcam.dir/__/__/__/host_applications/vmcs/test_apps/mmalcam/mmalcam.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalcam/mmalcam.c -o CMakeFiles/mmalcam.dir/__/__/__/host_applications/vmcs/test_apps/mmalcam/mmalcam.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalcam/mmalcam.c -o CMakeFiles/mmalcam.dir/__/__/__/host_applications/vmcs/test_apps/mmalcam/mmalcam.c.s
 
 interface/mmal/test/CMakeFiles/mmalcam.dir/__/__/__/host_applications/vmcs/test_apps/mmalcam/mmalcam.c.o.requires:
 .PHONY : interface/mmal/test/CMakeFiles/mmalcam.dir/__/__/__/host_applications/vmcs/test_apps/mmalcam/mmalcam.c.o.requires
@@ -119,7 +119,7 @@ mmalcam_EXTERNAL_OBJECTS =
 ../../bin/mmalcam: ../../lib/libvcos.so
 ../../bin/mmalcam: interface/mmal/test/CMakeFiles/mmalcam.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking C executable ../../../../../bin/mmalcam"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/mmalcam.dir/link.txt --verbose=$(VERBOSE)
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/mmalcam.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 interface/mmal/test/CMakeFiles/mmalcam.dir/build: ../../bin/mmalcam
@@ -130,10 +130,10 @@ interface/mmal/test/CMakeFiles/mmalcam.dir/requires: interface/mmal/test/CMakeFi
 .PHONY : interface/mmal/test/CMakeFiles/mmalcam.dir/requires
 
 interface/mmal/test/CMakeFiles/mmalcam.dir/clean:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test && $(CMAKE_COMMAND) -P CMakeFiles/mmalcam.dir/cmake_clean.cmake
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test && $(CMAKE_COMMAND) -P CMakeFiles/mmalcam.dir/cmake_clean.cmake
 .PHONY : interface/mmal/test/CMakeFiles/mmalcam.dir/clean
 
 interface/mmal/test/CMakeFiles/mmalcam.dir/depend:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/test /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test/CMakeFiles/mmalcam.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/test /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test/CMakeFiles/mmalcam.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : interface/mmal/test/CMakeFiles/mmalcam.dir/depend
 

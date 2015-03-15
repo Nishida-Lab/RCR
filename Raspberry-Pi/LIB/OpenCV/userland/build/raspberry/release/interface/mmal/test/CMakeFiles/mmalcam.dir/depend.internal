@@ -64,8 +64,8 @@ interface/mmal/test/CMakeFiles/mmalcam.dir/__/__/__/host_applications/vmcs/test_
  ../../inc/interface/vcos/vcos_timer.h
  ../../inc/interface/vcos/vcos_tls.h
  ../../inc/interface/vcos/vcos_types.h
- /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalcam/mmalcam.c
- /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalcam/mmalcam.h
+ /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalcam/mmalcam.c
+ /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalcam/mmalcam.h
 interface/mmal/test/CMakeFiles/mmalcam.dir/__/__/__/host_applications/vmcs/test_apps/mmalcam/viewfinder.c.o
  ../../../containers/containers.h
  ../../../containers/containers_codecs.h
@@ -136,5 +136,5 @@ interface/mmal/test/CMakeFiles/mmalcam.dir/__/__/__/host_applications/vmcs/test_
  ../../inc/interface/vcos/vcos_timer.h
  ../../inc/interface/vcos/vcos_tls.h
  ../../inc/interface/vcos/vcos_types.h
- /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalcam/mmalcam.h
- /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalcam/viewfinder.c
+ /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalcam/mmalcam.h
+ /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalcam/viewfinder.c

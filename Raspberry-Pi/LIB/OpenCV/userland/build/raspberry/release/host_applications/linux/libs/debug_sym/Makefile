@@ -42,10 +42,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/cmake-gui
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland
+CMAKE_SOURCE_DIR = /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release
+CMAKE_BINARY_DIR = /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -104,7 +104,7 @@ list_install_components/fast: list_install_components
 # Special rule for the target package
 package: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool..."
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && /usr/bin/cpack --config ./CPackConfig.cmake
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && /usr/bin/cpack --config ./CPackConfig.cmake
 .PHONY : package
 
 # Special rule for the target package
@@ -114,7 +114,7 @@ package/fast: package
 # Special rule for the target package_source
 package_source:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CPackSourceConfig.cmake
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CPackSourceConfig.cmake
 .PHONY : package_source
 
 # Special rule for the target package_source
@@ -133,14 +133,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -E cmake_progress_start /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/libs/debug_sym/CMakeFiles/progress.marks
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/linux/libs/debug_sym/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles 0
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -E cmake_progress_start /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/libs/debug_sym/CMakeFiles/progress.marks
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/linux/libs/debug_sym/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/linux/libs/debug_sym/clean
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/linux/libs/debug_sym/clean
 .PHONY : clean
 
 # The main clean target
@@ -149,22 +149,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/linux/libs/debug_sym/preinstall
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/linux/libs/debug_sym/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/linux/libs/debug_sym/preinstall
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/linux/libs/debug_sym/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym.dir/rule:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym.dir/rule
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym.dir/rule
 .PHONY : host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym.dir/rule
 
 # Convenience name for target.
@@ -173,12 +173,12 @@ debug_sym: host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym.dir/rule
 
 # fast build rule for target.
 debug_sym/fast:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym.dir/build.make host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym.dir/build
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym.dir/build.make host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym.dir/build
 .PHONY : debug_sym/fast
 
 # Convenience name for target.
 host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym_static.dir/rule:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym_static.dir/rule
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym_static.dir/rule
 .PHONY : host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym_static.dir/rule
 
 # Convenience name for target.
@@ -187,7 +187,7 @@ debug_sym_static: host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym_st
 
 # fast build rule for target.
 debug_sym_static/fast:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym_static.dir/build.make host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym_static.dir/build
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym_static.dir/build.make host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym_static.dir/build
 .PHONY : debug_sym_static/fast
 
 debug_sym.o: debug_sym.c.o
@@ -195,8 +195,8 @@ debug_sym.o: debug_sym.c.o
 
 # target to build an object file
 debug_sym.c.o:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym.dir/build.make host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym.dir/debug_sym.c.o
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym_static.dir/build.make host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym_static.dir/debug_sym.c.o
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym.dir/build.make host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym.dir/debug_sym.c.o
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym_static.dir/build.make host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym_static.dir/debug_sym.c.o
 .PHONY : debug_sym.c.o
 
 debug_sym.i: debug_sym.c.i
@@ -204,8 +204,8 @@ debug_sym.i: debug_sym.c.i
 
 # target to preprocess a source file
 debug_sym.c.i:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym.dir/build.make host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym.dir/debug_sym.c.i
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym_static.dir/build.make host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym_static.dir/debug_sym.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym.dir/build.make host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym.dir/debug_sym.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym_static.dir/build.make host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym_static.dir/debug_sym.c.i
 .PHONY : debug_sym.c.i
 
 debug_sym.s: debug_sym.c.s
@@ -213,8 +213,8 @@ debug_sym.s: debug_sym.c.s
 
 # target to generate assembly for a file
 debug_sym.c.s:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym.dir/build.make host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym.dir/debug_sym.c.s
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym_static.dir/build.make host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym_static.dir/debug_sym.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym.dir/build.make host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym.dir/debug_sym.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym_static.dir/build.make host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym_static.dir/debug_sym.c.s
 .PHONY : debug_sym.c.s
 
 # Help Target
@@ -247,6 +247,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

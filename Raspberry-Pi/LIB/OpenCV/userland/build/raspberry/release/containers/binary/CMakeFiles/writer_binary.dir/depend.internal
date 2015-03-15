@@ -59,4 +59,4 @@ containers/binary/CMakeFiles/writer_binary.dir/binary_writer.c.o
  ../../inc/interface/vcos/vcos_timer.h
  ../../inc/interface/vcos/vcos_tls.h
  ../../inc/interface/vcos/vcos_types.h
- /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/binary/binary_writer.c
+ /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/binary/binary_writer.c

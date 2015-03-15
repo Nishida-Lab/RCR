@@ -59,4 +59,4 @@ containers/qsynth/CMakeFiles/reader_qsynth.dir/qsynth_reader.c.o
  ../../inc/interface/vcos/vcos_timer.h
  ../../inc/interface/vcos/vcos_tls.h
  ../../inc/interface/vcos/vcos_types.h
- /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/qsynth/qsynth_reader.c
+ /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/qsynth/qsynth_reader.c

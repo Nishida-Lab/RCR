@@ -140,4 +140,4 @@ interface/khronos/CMakeFiles/GLESv2_static.dir/glxx/glxx_client.c.o
  ../../inc/interface/vcos/vcos_timer.h
  ../../inc/interface/vcos/vcos_tls.h
  ../../inc/interface/vcos/vcos_types.h
- /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos/glxx/glxx_client.c
+ /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos/glxx/glxx_client.c

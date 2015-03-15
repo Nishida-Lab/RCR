@@ -1,4 +1,4 @@
-# Install script for directory: /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/pthreads
+# Install script for directory: /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/pthreads
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,7 +39,7 @@ IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libvcos.so"
          RPATH "")
   ENDIF()
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/lib/libvcos.so")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/lib/libvcos.so")
   IF(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libvcos.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libvcos.so")
     IF(CMAKE_INSTALL_DO_STRIP)
@@ -50,7 +50,7 @@ ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unsp
 
 IF(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  INCLUDE("/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/vcos/pthreads/generic/cmake_install.cmake")
+  INCLUDE("/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/vcos/pthreads/generic/cmake_install.cmake")
 
 ENDIF(NOT CMAKE_INSTALL_LOCAL_ONLY)
 

@@ -68,7 +68,7 @@ interface/mmal/core/CMakeFiles/mmal_core.dir/mmal_buffer.c.o
  ../../inc/interface/vcos/vcos_timer.h
  ../../inc/interface/vcos/vcos_tls.h
  ../../inc/interface/vcos/vcos_types.h
- /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/core/mmal_buffer.c
+ /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/core/mmal_buffer.c
 interface/mmal/core/CMakeFiles/mmal_core.dir/mmal_clock.c.o
  ../../../host_support/include/vc_debug_sym.h
  ../../../interface/mmal/core/mmal_clock_private.h
@@ -140,7 +140,7 @@ interface/mmal/core/CMakeFiles/mmal_core.dir/mmal_clock.c.o
  ../../inc/interface/vcos/vcos_timer.h
  ../../inc/interface/vcos/vcos_tls.h
  ../../inc/interface/vcos/vcos_types.h
- /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/core/mmal_clock.c
+ /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/core/mmal_clock.c
 interface/mmal/core/CMakeFiles/mmal_core.dir/mmal_component.c.o
  ../../../interface/mmal/core/mmal_component_private.h
  ../../../interface/mmal/core/mmal_core_private.h
@@ -208,7 +208,7 @@ interface/mmal/core/CMakeFiles/mmal_core.dir/mmal_component.c.o
  ../../inc/interface/vcos/vcos_timer.h
  ../../inc/interface/vcos/vcos_tls.h
  ../../inc/interface/vcos/vcos_types.h
- /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/core/mmal_component.c
+ /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/core/mmal_component.c
 interface/mmal/core/CMakeFiles/mmal_core.dir/mmal_events.c.o
  ../../../interface/mmal/core/mmal_events_private.h
  ../../../interface/mmal/mmal.h
@@ -273,8 +273,8 @@ interface/mmal/core/CMakeFiles/mmal_core.dir/mmal_events.c.o
  ../../inc/interface/vcos/vcos_timer.h
  ../../inc/interface/vcos/vcos_tls.h
  ../../inc/interface/vcos/vcos_types.h
- /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/core/mmal_events.c
- /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/core/mmal_port_private.h
+ /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/core/mmal_events.c
+ /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/core/mmal_port_private.h
 interface/mmal/core/CMakeFiles/mmal_core.dir/mmal_format.c.o
  ../../../interface/mmal/mmal_common.h
  ../../../interface/mmal/mmal_encodings.h
@@ -323,7 +323,7 @@ interface/mmal/core/CMakeFiles/mmal_core.dir/mmal_format.c.o
  ../../inc/interface/vcos/vcos_timer.h
  ../../inc/interface/vcos/vcos_tls.h
  ../../inc/interface/vcos/vcos_types.h
- /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/core/mmal_format.c
+ /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/core/mmal_format.c
 interface/mmal/core/CMakeFiles/mmal_core.dir/mmal_logging.c.o
  ../../../interface/mmal/core/mmal_core_private.h
  ../../../interface/mmal/mmal_common.h
@@ -370,7 +370,7 @@ interface/mmal/core/CMakeFiles/mmal_core.dir/mmal_logging.c.o
  ../../inc/interface/vcos/vcos_timer.h
  ../../inc/interface/vcos/vcos_tls.h
  ../../inc/interface/vcos/vcos_types.h
- /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/core/mmal_logging.c
+ /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/core/mmal_logging.c
 interface/mmal/core/CMakeFiles/mmal_core.dir/mmal_pool.c.o
  ../../../interface/mmal/core/mmal_buffer_private.h
  ../../../interface/mmal/mmal.h
@@ -435,7 +435,7 @@ interface/mmal/core/CMakeFiles/mmal_core.dir/mmal_pool.c.o
  ../../inc/interface/vcos/vcos_timer.h
  ../../inc/interface/vcos/vcos_tls.h
  ../../inc/interface/vcos/vcos_types.h
- /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/core/mmal_pool.c
+ /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/core/mmal_pool.c
 interface/mmal/core/CMakeFiles/mmal_core.dir/mmal_port.c.o
  ../../../interface/mmal/core/mmal_component_private.h
  ../../../interface/mmal/core/mmal_events_private.h
@@ -506,7 +506,7 @@ interface/mmal/core/CMakeFiles/mmal_core.dir/mmal_port.c.o
  ../../inc/interface/vcos/vcos_timer.h
  ../../inc/interface/vcos/vcos_tls.h
  ../../inc/interface/vcos/vcos_types.h
- /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/core/mmal_port.c
+ /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/core/mmal_port.c
 interface/mmal/core/CMakeFiles/mmal_core.dir/mmal_port_clock.c.o
  ../../../interface/mmal/core/mmal_clock_private.h
  ../../../interface/mmal/core/mmal_events_private.h
@@ -577,7 +577,7 @@ interface/mmal/core/CMakeFiles/mmal_core.dir/mmal_port_clock.c.o
  ../../inc/interface/vcos/vcos_timer.h
  ../../inc/interface/vcos/vcos_tls.h
  ../../inc/interface/vcos/vcos_types.h
- /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/core/mmal_port_clock.c
+ /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/core/mmal_port_clock.c
 interface/mmal/core/CMakeFiles/mmal_core.dir/mmal_queue.c.o
  ../../../interface/mmal/mmal.h
  ../../../interface/mmal/mmal_buffer.h
@@ -640,4 +640,4 @@ interface/mmal/core/CMakeFiles/mmal_core.dir/mmal_queue.c.o
  ../../inc/interface/vcos/vcos_timer.h
  ../../inc/interface/vcos/vcos_tls.h
  ../../inc/interface/vcos/vcos_types.h
- /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/core/mmal_queue.c
+ /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/core/mmal_queue.c

@@ -4,7 +4,7 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_C
-  "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/wav/wav_reader.c" "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers/wav/CMakeFiles/reader_wav.dir/wav_reader.c.o"
+  "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/wav/wav_reader.c" "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers/wav/CMakeFiles/reader_wav.dir/wav_reader.c.o"
   )
 SET(CMAKE_C_COMPILER_ID "GNU")
 
@@ -32,8 +32,8 @@ SET(CMAKE_TARGET_DEFINITIONS
 
 # Targets to which this target links.
 SET(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers/CMakeFiles/containers.dir/DependInfo.cmake"
-  "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/vcos/pthreads/CMakeFiles/vcos.dir/DependInfo.cmake"
+  "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers/CMakeFiles/containers.dir/DependInfo.cmake"
+  "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/vcos/pthreads/CMakeFiles/vcos.dir/DependInfo.cmake"
   )
 
 # The include file search paths:

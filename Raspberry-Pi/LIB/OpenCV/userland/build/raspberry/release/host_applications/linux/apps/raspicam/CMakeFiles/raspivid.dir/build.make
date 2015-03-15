@@ -38,10 +38,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/cmake-gui
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland
+CMAKE_SOURCE_DIR = /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release
+CMAKE_BINARY_DIR = /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release
 
 # Include any dependencies generated for this target.
 include host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/depend.make
@@ -54,17 +54,17 @@ include host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/flags.make
 
 host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiCamControl.c.o: host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/flags.make
 host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiCamControl.c.o: ../../../host_applications/linux/apps/raspicam/RaspiCamControl.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiCamControl.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/apps/raspicam && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/raspivid.dir/RaspiCamControl.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiCamControl.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/apps/raspicam && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/raspivid.dir/RaspiCamControl.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiCamControl.c
 
 host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiCamControl.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/raspivid.dir/RaspiCamControl.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/apps/raspicam && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiCamControl.c > CMakeFiles/raspivid.dir/RaspiCamControl.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/apps/raspicam && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiCamControl.c > CMakeFiles/raspivid.dir/RaspiCamControl.c.i
 
 host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiCamControl.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/raspivid.dir/RaspiCamControl.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/apps/raspicam && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiCamControl.c -o CMakeFiles/raspivid.dir/RaspiCamControl.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/apps/raspicam && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiCamControl.c -o CMakeFiles/raspivid.dir/RaspiCamControl.c.s
 
 host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiCamControl.c.o.requires:
 .PHONY : host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiCamControl.c.o.requires
@@ -77,17 +77,17 @@ host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiCamControl.c.
 
 host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiCLI.c.o: host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/flags.make
 host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiCLI.c.o: ../../../host_applications/linux/apps/raspicam/RaspiCLI.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiCLI.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/apps/raspicam && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/raspivid.dir/RaspiCLI.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiCLI.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/apps/raspicam && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/raspivid.dir/RaspiCLI.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiCLI.c
 
 host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiCLI.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/raspivid.dir/RaspiCLI.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/apps/raspicam && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiCLI.c > CMakeFiles/raspivid.dir/RaspiCLI.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/apps/raspicam && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiCLI.c > CMakeFiles/raspivid.dir/RaspiCLI.c.i
 
 host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiCLI.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/raspivid.dir/RaspiCLI.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/apps/raspicam && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiCLI.c -o CMakeFiles/raspivid.dir/RaspiCLI.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/apps/raspicam && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiCLI.c -o CMakeFiles/raspivid.dir/RaspiCLI.c.s
 
 host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiCLI.c.o.requires:
 .PHONY : host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiCLI.c.o.requires
@@ -100,17 +100,17 @@ host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiCLI.c.o.provi
 
 host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiPreview.c.o: host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/flags.make
 host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiPreview.c.o: ../../../host_applications/linux/apps/raspicam/RaspiPreview.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiPreview.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/apps/raspicam && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/raspivid.dir/RaspiPreview.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiPreview.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/apps/raspicam && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/raspivid.dir/RaspiPreview.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiPreview.c
 
 host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiPreview.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/raspivid.dir/RaspiPreview.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/apps/raspicam && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiPreview.c > CMakeFiles/raspivid.dir/RaspiPreview.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/apps/raspicam && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiPreview.c > CMakeFiles/raspivid.dir/RaspiPreview.c.i
 
 host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiPreview.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/raspivid.dir/RaspiPreview.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/apps/raspicam && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiPreview.c -o CMakeFiles/raspivid.dir/RaspiPreview.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/apps/raspicam && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiPreview.c -o CMakeFiles/raspivid.dir/RaspiPreview.c.s
 
 host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiPreview.c.o.requires:
 .PHONY : host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiPreview.c.o.requires
@@ -123,17 +123,17 @@ host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiPreview.c.o.p
 
 host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiVid.c.o: host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/flags.make
 host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiVid.c.o: ../../../host_applications/linux/apps/raspicam/RaspiVid.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_4)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiVid.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/apps/raspicam && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/raspivid.dir/RaspiVid.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiVid.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/apps/raspicam && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/raspivid.dir/RaspiVid.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiVid.c
 
 host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiVid.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/raspivid.dir/RaspiVid.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/apps/raspicam && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiVid.c > CMakeFiles/raspivid.dir/RaspiVid.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/apps/raspicam && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiVid.c > CMakeFiles/raspivid.dir/RaspiVid.c.i
 
 host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiVid.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/raspivid.dir/RaspiVid.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/apps/raspicam && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiVid.c -o CMakeFiles/raspivid.dir/RaspiVid.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/apps/raspicam && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiVid.c -o CMakeFiles/raspivid.dir/RaspiVid.c.s
 
 host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiVid.c.o.requires:
 .PHONY : host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiVid.c.o.requires
@@ -170,7 +170,7 @@ raspivid_EXTERNAL_OBJECTS =
 ../../bin/raspivid: ../../lib/libvcfiled_check.a
 ../../bin/raspivid: host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking C executable ../../../../../../bin/raspivid"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/apps/raspicam && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/raspivid.dir/link.txt --verbose=$(VERBOSE)
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/apps/raspicam && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/raspivid.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/build: ../../bin/raspivid
@@ -183,10 +183,10 @@ host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/requires: host_app
 .PHONY : host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/requires
 
 host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/clean:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/apps/raspicam && $(CMAKE_COMMAND) -P CMakeFiles/raspivid.dir/cmake_clean.cmake
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/apps/raspicam && $(CMAKE_COMMAND) -P CMakeFiles/raspivid.dir/cmake_clean.cmake
 .PHONY : host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/clean
 
 host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/depend:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/apps/raspicam /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/apps/raspicam /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/depend
 

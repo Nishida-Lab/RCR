@@ -38,10 +38,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/cmake-gui
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland
+CMAKE_SOURCE_DIR = /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release
+CMAKE_BINARY_DIR = /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release
 
 # Include any dependencies generated for this target.
 include host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/depend.make
@@ -54,17 +54,17 @@ include host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/flags.make
 
 host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/main.cpp.o: host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/flags.make
 host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/main.cpp.o: ../../../host_applications/android/apps/vidtex/main.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/main.cpp.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/android/apps/vidtex && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/vidtex.dir/main.cpp.o -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/main.cpp
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/android/apps/vidtex && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/vidtex.dir/main.cpp.o -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/main.cpp
 
 host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/vidtex.dir/main.cpp.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/android/apps/vidtex && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/main.cpp > CMakeFiles/vidtex.dir/main.cpp.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/android/apps/vidtex && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/main.cpp > CMakeFiles/vidtex.dir/main.cpp.i
 
 host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/vidtex.dir/main.cpp.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/android/apps/vidtex && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/main.cpp -o CMakeFiles/vidtex.dir/main.cpp.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/android/apps/vidtex && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/main.cpp -o CMakeFiles/vidtex.dir/main.cpp.s
 
 host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/main.cpp.o.requires:
 .PHONY : host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/main.cpp.o.requires
@@ -77,17 +77,17 @@ host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/main.cpp.o.provides.
 
 host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/launcher_rpi.c.o: host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/flags.make
 host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/launcher_rpi.c.o: ../../../host_applications/android/apps/vidtex/launcher_rpi.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/launcher_rpi.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/android/apps/vidtex && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/vidtex.dir/launcher_rpi.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/launcher_rpi.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/android/apps/vidtex && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/vidtex.dir/launcher_rpi.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/launcher_rpi.c
 
 host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/launcher_rpi.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/vidtex.dir/launcher_rpi.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/android/apps/vidtex && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/launcher_rpi.c > CMakeFiles/vidtex.dir/launcher_rpi.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/android/apps/vidtex && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/launcher_rpi.c > CMakeFiles/vidtex.dir/launcher_rpi.c.i
 
 host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/launcher_rpi.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/vidtex.dir/launcher_rpi.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/android/apps/vidtex && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/launcher_rpi.c -o CMakeFiles/vidtex.dir/launcher_rpi.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/android/apps/vidtex && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/launcher_rpi.c -o CMakeFiles/vidtex.dir/launcher_rpi.c.s
 
 host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/launcher_rpi.c.o.requires:
 .PHONY : host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/launcher_rpi.c.o.requires
@@ -100,17 +100,17 @@ host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/launcher_rpi.c.o.pro
 
 host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/svp.c.o: host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/flags.make
 host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/svp.c.o: ../../../host_applications/android/apps/vidtex/svp.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/svp.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/android/apps/vidtex && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/vidtex.dir/svp.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/svp.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/android/apps/vidtex && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/vidtex.dir/svp.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/svp.c
 
 host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/svp.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/vidtex.dir/svp.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/android/apps/vidtex && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/svp.c > CMakeFiles/vidtex.dir/svp.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/android/apps/vidtex && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/svp.c > CMakeFiles/vidtex.dir/svp.c.i
 
 host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/svp.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/vidtex.dir/svp.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/android/apps/vidtex && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/svp.c -o CMakeFiles/vidtex.dir/svp.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/android/apps/vidtex && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/svp.c -o CMakeFiles/vidtex.dir/svp.c.s
 
 host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/svp.c.o.requires:
 .PHONY : host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/svp.c.o.requires
@@ -123,17 +123,17 @@ host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/svp.c.o.provides.bui
 
 host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/vidtex.c.o: host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/flags.make
 host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/vidtex.c.o: ../../../host_applications/android/apps/vidtex/vidtex.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_4)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/vidtex.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/android/apps/vidtex && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/vidtex.dir/vidtex.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/vidtex.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/android/apps/vidtex && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/vidtex.dir/vidtex.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/vidtex.c
 
 host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/vidtex.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/vidtex.dir/vidtex.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/android/apps/vidtex && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/vidtex.c > CMakeFiles/vidtex.dir/vidtex.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/android/apps/vidtex && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/vidtex.c > CMakeFiles/vidtex.dir/vidtex.c.i
 
 host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/vidtex.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/vidtex.dir/vidtex.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/android/apps/vidtex && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/vidtex.c -o CMakeFiles/vidtex.dir/vidtex.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/android/apps/vidtex && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/vidtex.c -o CMakeFiles/vidtex.dir/vidtex.c.s
 
 host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/vidtex.c.o.requires:
 .PHONY : host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/vidtex.c.o.requires
@@ -176,7 +176,7 @@ vidtex_EXTERNAL_OBJECTS =
 ../../bin/vidtex: ../../lib/libvchiq_arm.so
 ../../bin/vidtex: host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable ../../../../../../bin/vidtex"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/android/apps/vidtex && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/vidtex.dir/link.txt --verbose=$(VERBOSE)
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/android/apps/vidtex && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/vidtex.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/build: ../../bin/vidtex
@@ -189,10 +189,10 @@ host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/requires: host_appli
 .PHONY : host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/requires
 
 host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/clean:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/android/apps/vidtex && $(CMAKE_COMMAND) -P CMakeFiles/vidtex.dir/cmake_clean.cmake
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/android/apps/vidtex && $(CMAKE_COMMAND) -P CMakeFiles/vidtex.dir/cmake_clean.cmake
 .PHONY : host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/clean
 
 host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/depend:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/android/apps/vidtex /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/android/apps/vidtex /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : host_applications/android/apps/vidtex/CMakeFiles/vidtex.dir/depend
 

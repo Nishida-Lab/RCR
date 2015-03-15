@@ -1,4 +1,4 @@
-# Install script for directory: /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex
+# Install script for directory: /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)

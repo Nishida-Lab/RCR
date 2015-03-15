@@ -42,10 +42,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/cmake-gui
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland
+CMAKE_SOURCE_DIR = /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release
+CMAKE_BINARY_DIR = /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -104,7 +104,7 @@ list_install_components/fast: list_install_components
 # Special rule for the target package
 package: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool..."
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && /usr/bin/cpack --config ./CPackConfig.cmake
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && /usr/bin/cpack --config ./CPackConfig.cmake
 .PHONY : package
 
 # Special rule for the target package
@@ -114,7 +114,7 @@ package/fast: package
 # Special rule for the target package_source
 package_source:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CPackSourceConfig.cmake
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CPackSourceConfig.cmake
 .PHONY : package_source
 
 # Special rule for the target package_source
@@ -133,14 +133,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -E cmake_progress_start /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/libs/bcm_host/CMakeFiles/progress.marks
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/linux/libs/bcm_host/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles 0
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -E cmake_progress_start /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/libs/bcm_host/CMakeFiles/progress.marks
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/linux/libs/bcm_host/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/linux/libs/bcm_host/clean
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/linux/libs/bcm_host/clean
 .PHONY : clean
 
 # The main clean target
@@ -149,22 +149,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/linux/libs/bcm_host/preinstall
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/linux/libs/bcm_host/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/linux/libs/bcm_host/preinstall
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/linux/libs/bcm_host/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/rule:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/rule
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/rule
 .PHONY : host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/rule
 
 # Convenience name for target.
@@ -173,7 +173,7 @@ bcm_host: host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/rule
 
 # fast build rule for target.
 bcm_host/fast:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/build.make host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/build
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/build.make host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/build
 .PHONY : bcm_host/fast
 
 __/__/__/__/interface/vmcs_host/linux/vcfiled/vcfiled_check.o: __/__/__/__/interface/vmcs_host/linux/vcfiled/vcfiled_check.c.o
@@ -181,7 +181,7 @@ __/__/__/__/interface/vmcs_host/linux/vcfiled/vcfiled_check.o: __/__/__/__/inter
 
 # target to build an object file
 __/__/__/__/interface/vmcs_host/linux/vcfiled/vcfiled_check.c.o:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/build.make host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/__/__/__/__/interface/vmcs_host/linux/vcfiled/vcfiled_check.c.o
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/build.make host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/__/__/__/__/interface/vmcs_host/linux/vcfiled/vcfiled_check.c.o
 .PHONY : __/__/__/__/interface/vmcs_host/linux/vcfiled/vcfiled_check.c.o
 
 __/__/__/__/interface/vmcs_host/linux/vcfiled/vcfiled_check.i: __/__/__/__/interface/vmcs_host/linux/vcfiled/vcfiled_check.c.i
@@ -189,7 +189,7 @@ __/__/__/__/interface/vmcs_host/linux/vcfiled/vcfiled_check.i: __/__/__/__/inter
 
 # target to preprocess a source file
 __/__/__/__/interface/vmcs_host/linux/vcfiled/vcfiled_check.c.i:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/build.make host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/__/__/__/__/interface/vmcs_host/linux/vcfiled/vcfiled_check.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/build.make host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/__/__/__/__/interface/vmcs_host/linux/vcfiled/vcfiled_check.c.i
 .PHONY : __/__/__/__/interface/vmcs_host/linux/vcfiled/vcfiled_check.c.i
 
 __/__/__/__/interface/vmcs_host/linux/vcfiled/vcfiled_check.s: __/__/__/__/interface/vmcs_host/linux/vcfiled/vcfiled_check.c.s
@@ -197,7 +197,7 @@ __/__/__/__/interface/vmcs_host/linux/vcfiled/vcfiled_check.s: __/__/__/__/inter
 
 # target to generate assembly for a file
 __/__/__/__/interface/vmcs_host/linux/vcfiled/vcfiled_check.c.s:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/build.make host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/__/__/__/__/interface/vmcs_host/linux/vcfiled/vcfiled_check.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/build.make host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/__/__/__/__/interface/vmcs_host/linux/vcfiled/vcfiled_check.c.s
 .PHONY : __/__/__/__/interface/vmcs_host/linux/vcfiled/vcfiled_check.c.s
 
 __/__/__/__/interface/vmcs_host/linux/vcfilesys.o: __/__/__/__/interface/vmcs_host/linux/vcfilesys.c.o
@@ -205,7 +205,7 @@ __/__/__/__/interface/vmcs_host/linux/vcfilesys.o: __/__/__/__/interface/vmcs_ho
 
 # target to build an object file
 __/__/__/__/interface/vmcs_host/linux/vcfilesys.c.o:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/build.make host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/__/__/__/__/interface/vmcs_host/linux/vcfilesys.c.o
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/build.make host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/__/__/__/__/interface/vmcs_host/linux/vcfilesys.c.o
 .PHONY : __/__/__/__/interface/vmcs_host/linux/vcfilesys.c.o
 
 __/__/__/__/interface/vmcs_host/linux/vcfilesys.i: __/__/__/__/interface/vmcs_host/linux/vcfilesys.c.i
@@ -213,7 +213,7 @@ __/__/__/__/interface/vmcs_host/linux/vcfilesys.i: __/__/__/__/interface/vmcs_ho
 
 # target to preprocess a source file
 __/__/__/__/interface/vmcs_host/linux/vcfilesys.c.i:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/build.make host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/__/__/__/__/interface/vmcs_host/linux/vcfilesys.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/build.make host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/__/__/__/__/interface/vmcs_host/linux/vcfilesys.c.i
 .PHONY : __/__/__/__/interface/vmcs_host/linux/vcfilesys.c.i
 
 __/__/__/__/interface/vmcs_host/linux/vcfilesys.s: __/__/__/__/interface/vmcs_host/linux/vcfilesys.c.s
@@ -221,7 +221,7 @@ __/__/__/__/interface/vmcs_host/linux/vcfilesys.s: __/__/__/__/interface/vmcs_ho
 
 # target to generate assembly for a file
 __/__/__/__/interface/vmcs_host/linux/vcfilesys.c.s:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/build.make host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/__/__/__/__/interface/vmcs_host/linux/vcfilesys.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/build.make host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/__/__/__/__/interface/vmcs_host/linux/vcfilesys.c.s
 .PHONY : __/__/__/__/interface/vmcs_host/linux/vcfilesys.c.s
 
 bcm_host.o: bcm_host.c.o
@@ -229,7 +229,7 @@ bcm_host.o: bcm_host.c.o
 
 # target to build an object file
 bcm_host.c.o:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/build.make host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/bcm_host.c.o
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/build.make host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/bcm_host.c.o
 .PHONY : bcm_host.c.o
 
 bcm_host.i: bcm_host.c.i
@@ -237,7 +237,7 @@ bcm_host.i: bcm_host.c.i
 
 # target to preprocess a source file
 bcm_host.c.i:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/build.make host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/bcm_host.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/build.make host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/bcm_host.c.i
 .PHONY : bcm_host.c.i
 
 bcm_host.s: bcm_host.c.s
@@ -245,7 +245,7 @@ bcm_host.s: bcm_host.c.s
 
 # target to generate assembly for a file
 bcm_host.c.s:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/build.make host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/bcm_host.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/build.make host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/bcm_host.c.s
 .PHONY : bcm_host.c.s
 
 # Help Target
@@ -283,6 +283,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

@@ -430,7 +430,7 @@ vcos_platform_types.h
 interface/vcos/vcos_attr.h
 ../../inc/interface/vcos/interface/vcos/vcos_attr.h
 
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/usbdk/test/stubs.c
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/usbdk/test/stubs.c
 assert.h
 -
 stdio.h
@@ -440,35 +440,35 @@ stdarg.h
 stdlib.h
 -
 interface/vcos/vcos.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/usbdk/test/interface/vcos/vcos.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/usbdk/test/interface/vcos/vcos.h
 
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/usbdk/vmcs_rpc_client/message_dispatch.c
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/usbdk/vmcs_rpc_client/message_dispatch.c
 termios.h
 -
 vmcs_config.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/usbdk/vmcs_rpc_client/vmcs_config.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/usbdk/vmcs_rpc_client/vmcs_config.h
 rpc/rpc.h
 -
 oncrpc_vmcs.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/usbdk/vmcs_rpc_client/oncrpc_vmcs.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/usbdk/vmcs_rpc_client/oncrpc_vmcs.h
 stdlib.h
 -
 platform.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/usbdk/vmcs_rpc_client/platform.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/usbdk/vmcs_rpc_client/platform.h
 message_dispatch.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/usbdk/vmcs_rpc_client/message_dispatch.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/usbdk/vmcs_rpc_client/message_dispatch.h
 host_applications/framework/host_app.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/usbdk/vmcs_rpc_client/host_applications/framework/host_app.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/usbdk/vmcs_rpc_client/host_applications/framework/host_app.h
 interface/vchi/vchi.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/usbdk/vmcs_rpc_client/interface/vchi/vchi.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/usbdk/vmcs_rpc_client/interface/vchi/vchi.h
 interface/vchi/message_drivers/message.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/usbdk/vmcs_rpc_client/interface/vchi/message_drivers/message.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/usbdk/vmcs_rpc_client/interface/vchi/message_drivers/message.h
 interface/peer/vc_touchsrv_defs.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/usbdk/vmcs_rpc_client/interface/peer/vc_touchsrv_defs.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/usbdk/vmcs_rpc_client/interface/peer/vc_touchsrv_defs.h
 interface/peer/vc_touch_api_types.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/usbdk/vmcs_rpc_client/interface/peer/vc_touch_api_types.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/usbdk/vmcs_rpc_client/interface/peer/vc_touch_api_types.h
 interface/vcos/vcos.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/usbdk/vmcs_rpc_client/interface/vcos/vcos.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/usbdk/vmcs_rpc_client/interface/vcos/vcos.h
 linux/input.h
 -
 stdio.h
@@ -478,17 +478,17 @@ fcntl.h
 unistd.h
 -
 
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/usbdk/vmcs_rpc_client/message_dispatch.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/usbdk/vmcs_rpc_client/message_dispatch.h
 
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/usbdk/vmcs_rpc_client/platform.c
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/usbdk/vmcs_rpc_client/platform.c
 platform.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/usbdk/vmcs_rpc_client/platform.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/usbdk/vmcs_rpc_client/platform.h
 message_dispatch.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/usbdk/vmcs_rpc_client/message_dispatch.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/usbdk/vmcs_rpc_client/message_dispatch.h
 windows.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/usbdk/vmcs_rpc_client/windows.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/usbdk/vmcs_rpc_client/windows.h
 interface/vmcs_host/vchostreq.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/usbdk/vmcs_rpc_client/interface/vmcs_host/vchostreq.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/usbdk/vmcs_rpc_client/interface/vmcs_host/vchostreq.h
 
 vmcs_config.h
 

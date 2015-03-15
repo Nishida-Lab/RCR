@@ -1,4 +1,4 @@
-# Install script for directory: /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal
+# Install script for directory: /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,7 +39,7 @@ IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmmal.so"
          RPATH "")
   ENDIF()
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/lib/libmmal.so")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/lib/libmmal.so")
   IF(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmmal.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmmal.so")
     FILE(RPATH_REMOVE
@@ -52,38 +52,38 @@ ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unsp
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/interface/mmal" TYPE FILE FILES
-    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/mmal.h"
-    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/mmal_buffer.h"
-    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/mmal_clock.h"
-    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/mmal_common.h"
-    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/mmal_component.h"
-    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/mmal_encodings.h"
-    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/mmal_events.h"
-    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/mmal_format.h"
-    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/mmal_logging.h"
-    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/mmal_metadata.h"
-    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/mmal_parameters.h"
-    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/mmal_parameters_audio.h"
-    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/mmal_parameters_camera.h"
-    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/mmal_parameters_clock.h"
-    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/mmal_parameters_common.h"
-    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/mmal_parameters_video.h"
-    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/mmal_pool.h"
-    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/mmal_port.h"
-    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/mmal_queue.h"
-    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/mmal_types.h"
+    "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/mmal.h"
+    "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/mmal_buffer.h"
+    "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/mmal_clock.h"
+    "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/mmal_common.h"
+    "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/mmal_component.h"
+    "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/mmal_encodings.h"
+    "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/mmal_events.h"
+    "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/mmal_format.h"
+    "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/mmal_logging.h"
+    "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/mmal_metadata.h"
+    "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/mmal_parameters.h"
+    "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/mmal_parameters_audio.h"
+    "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/mmal_parameters_camera.h"
+    "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/mmal_parameters_clock.h"
+    "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/mmal_parameters_common.h"
+    "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/mmal_parameters_video.h"
+    "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/mmal_pool.h"
+    "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/mmal_port.h"
+    "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/mmal_queue.h"
+    "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/mmal_types.h"
     )
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  INCLUDE("/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/core/cmake_install.cmake")
-  INCLUDE("/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/util/cmake_install.cmake")
-  INCLUDE("/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/vc/cmake_install.cmake")
-  INCLUDE("/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components/cmake_install.cmake")
-  INCLUDE("/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/openmaxil/cmake_install.cmake")
-  INCLUDE("/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/client/cmake_install.cmake")
-  INCLUDE("/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test/cmake_install.cmake")
+  INCLUDE("/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/core/cmake_install.cmake")
+  INCLUDE("/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/util/cmake_install.cmake")
+  INCLUDE("/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/vc/cmake_install.cmake")
+  INCLUDE("/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components/cmake_install.cmake")
+  INCLUDE("/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/openmaxil/cmake_install.cmake")
+  INCLUDE("/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/client/cmake_install.cmake")
+  INCLUDE("/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test/cmake_install.cmake")
 
 ENDIF(NOT CMAKE_INSTALL_LOCAL_ONLY)
 

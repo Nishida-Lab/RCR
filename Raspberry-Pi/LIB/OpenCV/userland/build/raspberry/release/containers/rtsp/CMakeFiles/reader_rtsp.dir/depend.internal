@@ -60,4 +60,4 @@ containers/rtsp/CMakeFiles/reader_rtsp.dir/rtsp_reader.c.o
  ../../inc/interface/vcos/vcos_timer.h
  ../../inc/interface/vcos/vcos_tls.h
  ../../inc/interface/vcos/vcos_types.h
- /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/rtsp/rtsp_reader.c
+ /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/rtsp/rtsp_reader.c

@@ -70,8 +70,8 @@ interface/mmal/vc/CMakeFiles/mmal_vc_diag.dir/mmal_vc_diag.c.o
  ../../inc/interface/vcos/vcos_timer.h
  ../../inc/interface/vcos/vcos_tls.h
  ../../inc/interface/vcos/vcos_types.h
- /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/vc/mmal_vc_api.h
- /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/vc/mmal_vc_dbglog.h
- /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/vc/mmal_vc_diag.c
- /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/vc/mmal_vc_msgnames.h
- /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/vc/mmal_vc_msgs.h
+ /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/vc/mmal_vc_api.h
+ /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/vc/mmal_vc_dbglog.h
+ /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/vc/mmal_vc_diag.c
+ /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/vc/mmal_vc_msgnames.h
+ /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/vc/mmal_vc_msgs.h

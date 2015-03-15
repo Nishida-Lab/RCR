@@ -38,10 +38,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/cmake-gui
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland
+CMAKE_SOURCE_DIR = /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release
+CMAKE_BINARY_DIR = /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release
 
 # Include any dependencies generated for this target.
 include interface/mmal/test/CMakeFiles/mmalplay.dir/depend.make
@@ -54,17 +54,17 @@ include interface/mmal/test/CMakeFiles/mmalplay.dir/flags.make
 
 interface/mmal/test/CMakeFiles/mmalplay.dir/__/__/__/host_applications/vmcs/test_apps/mmalplay/playback.c.o: interface/mmal/test/CMakeFiles/mmalplay.dir/flags.make
 interface/mmal/test/CMakeFiles/mmalplay.dir/__/__/__/host_applications/vmcs/test_apps/mmalplay/playback.c.o: ../../../host_applications/vmcs/test_apps/mmalplay/playback.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object interface/mmal/test/CMakeFiles/mmalplay.dir/__/__/__/host_applications/vmcs/test_apps/mmalplay/playback.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/mmalplay.dir/__/__/__/host_applications/vmcs/test_apps/mmalplay/playback.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalplay/playback.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/mmalplay.dir/__/__/__/host_applications/vmcs/test_apps/mmalplay/playback.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalplay/playback.c
 
 interface/mmal/test/CMakeFiles/mmalplay.dir/__/__/__/host_applications/vmcs/test_apps/mmalplay/playback.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/mmalplay.dir/__/__/__/host_applications/vmcs/test_apps/mmalplay/playback.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalplay/playback.c > CMakeFiles/mmalplay.dir/__/__/__/host_applications/vmcs/test_apps/mmalplay/playback.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalplay/playback.c > CMakeFiles/mmalplay.dir/__/__/__/host_applications/vmcs/test_apps/mmalplay/playback.c.i
 
 interface/mmal/test/CMakeFiles/mmalplay.dir/__/__/__/host_applications/vmcs/test_apps/mmalplay/playback.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/mmalplay.dir/__/__/__/host_applications/vmcs/test_apps/mmalplay/playback.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalplay/playback.c -o CMakeFiles/mmalplay.dir/__/__/__/host_applications/vmcs/test_apps/mmalplay/playback.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalplay/playback.c -o CMakeFiles/mmalplay.dir/__/__/__/host_applications/vmcs/test_apps/mmalplay/playback.c.s
 
 interface/mmal/test/CMakeFiles/mmalplay.dir/__/__/__/host_applications/vmcs/test_apps/mmalplay/playback.c.o.requires:
 .PHONY : interface/mmal/test/CMakeFiles/mmalplay.dir/__/__/__/host_applications/vmcs/test_apps/mmalplay/playback.c.o.requires
@@ -77,17 +77,17 @@ interface/mmal/test/CMakeFiles/mmalplay.dir/__/__/__/host_applications/vmcs/test
 
 interface/mmal/test/CMakeFiles/mmalplay.dir/__/__/__/host_applications/vmcs/test_apps/mmalplay/mmalplay.c.o: interface/mmal/test/CMakeFiles/mmalplay.dir/flags.make
 interface/mmal/test/CMakeFiles/mmalplay.dir/__/__/__/host_applications/vmcs/test_apps/mmalplay/mmalplay.c.o: ../../../host_applications/vmcs/test_apps/mmalplay/mmalplay.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object interface/mmal/test/CMakeFiles/mmalplay.dir/__/__/__/host_applications/vmcs/test_apps/mmalplay/mmalplay.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/mmalplay.dir/__/__/__/host_applications/vmcs/test_apps/mmalplay/mmalplay.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalplay/mmalplay.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/mmalplay.dir/__/__/__/host_applications/vmcs/test_apps/mmalplay/mmalplay.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalplay/mmalplay.c
 
 interface/mmal/test/CMakeFiles/mmalplay.dir/__/__/__/host_applications/vmcs/test_apps/mmalplay/mmalplay.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/mmalplay.dir/__/__/__/host_applications/vmcs/test_apps/mmalplay/mmalplay.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalplay/mmalplay.c > CMakeFiles/mmalplay.dir/__/__/__/host_applications/vmcs/test_apps/mmalplay/mmalplay.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalplay/mmalplay.c > CMakeFiles/mmalplay.dir/__/__/__/host_applications/vmcs/test_apps/mmalplay/mmalplay.c.i
 
 interface/mmal/test/CMakeFiles/mmalplay.dir/__/__/__/host_applications/vmcs/test_apps/mmalplay/mmalplay.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/mmalplay.dir/__/__/__/host_applications/vmcs/test_apps/mmalplay/mmalplay.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalplay/mmalplay.c -o CMakeFiles/mmalplay.dir/__/__/__/host_applications/vmcs/test_apps/mmalplay/mmalplay.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalplay/mmalplay.c -o CMakeFiles/mmalplay.dir/__/__/__/host_applications/vmcs/test_apps/mmalplay/mmalplay.c.s
 
 interface/mmal/test/CMakeFiles/mmalplay.dir/__/__/__/host_applications/vmcs/test_apps/mmalplay/mmalplay.c.o.requires:
 .PHONY : interface/mmal/test/CMakeFiles/mmalplay.dir/__/__/__/host_applications/vmcs/test_apps/mmalplay/mmalplay.c.o.requires
@@ -119,7 +119,7 @@ mmalplay_EXTERNAL_OBJECTS =
 ../../bin/mmalplay: ../../lib/libvcos.so
 ../../bin/mmalplay: interface/mmal/test/CMakeFiles/mmalplay.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking C executable ../../../../../bin/mmalplay"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/mmalplay.dir/link.txt --verbose=$(VERBOSE)
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/mmalplay.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 interface/mmal/test/CMakeFiles/mmalplay.dir/build: ../../bin/mmalplay
@@ -130,10 +130,10 @@ interface/mmal/test/CMakeFiles/mmalplay.dir/requires: interface/mmal/test/CMakeF
 .PHONY : interface/mmal/test/CMakeFiles/mmalplay.dir/requires
 
 interface/mmal/test/CMakeFiles/mmalplay.dir/clean:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test && $(CMAKE_COMMAND) -P CMakeFiles/mmalplay.dir/cmake_clean.cmake
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test && $(CMAKE_COMMAND) -P CMakeFiles/mmalplay.dir/cmake_clean.cmake
 .PHONY : interface/mmal/test/CMakeFiles/mmalplay.dir/clean
 
 interface/mmal/test/CMakeFiles/mmalplay.dir/depend:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/test /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test/CMakeFiles/mmalplay.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/test /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/test/CMakeFiles/mmalplay.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : interface/mmal/test/CMakeFiles/mmalplay.dir/depend
 

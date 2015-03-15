@@ -4,9 +4,9 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_C
-  "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/usbdk/test/stubs.c" "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/usbdk/CMakeFiles/vmcs_rpc_client.dir/test/stubs.c.o"
-  "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/usbdk/vmcs_rpc_client/message_dispatch.c" "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/usbdk/CMakeFiles/vmcs_rpc_client.dir/vmcs_rpc_client/message_dispatch.c.o"
-  "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/usbdk/vmcs_rpc_client/platform.c" "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/usbdk/CMakeFiles/vmcs_rpc_client.dir/vmcs_rpc_client/platform.c.o"
+  "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/usbdk/test/stubs.c" "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/usbdk/CMakeFiles/vmcs_rpc_client.dir/test/stubs.c.o"
+  "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/usbdk/vmcs_rpc_client/message_dispatch.c" "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/usbdk/CMakeFiles/vmcs_rpc_client.dir/vmcs_rpc_client/message_dispatch.c.o"
+  "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/usbdk/vmcs_rpc_client/platform.c" "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/usbdk/CMakeFiles/vmcs_rpc_client.dir/vmcs_rpc_client/platform.c.o"
   )
 SET(CMAKE_C_COMPILER_ID "GNU")
 
@@ -31,7 +31,7 @@ SET(CMAKE_TARGET_DEFINITIONS
 
 # Targets to which this target links.
 SET(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/vcos/pthreads/CMakeFiles/vcos.dir/DependInfo.cmake"
+  "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/vcos/pthreads/CMakeFiles/vcos.dir/DependInfo.cmake"
   )
 
 # The include file search paths:

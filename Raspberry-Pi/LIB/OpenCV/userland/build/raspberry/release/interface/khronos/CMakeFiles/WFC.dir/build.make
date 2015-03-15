@@ -38,10 +38,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/cmake-gui
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland
+CMAKE_SOURCE_DIR = /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release
+CMAKE_BINARY_DIR = /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release
 
 # Include any dependencies generated for this target.
 include interface/khronos/CMakeFiles/WFC.dir/depend.make
@@ -54,17 +54,17 @@ include interface/khronos/CMakeFiles/WFC.dir/flags.make
 
 interface/khronos/CMakeFiles/WFC.dir/wf/wfc_client_stream.c.o: interface/khronos/CMakeFiles/WFC.dir/flags.make
 interface/khronos/CMakeFiles/WFC.dir/wf/wfc_client_stream.c.o: ../../../interface/khronos/wf/wfc_client_stream.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object interface/khronos/CMakeFiles/WFC.dir/wf/wfc_client_stream.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/khronos && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/WFC.dir/wf/wfc_client_stream.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos/wf/wfc_client_stream.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/khronos && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/WFC.dir/wf/wfc_client_stream.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos/wf/wfc_client_stream.c
 
 interface/khronos/CMakeFiles/WFC.dir/wf/wfc_client_stream.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/WFC.dir/wf/wfc_client_stream.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/khronos && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos/wf/wfc_client_stream.c > CMakeFiles/WFC.dir/wf/wfc_client_stream.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/khronos && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos/wf/wfc_client_stream.c > CMakeFiles/WFC.dir/wf/wfc_client_stream.c.i
 
 interface/khronos/CMakeFiles/WFC.dir/wf/wfc_client_stream.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/WFC.dir/wf/wfc_client_stream.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/khronos && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos/wf/wfc_client_stream.c -o CMakeFiles/WFC.dir/wf/wfc_client_stream.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/khronos && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos/wf/wfc_client_stream.c -o CMakeFiles/WFC.dir/wf/wfc_client_stream.c.s
 
 interface/khronos/CMakeFiles/WFC.dir/wf/wfc_client_stream.c.o.requires:
 .PHONY : interface/khronos/CMakeFiles/WFC.dir/wf/wfc_client_stream.c.o.requires
@@ -77,17 +77,17 @@ interface/khronos/CMakeFiles/WFC.dir/wf/wfc_client_stream.c.o.provides.build: in
 
 interface/khronos/CMakeFiles/WFC.dir/wf/wfc_client.c.o: interface/khronos/CMakeFiles/WFC.dir/flags.make
 interface/khronos/CMakeFiles/WFC.dir/wf/wfc_client.c.o: ../../../interface/khronos/wf/wfc_client.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object interface/khronos/CMakeFiles/WFC.dir/wf/wfc_client.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/khronos && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/WFC.dir/wf/wfc_client.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos/wf/wfc_client.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/khronos && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/WFC.dir/wf/wfc_client.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos/wf/wfc_client.c
 
 interface/khronos/CMakeFiles/WFC.dir/wf/wfc_client.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/WFC.dir/wf/wfc_client.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/khronos && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos/wf/wfc_client.c > CMakeFiles/WFC.dir/wf/wfc_client.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/khronos && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos/wf/wfc_client.c > CMakeFiles/WFC.dir/wf/wfc_client.c.i
 
 interface/khronos/CMakeFiles/WFC.dir/wf/wfc_client.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/WFC.dir/wf/wfc_client.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/khronos && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos/wf/wfc_client.c -o CMakeFiles/WFC.dir/wf/wfc_client.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/khronos && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos/wf/wfc_client.c -o CMakeFiles/WFC.dir/wf/wfc_client.c.s
 
 interface/khronos/CMakeFiles/WFC.dir/wf/wfc_client.c.o.requires:
 .PHONY : interface/khronos/CMakeFiles/WFC.dir/wf/wfc_client.c.o.requires
@@ -100,17 +100,17 @@ interface/khronos/CMakeFiles/WFC.dir/wf/wfc_client.c.o.provides.build: interface
 
 interface/khronos/CMakeFiles/WFC.dir/wf/wfc_client_server_api.c.o: interface/khronos/CMakeFiles/WFC.dir/flags.make
 interface/khronos/CMakeFiles/WFC.dir/wf/wfc_client_server_api.c.o: ../../../interface/khronos/wf/wfc_client_server_api.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object interface/khronos/CMakeFiles/WFC.dir/wf/wfc_client_server_api.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/khronos && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/WFC.dir/wf/wfc_client_server_api.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos/wf/wfc_client_server_api.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/khronos && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/WFC.dir/wf/wfc_client_server_api.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos/wf/wfc_client_server_api.c
 
 interface/khronos/CMakeFiles/WFC.dir/wf/wfc_client_server_api.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/WFC.dir/wf/wfc_client_server_api.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/khronos && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos/wf/wfc_client_server_api.c > CMakeFiles/WFC.dir/wf/wfc_client_server_api.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/khronos && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos/wf/wfc_client_server_api.c > CMakeFiles/WFC.dir/wf/wfc_client_server_api.c.i
 
 interface/khronos/CMakeFiles/WFC.dir/wf/wfc_client_server_api.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/WFC.dir/wf/wfc_client_server_api.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/khronos && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos/wf/wfc_client_server_api.c -o CMakeFiles/WFC.dir/wf/wfc_client_server_api.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/khronos && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos/wf/wfc_client_server_api.c -o CMakeFiles/WFC.dir/wf/wfc_client_server_api.c.s
 
 interface/khronos/CMakeFiles/WFC.dir/wf/wfc_client_server_api.c.o.requires:
 .PHONY : interface/khronos/CMakeFiles/WFC.dir/wf/wfc_client_server_api.c.o.requires
@@ -123,17 +123,17 @@ interface/khronos/CMakeFiles/WFC.dir/wf/wfc_client_server_api.c.o.provides.build
 
 interface/khronos/CMakeFiles/WFC.dir/wf/wfc_client_ipc.c.o: interface/khronos/CMakeFiles/WFC.dir/flags.make
 interface/khronos/CMakeFiles/WFC.dir/wf/wfc_client_ipc.c.o: ../../../interface/khronos/wf/wfc_client_ipc.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_4)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object interface/khronos/CMakeFiles/WFC.dir/wf/wfc_client_ipc.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/khronos && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/WFC.dir/wf/wfc_client_ipc.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos/wf/wfc_client_ipc.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/khronos && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/WFC.dir/wf/wfc_client_ipc.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos/wf/wfc_client_ipc.c
 
 interface/khronos/CMakeFiles/WFC.dir/wf/wfc_client_ipc.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/WFC.dir/wf/wfc_client_ipc.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/khronos && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos/wf/wfc_client_ipc.c > CMakeFiles/WFC.dir/wf/wfc_client_ipc.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/khronos && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos/wf/wfc_client_ipc.c > CMakeFiles/WFC.dir/wf/wfc_client_ipc.c.i
 
 interface/khronos/CMakeFiles/WFC.dir/wf/wfc_client_ipc.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/WFC.dir/wf/wfc_client_ipc.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/khronos && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos/wf/wfc_client_ipc.c -o CMakeFiles/WFC.dir/wf/wfc_client_ipc.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/khronos && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos/wf/wfc_client_ipc.c -o CMakeFiles/WFC.dir/wf/wfc_client_ipc.c.s
 
 interface/khronos/CMakeFiles/WFC.dir/wf/wfc_client_ipc.c.o.requires:
 .PHONY : interface/khronos/CMakeFiles/WFC.dir/wf/wfc_client_ipc.c.o.requires
@@ -146,17 +146,17 @@ interface/khronos/CMakeFiles/WFC.dir/wf/wfc_client_ipc.c.o.provides.build: inter
 
 interface/khronos/CMakeFiles/WFC.dir/common/openwfc/khrn_client_platform_openwfc.c.o: interface/khronos/CMakeFiles/WFC.dir/flags.make
 interface/khronos/CMakeFiles/WFC.dir/common/openwfc/khrn_client_platform_openwfc.c.o: ../../../interface/khronos/common/openwfc/khrn_client_platform_openwfc.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_5)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_5)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object interface/khronos/CMakeFiles/WFC.dir/common/openwfc/khrn_client_platform_openwfc.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/khronos && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/WFC.dir/common/openwfc/khrn_client_platform_openwfc.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos/common/openwfc/khrn_client_platform_openwfc.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/khronos && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/WFC.dir/common/openwfc/khrn_client_platform_openwfc.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos/common/openwfc/khrn_client_platform_openwfc.c
 
 interface/khronos/CMakeFiles/WFC.dir/common/openwfc/khrn_client_platform_openwfc.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/WFC.dir/common/openwfc/khrn_client_platform_openwfc.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/khronos && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos/common/openwfc/khrn_client_platform_openwfc.c > CMakeFiles/WFC.dir/common/openwfc/khrn_client_platform_openwfc.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/khronos && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos/common/openwfc/khrn_client_platform_openwfc.c > CMakeFiles/WFC.dir/common/openwfc/khrn_client_platform_openwfc.c.i
 
 interface/khronos/CMakeFiles/WFC.dir/common/openwfc/khrn_client_platform_openwfc.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/WFC.dir/common/openwfc/khrn_client_platform_openwfc.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/khronos && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos/common/openwfc/khrn_client_platform_openwfc.c -o CMakeFiles/WFC.dir/common/openwfc/khrn_client_platform_openwfc.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/khronos && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos/common/openwfc/khrn_client_platform_openwfc.c -o CMakeFiles/WFC.dir/common/openwfc/khrn_client_platform_openwfc.c.s
 
 interface/khronos/CMakeFiles/WFC.dir/common/openwfc/khrn_client_platform_openwfc.c.o.requires:
 .PHONY : interface/khronos/CMakeFiles/WFC.dir/common/openwfc/khrn_client_platform_openwfc.c.o.requires
@@ -193,7 +193,7 @@ WFC_EXTERNAL_OBJECTS =
 ../../lib/libWFC.so: ../../lib/libvcfiled_check.a
 ../../lib/libWFC.so: interface/khronos/CMakeFiles/WFC.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking C shared library ../../../../lib/libWFC.so"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/khronos && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/WFC.dir/link.txt --verbose=$(VERBOSE)
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/khronos && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/WFC.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 interface/khronos/CMakeFiles/WFC.dir/build: ../../lib/libWFC.so
@@ -207,10 +207,10 @@ interface/khronos/CMakeFiles/WFC.dir/requires: interface/khronos/CMakeFiles/WFC.
 .PHONY : interface/khronos/CMakeFiles/WFC.dir/requires
 
 interface/khronos/CMakeFiles/WFC.dir/clean:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/khronos && $(CMAKE_COMMAND) -P CMakeFiles/WFC.dir/cmake_clean.cmake
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/khronos && $(CMAKE_COMMAND) -P CMakeFiles/WFC.dir/cmake_clean.cmake
 .PHONY : interface/khronos/CMakeFiles/WFC.dir/clean
 
 interface/khronos/CMakeFiles/WFC.dir/depend:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/khronos /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/khronos/CMakeFiles/WFC.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/khronos /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/khronos/CMakeFiles/WFC.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : interface/khronos/CMakeFiles/WFC.dir/depend
 

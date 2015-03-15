@@ -42,10 +42,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/cmake-gui
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland
+CMAKE_SOURCE_DIR = /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release
+CMAKE_BINARY_DIR = /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -104,7 +104,7 @@ list_install_components/fast: list_install_components
 # Special rule for the target package
 package: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool..."
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && /usr/bin/cpack --config ./CPackConfig.cmake
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && /usr/bin/cpack --config ./CPackConfig.cmake
 .PHONY : package
 
 # Special rule for the target package
@@ -114,7 +114,7 @@ package/fast: package
 # Special rule for the target package_source
 package_source:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CPackSourceConfig.cmake
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CPackSourceConfig.cmake
 .PHONY : package_source
 
 # Special rule for the target package_source
@@ -133,14 +133,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -E cmake_progress_start /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/apps/raspicam/CMakeFiles/progress.marks
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/linux/apps/raspicam/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles 0
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -E cmake_progress_start /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/apps/raspicam/CMakeFiles/progress.marks
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/linux/apps/raspicam/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/linux/apps/raspicam/clean
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/linux/apps/raspicam/clean
 .PHONY : clean
 
 # The main clean target
@@ -149,22 +149,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/linux/apps/raspicam/preinstall
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/linux/apps/raspicam/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/linux/apps/raspicam/preinstall
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/linux/apps/raspicam/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/rule:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/rule
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/rule
 .PHONY : host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/rule
 
 # Convenience name for target.
@@ -173,12 +173,12 @@ raspistill: host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/rule
 
 # fast build rule for target.
 raspistill/fast:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build
 .PHONY : raspistill/fast
 
 # Convenience name for target.
 host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/rule:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/rule
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/rule
 .PHONY : host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/rule
 
 # Convenience name for target.
@@ -187,12 +187,12 @@ raspivid: host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/rule
 
 # fast build rule for target.
 raspivid/fast:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/build
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/build
 .PHONY : raspivid/fast
 
 # Convenience name for target.
 host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/rule:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/rule
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/rule
 .PHONY : host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/rule
 
 # Convenience name for target.
@@ -201,12 +201,12 @@ raspividyuv: host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/ru
 
 # fast build rule for target.
 raspividyuv/fast:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/build
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/build
 .PHONY : raspividyuv/fast
 
 # Convenience name for target.
 host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/rule:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/rule
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/rule
 .PHONY : host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/rule
 
 # Convenience name for target.
@@ -215,7 +215,7 @@ raspiyuv: host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/rule
 
 # fast build rule for target.
 raspiyuv/fast:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/build
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/build
 .PHONY : raspiyuv/fast
 
 RaspiCLI.o: RaspiCLI.c.o
@@ -223,10 +223,10 @@ RaspiCLI.o: RaspiCLI.c.o
 
 # target to build an object file
 RaspiCLI.c.o:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/RaspiCLI.c.o
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiCLI.c.o
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/RaspiCLI.c.o
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/RaspiCLI.c.o
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/RaspiCLI.c.o
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiCLI.c.o
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/RaspiCLI.c.o
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/RaspiCLI.c.o
 .PHONY : RaspiCLI.c.o
 
 RaspiCLI.i: RaspiCLI.c.i
@@ -234,10 +234,10 @@ RaspiCLI.i: RaspiCLI.c.i
 
 # target to preprocess a source file
 RaspiCLI.c.i:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/RaspiCLI.c.i
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiCLI.c.i
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/RaspiCLI.c.i
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/RaspiCLI.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/RaspiCLI.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiCLI.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/RaspiCLI.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/RaspiCLI.c.i
 .PHONY : RaspiCLI.c.i
 
 RaspiCLI.s: RaspiCLI.c.s
@@ -245,10 +245,10 @@ RaspiCLI.s: RaspiCLI.c.s
 
 # target to generate assembly for a file
 RaspiCLI.c.s:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/RaspiCLI.c.s
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiCLI.c.s
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/RaspiCLI.c.s
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/RaspiCLI.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/RaspiCLI.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiCLI.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/RaspiCLI.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/RaspiCLI.c.s
 .PHONY : RaspiCLI.c.s
 
 RaspiCamControl.o: RaspiCamControl.c.o
@@ -256,10 +256,10 @@ RaspiCamControl.o: RaspiCamControl.c.o
 
 # target to build an object file
 RaspiCamControl.c.o:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/RaspiCamControl.c.o
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiCamControl.c.o
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/RaspiCamControl.c.o
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/RaspiCamControl.c.o
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/RaspiCamControl.c.o
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiCamControl.c.o
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/RaspiCamControl.c.o
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/RaspiCamControl.c.o
 .PHONY : RaspiCamControl.c.o
 
 RaspiCamControl.i: RaspiCamControl.c.i
@@ -267,10 +267,10 @@ RaspiCamControl.i: RaspiCamControl.c.i
 
 # target to preprocess a source file
 RaspiCamControl.c.i:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/RaspiCamControl.c.i
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiCamControl.c.i
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/RaspiCamControl.c.i
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/RaspiCamControl.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/RaspiCamControl.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiCamControl.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/RaspiCamControl.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/RaspiCamControl.c.i
 .PHONY : RaspiCamControl.c.i
 
 RaspiCamControl.s: RaspiCamControl.c.s
@@ -278,10 +278,10 @@ RaspiCamControl.s: RaspiCamControl.c.s
 
 # target to generate assembly for a file
 RaspiCamControl.c.s:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/RaspiCamControl.c.s
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiCamControl.c.s
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/RaspiCamControl.c.s
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/RaspiCamControl.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/RaspiCamControl.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiCamControl.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/RaspiCamControl.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/RaspiCamControl.c.s
 .PHONY : RaspiCamControl.c.s
 
 RaspiPreview.o: RaspiPreview.c.o
@@ -289,10 +289,10 @@ RaspiPreview.o: RaspiPreview.c.o
 
 # target to build an object file
 RaspiPreview.c.o:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/RaspiPreview.c.o
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiPreview.c.o
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/RaspiPreview.c.o
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/RaspiPreview.c.o
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/RaspiPreview.c.o
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiPreview.c.o
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/RaspiPreview.c.o
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/RaspiPreview.c.o
 .PHONY : RaspiPreview.c.o
 
 RaspiPreview.i: RaspiPreview.c.i
@@ -300,10 +300,10 @@ RaspiPreview.i: RaspiPreview.c.i
 
 # target to preprocess a source file
 RaspiPreview.c.i:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/RaspiPreview.c.i
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiPreview.c.i
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/RaspiPreview.c.i
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/RaspiPreview.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/RaspiPreview.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiPreview.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/RaspiPreview.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/RaspiPreview.c.i
 .PHONY : RaspiPreview.c.i
 
 RaspiPreview.s: RaspiPreview.c.s
@@ -311,10 +311,10 @@ RaspiPreview.s: RaspiPreview.c.s
 
 # target to generate assembly for a file
 RaspiPreview.c.s:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/RaspiPreview.c.s
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiPreview.c.s
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/RaspiPreview.c.s
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/RaspiPreview.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/RaspiPreview.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiPreview.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/RaspiPreview.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/RaspiPreview.c.s
 .PHONY : RaspiPreview.c.s
 
 RaspiStill.o: RaspiStill.c.o
@@ -322,7 +322,7 @@ RaspiStill.o: RaspiStill.c.o
 
 # target to build an object file
 RaspiStill.c.o:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/RaspiStill.c.o
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/RaspiStill.c.o
 .PHONY : RaspiStill.c.o
 
 RaspiStill.i: RaspiStill.c.i
@@ -330,7 +330,7 @@ RaspiStill.i: RaspiStill.c.i
 
 # target to preprocess a source file
 RaspiStill.c.i:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/RaspiStill.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/RaspiStill.c.i
 .PHONY : RaspiStill.c.i
 
 RaspiStill.s: RaspiStill.c.s
@@ -338,7 +338,7 @@ RaspiStill.s: RaspiStill.c.s
 
 # target to generate assembly for a file
 RaspiStill.c.s:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/RaspiStill.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/RaspiStill.c.s
 .PHONY : RaspiStill.c.s
 
 RaspiStillYUV.o: RaspiStillYUV.c.o
@@ -346,7 +346,7 @@ RaspiStillYUV.o: RaspiStillYUV.c.o
 
 # target to build an object file
 RaspiStillYUV.c.o:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/RaspiStillYUV.c.o
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/RaspiStillYUV.c.o
 .PHONY : RaspiStillYUV.c.o
 
 RaspiStillYUV.i: RaspiStillYUV.c.i
@@ -354,7 +354,7 @@ RaspiStillYUV.i: RaspiStillYUV.c.i
 
 # target to preprocess a source file
 RaspiStillYUV.c.i:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/RaspiStillYUV.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/RaspiStillYUV.c.i
 .PHONY : RaspiStillYUV.c.i
 
 RaspiStillYUV.s: RaspiStillYUV.c.s
@@ -362,7 +362,7 @@ RaspiStillYUV.s: RaspiStillYUV.c.s
 
 # target to generate assembly for a file
 RaspiStillYUV.c.s:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/RaspiStillYUV.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspiyuv.dir/RaspiStillYUV.c.s
 .PHONY : RaspiStillYUV.c.s
 
 RaspiTex.o: RaspiTex.c.o
@@ -370,7 +370,7 @@ RaspiTex.o: RaspiTex.c.o
 
 # target to build an object file
 RaspiTex.c.o:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/RaspiTex.c.o
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/RaspiTex.c.o
 .PHONY : RaspiTex.c.o
 
 RaspiTex.i: RaspiTex.c.i
@@ -378,7 +378,7 @@ RaspiTex.i: RaspiTex.c.i
 
 # target to preprocess a source file
 RaspiTex.c.i:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/RaspiTex.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/RaspiTex.c.i
 .PHONY : RaspiTex.c.i
 
 RaspiTex.s: RaspiTex.c.s
@@ -386,7 +386,7 @@ RaspiTex.s: RaspiTex.c.s
 
 # target to generate assembly for a file
 RaspiTex.c.s:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/RaspiTex.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/RaspiTex.c.s
 .PHONY : RaspiTex.c.s
 
 RaspiTexUtil.o: RaspiTexUtil.c.o
@@ -394,7 +394,7 @@ RaspiTexUtil.o: RaspiTexUtil.c.o
 
 # target to build an object file
 RaspiTexUtil.c.o:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/RaspiTexUtil.c.o
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/RaspiTexUtil.c.o
 .PHONY : RaspiTexUtil.c.o
 
 RaspiTexUtil.i: RaspiTexUtil.c.i
@@ -402,7 +402,7 @@ RaspiTexUtil.i: RaspiTexUtil.c.i
 
 # target to preprocess a source file
 RaspiTexUtil.c.i:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/RaspiTexUtil.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/RaspiTexUtil.c.i
 .PHONY : RaspiTexUtil.c.i
 
 RaspiTexUtil.s: RaspiTexUtil.c.s
@@ -410,7 +410,7 @@ RaspiTexUtil.s: RaspiTexUtil.c.s
 
 # target to generate assembly for a file
 RaspiTexUtil.c.s:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/RaspiTexUtil.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/RaspiTexUtil.c.s
 .PHONY : RaspiTexUtil.c.s
 
 RaspiVid.o: RaspiVid.c.o
@@ -418,7 +418,7 @@ RaspiVid.o: RaspiVid.c.o
 
 # target to build an object file
 RaspiVid.c.o:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiVid.c.o
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiVid.c.o
 .PHONY : RaspiVid.c.o
 
 RaspiVid.i: RaspiVid.c.i
@@ -426,7 +426,7 @@ RaspiVid.i: RaspiVid.c.i
 
 # target to preprocess a source file
 RaspiVid.c.i:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiVid.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiVid.c.i
 .PHONY : RaspiVid.c.i
 
 RaspiVid.s: RaspiVid.c.s
@@ -434,7 +434,7 @@ RaspiVid.s: RaspiVid.c.s
 
 # target to generate assembly for a file
 RaspiVid.c.s:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiVid.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspivid.dir/RaspiVid.c.s
 .PHONY : RaspiVid.c.s
 
 RaspiVidYUV.o: RaspiVidYUV.c.o
@@ -442,7 +442,7 @@ RaspiVidYUV.o: RaspiVidYUV.c.o
 
 # target to build an object file
 RaspiVidYUV.c.o:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/RaspiVidYUV.c.o
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/RaspiVidYUV.c.o
 .PHONY : RaspiVidYUV.c.o
 
 RaspiVidYUV.i: RaspiVidYUV.c.i
@@ -450,7 +450,7 @@ RaspiVidYUV.i: RaspiVidYUV.c.i
 
 # target to preprocess a source file
 RaspiVidYUV.c.i:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/RaspiVidYUV.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/RaspiVidYUV.c.i
 .PHONY : RaspiVidYUV.c.i
 
 RaspiVidYUV.s: RaspiVidYUV.c.s
@@ -458,7 +458,7 @@ RaspiVidYUV.s: RaspiVidYUV.c.s
 
 # target to generate assembly for a file
 RaspiVidYUV.c.s:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/RaspiVidYUV.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspividyuv.dir/RaspiVidYUV.c.s
 .PHONY : RaspiVidYUV.c.s
 
 gl_scenes/mirror.o: gl_scenes/mirror.c.o
@@ -466,7 +466,7 @@ gl_scenes/mirror.o: gl_scenes/mirror.c.o
 
 # target to build an object file
 gl_scenes/mirror.c.o:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/gl_scenes/mirror.c.o
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/gl_scenes/mirror.c.o
 .PHONY : gl_scenes/mirror.c.o
 
 gl_scenes/mirror.i: gl_scenes/mirror.c.i
@@ -474,7 +474,7 @@ gl_scenes/mirror.i: gl_scenes/mirror.c.i
 
 # target to preprocess a source file
 gl_scenes/mirror.c.i:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/gl_scenes/mirror.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/gl_scenes/mirror.c.i
 .PHONY : gl_scenes/mirror.c.i
 
 gl_scenes/mirror.s: gl_scenes/mirror.c.s
@@ -482,7 +482,7 @@ gl_scenes/mirror.s: gl_scenes/mirror.c.s
 
 # target to generate assembly for a file
 gl_scenes/mirror.c.s:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/gl_scenes/mirror.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/gl_scenes/mirror.c.s
 .PHONY : gl_scenes/mirror.c.s
 
 gl_scenes/models.o: gl_scenes/models.c.o
@@ -490,7 +490,7 @@ gl_scenes/models.o: gl_scenes/models.c.o
 
 # target to build an object file
 gl_scenes/models.c.o:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/gl_scenes/models.c.o
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/gl_scenes/models.c.o
 .PHONY : gl_scenes/models.c.o
 
 gl_scenes/models.i: gl_scenes/models.c.i
@@ -498,7 +498,7 @@ gl_scenes/models.i: gl_scenes/models.c.i
 
 # target to preprocess a source file
 gl_scenes/models.c.i:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/gl_scenes/models.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/gl_scenes/models.c.i
 .PHONY : gl_scenes/models.c.i
 
 gl_scenes/models.s: gl_scenes/models.c.s
@@ -506,7 +506,7 @@ gl_scenes/models.s: gl_scenes/models.c.s
 
 # target to generate assembly for a file
 gl_scenes/models.c.s:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/gl_scenes/models.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/gl_scenes/models.c.s
 .PHONY : gl_scenes/models.c.s
 
 gl_scenes/sobel.o: gl_scenes/sobel.c.o
@@ -514,7 +514,7 @@ gl_scenes/sobel.o: gl_scenes/sobel.c.o
 
 # target to build an object file
 gl_scenes/sobel.c.o:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/gl_scenes/sobel.c.o
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/gl_scenes/sobel.c.o
 .PHONY : gl_scenes/sobel.c.o
 
 gl_scenes/sobel.i: gl_scenes/sobel.c.i
@@ -522,7 +522,7 @@ gl_scenes/sobel.i: gl_scenes/sobel.c.i
 
 # target to preprocess a source file
 gl_scenes/sobel.c.i:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/gl_scenes/sobel.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/gl_scenes/sobel.c.i
 .PHONY : gl_scenes/sobel.c.i
 
 gl_scenes/sobel.s: gl_scenes/sobel.c.s
@@ -530,7 +530,7 @@ gl_scenes/sobel.s: gl_scenes/sobel.c.s
 
 # target to generate assembly for a file
 gl_scenes/sobel.c.s:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/gl_scenes/sobel.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/gl_scenes/sobel.c.s
 .PHONY : gl_scenes/sobel.c.s
 
 gl_scenes/square.o: gl_scenes/square.c.o
@@ -538,7 +538,7 @@ gl_scenes/square.o: gl_scenes/square.c.o
 
 # target to build an object file
 gl_scenes/square.c.o:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/gl_scenes/square.c.o
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/gl_scenes/square.c.o
 .PHONY : gl_scenes/square.c.o
 
 gl_scenes/square.i: gl_scenes/square.c.i
@@ -546,7 +546,7 @@ gl_scenes/square.i: gl_scenes/square.c.i
 
 # target to preprocess a source file
 gl_scenes/square.c.i:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/gl_scenes/square.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/gl_scenes/square.c.i
 .PHONY : gl_scenes/square.c.i
 
 gl_scenes/square.s: gl_scenes/square.c.s
@@ -554,7 +554,7 @@ gl_scenes/square.s: gl_scenes/square.c.s
 
 # target to generate assembly for a file
 gl_scenes/square.c.s:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/gl_scenes/square.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/gl_scenes/square.c.s
 .PHONY : gl_scenes/square.c.s
 
 gl_scenes/teapot.o: gl_scenes/teapot.c.o
@@ -562,7 +562,7 @@ gl_scenes/teapot.o: gl_scenes/teapot.c.o
 
 # target to build an object file
 gl_scenes/teapot.c.o:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/gl_scenes/teapot.c.o
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/gl_scenes/teapot.c.o
 .PHONY : gl_scenes/teapot.c.o
 
 gl_scenes/teapot.i: gl_scenes/teapot.c.i
@@ -570,7 +570,7 @@ gl_scenes/teapot.i: gl_scenes/teapot.c.i
 
 # target to preprocess a source file
 gl_scenes/teapot.c.i:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/gl_scenes/teapot.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/gl_scenes/teapot.c.i
 .PHONY : gl_scenes/teapot.c.i
 
 gl_scenes/teapot.s: gl_scenes/teapot.c.s
@@ -578,7 +578,7 @@ gl_scenes/teapot.s: gl_scenes/teapot.c.s
 
 # target to generate assembly for a file
 gl_scenes/teapot.c.s:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/gl_scenes/teapot.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/gl_scenes/teapot.c.s
 .PHONY : gl_scenes/teapot.c.s
 
 gl_scenes/yuv.o: gl_scenes/yuv.c.o
@@ -586,7 +586,7 @@ gl_scenes/yuv.o: gl_scenes/yuv.c.o
 
 # target to build an object file
 gl_scenes/yuv.c.o:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/gl_scenes/yuv.c.o
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/gl_scenes/yuv.c.o
 .PHONY : gl_scenes/yuv.c.o
 
 gl_scenes/yuv.i: gl_scenes/yuv.c.i
@@ -594,7 +594,7 @@ gl_scenes/yuv.i: gl_scenes/yuv.c.i
 
 # target to preprocess a source file
 gl_scenes/yuv.c.i:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/gl_scenes/yuv.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/gl_scenes/yuv.c.i
 .PHONY : gl_scenes/yuv.c.i
 
 gl_scenes/yuv.s: gl_scenes/yuv.c.s
@@ -602,7 +602,7 @@ gl_scenes/yuv.s: gl_scenes/yuv.c.s
 
 # target to generate assembly for a file
 gl_scenes/yuv.c.s:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/gl_scenes/yuv.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/gl_scenes/yuv.c.s
 .PHONY : gl_scenes/yuv.c.s
 
 tga.o: tga.c.o
@@ -610,7 +610,7 @@ tga.o: tga.c.o
 
 # target to build an object file
 tga.c.o:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/tga.c.o
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/tga.c.o
 .PHONY : tga.c.o
 
 tga.i: tga.c.i
@@ -618,7 +618,7 @@ tga.i: tga.c.i
 
 # target to preprocess a source file
 tga.c.i:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/tga.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/tga.c.i
 .PHONY : tga.c.i
 
 tga.s: tga.c.s
@@ -626,7 +626,7 @@ tga.s: tga.c.s
 
 # target to generate assembly for a file
 tga.c.s:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/tga.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/build.make host_applications/linux/apps/raspicam/CMakeFiles/raspistill.dir/tga.c.s
 .PHONY : tga.c.s
 
 # Help Target
@@ -706,6 +706,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

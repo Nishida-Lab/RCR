@@ -714,13 +714,13 @@ vcos_platform_types.h
 interface/vcos/vcos_attr.h
 ../../inc/interface/vcos/interface/vcos/vcos_attr.h
 
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/applog.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/applog.h
 interface/vcos/vcos.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/interface/vcos/vcos.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/interface/vcos/vcos.h
 
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/launcher_rpi.c
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/launcher_rpi.c
 launcher_rpi.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/launcher_rpi.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/launcher_rpi.h
 stdio.h
 -
 stdlib.h
@@ -728,43 +728,43 @@ stdlib.h
 string.h
 -
 bcm_host.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/bcm_host.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/bcm_host.h
 
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/launcher_rpi.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/launcher_rpi.h
 GLES2/gl2.h
 -
 EGL/egl.h
 -
 applog.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/applog.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/applog.h
 
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/svp.c
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/svp.c
 stddef.h
 -
 applog.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/applog.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/applog.h
 interface/vcos/vcos_stdbool.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/interface/vcos/vcos_stdbool.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/interface/vcos/vcos_stdbool.h
 interface/vcos/vcos_inttypes.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/interface/vcos/vcos_inttypes.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/interface/vcos/vcos_inttypes.h
 interface/mmal/mmal.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/interface/mmal/mmal.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/interface/mmal/mmal.h
 interface/mmal/mmal_logging.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/interface/mmal/mmal_logging.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/interface/mmal/mmal_logging.h
 interface/mmal/util/mmal_connection.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/interface/mmal/util/mmal_connection.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/interface/mmal/util/mmal_connection.h
 interface/mmal/util/mmal_util.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/interface/mmal/util/mmal_util.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/interface/mmal/util/mmal_util.h
 interface/mmal/util/mmal_default_components.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/interface/mmal/util/mmal_default_components.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/interface/mmal/util/mmal_default_components.h
 interface/mmal/util/mmal_util_params.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/interface/mmal/util/mmal_util_params.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/interface/mmal/util/mmal_util_params.h
 svp.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/svp.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/svp.h
 
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/svp.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/svp.h
 
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/vidtex.c
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/vidtex.c
 stdlib.h
 -
 math.h
@@ -778,23 +778,23 @@ GLES/gl.h
 GLES/glext.h
 -
 applog.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/applog.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/applog.h
 interface/vcos/vcos.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/interface/vcos/vcos.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/interface/vcos/vcos.h
 interface/vcos/vcos_stdbool.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/interface/vcos/vcos_stdbool.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/interface/vcos/vcos_stdbool.h
 interface/khronos/include/EGL/eglext_brcm.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/interface/khronos/include/EGL/eglext_brcm.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/interface/khronos/include/EGL/eglext_brcm.h
 vidtex.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/vidtex.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/vidtex.h
 
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/vidtex.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/vidtex.h
 EGL/egl.h
 -
 interface/vcos/vcos.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/interface/vcos/vcos.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/interface/vcos/vcos.h
 interface/vcos/vcos_stdint.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/interface/vcos/vcos_stdint.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/interface/vcos/vcos_stdint.h
 svp.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/svp.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/android/apps/vidtex/svp.h
 

@@ -414,7 +414,7 @@ vcos_platform_types.h
 interface/vcos/vcos_attr.h
 ../../inc/interface/vcos/interface/vcos/vcos_attr.h
 
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vmcs_host/linux/vcfiled/vcfiled.c
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/vmcs_host/linux/vcfiled/vcfiled.c
 stdio.h
 -
 limits.h
@@ -438,17 +438,17 @@ fcntl.h
 android/log.h
 -
 vchiq.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vmcs_host/linux/vcfiled/vchiq.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/vmcs_host/linux/vcfiled/vchiq.h
 interface/vchi/vchi.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vmcs_host/linux/vcfiled/interface/vchi/vchi.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/vmcs_host/linux/vcfiled/interface/vchi/vchi.h
 interface/vcos/vcos.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vmcs_host/linux/vcfiled/interface/vcos/vcos.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/vmcs_host/linux/vcfiled/interface/vcos/vcos.h
 interface/vmcs_host/vc_vchi_filesys.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vmcs_host/linux/vcfiled/interface/vmcs_host/vc_vchi_filesys.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/vmcs_host/linux/vcfiled/interface/vmcs_host/vc_vchi_filesys.h
 vchost.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vmcs_host/linux/vcfiled/vchost.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/vmcs_host/linux/vcfiled/vchost.h
 vcfiled_check.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vmcs_host/linux/vcfiled/vcfiled_check.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/vmcs_host/linux/vcfiled/vcfiled_check.h
 
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vmcs_host/linux/vcfiled/vcfiled_check.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/vmcs_host/linux/vcfiled/vcfiled_check.h
 

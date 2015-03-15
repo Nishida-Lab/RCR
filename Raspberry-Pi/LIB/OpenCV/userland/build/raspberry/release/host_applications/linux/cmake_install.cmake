@@ -1,4 +1,4 @@
-# Install script for directory: /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux
+# Install script for directory: /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,14 +34,14 @@ ENDIF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 
 IF(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  INCLUDE("/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/libs/bcm_host/cmake_install.cmake")
-  INCLUDE("/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/apps/gencmd/cmake_install.cmake")
-  INCLUDE("/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/apps/tvservice/cmake_install.cmake")
-  INCLUDE("/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/apps/vcmailbox/cmake_install.cmake")
-  INCLUDE("/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/apps/raspicam/cmake_install.cmake")
-  INCLUDE("/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/libs/sm/cmake_install.cmake")
-  INCLUDE("/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/apps/smem/cmake_install.cmake")
-  INCLUDE("/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/libs/debug_sym/cmake_install.cmake")
+  INCLUDE("/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/libs/bcm_host/cmake_install.cmake")
+  INCLUDE("/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/apps/gencmd/cmake_install.cmake")
+  INCLUDE("/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/apps/tvservice/cmake_install.cmake")
+  INCLUDE("/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/apps/vcmailbox/cmake_install.cmake")
+  INCLUDE("/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/apps/raspicam/cmake_install.cmake")
+  INCLUDE("/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/libs/sm/cmake_install.cmake")
+  INCLUDE("/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/apps/smem/cmake_install.cmake")
+  INCLUDE("/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/libs/debug_sym/cmake_install.cmake")
 
 ENDIF(NOT CMAKE_INSTALL_LOCAL_ONLY)
 

@@ -1,4 +1,4 @@
-# Install script for directory: /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/wav
+# Install script for directory: /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/wav
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -47,7 +47,7 @@ IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
   IF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-FILE(INSTALL DESTINATION "/opt/vc/lib/plugins" TYPE SHARED_LIBRARY FILES "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/lib/reader_wav.so")
+FILE(INSTALL DESTINATION "/opt/vc/lib/plugins" TYPE SHARED_LIBRARY FILES "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/lib/reader_wav.so")
   IF(EXISTS "$ENV{DESTDIR}/opt/vc/lib/plugins/reader_wav.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}/opt/vc/lib/plugins/reader_wav.so")
     FILE(RPATH_REMOVE

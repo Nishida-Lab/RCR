@@ -38,10 +38,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/cmake-gui
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland
+CMAKE_SOURCE_DIR = /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release
+CMAKE_BINARY_DIR = /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release
 
 # Include any dependencies generated for this target.
 include interface/mmal/components/CMakeFiles/mmal_components.dir/depend.make
@@ -54,17 +54,17 @@ include interface/mmal/components/CMakeFiles/mmal_components.dir/flags.make
 
 interface/mmal/components/CMakeFiles/mmal_components.dir/container_reader.c.o: interface/mmal/components/CMakeFiles/mmal_components.dir/flags.make
 interface/mmal/components/CMakeFiles/mmal_components.dir/container_reader.c.o: ../../../interface/mmal/components/container_reader.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object interface/mmal/components/CMakeFiles/mmal_components.dir/container_reader.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/mmal_components.dir/container_reader.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/container_reader.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/mmal_components.dir/container_reader.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/container_reader.c
 
 interface/mmal/components/CMakeFiles/mmal_components.dir/container_reader.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/mmal_components.dir/container_reader.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/container_reader.c > CMakeFiles/mmal_components.dir/container_reader.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/container_reader.c > CMakeFiles/mmal_components.dir/container_reader.c.i
 
 interface/mmal/components/CMakeFiles/mmal_components.dir/container_reader.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/mmal_components.dir/container_reader.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/container_reader.c -o CMakeFiles/mmal_components.dir/container_reader.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/container_reader.c -o CMakeFiles/mmal_components.dir/container_reader.c.s
 
 interface/mmal/components/CMakeFiles/mmal_components.dir/container_reader.c.o.requires:
 .PHONY : interface/mmal/components/CMakeFiles/mmal_components.dir/container_reader.c.o.requires
@@ -77,17 +77,17 @@ interface/mmal/components/CMakeFiles/mmal_components.dir/container_reader.c.o.pr
 
 interface/mmal/components/CMakeFiles/mmal_components.dir/null_sink.c.o: interface/mmal/components/CMakeFiles/mmal_components.dir/flags.make
 interface/mmal/components/CMakeFiles/mmal_components.dir/null_sink.c.o: ../../../interface/mmal/components/null_sink.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object interface/mmal/components/CMakeFiles/mmal_components.dir/null_sink.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/mmal_components.dir/null_sink.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/null_sink.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/mmal_components.dir/null_sink.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/null_sink.c
 
 interface/mmal/components/CMakeFiles/mmal_components.dir/null_sink.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/mmal_components.dir/null_sink.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/null_sink.c > CMakeFiles/mmal_components.dir/null_sink.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/null_sink.c > CMakeFiles/mmal_components.dir/null_sink.c.i
 
 interface/mmal/components/CMakeFiles/mmal_components.dir/null_sink.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/mmal_components.dir/null_sink.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/null_sink.c -o CMakeFiles/mmal_components.dir/null_sink.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/null_sink.c -o CMakeFiles/mmal_components.dir/null_sink.c.s
 
 interface/mmal/components/CMakeFiles/mmal_components.dir/null_sink.c.o.requires:
 .PHONY : interface/mmal/components/CMakeFiles/mmal_components.dir/null_sink.c.o.requires
@@ -100,17 +100,17 @@ interface/mmal/components/CMakeFiles/mmal_components.dir/null_sink.c.o.provides.
 
 interface/mmal/components/CMakeFiles/mmal_components.dir/passthrough.c.o: interface/mmal/components/CMakeFiles/mmal_components.dir/flags.make
 interface/mmal/components/CMakeFiles/mmal_components.dir/passthrough.c.o: ../../../interface/mmal/components/passthrough.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object interface/mmal/components/CMakeFiles/mmal_components.dir/passthrough.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/mmal_components.dir/passthrough.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/passthrough.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/mmal_components.dir/passthrough.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/passthrough.c
 
 interface/mmal/components/CMakeFiles/mmal_components.dir/passthrough.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/mmal_components.dir/passthrough.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/passthrough.c > CMakeFiles/mmal_components.dir/passthrough.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/passthrough.c > CMakeFiles/mmal_components.dir/passthrough.c.i
 
 interface/mmal/components/CMakeFiles/mmal_components.dir/passthrough.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/mmal_components.dir/passthrough.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/passthrough.c -o CMakeFiles/mmal_components.dir/passthrough.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/passthrough.c -o CMakeFiles/mmal_components.dir/passthrough.c.s
 
 interface/mmal/components/CMakeFiles/mmal_components.dir/passthrough.c.o.requires:
 .PHONY : interface/mmal/components/CMakeFiles/mmal_components.dir/passthrough.c.o.requires
@@ -123,17 +123,17 @@ interface/mmal/components/CMakeFiles/mmal_components.dir/passthrough.c.o.provide
 
 interface/mmal/components/CMakeFiles/mmal_components.dir/scheduler.c.o: interface/mmal/components/CMakeFiles/mmal_components.dir/flags.make
 interface/mmal/components/CMakeFiles/mmal_components.dir/scheduler.c.o: ../../../interface/mmal/components/scheduler.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_4)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object interface/mmal/components/CMakeFiles/mmal_components.dir/scheduler.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/mmal_components.dir/scheduler.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/scheduler.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/mmal_components.dir/scheduler.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/scheduler.c
 
 interface/mmal/components/CMakeFiles/mmal_components.dir/scheduler.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/mmal_components.dir/scheduler.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/scheduler.c > CMakeFiles/mmal_components.dir/scheduler.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/scheduler.c > CMakeFiles/mmal_components.dir/scheduler.c.i
 
 interface/mmal/components/CMakeFiles/mmal_components.dir/scheduler.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/mmal_components.dir/scheduler.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/scheduler.c -o CMakeFiles/mmal_components.dir/scheduler.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/scheduler.c -o CMakeFiles/mmal_components.dir/scheduler.c.s
 
 interface/mmal/components/CMakeFiles/mmal_components.dir/scheduler.c.o.requires:
 .PHONY : interface/mmal/components/CMakeFiles/mmal_components.dir/scheduler.c.o.requires
@@ -146,17 +146,17 @@ interface/mmal/components/CMakeFiles/mmal_components.dir/scheduler.c.o.provides.
 
 interface/mmal/components/CMakeFiles/mmal_components.dir/splitter.c.o: interface/mmal/components/CMakeFiles/mmal_components.dir/flags.make
 interface/mmal/components/CMakeFiles/mmal_components.dir/splitter.c.o: ../../../interface/mmal/components/splitter.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_5)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_5)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object interface/mmal/components/CMakeFiles/mmal_components.dir/splitter.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/mmal_components.dir/splitter.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/splitter.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/mmal_components.dir/splitter.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/splitter.c
 
 interface/mmal/components/CMakeFiles/mmal_components.dir/splitter.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/mmal_components.dir/splitter.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/splitter.c > CMakeFiles/mmal_components.dir/splitter.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/splitter.c > CMakeFiles/mmal_components.dir/splitter.c.i
 
 interface/mmal/components/CMakeFiles/mmal_components.dir/splitter.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/mmal_components.dir/splitter.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/splitter.c -o CMakeFiles/mmal_components.dir/splitter.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/splitter.c -o CMakeFiles/mmal_components.dir/splitter.c.s
 
 interface/mmal/components/CMakeFiles/mmal_components.dir/splitter.c.o.requires:
 .PHONY : interface/mmal/components/CMakeFiles/mmal_components.dir/splitter.c.o.requires
@@ -169,17 +169,17 @@ interface/mmal/components/CMakeFiles/mmal_components.dir/splitter.c.o.provides.b
 
 interface/mmal/components/CMakeFiles/mmal_components.dir/copy.c.o: interface/mmal/components/CMakeFiles/mmal_components.dir/flags.make
 interface/mmal/components/CMakeFiles/mmal_components.dir/copy.c.o: ../../../interface/mmal/components/copy.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_6)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_6)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object interface/mmal/components/CMakeFiles/mmal_components.dir/copy.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/mmal_components.dir/copy.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/copy.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/mmal_components.dir/copy.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/copy.c
 
 interface/mmal/components/CMakeFiles/mmal_components.dir/copy.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/mmal_components.dir/copy.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/copy.c > CMakeFiles/mmal_components.dir/copy.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/copy.c > CMakeFiles/mmal_components.dir/copy.c.i
 
 interface/mmal/components/CMakeFiles/mmal_components.dir/copy.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/mmal_components.dir/copy.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/copy.c -o CMakeFiles/mmal_components.dir/copy.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/copy.c -o CMakeFiles/mmal_components.dir/copy.c.s
 
 interface/mmal/components/CMakeFiles/mmal_components.dir/copy.c.o.requires:
 .PHONY : interface/mmal/components/CMakeFiles/mmal_components.dir/copy.c.o.requires
@@ -192,17 +192,17 @@ interface/mmal/components/CMakeFiles/mmal_components.dir/copy.c.o.provides.build
 
 interface/mmal/components/CMakeFiles/mmal_components.dir/artificial_camera.c.o: interface/mmal/components/CMakeFiles/mmal_components.dir/flags.make
 interface/mmal/components/CMakeFiles/mmal_components.dir/artificial_camera.c.o: ../../../interface/mmal/components/artificial_camera.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_7)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_7)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object interface/mmal/components/CMakeFiles/mmal_components.dir/artificial_camera.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/mmal_components.dir/artificial_camera.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/artificial_camera.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/mmal_components.dir/artificial_camera.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/artificial_camera.c
 
 interface/mmal/components/CMakeFiles/mmal_components.dir/artificial_camera.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/mmal_components.dir/artificial_camera.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/artificial_camera.c > CMakeFiles/mmal_components.dir/artificial_camera.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/artificial_camera.c > CMakeFiles/mmal_components.dir/artificial_camera.c.i
 
 interface/mmal/components/CMakeFiles/mmal_components.dir/artificial_camera.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/mmal_components.dir/artificial_camera.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/artificial_camera.c -o CMakeFiles/mmal_components.dir/artificial_camera.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/artificial_camera.c -o CMakeFiles/mmal_components.dir/artificial_camera.c.s
 
 interface/mmal/components/CMakeFiles/mmal_components.dir/artificial_camera.c.o.requires:
 .PHONY : interface/mmal/components/CMakeFiles/mmal_components.dir/artificial_camera.c.o.requires
@@ -215,17 +215,17 @@ interface/mmal/components/CMakeFiles/mmal_components.dir/artificial_camera.c.o.p
 
 interface/mmal/components/CMakeFiles/mmal_components.dir/aggregator.c.o: interface/mmal/components/CMakeFiles/mmal_components.dir/flags.make
 interface/mmal/components/CMakeFiles/mmal_components.dir/aggregator.c.o: ../../../interface/mmal/components/aggregator.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_8)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_8)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object interface/mmal/components/CMakeFiles/mmal_components.dir/aggregator.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/mmal_components.dir/aggregator.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/aggregator.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/mmal_components.dir/aggregator.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/aggregator.c
 
 interface/mmal/components/CMakeFiles/mmal_components.dir/aggregator.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/mmal_components.dir/aggregator.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/aggregator.c > CMakeFiles/mmal_components.dir/aggregator.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/aggregator.c > CMakeFiles/mmal_components.dir/aggregator.c.i
 
 interface/mmal/components/CMakeFiles/mmal_components.dir/aggregator.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/mmal_components.dir/aggregator.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/aggregator.c -o CMakeFiles/mmal_components.dir/aggregator.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/aggregator.c -o CMakeFiles/mmal_components.dir/aggregator.c.s
 
 interface/mmal/components/CMakeFiles/mmal_components.dir/aggregator.c.o.requires:
 .PHONY : interface/mmal/components/CMakeFiles/mmal_components.dir/aggregator.c.o.requires
@@ -238,17 +238,17 @@ interface/mmal/components/CMakeFiles/mmal_components.dir/aggregator.c.o.provides
 
 interface/mmal/components/CMakeFiles/mmal_components.dir/clock.c.o: interface/mmal/components/CMakeFiles/mmal_components.dir/flags.make
 interface/mmal/components/CMakeFiles/mmal_components.dir/clock.c.o: ../../../interface/mmal/components/clock.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_9)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_9)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object interface/mmal/components/CMakeFiles/mmal_components.dir/clock.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/mmal_components.dir/clock.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/clock.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/mmal_components.dir/clock.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/clock.c
 
 interface/mmal/components/CMakeFiles/mmal_components.dir/clock.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/mmal_components.dir/clock.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/clock.c > CMakeFiles/mmal_components.dir/clock.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/clock.c > CMakeFiles/mmal_components.dir/clock.c.i
 
 interface/mmal/components/CMakeFiles/mmal_components.dir/clock.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/mmal_components.dir/clock.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/clock.c -o CMakeFiles/mmal_components.dir/clock.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/clock.c -o CMakeFiles/mmal_components.dir/clock.c.s
 
 interface/mmal/components/CMakeFiles/mmal_components.dir/clock.c.o.requires:
 .PHONY : interface/mmal/components/CMakeFiles/mmal_components.dir/clock.c.o.requires
@@ -261,17 +261,17 @@ interface/mmal/components/CMakeFiles/mmal_components.dir/clock.c.o.provides.buil
 
 interface/mmal/components/CMakeFiles/mmal_components.dir/spdif.c.o: interface/mmal/components/CMakeFiles/mmal_components.dir/flags.make
 interface/mmal/components/CMakeFiles/mmal_components.dir/spdif.c.o: ../../../interface/mmal/components/spdif.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_10)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_10)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object interface/mmal/components/CMakeFiles/mmal_components.dir/spdif.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/mmal_components.dir/spdif.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/spdif.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/mmal_components.dir/spdif.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/spdif.c
 
 interface/mmal/components/CMakeFiles/mmal_components.dir/spdif.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/mmal_components.dir/spdif.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/spdif.c > CMakeFiles/mmal_components.dir/spdif.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/spdif.c > CMakeFiles/mmal_components.dir/spdif.c.i
 
 interface/mmal/components/CMakeFiles/mmal_components.dir/spdif.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/mmal_components.dir/spdif.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/spdif.c -o CMakeFiles/mmal_components.dir/spdif.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/spdif.c -o CMakeFiles/mmal_components.dir/spdif.c.s
 
 interface/mmal/components/CMakeFiles/mmal_components.dir/spdif.c.o.requires:
 .PHONY : interface/mmal/components/CMakeFiles/mmal_components.dir/spdif.c.o.requires
@@ -315,7 +315,7 @@ mmal_components_EXTERNAL_OBJECTS =
 ../../lib/libmmal_components.so: ../../lib/libvcos.so
 ../../lib/libmmal_components.so: interface/mmal/components/CMakeFiles/mmal_components.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking C shared library ../../../../../lib/libmmal_components.so"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/mmal_components.dir/link.txt --verbose=$(VERBOSE)
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/mmal_components.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 interface/mmal/components/CMakeFiles/mmal_components.dir/build: ../../lib/libmmal_components.so
@@ -334,10 +334,10 @@ interface/mmal/components/CMakeFiles/mmal_components.dir/requires: interface/mma
 .PHONY : interface/mmal/components/CMakeFiles/mmal_components.dir/requires
 
 interface/mmal/components/CMakeFiles/mmal_components.dir/clean:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && $(CMAKE_COMMAND) -P CMakeFiles/mmal_components.dir/cmake_clean.cmake
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && $(CMAKE_COMMAND) -P CMakeFiles/mmal_components.dir/cmake_clean.cmake
 .PHONY : interface/mmal/components/CMakeFiles/mmal_components.dir/clean
 
 interface/mmal/components/CMakeFiles/mmal_components.dir/depend:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components/CMakeFiles/mmal_components.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components/CMakeFiles/mmal_components.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : interface/mmal/components/CMakeFiles/mmal_components.dir/depend
 

@@ -38,10 +38,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/cmake-gui
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland
+CMAKE_SOURCE_DIR = /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release
+CMAKE_BINARY_DIR = /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release
 
 # Include any dependencies generated for this target.
 include containers/CMakeFiles/containers.dir/depend.make
@@ -54,17 +54,17 @@ include containers/CMakeFiles/containers.dir/flags.make
 
 containers/CMakeFiles/containers.dir/core/containers.c.o: containers/CMakeFiles/containers.dir/flags.make
 containers/CMakeFiles/containers.dir/core/containers.c.o: ../../../containers/core/containers.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object containers/CMakeFiles/containers.dir/core/containers.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/containers.dir/core/containers.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/containers.dir/core/containers.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers.c
 
 containers/CMakeFiles/containers.dir/core/containers.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/containers.dir/core/containers.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers.c > CMakeFiles/containers.dir/core/containers.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers.c > CMakeFiles/containers.dir/core/containers.c.i
 
 containers/CMakeFiles/containers.dir/core/containers.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/containers.dir/core/containers.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers.c -o CMakeFiles/containers.dir/core/containers.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers.c -o CMakeFiles/containers.dir/core/containers.c.s
 
 containers/CMakeFiles/containers.dir/core/containers.c.o.requires:
 .PHONY : containers/CMakeFiles/containers.dir/core/containers.c.o.requires
@@ -77,17 +77,17 @@ containers/CMakeFiles/containers.dir/core/containers.c.o.provides.build: contain
 
 containers/CMakeFiles/containers.dir/core/containers_io.c.o: containers/CMakeFiles/containers.dir/flags.make
 containers/CMakeFiles/containers.dir/core/containers_io.c.o: ../../../containers/core/containers_io.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object containers/CMakeFiles/containers.dir/core/containers_io.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/containers.dir/core/containers_io.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_io.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/containers.dir/core/containers_io.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_io.c
 
 containers/CMakeFiles/containers.dir/core/containers_io.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/containers.dir/core/containers_io.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_io.c > CMakeFiles/containers.dir/core/containers_io.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_io.c > CMakeFiles/containers.dir/core/containers_io.c.i
 
 containers/CMakeFiles/containers.dir/core/containers_io.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/containers.dir/core/containers_io.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_io.c -o CMakeFiles/containers.dir/core/containers_io.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_io.c -o CMakeFiles/containers.dir/core/containers_io.c.s
 
 containers/CMakeFiles/containers.dir/core/containers_io.c.o.requires:
 .PHONY : containers/CMakeFiles/containers.dir/core/containers_io.c.o.requires
@@ -100,17 +100,17 @@ containers/CMakeFiles/containers.dir/core/containers_io.c.o.provides.build: cont
 
 containers/CMakeFiles/containers.dir/core/containers_io_helpers.c.o: containers/CMakeFiles/containers.dir/flags.make
 containers/CMakeFiles/containers.dir/core/containers_io_helpers.c.o: ../../../containers/core/containers_io_helpers.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object containers/CMakeFiles/containers.dir/core/containers_io_helpers.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/containers.dir/core/containers_io_helpers.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_io_helpers.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/containers.dir/core/containers_io_helpers.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_io_helpers.c
 
 containers/CMakeFiles/containers.dir/core/containers_io_helpers.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/containers.dir/core/containers_io_helpers.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_io_helpers.c > CMakeFiles/containers.dir/core/containers_io_helpers.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_io_helpers.c > CMakeFiles/containers.dir/core/containers_io_helpers.c.i
 
 containers/CMakeFiles/containers.dir/core/containers_io_helpers.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/containers.dir/core/containers_io_helpers.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_io_helpers.c -o CMakeFiles/containers.dir/core/containers_io_helpers.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_io_helpers.c -o CMakeFiles/containers.dir/core/containers_io_helpers.c.s
 
 containers/CMakeFiles/containers.dir/core/containers_io_helpers.c.o.requires:
 .PHONY : containers/CMakeFiles/containers.dir/core/containers_io_helpers.c.o.requires
@@ -123,17 +123,17 @@ containers/CMakeFiles/containers.dir/core/containers_io_helpers.c.o.provides.bui
 
 containers/CMakeFiles/containers.dir/core/containers_codecs.c.o: containers/CMakeFiles/containers.dir/flags.make
 containers/CMakeFiles/containers.dir/core/containers_codecs.c.o: ../../../containers/core/containers_codecs.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_4)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object containers/CMakeFiles/containers.dir/core/containers_codecs.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/containers.dir/core/containers_codecs.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_codecs.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/containers.dir/core/containers_codecs.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_codecs.c
 
 containers/CMakeFiles/containers.dir/core/containers_codecs.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/containers.dir/core/containers_codecs.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_codecs.c > CMakeFiles/containers.dir/core/containers_codecs.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_codecs.c > CMakeFiles/containers.dir/core/containers_codecs.c.i
 
 containers/CMakeFiles/containers.dir/core/containers_codecs.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/containers.dir/core/containers_codecs.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_codecs.c -o CMakeFiles/containers.dir/core/containers_codecs.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_codecs.c -o CMakeFiles/containers.dir/core/containers_codecs.c.s
 
 containers/CMakeFiles/containers.dir/core/containers_codecs.c.o.requires:
 .PHONY : containers/CMakeFiles/containers.dir/core/containers_codecs.c.o.requires
@@ -146,17 +146,17 @@ containers/CMakeFiles/containers.dir/core/containers_codecs.c.o.provides.build: 
 
 containers/CMakeFiles/containers.dir/core/containers_utils.c.o: containers/CMakeFiles/containers.dir/flags.make
 containers/CMakeFiles/containers.dir/core/containers_utils.c.o: ../../../containers/core/containers_utils.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_5)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_5)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object containers/CMakeFiles/containers.dir/core/containers_utils.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/containers.dir/core/containers_utils.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_utils.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/containers.dir/core/containers_utils.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_utils.c
 
 containers/CMakeFiles/containers.dir/core/containers_utils.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/containers.dir/core/containers_utils.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_utils.c > CMakeFiles/containers.dir/core/containers_utils.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_utils.c > CMakeFiles/containers.dir/core/containers_utils.c.i
 
 containers/CMakeFiles/containers.dir/core/containers_utils.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/containers.dir/core/containers_utils.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_utils.c -o CMakeFiles/containers.dir/core/containers_utils.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_utils.c -o CMakeFiles/containers.dir/core/containers_utils.c.s
 
 containers/CMakeFiles/containers.dir/core/containers_utils.c.o.requires:
 .PHONY : containers/CMakeFiles/containers.dir/core/containers_utils.c.o.requires
@@ -169,17 +169,17 @@ containers/CMakeFiles/containers.dir/core/containers_utils.c.o.provides.build: c
 
 containers/CMakeFiles/containers.dir/core/containers_writer_utils.c.o: containers/CMakeFiles/containers.dir/flags.make
 containers/CMakeFiles/containers.dir/core/containers_writer_utils.c.o: ../../../containers/core/containers_writer_utils.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_6)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_6)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object containers/CMakeFiles/containers.dir/core/containers_writer_utils.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/containers.dir/core/containers_writer_utils.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_writer_utils.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/containers.dir/core/containers_writer_utils.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_writer_utils.c
 
 containers/CMakeFiles/containers.dir/core/containers_writer_utils.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/containers.dir/core/containers_writer_utils.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_writer_utils.c > CMakeFiles/containers.dir/core/containers_writer_utils.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_writer_utils.c > CMakeFiles/containers.dir/core/containers_writer_utils.c.i
 
 containers/CMakeFiles/containers.dir/core/containers_writer_utils.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/containers.dir/core/containers_writer_utils.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_writer_utils.c -o CMakeFiles/containers.dir/core/containers_writer_utils.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_writer_utils.c -o CMakeFiles/containers.dir/core/containers_writer_utils.c.s
 
 containers/CMakeFiles/containers.dir/core/containers_writer_utils.c.o.requires:
 .PHONY : containers/CMakeFiles/containers.dir/core/containers_writer_utils.c.o.requires
@@ -192,17 +192,17 @@ containers/CMakeFiles/containers.dir/core/containers_writer_utils.c.o.provides.b
 
 containers/CMakeFiles/containers.dir/core/containers_loader.c.o: containers/CMakeFiles/containers.dir/flags.make
 containers/CMakeFiles/containers.dir/core/containers_loader.c.o: ../../../containers/core/containers_loader.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_7)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_7)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object containers/CMakeFiles/containers.dir/core/containers_loader.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/containers.dir/core/containers_loader.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_loader.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/containers.dir/core/containers_loader.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_loader.c
 
 containers/CMakeFiles/containers.dir/core/containers_loader.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/containers.dir/core/containers_loader.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_loader.c > CMakeFiles/containers.dir/core/containers_loader.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_loader.c > CMakeFiles/containers.dir/core/containers_loader.c.i
 
 containers/CMakeFiles/containers.dir/core/containers_loader.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/containers.dir/core/containers_loader.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_loader.c -o CMakeFiles/containers.dir/core/containers_loader.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_loader.c -o CMakeFiles/containers.dir/core/containers_loader.c.s
 
 containers/CMakeFiles/containers.dir/core/containers_loader.c.o.requires:
 .PHONY : containers/CMakeFiles/containers.dir/core/containers_loader.c.o.requires
@@ -215,17 +215,17 @@ containers/CMakeFiles/containers.dir/core/containers_loader.c.o.provides.build: 
 
 containers/CMakeFiles/containers.dir/core/containers_filters.c.o: containers/CMakeFiles/containers.dir/flags.make
 containers/CMakeFiles/containers.dir/core/containers_filters.c.o: ../../../containers/core/containers_filters.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_8)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_8)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object containers/CMakeFiles/containers.dir/core/containers_filters.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/containers.dir/core/containers_filters.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_filters.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/containers.dir/core/containers_filters.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_filters.c
 
 containers/CMakeFiles/containers.dir/core/containers_filters.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/containers.dir/core/containers_filters.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_filters.c > CMakeFiles/containers.dir/core/containers_filters.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_filters.c > CMakeFiles/containers.dir/core/containers_filters.c.i
 
 containers/CMakeFiles/containers.dir/core/containers_filters.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/containers.dir/core/containers_filters.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_filters.c -o CMakeFiles/containers.dir/core/containers_filters.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_filters.c -o CMakeFiles/containers.dir/core/containers_filters.c.s
 
 containers/CMakeFiles/containers.dir/core/containers_filters.c.o.requires:
 .PHONY : containers/CMakeFiles/containers.dir/core/containers_filters.c.o.requires
@@ -238,17 +238,17 @@ containers/CMakeFiles/containers.dir/core/containers_filters.c.o.provides.build:
 
 containers/CMakeFiles/containers.dir/core/containers_logging.c.o: containers/CMakeFiles/containers.dir/flags.make
 containers/CMakeFiles/containers.dir/core/containers_logging.c.o: ../../../containers/core/containers_logging.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_9)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_9)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object containers/CMakeFiles/containers.dir/core/containers_logging.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/containers.dir/core/containers_logging.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_logging.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/containers.dir/core/containers_logging.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_logging.c
 
 containers/CMakeFiles/containers.dir/core/containers_logging.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/containers.dir/core/containers_logging.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_logging.c > CMakeFiles/containers.dir/core/containers_logging.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_logging.c > CMakeFiles/containers.dir/core/containers_logging.c.i
 
 containers/CMakeFiles/containers.dir/core/containers_logging.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/containers.dir/core/containers_logging.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_logging.c -o CMakeFiles/containers.dir/core/containers_logging.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_logging.c -o CMakeFiles/containers.dir/core/containers_logging.c.s
 
 containers/CMakeFiles/containers.dir/core/containers_logging.c.o.requires:
 .PHONY : containers/CMakeFiles/containers.dir/core/containers_logging.c.o.requires
@@ -261,17 +261,17 @@ containers/CMakeFiles/containers.dir/core/containers_logging.c.o.provides.build:
 
 containers/CMakeFiles/containers.dir/core/containers_uri.c.o: containers/CMakeFiles/containers.dir/flags.make
 containers/CMakeFiles/containers.dir/core/containers_uri.c.o: ../../../containers/core/containers_uri.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_10)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_10)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object containers/CMakeFiles/containers.dir/core/containers_uri.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/containers.dir/core/containers_uri.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_uri.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/containers.dir/core/containers_uri.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_uri.c
 
 containers/CMakeFiles/containers.dir/core/containers_uri.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/containers.dir/core/containers_uri.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_uri.c > CMakeFiles/containers.dir/core/containers_uri.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_uri.c > CMakeFiles/containers.dir/core/containers_uri.c.i
 
 containers/CMakeFiles/containers.dir/core/containers_uri.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/containers.dir/core/containers_uri.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_uri.c -o CMakeFiles/containers.dir/core/containers_uri.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_uri.c -o CMakeFiles/containers.dir/core/containers_uri.c.s
 
 containers/CMakeFiles/containers.dir/core/containers_uri.c.o.requires:
 .PHONY : containers/CMakeFiles/containers.dir/core/containers_uri.c.o.requires
@@ -284,17 +284,17 @@ containers/CMakeFiles/containers.dir/core/containers_uri.c.o.provides.build: con
 
 containers/CMakeFiles/containers.dir/core/containers_bits.c.o: containers/CMakeFiles/containers.dir/flags.make
 containers/CMakeFiles/containers.dir/core/containers_bits.c.o: ../../../containers/core/containers_bits.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_11)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_11)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object containers/CMakeFiles/containers.dir/core/containers_bits.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/containers.dir/core/containers_bits.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_bits.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/containers.dir/core/containers_bits.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_bits.c
 
 containers/CMakeFiles/containers.dir/core/containers_bits.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/containers.dir/core/containers_bits.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_bits.c > CMakeFiles/containers.dir/core/containers_bits.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_bits.c > CMakeFiles/containers.dir/core/containers_bits.c.i
 
 containers/CMakeFiles/containers.dir/core/containers_bits.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/containers.dir/core/containers_bits.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_bits.c -o CMakeFiles/containers.dir/core/containers_bits.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_bits.c -o CMakeFiles/containers.dir/core/containers_bits.c.s
 
 containers/CMakeFiles/containers.dir/core/containers_bits.c.o.requires:
 .PHONY : containers/CMakeFiles/containers.dir/core/containers_bits.c.o.requires
@@ -307,17 +307,17 @@ containers/CMakeFiles/containers.dir/core/containers_bits.c.o.provides.build: co
 
 containers/CMakeFiles/containers.dir/core/containers_list.c.o: containers/CMakeFiles/containers.dir/flags.make
 containers/CMakeFiles/containers.dir/core/containers_list.c.o: ../../../containers/core/containers_list.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_12)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_12)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object containers/CMakeFiles/containers.dir/core/containers_list.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/containers.dir/core/containers_list.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_list.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/containers.dir/core/containers_list.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_list.c
 
 containers/CMakeFiles/containers.dir/core/containers_list.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/containers.dir/core/containers_list.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_list.c > CMakeFiles/containers.dir/core/containers_list.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_list.c > CMakeFiles/containers.dir/core/containers_list.c.i
 
 containers/CMakeFiles/containers.dir/core/containers_list.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/containers.dir/core/containers_list.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_list.c -o CMakeFiles/containers.dir/core/containers_list.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_list.c -o CMakeFiles/containers.dir/core/containers_list.c.s
 
 containers/CMakeFiles/containers.dir/core/containers_list.c.o.requires:
 .PHONY : containers/CMakeFiles/containers.dir/core/containers_list.c.o.requires
@@ -330,17 +330,17 @@ containers/CMakeFiles/containers.dir/core/containers_list.c.o.provides.build: co
 
 containers/CMakeFiles/containers.dir/core/containers_index.c.o: containers/CMakeFiles/containers.dir/flags.make
 containers/CMakeFiles/containers.dir/core/containers_index.c.o: ../../../containers/core/containers_index.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_13)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_13)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object containers/CMakeFiles/containers.dir/core/containers_index.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/containers.dir/core/containers_index.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_index.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/containers.dir/core/containers_index.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_index.c
 
 containers/CMakeFiles/containers.dir/core/containers_index.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/containers.dir/core/containers_index.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_index.c > CMakeFiles/containers.dir/core/containers_index.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_index.c > CMakeFiles/containers.dir/core/containers_index.c.i
 
 containers/CMakeFiles/containers.dir/core/containers_index.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/containers.dir/core/containers_index.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_index.c -o CMakeFiles/containers.dir/core/containers_index.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/core/containers_index.c -o CMakeFiles/containers.dir/core/containers_index.c.s
 
 containers/CMakeFiles/containers.dir/core/containers_index.c.o.requires:
 .PHONY : containers/CMakeFiles/containers.dir/core/containers_index.c.o.requires
@@ -353,17 +353,17 @@ containers/CMakeFiles/containers.dir/core/containers_index.c.o.provides.build: c
 
 containers/CMakeFiles/containers.dir/io/io_file.c.o: containers/CMakeFiles/containers.dir/flags.make
 containers/CMakeFiles/containers.dir/io/io_file.c.o: ../../../containers/io/io_file.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_14)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_14)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object containers/CMakeFiles/containers.dir/io/io_file.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/containers.dir/io/io_file.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/io/io_file.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/containers.dir/io/io_file.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/io/io_file.c
 
 containers/CMakeFiles/containers.dir/io/io_file.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/containers.dir/io/io_file.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/io/io_file.c > CMakeFiles/containers.dir/io/io_file.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/io/io_file.c > CMakeFiles/containers.dir/io/io_file.c.i
 
 containers/CMakeFiles/containers.dir/io/io_file.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/containers.dir/io/io_file.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/io/io_file.c -o CMakeFiles/containers.dir/io/io_file.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/io/io_file.c -o CMakeFiles/containers.dir/io/io_file.c.s
 
 containers/CMakeFiles/containers.dir/io/io_file.c.o.requires:
 .PHONY : containers/CMakeFiles/containers.dir/io/io_file.c.o.requires
@@ -376,17 +376,17 @@ containers/CMakeFiles/containers.dir/io/io_file.c.o.provides.build: containers/C
 
 containers/CMakeFiles/containers.dir/io/io_null.c.o: containers/CMakeFiles/containers.dir/flags.make
 containers/CMakeFiles/containers.dir/io/io_null.c.o: ../../../containers/io/io_null.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_15)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_15)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object containers/CMakeFiles/containers.dir/io/io_null.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/containers.dir/io/io_null.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/io/io_null.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/containers.dir/io/io_null.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/io/io_null.c
 
 containers/CMakeFiles/containers.dir/io/io_null.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/containers.dir/io/io_null.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/io/io_null.c > CMakeFiles/containers.dir/io/io_null.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/io/io_null.c > CMakeFiles/containers.dir/io/io_null.c.i
 
 containers/CMakeFiles/containers.dir/io/io_null.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/containers.dir/io/io_null.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/io/io_null.c -o CMakeFiles/containers.dir/io/io_null.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/io/io_null.c -o CMakeFiles/containers.dir/io/io_null.c.s
 
 containers/CMakeFiles/containers.dir/io/io_null.c.o.requires:
 .PHONY : containers/CMakeFiles/containers.dir/io/io_null.c.o.requires
@@ -399,17 +399,17 @@ containers/CMakeFiles/containers.dir/io/io_null.c.o.provides.build: containers/C
 
 containers/CMakeFiles/containers.dir/io/io_net.c.o: containers/CMakeFiles/containers.dir/flags.make
 containers/CMakeFiles/containers.dir/io/io_net.c.o: ../../../containers/io/io_net.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_16)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_16)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object containers/CMakeFiles/containers.dir/io/io_net.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/containers.dir/io/io_net.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/io/io_net.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/containers.dir/io/io_net.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/io/io_net.c
 
 containers/CMakeFiles/containers.dir/io/io_net.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/containers.dir/io/io_net.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/io/io_net.c > CMakeFiles/containers.dir/io/io_net.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/io/io_net.c > CMakeFiles/containers.dir/io/io_net.c.i
 
 containers/CMakeFiles/containers.dir/io/io_net.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/containers.dir/io/io_net.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/io/io_net.c -o CMakeFiles/containers.dir/io/io_net.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/io/io_net.c -o CMakeFiles/containers.dir/io/io_net.c.s
 
 containers/CMakeFiles/containers.dir/io/io_net.c.o.requires:
 .PHONY : containers/CMakeFiles/containers.dir/io/io_net.c.o.requires
@@ -422,17 +422,17 @@ containers/CMakeFiles/containers.dir/io/io_net.c.o.provides.build: containers/CM
 
 containers/CMakeFiles/containers.dir/io/io_pktfile.c.o: containers/CMakeFiles/containers.dir/flags.make
 containers/CMakeFiles/containers.dir/io/io_pktfile.c.o: ../../../containers/io/io_pktfile.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_17)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_17)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object containers/CMakeFiles/containers.dir/io/io_pktfile.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/containers.dir/io/io_pktfile.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/io/io_pktfile.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/containers.dir/io/io_pktfile.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/io/io_pktfile.c
 
 containers/CMakeFiles/containers.dir/io/io_pktfile.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/containers.dir/io/io_pktfile.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/io/io_pktfile.c > CMakeFiles/containers.dir/io/io_pktfile.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/io/io_pktfile.c > CMakeFiles/containers.dir/io/io_pktfile.c.i
 
 containers/CMakeFiles/containers.dir/io/io_pktfile.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/containers.dir/io/io_pktfile.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/io/io_pktfile.c -o CMakeFiles/containers.dir/io/io_pktfile.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/io/io_pktfile.c -o CMakeFiles/containers.dir/io/io_pktfile.c.s
 
 containers/CMakeFiles/containers.dir/io/io_pktfile.c.o.requires:
 .PHONY : containers/CMakeFiles/containers.dir/io/io_pktfile.c.o.requires
@@ -445,17 +445,17 @@ containers/CMakeFiles/containers.dir/io/io_pktfile.c.o.provides.build: container
 
 containers/CMakeFiles/containers.dir/io/io_http.c.o: containers/CMakeFiles/containers.dir/flags.make
 containers/CMakeFiles/containers.dir/io/io_http.c.o: ../../../containers/io/io_http.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_18)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_18)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object containers/CMakeFiles/containers.dir/io/io_http.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/containers.dir/io/io_http.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/io/io_http.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/containers.dir/io/io_http.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/io/io_http.c
 
 containers/CMakeFiles/containers.dir/io/io_http.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/containers.dir/io/io_http.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/io/io_http.c > CMakeFiles/containers.dir/io/io_http.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/io/io_http.c > CMakeFiles/containers.dir/io/io_http.c.i
 
 containers/CMakeFiles/containers.dir/io/io_http.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/containers.dir/io/io_http.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/io/io_http.c -o CMakeFiles/containers.dir/io/io_http.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/io/io_http.c -o CMakeFiles/containers.dir/io/io_http.c.s
 
 containers/CMakeFiles/containers.dir/io/io_http.c.o.requires:
 .PHONY : containers/CMakeFiles/containers.dir/io/io_http.c.o.requires
@@ -468,17 +468,17 @@ containers/CMakeFiles/containers.dir/io/io_http.c.o.provides.build: containers/C
 
 containers/CMakeFiles/containers.dir/net/net_sockets_common.c.o: containers/CMakeFiles/containers.dir/flags.make
 containers/CMakeFiles/containers.dir/net/net_sockets_common.c.o: ../../../containers/net/net_sockets_common.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_19)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_19)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object containers/CMakeFiles/containers.dir/net/net_sockets_common.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/containers.dir/net/net_sockets_common.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/net/net_sockets_common.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/containers.dir/net/net_sockets_common.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/net/net_sockets_common.c
 
 containers/CMakeFiles/containers.dir/net/net_sockets_common.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/containers.dir/net/net_sockets_common.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/net/net_sockets_common.c > CMakeFiles/containers.dir/net/net_sockets_common.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/net/net_sockets_common.c > CMakeFiles/containers.dir/net/net_sockets_common.c.i
 
 containers/CMakeFiles/containers.dir/net/net_sockets_common.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/containers.dir/net/net_sockets_common.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/net/net_sockets_common.c -o CMakeFiles/containers.dir/net/net_sockets_common.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/net/net_sockets_common.c -o CMakeFiles/containers.dir/net/net_sockets_common.c.s
 
 containers/CMakeFiles/containers.dir/net/net_sockets_common.c.o.requires:
 .PHONY : containers/CMakeFiles/containers.dir/net/net_sockets_common.c.o.requires
@@ -491,17 +491,17 @@ containers/CMakeFiles/containers.dir/net/net_sockets_common.c.o.provides.build: 
 
 containers/CMakeFiles/containers.dir/net/net_sockets_bsd.c.o: containers/CMakeFiles/containers.dir/flags.make
 containers/CMakeFiles/containers.dir/net/net_sockets_bsd.c.o: ../../../containers/net/net_sockets_bsd.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_20)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_20)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object containers/CMakeFiles/containers.dir/net/net_sockets_bsd.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/containers.dir/net/net_sockets_bsd.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/net/net_sockets_bsd.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/containers.dir/net/net_sockets_bsd.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/net/net_sockets_bsd.c
 
 containers/CMakeFiles/containers.dir/net/net_sockets_bsd.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/containers.dir/net/net_sockets_bsd.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/net/net_sockets_bsd.c > CMakeFiles/containers.dir/net/net_sockets_bsd.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/net/net_sockets_bsd.c > CMakeFiles/containers.dir/net/net_sockets_bsd.c.i
 
 containers/CMakeFiles/containers.dir/net/net_sockets_bsd.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/containers.dir/net/net_sockets_bsd.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/net/net_sockets_bsd.c -o CMakeFiles/containers.dir/net/net_sockets_bsd.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/net/net_sockets_bsd.c -o CMakeFiles/containers.dir/net/net_sockets_bsd.c.s
 
 containers/CMakeFiles/containers.dir/net/net_sockets_bsd.c.o.requires:
 .PHONY : containers/CMakeFiles/containers.dir/net/net_sockets_bsd.c.o.requires
@@ -514,17 +514,17 @@ containers/CMakeFiles/containers.dir/net/net_sockets_bsd.c.o.provides.build: con
 
 containers/CMakeFiles/containers.dir/core/packetizers.c.o: containers/CMakeFiles/containers.dir/flags.make
 containers/CMakeFiles/containers.dir/core/packetizers.c.o: ../../../containers/core/packetizers.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_21)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_21)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object containers/CMakeFiles/containers.dir/core/packetizers.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/containers.dir/core/packetizers.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/core/packetizers.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/containers.dir/core/packetizers.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/core/packetizers.c
 
 containers/CMakeFiles/containers.dir/core/packetizers.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/containers.dir/core/packetizers.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/core/packetizers.c > CMakeFiles/containers.dir/core/packetizers.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/core/packetizers.c > CMakeFiles/containers.dir/core/packetizers.c.i
 
 containers/CMakeFiles/containers.dir/core/packetizers.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/containers.dir/core/packetizers.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/core/packetizers.c -o CMakeFiles/containers.dir/core/packetizers.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/core/packetizers.c -o CMakeFiles/containers.dir/core/packetizers.c.s
 
 containers/CMakeFiles/containers.dir/core/packetizers.c.o.requires:
 .PHONY : containers/CMakeFiles/containers.dir/core/packetizers.c.o.requires
@@ -537,17 +537,17 @@ containers/CMakeFiles/containers.dir/core/packetizers.c.o.provides.build: contai
 
 containers/CMakeFiles/containers.dir/mpga/mpga_packetizer.c.o: containers/CMakeFiles/containers.dir/flags.make
 containers/CMakeFiles/containers.dir/mpga/mpga_packetizer.c.o: ../../../containers/mpga/mpga_packetizer.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_22)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_22)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object containers/CMakeFiles/containers.dir/mpga/mpga_packetizer.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/containers.dir/mpga/mpga_packetizer.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/mpga/mpga_packetizer.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/containers.dir/mpga/mpga_packetizer.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/mpga/mpga_packetizer.c
 
 containers/CMakeFiles/containers.dir/mpga/mpga_packetizer.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/containers.dir/mpga/mpga_packetizer.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/mpga/mpga_packetizer.c > CMakeFiles/containers.dir/mpga/mpga_packetizer.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/mpga/mpga_packetizer.c > CMakeFiles/containers.dir/mpga/mpga_packetizer.c.i
 
 containers/CMakeFiles/containers.dir/mpga/mpga_packetizer.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/containers.dir/mpga/mpga_packetizer.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/mpga/mpga_packetizer.c -o CMakeFiles/containers.dir/mpga/mpga_packetizer.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/mpga/mpga_packetizer.c -o CMakeFiles/containers.dir/mpga/mpga_packetizer.c.s
 
 containers/CMakeFiles/containers.dir/mpga/mpga_packetizer.c.o.requires:
 .PHONY : containers/CMakeFiles/containers.dir/mpga/mpga_packetizer.c.o.requires
@@ -560,17 +560,17 @@ containers/CMakeFiles/containers.dir/mpga/mpga_packetizer.c.o.provides.build: co
 
 containers/CMakeFiles/containers.dir/mpgv/mpgv_packetizer.c.o: containers/CMakeFiles/containers.dir/flags.make
 containers/CMakeFiles/containers.dir/mpgv/mpgv_packetizer.c.o: ../../../containers/mpgv/mpgv_packetizer.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_23)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_23)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object containers/CMakeFiles/containers.dir/mpgv/mpgv_packetizer.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/containers.dir/mpgv/mpgv_packetizer.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/mpgv/mpgv_packetizer.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/containers.dir/mpgv/mpgv_packetizer.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/mpgv/mpgv_packetizer.c
 
 containers/CMakeFiles/containers.dir/mpgv/mpgv_packetizer.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/containers.dir/mpgv/mpgv_packetizer.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/mpgv/mpgv_packetizer.c > CMakeFiles/containers.dir/mpgv/mpgv_packetizer.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/mpgv/mpgv_packetizer.c > CMakeFiles/containers.dir/mpgv/mpgv_packetizer.c.i
 
 containers/CMakeFiles/containers.dir/mpgv/mpgv_packetizer.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/containers.dir/mpgv/mpgv_packetizer.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/mpgv/mpgv_packetizer.c -o CMakeFiles/containers.dir/mpgv/mpgv_packetizer.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/mpgv/mpgv_packetizer.c -o CMakeFiles/containers.dir/mpgv/mpgv_packetizer.c.s
 
 containers/CMakeFiles/containers.dir/mpgv/mpgv_packetizer.c.o.requires:
 .PHONY : containers/CMakeFiles/containers.dir/mpgv/mpgv_packetizer.c.o.requires
@@ -583,17 +583,17 @@ containers/CMakeFiles/containers.dir/mpgv/mpgv_packetizer.c.o.provides.build: co
 
 containers/CMakeFiles/containers.dir/pcm/pcm_packetizer.c.o: containers/CMakeFiles/containers.dir/flags.make
 containers/CMakeFiles/containers.dir/pcm/pcm_packetizer.c.o: ../../../containers/pcm/pcm_packetizer.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_24)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_24)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object containers/CMakeFiles/containers.dir/pcm/pcm_packetizer.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/containers.dir/pcm/pcm_packetizer.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/pcm/pcm_packetizer.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/containers.dir/pcm/pcm_packetizer.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/pcm/pcm_packetizer.c
 
 containers/CMakeFiles/containers.dir/pcm/pcm_packetizer.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/containers.dir/pcm/pcm_packetizer.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/pcm/pcm_packetizer.c > CMakeFiles/containers.dir/pcm/pcm_packetizer.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/pcm/pcm_packetizer.c > CMakeFiles/containers.dir/pcm/pcm_packetizer.c.i
 
 containers/CMakeFiles/containers.dir/pcm/pcm_packetizer.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/containers.dir/pcm/pcm_packetizer.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/pcm/pcm_packetizer.c -o CMakeFiles/containers.dir/pcm/pcm_packetizer.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/pcm/pcm_packetizer.c -o CMakeFiles/containers.dir/pcm/pcm_packetizer.c.s
 
 containers/CMakeFiles/containers.dir/pcm/pcm_packetizer.c.o.requires:
 .PHONY : containers/CMakeFiles/containers.dir/pcm/pcm_packetizer.c.o.requires
@@ -606,17 +606,17 @@ containers/CMakeFiles/containers.dir/pcm/pcm_packetizer.c.o.provides.build: cont
 
 containers/CMakeFiles/containers.dir/h264/avc1_packetizer.c.o: containers/CMakeFiles/containers.dir/flags.make
 containers/CMakeFiles/containers.dir/h264/avc1_packetizer.c.o: ../../../containers/h264/avc1_packetizer.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_25)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_25)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object containers/CMakeFiles/containers.dir/h264/avc1_packetizer.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/containers.dir/h264/avc1_packetizer.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/h264/avc1_packetizer.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/containers.dir/h264/avc1_packetizer.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/h264/avc1_packetizer.c
 
 containers/CMakeFiles/containers.dir/h264/avc1_packetizer.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/containers.dir/h264/avc1_packetizer.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/h264/avc1_packetizer.c > CMakeFiles/containers.dir/h264/avc1_packetizer.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/h264/avc1_packetizer.c > CMakeFiles/containers.dir/h264/avc1_packetizer.c.i
 
 containers/CMakeFiles/containers.dir/h264/avc1_packetizer.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/containers.dir/h264/avc1_packetizer.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/h264/avc1_packetizer.c -o CMakeFiles/containers.dir/h264/avc1_packetizer.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/h264/avc1_packetizer.c -o CMakeFiles/containers.dir/h264/avc1_packetizer.c.s
 
 containers/CMakeFiles/containers.dir/h264/avc1_packetizer.c.o.requires:
 .PHONY : containers/CMakeFiles/containers.dir/h264/avc1_packetizer.c.o.requires
@@ -687,7 +687,7 @@ containers_EXTERNAL_OBJECTS =
 ../../lib/libcontainers.so: ../../lib/libvcos.so
 ../../lib/libcontainers.so: containers/CMakeFiles/containers.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking C shared library ../../../lib/libcontainers.so"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/containers.dir/link.txt --verbose=$(VERBOSE)
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/containers.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 containers/CMakeFiles/containers.dir/build: ../../lib/libcontainers.so
@@ -721,10 +721,10 @@ containers/CMakeFiles/containers.dir/requires: containers/CMakeFiles/containers.
 .PHONY : containers/CMakeFiles/containers.dir/requires
 
 containers/CMakeFiles/containers.dir/clean:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && $(CMAKE_COMMAND) -P CMakeFiles/containers.dir/cmake_clean.cmake
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers && $(CMAKE_COMMAND) -P CMakeFiles/containers.dir/cmake_clean.cmake
 .PHONY : containers/CMakeFiles/containers.dir/clean
 
 containers/CMakeFiles/containers.dir/depend:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers/CMakeFiles/containers.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers/CMakeFiles/containers.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : containers/CMakeFiles/containers.dir/depend
 

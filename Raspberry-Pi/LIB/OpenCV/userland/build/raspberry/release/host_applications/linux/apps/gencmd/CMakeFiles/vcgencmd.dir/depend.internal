@@ -53,4 +53,4 @@ host_applications/linux/apps/gencmd/CMakeFiles/vcgencmd.dir/gencmd.c.o
  ../../inc/interface/vcos/vcos_timer.h
  ../../inc/interface/vcos/vcos_tls.h
  ../../inc/interface/vcos/vcos_types.h
- /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/gencmd/gencmd.c
+ /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/gencmd/gencmd.c

@@ -414,7 +414,7 @@ vcos_platform_types.h
 interface/vcos/vcos_attr.h
 ../../inc/interface/vcos/interface/vcos/vcos_attr.h
 
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/tvservice/tvservice.c
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/tvservice/tvservice.c
 stdio.h
 -
 stdlib.h
@@ -432,5 +432,5 @@ assert.h
 string.h
 -
 interface/vmcs_host/vc_tvservice.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/tvservice/interface/vmcs_host/vc_tvservice.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/tvservice/interface/vmcs_host/vc_tvservice.h
 

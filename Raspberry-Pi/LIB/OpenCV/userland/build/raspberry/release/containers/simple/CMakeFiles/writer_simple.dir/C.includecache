@@ -478,9 +478,9 @@ vcos_platform_types.h
 interface/vcos/vcos_attr.h
 ../../inc/interface/vcos/interface/vcos/vcos_attr.h
 
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/simple/simple_common.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/simple/simple_common.h
 
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/simple/simple_writer.c
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/simple/simple_writer.c
 stdio.h
 -
 stdlib.h
@@ -490,13 +490,13 @@ stdarg.h
 string.h
 -
 containers/core/containers_private.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/simple/containers/core/containers_private.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/simple/containers/core/containers_private.h
 containers/core/containers_io_helpers.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/simple/containers/core/containers_io_helpers.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/simple/containers/core/containers_io_helpers.h
 containers/core/containers_utils.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/simple/containers/core/containers_utils.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/simple/containers/core/containers_utils.h
 containers/core/containers_logging.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/simple/containers/core/containers_logging.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/simple/containers/core/containers_logging.h
 simple_common.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/simple/simple_common.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/simple/simple_common.h
 

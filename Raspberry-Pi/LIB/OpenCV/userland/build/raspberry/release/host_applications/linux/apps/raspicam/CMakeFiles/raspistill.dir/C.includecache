@@ -764,7 +764,7 @@ vcos_platform_types.h
 interface/vcos/vcos_attr.h
 ../../inc/interface/vcos/interface/vcos/vcos_attr.h
 
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiCLI.c
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiCLI.c
 stdio.h
 -
 stdlib.h
@@ -774,13 +774,13 @@ string.h
 memory.h
 -
 interface/vcos/vcos.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/vcos/vcos.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/vcos/vcos.h
 RaspiCLI.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiCLI.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiCLI.h
 
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiCLI.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiCLI.h
 
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiCamControl.c
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiCamControl.c
 stdio.h
 -
 memory.h
@@ -788,27 +788,27 @@ memory.h
 ctype.h
 -
 interface/vcos/vcos.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/vcos/vcos.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/vcos/vcos.h
 interface/vmcs_host/vc_vchi_gencmd.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/vmcs_host/vc_vchi_gencmd.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/vmcs_host/vc_vchi_gencmd.h
 interface/mmal/mmal.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/mmal/mmal.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/mmal/mmal.h
 interface/mmal/mmal_logging.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/mmal/mmal_logging.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/mmal/mmal_logging.h
 interface/mmal/util/mmal_util.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/mmal/util/mmal_util.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/mmal/util/mmal_util.h
 interface/mmal/util/mmal_util_params.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/mmal/util/mmal_util_params.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/mmal/util/mmal_util_params.h
 interface/mmal/util/mmal_default_components.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/mmal/util/mmal_default_components.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/mmal/util/mmal_default_components.h
 RaspiCamControl.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiCamControl.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiCamControl.h
 RaspiCLI.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiCLI.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiCLI.h
 
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiCamControl.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiCamControl.h
 
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiPreview.c
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiPreview.c
 stdio.h
 -
 stdlib.h
@@ -818,29 +818,29 @@ string.h
 memory.h
 -
 interface/vcos/vcos.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/vcos/vcos.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/vcos/vcos.h
 interface/mmal/mmal.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/mmal/mmal.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/mmal/mmal.h
 interface/mmal/mmal_logging.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/mmal/mmal_logging.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/mmal/mmal_logging.h
 interface/mmal/mmal_buffer.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/mmal/mmal_buffer.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/mmal/mmal_buffer.h
 interface/mmal/util/mmal_util.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/mmal/util/mmal_util.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/mmal/util/mmal_util.h
 interface/mmal/util/mmal_util_params.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/mmal/util/mmal_util_params.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/mmal/util/mmal_util_params.h
 interface/mmal/util/mmal_default_components.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/mmal/util/mmal_default_components.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/mmal/util/mmal_default_components.h
 interface/mmal/util/mmal_connection.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/mmal/util/mmal_connection.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/mmal/util/mmal_connection.h
 RaspiPreview.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiPreview.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiPreview.h
 RaspiCLI.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiCLI.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiCLI.h
 
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiPreview.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiPreview.h
 
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiStill.c
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiStill.c
 stdio.h
 -
 stdlib.h
@@ -856,39 +856,39 @@ errno.h
 sysexits.h
 -
 bcm_host.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/bcm_host.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/bcm_host.h
 interface/vcos/vcos.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/vcos/vcos.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/vcos/vcos.h
 interface/mmal/mmal.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/mmal/mmal.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/mmal/mmal.h
 interface/mmal/mmal_logging.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/mmal/mmal_logging.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/mmal/mmal_logging.h
 interface/mmal/mmal_buffer.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/mmal/mmal_buffer.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/mmal/mmal_buffer.h
 interface/mmal/util/mmal_util.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/mmal/util/mmal_util.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/mmal/util/mmal_util.h
 interface/mmal/util/mmal_util_params.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/mmal/util/mmal_util_params.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/mmal/util/mmal_util_params.h
 interface/mmal/util/mmal_default_components.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/mmal/util/mmal_default_components.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/mmal/util/mmal_default_components.h
 interface/mmal/util/mmal_connection.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/mmal/util/mmal_connection.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/mmal/util/mmal_connection.h
 RaspiCamControl.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiCamControl.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiCamControl.h
 RaspiPreview.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiPreview.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiPreview.h
 RaspiCLI.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiCLI.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiCLI.h
 RaspiTex.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiTex.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiTex.h
 semaphore.h
 -
 
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiTex.c
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiTex.c
 RaspiTex.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiTex.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiTex.h
 RaspiCLI.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiCLI.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiCLI.h
 math.h
 -
 stdio.h
@@ -908,29 +908,29 @@ GLES/gl.h
 GLES/glext.h
 -
 RaspiTexUtil.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiTexUtil.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiTexUtil.h
 interface/vcos/vcos.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/vcos/vcos.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/vcos/vcos.h
 interface/mmal/mmal_buffer.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/mmal/mmal_buffer.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/mmal/mmal_buffer.h
 interface/mmal/util/mmal_util.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/mmal/util/mmal_util.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/mmal/util/mmal_util.h
 interface/mmal/util/mmal_util_params.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/mmal/util/mmal_util_params.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/mmal/util/mmal_util_params.h
 tga.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/tga.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/tga.h
 gl_scenes/mirror.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/mirror.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/mirror.h
 gl_scenes/sobel.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/sobel.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/sobel.h
 gl_scenes/square.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/square.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/square.h
 gl_scenes/teapot.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/teapot.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/teapot.h
 gl_scenes/yuv.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/yuv.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/yuv.h
 
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiTex.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiTex.h
 stdio.h
 -
 EGL/egl.h
@@ -942,21 +942,21 @@ GLES/gl.h
 GLES/glext.h
 -
 interface/khronos/include/EGL/eglext_brcm.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/khronos/include/EGL/eglext_brcm.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/khronos/include/EGL/eglext_brcm.h
 interface/mmal/mmal.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/mmal/mmal.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/mmal/mmal.h
 
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiTexUtil.c
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiTexUtil.c
 RaspiTexUtil.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiTexUtil.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiTexUtil.h
 RaspiTex.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiTex.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiTex.h
 bcm_host.h
 -
 GLES2/gl2.h
 -
 
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiTexUtil.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiTexUtil.h
 math.h
 -
 stdio.h
@@ -970,19 +970,19 @@ EGL/egl.h
 EGL/eglext.h
 -
 RaspiTex.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiTex.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/RaspiTex.h
 interface/vcos/vcos.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/vcos/vcos.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/interface/vcos/vcos.h
 
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/cube_texture_and_coords.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/cube_texture_and_coords.h
 
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/mirror.c
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/mirror.c
 mirror.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/mirror.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/mirror.h
 RaspiTex.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/RaspiTex.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/RaspiTex.h
 RaspiTexUtil.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/RaspiTexUtil.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/RaspiTexUtil.h
 GLES2/gl2.h
 -
 EGL/egl.h
@@ -990,11 +990,11 @@ EGL/egl.h
 EGL/eglext.h
 -
 
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/mirror.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/mirror.h
 RaspiTex.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/RaspiTex.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/RaspiTex.h
 
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/models.c
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/models.c
 math.h
 -
 stdio.h
@@ -1002,25 +1002,25 @@ stdio.h
 stdint.h
 -
 GLES/gl.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/GLES/gl.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/GLES/gl.h
 GLES/glext.h
 -
 EGL/egl.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/EGL/egl.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/EGL/egl.h
 EGL/eglext.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/EGL/eglext.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/EGL/eglext.h
 models.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/models.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/models.h
 
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/models.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/models.h
 
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/sobel.c
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/sobel.c
 sobel.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/sobel.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/sobel.h
 RaspiTex.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/RaspiTex.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/RaspiTex.h
 RaspiTexUtil.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/RaspiTexUtil.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/RaspiTexUtil.h
 GLES2/gl2.h
 -
 EGL/egl.h
@@ -1028,11 +1028,11 @@ EGL/egl.h
 EGL/eglext.h
 -
 
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/sobel.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/sobel.h
 RaspiTex.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/RaspiTex.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/RaspiTex.h
 
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/square.c
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/square.c
 GLES/gl.h
 -
 GLES/glext.h
@@ -1042,13 +1042,13 @@ EGL/egl.h
 EGL/eglext.h
 -
 RaspiTexUtil.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/RaspiTexUtil.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/RaspiTexUtil.h
 
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/square.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/square.h
 RaspiTex.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/RaspiTex.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/RaspiTex.h
 
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/teapot.c
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/teapot.c
 stdio.h
 -
 stdlib.h
@@ -1068,27 +1068,27 @@ EGL/egl.h
 EGL/eglext.h
 -
 cube_texture_and_coords.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/cube_texture_and_coords.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/cube_texture_and_coords.h
 models.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/models.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/models.h
 teapot.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/teapot.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/teapot.h
 RaspiTex.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/RaspiTex.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/RaspiTex.h
 RaspiTexUtil.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/RaspiTexUtil.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/RaspiTexUtil.h
 
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/teapot.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/teapot.h
 RaspiTex.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/RaspiTex.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/RaspiTex.h
 
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/yuv.c
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/yuv.c
 yuv.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/yuv.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/yuv.h
 RaspiTex.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/RaspiTex.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/RaspiTex.h
 RaspiTexUtil.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/RaspiTexUtil.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/RaspiTexUtil.h
 GLES2/gl2.h
 -
 EGL/egl.h
@@ -1096,17 +1096,17 @@ EGL/egl.h
 EGL/eglext.h
 -
 
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/yuv.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/yuv.h
 RaspiTex.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/RaspiTex.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/gl_scenes/RaspiTex.h
 
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/tga.c
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/tga.c
 tga.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/tga.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/tga.h
 string.h
 -
 
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/tga.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/raspicam/tga.h
 stdlib.h
 -
 stdio.h
