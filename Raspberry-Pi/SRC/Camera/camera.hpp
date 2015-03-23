@@ -14,7 +14,7 @@ public:
 
   RaspiCamCvCapture *cap;				// For Capture
   IplImage *img;					// For OpenCV Image
-
+ 
 private:
   RASPIVID_CONFIG *config;				//For Settings of Raspberry Pi Camera
   int width;						// width of camera image
