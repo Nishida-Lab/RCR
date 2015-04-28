@@ -49,6 +49,9 @@ add_subdirectory(Camera)
 
 # Mainビルド
 add_executable (main main.cpp)
+
+# 出力先の設定
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ../) 
 # ターゲットリンクライブラリ
 target_link_libraries(main Camera ${OpenCV_LIBS} ${RASPI_OPENCV_LIBS} wiringPi pthread m)
 
