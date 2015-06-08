@@ -50,6 +50,7 @@ set( RASPI_OPENCV_LIBS
 project(RCR)
 # 静的リンクライブラリの追加
 add_subdirectory(Camera)
+add_subdirectory(PipeStream)
 
 # Mainビルド
 add_executable (main main.cpp)
@@ -57,5 +58,5 @@ add_executable (main main.cpp)
 # 出力先の設定
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ../) 
 # ターゲットリンクライブラリ
-target_link_libraries(main Camera ${OpenCV_LIBS} ${RASPI_OPENCV_LIBS} wiringPi pthread m)
+target_link_libraries(main Camera PipeStream ${OpenCV_LIBS} ${RASPI_OPENCV_LIBS} wiringPi pthread m)
 
