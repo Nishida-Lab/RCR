@@ -27,12 +27,11 @@ int main()
   // --------------------------------
 
   Motor motor;  
-  motor.Drive(1.23, 0);
+  motor.Drive(0.738, 0);
   sleep(5);
   motor.Drive(0,0);
   motor.Drive(-1.23, 0);
   sleep(5);
-  motor.Drive(0,0);
 
   return 0 ;
 }
