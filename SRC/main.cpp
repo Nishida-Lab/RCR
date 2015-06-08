@@ -7,15 +7,6 @@ using namespace std;
 int main()
 {
   // --------------------------------
-  // WiringPi Test Section
-  // --------------------------------
-  // wiringPiSetup();
-  // pinMode(0, OUTPUT);
-  // digitalWrite(0, HIGH); 
-  // delay(500);
-  // --------------------------------
-
-  // --------------------------------
   // Camera Section 
   // (It has infinity loop)
   // --------------------------------
@@ -27,10 +18,11 @@ int main()
   // --------------------------------
 
   Motor motor;  
-  motor.Drive(0.738, 0);
+  motor.Drive(1.33, -0.410);
   sleep(5);
   motor.Drive(0,0);
-  motor.Drive(-1.23, 0);
+  sleep(1);
+  motor.Drive(-2.22, 0.410);
   sleep(5);
 
   return 0 ;
