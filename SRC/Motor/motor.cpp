@@ -1,4 +1,14 @@
+#include <wiringPi.h>
+#include <iostream>
+#include <cmath>
+#include <stdexcept>
+
 #include "motor.hpp"
+#include "./PipeStream/pipestream.hpp"
+
+using namespace servo_pipe;
+
+ps::pipestream servo_pout;
 
 Motor::Motor() :
   rear_pwm_pin(1),
@@ -31,8 +41,7 @@ Motor::Motor() :
   // -----------------------------------------------------------
   // 詳しくは、Servoblastで検索すること。
   // -----------------------------------------------------------
-  servo_pout.open(servo_pipe.c_str());
-  if(!servo_pout)
+  if(!servo_pout.open(servo_pipe.c_str()))
     throw runtime_error("Motor constractor : faild to open servoblast");
   
   servo_space_ang = servo_max_ang - servo_min_ang;
@@ -70,7 +79,7 @@ void Motor::Drive_Front(float angular)
 
   servo_input = servo_max_rate - (((servo_max_ang-angular)/servo_space_ang)*servo_space_rate);
   
-  servo_pout << "0=" << servo_input << "%" << endl;
+  servo_pout << "0=" << servo_input << "%";
 
   cout << servo_input << endl;
 }
