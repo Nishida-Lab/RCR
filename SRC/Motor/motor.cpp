@@ -86,9 +86,6 @@ void Motor::Drive_Front(float angular)
 {
   float pwm_input = servo_left_rate + ( (servo_left_ang - angular)/servo_space_ang * servo_space_rate );
 
-  cout << angular << endl;
-  cout << pwm_input << endl;
-
   pwmWrite(servo_pin, pwm_input);
 }
 
