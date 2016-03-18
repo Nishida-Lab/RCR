@@ -1,4 +1,4 @@
 *tar.gz
 SRC/build/
-build*/
+*build*/
 main
