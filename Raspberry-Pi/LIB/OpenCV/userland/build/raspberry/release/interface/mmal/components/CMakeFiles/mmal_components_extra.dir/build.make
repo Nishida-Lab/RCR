@@ -38,10 +38,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/cmake-gui
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland
+CMAKE_SOURCE_DIR = /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release
+CMAKE_BINARY_DIR = /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release
 
 # Utility rule file for mmal_components_extra.
 
@@ -49,7 +49,7 @@ CMAKE_BINARY_DIR = /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspb
 include interface/mmal/components/CMakeFiles/mmal_components_extra.dir/progress.make
 
 interface/mmal/components/CMakeFiles/mmal_components_extra:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components && touch avcodec_video_decoder.c avcodec_audio_decoder.c sdl_video_render.c sdl_audio_render.c aaf_audio_render.cpp android_media_codec.cpp
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components && touch avcodec_video_decoder.c avcodec_audio_decoder.c sdl_video_render.c sdl_audio_render.c aaf_audio_render.cpp android_media_codec.cpp
 
 mmal_components_extra: interface/mmal/components/CMakeFiles/mmal_components_extra
 mmal_components_extra: interface/mmal/components/CMakeFiles/mmal_components_extra.dir/build.make
@@ -60,10 +60,10 @@ interface/mmal/components/CMakeFiles/mmal_components_extra.dir/build: mmal_compo
 .PHONY : interface/mmal/components/CMakeFiles/mmal_components_extra.dir/build
 
 interface/mmal/components/CMakeFiles/mmal_components_extra.dir/clean:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && $(CMAKE_COMMAND) -P CMakeFiles/mmal_components_extra.dir/cmake_clean.cmake
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components && $(CMAKE_COMMAND) -P CMakeFiles/mmal_components_extra.dir/cmake_clean.cmake
 .PHONY : interface/mmal/components/CMakeFiles/mmal_components_extra.dir/clean
 
 interface/mmal/components/CMakeFiles/mmal_components_extra.dir/depend:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components/CMakeFiles/mmal_components_extra.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components/CMakeFiles/mmal_components_extra.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : interface/mmal/components/CMakeFiles/mmal_components_extra.dir/depend
 

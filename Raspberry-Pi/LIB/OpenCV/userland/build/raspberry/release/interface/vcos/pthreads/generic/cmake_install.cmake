@@ -1,4 +1,4 @@
-# Install script for directory: /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/generic
+# Install script for directory: /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/generic
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,18 +34,18 @@ ENDIF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/interface/vcos/generic" TYPE FILE FILES
-    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/generic/vcos_common.h"
-    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/generic/vcos_generic_blockpool.h"
-    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/generic/vcos_generic_event_flags.h"
-    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/generic/vcos_generic_named_sem.h"
-    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/generic/vcos_generic_quickslow_mutex.h"
-    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/generic/vcos_generic_reentrant_mtx.h"
-    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/generic/vcos_generic_tls.h"
-    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/generic/vcos_joinable_thread_from_plain.h"
-    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/generic/vcos_latch_from_sem.h"
-    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/generic/vcos_mem_from_malloc.h"
-    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/generic/vcos_mutexes_are_reentrant.h"
-    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/generic/vcos_thread_reaper.h"
+    "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/generic/vcos_common.h"
+    "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/generic/vcos_generic_blockpool.h"
+    "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/generic/vcos_generic_event_flags.h"
+    "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/generic/vcos_generic_named_sem.h"
+    "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/generic/vcos_generic_quickslow_mutex.h"
+    "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/generic/vcos_generic_reentrant_mtx.h"
+    "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/generic/vcos_generic_tls.h"
+    "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/generic/vcos_joinable_thread_from_plain.h"
+    "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/generic/vcos_latch_from_sem.h"
+    "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/generic/vcos_mem_from_malloc.h"
+    "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/generic/vcos_mutexes_are_reentrant.h"
+    "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos/generic/vcos_thread_reaper.h"
     )
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 

@@ -81,7 +81,7 @@ interface/khronos/CMakeFiles/WFC.dir/common/openwfc/khrn_client_platform_openwfc
  ../../inc/interface/vcos/vcos_timer.h
  ../../inc/interface/vcos/vcos_tls.h
  ../../inc/interface/vcos/vcos_types.h
- /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos/common/openwfc/khrn_client_platform_openwfc.c
+ /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos/common/openwfc/khrn_client_platform_openwfc.c
 interface/khronos/CMakeFiles/WFC.dir/wf/wfc_client.c.o
  ../../../helpers/v3d/v3d_ver.h
  ../../../interface/khronos/common/khrn_client_mangle.h
@@ -154,7 +154,7 @@ interface/khronos/CMakeFiles/WFC.dir/wf/wfc_client.c.o
  ../../inc/interface/vcos/vcos_timer.h
  ../../inc/interface/vcos/vcos_tls.h
  ../../inc/interface/vcos/vcos_types.h
- /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos/wf/wfc_client.c
+ /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos/wf/wfc_client.c
 interface/khronos/CMakeFiles/WFC.dir/wf/wfc_client_ipc.c.o
  ../../../interface/khronos/common/khrn_client_mangle.h
  ../../../interface/khronos/include/EGL/eglext.h
@@ -229,7 +229,7 @@ interface/khronos/CMakeFiles/WFC.dir/wf/wfc_client_ipc.c.o
  ../../inc/interface/vcos/vcos_timer.h
  ../../inc/interface/vcos/vcos_tls.h
  ../../inc/interface/vcos/vcos_types.h
- /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos/wf/wfc_client_ipc.c
+ /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos/wf/wfc_client_ipc.c
 interface/khronos/CMakeFiles/WFC.dir/wf/wfc_client_server_api.c.o
  ../../../interface/khronos/common/khrn_client_mangle.h
  ../../../interface/khronos/include/EGL/eglext.h
@@ -301,7 +301,7 @@ interface/khronos/CMakeFiles/WFC.dir/wf/wfc_client_server_api.c.o
  ../../inc/interface/vcos/vcos_timer.h
  ../../inc/interface/vcos/vcos_tls.h
  ../../inc/interface/vcos/vcos_types.h
- /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos/wf/wfc_client_server_api.c
+ /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos/wf/wfc_client_server_api.c
 interface/khronos/CMakeFiles/WFC.dir/wf/wfc_client_stream.c.o
  ../../../helpers/v3d/v3d_ver.h
  ../../../helpers/vc_image/metadata_fourcc.h
@@ -440,4 +440,4 @@ interface/khronos/CMakeFiles/WFC.dir/wf/wfc_client_stream.c.o
  ../../inc/interface/vcos/vcos_timer.h
  ../../inc/interface/vcos/vcos_tls.h
  ../../inc/interface/vcos/vcos_types.h
- /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos/wf/wfc_client_stream.c
+ /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos/wf/wfc_client_stream.c

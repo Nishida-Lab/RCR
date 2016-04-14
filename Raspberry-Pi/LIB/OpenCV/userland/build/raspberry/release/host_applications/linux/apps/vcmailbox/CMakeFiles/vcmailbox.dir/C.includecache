@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/vcmailbox/vcmailbox.c
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/vcmailbox/vcmailbox.c
 stdio.h
 -
 string.h

@@ -456,15 +456,15 @@ vcos_platform_types.h
 interface/vcos/vcos_attr.h
 ../../inc/interface/vcos/interface/vcos/vcos_attr.h
 
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/test/examples/example_basic_2.c
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/test/examples/example_basic_2.c
 mmal.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/test/examples/mmal.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/test/examples/mmal.h
 util/mmal_default_components.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/test/examples/util/mmal_default_components.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/test/examples/util/mmal_default_components.h
 util/mmal_util_params.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/test/examples/util/mmal_util_params.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/test/examples/util/mmal_util_params.h
 interface/vcos/vcos.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/test/examples/interface/vcos/vcos.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/test/examples/interface/vcos/vcos.h
 stdio.h
 -
 

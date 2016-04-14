@@ -51,4 +51,4 @@ containers/test/CMakeFiles/containers_test_bits.dir/test_bits.c.o
  ../../inc/interface/vcos/vcos_timer.h
  ../../inc/interface/vcos/vcos_tls.h
  ../../inc/interface/vcos/vcos_types.h
- /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/test/test_bits.c
+ /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/containers/test/test_bits.c

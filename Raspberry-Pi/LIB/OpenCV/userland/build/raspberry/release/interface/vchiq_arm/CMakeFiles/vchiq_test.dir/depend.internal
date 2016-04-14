@@ -57,7 +57,7 @@ interface/vchiq_arm/CMakeFiles/vchiq_test.dir/vchiq_test.c.o
  ../../inc/interface/vcos/vcos_timer.h
  ../../inc/interface/vcos/vcos_tls.h
  ../../inc/interface/vcos/vcos_types.h
- /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vchiq_arm/vchiq.h
- /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vchiq_arm/vchiq_test.c
- /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vchiq_arm/vchiq_test.h
- /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vchiq_arm/vchiq_test_if.h
+ /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/vchiq_arm/vchiq.h
+ /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/vchiq_arm/vchiq_test.c
+ /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/vchiq_arm/vchiq_test.h
+ /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/vchiq_arm/vchiq_test_if.h

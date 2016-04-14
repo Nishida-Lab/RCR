@@ -1,4 +1,4 @@
-# Install script for directory: /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland
+# Install script for directory: /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -41,7 +41,7 @@ IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
   IF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-FILE(INSTALL DESTINATION "/opt/vc/src" TYPE DIRECTORY FILES "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/hello_pi")
+FILE(INSTALL DESTINATION "/opt/vc/src" TYPE DIRECTORY FILES "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/hello_pi")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
@@ -53,7 +53,7 @@ IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
   IF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-FILE(INSTALL DESTINATION "/opt/vc/include/interface" TYPE DIRECTORY FILES "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos" FILES_MATCHING REGEX "/[^/]*\\.h$")
+FILE(INSTALL DESTINATION "/opt/vc/include/interface" TYPE DIRECTORY FILES "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/vcos" FILES_MATCHING REGEX "/[^/]*\\.h$")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
@@ -65,7 +65,7 @@ IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
   IF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-FILE(INSTALL DESTINATION "/opt/vc/include/interface" TYPE DIRECTORY FILES "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vchiq_arm" FILES_MATCHING REGEX "/[^/]*\\.h$")
+FILE(INSTALL DESTINATION "/opt/vc/include/interface" TYPE DIRECTORY FILES "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/vchiq_arm" FILES_MATCHING REGEX "/[^/]*\\.h$")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
@@ -77,7 +77,7 @@ IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
   IF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-FILE(INSTALL DESTINATION "/opt/vc/include/interface" TYPE DIRECTORY FILES "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vchi" FILES_MATCHING REGEX "/[^/]*\\.h$")
+FILE(INSTALL DESTINATION "/opt/vc/include/interface" TYPE DIRECTORY FILES "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/vchi" FILES_MATCHING REGEX "/[^/]*\\.h$")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
@@ -89,7 +89,7 @@ IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
   IF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-FILE(INSTALL DESTINATION "/opt/vc/include/interface" TYPE DIRECTORY FILES "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vctypes" FILES_MATCHING REGEX "/[^/]*\\.h$")
+FILE(INSTALL DESTINATION "/opt/vc/include/interface" TYPE DIRECTORY FILES "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/vctypes" FILES_MATCHING REGEX "/[^/]*\\.h$")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
@@ -101,7 +101,7 @@ IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
   IF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-FILE(INSTALL DESTINATION "/opt/vc/include" TYPE DIRECTORY FILES "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/vcinclude" FILES_MATCHING REGEX "/[^/]*\\.h$")
+FILE(INSTALL DESTINATION "/opt/vc/include" TYPE DIRECTORY FILES "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/vcinclude" FILES_MATCHING REGEX "/[^/]*\\.h$")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
@@ -113,7 +113,7 @@ IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
   IF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-FILE(INSTALL DESTINATION "/opt/vc/include/interface" TYPE DIRECTORY FILES "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vmcs_host" FILES_MATCHING REGEX "/[^/]*\\.h$" REGEX "/\\/home\\/pi\\/RCR2015\\/Raspberry\\-Pi\\/LIB\\/OpenCV\\/userland\\/interface\\/vmcs\\_host\\/khronos$" EXCLUDE)
+FILE(INSTALL DESTINATION "/opt/vc/include/interface" TYPE DIRECTORY FILES "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/vmcs_host" FILES_MATCHING REGEX "/[^/]*\\.h$" REGEX "/\\/home\\/pi\\/RCR\\/Raspberry\\-Pi\\/LIB\\/OpenCV\\/userland\\/interface\\/vmcs\\_host\\/khronos$" EXCLUDE)
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
@@ -125,7 +125,7 @@ IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
   IF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-FILE(INSTALL DESTINATION "/opt/vc" TYPE DIRECTORY FILES "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos/include" FILES_MATCHING REGEX "/[^/]*\\.h$")
+FILE(INSTALL DESTINATION "/opt/vc" TYPE DIRECTORY FILES "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos/include" FILES_MATCHING REGEX "/[^/]*\\.h$")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
@@ -137,7 +137,7 @@ IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
   IF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-FILE(INSTALL DESTINATION "/opt/vc/include" TYPE DIRECTORY FILES "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vmcs_host/khronos/IL" FILES_MATCHING REGEX "/[^/]*\\.h$")
+FILE(INSTALL DESTINATION "/opt/vc/include" TYPE DIRECTORY FILES "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/vmcs_host/khronos/IL" FILES_MATCHING REGEX "/[^/]*\\.h$")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
@@ -149,21 +149,21 @@ IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
   IF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-FILE(INSTALL DESTINATION "/opt/vc" TYPE DIRECTORY FILES "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/libs/bcm_host/include" FILES_MATCHING REGEX "/[^/]*\\.h$")
+FILE(INSTALL DESTINATION "/opt/vc" TYPE DIRECTORY FILES "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/libs/bcm_host/include" FILES_MATCHING REGEX "/[^/]*\\.h$")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  INCLUDE("/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/vcos/cmake_install.cmake")
-  INCLUDE("/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/vmcs_host/cmake_install.cmake")
-  INCLUDE("/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/vchiq_arm/cmake_install.cmake")
-  INCLUDE("/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/khronos/cmake_install.cmake")
-  INCLUDE("/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/cmake_install.cmake")
-  INCLUDE("/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers/cmake_install.cmake")
-  INCLUDE("/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/android/apps/vidtex/cmake_install.cmake")
-  INCLUDE("/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/middleware/openmaxil/cmake_install.cmake")
-  INCLUDE("/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/usbdk/cmake_install.cmake")
-  INCLUDE("/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/cmake_install.cmake")
+  INCLUDE("/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/vcos/cmake_install.cmake")
+  INCLUDE("/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/vmcs_host/cmake_install.cmake")
+  INCLUDE("/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/vchiq_arm/cmake_install.cmake")
+  INCLUDE("/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/khronos/cmake_install.cmake")
+  INCLUDE("/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/cmake_install.cmake")
+  INCLUDE("/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers/cmake_install.cmake")
+  INCLUDE("/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/android/apps/vidtex/cmake_install.cmake")
+  INCLUDE("/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/middleware/openmaxil/cmake_install.cmake")
+  INCLUDE("/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/usbdk/cmake_install.cmake")
+  INCLUDE("/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/cmake_install.cmake")
 
 ENDIF(NOT CMAKE_INSTALL_LOCAL_ONLY)
 
@@ -173,7 +173,7 @@ ELSE(CMAKE_INSTALL_COMPONENT)
   SET(CMAKE_INSTALL_MANIFEST "install_manifest.txt")
 ENDIF(CMAKE_INSTALL_COMPONENT)
 
-FILE(WRITE "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/${CMAKE_INSTALL_MANIFEST}" "")
+FILE(WRITE "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/${CMAKE_INSTALL_MANIFEST}" "")
 FOREACH(file ${CMAKE_INSTALL_MANIFEST_FILES})
-  FILE(APPEND "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
+  FILE(APPEND "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
 ENDFOREACH(file)

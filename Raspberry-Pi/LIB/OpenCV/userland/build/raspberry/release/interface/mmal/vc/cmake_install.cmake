@@ -1,4 +1,4 @@
-# Install script for directory: /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/vc
+# Install script for directory: /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/vc
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,7 +39,7 @@ IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/mmal_vc_diag"
          RPATH "")
   ENDIF()
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/bin/mmal_vc_diag")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/bin/mmal_vc_diag")
   IF(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/mmal_vc_diag" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/mmal_vc_diag")
     FILE(RPATH_REMOVE
@@ -57,7 +57,7 @@ IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmmal_vc_client.so"
          RPATH "")
   ENDIF()
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/lib/libmmal_vc_client.so")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/lib/libmmal_vc_client.so")
   IF(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmmal_vc_client.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmmal_vc_client.so")
     FILE(RPATH_REMOVE
@@ -70,13 +70,13 @@ ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unsp
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/interface/mmal/vc" TYPE FILE FILES
-    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/vc/mmal_vc_api.h"
-    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/vc/mmal_vc_api_drm.h"
-    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/vc/mmal_vc_client_priv.h"
-    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/vc/mmal_vc_msgnames.h"
-    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/vc/mmal_vc_msgs.h"
-    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/vc/mmal_vc_opaque_alloc.h"
-    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/vc/mmal_vc_shm.h"
+    "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/vc/mmal_vc_api.h"
+    "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/vc/mmal_vc_api_drm.h"
+    "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/vc/mmal_vc_client_priv.h"
+    "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/vc/mmal_vc_msgnames.h"
+    "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/vc/mmal_vc_msgs.h"
+    "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/vc/mmal_vc_opaque_alloc.h"
+    "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/vc/mmal_vc_shm.h"
     )
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 

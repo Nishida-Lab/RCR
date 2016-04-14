@@ -38,10 +38,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/cmake-gui
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland
+CMAKE_SOURCE_DIR = /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release
+CMAKE_BINARY_DIR = /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release
 
 # Include any dependencies generated for this target.
 include host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/depend.make
@@ -54,17 +54,17 @@ include host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/flags.make
 
 host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/bcm_host.c.o: host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/flags.make
 host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/bcm_host.c.o: ../../../host_applications/linux/libs/bcm_host/bcm_host.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/bcm_host.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/libs/bcm_host && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/bcm_host.dir/bcm_host.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/libs/bcm_host/bcm_host.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/libs/bcm_host && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/bcm_host.dir/bcm_host.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/libs/bcm_host/bcm_host.c
 
 host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/bcm_host.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/bcm_host.dir/bcm_host.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/libs/bcm_host && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/libs/bcm_host/bcm_host.c > CMakeFiles/bcm_host.dir/bcm_host.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/libs/bcm_host && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/libs/bcm_host/bcm_host.c > CMakeFiles/bcm_host.dir/bcm_host.c.i
 
 host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/bcm_host.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/bcm_host.dir/bcm_host.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/libs/bcm_host && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/libs/bcm_host/bcm_host.c -o CMakeFiles/bcm_host.dir/bcm_host.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/libs/bcm_host && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/libs/bcm_host/bcm_host.c -o CMakeFiles/bcm_host.dir/bcm_host.c.s
 
 host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/bcm_host.c.o.requires:
 .PHONY : host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/bcm_host.c.o.requires
@@ -77,17 +77,17 @@ host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/bcm_host.c.o.provi
 
 host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/__/__/__/__/interface/vmcs_host/linux/vcfilesys.c.o: host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/flags.make
 host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/__/__/__/__/interface/vmcs_host/linux/vcfilesys.c.o: ../../../interface/vmcs_host/linux/vcfilesys.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/__/__/__/__/interface/vmcs_host/linux/vcfilesys.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/libs/bcm_host && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/bcm_host.dir/__/__/__/__/interface/vmcs_host/linux/vcfilesys.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vmcs_host/linux/vcfilesys.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/libs/bcm_host && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/bcm_host.dir/__/__/__/__/interface/vmcs_host/linux/vcfilesys.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/vmcs_host/linux/vcfilesys.c
 
 host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/__/__/__/__/interface/vmcs_host/linux/vcfilesys.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/bcm_host.dir/__/__/__/__/interface/vmcs_host/linux/vcfilesys.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/libs/bcm_host && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vmcs_host/linux/vcfilesys.c > CMakeFiles/bcm_host.dir/__/__/__/__/interface/vmcs_host/linux/vcfilesys.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/libs/bcm_host && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/vmcs_host/linux/vcfilesys.c > CMakeFiles/bcm_host.dir/__/__/__/__/interface/vmcs_host/linux/vcfilesys.c.i
 
 host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/__/__/__/__/interface/vmcs_host/linux/vcfilesys.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/bcm_host.dir/__/__/__/__/interface/vmcs_host/linux/vcfilesys.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/libs/bcm_host && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vmcs_host/linux/vcfilesys.c -o CMakeFiles/bcm_host.dir/__/__/__/__/interface/vmcs_host/linux/vcfilesys.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/libs/bcm_host && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/vmcs_host/linux/vcfilesys.c -o CMakeFiles/bcm_host.dir/__/__/__/__/interface/vmcs_host/linux/vcfilesys.c.s
 
 host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/__/__/__/__/interface/vmcs_host/linux/vcfilesys.c.o.requires:
 .PHONY : host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/__/__/__/__/interface/vmcs_host/linux/vcfilesys.c.o.requires
@@ -100,17 +100,17 @@ host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/__/__/__/__/interf
 
 host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/__/__/__/__/interface/vmcs_host/linux/vcfiled/vcfiled_check.c.o: host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/flags.make
 host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/__/__/__/__/interface/vmcs_host/linux/vcfiled/vcfiled_check.c.o: ../../../interface/vmcs_host/linux/vcfiled/vcfiled_check.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/__/__/__/__/interface/vmcs_host/linux/vcfiled/vcfiled_check.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/libs/bcm_host && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/bcm_host.dir/__/__/__/__/interface/vmcs_host/linux/vcfiled/vcfiled_check.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vmcs_host/linux/vcfiled/vcfiled_check.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/libs/bcm_host && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/bcm_host.dir/__/__/__/__/interface/vmcs_host/linux/vcfiled/vcfiled_check.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/vmcs_host/linux/vcfiled/vcfiled_check.c
 
 host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/__/__/__/__/interface/vmcs_host/linux/vcfiled/vcfiled_check.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/bcm_host.dir/__/__/__/__/interface/vmcs_host/linux/vcfiled/vcfiled_check.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/libs/bcm_host && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vmcs_host/linux/vcfiled/vcfiled_check.c > CMakeFiles/bcm_host.dir/__/__/__/__/interface/vmcs_host/linux/vcfiled/vcfiled_check.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/libs/bcm_host && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/vmcs_host/linux/vcfiled/vcfiled_check.c > CMakeFiles/bcm_host.dir/__/__/__/__/interface/vmcs_host/linux/vcfiled/vcfiled_check.c.i
 
 host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/__/__/__/__/interface/vmcs_host/linux/vcfiled/vcfiled_check.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/bcm_host.dir/__/__/__/__/interface/vmcs_host/linux/vcfiled/vcfiled_check.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/libs/bcm_host && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vmcs_host/linux/vcfiled/vcfiled_check.c -o CMakeFiles/bcm_host.dir/__/__/__/__/interface/vmcs_host/linux/vcfiled/vcfiled_check.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/libs/bcm_host && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/vmcs_host/linux/vcfiled/vcfiled_check.c -o CMakeFiles/bcm_host.dir/__/__/__/__/interface/vmcs_host/linux/vcfiled/vcfiled_check.c.s
 
 host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/__/__/__/__/interface/vmcs_host/linux/vcfiled/vcfiled_check.c.o.requires:
 .PHONY : host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/__/__/__/__/interface/vmcs_host/linux/vcfiled/vcfiled_check.c.o.requires
@@ -141,7 +141,7 @@ bcm_host_EXTERNAL_OBJECTS =
 ../../lib/libbcm_host.so: ../../lib/libvcfiled_check.a
 ../../lib/libbcm_host.so: host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking C shared library ../../../../../../lib/libbcm_host.so"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/libs/bcm_host && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/bcm_host.dir/link.txt --verbose=$(VERBOSE)
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/libs/bcm_host && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/bcm_host.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/build: ../../lib/libbcm_host.so
@@ -153,10 +153,10 @@ host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/requires: host_app
 .PHONY : host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/requires
 
 host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/clean:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/libs/bcm_host && $(CMAKE_COMMAND) -P CMakeFiles/bcm_host.dir/cmake_clean.cmake
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/libs/bcm_host && $(CMAKE_COMMAND) -P CMakeFiles/bcm_host.dir/cmake_clean.cmake
 .PHONY : host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/clean
 
 host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/depend:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/libs/bcm_host /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/libs/bcm_host /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/libs/bcm_host /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/libs/bcm_host /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : host_applications/linux/libs/bcm_host/CMakeFiles/bcm_host.dir/depend
 

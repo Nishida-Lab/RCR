@@ -19,19 +19,19 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ../)
 # OpenCV Library
 find_package(OpenCV REQUIRED)
 
-set( RCR2015_DIR
-  /home/pi/RCR2015/Raspberry-Pi
+set( RCR_DIR
+  /home/pi/RCR/Raspberry-Pi
 )
 
 # Raspberry Pi OpenCV --------------- 
 # インクルードディレクトリ
 include_directories(
-  ${RCR2015_DIR}/LIB/OpenCV/robidouille/raspicam_cv
+  ${RCR_DIR}/LIB/OpenCV/robidouille/raspicam_cv
 )
 # ライブラリディレクトリ
 link_directories(
-  ${RCR2015_DIR}/LIB/OpenCV/robidouille/raspicam_cv
-  ${RCR2015_DIR}/LIB/OpenCV/userland/build/lib
+  ${RCR_DIR}/LIB/OpenCV/robidouille/raspicam_cv
+  ${RCR_DIR}/LIB/OpenCV/userland/build/lib
 )
 #-------------------------------------
 

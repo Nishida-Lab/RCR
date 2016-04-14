@@ -462,17 +462,17 @@ vcos_platform_types.h
 interface/vcos/vcos_attr.h
 ../../inc/interface/vcos/interface/vcos/vcos_attr.h
 
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/client/brcmjpeg/brcmjpeg.c
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/client/brcmjpeg/brcmjpeg.c
 mmal.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/client/brcmjpeg/mmal.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/client/brcmjpeg/mmal.h
 util/mmal_component_wrapper.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/client/brcmjpeg/util/mmal_component_wrapper.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/client/brcmjpeg/util/mmal_component_wrapper.h
 util/mmal_util_params.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/client/brcmjpeg/util/mmal_util_params.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/client/brcmjpeg/util/mmal_util_params.h
 mmal_logging.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/client/brcmjpeg/mmal_logging.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/client/brcmjpeg/mmal_logging.h
 brcmjpeg.h
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/client/brcmjpeg/brcmjpeg.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/client/brcmjpeg/brcmjpeg.h
 
-/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/client/brcmjpeg/brcmjpeg.h
+/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/client/brcmjpeg/brcmjpeg.h
 

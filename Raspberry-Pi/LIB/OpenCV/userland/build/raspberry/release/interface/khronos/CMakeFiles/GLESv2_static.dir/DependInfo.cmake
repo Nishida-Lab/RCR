@@ -4,7 +4,7 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_C
-  "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos/glxx/glxx_client.c" "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/khronos/CMakeFiles/GLESv2_static.dir/glxx/glxx_client.c.o"
+  "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos/glxx/glxx_client.c" "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/khronos/CMakeFiles/GLESv2_static.dir/glxx/glxx_client.c.o"
   )
 SET(CMAKE_C_COMPILER_ID "GNU")
 

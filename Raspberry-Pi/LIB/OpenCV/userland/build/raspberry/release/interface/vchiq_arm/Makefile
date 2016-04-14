@@ -42,10 +42,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/cmake-gui
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland
+CMAKE_SOURCE_DIR = /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release
+CMAKE_BINARY_DIR = /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -104,7 +104,7 @@ list_install_components/fast: list_install_components
 # Special rule for the target package
 package: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool..."
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && /usr/bin/cpack --config ./CPackConfig.cmake
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && /usr/bin/cpack --config ./CPackConfig.cmake
 .PHONY : package
 
 # Special rule for the target package
@@ -114,7 +114,7 @@ package/fast: package
 # Special rule for the target package_source
 package_source:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CPackSourceConfig.cmake
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CPackSourceConfig.cmake
 .PHONY : package_source
 
 # Special rule for the target package_source
@@ -133,14 +133,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -E cmake_progress_start /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/vchiq_arm/CMakeFiles/progress.marks
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/vchiq_arm/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles 0
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -E cmake_progress_start /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/vchiq_arm/CMakeFiles/progress.marks
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/vchiq_arm/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/vchiq_arm/clean
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/vchiq_arm/clean
 .PHONY : clean
 
 # The main clean target
@@ -149,22 +149,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/vchiq_arm/preinstall
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/vchiq_arm/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/vchiq_arm/preinstall
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/vchiq_arm/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 interface/vchiq_arm/CMakeFiles/vchiq_arm.dir/rule:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/vchiq_arm/CMakeFiles/vchiq_arm.dir/rule
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/vchiq_arm/CMakeFiles/vchiq_arm.dir/rule
 .PHONY : interface/vchiq_arm/CMakeFiles/vchiq_arm.dir/rule
 
 # Convenience name for target.
@@ -173,12 +173,12 @@ vchiq_arm: interface/vchiq_arm/CMakeFiles/vchiq_arm.dir/rule
 
 # fast build rule for target.
 vchiq_arm/fast:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vchiq_arm/CMakeFiles/vchiq_arm.dir/build.make interface/vchiq_arm/CMakeFiles/vchiq_arm.dir/build
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vchiq_arm/CMakeFiles/vchiq_arm.dir/build.make interface/vchiq_arm/CMakeFiles/vchiq_arm.dir/build
 .PHONY : vchiq_arm/fast
 
 # Convenience name for target.
 interface/vchiq_arm/CMakeFiles/vchiq_test.dir/rule:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/vchiq_arm/CMakeFiles/vchiq_test.dir/rule
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/vchiq_arm/CMakeFiles/vchiq_test.dir/rule
 .PHONY : interface/vchiq_arm/CMakeFiles/vchiq_test.dir/rule
 
 # Convenience name for target.
@@ -187,7 +187,7 @@ vchiq_test: interface/vchiq_arm/CMakeFiles/vchiq_test.dir/rule
 
 # fast build rule for target.
 vchiq_test/fast:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vchiq_arm/CMakeFiles/vchiq_test.dir/build.make interface/vchiq_arm/CMakeFiles/vchiq_test.dir/build
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vchiq_arm/CMakeFiles/vchiq_test.dir/build.make interface/vchiq_arm/CMakeFiles/vchiq_test.dir/build
 .PHONY : vchiq_test/fast
 
 vchiq_lib.o: vchiq_lib.c.o
@@ -195,7 +195,7 @@ vchiq_lib.o: vchiq_lib.c.o
 
 # target to build an object file
 vchiq_lib.c.o:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vchiq_arm/CMakeFiles/vchiq_arm.dir/build.make interface/vchiq_arm/CMakeFiles/vchiq_arm.dir/vchiq_lib.c.o
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vchiq_arm/CMakeFiles/vchiq_arm.dir/build.make interface/vchiq_arm/CMakeFiles/vchiq_arm.dir/vchiq_lib.c.o
 .PHONY : vchiq_lib.c.o
 
 vchiq_lib.i: vchiq_lib.c.i
@@ -203,7 +203,7 @@ vchiq_lib.i: vchiq_lib.c.i
 
 # target to preprocess a source file
 vchiq_lib.c.i:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vchiq_arm/CMakeFiles/vchiq_arm.dir/build.make interface/vchiq_arm/CMakeFiles/vchiq_arm.dir/vchiq_lib.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vchiq_arm/CMakeFiles/vchiq_arm.dir/build.make interface/vchiq_arm/CMakeFiles/vchiq_arm.dir/vchiq_lib.c.i
 .PHONY : vchiq_lib.c.i
 
 vchiq_lib.s: vchiq_lib.c.s
@@ -211,7 +211,7 @@ vchiq_lib.s: vchiq_lib.c.s
 
 # target to generate assembly for a file
 vchiq_lib.c.s:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vchiq_arm/CMakeFiles/vchiq_arm.dir/build.make interface/vchiq_arm/CMakeFiles/vchiq_arm.dir/vchiq_lib.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vchiq_arm/CMakeFiles/vchiq_arm.dir/build.make interface/vchiq_arm/CMakeFiles/vchiq_arm.dir/vchiq_lib.c.s
 .PHONY : vchiq_lib.c.s
 
 vchiq_test.o: vchiq_test.c.o
@@ -219,7 +219,7 @@ vchiq_test.o: vchiq_test.c.o
 
 # target to build an object file
 vchiq_test.c.o:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vchiq_arm/CMakeFiles/vchiq_test.dir/build.make interface/vchiq_arm/CMakeFiles/vchiq_test.dir/vchiq_test.c.o
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vchiq_arm/CMakeFiles/vchiq_test.dir/build.make interface/vchiq_arm/CMakeFiles/vchiq_test.dir/vchiq_test.c.o
 .PHONY : vchiq_test.c.o
 
 vchiq_test.i: vchiq_test.c.i
@@ -227,7 +227,7 @@ vchiq_test.i: vchiq_test.c.i
 
 # target to preprocess a source file
 vchiq_test.c.i:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vchiq_arm/CMakeFiles/vchiq_test.dir/build.make interface/vchiq_arm/CMakeFiles/vchiq_test.dir/vchiq_test.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vchiq_arm/CMakeFiles/vchiq_test.dir/build.make interface/vchiq_arm/CMakeFiles/vchiq_test.dir/vchiq_test.c.i
 .PHONY : vchiq_test.c.i
 
 vchiq_test.s: vchiq_test.c.s
@@ -235,7 +235,7 @@ vchiq_test.s: vchiq_test.c.s
 
 # target to generate assembly for a file
 vchiq_test.c.s:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vchiq_arm/CMakeFiles/vchiq_test.dir/build.make interface/vchiq_arm/CMakeFiles/vchiq_test.dir/vchiq_test.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vchiq_arm/CMakeFiles/vchiq_test.dir/build.make interface/vchiq_arm/CMakeFiles/vchiq_test.dir/vchiq_test.c.s
 .PHONY : vchiq_test.c.s
 
 vchiq_util.o: vchiq_util.c.o
@@ -243,7 +243,7 @@ vchiq_util.o: vchiq_util.c.o
 
 # target to build an object file
 vchiq_util.c.o:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vchiq_arm/CMakeFiles/vchiq_arm.dir/build.make interface/vchiq_arm/CMakeFiles/vchiq_arm.dir/vchiq_util.c.o
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vchiq_arm/CMakeFiles/vchiq_arm.dir/build.make interface/vchiq_arm/CMakeFiles/vchiq_arm.dir/vchiq_util.c.o
 .PHONY : vchiq_util.c.o
 
 vchiq_util.i: vchiq_util.c.i
@@ -251,7 +251,7 @@ vchiq_util.i: vchiq_util.c.i
 
 # target to preprocess a source file
 vchiq_util.c.i:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vchiq_arm/CMakeFiles/vchiq_arm.dir/build.make interface/vchiq_arm/CMakeFiles/vchiq_arm.dir/vchiq_util.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vchiq_arm/CMakeFiles/vchiq_arm.dir/build.make interface/vchiq_arm/CMakeFiles/vchiq_arm.dir/vchiq_util.c.i
 .PHONY : vchiq_util.c.i
 
 vchiq_util.s: vchiq_util.c.s
@@ -259,7 +259,7 @@ vchiq_util.s: vchiq_util.c.s
 
 # target to generate assembly for a file
 vchiq_util.c.s:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vchiq_arm/CMakeFiles/vchiq_arm.dir/build.make interface/vchiq_arm/CMakeFiles/vchiq_arm.dir/vchiq_util.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vchiq_arm/CMakeFiles/vchiq_arm.dir/build.make interface/vchiq_arm/CMakeFiles/vchiq_arm.dir/vchiq_util.c.s
 .PHONY : vchiq_util.c.s
 
 # Help Target
@@ -298,6 +298,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

@@ -42,10 +42,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/cmake-gui
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland
+CMAKE_SOURCE_DIR = /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release
+CMAKE_BINARY_DIR = /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -104,7 +104,7 @@ list_install_components/fast: list_install_components
 # Special rule for the target package
 package: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool..."
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && /usr/bin/cpack --config ./CPackConfig.cmake
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && /usr/bin/cpack --config ./CPackConfig.cmake
 .PHONY : package
 
 # Special rule for the target package
@@ -114,7 +114,7 @@ package/fast: package
 # Special rule for the target package_source
 package_source:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CPackSourceConfig.cmake
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CPackSourceConfig.cmake
 .PHONY : package_source
 
 # Special rule for the target package_source
@@ -133,14 +133,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -E cmake_progress_start /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/openmaxil/CMakeFiles/progress.marks
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/mmal/openmaxil/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles 0
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -E cmake_progress_start /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/openmaxil/CMakeFiles/progress.marks
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/mmal/openmaxil/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/mmal/openmaxil/clean
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/mmal/openmaxil/clean
 .PHONY : clean
 
 # The main clean target
@@ -149,22 +149,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/mmal/openmaxil/preinstall
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/mmal/openmaxil/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/mmal/openmaxil/preinstall
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/mmal/openmaxil/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/rule:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/rule
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/rule
 .PHONY : interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/rule
 
 # Convenience name for target.
@@ -173,12 +173,12 @@ mmal_omx: interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/rule
 
 # fast build rule for target.
 mmal_omx/fast:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/build
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/build
 .PHONY : mmal_omx/fast
 
 # Convenience name for target.
 interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/rule:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/rule
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/rule
 .PHONY : interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/rule
 
 # Convenience name for target.
@@ -187,7 +187,7 @@ mmal_omxutil: interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/rule
 
 # fast build rule for target.
 mmal_omxutil/fast:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/build
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/build
 .PHONY : mmal_omxutil/fast
 
 mmalomx_buffer.o: mmalomx_buffer.c.o
@@ -195,7 +195,7 @@ mmalomx_buffer.o: mmalomx_buffer.c.o
 
 # target to build an object file
 mmalomx_buffer.c.o:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/mmalomx_buffer.c.o
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/mmalomx_buffer.c.o
 .PHONY : mmalomx_buffer.c.o
 
 mmalomx_buffer.i: mmalomx_buffer.c.i
@@ -203,7 +203,7 @@ mmalomx_buffer.i: mmalomx_buffer.c.i
 
 # target to preprocess a source file
 mmalomx_buffer.c.i:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/mmalomx_buffer.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/mmalomx_buffer.c.i
 .PHONY : mmalomx_buffer.c.i
 
 mmalomx_buffer.s: mmalomx_buffer.c.s
@@ -211,7 +211,7 @@ mmalomx_buffer.s: mmalomx_buffer.c.s
 
 # target to generate assembly for a file
 mmalomx_buffer.c.s:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/mmalomx_buffer.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/mmalomx_buffer.c.s
 .PHONY : mmalomx_buffer.c.s
 
 mmalomx_commands.o: mmalomx_commands.c.o
@@ -219,7 +219,7 @@ mmalomx_commands.o: mmalomx_commands.c.o
 
 # target to build an object file
 mmalomx_commands.c.o:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/mmalomx_commands.c.o
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/mmalomx_commands.c.o
 .PHONY : mmalomx_commands.c.o
 
 mmalomx_commands.i: mmalomx_commands.c.i
@@ -227,7 +227,7 @@ mmalomx_commands.i: mmalomx_commands.c.i
 
 # target to preprocess a source file
 mmalomx_commands.c.i:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/mmalomx_commands.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/mmalomx_commands.c.i
 .PHONY : mmalomx_commands.c.i
 
 mmalomx_commands.s: mmalomx_commands.c.s
@@ -235,7 +235,7 @@ mmalomx_commands.s: mmalomx_commands.c.s
 
 # target to generate assembly for a file
 mmalomx_commands.c.s:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/mmalomx_commands.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/mmalomx_commands.c.s
 .PHONY : mmalomx_commands.c.s
 
 mmalomx_core.o: mmalomx_core.c.o
@@ -243,7 +243,7 @@ mmalomx_core.o: mmalomx_core.c.o
 
 # target to build an object file
 mmalomx_core.c.o:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/mmalomx_core.c.o
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/mmalomx_core.c.o
 .PHONY : mmalomx_core.c.o
 
 mmalomx_core.i: mmalomx_core.c.i
@@ -251,7 +251,7 @@ mmalomx_core.i: mmalomx_core.c.i
 
 # target to preprocess a source file
 mmalomx_core.c.i:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/mmalomx_core.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/mmalomx_core.c.i
 .PHONY : mmalomx_core.c.i
 
 mmalomx_core.s: mmalomx_core.c.s
@@ -259,7 +259,7 @@ mmalomx_core.s: mmalomx_core.c.s
 
 # target to generate assembly for a file
 mmalomx_core.c.s:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/mmalomx_core.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/mmalomx_core.c.s
 .PHONY : mmalomx_core.c.s
 
 mmalomx_logging.o: mmalomx_logging.c.o
@@ -267,7 +267,7 @@ mmalomx_logging.o: mmalomx_logging.c.o
 
 # target to build an object file
 mmalomx_logging.c.o:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/mmalomx_logging.c.o
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/mmalomx_logging.c.o
 .PHONY : mmalomx_logging.c.o
 
 mmalomx_logging.i: mmalomx_logging.c.i
@@ -275,7 +275,7 @@ mmalomx_logging.i: mmalomx_logging.c.i
 
 # target to preprocess a source file
 mmalomx_logging.c.i:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/mmalomx_logging.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/mmalomx_logging.c.i
 .PHONY : mmalomx_logging.c.i
 
 mmalomx_logging.s: mmalomx_logging.c.s
@@ -283,7 +283,7 @@ mmalomx_logging.s: mmalomx_logging.c.s
 
 # target to generate assembly for a file
 mmalomx_logging.c.s:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/mmalomx_logging.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/mmalomx_logging.c.s
 .PHONY : mmalomx_logging.c.s
 
 mmalomx_marks.o: mmalomx_marks.c.o
@@ -291,7 +291,7 @@ mmalomx_marks.o: mmalomx_marks.c.o
 
 # target to build an object file
 mmalomx_marks.c.o:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/mmalomx_marks.c.o
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/mmalomx_marks.c.o
 .PHONY : mmalomx_marks.c.o
 
 mmalomx_marks.i: mmalomx_marks.c.i
@@ -299,7 +299,7 @@ mmalomx_marks.i: mmalomx_marks.c.i
 
 # target to preprocess a source file
 mmalomx_marks.c.i:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/mmalomx_marks.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/mmalomx_marks.c.i
 .PHONY : mmalomx_marks.c.i
 
 mmalomx_marks.s: mmalomx_marks.c.s
@@ -307,7 +307,7 @@ mmalomx_marks.s: mmalomx_marks.c.s
 
 # target to generate assembly for a file
 mmalomx_marks.c.s:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/mmalomx_marks.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/mmalomx_marks.c.s
 .PHONY : mmalomx_marks.c.s
 
 mmalomx_parameters.o: mmalomx_parameters.c.o
@@ -315,7 +315,7 @@ mmalomx_parameters.o: mmalomx_parameters.c.o
 
 # target to build an object file
 mmalomx_parameters.c.o:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/mmalomx_parameters.c.o
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/mmalomx_parameters.c.o
 .PHONY : mmalomx_parameters.c.o
 
 mmalomx_parameters.i: mmalomx_parameters.c.i
@@ -323,7 +323,7 @@ mmalomx_parameters.i: mmalomx_parameters.c.i
 
 # target to preprocess a source file
 mmalomx_parameters.c.i:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/mmalomx_parameters.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/mmalomx_parameters.c.i
 .PHONY : mmalomx_parameters.c.i
 
 mmalomx_parameters.s: mmalomx_parameters.c.s
@@ -331,7 +331,7 @@ mmalomx_parameters.s: mmalomx_parameters.c.s
 
 # target to generate assembly for a file
 mmalomx_parameters.c.s:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/mmalomx_parameters.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/mmalomx_parameters.c.s
 .PHONY : mmalomx_parameters.c.s
 
 mmalomx_registry.o: mmalomx_registry.c.o
@@ -339,7 +339,7 @@ mmalomx_registry.o: mmalomx_registry.c.o
 
 # target to build an object file
 mmalomx_registry.c.o:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/mmalomx_registry.c.o
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/mmalomx_registry.c.o
 .PHONY : mmalomx_registry.c.o
 
 mmalomx_registry.i: mmalomx_registry.c.i
@@ -347,7 +347,7 @@ mmalomx_registry.i: mmalomx_registry.c.i
 
 # target to preprocess a source file
 mmalomx_registry.c.i:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/mmalomx_registry.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/mmalomx_registry.c.i
 .PHONY : mmalomx_registry.c.i
 
 mmalomx_registry.s: mmalomx_registry.c.s
@@ -355,7 +355,7 @@ mmalomx_registry.s: mmalomx_registry.c.s
 
 # target to generate assembly for a file
 mmalomx_registry.c.s:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/mmalomx_registry.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/mmalomx_registry.c.s
 .PHONY : mmalomx_registry.c.s
 
 mmalomx_roles.o: mmalomx_roles.c.o
@@ -363,7 +363,7 @@ mmalomx_roles.o: mmalomx_roles.c.o
 
 # target to build an object file
 mmalomx_roles.c.o:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/mmalomx_roles.c.o
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/mmalomx_roles.c.o
 .PHONY : mmalomx_roles.c.o
 
 mmalomx_roles.i: mmalomx_roles.c.i
@@ -371,7 +371,7 @@ mmalomx_roles.i: mmalomx_roles.c.i
 
 # target to preprocess a source file
 mmalomx_roles.c.i:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/mmalomx_roles.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/mmalomx_roles.c.i
 .PHONY : mmalomx_roles.c.i
 
 mmalomx_roles.s: mmalomx_roles.c.s
@@ -379,7 +379,7 @@ mmalomx_roles.s: mmalomx_roles.c.s
 
 # target to generate assembly for a file
 mmalomx_roles.c.s:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/mmalomx_roles.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omx.dir/mmalomx_roles.c.s
 .PHONY : mmalomx_roles.c.s
 
 mmalomx_util_params.o: mmalomx_util_params.c.o
@@ -387,7 +387,7 @@ mmalomx_util_params.o: mmalomx_util_params.c.o
 
 # target to build an object file
 mmalomx_util_params.c.o:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params.c.o
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params.c.o
 .PHONY : mmalomx_util_params.c.o
 
 mmalomx_util_params.i: mmalomx_util_params.c.i
@@ -395,7 +395,7 @@ mmalomx_util_params.i: mmalomx_util_params.c.i
 
 # target to preprocess a source file
 mmalomx_util_params.c.i:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params.c.i
 .PHONY : mmalomx_util_params.c.i
 
 mmalomx_util_params.s: mmalomx_util_params.c.s
@@ -403,7 +403,7 @@ mmalomx_util_params.s: mmalomx_util_params.c.s
 
 # target to generate assembly for a file
 mmalomx_util_params.c.s:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params.c.s
 .PHONY : mmalomx_util_params.c.s
 
 mmalomx_util_params_audio.o: mmalomx_util_params_audio.c.o
@@ -411,7 +411,7 @@ mmalomx_util_params_audio.o: mmalomx_util_params_audio.c.o
 
 # target to build an object file
 mmalomx_util_params_audio.c.o:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_audio.c.o
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_audio.c.o
 .PHONY : mmalomx_util_params_audio.c.o
 
 mmalomx_util_params_audio.i: mmalomx_util_params_audio.c.i
@@ -419,7 +419,7 @@ mmalomx_util_params_audio.i: mmalomx_util_params_audio.c.i
 
 # target to preprocess a source file
 mmalomx_util_params_audio.c.i:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_audio.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_audio.c.i
 .PHONY : mmalomx_util_params_audio.c.i
 
 mmalomx_util_params_audio.s: mmalomx_util_params_audio.c.s
@@ -427,7 +427,7 @@ mmalomx_util_params_audio.s: mmalomx_util_params_audio.c.s
 
 # target to generate assembly for a file
 mmalomx_util_params_audio.c.s:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_audio.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_audio.c.s
 .PHONY : mmalomx_util_params_audio.c.s
 
 mmalomx_util_params_camera.o: mmalomx_util_params_camera.c.o
@@ -435,7 +435,7 @@ mmalomx_util_params_camera.o: mmalomx_util_params_camera.c.o
 
 # target to build an object file
 mmalomx_util_params_camera.c.o:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_camera.c.o
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_camera.c.o
 .PHONY : mmalomx_util_params_camera.c.o
 
 mmalomx_util_params_camera.i: mmalomx_util_params_camera.c.i
@@ -443,7 +443,7 @@ mmalomx_util_params_camera.i: mmalomx_util_params_camera.c.i
 
 # target to preprocess a source file
 mmalomx_util_params_camera.c.i:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_camera.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_camera.c.i
 .PHONY : mmalomx_util_params_camera.c.i
 
 mmalomx_util_params_camera.s: mmalomx_util_params_camera.c.s
@@ -451,7 +451,7 @@ mmalomx_util_params_camera.s: mmalomx_util_params_camera.c.s
 
 # target to generate assembly for a file
 mmalomx_util_params_camera.c.s:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_camera.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_camera.c.s
 .PHONY : mmalomx_util_params_camera.c.s
 
 mmalomx_util_params_misc.o: mmalomx_util_params_misc.c.o
@@ -459,7 +459,7 @@ mmalomx_util_params_misc.o: mmalomx_util_params_misc.c.o
 
 # target to build an object file
 mmalomx_util_params_misc.c.o:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_misc.c.o
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_misc.c.o
 .PHONY : mmalomx_util_params_misc.c.o
 
 mmalomx_util_params_misc.i: mmalomx_util_params_misc.c.i
@@ -467,7 +467,7 @@ mmalomx_util_params_misc.i: mmalomx_util_params_misc.c.i
 
 # target to preprocess a source file
 mmalomx_util_params_misc.c.i:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_misc.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_misc.c.i
 .PHONY : mmalomx_util_params_misc.c.i
 
 mmalomx_util_params_misc.s: mmalomx_util_params_misc.c.s
@@ -475,7 +475,7 @@ mmalomx_util_params_misc.s: mmalomx_util_params_misc.c.s
 
 # target to generate assembly for a file
 mmalomx_util_params_misc.c.s:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_misc.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_misc.c.s
 .PHONY : mmalomx_util_params_misc.c.s
 
 mmalomx_util_params_video.o: mmalomx_util_params_video.c.o
@@ -483,7 +483,7 @@ mmalomx_util_params_video.o: mmalomx_util_params_video.c.o
 
 # target to build an object file
 mmalomx_util_params_video.c.o:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_video.c.o
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_video.c.o
 .PHONY : mmalomx_util_params_video.c.o
 
 mmalomx_util_params_video.i: mmalomx_util_params_video.c.i
@@ -491,7 +491,7 @@ mmalomx_util_params_video.i: mmalomx_util_params_video.c.i
 
 # target to preprocess a source file
 mmalomx_util_params_video.c.i:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_video.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_video.c.i
 .PHONY : mmalomx_util_params_video.c.i
 
 mmalomx_util_params_video.s: mmalomx_util_params_video.c.s
@@ -499,7 +499,7 @@ mmalomx_util_params_video.s: mmalomx_util_params_video.c.s
 
 # target to generate assembly for a file
 mmalomx_util_params_video.c.s:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_video.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/build.make interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_video.c.s
 .PHONY : mmalomx_util_params_video.c.s
 
 # Help Target
@@ -568,6 +568,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

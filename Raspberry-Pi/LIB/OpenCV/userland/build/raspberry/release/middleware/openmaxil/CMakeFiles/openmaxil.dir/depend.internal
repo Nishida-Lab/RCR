@@ -72,5 +72,5 @@ middleware/openmaxil/CMakeFiles/openmaxil.dir/__/__/host_applications/framework/
  ../../inc/interface/vcos/vcos_timer.h
  ../../inc/interface/vcos/vcos_tls.h
  ../../inc/interface/vcos/vcos_types.h
- /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/framework/common/host_ilcore.h
- /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/framework/common/ilcore.c
+ /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/framework/common/host_ilcore.h
+ /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/framework/common/ilcore.c

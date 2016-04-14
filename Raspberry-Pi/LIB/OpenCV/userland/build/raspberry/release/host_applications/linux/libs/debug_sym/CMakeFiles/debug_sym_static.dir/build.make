@@ -38,10 +38,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/cmake-gui
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland
+CMAKE_SOURCE_DIR = /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release
+CMAKE_BINARY_DIR = /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release
 
 # Include any dependencies generated for this target.
 include host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym_static.dir/depend.make
@@ -54,17 +54,17 @@ include host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym_static.dir/f
 
 host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym_static.dir/debug_sym.c.o: host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym_static.dir/flags.make
 host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym_static.dir/debug_sym.c.o: ../../../host_applications/linux/libs/debug_sym/debug_sym.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym_static.dir/debug_sym.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/libs/debug_sym && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/debug_sym_static.dir/debug_sym.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/libs/debug_sym/debug_sym.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/libs/debug_sym && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/debug_sym_static.dir/debug_sym.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/libs/debug_sym/debug_sym.c
 
 host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym_static.dir/debug_sym.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/debug_sym_static.dir/debug_sym.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/libs/debug_sym && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/libs/debug_sym/debug_sym.c > CMakeFiles/debug_sym_static.dir/debug_sym.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/libs/debug_sym && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/libs/debug_sym/debug_sym.c > CMakeFiles/debug_sym_static.dir/debug_sym.c.i
 
 host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym_static.dir/debug_sym.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/debug_sym_static.dir/debug_sym.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/libs/debug_sym && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/libs/debug_sym/debug_sym.c -o CMakeFiles/debug_sym_static.dir/debug_sym.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/libs/debug_sym && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/libs/debug_sym/debug_sym.c -o CMakeFiles/debug_sym_static.dir/debug_sym.c.s
 
 host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym_static.dir/debug_sym.c.o.requires:
 .PHONY : host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym_static.dir/debug_sym.c.o.requires
@@ -86,8 +86,8 @@ debug_sym_static_EXTERNAL_OBJECTS =
 ../../lib/libdebug_sym_static.a: host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym_static.dir/build.make
 ../../lib/libdebug_sym_static.a: host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym_static.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking C static library ../../../../../../lib/libdebug_sym_static.a"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/libs/debug_sym && $(CMAKE_COMMAND) -P CMakeFiles/debug_sym_static.dir/cmake_clean_target.cmake
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/libs/debug_sym && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/debug_sym_static.dir/link.txt --verbose=$(VERBOSE)
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/libs/debug_sym && $(CMAKE_COMMAND) -P CMakeFiles/debug_sym_static.dir/cmake_clean_target.cmake
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/libs/debug_sym && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/debug_sym_static.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym_static.dir/build: ../../lib/libdebug_sym_static.a
@@ -97,10 +97,10 @@ host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym_static.dir/requires:
 .PHONY : host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym_static.dir/requires
 
 host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym_static.dir/clean:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/libs/debug_sym && $(CMAKE_COMMAND) -P CMakeFiles/debug_sym_static.dir/cmake_clean.cmake
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/libs/debug_sym && $(CMAKE_COMMAND) -P CMakeFiles/debug_sym_static.dir/cmake_clean.cmake
 .PHONY : host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym_static.dir/clean
 
 host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym_static.dir/depend:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/libs/debug_sym /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/libs/debug_sym /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym_static.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/libs/debug_sym /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/libs/debug_sym /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym_static.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : host_applications/linux/libs/debug_sym/CMakeFiles/debug_sym_static.dir/depend
 

@@ -4,16 +4,16 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_C
-  "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/aggregator.c" "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components/CMakeFiles/mmal_components.dir/aggregator.c.o"
-  "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/artificial_camera.c" "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components/CMakeFiles/mmal_components.dir/artificial_camera.c.o"
-  "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/clock.c" "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components/CMakeFiles/mmal_components.dir/clock.c.o"
-  "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/container_reader.c" "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components/CMakeFiles/mmal_components.dir/container_reader.c.o"
-  "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/copy.c" "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components/CMakeFiles/mmal_components.dir/copy.c.o"
-  "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/null_sink.c" "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components/CMakeFiles/mmal_components.dir/null_sink.c.o"
-  "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/passthrough.c" "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components/CMakeFiles/mmal_components.dir/passthrough.c.o"
-  "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/scheduler.c" "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components/CMakeFiles/mmal_components.dir/scheduler.c.o"
-  "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/spdif.c" "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components/CMakeFiles/mmal_components.dir/spdif.c.o"
-  "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/splitter.c" "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components/CMakeFiles/mmal_components.dir/splitter.c.o"
+  "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/aggregator.c" "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components/CMakeFiles/mmal_components.dir/aggregator.c.o"
+  "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/artificial_camera.c" "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components/CMakeFiles/mmal_components.dir/artificial_camera.c.o"
+  "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/clock.c" "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components/CMakeFiles/mmal_components.dir/clock.c.o"
+  "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/container_reader.c" "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components/CMakeFiles/mmal_components.dir/container_reader.c.o"
+  "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/copy.c" "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components/CMakeFiles/mmal_components.dir/copy.c.o"
+  "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/null_sink.c" "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components/CMakeFiles/mmal_components.dir/null_sink.c.o"
+  "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/passthrough.c" "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components/CMakeFiles/mmal_components.dir/passthrough.c.o"
+  "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/scheduler.c" "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components/CMakeFiles/mmal_components.dir/scheduler.c.o"
+  "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/spdif.c" "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components/CMakeFiles/mmal_components.dir/spdif.c.o"
+  "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/components/splitter.c" "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components/CMakeFiles/mmal_components.dir/splitter.c.o"
   )
 SET(CMAKE_C_COMPILER_ID "GNU")
 
@@ -38,10 +38,10 @@ SET(CMAKE_TARGET_DEFINITIONS
 
 # Targets to which this target links.
 SET(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers/CMakeFiles/containers.dir/DependInfo.cmake"
-  "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/util/CMakeFiles/mmal_util.dir/DependInfo.cmake"
-  "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/core/CMakeFiles/mmal_core.dir/DependInfo.cmake"
-  "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/vcos/pthreads/CMakeFiles/vcos.dir/DependInfo.cmake"
+  "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers/CMakeFiles/containers.dir/DependInfo.cmake"
+  "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/util/CMakeFiles/mmal_util.dir/DependInfo.cmake"
+  "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/core/CMakeFiles/mmal_core.dir/DependInfo.cmake"
+  "/home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/vcos/pthreads/CMakeFiles/vcos.dir/DependInfo.cmake"
   )
 
 # The include file search paths:

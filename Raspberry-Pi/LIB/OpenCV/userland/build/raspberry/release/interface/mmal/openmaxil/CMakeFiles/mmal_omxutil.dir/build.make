@@ -38,10 +38,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/cmake-gui
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland
+CMAKE_SOURCE_DIR = /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release
+CMAKE_BINARY_DIR = /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release
 
 # Include any dependencies generated for this target.
 include interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/depend.make
@@ -54,17 +54,17 @@ include interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/flags.make
 
 interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params.c.o: interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/flags.make
 interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params.c.o: ../../../interface/mmal/openmaxil/mmalomx_util_params.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/openmaxil && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/mmal_omxutil.dir/mmalomx_util_params.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/openmaxil/mmalomx_util_params.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/openmaxil && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/mmal_omxutil.dir/mmalomx_util_params.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/openmaxil/mmalomx_util_params.c
 
 interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/mmal_omxutil.dir/mmalomx_util_params.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/openmaxil && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/openmaxil/mmalomx_util_params.c > CMakeFiles/mmal_omxutil.dir/mmalomx_util_params.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/openmaxil && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/openmaxil/mmalomx_util_params.c > CMakeFiles/mmal_omxutil.dir/mmalomx_util_params.c.i
 
 interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/mmal_omxutil.dir/mmalomx_util_params.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/openmaxil && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/openmaxil/mmalomx_util_params.c -o CMakeFiles/mmal_omxutil.dir/mmalomx_util_params.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/openmaxil && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/openmaxil/mmalomx_util_params.c -o CMakeFiles/mmal_omxutil.dir/mmalomx_util_params.c.s
 
 interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params.c.o.requires:
 .PHONY : interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params.c.o.requires
@@ -77,17 +77,17 @@ interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params.c.o.pro
 
 interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_audio.c.o: interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/flags.make
 interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_audio.c.o: ../../../interface/mmal/openmaxil/mmalomx_util_params_audio.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_audio.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/openmaxil && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_audio.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/openmaxil/mmalomx_util_params_audio.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/openmaxil && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_audio.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/openmaxil/mmalomx_util_params_audio.c
 
 interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_audio.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_audio.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/openmaxil && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/openmaxil/mmalomx_util_params_audio.c > CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_audio.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/openmaxil && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/openmaxil/mmalomx_util_params_audio.c > CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_audio.c.i
 
 interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_audio.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_audio.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/openmaxil && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/openmaxil/mmalomx_util_params_audio.c -o CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_audio.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/openmaxil && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/openmaxil/mmalomx_util_params_audio.c -o CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_audio.c.s
 
 interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_audio.c.o.requires:
 .PHONY : interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_audio.c.o.requires
@@ -100,17 +100,17 @@ interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_audio.c
 
 interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_video.c.o: interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/flags.make
 interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_video.c.o: ../../../interface/mmal/openmaxil/mmalomx_util_params_video.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_video.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/openmaxil && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_video.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/openmaxil/mmalomx_util_params_video.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/openmaxil && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_video.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/openmaxil/mmalomx_util_params_video.c
 
 interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_video.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_video.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/openmaxil && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/openmaxil/mmalomx_util_params_video.c > CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_video.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/openmaxil && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/openmaxil/mmalomx_util_params_video.c > CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_video.c.i
 
 interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_video.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_video.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/openmaxil && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/openmaxil/mmalomx_util_params_video.c -o CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_video.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/openmaxil && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/openmaxil/mmalomx_util_params_video.c -o CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_video.c.s
 
 interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_video.c.o.requires:
 .PHONY : interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_video.c.o.requires
@@ -123,17 +123,17 @@ interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_video.c
 
 interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_camera.c.o: interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/flags.make
 interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_camera.c.o: ../../../interface/mmal/openmaxil/mmalomx_util_params_camera.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_4)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_camera.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/openmaxil && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_camera.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/openmaxil/mmalomx_util_params_camera.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/openmaxil && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_camera.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/openmaxil/mmalomx_util_params_camera.c
 
 interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_camera.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_camera.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/openmaxil && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/openmaxil/mmalomx_util_params_camera.c > CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_camera.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/openmaxil && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/openmaxil/mmalomx_util_params_camera.c > CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_camera.c.i
 
 interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_camera.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_camera.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/openmaxil && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/openmaxil/mmalomx_util_params_camera.c -o CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_camera.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/openmaxil && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/openmaxil/mmalomx_util_params_camera.c -o CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_camera.c.s
 
 interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_camera.c.o.requires:
 .PHONY : interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_camera.c.o.requires
@@ -146,17 +146,17 @@ interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_camera.
 
 interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_misc.c.o: interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/flags.make
 interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_misc.c.o: ../../../interface/mmal/openmaxil/mmalomx_util_params_misc.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_5)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles $(CMAKE_PROGRESS_5)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_misc.c.o"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/openmaxil && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_misc.c.o   -c /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/openmaxil/mmalomx_util_params_misc.c
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/openmaxil && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_misc.c.o   -c /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/openmaxil/mmalomx_util_params_misc.c
 
 interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_misc.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_misc.c.i"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/openmaxil && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/openmaxil/mmalomx_util_params_misc.c > CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_misc.c.i
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/openmaxil && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -E /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/openmaxil/mmalomx_util_params_misc.c > CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_misc.c.i
 
 interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_misc.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_misc.c.s"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/openmaxil && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/openmaxil/mmalomx_util_params_misc.c -o CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_misc.c.s
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/openmaxil && /usr/bin/gcc  $(C_DEFINES) $(C_FLAGS) -S /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/openmaxil/mmalomx_util_params_misc.c -o CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_misc.c.s
 
 interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_misc.c.o.requires:
 .PHONY : interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/mmalomx_util_params_misc.c.o.requires
@@ -186,7 +186,7 @@ mmal_omxutil_EXTERNAL_OBJECTS =
 ../../lib/libmmal_omxutil.so: interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/build.make
 ../../lib/libmmal_omxutil.so: interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking C shared library ../../../../../lib/libmmal_omxutil.so"
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/openmaxil && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/mmal_omxutil.dir/link.txt --verbose=$(VERBOSE)
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/openmaxil && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/mmal_omxutil.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/build: ../../lib/libmmal_omxutil.so
@@ -200,10 +200,10 @@ interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/requires: interface/mmal/op
 .PHONY : interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/requires
 
 interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/clean:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/openmaxil && $(CMAKE_COMMAND) -P CMakeFiles/mmal_omxutil.dir/cmake_clean.cmake
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/openmaxil && $(CMAKE_COMMAND) -P CMakeFiles/mmal_omxutil.dir/cmake_clean.cmake
 .PHONY : interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/clean
 
 interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/depend:
-	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/openmaxil /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/openmaxil /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/openmaxil /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/openmaxil /home/pi/RCR/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : interface/mmal/openmaxil/CMakeFiles/mmal_omxutil.dir/depend
 
