@@ -376,7 +376,7 @@ vcos_platform_types.h
 interface/vcos/vcos_attr.h
 ../../inc/interface/vcos/interface/vcos/vcos_attr.h
 
-/home/pi/RCR/LIB/OpenCV/userland/host_applications/linux/apps/gencmd/gencmd.c
+/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/gencmd/gencmd.c
 stdio.h
 -
 stdlib.h
@@ -388,5 +388,5 @@ string.h
 time.h
 -
 interface/vmcs_host/vc_vchi_gencmd.h
-/home/pi/RCR/LIB/OpenCV/userland/host_applications/linux/apps/gencmd/interface/vmcs_host/vc_vchi_gencmd.h
+/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/apps/gencmd/interface/vmcs_host/vc_vchi_gencmd.h
 

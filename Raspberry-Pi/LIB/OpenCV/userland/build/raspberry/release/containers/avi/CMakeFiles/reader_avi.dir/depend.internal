@@ -59,4 +59,4 @@ containers/avi/CMakeFiles/reader_avi.dir/avi_reader.c.o
  ../../inc/interface/vcos/vcos_timer.h
  ../../inc/interface/vcos/vcos_tls.h
  ../../inc/interface/vcos/vcos_types.h
- /home/pi/RCR/LIB/OpenCV/userland/containers/avi/avi_reader.c
+ /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/avi/avi_reader.c

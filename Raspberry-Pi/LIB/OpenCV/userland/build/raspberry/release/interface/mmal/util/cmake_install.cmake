@@ -1,4 +1,4 @@
-# Install script for directory: /home/pi/RCR/LIB/OpenCV/userland/interface/mmal/util
+# Install script for directory: /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/util
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,7 +39,7 @@ IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmmal_util.so"
          RPATH "")
   ENDIF()
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/pi/RCR/LIB/OpenCV/userland/build/lib/libmmal_util.so")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/lib/libmmal_util.so")
   IF(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmmal_util.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmmal_util.so")
     FILE(RPATH_REMOVE
@@ -52,16 +52,16 @@ ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unsp
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/interface/mmal/util" TYPE FILE FILES
-    "/home/pi/RCR/LIB/OpenCV/userland/interface/mmal/util/mmal_component_wrapper.h"
-    "/home/pi/RCR/LIB/OpenCV/userland/interface/mmal/util/mmal_connection.h"
-    "/home/pi/RCR/LIB/OpenCV/userland/interface/mmal/util/mmal_default_components.h"
-    "/home/pi/RCR/LIB/OpenCV/userland/interface/mmal/util/mmal_graph.h"
-    "/home/pi/RCR/LIB/OpenCV/userland/interface/mmal/util/mmal_il.h"
-    "/home/pi/RCR/LIB/OpenCV/userland/interface/mmal/util/mmal_list.h"
-    "/home/pi/RCR/LIB/OpenCV/userland/interface/mmal/util/mmal_param_convert.h"
-    "/home/pi/RCR/LIB/OpenCV/userland/interface/mmal/util/mmal_util.h"
-    "/home/pi/RCR/LIB/OpenCV/userland/interface/mmal/util/mmal_util_params.h"
-    "/home/pi/RCR/LIB/OpenCV/userland/interface/mmal/util/mmal_util_rational.h"
+    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/util/mmal_component_wrapper.h"
+    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/util/mmal_connection.h"
+    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/util/mmal_default_components.h"
+    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/util/mmal_graph.h"
+    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/util/mmal_il.h"
+    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/util/mmal_list.h"
+    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/util/mmal_param_convert.h"
+    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/util/mmal_util.h"
+    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/util/mmal_util_params.h"
+    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/util/mmal_util_rational.h"
     )
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 

@@ -65,4 +65,4 @@ interface/mmal/test/CMakeFiles/mmal_example_basic_2.dir/examples/example_basic_2
  ../../inc/interface/vcos/vcos_timer.h
  ../../inc/interface/vcos/vcos_tls.h
  ../../inc/interface/vcos/vcos_types.h
- /home/pi/RCR/LIB/OpenCV/userland/interface/mmal/test/examples/example_basic_2.c
+ /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/test/examples/example_basic_2.c

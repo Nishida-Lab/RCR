@@ -38,19 +38,22 @@ RM = /usr/bin/cmake -E remove -f
 # Escaping for special characters.
 EQUALS = =
 
+# The program to use to edit the cache.
+CMAKE_EDIT_COMMAND = /usr/bin/cmake-gui
+
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/RCR/LIB/OpenCV/userland
+CMAKE_SOURCE_DIR = /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release
+CMAKE_BINARY_DIR = /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release
 
 #=============================================================================
 # Targets provided globally by CMake.
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running interactive CMake command-line interface..."
-	/usr/bin/cmake -i .
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/cmake-gui -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -101,7 +104,7 @@ list_install_components/fast: list_install_components
 # Special rule for the target package
 package: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool..."
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && /usr/bin/cpack --config ./CPackConfig.cmake
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && /usr/bin/cpack --config ./CPackConfig.cmake
 .PHONY : package
 
 # Special rule for the target package
@@ -111,7 +114,7 @@ package/fast: package
 # Special rule for the target package_source
 package_source:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/CPackSourceConfig.cmake
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CPackSourceConfig.cmake
 .PHONY : package_source
 
 # Special rule for the target package_source
@@ -130,14 +133,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -E cmake_progress_start /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/interface/vcos/pthreads/CMakeFiles/progress.marks
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/vcos/pthreads/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles 0
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -E cmake_progress_start /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/vcos/pthreads/CMakeFiles/progress.marks
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/vcos/pthreads/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/vcos/pthreads/clean
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/vcos/pthreads/clean
 .PHONY : clean
 
 # The main clean target
@@ -146,22 +149,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/vcos/pthreads/preinstall
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/vcos/pthreads/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/vcos/pthreads/preinstall
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/vcos/pthreads/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 interface/vcos/pthreads/CMakeFiles/vcos.dir/rule:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/vcos/pthreads/CMakeFiles/vcos.dir/rule
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 interface/vcos/pthreads/CMakeFiles/vcos.dir/rule
 .PHONY : interface/vcos/pthreads/CMakeFiles/vcos.dir/rule
 
 # Convenience name for target.
@@ -170,7 +173,7 @@ vcos: interface/vcos/pthreads/CMakeFiles/vcos.dir/rule
 
 # fast build rule for target.
 vcos/fast:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/build
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/build
 .PHONY : vcos/fast
 
 __/generic/vcos_abort.o: __/generic/vcos_abort.c.o
@@ -178,7 +181,7 @@ __/generic/vcos_abort.o: __/generic/vcos_abort.c.o
 
 # target to build an object file
 __/generic/vcos_abort.c.o:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_abort.c.o
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_abort.c.o
 .PHONY : __/generic/vcos_abort.c.o
 
 __/generic/vcos_abort.i: __/generic/vcos_abort.c.i
@@ -186,7 +189,7 @@ __/generic/vcos_abort.i: __/generic/vcos_abort.c.i
 
 # target to preprocess a source file
 __/generic/vcos_abort.c.i:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_abort.c.i
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_abort.c.i
 .PHONY : __/generic/vcos_abort.c.i
 
 __/generic/vcos_abort.s: __/generic/vcos_abort.c.s
@@ -194,7 +197,7 @@ __/generic/vcos_abort.s: __/generic/vcos_abort.c.s
 
 # target to generate assembly for a file
 __/generic/vcos_abort.c.s:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_abort.c.s
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_abort.c.s
 .PHONY : __/generic/vcos_abort.c.s
 
 __/generic/vcos_cmd.o: __/generic/vcos_cmd.c.o
@@ -202,7 +205,7 @@ __/generic/vcos_cmd.o: __/generic/vcos_cmd.c.o
 
 # target to build an object file
 __/generic/vcos_cmd.c.o:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_cmd.c.o
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_cmd.c.o
 .PHONY : __/generic/vcos_cmd.c.o
 
 __/generic/vcos_cmd.i: __/generic/vcos_cmd.c.i
@@ -210,7 +213,7 @@ __/generic/vcos_cmd.i: __/generic/vcos_cmd.c.i
 
 # target to preprocess a source file
 __/generic/vcos_cmd.c.i:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_cmd.c.i
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_cmd.c.i
 .PHONY : __/generic/vcos_cmd.c.i
 
 __/generic/vcos_cmd.s: __/generic/vcos_cmd.c.s
@@ -218,7 +221,7 @@ __/generic/vcos_cmd.s: __/generic/vcos_cmd.c.s
 
 # target to generate assembly for a file
 __/generic/vcos_cmd.c.s:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_cmd.c.s
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_cmd.c.s
 .PHONY : __/generic/vcos_cmd.c.s
 
 __/generic/vcos_generic_blockpool.o: __/generic/vcos_generic_blockpool.c.o
@@ -226,7 +229,7 @@ __/generic/vcos_generic_blockpool.o: __/generic/vcos_generic_blockpool.c.o
 
 # target to build an object file
 __/generic/vcos_generic_blockpool.c.o:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_generic_blockpool.c.o
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_generic_blockpool.c.o
 .PHONY : __/generic/vcos_generic_blockpool.c.o
 
 __/generic/vcos_generic_blockpool.i: __/generic/vcos_generic_blockpool.c.i
@@ -234,7 +237,7 @@ __/generic/vcos_generic_blockpool.i: __/generic/vcos_generic_blockpool.c.i
 
 # target to preprocess a source file
 __/generic/vcos_generic_blockpool.c.i:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_generic_blockpool.c.i
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_generic_blockpool.c.i
 .PHONY : __/generic/vcos_generic_blockpool.c.i
 
 __/generic/vcos_generic_blockpool.s: __/generic/vcos_generic_blockpool.c.s
@@ -242,7 +245,7 @@ __/generic/vcos_generic_blockpool.s: __/generic/vcos_generic_blockpool.c.s
 
 # target to generate assembly for a file
 __/generic/vcos_generic_blockpool.c.s:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_generic_blockpool.c.s
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_generic_blockpool.c.s
 .PHONY : __/generic/vcos_generic_blockpool.c.s
 
 __/generic/vcos_generic_event_flags.o: __/generic/vcos_generic_event_flags.c.o
@@ -250,7 +253,7 @@ __/generic/vcos_generic_event_flags.o: __/generic/vcos_generic_event_flags.c.o
 
 # target to build an object file
 __/generic/vcos_generic_event_flags.c.o:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_generic_event_flags.c.o
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_generic_event_flags.c.o
 .PHONY : __/generic/vcos_generic_event_flags.c.o
 
 __/generic/vcos_generic_event_flags.i: __/generic/vcos_generic_event_flags.c.i
@@ -258,7 +261,7 @@ __/generic/vcos_generic_event_flags.i: __/generic/vcos_generic_event_flags.c.i
 
 # target to preprocess a source file
 __/generic/vcos_generic_event_flags.c.i:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_generic_event_flags.c.i
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_generic_event_flags.c.i
 .PHONY : __/generic/vcos_generic_event_flags.c.i
 
 __/generic/vcos_generic_event_flags.s: __/generic/vcos_generic_event_flags.c.s
@@ -266,7 +269,7 @@ __/generic/vcos_generic_event_flags.s: __/generic/vcos_generic_event_flags.c.s
 
 # target to generate assembly for a file
 __/generic/vcos_generic_event_flags.c.s:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_generic_event_flags.c.s
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_generic_event_flags.c.s
 .PHONY : __/generic/vcos_generic_event_flags.c.s
 
 __/generic/vcos_generic_named_sem.o: __/generic/vcos_generic_named_sem.c.o
@@ -274,7 +277,7 @@ __/generic/vcos_generic_named_sem.o: __/generic/vcos_generic_named_sem.c.o
 
 # target to build an object file
 __/generic/vcos_generic_named_sem.c.o:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_generic_named_sem.c.o
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_generic_named_sem.c.o
 .PHONY : __/generic/vcos_generic_named_sem.c.o
 
 __/generic/vcos_generic_named_sem.i: __/generic/vcos_generic_named_sem.c.i
@@ -282,7 +285,7 @@ __/generic/vcos_generic_named_sem.i: __/generic/vcos_generic_named_sem.c.i
 
 # target to preprocess a source file
 __/generic/vcos_generic_named_sem.c.i:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_generic_named_sem.c.i
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_generic_named_sem.c.i
 .PHONY : __/generic/vcos_generic_named_sem.c.i
 
 __/generic/vcos_generic_named_sem.s: __/generic/vcos_generic_named_sem.c.s
@@ -290,7 +293,7 @@ __/generic/vcos_generic_named_sem.s: __/generic/vcos_generic_named_sem.c.s
 
 # target to generate assembly for a file
 __/generic/vcos_generic_named_sem.c.s:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_generic_named_sem.c.s
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_generic_named_sem.c.s
 .PHONY : __/generic/vcos_generic_named_sem.c.s
 
 __/generic/vcos_generic_reentrant_mtx.o: __/generic/vcos_generic_reentrant_mtx.c.o
@@ -298,7 +301,7 @@ __/generic/vcos_generic_reentrant_mtx.o: __/generic/vcos_generic_reentrant_mtx.c
 
 # target to build an object file
 __/generic/vcos_generic_reentrant_mtx.c.o:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_generic_reentrant_mtx.c.o
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_generic_reentrant_mtx.c.o
 .PHONY : __/generic/vcos_generic_reentrant_mtx.c.o
 
 __/generic/vcos_generic_reentrant_mtx.i: __/generic/vcos_generic_reentrant_mtx.c.i
@@ -306,7 +309,7 @@ __/generic/vcos_generic_reentrant_mtx.i: __/generic/vcos_generic_reentrant_mtx.c
 
 # target to preprocess a source file
 __/generic/vcos_generic_reentrant_mtx.c.i:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_generic_reentrant_mtx.c.i
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_generic_reentrant_mtx.c.i
 .PHONY : __/generic/vcos_generic_reentrant_mtx.c.i
 
 __/generic/vcos_generic_reentrant_mtx.s: __/generic/vcos_generic_reentrant_mtx.c.s
@@ -314,7 +317,7 @@ __/generic/vcos_generic_reentrant_mtx.s: __/generic/vcos_generic_reentrant_mtx.c
 
 # target to generate assembly for a file
 __/generic/vcos_generic_reentrant_mtx.c.s:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_generic_reentrant_mtx.c.s
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_generic_reentrant_mtx.c.s
 .PHONY : __/generic/vcos_generic_reentrant_mtx.c.s
 
 __/generic/vcos_generic_safe_string.o: __/generic/vcos_generic_safe_string.c.o
@@ -322,7 +325,7 @@ __/generic/vcos_generic_safe_string.o: __/generic/vcos_generic_safe_string.c.o
 
 # target to build an object file
 __/generic/vcos_generic_safe_string.c.o:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_generic_safe_string.c.o
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_generic_safe_string.c.o
 .PHONY : __/generic/vcos_generic_safe_string.c.o
 
 __/generic/vcos_generic_safe_string.i: __/generic/vcos_generic_safe_string.c.i
@@ -330,7 +333,7 @@ __/generic/vcos_generic_safe_string.i: __/generic/vcos_generic_safe_string.c.i
 
 # target to preprocess a source file
 __/generic/vcos_generic_safe_string.c.i:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_generic_safe_string.c.i
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_generic_safe_string.c.i
 .PHONY : __/generic/vcos_generic_safe_string.c.i
 
 __/generic/vcos_generic_safe_string.s: __/generic/vcos_generic_safe_string.c.s
@@ -338,7 +341,7 @@ __/generic/vcos_generic_safe_string.s: __/generic/vcos_generic_safe_string.c.s
 
 # target to generate assembly for a file
 __/generic/vcos_generic_safe_string.c.s:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_generic_safe_string.c.s
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_generic_safe_string.c.s
 .PHONY : __/generic/vcos_generic_safe_string.c.s
 
 __/generic/vcos_init.o: __/generic/vcos_init.c.o
@@ -346,7 +349,7 @@ __/generic/vcos_init.o: __/generic/vcos_init.c.o
 
 # target to build an object file
 __/generic/vcos_init.c.o:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_init.c.o
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_init.c.o
 .PHONY : __/generic/vcos_init.c.o
 
 __/generic/vcos_init.i: __/generic/vcos_init.c.i
@@ -354,7 +357,7 @@ __/generic/vcos_init.i: __/generic/vcos_init.c.i
 
 # target to preprocess a source file
 __/generic/vcos_init.c.i:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_init.c.i
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_init.c.i
 .PHONY : __/generic/vcos_init.c.i
 
 __/generic/vcos_init.s: __/generic/vcos_init.c.s
@@ -362,7 +365,7 @@ __/generic/vcos_init.s: __/generic/vcos_init.c.s
 
 # target to generate assembly for a file
 __/generic/vcos_init.c.s:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_init.c.s
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_init.c.s
 .PHONY : __/generic/vcos_init.c.s
 
 __/generic/vcos_logcat.o: __/generic/vcos_logcat.c.o
@@ -370,7 +373,7 @@ __/generic/vcos_logcat.o: __/generic/vcos_logcat.c.o
 
 # target to build an object file
 __/generic/vcos_logcat.c.o:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_logcat.c.o
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_logcat.c.o
 .PHONY : __/generic/vcos_logcat.c.o
 
 __/generic/vcos_logcat.i: __/generic/vcos_logcat.c.i
@@ -378,7 +381,7 @@ __/generic/vcos_logcat.i: __/generic/vcos_logcat.c.i
 
 # target to preprocess a source file
 __/generic/vcos_logcat.c.i:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_logcat.c.i
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_logcat.c.i
 .PHONY : __/generic/vcos_logcat.c.i
 
 __/generic/vcos_logcat.s: __/generic/vcos_logcat.c.s
@@ -386,7 +389,7 @@ __/generic/vcos_logcat.s: __/generic/vcos_logcat.c.s
 
 # target to generate assembly for a file
 __/generic/vcos_logcat.c.s:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_logcat.c.s
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_logcat.c.s
 .PHONY : __/generic/vcos_logcat.c.s
 
 __/generic/vcos_mem_from_malloc.o: __/generic/vcos_mem_from_malloc.c.o
@@ -394,7 +397,7 @@ __/generic/vcos_mem_from_malloc.o: __/generic/vcos_mem_from_malloc.c.o
 
 # target to build an object file
 __/generic/vcos_mem_from_malloc.c.o:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_mem_from_malloc.c.o
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_mem_from_malloc.c.o
 .PHONY : __/generic/vcos_mem_from_malloc.c.o
 
 __/generic/vcos_mem_from_malloc.i: __/generic/vcos_mem_from_malloc.c.i
@@ -402,7 +405,7 @@ __/generic/vcos_mem_from_malloc.i: __/generic/vcos_mem_from_malloc.c.i
 
 # target to preprocess a source file
 __/generic/vcos_mem_from_malloc.c.i:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_mem_from_malloc.c.i
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_mem_from_malloc.c.i
 .PHONY : __/generic/vcos_mem_from_malloc.c.i
 
 __/generic/vcos_mem_from_malloc.s: __/generic/vcos_mem_from_malloc.c.s
@@ -410,7 +413,7 @@ __/generic/vcos_mem_from_malloc.s: __/generic/vcos_mem_from_malloc.c.s
 
 # target to generate assembly for a file
 __/generic/vcos_mem_from_malloc.c.s:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_mem_from_malloc.c.s
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_mem_from_malloc.c.s
 .PHONY : __/generic/vcos_mem_from_malloc.c.s
 
 __/generic/vcos_msgqueue.o: __/generic/vcos_msgqueue.c.o
@@ -418,7 +421,7 @@ __/generic/vcos_msgqueue.o: __/generic/vcos_msgqueue.c.o
 
 # target to build an object file
 __/generic/vcos_msgqueue.c.o:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_msgqueue.c.o
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_msgqueue.c.o
 .PHONY : __/generic/vcos_msgqueue.c.o
 
 __/generic/vcos_msgqueue.i: __/generic/vcos_msgqueue.c.i
@@ -426,7 +429,7 @@ __/generic/vcos_msgqueue.i: __/generic/vcos_msgqueue.c.i
 
 # target to preprocess a source file
 __/generic/vcos_msgqueue.c.i:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_msgqueue.c.i
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_msgqueue.c.i
 .PHONY : __/generic/vcos_msgqueue.c.i
 
 __/generic/vcos_msgqueue.s: __/generic/vcos_msgqueue.c.s
@@ -434,7 +437,7 @@ __/generic/vcos_msgqueue.s: __/generic/vcos_msgqueue.c.s
 
 # target to generate assembly for a file
 __/generic/vcos_msgqueue.c.s:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_msgqueue.c.s
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/generic/vcos_msgqueue.c.s
 .PHONY : __/generic/vcos_msgqueue.c.s
 
 __/glibc/vcos_backtrace.o: __/glibc/vcos_backtrace.c.o
@@ -442,7 +445,7 @@ __/glibc/vcos_backtrace.o: __/glibc/vcos_backtrace.c.o
 
 # target to build an object file
 __/glibc/vcos_backtrace.c.o:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/glibc/vcos_backtrace.c.o
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/glibc/vcos_backtrace.c.o
 .PHONY : __/glibc/vcos_backtrace.c.o
 
 __/glibc/vcos_backtrace.i: __/glibc/vcos_backtrace.c.i
@@ -450,7 +453,7 @@ __/glibc/vcos_backtrace.i: __/glibc/vcos_backtrace.c.i
 
 # target to preprocess a source file
 __/glibc/vcos_backtrace.c.i:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/glibc/vcos_backtrace.c.i
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/glibc/vcos_backtrace.c.i
 .PHONY : __/glibc/vcos_backtrace.c.i
 
 __/glibc/vcos_backtrace.s: __/glibc/vcos_backtrace.c.s
@@ -458,7 +461,7 @@ __/glibc/vcos_backtrace.s: __/glibc/vcos_backtrace.c.s
 
 # target to generate assembly for a file
 __/glibc/vcos_backtrace.c.s:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/glibc/vcos_backtrace.c.s
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/__/glibc/vcos_backtrace.c.s
 .PHONY : __/glibc/vcos_backtrace.c.s
 
 vcos_dlfcn.o: vcos_dlfcn.c.o
@@ -466,7 +469,7 @@ vcos_dlfcn.o: vcos_dlfcn.c.o
 
 # target to build an object file
 vcos_dlfcn.c.o:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/vcos_dlfcn.c.o
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/vcos_dlfcn.c.o
 .PHONY : vcos_dlfcn.c.o
 
 vcos_dlfcn.i: vcos_dlfcn.c.i
@@ -474,7 +477,7 @@ vcos_dlfcn.i: vcos_dlfcn.c.i
 
 # target to preprocess a source file
 vcos_dlfcn.c.i:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/vcos_dlfcn.c.i
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/vcos_dlfcn.c.i
 .PHONY : vcos_dlfcn.c.i
 
 vcos_dlfcn.s: vcos_dlfcn.c.s
@@ -482,7 +485,7 @@ vcos_dlfcn.s: vcos_dlfcn.c.s
 
 # target to generate assembly for a file
 vcos_dlfcn.c.s:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/vcos_dlfcn.c.s
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/vcos_dlfcn.c.s
 .PHONY : vcos_dlfcn.c.s
 
 vcos_pthreads.o: vcos_pthreads.c.o
@@ -490,7 +493,7 @@ vcos_pthreads.o: vcos_pthreads.c.o
 
 # target to build an object file
 vcos_pthreads.c.o:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/vcos_pthreads.c.o
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/vcos_pthreads.c.o
 .PHONY : vcos_pthreads.c.o
 
 vcos_pthreads.i: vcos_pthreads.c.i
@@ -498,7 +501,7 @@ vcos_pthreads.i: vcos_pthreads.c.i
 
 # target to preprocess a source file
 vcos_pthreads.c.i:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/vcos_pthreads.c.i
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/vcos_pthreads.c.i
 .PHONY : vcos_pthreads.c.i
 
 vcos_pthreads.s: vcos_pthreads.c.s
@@ -506,7 +509,7 @@ vcos_pthreads.s: vcos_pthreads.c.s
 
 # target to generate assembly for a file
 vcos_pthreads.c.s:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/vcos_pthreads.c.s
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f interface/vcos/pthreads/CMakeFiles/vcos.dir/build.make interface/vcos/pthreads/CMakeFiles/vcos.dir/vcos_pthreads.c.s
 .PHONY : vcos_pthreads.c.s
 
 # Help Target
@@ -577,6 +580,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

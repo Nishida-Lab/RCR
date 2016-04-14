@@ -38,19 +38,22 @@ RM = /usr/bin/cmake -E remove -f
 # Escaping for special characters.
 EQUALS = =
 
+# The program to use to edit the cache.
+CMAKE_EDIT_COMMAND = /usr/bin/cmake-gui
+
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/RCR/LIB/OpenCV/userland
+CMAKE_SOURCE_DIR = /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release
+CMAKE_BINARY_DIR = /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release
 
 #=============================================================================
 # Targets provided globally by CMake.
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running interactive CMake command-line interface..."
-	/usr/bin/cmake -i .
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/cmake-gui -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -101,7 +104,7 @@ list_install_components/fast: list_install_components
 # Special rule for the target package
 package: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool..."
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && /usr/bin/cpack --config ./CPackConfig.cmake
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && /usr/bin/cpack --config ./CPackConfig.cmake
 .PHONY : package
 
 # Special rule for the target package
@@ -111,7 +114,7 @@ package/fast: package
 # Special rule for the target package_source
 package_source:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/CPackSourceConfig.cmake
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CPackSourceConfig.cmake
 .PHONY : package_source
 
 # Special rule for the target package_source
@@ -130,14 +133,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -E cmake_progress_start /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/containers/simple/CMakeFiles/progress.marks
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 containers/simple/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles 0
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -E cmake_progress_start /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers/simple/CMakeFiles/progress.marks
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 containers/simple/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 containers/simple/clean
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 containers/simple/clean
 .PHONY : clean
 
 # The main clean target
@@ -146,22 +149,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 containers/simple/preinstall
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 containers/simple/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 containers/simple/preinstall
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 containers/simple/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 containers/simple/CMakeFiles/reader_simple.dir/rule:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 containers/simple/CMakeFiles/reader_simple.dir/rule
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 containers/simple/CMakeFiles/reader_simple.dir/rule
 .PHONY : containers/simple/CMakeFiles/reader_simple.dir/rule
 
 # Convenience name for target.
@@ -170,12 +173,12 @@ reader_simple: containers/simple/CMakeFiles/reader_simple.dir/rule
 
 # fast build rule for target.
 reader_simple/fast:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f containers/simple/CMakeFiles/reader_simple.dir/build.make containers/simple/CMakeFiles/reader_simple.dir/build
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f containers/simple/CMakeFiles/reader_simple.dir/build.make containers/simple/CMakeFiles/reader_simple.dir/build
 .PHONY : reader_simple/fast
 
 # Convenience name for target.
 containers/simple/CMakeFiles/writer_simple.dir/rule:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 containers/simple/CMakeFiles/writer_simple.dir/rule
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 containers/simple/CMakeFiles/writer_simple.dir/rule
 .PHONY : containers/simple/CMakeFiles/writer_simple.dir/rule
 
 # Convenience name for target.
@@ -184,7 +187,7 @@ writer_simple: containers/simple/CMakeFiles/writer_simple.dir/rule
 
 # fast build rule for target.
 writer_simple/fast:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f containers/simple/CMakeFiles/writer_simple.dir/build.make containers/simple/CMakeFiles/writer_simple.dir/build
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f containers/simple/CMakeFiles/writer_simple.dir/build.make containers/simple/CMakeFiles/writer_simple.dir/build
 .PHONY : writer_simple/fast
 
 simple_reader.o: simple_reader.c.o
@@ -192,7 +195,7 @@ simple_reader.o: simple_reader.c.o
 
 # target to build an object file
 simple_reader.c.o:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f containers/simple/CMakeFiles/reader_simple.dir/build.make containers/simple/CMakeFiles/reader_simple.dir/simple_reader.c.o
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f containers/simple/CMakeFiles/reader_simple.dir/build.make containers/simple/CMakeFiles/reader_simple.dir/simple_reader.c.o
 .PHONY : simple_reader.c.o
 
 simple_reader.i: simple_reader.c.i
@@ -200,7 +203,7 @@ simple_reader.i: simple_reader.c.i
 
 # target to preprocess a source file
 simple_reader.c.i:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f containers/simple/CMakeFiles/reader_simple.dir/build.make containers/simple/CMakeFiles/reader_simple.dir/simple_reader.c.i
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f containers/simple/CMakeFiles/reader_simple.dir/build.make containers/simple/CMakeFiles/reader_simple.dir/simple_reader.c.i
 .PHONY : simple_reader.c.i
 
 simple_reader.s: simple_reader.c.s
@@ -208,7 +211,7 @@ simple_reader.s: simple_reader.c.s
 
 # target to generate assembly for a file
 simple_reader.c.s:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f containers/simple/CMakeFiles/reader_simple.dir/build.make containers/simple/CMakeFiles/reader_simple.dir/simple_reader.c.s
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f containers/simple/CMakeFiles/reader_simple.dir/build.make containers/simple/CMakeFiles/reader_simple.dir/simple_reader.c.s
 .PHONY : simple_reader.c.s
 
 simple_writer.o: simple_writer.c.o
@@ -216,7 +219,7 @@ simple_writer.o: simple_writer.c.o
 
 # target to build an object file
 simple_writer.c.o:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f containers/simple/CMakeFiles/writer_simple.dir/build.make containers/simple/CMakeFiles/writer_simple.dir/simple_writer.c.o
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f containers/simple/CMakeFiles/writer_simple.dir/build.make containers/simple/CMakeFiles/writer_simple.dir/simple_writer.c.o
 .PHONY : simple_writer.c.o
 
 simple_writer.i: simple_writer.c.i
@@ -224,7 +227,7 @@ simple_writer.i: simple_writer.c.i
 
 # target to preprocess a source file
 simple_writer.c.i:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f containers/simple/CMakeFiles/writer_simple.dir/build.make containers/simple/CMakeFiles/writer_simple.dir/simple_writer.c.i
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f containers/simple/CMakeFiles/writer_simple.dir/build.make containers/simple/CMakeFiles/writer_simple.dir/simple_writer.c.i
 .PHONY : simple_writer.c.i
 
 simple_writer.s: simple_writer.c.s
@@ -232,7 +235,7 @@ simple_writer.s: simple_writer.c.s
 
 # target to generate assembly for a file
 simple_writer.c.s:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f containers/simple/CMakeFiles/writer_simple.dir/build.make containers/simple/CMakeFiles/writer_simple.dir/simple_writer.c.s
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f containers/simple/CMakeFiles/writer_simple.dir/build.make containers/simple/CMakeFiles/writer_simple.dir/simple_writer.c.s
 .PHONY : simple_writer.c.s
 
 # Help Target
@@ -268,6 +271,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

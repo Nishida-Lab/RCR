@@ -336,9 +336,9 @@ vcos_platform_types.h
 interface/vcos/vcos_attr.h
 ../../inc/interface/vcos/interface/vcos/vcos_attr.h
 
-/home/pi/RCR/LIB/OpenCV/userland/host_applications/linux/libs/debug_sym/debug_sym.c
+/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/libs/debug_sym/debug_sym.c
 interface/vcos/vcos.h
-/home/pi/RCR/LIB/OpenCV/userland/host_applications/linux/libs/debug_sym/interface/vcos/vcos.h
+/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/libs/debug_sym/interface/vcos/vcos.h
 errno.h
 -
 stdlib.h
@@ -360,13 +360,13 @@ sys/ioctl.h
 vc_mem.h
 -
 debug_sym.h
-/home/pi/RCR/LIB/OpenCV/userland/host_applications/linux/libs/debug_sym/debug_sym.h
+/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/libs/debug_sym/debug_sym.h
 vc_debug_sym.h
-/home/pi/RCR/LIB/OpenCV/userland/host_applications/linux/libs/debug_sym/vc_debug_sym.h
+/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/libs/debug_sym/vc_debug_sym.h
 
-/home/pi/RCR/LIB/OpenCV/userland/host_applications/linux/libs/debug_sym/debug_sym.h
+/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/libs/debug_sym/debug_sym.h
 interface/vcos/vcos.h
-/home/pi/RCR/LIB/OpenCV/userland/host_applications/linux/libs/debug_sym/interface/vcos/vcos.h
+/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/libs/debug_sym/interface/vcos/vcos.h
 interface/vcos/vcos_stdint.h
-/home/pi/RCR/LIB/OpenCV/userland/host_applications/linux/libs/debug_sym/interface/vcos/vcos_stdint.h
+/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/linux/libs/debug_sym/interface/vcos/vcos_stdint.h
 

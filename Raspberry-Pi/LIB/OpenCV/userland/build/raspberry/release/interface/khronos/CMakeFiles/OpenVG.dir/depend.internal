@@ -145,7 +145,7 @@ interface/khronos/CMakeFiles/OpenVG.dir/vg/vg_client.c.o
  ../../inc/interface/vcos/vcos_timer.h
  ../../inc/interface/vcos/vcos_tls.h
  ../../inc/interface/vcos/vcos_types.h
- /home/pi/RCR/LIB/OpenCV/userland/interface/khronos/vg/vg_client.c
+ /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos/vg/vg_client.c
 interface/khronos/CMakeFiles/OpenVG.dir/vg/vg_int_mat3x3.c.o
  ../../../helpers/v3d/v3d_ver.h
  ../../../interface/khronos/common/khrn_int_common.h
@@ -196,4 +196,4 @@ interface/khronos/CMakeFiles/OpenVG.dir/vg/vg_int_mat3x3.c.o
  ../../inc/interface/vcos/vcos_timer.h
  ../../inc/interface/vcos/vcos_tls.h
  ../../inc/interface/vcos/vcos_types.h
- /home/pi/RCR/LIB/OpenCV/userland/interface/khronos/vg/vg_int_mat3x3.c
+ /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos/vg/vg_int_mat3x3.c

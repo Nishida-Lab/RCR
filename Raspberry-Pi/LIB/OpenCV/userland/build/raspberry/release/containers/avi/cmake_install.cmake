@@ -1,4 +1,4 @@
-# Install script for directory: /home/pi/RCR/LIB/OpenCV/userland/containers/avi
+# Install script for directory: /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/containers/avi
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -47,7 +47,7 @@ IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
   IF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-FILE(INSTALL DESTINATION "/opt/vc/lib/plugins" TYPE SHARED_LIBRARY FILES "/home/pi/RCR/LIB/OpenCV/userland/build/lib/reader_avi.so")
+FILE(INSTALL DESTINATION "/opt/vc/lib/plugins" TYPE SHARED_LIBRARY FILES "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/lib/reader_avi.so")
   IF(EXISTS "$ENV{DESTDIR}/opt/vc/lib/plugins/reader_avi.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}/opt/vc/lib/plugins/reader_avi.so")
     FILE(RPATH_REMOVE
@@ -73,7 +73,7 @@ IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
   IF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-FILE(INSTALL DESTINATION "/opt/vc/lib/plugins" TYPE SHARED_LIBRARY FILES "/home/pi/RCR/LIB/OpenCV/userland/build/lib/writer_avi.so")
+FILE(INSTALL DESTINATION "/opt/vc/lib/plugins" TYPE SHARED_LIBRARY FILES "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/lib/writer_avi.so")
   IF(EXISTS "$ENV{DESTDIR}/opt/vc/lib/plugins/writer_avi.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}/opt/vc/lib/plugins/writer_avi.so")
     FILE(RPATH_REMOVE

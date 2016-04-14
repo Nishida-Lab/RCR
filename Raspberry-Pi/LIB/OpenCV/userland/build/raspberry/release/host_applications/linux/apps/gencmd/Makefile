@@ -38,19 +38,22 @@ RM = /usr/bin/cmake -E remove -f
 # Escaping for special characters.
 EQUALS = =
 
+# The program to use to edit the cache.
+CMAKE_EDIT_COMMAND = /usr/bin/cmake-gui
+
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/RCR/LIB/OpenCV/userland
+CMAKE_SOURCE_DIR = /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release
+CMAKE_BINARY_DIR = /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release
 
 #=============================================================================
 # Targets provided globally by CMake.
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running interactive CMake command-line interface..."
-	/usr/bin/cmake -i .
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/cmake-gui -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -101,7 +104,7 @@ list_install_components/fast: list_install_components
 # Special rule for the target package
 package: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool..."
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && /usr/bin/cpack --config ./CPackConfig.cmake
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && /usr/bin/cpack --config ./CPackConfig.cmake
 .PHONY : package
 
 # Special rule for the target package
@@ -111,7 +114,7 @@ package/fast: package
 # Special rule for the target package_source
 package_source:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/CPackSourceConfig.cmake
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CPackSourceConfig.cmake
 .PHONY : package_source
 
 # Special rule for the target package_source
@@ -130,14 +133,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -E cmake_progress_start /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/apps/gencmd/CMakeFiles/progress.marks
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/linux/apps/gencmd/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles 0
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -E cmake_progress_start /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/host_applications/linux/apps/gencmd/CMakeFiles/progress.marks
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/linux/apps/gencmd/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/linux/apps/gencmd/clean
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/linux/apps/gencmd/clean
 .PHONY : clean
 
 # The main clean target
@@ -146,22 +149,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/linux/apps/gencmd/preinstall
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/linux/apps/gencmd/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/linux/apps/gencmd/preinstall
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/linux/apps/gencmd/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 host_applications/linux/apps/gencmd/CMakeFiles/vcgencmd.dir/rule:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/linux/apps/gencmd/CMakeFiles/vcgencmd.dir/rule
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f CMakeFiles/Makefile2 host_applications/linux/apps/gencmd/CMakeFiles/vcgencmd.dir/rule
 .PHONY : host_applications/linux/apps/gencmd/CMakeFiles/vcgencmd.dir/rule
 
 # Convenience name for target.
@@ -170,7 +173,7 @@ vcgencmd: host_applications/linux/apps/gencmd/CMakeFiles/vcgencmd.dir/rule
 
 # fast build rule for target.
 vcgencmd/fast:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/gencmd/CMakeFiles/vcgencmd.dir/build.make host_applications/linux/apps/gencmd/CMakeFiles/vcgencmd.dir/build
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/gencmd/CMakeFiles/vcgencmd.dir/build.make host_applications/linux/apps/gencmd/CMakeFiles/vcgencmd.dir/build
 .PHONY : vcgencmd/fast
 
 gencmd.o: gencmd.c.o
@@ -178,7 +181,7 @@ gencmd.o: gencmd.c.o
 
 # target to build an object file
 gencmd.c.o:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/gencmd/CMakeFiles/vcgencmd.dir/build.make host_applications/linux/apps/gencmd/CMakeFiles/vcgencmd.dir/gencmd.c.o
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/gencmd/CMakeFiles/vcgencmd.dir/build.make host_applications/linux/apps/gencmd/CMakeFiles/vcgencmd.dir/gencmd.c.o
 .PHONY : gencmd.c.o
 
 gencmd.i: gencmd.c.i
@@ -186,7 +189,7 @@ gencmd.i: gencmd.c.i
 
 # target to preprocess a source file
 gencmd.c.i:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/gencmd/CMakeFiles/vcgencmd.dir/build.make host_applications/linux/apps/gencmd/CMakeFiles/vcgencmd.dir/gencmd.c.i
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/gencmd/CMakeFiles/vcgencmd.dir/build.make host_applications/linux/apps/gencmd/CMakeFiles/vcgencmd.dir/gencmd.c.i
 .PHONY : gencmd.c.i
 
 gencmd.s: gencmd.c.s
@@ -194,7 +197,7 @@ gencmd.s: gencmd.c.s
 
 # target to generate assembly for a file
 gencmd.c.s:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/gencmd/CMakeFiles/vcgencmd.dir/build.make host_applications/linux/apps/gencmd/CMakeFiles/vcgencmd.dir/gencmd.c.s
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(MAKE) -f host_applications/linux/apps/gencmd/CMakeFiles/vcgencmd.dir/build.make host_applications/linux/apps/gencmd/CMakeFiles/vcgencmd.dir/gencmd.c.s
 .PHONY : gencmd.c.s
 
 # Help Target
@@ -226,6 +229,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

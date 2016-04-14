@@ -4,7 +4,7 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_C
-  "/home/pi/RCR/LIB/OpenCV/userland/interface/vmcs_host/linux/vcfiled/vcfiled_lock_test.c" "/home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled_lock_test.dir/vcfiled_lock_test.c.o"
+  "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/vmcs_host/linux/vcfiled/vcfiled_lock_test.c" "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled_lock_test.dir/vcfiled_lock_test.c.o"
   )
 SET(CMAKE_C_COMPILER_ID "GNU")
 
@@ -29,7 +29,7 @@ SET(CMAKE_TARGET_DEFINITIONS
 
 # Targets to which this target links.
 SET(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled_check.dir/DependInfo.cmake"
+  "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/vmcs_host/linux/vcfiled/CMakeFiles/vcfiled_check.dir/DependInfo.cmake"
   )
 
 # The include file search paths:

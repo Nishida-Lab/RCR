@@ -4,7 +4,7 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_C
-  "/home/pi/RCR/LIB/OpenCV/userland/interface/mmal/util/mmal_util.c" "/home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/CMakeFiles/mmal.dir/util/mmal_util.c.o"
+  "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/util/mmal_util.c" "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/CMakeFiles/mmal.dir/util/mmal_util.c.o"
   )
 SET(CMAKE_C_COMPILER_ID "GNU")
 
@@ -29,13 +29,13 @@ SET(CMAKE_TARGET_DEFINITIONS
 
 # Targets to which this target links.
 SET(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/core/CMakeFiles/mmal_core.dir/DependInfo.cmake"
-  "/home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/util/CMakeFiles/mmal_util.dir/DependInfo.cmake"
-  "/home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/vc/CMakeFiles/mmal_vc_client.dir/DependInfo.cmake"
-  "/home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/interface/vcos/pthreads/CMakeFiles/vcos.dir/DependInfo.cmake"
-  "/home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components/CMakeFiles/mmal_components.dir/DependInfo.cmake"
-  "/home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/interface/vchiq_arm/CMakeFiles/vchiq_arm.dir/DependInfo.cmake"
-  "/home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/containers/CMakeFiles/containers.dir/DependInfo.cmake"
+  "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/core/CMakeFiles/mmal_core.dir/DependInfo.cmake"
+  "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/util/CMakeFiles/mmal_util.dir/DependInfo.cmake"
+  "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/vc/CMakeFiles/mmal_vc_client.dir/DependInfo.cmake"
+  "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/vcos/pthreads/CMakeFiles/vcos.dir/DependInfo.cmake"
+  "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/mmal/components/CMakeFiles/mmal_components.dir/DependInfo.cmake"
+  "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/vchiq_arm/CMakeFiles/vchiq_arm.dir/DependInfo.cmake"
+  "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/containers/CMakeFiles/containers.dir/DependInfo.cmake"
   )
 
 # The include file search paths:

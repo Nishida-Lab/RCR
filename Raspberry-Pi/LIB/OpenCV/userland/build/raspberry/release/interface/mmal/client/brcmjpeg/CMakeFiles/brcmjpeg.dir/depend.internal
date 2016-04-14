@@ -66,5 +66,5 @@ interface/mmal/client/brcmjpeg/CMakeFiles/brcmjpeg.dir/brcmjpeg.c.o
  ../../inc/interface/vcos/vcos_timer.h
  ../../inc/interface/vcos/vcos_tls.h
  ../../inc/interface/vcos/vcos_types.h
- /home/pi/RCR/LIB/OpenCV/userland/interface/mmal/client/brcmjpeg/brcmjpeg.c
- /home/pi/RCR/LIB/OpenCV/userland/interface/mmal/client/brcmjpeg/brcmjpeg.h
+ /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/client/brcmjpeg/brcmjpeg.c
+ /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/client/brcmjpeg/brcmjpeg.h

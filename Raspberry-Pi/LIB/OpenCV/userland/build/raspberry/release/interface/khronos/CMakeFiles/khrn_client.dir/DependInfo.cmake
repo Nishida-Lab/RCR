@@ -5,14 +5,14 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_ASM
-  "/home/pi/RCR/LIB/OpenCV/userland/interface/khronos/common/khrn_int_hash_asm.s" "/home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/interface/khronos/CMakeFiles/khrn_client.dir/common/khrn_int_hash_asm.s.o"
+  "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos/common/khrn_int_hash_asm.s" "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/khronos/CMakeFiles/khrn_client.dir/common/khrn_int_hash_asm.s.o"
   )
 SET(CMAKE_ASM_COMPILER_ID "GNU")
 SET(CMAKE_DEPENDS_CHECK_C
-  "/home/pi/RCR/LIB/OpenCV/userland/interface/khronos/common/khrn_client_cache.c" "/home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/interface/khronos/CMakeFiles/khrn_client.dir/common/khrn_client_cache.c.o"
-  "/home/pi/RCR/LIB/OpenCV/userland/interface/khronos/common/khrn_client_pointermap.c" "/home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/interface/khronos/CMakeFiles/khrn_client.dir/common/khrn_client_pointermap.c.o"
-  "/home/pi/RCR/LIB/OpenCV/userland/interface/khronos/common/khrn_client_vector.c" "/home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/interface/khronos/CMakeFiles/khrn_client.dir/common/khrn_client_vector.c.o"
-  "/home/pi/RCR/LIB/OpenCV/userland/interface/khronos/common/khrn_int_hash.c" "/home/pi/RCR/LIB/OpenCV/userland/build/raspberry/release/interface/khronos/CMakeFiles/khrn_client.dir/common/khrn_int_hash.c.o"
+  "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos/common/khrn_client_cache.c" "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/khronos/CMakeFiles/khrn_client.dir/common/khrn_client_cache.c.o"
+  "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos/common/khrn_client_pointermap.c" "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/khronos/CMakeFiles/khrn_client.dir/common/khrn_client_pointermap.c.o"
+  "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos/common/khrn_client_vector.c" "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/khronos/CMakeFiles/khrn_client.dir/common/khrn_client_vector.c.o"
+  "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/khronos/common/khrn_int_hash.c" "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/raspberry/release/interface/khronos/CMakeFiles/khrn_client.dir/common/khrn_int_hash.c.o"
   )
 SET(CMAKE_C_COMPILER_ID "GNU")
 

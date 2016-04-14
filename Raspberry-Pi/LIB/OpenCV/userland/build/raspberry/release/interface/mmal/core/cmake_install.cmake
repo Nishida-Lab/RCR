@@ -1,4 +1,4 @@
-# Install script for directory: /home/pi/RCR/LIB/OpenCV/userland/interface/mmal/core
+# Install script for directory: /home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/core
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,7 +39,7 @@ IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmmal_core.so"
          RPATH "")
   ENDIF()
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/pi/RCR/LIB/OpenCV/userland/build/lib/libmmal_core.so")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/build/lib/libmmal_core.so")
   IF(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmmal_core.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libmmal_core.so")
     FILE(RPATH_REMOVE
@@ -52,12 +52,12 @@ ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unsp
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/interface/mmal/core" TYPE FILE FILES
-    "/home/pi/RCR/LIB/OpenCV/userland/interface/mmal/core/mmal_buffer_private.h"
-    "/home/pi/RCR/LIB/OpenCV/userland/interface/mmal/core/mmal_clock_private.h"
-    "/home/pi/RCR/LIB/OpenCV/userland/interface/mmal/core/mmal_component_private.h"
-    "/home/pi/RCR/LIB/OpenCV/userland/interface/mmal/core/mmal_core_private.h"
-    "/home/pi/RCR/LIB/OpenCV/userland/interface/mmal/core/mmal_port_private.h"
-    "/home/pi/RCR/LIB/OpenCV/userland/interface/mmal/core/mmal_events_private.h"
+    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/core/mmal_buffer_private.h"
+    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/core/mmal_clock_private.h"
+    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/core/mmal_component_private.h"
+    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/core/mmal_core_private.h"
+    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/core/mmal_port_private.h"
+    "/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/interface/mmal/core/mmal_events_private.h"
     )
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 

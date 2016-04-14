@@ -500,7 +500,7 @@ vcos_platform_types.h
 interface/vcos/vcos_attr.h
 ../../inc/interface/vcos/interface/vcos/vcos_attr.h
 
-/home/pi/RCR/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalcam/mmalcam.c
+/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalcam/mmalcam.c
 stdlib.h
 -
 limits.h
@@ -510,17 +510,17 @@ stdio.h
 string.h
 -
 mmalcam.h
-/home/pi/RCR/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalcam/mmalcam.h
+/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalcam/mmalcam.h
 interface/mmal/mmal_logging.h
-/home/pi/RCR/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalcam/interface/mmal/mmal_logging.h
+/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalcam/interface/mmal/mmal_logging.h
 
-/home/pi/RCR/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalcam/mmalcam.h
+/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalcam/mmalcam.h
 interface/vcos/vcos.h
-/home/pi/RCR/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalcam/interface/vcos/vcos.h
+/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalcam/interface/vcos/vcos.h
 interface/mmal/mmal.h
-/home/pi/RCR/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalcam/interface/mmal/mmal.h
+/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalcam/interface/mmal/mmal.h
 
-/home/pi/RCR/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalcam/viewfinder.c
+/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalcam/viewfinder.c
 memory.h
 -
 stdio.h
@@ -534,19 +534,19 @@ fcntl.h
 stdarg.h
 -
 mmalcam.h
-/home/pi/RCR/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalcam/mmalcam.h
+/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalcam/mmalcam.h
 interface/mmal/mmal.h
-/home/pi/RCR/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalcam/interface/mmal/mmal.h
+/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalcam/interface/mmal/mmal.h
 interface/mmal/mmal_logging.h
-/home/pi/RCR/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalcam/interface/mmal/mmal_logging.h
+/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalcam/interface/mmal/mmal_logging.h
 interface/mmal/util/mmal_util.h
-/home/pi/RCR/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalcam/interface/mmal/util/mmal_util.h
+/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalcam/interface/mmal/util/mmal_util.h
 interface/mmal/util/mmal_default_components.h
-/home/pi/RCR/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalcam/interface/mmal/util/mmal_default_components.h
+/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalcam/interface/mmal/util/mmal_default_components.h
 containers/containers.h
-/home/pi/RCR/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalcam/containers/containers.h
+/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalcam/containers/containers.h
 containers/core/containers_utils.h
-/home/pi/RCR/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalcam/containers/core/containers_utils.h
+/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalcam/containers/core/containers_utils.h
 containers/containers_codecs.h
-/home/pi/RCR/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalcam/containers/containers_codecs.h
+/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/vmcs/test_apps/mmalcam/containers/containers_codecs.h
 

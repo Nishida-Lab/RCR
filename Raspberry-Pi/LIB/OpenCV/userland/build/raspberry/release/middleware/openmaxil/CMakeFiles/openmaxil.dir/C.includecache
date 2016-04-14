@@ -476,9 +476,9 @@ vcos_platform_types.h
 interface/vcos/vcos_attr.h
 ../../inc/interface/vcos/interface/vcos/vcos_attr.h
 
-/home/pi/RCR/LIB/OpenCV/userland/host_applications/framework/common/host_ilcore.h
+/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/framework/common/host_ilcore.h
 
-/home/pi/RCR/LIB/OpenCV/userland/host_applications/framework/common/ilcore.c
+/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/framework/common/ilcore.c
 stdio.h
 -
 stdarg.h
@@ -492,13 +492,13 @@ stdlib.h
 string.h
 -
 interface/vmcs_host/khronos/IL/OMX_Component.h
-/home/pi/RCR/LIB/OpenCV/userland/host_applications/framework/common/interface/vmcs_host/khronos/IL/OMX_Component.h
+/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/framework/common/interface/vmcs_host/khronos/IL/OMX_Component.h
 interface/vmcs_host/vcilcs.h
-/home/pi/RCR/LIB/OpenCV/userland/host_applications/framework/common/interface/vmcs_host/vcilcs.h
+/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/framework/common/interface/vmcs_host/vcilcs.h
 interface/vmcs_host/vchost.h
-/home/pi/RCR/LIB/OpenCV/userland/host_applications/framework/common/interface/vmcs_host/vchost.h
+/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/framework/common/interface/vmcs_host/vchost.h
 interface/vmcs_host/vcilcs_common.h
-/home/pi/RCR/LIB/OpenCV/userland/host_applications/framework/common/interface/vmcs_host/vcilcs_common.h
+/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/framework/common/interface/vmcs_host/vcilcs_common.h
 host_ilcore.h
-/home/pi/RCR/LIB/OpenCV/userland/host_applications/framework/common/host_ilcore.h
+/home/pi/RCR2015/Raspberry-Pi/LIB/OpenCV/userland/host_applications/framework/common/host_ilcore.h
 
