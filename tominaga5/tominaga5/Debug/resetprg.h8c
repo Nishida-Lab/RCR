@@ -1,9 +1,0 @@
--cpu=H8SXA:24
--lang=c
--object="C:\WorkSpace\tominaga5\tominaga5\Debug\resetprg.obj"
--outcode=sjis
--debug
--nolist
--chgincpath
-"C:\WorkSpace\tominaga5\tominaga5\resetprg.c"
--nologo
