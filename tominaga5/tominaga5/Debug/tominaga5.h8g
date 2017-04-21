@@ -1,0 +1,4 @@
+-cpu=H8SXA:24
+-output="C:\WorkSpace\tominaga5\tominaga5\Debug\tominaga5.lib"
+-head=runtime,new,math,mathf,stdio,stdlib
+-lang=c

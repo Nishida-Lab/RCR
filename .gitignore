@@ -1,3 +1,5 @@
+objs/
 *tar.gz
 SRC/build/
+*build/
 main

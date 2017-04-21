@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<robot name="michiyo">
+  <link name="wheel">
+    <!-- <inertial> -->
+    <!--   <mass value="1"/> -->
+    <!--   <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" /> -->
+    <!--   <origin/> -->
+    <!-- </inertial> -->
+
+    <visual>
+      <origin xyz="0 0 0" rpy="1.57 0 0" />
+      <geometry>
+	<mesh filename="package://michiyo_description/meshes/tire/tire.dae" /><!-- scale="0 0 0"/> -->
+      </geometry>
+    </visual>
+
+    <!-- <collision> -->
+    <!--   <origin xyz="0 0 0" rpy="1.57 0 0" /> -->
+    <!--   <geometry> -->
+    <!-- 	<mesh filename="$(find r2d2)/mesh/tire.stl"/> -->
+    <!--   </geometry> -->
+    <!-- </collision> -->
+  </link>
+
+</robot>
