@@ -9,14 +9,15 @@
 Motor::Motor() :
   rear_pwm_pin(23),
   rear_dir_pin(22),
-  battery_volt(7.2),
-  wheel_diameter(0.060),
-  wheel_base(0.160),
+  battery_volt(8.4),
+  wheel_diameter(0.0675),
+  wheel_base(0.145),
+  tread(0.152),
   servo_pin(1),
   servo_left_ang(0.410),
   servo_left_rate(69),
   servo_right_ang(-0.410),
-  servo_right_rate(92),
+  servo_right_rate(93),
   motor_geer(60),
   encoder_geer(50),
   diff_geer(54),
@@ -91,6 +92,7 @@ void Motor::Drive_Front(float angular)
 
 void Motor::Drive(float linear, float angular)
 {
+
   if(!linear)
     Drive_Front(0);
   else

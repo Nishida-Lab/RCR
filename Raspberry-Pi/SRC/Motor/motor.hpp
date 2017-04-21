@@ -21,6 +21,9 @@ public:
   float wheel_base;
   float tread;
 
+  float max_speed;
+
+
 
 private:
   
@@ -33,7 +36,6 @@ private:
   int servo_pin;
 
   // Max speed of the DC Motor
-  float max_speed;
 
   // for Servo 
   float servo_left_ang;
