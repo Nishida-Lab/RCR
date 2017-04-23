@@ -35,9 +35,6 @@
 #include <cstdlib>
 #include <ctime>
 
-#define DEFAULT_BG_R 0x45
-#define DEFAULT_BG_G 0x56
-#define DEFAULT_BG_B 0xff
 
 namespace turtlesim
 {
@@ -62,10 +59,6 @@ TurtleFrame::TurtleFrame(QWidget* parent, Qt::WindowFlags f)
   update_timer_->start();
 
   connect(update_timer_, SIGNAL(timeout()), this, SLOT(onUpdate()));
-
-  nh_.setParam("background_r", DEFAULT_BG_R);
-  nh_.setParam("background_g", DEFAULT_BG_G);
-  nh_.setParam("background_b", DEFAULT_BG_B);
 
   clear();
 
@@ -149,15 +142,7 @@ std::string TurtleFrame::spawnTurtle(const std::string& name, float x, float y, 
 
 void TurtleFrame::clear()
 {
-  int r = DEFAULT_BG_R;
-  int g = DEFAULT_BG_G;
-  int b = DEFAULT_BG_B;
-
-  nh_.param("background_r", r, r);
-  nh_.param("background_g", g, g);
-  nh_.param("background_b", b, b);
-
-  path_image_.fill(qRgb(r, g, b));
+  path_image_.fill(qRgb(0xff, 0xff, 0xff));
   update();
 }
 
