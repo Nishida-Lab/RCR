@@ -64,27 +64,6 @@ TurtleFrame::TurtleFrame(QWidget* parent, Qt::WindowFlags f)
   nh_.setParam("background_g", DEFAULT_BG_G);
   nh_.setParam("background_b", DEFAULT_BG_B);
 
-  // QVector<QString> turtles;
-  // turtles.append("box-turtle.png");
-  // turtles.append("robot-turtle.png");
-  // turtles.append("sea-turtle.png");
-  // turtles.append("diamondback.png");
-  // turtles.append("electric.png");
-  // turtles.append("fuerte.png");
-  // turtles.append("groovy.png");
-  // turtles.append("hydro.svg");
-  // turtles.append("indigo.svg");
-  // turtles.append("jade.png");
-  // turtles.append("kinetic.png");
-
-  // QString images_path = (ros::package::getPath("turtlesim") + "/images/").c_str();
-  // for (int i = 0; i < turtles.size(); ++i)
-  // {
-  //   QImage img;
-  //   img.load(images_path + turtles[i]);
-  //   turtle_images_.append(img);
-  // }
-
   QImage image {};
   image.load({(ros::package::getPath("robocar_sim2d") + "/images/delta.png").c_str()});
   turtle_images_.append(image);
@@ -103,18 +82,6 @@ TurtleFrame::TurtleFrame(QWidget* parent, Qt::WindowFlags f)
   width_in_meters_ = (width() - 1) / meter_;
   height_in_meters_ = (height() - 1) / meter_;
   spawnTurtle("", width_in_meters_ / 2.0, height_in_meters_ / 2.0, 0);
-
-  // spawn all available turtle types
-  // if (false)
-  // {
-  //   for(int index = 0; index < turtles.size(); ++index)
-  //   {
-  //     QString name = turtles[index];
-  //     name = name.split(".").first();
-  //     name.replace(QString("-"), QString(""));
-  //     spawnTurtle(name.toStdString(), 1.0 + 1.5 * (index % 7), 1.0 + 1.5 * (index / 7), PI / 2.0, index);
-  //   }
-  // }
 }
 
 TurtleFrame::~TurtleFrame()
