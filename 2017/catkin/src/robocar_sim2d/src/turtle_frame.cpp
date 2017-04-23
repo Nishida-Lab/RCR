@@ -210,4 +210,4 @@ bool TurtleFrame::resetCallback(std_srvs::Empty::Request&, std_srvs::Empty::Resp
   return true;
 }
 
-}
+} // namespace turtlesim
