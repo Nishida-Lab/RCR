@@ -14,8 +14,12 @@ execute_process(
 )
 
 file(GLOB ${PROJECT_NAME}_MESSAGES ${PROJECT_SOURCE_DIR}/msg/*.msg)
-file(GLOB ${PROJECT_NAME}_SERVICES ${PROJECT_SOURCE_DIR}/srv/*.srv)
 file(GLOB ${PROJECT_NAME}_SOURCES  ${PROJECT_SOURCE_DIR}/src/*.cpp)
+
+file(GLOB ${PROJECT_NAME}_SERVICES
+  RELATIVE ${PROJECT_SOURCE_DIR}/srv
+  ${PROJECT_SOURCE_DIR}/srv/*.srv
+)
 
 find_package(catkin REQUIRED COMPONENTS ${${PROJECT_NAME}_PACKAGE_DEPENDS_LIST})
 # find_package(Qt5Widgets REQUIRED)
@@ -25,11 +29,15 @@ find_package(Boost REQUIRED COMPONENTS thread)
 #   DIRECTORY ${PROJECT_SOURCE_DIR}/msg
 #   FILES     ${${PROJECT_NAME}_MESSAGES}
 # )
-#
-# add_service_files(
-#   DIRECTORY ${PROJECT_SOURCE_DIR}/srv
-#   FILES     ${${PROJECT_NAME}_SERVICES}
-# )
+
+add_service_files(
+  DIRECTORY ${PROJECT_SOURCE_DIR}/srv
+  FILES     ${${PROJECT_NAME}_SERVICES}
+)
+
+generate_messages(
+  DEPENDENCIES std_srvs
+)
 
 catkin_package(
   CATKIN_DEPENDS ${${PROJECT_NAME}_PACKAGE_DEPENDS}

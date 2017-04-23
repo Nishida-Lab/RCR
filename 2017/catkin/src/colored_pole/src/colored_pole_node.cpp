@@ -3,6 +3,7 @@
 #include <vector>
 
 #include <ros/ros.h>
+#include <colored_pole/existence.h>
 
 
 namespace rcr {
