@@ -52,6 +52,10 @@ namespace turtlesim
 class TurtleFrame : public QFrame
 {
   Q_OBJECT
+
+  static constexpr auto width  {500};
+  static constexpr auto height {500};
+
 public:
   TurtleFrame(QWidget* parent = 0, Qt::WindowFlags f = 0);
   ~TurtleFrame();
