@@ -95,7 +95,7 @@ private:
 
   QVector<QImage> turtle_images_;
 
-  float meter_;
+  // float meter_;
   float width_in_meters_;
   float height_in_meters_;
 };
