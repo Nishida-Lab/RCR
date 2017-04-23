@@ -39,15 +39,17 @@
 namespace turtlesim
 {
 
-Turtle::Turtle(const ros::NodeHandle& nh, const QImage& turtle_image, const QPointF& pos, float orient)
-: nh_(nh)
-, turtle_image_(turtle_image)
-, pos_(pos)
-, orient_(orient)
-, lin_vel_(0.0)
-, ang_vel_(0.0)
-, pen_on_(true)
-, pen_(QColor(DEFAULT_PEN_R, DEFAULT_PEN_G, DEFAULT_PEN_B))
+Turtle::Turtle(const ros::NodeHandle& nh,
+               const QImage& turtle_image,
+               const QPointF& pos, float orient)
+  : nh_(nh),
+    turtle_image_(turtle_image),
+    pos_(pos),
+    orient_(orient),
+    lin_vel_(0.0),
+    ang_vel_(0.0),
+    pen_on_(true),
+    pen_(QColor(DEFAULT_PEN_R, DEFAULT_PEN_G, DEFAULT_PEN_B))
 {
   pen_.setWidth(3);
 
@@ -70,7 +72,8 @@ void Turtle::velocityCallback(const geometry_msgs::Twist::ConstPtr& vel)
   ang_vel_ = vel->angular.z;
 }
 
-bool Turtle::setPenCallback(turtlesim::SetPen::Request& req, turtlesim::SetPen::Response&)
+bool Turtle::setPenCallback(turtlesim::SetPen::Request& req,
+                            turtlesim::SetPen::Response&)
 {
   pen_on_ = !req.off;
   if (req.off)
@@ -88,13 +91,15 @@ bool Turtle::setPenCallback(turtlesim::SetPen::Request& req, turtlesim::SetPen::
   return true;
 }
 
-bool Turtle::teleportRelativeCallback(turtlesim::TeleportRelative::Request& req, turtlesim::TeleportRelative::Response&)
+bool Turtle::teleportRelativeCallback(turtlesim::TeleportRelative::Request& req,
+                                      turtlesim::TeleportRelative::Response&)
 {
   teleport_requests_.push_back(TeleportRequest(0, 0, req.angular, req.linear, true));
   return true;
 }
 
-bool Turtle::teleportAbsoluteCallback(turtlesim::TeleportAbsolute::Request& req, turtlesim::TeleportAbsolute::Response&)
+bool Turtle::teleportAbsoluteCallback(turtlesim::TeleportAbsolute::Request& req,
+                                      turtlesim::TeleportAbsolute::Response&)
 {
   teleport_requests_.push_back(TeleportRequest(req.x, req.y, req.theta, 0, false));
   return true;
@@ -107,17 +112,19 @@ void Turtle::rotateImage()
   turtle_rotated_image_ = turtle_image_.transformed(transform);
 }
 
-bool Turtle::update(double dt, QPainter& path_painter, const QImage& path_image, qreal canvas_width, qreal canvas_height)
+bool Turtle::update(double dt,
+                    QPainter& path_painter,
+                    const QImage& path_image,
+                    qreal canvas_width,
+                    qreal canvas_height)
 {
   bool modified = false;
   qreal old_orient = orient_;
 
   // first process any teleportation requests, in order
-  V_TeleportRequest::iterator it = teleport_requests_.begin();
-  V_TeleportRequest::iterator end = teleport_requests_.end();
-  for (; it != end; ++it)
+  for (const auto& it : teleport_requests_)
   {
-    const TeleportRequest& req = *it;
+    const TeleportRequest& req = it;
 
     QPointF old_pos = pos_;
     if (req.relative)
@@ -162,8 +169,11 @@ bool Turtle::update(double dt, QPainter& path_painter, const QImage& path_image,
     ROS_WARN("Oh no! I hit the wall! (Clamping from [x=%f, y=%f])", pos_.x(), pos_.y());
   }
 
-  pos_.setX(std::min(std::max(static_cast<double>(pos_.x()), 0.0), static_cast<double>(canvas_width)));
-  pos_.setY(std::min(std::max(static_cast<double>(pos_.y()), 0.0), static_cast<double>(canvas_height)));
+  pos_.setX(std::min(std::max(static_cast<double>(pos_.x()), 0.0),
+                              static_cast<double>(canvas_width)));
+
+  pos_.setY(std::min(std::max(static_cast<double>(pos_.y()), 0.0),
+                              static_cast<double>(canvas_height)));
 
   // Publish pose of the turtle
   Pose p;
