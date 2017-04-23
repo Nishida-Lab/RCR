@@ -52,8 +52,6 @@ TurtleFrame::TurtleFrame(QWidget* parent, Qt::WindowFlags f)
   setFixedSize(width, height);
   setWindowTitle("TurtleSim");
 
-  srand(time(NULL));
-
   update_timer_ = new QTimer(this);
   update_timer_->setInterval(16);
   update_timer_->start();
@@ -65,11 +63,11 @@ TurtleFrame::TurtleFrame(QWidget* parent, Qt::WindowFlags f)
   clear_srv_ = nh_.advertiseService("clear", &TurtleFrame::clearCallback, this);
   reset_srv_ = nh_.advertiseService("reset", &TurtleFrame::resetCallback, this);
   spawn_srv_ = nh_.advertiseService("spawn", &TurtleFrame::spawnCallback, this);
-  kill_srv_ = nh_.advertiseService("kill", &TurtleFrame::killCallback, this);
+  kill_srv_  = nh_.advertiseService("kill",  &TurtleFrame::killCallback,  this);
 
   ROS_INFO("Starting turtlesim with node name %s", ros::this_node::getName().c_str()) ;
 
-  spawnTurtle("", width_in_meters_ / 2.0, height_in_meters_ / 2.0, 0);
+  spawnTurtle("", width_in_meters_ / 2.0, height_in_meters_ / 2.0, 0); // center of windiw
 }
 
 TurtleFrame::~TurtleFrame()
