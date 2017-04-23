@@ -52,12 +52,15 @@ namespace turtlesim
 class TurtleFrame : public QFrame
 {
   Q_OBJECT
+
+  static constexpr auto width  {500};
+  static constexpr auto height {500};
+
 public:
   TurtleFrame(QWidget* parent = 0, Qt::WindowFlags f = 0);
   ~TurtleFrame();
 
   std::string spawnTurtle(const std::string& name, float x, float y, float angle);
-  std::string spawnTurtle(const std::string& name, float x, float y, float angle, size_t index);
 
 protected:
   void paintEvent(QPaintEvent* event);
@@ -93,9 +96,8 @@ private:
   M_Turtle turtles_;
   uint32_t id_counter_;
 
-  QVector<QImage> turtle_images_;
+  QImage image_;
 
-  float meter_;
   float width_in_meters_;
   float height_in_meters_;
 };
