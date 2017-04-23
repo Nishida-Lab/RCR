@@ -100,14 +100,14 @@ bool TurtleFrame::spawnCallback(turtlesim::Spawn::Request& req, turtlesim::Spawn
 
 bool TurtleFrame::killCallback(turtlesim::Kill::Request& req, turtlesim::Kill::Response&)
 {
-  M_Turtle::iterator it = turtles_.find(req.name);
-  if (it == turtles_.end())
+  auto iter {turtles_.find(req.name)};
+  if (iter == turtles_.end())
   {
     ROS_ERROR("Tried to kill turtle [%s], which does not exist", req.name.c_str());
     return false;
   }
 
-  turtles_.erase(it);
+  turtles_.erase(iter);
   update();
 
   return true;
