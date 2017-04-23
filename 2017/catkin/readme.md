@@ -1,4 +1,6 @@
 ## Nishida-Lab RCR 2017 catkin workspace
 
-hoge
+`setup.sh`実行で`catkin workspace`としてのセットアップが一通り完了します．
+若干ゴリ押し気味の実装ですが問題なく動くはずです．
+その後のビルドにも十分使えるはずですが，おすすめはしません．
 
