@@ -48,7 +48,9 @@ TurtleFrame::TurtleFrame(QWidget* parent, Qt::WindowFlags f)
    path_painter_(&path_image_),
    frame_count_(0),
    id_counter_(0),
-   image_ {}
+   image_ {(ros::package::getPath("robocar_sim2d") + "/images/delta.png").c_str()},
+   width_in_meters_ {(width() - 1) / static_cast<float>(image_.height())},
+   height_in_meters_ {(height() - 1) / static_cast<float>(image_.height())}
 {
   setFixedSize(500, 500);
   setWindowTitle("TurtleSim");
@@ -65,8 +67,6 @@ TurtleFrame::TurtleFrame(QWidget* parent, Qt::WindowFlags f)
   nh_.setParam("background_g", DEFAULT_BG_G);
   nh_.setParam("background_b", DEFAULT_BG_B);
 
-  image_.load({(ros::package::getPath("robocar_sim2d") + "/images/delta.png").c_str()});
-
   clear();
 
   clear_srv_ = nh_.advertiseService("clear", &TurtleFrame::clearCallback, this);
@@ -76,8 +76,6 @@ TurtleFrame::TurtleFrame(QWidget* parent, Qt::WindowFlags f)
 
   ROS_INFO("Starting turtlesim with node name %s", ros::this_node::getName().c_str()) ;
 
-  width_in_meters_ = (width() - 1) / image_.height();
-  height_in_meters_ = (height() - 1) / image_.height();
   spawnTurtle("", width_in_meters_ / 2.0, height_in_meters_ / 2.0, 0);
 }
 
