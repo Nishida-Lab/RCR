@@ -177,13 +177,13 @@ void TurtleFrame::updateTurtles()
     return;
   }
 
-  bool modified = false;
-  M_Turtle::iterator it = turtles_.begin();
-  M_Turtle::iterator end = turtles_.end();
-  for (; it != end; ++it)
+  bool modified {false};
+
+  for (const auto& turtle : turtles_)
   {
-    modified |= it->second->update(0.001 * update_timer_->interval(), path_painter_, path_image_, width_in_meters_, height_in_meters_);
+    modified |= turtle.second->update(0.001 * update_timer_->interval(), path_painter_, path_image_, width_in_meters_, height_in_meters_);
   }
+
   if (modified)
   {
     update();
