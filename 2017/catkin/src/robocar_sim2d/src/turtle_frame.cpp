@@ -160,15 +160,12 @@ void TurtleFrame::onUpdate()
 
 void TurtleFrame::paintEvent(QPaintEvent*)
 {
-  QPainter painter(this);
-
+  QPainter painter {this};
   painter.drawImage(QPoint(0, 0), path_image_);
 
-  M_Turtle::iterator it = turtles_.begin();
-  M_Turtle::iterator end = turtles_.end();
-  for (; it != end; ++it)
+  for (const auto& turtle : turtles_)
   {
-    it->second->paint(painter);
+    turtle.second->paint(painter);
   }
 }
 
