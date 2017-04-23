@@ -101,16 +101,16 @@ TurtleFrame::TurtleFrame(QWidget* parent, Qt::WindowFlags f)
   spawnTurtle("", width_in_meters_ / 2.0, height_in_meters_ / 2.0, 0);
 
   // spawn all available turtle types
-  if(false)
-  {
-    for(int index = 0; index < turtles.size(); ++index)
-    {
-      QString name = turtles[index];
-      name = name.split(".").first();
-      name.replace(QString("-"), QString(""));
-      spawnTurtle(name.toStdString(), 1.0 + 1.5 * (index % 7), 1.0 + 1.5 * (index / 7), PI / 2.0, index);
-    }
-  }
+  // if (false)
+  // {
+  //   for(int index = 0; index < turtles.size(); ++index)
+  //   {
+  //     QString name = turtles[index];
+  //     name = name.split(".").first();
+  //     name.replace(QString("-"), QString(""));
+  //     spawnTurtle(name.toStdString(), 1.0 + 1.5 * (index % 7), 1.0 + 1.5 * (index / 7), PI / 2.0, index);
+  //   }
+  // }
 }
 
 TurtleFrame::~TurtleFrame()
