@@ -65,9 +65,9 @@ TurtleFrame::TurtleFrame(QWidget* parent, Qt::WindowFlags f)
   nh_.setParam("background_g", DEFAULT_BG_G);
   nh_.setParam("background_b", DEFAULT_BG_B);
 
-  QImage image {};
-  image.load({(ros::package::getPath("robocar_sim2d") + "/images/delta.png").c_str()});
-  turtle_images_.append(image);
+  // QImage image {};
+  image_.load({(ros::package::getPath("robocar_sim2d") + "/images/delta.png").c_str()});
+  // turtle_images_.append(image);
 
   // meter_ = turtle_images_[0].height();
 
@@ -124,12 +124,12 @@ bool TurtleFrame::hasTurtle(const std::string& name)
   return turtles_.find(name) != turtles_.end();
 }
 
-std::string TurtleFrame::spawnTurtle(const std::string& name, float x, float y, float angle)
-{
-  return spawnTurtle(name, x, y, angle, rand() % turtle_images_.size());
-}
+// std::string TurtleFrame::spawnTurtle(const std::string& name, float x, float y, float angle)
+// {
+//   return spawnTurtle(name, x, y, angle, rand() % turtle_images_.size());
+// }
 
-std::string TurtleFrame::spawnTurtle(const std::string& name, float x, float y, float angle, size_t index)
+std::string TurtleFrame::spawnTurtle(const std::string& name, float x, float y, float angle)
 {
   std::string real_name = name;
   if (real_name.empty())
@@ -149,7 +149,7 @@ std::string TurtleFrame::spawnTurtle(const std::string& name, float x, float y, 
     }
   }
 
-  TurtlePtr t(new Turtle(ros::NodeHandle(real_name), turtle_images_[index], QPointF(x, height_in_meters_ - y), angle));
+  TurtlePtr t {new Turtle(ros::NodeHandle(real_name), image_, QPointF(x, height_in_meters_ - y), angle)};
   turtles_[real_name] = t;
   update();
 

@@ -57,7 +57,7 @@ public:
   ~TurtleFrame();
 
   std::string spawnTurtle(const std::string& name, float x, float y, float angle);
-  std::string spawnTurtle(const std::string& name, float x, float y, float angle, size_t index);
+  // std::string spawnTurtle(const std::string& name, float x, float y, float angle, size_t index);
 
 protected:
   void paintEvent(QPaintEvent* event);
@@ -93,7 +93,8 @@ private:
   M_Turtle turtles_;
   uint32_t id_counter_;
 
-  QVector<QImage> turtle_images_;
+  // QVector<QImage> turtle_images_;
+  QImage image_;
 
   // float meter_;
   float width_in_meters_;
