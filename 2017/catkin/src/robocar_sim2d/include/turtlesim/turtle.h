@@ -56,15 +56,30 @@ namespace turtlesim
 class Turtle
 {
 public:
-  Turtle(const ros::NodeHandle& nh, const QImage& turtle_image, const QPointF& pos, float orient);
+  Turtle(const ros::NodeHandle& nh,
+         const QImage& turtle_image,
+         const QPointF& pos,
+         float orient);
 
-  bool update(double dt, QPainter& path_painter, const QImage& path_image, qreal canvas_width, qreal canvas_height);
+  bool update(double dt,
+              QPainter& path_painter,
+              const QImage& path_image,
+              qreal canvas_width,
+              qreal canvas_height);
+
   void paint(QPainter &painter);
+
 private:
   void velocityCallback(const geometry_msgs::Twist::ConstPtr& vel);
-  bool setPenCallback(turtlesim::SetPen::Request&, turtlesim::SetPen::Response&);
-  bool teleportRelativeCallback(turtlesim::TeleportRelative::Request&, turtlesim::TeleportRelative::Response&);
-  bool teleportAbsoluteCallback(turtlesim::TeleportAbsolute::Request&, turtlesim::TeleportAbsolute::Response&);
+
+  bool setPenCallback(turtlesim::SetPen::Request&,
+                      turtlesim::SetPen::Response&);
+
+  bool teleportRelativeCallback(turtlesim::TeleportRelative::Request&,
+                                turtlesim::TeleportRelative::Response&);
+
+  bool teleportAbsoluteCallback(turtlesim::TeleportAbsolute::Request&,
+                                turtlesim::TeleportAbsolute::Response&);
 
   void rotateImage();
 
@@ -95,10 +110,10 @@ private:
   struct TeleportRequest
   {
     TeleportRequest(float x, float y, qreal _theta, qreal _linear, bool _relative)
-    : pos(x, y)
-    , theta(_theta)
-    , linear(_linear)
-    , relative(_relative)
+      : pos(x, y),
+        theta(_theta),
+        linear(_linear),
+        relative(_relative)
     {}
 
     QPointF pos;
@@ -106,7 +121,9 @@ private:
     qreal linear;
     bool relative;
   };
-  typedef std::vector<TeleportRequest> V_TeleportRequest;
+
+  using V_TeleportRequest = std::vector<TeleportRequest>;
+
   V_TeleportRequest teleport_requests_;
 };
 typedef boost::shared_ptr<Turtle> TurtlePtr;
