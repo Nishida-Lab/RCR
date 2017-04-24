@@ -52,8 +52,6 @@ TurtleFrame::TurtleFrame(QWidget* parent, Qt::WindowFlags f)
   setFixedSize(width, height);
   setWindowTitle("TurtleSim");
 
-  srand(time(NULL));
-
   update_timer_ = new QTimer(this);
   update_timer_->setInterval(16);
   update_timer_->start();
@@ -65,11 +63,11 @@ TurtleFrame::TurtleFrame(QWidget* parent, Qt::WindowFlags f)
   clear_srv_ = nh_.advertiseService("clear", &TurtleFrame::clearCallback, this);
   reset_srv_ = nh_.advertiseService("reset", &TurtleFrame::resetCallback, this);
   spawn_srv_ = nh_.advertiseService("spawn", &TurtleFrame::spawnCallback, this);
-  kill_srv_ = nh_.advertiseService("kill", &TurtleFrame::killCallback, this);
+  kill_srv_  = nh_.advertiseService("kill",  &TurtleFrame::killCallback,  this);
 
   ROS_INFO("Starting turtlesim with node name %s", ros::this_node::getName().c_str()) ;
 
-  spawnTurtle("", width_in_meters_ / 2.0, height_in_meters_ / 2.0, 0);
+  spawnTurtle("", width_in_meters_ / 2.0, height_in_meters_ / 2.0, 0); // center of windiw
 }
 
 TurtleFrame::~TurtleFrame()
@@ -177,13 +175,13 @@ void TurtleFrame::updateTurtles()
     return;
   }
 
-  bool modified = false;
-  M_Turtle::iterator it = turtles_.begin();
-  M_Turtle::iterator end = turtles_.end();
-  for (; it != end; ++it)
+  bool modified {false};
+
+  for (const auto& turtle : turtles_)
   {
-    modified |= it->second->update(0.001 * update_timer_->interval(), path_painter_, path_image_, width_in_meters_, height_in_meters_);
+    modified |= turtle.second->update(0.001 * update_timer_->interval(), path_painter_, path_image_, width_in_meters_, height_in_meters_);
   }
+
   if (modified)
   {
     update();
@@ -210,4 +208,4 @@ bool TurtleFrame::resetCallback(std_srvs::Empty::Request&, std_srvs::Empty::Resp
   return true;
 }
 
-}
+} // namespace turtlesim
