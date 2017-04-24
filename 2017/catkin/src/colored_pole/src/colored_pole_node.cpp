@@ -25,19 +25,31 @@ public:
 private:
   const coord_type coord_;
 
+  ros::ServiceServer server_;
+
 public:
-  colored_pole(coord_type&& coord)
-    : coord_ {range_check(std::forward<decltype(coord)>(coord))}
+  colored_pole(const ros::NodeHandle& node_handle, coord_type&& coord)
+    : coord_ {check(std::forward<decltype(coord)>(coord))},
+      server_ {node_handle.advertiseService("existence", &colored_pole::callback, this)}
   {}
 
 private:
-  static auto range_check(coord_type&& coord)
-    -> coord_type
+  static coord_type check(coord_type&& coord)
   {
     coord.first = (coord.first < 0 ? 0 : (window_width < coord.first ? window_width : coord.first));
     coord.second = (coord.second < 0 ? 0 : (window_height < coord.second ? window_height : coord.second));
     return std::forward<decltype(coord)>(coord);
   }
+
+  // bool callback(::colored_pole::existence::Request&  request,
+  //               ::colored_pole::existence::Response& response)
+  // {
+  //   auto a {std::pow(coord_.first - request.x, 2)};
+  //   auto b {std::pow(coord_.second - request.y, 2)};
+  //
+  //   if (std::sqrt(a + b) < request.range) { return true; }
+  //   else { return false; }
+  // }
 };
 
 
@@ -51,8 +63,8 @@ int main(int argc, char** argv)
   ros::NodeHandle node_handle {"~"};
 
   std::vector<rcr::colored_pole> poles {
-    {{100.0, 100.0}},
-    {{200.0, 200.0}}
+    {node_handle, {100.0, 100.0}},
+    {node_handle, {200.0, 200.0}}
   };
 
   while (ros::ok())
