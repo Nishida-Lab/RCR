@@ -41,7 +41,8 @@ namespace turtlesim
 
 Turtle::Turtle(const ros::NodeHandle& nh,
                const QImage& turtle_image,
-               const QPointF& pos, float orient)
+               const QPointF& pos,
+               float orient)
   : nh_(nh),
     turtle_image_(turtle_image),
     pos_(pos),
@@ -53,10 +54,12 @@ Turtle::Turtle(const ros::NodeHandle& nh,
 {
   pen_.setWidth(3);
 
-  velocity_sub_ = nh_.subscribe("cmd_vel", 1, &Turtle::velocityCallback, this);
-  pose_pub_ = nh_.advertise<Pose>("pose", 1);
-  color_pub_ = nh_.advertise<Color>("color_sensor", 1);
-  set_pen_srv_ = nh_.advertiseService("set_pen", &Turtle::setPenCallback, this);
+  velocity_sub_          = nh_.subscribe("cmd_vel", 1, &Turtle::velocityCallback, this);
+
+  pose_pub_              = nh_.advertise<Pose>("pose", 1);
+  color_pub_             = nh_.advertise<Color>("color_sensor", 1);
+
+  set_pen_srv_           = nh_.advertiseService("set_pen",           &Turtle::setPenCallback, this);
   teleport_relative_srv_ = nh_.advertiseService("teleport_relative", &Turtle::teleportRelativeCallback, this);
   teleport_absolute_srv_ = nh_.advertiseService("teleport_absolute", &Turtle::teleportAbsoluteCallback, this);
 
