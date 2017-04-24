@@ -2,11 +2,36 @@
 #include <utility>
 #include <vector>
 
+#include <cmath>
+
 #include <ros/ros.h>
+#include <std_srvs/Empty.h>
 #include <colored_pole/existence.h>
 
 
+bool return_true(std_srvs::Empty::Request& req, std_srvs::Empty::Response& res)
+{
+  return true;
+}
+
+
+auto lambda = [&](std_srvs::Empty::Request& req, std_srvs::Empty::Response& res) { return true; };
+
+
 namespace rcr {
+
+
+class functor
+{
+public:
+  using req_type = ::colored_pole::existence::Request;
+  using res_type = ::colored_pole::existence::Response;
+
+  bool operator()(req_type& req, res_type& res) noexcept
+  {
+    return true;
+  }
+};
 
 
 class colored_pole
@@ -25,13 +50,17 @@ public:
 private:
   const coord_type coord_;
 
-  ros::ServiceServer server_;
+  // ros::ServiceServer server_;
 
 public:
   colored_pole(const ros::NodeHandle& node_handle, coord_type&& coord)
-    : coord_ {check(std::forward<decltype(coord)>(coord))},
-      server_ {node_handle.advertiseService("existence", &colored_pole::callback, this)}
-  {}
+    : coord_ {check(std::forward<decltype(coord)>(coord))}
+      // server_ {node_handle.advertiseService("existence", &colored_pole::callback, this)}
+  {
+    // server_ = node_handle.advertiseService<functor::req_type, functor::res_type>("existence", functor());
+    // server_ = node_handle.advertiseService("existence", return_true);
+    // server_ = node_handle.advertiseService("existence", lambda);
+  }
 
 private:
   static coord_type check(coord_type&& coord)
