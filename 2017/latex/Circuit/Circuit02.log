@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.1415926-p3.4-110825-2.6 (utf8.euc) (TeX Live 2013/Debian) (format=platex 2017.4.14)  26 APR 2017 02:25
+This is e-pTeX, Version 3.1415926-p3.4-110825-2.6 (utf8.euc) (TeX Live 2013/Debian) (format=platex 2017.4.14)  26 APR 2017 03:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -184,58 +184,50 @@ Package: listings 2013/08/26 1.5b (Carsten Heinz)
 (./Circuit02.aux)
 \openout1 = `Circuit02.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
 \c@lstlisting=\count112
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <14.4> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 10.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 9.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <14.4> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 10.
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 9.
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <12> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 12.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 11.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <12> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 12.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 27.
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 11.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 26.
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 27.
-LaTeX Font Info:    Try loading font information for U+msa on input line 27.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 26.
+LaTeX Font Info:    Try loading font information for U+msa on input line 26.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 27.
+LaTeX Font Info:    Try loading font information for U+msb on input line 26.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-File: ./picture/MD10C.eps Graphic file (type eps)
+File: ../Circuit/picture/MD10C.eps Graphic file (type eps)
 
-<./picture/MD10C.eps>
-LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 47.
-LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 47.
-
-
-LaTeX Warning: Reference `psdex' on page 1 undefined on input line 49.
-
+<../Circuit/picture/MD10C.eps>
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 15.0pt.
@@ -245,32 +237,39 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [1
 
 ]
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 62.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 62.
 
-LaTeX Warning: Reference `algo' on page 2 undefined on input line 60.
 
-File: ./picture/jairo.eps Graphic file (type eps)
-<./picture/jairo.eps> [2]
-File: ./picture/RCR_raspberryPi3.eps Graphic file (type eps)
- <./picture/RCR_raspberryPi3.eps>
-File: ./picture/RCR_arduino.eps Graphic file (type eps)
+LaTeX Warning: Reference `psdex' on page 2 undefined on input line 64.
 
-<./picture/RCR_arduino.eps>
-Overfull \hbox (6.07442pt too wide) in paragraph at lines 104--125
+
+LaTeX Warning: Reference `algo' on page 2 undefined on input line 75.
+
+File: ../Circuit/picture/jairo.eps Graphic file (type eps)
+<../Circuit/picture/jairo.eps> [2] [3]
+Overfull \hbox (6.07442pt too wide) in paragraph at lines 107--128
  [][] 
  []
 
-[3] [4] (./Circuit02.aux)
+File: ../Circuit/picture/RCR_raspberryPi3.eps Graphic file (type eps)
+<../Circuit/picture/RCR_raspberryPi3.eps>
+File: ../Circuit/picture/RCR_arduino.eps Graphic file (type eps)
+ <../Circuit/picture/RCR_arduino.eps>
+[4] [5] (./Circuit02.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 3004 strings out of 495129
- 38588 string characters out of 6182595
+ 3051 strings out of 495129
+ 39109 string characters out of 6182595
  102401 words of memory out of 5000000
- 6322 multiletter control sequences out of 15000+600000
- 14113 words of font info for 56 fonts, out of 8000000 for 9000
+ 6351 multiletter control sequences out of 15000+600000
+ 22022 words of font info for 85 fonts, out of 8000000 for 9000
  80 hyphenation exceptions out of 8191
  29i,11n,43p,249b,288s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Circuit02.dvi (4 pages, 9652 bytes).
+Output written on Circuit02.dvi (5 pages, 11748 bytes).

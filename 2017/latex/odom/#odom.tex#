@@ -10,11 +10,11 @@
   \subsection{自己位置推定}
   ロボカーの中心が点$(x_k,y_k)$の位置にあるとし、時間$\Delta t$秒の間にロボカーが旋回中心の周りに$\Delta \theta$だけ回転したとする．このときロボカーの中心から車輪までの距離を$d$，左右の車輪とロボカーの中心が動いた距離をそれぞれ$\Delta L_R, \Delta L_L, \Delta L$とすると
 
-\begin{eqnarray}
-  \Delta L_R & = & (\rho + d) \Delta \theta \nonumber \\ 
-  \Delta L_L & = & (\rho - d) \Delta \theta \nonumber \\
-  \Delta L & = &\rho \Delta \theta
-\end{eqnarray}
+  \begin{eqnarray}
+   \Delta L_R & = & (\rho + d) \Delta \theta \nonumber \\ 
+   \Delta L_L & = & (\rho - d) \Delta \theta \nonumber \\
+   \Delta L & = &\rho \Delta \theta
+  \end{eqnarray}
   となる．これより
   \begin{eqnarray}
    \Delta L &=& \frac{\Delta L_R + \Delta L_L}{2} \nonumber \\

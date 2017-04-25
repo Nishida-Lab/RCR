@@ -4,9 +4,8 @@
 \input{include/macro.tex}
 \input{include/preamble.tex}
 
+
 \begin{document}
-
-
 \section{回路設計}
 設計した回路について選定の理由や仕様について以下に示す．また使用する部品の一覧を\ref{tab:c_parts}に示す．
 \subsection{マイコンの選定}
@@ -38,10 +37,26 @@
 \end{itemize}
 \begin{figure}[b]
  \centering
- \includegraphics[width=0.5\hsize]{./picture/MD10C.eps}
+ \includegraphics[width=0.5\hsize]{../Circuit/picture/MD10C.eps}
     \caption{MD10C R3}
     \label{MD10C}
 \end{figure}
+
+\subsection{$I^2 C$通信}
+今回，我々のロボットには測距センサを始めとする複数のセンサが搭載されている．これらの殆どがアナログ出力
+であるが，ArduinoのアナログI/Oポートは6つしかなく，要求を満たしていない．
+
+そこで，$I^2 C$通信を用いることとする．これは，$I^2 C$通信がパーティライン構成が可能となっており
+,1つのマスタで複数のスレーブデバイスと通信することが可能であるからである.概要を以下に示す．
+\begin{enumerate}
+ \item マスタ側(Arduino)とスレーブ側(n個のセンサ等)を明確に分け，各スレーブに異なるアドレスを割り振る．
+ \item マスタ側が、Start Conditionを出力し続いてアドレスとRead/Write要求を出力する.
+ \item 全スレーブがこの時のSCLのクロックを元にSDAのデータを受信し、SSPADD
+　　　レジスタにセットされたアドレスと一致したデバイスだけが、その後の送受信を
+　　　継続する.
+ \item 受信した側がデータを受信完了すると自動的にACKビットを返送し、同時にSSP割込みを発生する.
+ \item これをマスタがStop Conditionを出力するまで続ける.
+\end{enumerate}
 
 \subsection{センサ仕様}
 \subsubsection{赤外線測距センサ}  
@@ -60,8 +75,8 @@
 ロボット本体の直進走行制御に使用する．詳細は\ref{algo}において説明する．
 \begin{figure}[b]
  \centering
- \includegraphics[width=0.4\hsize]{./picture/jairo.eps}
-    \caption{3軸加速度・ジャイロセンサモジュール}
+ \includegraphics[width=0.4\hsize]{../Circuit/picture/jairo.eps}
+ \caption{3軸加速度・ジャイロセンサモジュール}
     \label{jairo}
 \end{figure}
 \subsection{電源回路}
@@ -85,19 +100,7 @@
 \end{itemize}
 
 \newpage
-\begin{figure}[t]
- \centering
- \includegraphics[width=0.9\hsize]{./picture/RCR_raspberryPi3.eps}
-    \caption{Raspberry Pi3 接続回路図}
-    \label{c_raspberry}
-\end{figure}
-\begin{figure}[b]
- \centering
- \includegraphics[width=0.9\hsize]{./picture/RCR_arduino.eps}
-    \caption{Arduino unoR3 接続回路図}
-    \label{c_arduino}
-\end{figure}
-\newpage
+
 \begin{table}[t]
   \centering
   \caption{回路用部品表}
@@ -123,5 +126,19 @@
   \end{tabular}
   \label{tab:c_parts}
 \end{table}
+
+\newpage
+\begin{figure}[t]
+ \centering
+ \includegraphics[width=0.9\hsize]{../Circuit/picture/RCR_raspberryPi3.eps}
+    \caption{Raspberry Pi3 接続回路図}
+    \label{c_raspberry}
+\end{figure}
+\begin{figure}[b]
+ \centering
+ \includegraphics[width=0.9\hsize]{../Circuit/picture/RCR_arduino.eps}
+    \caption{Arduino unoR3 接続回路図}
+    \label{c_arduino}
+\end{figure}
 
 \end{document}
