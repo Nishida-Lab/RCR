@@ -27,6 +27,11 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
+#include <vector>
+#include <utility>
+
+#include <cmath>
+
 #include "turtlesim/turtle.h"
 
 #include <QColor>
@@ -41,7 +46,8 @@ namespace turtlesim
 
 Turtle::Turtle(const ros::NodeHandle& nh,
                const QImage& turtle_image,
-               const QPointF& pos, float orient)
+               const QPointF& pos,
+               float orient)
   : nh_(nh),
     turtle_image_(turtle_image),
     pos_(pos),
@@ -49,18 +55,20 @@ Turtle::Turtle(const ros::NodeHandle& nh,
     lin_vel_(0.0),
     ang_vel_(0.0),
     pen_on_(true),
-    pen_(QColor(DEFAULT_PEN_R, DEFAULT_PEN_G, DEFAULT_PEN_B))
+    pen_ {QColor(DEFAULT_PEN_R, DEFAULT_PEN_G, DEFAULT_PEN_B)},
+    meter_ {static_cast<float>(turtle_image_.height())}
 {
   pen_.setWidth(3);
 
-  velocity_sub_ = nh_.subscribe("cmd_vel", 1, &Turtle::velocityCallback, this);
-  pose_pub_ = nh_.advertise<Pose>("pose", 1);
-  color_pub_ = nh_.advertise<Color>("color_sensor", 1);
-  set_pen_srv_ = nh_.advertiseService("set_pen", &Turtle::setPenCallback, this);
+  velocity_sub_          = nh_.subscribe("cmd_vel", 1, &Turtle::velocityCallback, this);
+
+  pose_pub_              = nh_.advertise<Pose>("pose", 1);
+  color_pub_             = nh_.advertise<Color>("color_sensor", 1);
+
+  set_pen_srv_           = nh_.advertiseService("set_pen",           &Turtle::setPenCallback, this);
   teleport_relative_srv_ = nh_.advertiseService("teleport_relative", &Turtle::teleportRelativeCallback, this);
   teleport_absolute_srv_ = nh_.advertiseService("teleport_absolute", &Turtle::teleportAbsoluteCallback, this);
 
-  meter_ = turtle_image_.height();
   rotateImage();
 }
 
@@ -167,6 +175,24 @@ bool Turtle::update(double dt,
       pos_.y() < 0 || pos_.y() > canvas_height)
   {
     ROS_WARN("Oh no! I hit the wall! (Clamping from [x=%f, y=%f])", pos_.x(), pos_.y());
+  }
+
+  const float range {1};
+
+  std::vector<std::pair<double,double>> poles {
+    { 5,  5},
+    {10, 10}
+  };
+
+  for (const auto& p : poles)
+  {
+    auto a {std::pow(pos_.x() - p.first, 2.0)};
+    auto b {std::pow(pos_.y() - p.second, 2.0)};
+
+    if (std::sqrt(a + b) < range)
+    {
+      ROS_WARN("Oh no! I hit the wall! (Clamping from [x=%f, y=%f])", pos_.x(), pos_.y());
+    }
   }
 
   pos_.setX(std::min(std::max(static_cast<double>(pos_.x()), 0.0),
