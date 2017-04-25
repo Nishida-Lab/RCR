@@ -46,7 +46,7 @@ TurtleFrame::TurtleFrame(QWidget* parent, Qt::WindowFlags f)
    frame_count_(0),
    id_counter_(0),
    image_ {(ros::package::getPath("robocar_sim2d") + "/images/delta.png").c_str()},
-   width_in_meters_ {(width - 1) / static_cast<float>(image_.height())},
+   width_in_meters_  {(width - 1) / static_cast<float>(image_.height())},
    height_in_meters_ {(height - 1) / static_cast<float>(image_.height())}
 {
   setFixedSize(width, height);
@@ -67,7 +67,11 @@ TurtleFrame::TurtleFrame(QWidget* parent, Qt::WindowFlags f)
 
   ROS_INFO("Starting turtlesim with node name %s", ros::this_node::getName().c_str()) ;
 
-  spawnTurtle("", width_in_meters_ / 2.0, height_in_meters_ / 2.0, 0); // center of windiw
+  spawnTurtle("robocar", width_in_meters_ / 2.0, height_in_meters_ / 2.0, 0); // center of windiw
+
+  spawnTurtle("", width_in_meters_ / 4.0 * 1.0, height_in_meters_ / 4.0 * 1.0, 0); // center of windiw
+  spawnTurtle("", width_in_meters_ / 4.0 * 2.0, height_in_meters_ / 4.0 * 2.0, 0); // center of windiw
+  spawnTurtle("", width_in_meters_ / 4.0 * 3.0, height_in_meters_ / 4.0 * 3.0, 0); // center of windiw
 }
 
 TurtleFrame::~TurtleFrame()
@@ -117,16 +121,13 @@ std::string TurtleFrame::spawnTurtle(const std::string& name, float x, float y, 
     do
     {
       std::stringstream ss;
-      ss << "turtle" << ++id_counter_;
+      ss << "pole" << ++id_counter_;
       real_name = ss.str();
     } while (hasTurtle(real_name));
   }
   else
   {
-    if (hasTurtle(real_name))
-    {
-      return "";
-    }
+    if (hasTurtle(real_name)) { return {}; }
   }
 
   TurtlePtr t {new Turtle(ros::NodeHandle(real_name), image_, QPointF(x, height_in_meters_ - y), angle)};
@@ -194,7 +195,7 @@ void TurtleFrame::updateTurtles()
 bool TurtleFrame::clearCallback(std_srvs::Empty::Request&, std_srvs::Empty::Response&)
 {
   ROS_INFO("Clearing turtlesim.");
-  clear();
+  // clear();
   return true;
 }
 
