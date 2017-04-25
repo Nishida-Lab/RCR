@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.1415926-p3.4-110825-2.6 (utf8.euc) (TeX Live 2013/Debian) (format=platex 2017.4.14)  26 APR 2017 03:16
+This is e-pTeX, Version 3.1415926-p3.4-110825-2.6 (utf8.euc) (TeX Live 2013/Debian) (format=platex 2017.4.14)  26 APR 2017 06:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -232,4 +232,92 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [1] [2]
-LaTeX Font Info:    Try loadin
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 110.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 110.
+File: picture/psded.eps Graphic file (type eps)
+ <picture/psded.eps>
+Overfull \hbox (4.07364pt too wide) in paragraph at lines 136--137
+ [] 
+ []
+
+File: picture/psdwd.eps Graphic file (type eps)
+<picture/psdwd.eps> [3] [4]
+File: picture/psdn.eps Graphic file (type eps)
+ <picture/psdn.eps>
+File: picture/psdf.eps Graphic file (type eps)
+ <picture/psdf.eps> [5]
+(../kuwano/kuwano.tex [6]
+Missing character: There is no ^^c2 in font cmr10!
+Missing character: There is no ^^b7 in font cmr10!
+File: ../kuwano/picture/picture1.eps Graphic file (type eps)
+ <../kuwano/picture/picture1.eps>
+File: ../kuwano/picture/picture2.eps Graphic file (type eps)
+
+<../kuwano/picture/picture2.eps>
+File: ../kuwano/picture/picture3.eps Graphic file (type eps)
+ <../kuwano/picture/picture3.eps> [7]
+File: ../kuwano/picture/picture4.eps Graphic file (type eps)
+
+<../kuwano/picture/picture4.eps>
+File: ../kuwano/picture/picture5.eps Graphic file (type eps)
+ <../kuwano/picture/picture5.eps> [8]
+File: ../kuwano/picture/picture6.eps Graphic file (type eps)
+
+<../kuwano/picture/picture6.eps>
+File: ../kuwano/picture/picture7.eps Graphic file (type eps)
+ <../kuwano/picture/picture7.eps>)
+(../Circuit/Circuit02.tex [9]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 18.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 18.
+File: ../Circuit/picture/MD10C.eps Graphic file (type eps)
+
+<../Circuit/picture/MD10C.eps> [10]
+
+LaTeX Warning: Reference `algo' on page 11 undefined on input line 67.
+
+File: ../Circuit/picture/jairo.eps Graphic file (type eps)
+<../Circuit/picture/jairo.eps> [11]
+Overfull \hbox (6.07442pt too wide) in paragraph at lines 95--116
+ [][] 
+ []
+
+[12]
+File: ../Circuit/picture/RCR_raspberryPi3.eps Graphic file (type eps)
+ <../Circuit/picture/RCR_raspberryPi3.eps>
+File: ../Circuit/picture/RCR_arduino.eps Graphic file (type eps)
+
+<../Circuit/picture/RCR_arduino.eps>) (../odom/odom.tex [13]
+File: ../odom/picture/odom.eps Graphic file (type eps)
+
+<../odom/picture/odom.eps>) (../list/list.tex
+Overfull \hbox (16.28722pt too wide) in paragraph at lines 4--32
+ [] 
+ []
+
+[14] [15]
+Overfull \hbox (50.63777pt too wide) in paragraph at lines 39--56
+ [] 
+ []
+
+) [16] (./interim01.aux)
+
+LaTeX Warning: There were undefined references.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 3119 strings out of 495129
+ 40113 string characters out of 6182595
+ 112514 words of memory out of 5000000
+ 6386 multiletter control sequences out of 15000+600000
+ 24311 words of font info for 94 fonts, out of 8000000 for 9000
+ 80 hyphenation exceptions out of 8191
+ 29i,13n,43p,449b,323s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on interim01.dvi (17 pages, 43352 bytes).

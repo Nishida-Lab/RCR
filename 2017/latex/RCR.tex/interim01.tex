@@ -16,9 +16,6 @@
 情報工学の知識を使って, 競技場内を自律的に走行するロボットカーの製作を行う．
 各研究室でチーム一丸となってプロジェクトを進行し，
 共同で課題を達成することの難しさや楽しさを学び，
-情報工学の知識を使って, 競技場内を自律的に走行するロボットカーの製作を行う．
-各研究室でチーム一丸となってプロジェクトを進行し，
-共同で課題を達成することの難しさや楽しさを学び，
 エンジニアとして仕事を進めるための素養を身に付ける．
 
 
@@ -106,21 +103,19 @@
 また，下記2つのセンサを便宜上，順に近距離センサ，長距離センサと
 呼ぶこととする．\\
 
-【シャープ測距モジュール　GP2Y0A21YK】
-  \begin{itemize}
-   \item 測距範囲：$10〜80\unit{cm}$
-   \item 出力：アナログ電圧出力
-   \item 寸法：$29.5×13×13.5\unit{mm}$
-   \item 電源：$4.5〜5.5\unit{V}$\\
-  \end{itemize}
+ \begin{description}
+  \item[【シャープ測距モジュール　GP2Y0A21YK】] \mbox{} \\
+	     測距範囲：$10〜80\unit{cm}$ \\
+	     出力：アナログ電圧出力 \\
+	     寸法：$29.5×13×13.5\unit{mm}$ \\
+	     電源：$4.5〜5.5\unit{V}$
+  \item[【シャープ測距モジュール　GP2Y0A02YK】] \mbox{} \\
+	     測距範囲：$20〜150\unit{cm}$ \\
+	     出力：アナログ電圧出力 \\
+	     寸法：$29.5×13×21.6\unit{mm}$ \\
+	     電源：$4.5〜5.5\unit{V}$
+ \end{description}
 
-【シャープ測距モジュール　GP2Y0A02YK】
-  \begin{itemize}
-   \item 測距範囲：$20〜150\unit{cm}$
-   \item 出力：アナログ電圧出力
-   \item 寸法：$29.5×13×21.6\unit{mm}$
-   \item 電源：$4.5〜5.5\unit{V}$
-  \end{itemize}
 
 \subsection{実験装置}
 PSDセンサの実験を行うため，図\ref{psded}のような実験装置を製作した．
@@ -180,7 +175,7 @@ $80\unit{cm}$まで距離の区別ができる長距離センサである．
 
 
 \newpage
-\begin{figure}[h]
+\begin{figure}[htb]
   \begin{center}
     \includegraphics[width=1.0\hsize]{picture/psdn.eps}
     \caption{近距離センサ}
@@ -188,7 +183,7 @@ $80\unit{cm}$まで距離の区別ができる長距離センサである．
   \end{center}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
   \begin{center}
     \includegraphics[width=1.0\hsize]{picture/psdf.eps}
     \caption{長距離センサ}

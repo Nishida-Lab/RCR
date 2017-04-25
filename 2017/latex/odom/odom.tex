@@ -1,20 +1,18 @@
-%#MAKEINDEX makeindex interim01
-\documentclass[10pt,a4j]{jarticle}
 
-\input{include/macro.tex}
-\input{include/preamble.tex}
-
-
-\begin{document} 
 \section{ソフトウェア}
   \subsection{自己位置推定}
   ロボカーの中心が点$(x_k,y_k)$の位置にあるとし、時間$\Delta t$秒の間にロボカーが旋回中心の周りに$\Delta \theta$だけ回転したとする．このときロボカーの中心から車輪までの距離を$d$，左右の車輪とロボカーの中心が動いた距離をそれぞれ$\Delta L_R, \Delta L_L, \Delta L$とすると
+\begin{equation}
+   \Delta L_R = (\rho + d) \Delta \theta \nonumber
+\end{equation}
+\begin{equation}
+  \Delta L_L  =  (\rho - d) \Delta \theta \nonumber
+\end{equation}
+\begin{equation}
+   \Delta L  = \rho \Delta \theta
+\end{equation}
+ 
 
-\begin{eqnarray}
-  \Delta L_R & = & (\rho + d) \Delta \theta \nonumber \\ 
-  \Delta L_L & = & (\rho - d) \Delta \theta \nonumber \\
-  \Delta L & = &\rho \Delta \theta
-\end{eqnarray}
   となる．これより
   \begin{eqnarray}
    \Delta L &=& \frac{\Delta L_R + \Delta L_L}{2} \nonumber \\
@@ -80,8 +78,8 @@
 
 \begin{figure}[H]
  \begin{center}
-  \includegraphics[scale = 0.5]{./picture/odom.eps}
+  \includegraphics[scale = 0.5]{../odom/picture/odom.eps}
+  \caption{自己位置推定}
+  \label{fig:fig1}
  \end{center}
 \end{figure}
-
-\end{document}

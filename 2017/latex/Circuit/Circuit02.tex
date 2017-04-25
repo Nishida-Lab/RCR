@@ -1,11 +1,3 @@
-%#MAKEINDEX makeindex interim01
-\documentclass[10pt,a4j]{jarticle}
-
-\input{include/macro.tex}
-\input{include/preamble.tex}
-
-
-\begin{document}
 \section{回路設計}
 設計した回路について選定の理由や仕様について以下に示す．また使用する部品の一覧を\ref{tab:c_parts}に示す．
 \subsection{マイコンの選定}
@@ -85,23 +77,19 @@
 そこで，それぞれに降圧レギュレータとしてDCDCコンバータを用いてバッテリーからの供給電源を
 分電することとした．各仕様を下に示す．
 
-[LR8697](RPi・モータ用)
-\begin{itemize}
- \item 電源電圧 : DC 6.0[V]$〜$42.0[V]]
- \item 出力電圧 : DC 5.0[V]]
- \item 出力電流 : 2.5[A]
-\end{itemize}
 
-[BTD05-05S200D](Arduino・センサ用)
-\begin{itemize}
- \item 電源電圧 : 4.5-9.0[V]
- \item 出力電圧 : 5.0[V]
- \item 出力電流 : 2000[mA]
-\end{itemize}
+\begin{description}
+ \item[【LR8697】(RPi・モータ用)] \mbox{} \\
+	    電源電圧 : DC 6.0[V]$〜$42.0[V]] \\
+	    出力電圧 : DC 5.0[V] \\
+	    出力電流 : 2.5[A]
+ \item[【BTD05-05S200D】(Arduino・センサ用)] \mbox{} \\
+	    電源電圧 : 4.5$〜$9.0[V] \\
+	    出力電圧 : 5.0[V] \\
+	    出力電流 : 2000[mA]
+\end{description}
 
-\newpage
-
-\begin{table}[t]
+\begin{table}[hb]
   \centering
   \caption{回路用部品表}
   \begin{tabular}{|c|c|r||c|} \hline
@@ -128,17 +116,15 @@
 \end{table}
 
 \newpage
-\begin{figure}[t]
+\begin{figure}[H]
  \centering
  \includegraphics[width=0.9\hsize]{../Circuit/picture/RCR_raspberryPi3.eps}
     \caption{Raspberry Pi3 接続回路図}
     \label{c_raspberry}
 \end{figure}
-\begin{figure}[b]
+\begin{figure}[H]
  \centering
  \includegraphics[width=0.9\hsize]{../Circuit/picture/RCR_arduino.eps}
     \caption{Arduino unoR3 接続回路図}
     \label{c_arduino}
 \end{figure}
-
-\end{document}
