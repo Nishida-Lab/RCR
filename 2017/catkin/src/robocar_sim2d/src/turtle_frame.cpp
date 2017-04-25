@@ -46,13 +46,11 @@ TurtleFrame::TurtleFrame(QWidget* parent, Qt::WindowFlags f)
    frame_count_(0),
    id_counter_(0),
    image_ {(ros::package::getPath("robocar_sim2d") + "/images/delta.png").c_str()},
-   width_in_meters_ {(width - 1) / static_cast<float>(image_.height())},
+   width_in_meters_  {(width - 1) / static_cast<float>(image_.height())},
    height_in_meters_ {(height - 1) / static_cast<float>(image_.height())}
 {
   setFixedSize(width, height);
   setWindowTitle("TurtleSim");
-
-  srand(time(NULL));
 
   update_timer_ = new QTimer(this);
   update_timer_->setInterval(16);
@@ -65,11 +63,15 @@ TurtleFrame::TurtleFrame(QWidget* parent, Qt::WindowFlags f)
   clear_srv_ = nh_.advertiseService("clear", &TurtleFrame::clearCallback, this);
   reset_srv_ = nh_.advertiseService("reset", &TurtleFrame::resetCallback, this);
   spawn_srv_ = nh_.advertiseService("spawn", &TurtleFrame::spawnCallback, this);
-  kill_srv_ = nh_.advertiseService("kill", &TurtleFrame::killCallback, this);
+  kill_srv_  = nh_.advertiseService("kill",  &TurtleFrame::killCallback,  this);
 
   ROS_INFO("Starting turtlesim with node name %s", ros::this_node::getName().c_str()) ;
 
-  spawnTurtle("", width_in_meters_ / 2.0, height_in_meters_ / 2.0, 0);
+  spawnTurtle("robocar", width_in_meters_ / 2.0, height_in_meters_ / 2.0, 0); // center of windiw
+
+  spawnTurtle("", width_in_meters_ / 4.0 * 1.0, height_in_meters_ / 4.0 * 1.0, 0); // center of windiw
+  spawnTurtle("", width_in_meters_ / 4.0 * 2.0, height_in_meters_ / 4.0 * 2.0, 0); // center of windiw
+  spawnTurtle("", width_in_meters_ / 4.0 * 3.0, height_in_meters_ / 4.0 * 3.0, 0); // center of windiw
 }
 
 TurtleFrame::~TurtleFrame()
@@ -119,16 +121,13 @@ std::string TurtleFrame::spawnTurtle(const std::string& name, float x, float y, 
     do
     {
       std::stringstream ss;
-      ss << "turtle" << ++id_counter_;
+      ss << "pole" << ++id_counter_;
       real_name = ss.str();
     } while (hasTurtle(real_name));
   }
   else
   {
-    if (hasTurtle(real_name))
-    {
-      return "";
-    }
+    if (hasTurtle(real_name)) { return {}; }
   }
 
   TurtlePtr t {new Turtle(ros::NodeHandle(real_name), image_, QPointF(x, height_in_meters_ - y), angle)};
@@ -177,13 +176,13 @@ void TurtleFrame::updateTurtles()
     return;
   }
 
-  bool modified = false;
-  M_Turtle::iterator it = turtles_.begin();
-  M_Turtle::iterator end = turtles_.end();
-  for (; it != end; ++it)
+  bool modified {false};
+
+  for (const auto& turtle : turtles_)
   {
-    modified |= it->second->update(0.001 * update_timer_->interval(), path_painter_, path_image_, width_in_meters_, height_in_meters_);
+    modified |= turtle.second->update(0.001 * update_timer_->interval(), path_painter_, path_image_, width_in_meters_, height_in_meters_);
   }
+
   if (modified)
   {
     update();
@@ -196,7 +195,7 @@ void TurtleFrame::updateTurtles()
 bool TurtleFrame::clearCallback(std_srvs::Empty::Request&, std_srvs::Empty::Response&)
 {
   ROS_INFO("Clearing turtlesim.");
-  clear();
+  // clear();
   return true;
 }
 
@@ -210,4 +209,4 @@ bool TurtleFrame::resetCallback(std_srvs::Empty::Request&, std_srvs::Empty::Resp
   return true;
 }
 
-}
+} // namespace turtlesim
