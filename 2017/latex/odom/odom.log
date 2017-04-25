@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.1415926-p3.4-110825-2.6 (utf8.euc) (TeX Live 2013/Debian) (format=platex 2017.4.14)  25 APR 2017 22:28
+This is e-pTeX, Version 3.1415926-p3.4-110825-2.6 (utf8.euc) (TeX Live 2013/Debian) (format=platex 2017.4.14)  25 APR 2017 23:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -83,8 +83,7 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \float@box=\box42
 \@float@everytoks=\toks17
 \@floatcapt=\box43
-)
-No file odom.aux.
+) (./odom.aux)
 \openout1 = `odom.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
@@ -119,16 +118,32 @@ LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
 (Font)              scaled to size 6.72699pt on input line 10.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
 (Font)              scaled to size 4.805pt on input line 10.
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 24.
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 24.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 24.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 24.
+
+
+LaTeX Warning: Reference `fig:fig1' on page 0 undefined on input line 24.
+
 [0
 
-] (./odom.aux) ) 
-Here is how much of TeX's memory you used:
- 882 strings out of 495129
- 10060 string characters out of 6182595
- 64038 words of memory out of 5000000
- 4279 multiletter control sequences out of 15000+600000
- 9731 words of font info for 44 fonts, out of 8000000 for 9000
- 85 hyphenation exceptions out of 8191
- 25i,6n,43p,294b,167s stack positions out of 5000i,500n,10000p,200000b,80000s
+] (./odom.aux)
 
-Output written on odom.dvi (1 page, 1240 bytes).
+LaTeX Warning: There were undefined references.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 890 strings out of 495129
+ 10145 string characters out of 6182595
+ 70038 words of memory out of 5000000
+ 4284 multiletter control sequences out of 15000+600000
+ 10320 words of font info for 47 fonts, out of 8000000 for 9000
+ 85 hyphenation exceptions out of 8191
+ 25i,12n,43p,294b,186s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on odom.dvi (1 page, 3476 bytes).
