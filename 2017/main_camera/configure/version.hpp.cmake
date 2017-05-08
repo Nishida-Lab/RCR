@@ -2,13 +2,13 @@
 #define INCLUDED_MAIN_CAMERA_VERSION_HPP_
 
 
-#include <utilib/string/static_concatenate.hpp>
+#include <string>
 
-static constexpr auto project_version {scat("${PROJECT_VERSION}")};
+const std::string project_version {"${PROJECT_VERSION}"};
 
-static constexpr auto project_major_version {scat("${PROJECT_VERSION_MAJOR}")};
-static constexpr auto project_minor_version {scat("${PROJECT_VERSION_MINOR}")};
-static constexpr auto project_patch_version {scat("${PROJECT_VERSION_PATCH}")};
+const std::string project_major_version {"${PROJECT_VERSION_MAJOR}"};
+const std::string project_minor_version {"${PROJECT_VERSION_MINOR}"};
+const std::string project_patch_version {"${PROJECT_VERSION_PATCH}"};
 
 
 #endif
