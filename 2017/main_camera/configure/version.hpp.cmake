@@ -1,5 +1,5 @@
-#ifndef INCLUDED_MEEVAX_VERSION_HPP_
-#define INCLUDED_MEEVAX_VERSION_HPP_
+#ifndef INCLUDED_MAIN_CAMERA_VERSION_HPP_
+#define INCLUDED_MAIN_CAMERA_VERSION_HPP_
 
 
 #include <utilib/string/static_concatenate.hpp>
