@@ -28,9 +28,7 @@ T angle(const boost::numeric::ublas::vector<T>& v,
 
   return std::acos(
            boost::algorithm::clamp(
-             ublas::inner_prod(v, u) / length,
-             static_cast<T>(-1.0),
-             static_cast<T>(+1.0)
+             ublas::inner_prod(v, u) / length, static_cast<T>(-1.0), static_cast<T>(+1.0)
            )
          );
 }
