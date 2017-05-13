@@ -2,6 +2,9 @@
 #include <string>
 #include <vector>
 
+#include <boost/algorithm/clamp.hpp>
+#include <boost/geometry/util/math.hpp>
+#include <boost/math/constants/constants.hpp>
 #include <boost/numeric/ublas/io.hpp>
 #include <boost/numeric/ublas/vector.hpp>
 
@@ -13,6 +16,29 @@ auto normalize(const boost::numeric::ublas::vector<T>& v)
   -> boost::numeric::ublas::vector<T>
 {
   return v / boost::numeric::ublas::norm_2(v);
+}
+
+
+template <typename T>
+T angle(const boost::numeric::ublas::vector<T>& v,
+        const boost::numeric::ublas::vector<T>& u)
+{
+  namespace ublas = boost::numeric::ublas;
+
+  const T length {ublas::norm_2(v) * ublas::norm_2(u)};
+
+  if (boost::geometry::math::equals(length, static_cast<T>(0.0)))
+  {
+    return boost::math::constants::half_pi<T>();
+  }
+
+  return std::acos(
+           boost::algorithm::clamp(
+             ublas::inner_prod(v, u) / length,
+             static_cast<T>(-1.0),
+             static_cast<T>(+1.0)
+           )
+         );
 }
 
 
