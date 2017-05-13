@@ -1,3 +1,4 @@
+#include <iomanip>
 #include <iostream>
 #include <string>
 #include <vector>
@@ -10,14 +11,6 @@
 #include <boost/numeric/ublas/vector.hpp>
 
 #include <algorithm/version.hpp>
-
-
-template <typename T>
-auto normalize(const boost::numeric::ublas::vector<T>& v)
-  -> boost::numeric::ublas::vector<T>
-{
-  return v / boost::numeric::ublas::norm_2(v);
-}
 
 
 template <typename T>
@@ -72,10 +65,19 @@ public:
     v_[4] <<=  1.0,  0.0;      /* robocar */      v_[0] <<= -1.0,  0.0;
     v_[5] <<=  1.0,  1.0;  v_[6] <<=  0.0,  1.0;  v_[7] <<= -1.0,  1.0;
 
-    for (const auto& v : v_)
+    for (auto&& v : v_)
     {
-      std::cout << "[debug] " << v << std::endl;
+      v = normalize(v);
+      std::cout << "[debug] " << std::fixed << std::setprecision(3) << std::showpos
+                              << v << std::endl;
     }
+  }
+
+protected:
+  auto normalize(const boost::numeric::ublas::vector<T>& v)
+    -> boost::numeric::ublas::vector<T>
+  {
+    return v / boost::numeric::ublas::norm_2(v);
   }
 };
 
@@ -85,7 +87,7 @@ public:
 
 int main(int argc, char** argv)
 {
-  std::cout << "[debug] boost version: " << boost_version << std::endl;
+  std::cout << "[debug] boost version: " << boost_version << "\n\n";
 
   const std::vector<std::vector<std::string>> world_map {
     {{"F0"}, {"F1"}, {"F2"}, {"F3"}, {"F4"}, {"F5"}},
