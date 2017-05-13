@@ -5,6 +5,7 @@
 #include <boost/algorithm/clamp.hpp>
 #include <boost/geometry/util/math.hpp>
 #include <boost/math/constants/constants.hpp>
+#include <boost/numeric/ublas/assignment.hpp>
 #include <boost/numeric/ublas/io.hpp>
 #include <boost/numeric/ublas/vector.hpp>
 
@@ -56,12 +57,26 @@ template <typename T>
 class direction
   : public boost::numeric::ublas::vector<T>
 {
-  static constexpr std::size_t dimension {2};
+  static constexpr std::size_t dimension_ {2};
+
+  std::vector<boost::numeric::ublas::vector<T>> v_;
 
 public:
   direction()
-    : boost::numeric::ublas::vector<T> {dimension}
-  {}
+    : boost::numeric::ublas::vector<T> {dimension_},
+      v_ {8, boost::numeric::ublas::vector<T> {dimension_}}
+  {
+    (*this) <<= 0.0, 1.0;
+
+    v_[3] <<=  1.0, -1.0;  v_[2] <<=  0.0, -1.0;  v_[1] <<= -1.0, -1.0;
+    v_[4] <<=  1.0,  0.0;      /* robocar */      v_[0] <<= -1.0,  0.0;
+    v_[5] <<=  1.0,  1.0;  v_[6] <<=  0.0,  1.0;  v_[7] <<= -1.0,  1.0;
+
+    for (const auto& v : v_)
+    {
+      std::cout << "[debug] " << v << std::endl;
+    }
+  }
 };
 
 
@@ -80,6 +95,8 @@ int main(int argc, char** argv)
     {{"B0"}, {"B1"}, {"B2"}, {"B3"}, {"B4"}, {"B5"}},
     {{"A0"}, {"A1"}, {"A2"}, {"A3"}, {"A4"}, {"A5"}}
   };
+
+  robocar::direction<double> direction {};
 
   return 0;
 }
