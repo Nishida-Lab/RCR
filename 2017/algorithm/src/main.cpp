@@ -49,6 +49,25 @@ T radian_to_degree(const T& radian)
 }
 
 
+namespace robocar {
+
+
+template <typename T>
+class direction
+  : public boost::numeric::ublas::vector<T>
+{
+  static constexpr std::size_t dimension {2};
+
+public:
+  direction()
+    : boost::numeric::ublas::vector<T> {dimension}
+  {}
+};
+
+
+} // namespace robocar
+
+
 int main(int argc, char** argv)
 {
   std::cout << "[debug] boost version: " << boost_version << std::endl;
@@ -61,13 +80,6 @@ int main(int argc, char** argv)
     {{"B0"}, {"B1"}, {"B2"}, {"B3"}, {"B4"}, {"B5"}},
     {{"A0"}, {"A1"}, {"A2"}, {"A3"}, {"A4"}, {"A5"}}
   };
-
-  boost::numeric::ublas::vector<double> uv {2};
-
-  uv[0] = 1.0;
-  uv[1] = 0.0;
-
-  std::cout << "[debug] ublas vector: " << uv << std::endl;
 
   return 0;
 }
