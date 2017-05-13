@@ -42,6 +42,13 @@ T angle(const boost::numeric::ublas::vector<T>& v,
 }
 
 
+template <typename T>
+T radian_to_degree(const T& radian)
+{
+  return radian * static_cast<T>(180.0) / boost::math::constants::pi<T>();
+}
+
+
 int main(int argc, char** argv)
 {
   const std::vector<std::vector<std::string>> world_map {
