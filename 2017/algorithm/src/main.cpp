@@ -51,6 +51,8 @@ T radian_to_degree(const T& radian)
 
 int main(int argc, char** argv)
 {
+  std::cout << "[debug] boost version: " << boost_version << std::endl;
+
   const std::vector<std::vector<std::string>> world_map {
     {{"F0"}, {"F1"}, {"F2"}, {"F3"}, {"F4"}, {"F5"}},
     {{"E0"}, {"E1"}, {"E2"}, {"E3"}, {"E4"}, {"E5"}},
