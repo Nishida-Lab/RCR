@@ -43,6 +43,8 @@ int main(int argc, char** argv)
     }
   }
 
+  std::cout << "[debug] finish\n";
+
   return 0;
 }
 
