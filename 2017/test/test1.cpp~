@@ -3,7 +3,11 @@
 int main()
 {
 
+<<<<<<< HEAD
+    std::cout << "hello world" << std::endl;
+=======
     std::cout << "hello world\n";
+>>>>>>> add \n
 
     return 0;
 }
