@@ -31,5 +31,6 @@ target_link_libraries(${PROJECT_NAME}
   raspicam_cv
   opencv_core
   opencv_highgui
+  opencv_imgproc
 )
 

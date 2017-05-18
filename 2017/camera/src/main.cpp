@@ -1,8 +1,10 @@
+#include <cstdint>
 #include <cstdlib>
 #include <iostream>
 #include <string>
 
 #include <raspicam/raspicam_cv.h>
+#include <opencv2/imgproc/imgproc.hpp>
 
 #include <camera/version.hpp>
 
@@ -18,6 +20,13 @@ public:
 
 private:
   image_type image_buffer_;
+
+  static const uint16_t hmin_ { 10};
+  static const uint16_t hmax_ {300};
+  static const uint16_t smin_ { 30};
+  static const uint16_t smax_ {100};
+  static const uint16_t vmin_ { 50};
+  static const uint16_t vmax_ {100};
 
 public:
   camera(std::size_t width = 2592, std::size_t height = 1944)
@@ -49,7 +58,52 @@ public:
 
   void write(const std::string& s)
   {
-    cv::imwrite(s, image_buffer_);
+    // cv::imwrite(s, image_buffer_);
+    cv::imwrite(s, hoge(image_buffer_));
+  }
+
+private:
+  image_type hoge(const image_type& rgb)
+  {
+    image_type binary {cv::Mat::zeros(rgb.size(), CV_8UC1)};
+    image_proc(rgb, binary);
+
+    return binary;
+  }
+
+  void image_proc(const image_type& rgb, image_type& binary)
+  {
+    image_type blur {}, hsv {};
+
+    cv::GaussianBlur(rgb, blur, cv::Size(5, 5), 4.0, 4.0);
+    cv::cvtColor(blur, hsv, CV_BGR2HSV);
+
+    red_filter(hsv, binary);
+
+    cv::dilate(binary, binary, cv::Mat {}, cv::Point(-1, -1), 2);
+    cv::erode(binary, binary, cv::Mat {}, cv::Point(-1, -1), 4);
+    cv::dilate(binary, binary, cv::Mat {}, cv::Point(-1, -1), 1);
+  }
+
+  void red_filter(const cv::Mat& hsv, cv::Mat& binary)
+  {
+    for (int row {0}; row < hsv.rows; ++row)
+    {
+      for (int col {0}; col < hsv.cols; ++col)
+      {
+        std::size_t a {hsv.step * row + col * 3};
+
+        if ((hsv.data[a] <= hmin_ || hsv.data[a] >= hmax_) && (hsv.data[a+1] >= smin_) && (hsv.data[a+2] >= vmin_))
+        {
+          binary.at<unsigned char>(row, col) = 255;
+        }
+
+        else
+        {
+          binary.at<unsigned char>(row, col) = 0;
+        }
+      }
+    }
   }
 };
 
