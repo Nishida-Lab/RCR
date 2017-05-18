@@ -28,6 +28,8 @@ add_executable(${PROJECT_NAME}
 )
 
 target_link_libraries(${PROJECT_NAME}
-  raspicam
+  raspicam_cv
+  opencv_core
+  opencv_highgui
 )
 

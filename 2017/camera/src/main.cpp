@@ -1,47 +1,37 @@
-#include <chrono>
 #include <cstdlib>
-#include <fstream>
 #include <iostream>
 #include <string>
-#include <thread>
 
-#include <raspicam/raspicam.h>
+#include <raspicam/raspicam_cv.h>
 
 #include <camera/version.hpp>
 
 
 int main(int argc, char** argv)
 {
-  raspicam::RaspiCam camera {};
+  raspicam::RaspiCam_Cv camera {};
+  camera.set(CV_CAP_PROP_FRAME_WIDTH,  2592);
+  camera.set(CV_CAP_PROP_FRAME_HEIGHT, 1944);
+
+  std::string file_name {"test_image.jpg"};
 
   if (!camera.open())
   {
-    std::cerr << "\e[0;31m" << "[debug] failed to open camera" << "\e[0;37m\n";
+    std::cerr << "[debug] failed to open camera\n";
     std::exit(EXIT_FAILURE);
   }
 
-  std::cout << "[debug] waiting for camera stabilize...\n";
-  std::this_thread::sleep_for(std::chrono::seconds(3));
+  std::cout << "[debug] connected to camera: " << camera.getId() << std::endl;
 
-  std::cout << "[debug] start image capture\n";
+  cv::Mat image {};
+
   camera.grab();
+  camera.retrieve(image);
 
-  std::cout << "[debug] memory allocationg\n";
-  unsigned char* data {new unsigned char [camera.getImageTypeSize(raspicam::RASPICAM_FORMAT_RGB)]};
-
-  std::cout << "[debug] extract image in RGB format\n";
-  camera.retrieve(data, raspicam::RASPICAM_FORMAT_RGB);
-
-  std::string file_name {"test_image.ppm"};
-  std::ofstream ofs {file_name, std::ios::binary};
-
-  std::cout << "[debug] write image\n";
-  ofs << "P6\n" << camera.getWidth() << " " << camera.getHeight() << " 255\n";
-  ofs.write(reinterpret_cast<char*>(data), camera.getImageTypeSize(raspicam::RASPICAM_FORMAT_RGB));
-
+  cv::imwrite("test_image.jpg", image);
   std::cout << "[debug] image saved: " << file_name << std::endl;
 
-  delete data;
+  camera.release();
 
   return 0;
 }
