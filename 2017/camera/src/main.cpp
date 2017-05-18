@@ -7,6 +7,23 @@
 #include <camera/version.hpp>
 
 
+namespace robocar {
+
+
+class camera
+  : public raspicam::RaspiCam_Cv
+{
+public:
+  raspicam()
+    : raspicam::RaspiCam_Cv {}
+  {}
+};
+
+
+
+} // namespace robocar
+
+
 int main(int argc, char** argv)
 {
   raspicam::RaspiCam_Cv camera {};
