@@ -14,9 +14,25 @@ class camera
   : public raspicam::RaspiCam_Cv
 {
 public:
-  raspicam()
+  camera(std::size_t width = 2592, std::size_t height = 1944)
     : raspicam::RaspiCam_Cv {}
-  {}
+  {
+    set(CV_CAP_PROP_FRAME_WIDTH,  width);
+    set(CV_CAP_PROP_FRAME_HEIGHT, height);
+
+    if (!open())
+    {
+      std::cerr << "[error] failed to open camera module\n";
+      std::exit(EXIT_FAILURE);
+    }
+
+    std::cout << "[debug] connected to camera module: " << getId() << std::endl;
+  }
+
+  ~camera()
+  {
+    release();
+  }
 };
 
 
