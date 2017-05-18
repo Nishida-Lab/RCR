@@ -7,7 +7,7 @@
 
 #include <raspicam/raspicam.h>
 
-#include <main_camera/version.hpp>
+#include <camera/version.hpp>
 
 
 int main(int argc, char** argv)

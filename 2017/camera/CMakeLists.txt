@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0)
-project(main_camera VERSION 0.0.0 LANGUAGES CXX)
+project(camera VERSION 0.0.0 LANGUAGES CXX)
 
 add_definitions("-std=c++11 -Wall")
 

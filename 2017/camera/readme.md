@@ -1,4 +1,4 @@
-### main_camera
+### camera
 
 version 0.0.0 in development
 
