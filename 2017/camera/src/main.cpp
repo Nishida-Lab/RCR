@@ -58,8 +58,8 @@ public:
 
   void write(const std::string& s)
   {
-    // cv::imwrite(s, image_buffer_);
-    cv::imwrite(s, hoge(image_buffer_));
+    cv::imwrite("hoge_rgb.jpg", image_buffer_);
+    cv::imwrite("hoge_bin.jpg", hoge(image_buffer_));
   }
 
 private:
