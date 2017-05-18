@@ -46,6 +46,11 @@ public:
     grab();
     retrieve(image_buffer_);
   }
+
+  void write(const std::string& s)
+  {
+    cv::imwrite(s, image_buffer_);
+  }
 };
 
 
@@ -55,29 +60,10 @@ public:
 
 int main(int argc, char** argv)
 {
-  raspicam::RaspiCam_Cv camera {};
-  camera.set(CV_CAP_PROP_FRAME_WIDTH,  2592);
-  camera.set(CV_CAP_PROP_FRAME_HEIGHT, 1944);
+  robocar::camera camera {2592, 1944};
 
-  std::string file_name {"test_image.jpg"};
-
-  if (!camera.open())
-  {
-    std::cerr << "[debug] failed to open camera\n";
-    std::exit(EXIT_FAILURE);
-  }
-
-  std::cout << "[debug] connected to camera: " << camera.getId() << std::endl;
-
-  cv::Mat image {};
-
-  camera.grab();
-  camera.retrieve(image);
-
-  cv::imwrite("test_image.jpg", image);
-  std::cout << "[debug] image saved: " << file_name << std::endl;
-
-  camera.release();
+  camera.read();
+  camera.write("hoge.jpg");
 
   return 0;
 }
