@@ -6,22 +6,22 @@ The range readings are in units of mm. */
 #include <Wire.h>
 #include <VL6180X.h>
 
-VL6180X sensor;
+VL6180X vl6180x;
 
 void setup() 
 {
   Serial.begin(9600);
   Wire.begin();
   
-  sensor.init();
-  sensor.configureDefault();
-  sensor.setTimeout(500);
+  vl6180x.init();
+  vl6180x.configureDefault();
+  vl6180x.setTimeout(500);
 }
 
 void loop() 
 { 
-  Serial.print(sensor.readRangeSingleMillimeters());
-  if (sensor.timeoutOccurred()) { Serial.print(" TIMEOUT"); }
+  Serial.print(vl6180x.readRangeSingleMillimeters());
+  if (vl6180x.timeoutOccurred()) { Serial.print(" TIMEOUT"); }
   
   Serial.println();
 }
