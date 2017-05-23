@@ -53,13 +53,15 @@ class direction
 
   std::vector<boost::numeric::ublas::vector<T>> v_;
 
-  std::fstream sensor_device_;
+  std::ifstream devin_;
+  std::ofstream devout_;
 
 public:
-  direction(const std::string& sensor_device)
+  direction(const std::string& devin_path, const std::string& devout_path)
     : boost::numeric::ublas::vector<T> {dimension_},
       v_ {8, boost::numeric::ublas::vector<T> {dimension_}},
-      sensor_device_ {sensor_device}
+      devin_ {devin_path},
+      devout_ {devout_path}
   {
     (*this) <<= 0.0, 1.0;
 
@@ -74,17 +76,23 @@ public:
                 << std::fixed << std::setprecision(3) << std::showpos << v << std::endl;
     }
 
-    if (!sensor_device_.is_open())
+    if (!devin_.is_open())
     {
-      std::cerr << "[error] failed to open device \"" << sensor_device << "\"\n";
+      std::cerr << "[error] failed to open device \"" << devin_path << "\"\n";
+      std::exit(EXIT_FAILURE);
+    }
+
+    if (!devout_.is_open())
+    {
+      std::cerr << "[error] failed to open device \"" << devout_path << "\"\n";
       std::exit(EXIT_FAILURE);
     }
   }
 
-  void read_line()
+  void read()
   {
     static std::string buffer {};
-    std::getline(sensor_device_, buffer, '\n');
+    std::getline(devin_, buffer, '\n');
 
     std::cout << "[debug] funtion read_line(): " << buffer << std::endl;
   }
@@ -114,9 +122,11 @@ int main(int argc, char** argv)
     {{"A0"}, {"A1"}, {"A2"}, {"A3"}, {"A4"}, {"A5"}}
   };
 
-  robocar::direction<double> direction {"/dev/stdin"};
+  robocar::direction<double> direction {"/dev/stdin", "/dev/stdout"};
 
-  direction.read_line();
+  direction.read();
+
+  direction.query("S2");
 
   return 0;
 }
