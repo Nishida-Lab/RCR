@@ -52,10 +52,13 @@ class direction
 
   std::vector<boost::numeric::ublas::vector<T>> v_;
 
+  std::ifstream sensor_device_;
+
 public:
-  direction()
+  direction(const std::string& sensor_device)
     : boost::numeric::ublas::vector<T> {dimension_},
-      v_ {8, boost::numeric::ublas::vector<T> {dimension_}}
+      v_ {8, boost::numeric::ublas::vector<T> {dimension_}},
+      sensor_device_ {sensor_device}
   {
     (*this) <<= 0.0, 1.0;
 
@@ -96,7 +99,7 @@ int main(int argc, char** argv)
     {{"A0"}, {"A1"}, {"A2"}, {"A3"}, {"A4"}, {"A5"}}
   };
 
-  robocar::direction<double> direction {};
+  robocar::direction<double> direction {"/dev/stdin"};
 
   return 0;
 }
