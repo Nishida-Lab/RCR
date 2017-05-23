@@ -107,20 +107,20 @@ public:
 #ifdef DEBUG
     if (prefix[0] == 's')
     {
-      return dummy_sensor_output(0, 20);
+      return std::to_string(dummy_sensor_output(0, 20));
     }
 
     else if (prefix[0] == 'l')
     {
-      return dummy_sensor_output(20, 180);
+      return std::to_string(dummy_sensor_output(20, 180));
     }
 
     else if (prefix[0] == 'a')
     {
-      return dummy_sensor_output(0, 1023); // XXX
+      return std::to_string(static_cast<int>(dummy_sensor_output(0, 1023))); // XXX
     }
 #endif
-    return dummy_sensor_output();
+    return std::to_string(dummy_sensor_output());
   }
 
 protected:
@@ -130,13 +130,12 @@ protected:
     return v / boost::numeric::ublas::norm_2(v);
   }
 
-  auto dummy_sensor_output(T&& min = static_cast<T>(0.0), T&& max = static_cast<T>(1.0))
-    -> std::string
+  T dummy_sensor_output(T&& min = static_cast<T>(0.0), T&& max = static_cast<T>(1.0))
   {
     static std::default_random_engine engine {std::random_device {}()};
     std::uniform_real_distribution<T> uniform {min, max};
 
-    return std::to_string(uniform(engine));
+    return uniform(engine);
   }
 };
 
