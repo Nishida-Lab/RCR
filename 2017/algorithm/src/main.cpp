@@ -1,6 +1,8 @@
 #include <fstream>
 #include <iomanip>
 #include <iostream>
+#include <random>
+#include <regex>
 #include <string>
 #include <vector>
 
@@ -102,6 +104,15 @@ protected:
     -> boost::numeric::ublas::vector<T>
   {
     return v / boost::numeric::ublas::norm_2(v);
+  }
+
+  auto dummy_sensor_output(T&& min = static_cast<T>(-1.0), T&& max = static_cast<T>(1.0))
+    -> std::string
+  {
+    static std::default_random_engine engine {std::random_device {}()};
+    static std::normal_distribution<T> normdist {min, max};
+
+    return std::to_string(normdist(engine));
   }
 };
 
