@@ -1,5 +1,8 @@
+#include <fstream>
 #include <iomanip>
 #include <iostream>
+#include <random>
+#include <regex>
 #include <string>
 #include <vector>
 
@@ -11,6 +14,9 @@
 #include <boost/numeric/ublas/vector.hpp>
 
 #include <algorithm/version.hpp>
+
+
+#define DEBUG
 
 
 template <typename T>
@@ -44,18 +50,23 @@ T radian_to_degree(const T& radian)
 namespace robocar {
 
 
-template <typename T>
+template <typename T, std::size_t S = 2>
 class direction
   : public boost::numeric::ublas::vector<T>
 {
-  static constexpr std::size_t dimension_ {2};
+  static constexpr std::size_t dimension_ {S};
 
   std::vector<boost::numeric::ublas::vector<T>> v_;
 
+  std::ifstream devin_;
+  std::ofstream devout_;
+
 public:
-  direction()
+  direction(const std::string& devin_path, const std::string& devout_path)
     : boost::numeric::ublas::vector<T> {dimension_},
-      v_ {8, boost::numeric::ublas::vector<T> {dimension_}}
+      v_ {8, boost::numeric::ublas::vector<T> {dimension_}},
+      devin_ {devin_path},
+      devout_ {devout_path}
   {
     (*this) <<= 0.0, 1.0;
 
@@ -65,17 +76,66 @@ public:
 
     for (auto&& v : v_)
     {
-      v = normalize(v);
-      std::cout << "[debug] " << std::fixed << std::setprecision(3) << std::showpos
-                              << v << std::endl;
+      v = normalized(v);
+      std::cout << "[debug] v_[" << std::noshowpos << &v - &v_.front() << "] "
+                << std::fixed << std::setprecision(3) << std::showpos << v << std::endl;
+    }
+
+    if (!devin_.is_open())
+    {
+      std::cerr << "[error] failed to open device \"" << devin_path << "\"\n";
+      std::exit(EXIT_FAILURE);
+    }
+
+    if (!devout_.is_open())
+    {
+      std::cerr << "[error] failed to open device \"" << devout_path << "\"\n";
+      std::exit(EXIT_FAILURE);
     }
   }
 
+  std::string read()
+  {
+    static std::string buffer {};
+    std::getline(devin_, buffer, '\n');
+
+    return buffer;
+  }
+
+  std::string query(const std::string& prefix) // TODO timeout
+  {
+#ifdef DEBUG
+    if (prefix[0] == 's')
+    {
+      return std::to_string(dummy_sensor_output(0, 20));
+    }
+
+    else if (prefix[0] == 'l')
+    {
+      return std::to_string(dummy_sensor_output(20, 180));
+    }
+
+    else if (prefix[0] == 'a')
+    {
+      return std::to_string(static_cast<int>(dummy_sensor_output(0, 1023))); // XXX
+    }
+#endif
+    return std::to_string(dummy_sensor_output());
+  }
+
 protected:
-  auto normalize(const boost::numeric::ublas::vector<T>& v)
+  auto normalized(const boost::numeric::ublas::vector<T>& v)
     -> boost::numeric::ublas::vector<T>
   {
     return v / boost::numeric::ublas::norm_2(v);
+  }
+
+  T dummy_sensor_output(T&& min = static_cast<T>(0.0), T&& max = static_cast<T>(1.0))
+  {
+    static std::default_random_engine engine {std::random_device {}()};
+    std::uniform_real_distribution<T> uniform {min, max};
+
+    return uniform(engine);
   }
 };
 
@@ -96,7 +156,18 @@ int main(int argc, char** argv)
     {{"A0"}, {"A1"}, {"A2"}, {"A3"}, {"A4"}, {"A5"}}
   };
 
-  robocar::direction<double> direction {};
+  robocar::direction<double> direction {"/dev/stdin", "/dev/stdout"};
+  std::putchar('\n');
+
+  while (true)
+  {
+    std::cout << "[input] manual sensor data query: ";
+
+    static std::string buffer {};
+    std::cin >> buffer;
+
+    std::cout << "[debug] query: " << buffer << ", result: " << direction.query(buffer) << std::endl;
+  }
 
   return 0;
 }
