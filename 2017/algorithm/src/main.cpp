@@ -1,3 +1,4 @@
+#include <fstream>
 #include <iomanip>
 #include <iostream>
 #include <string>
@@ -44,11 +45,11 @@ T radian_to_degree(const T& radian)
 namespace robocar {
 
 
-template <typename T>
+template <typename T, std::size_t S = 2>
 class direction
   : public boost::numeric::ublas::vector<T>
 {
-  static constexpr std::size_t dimension_ {2};
+  static constexpr std::size_t dimension_ {S};
 
   std::vector<boost::numeric::ublas::vector<T>> v_;
 
