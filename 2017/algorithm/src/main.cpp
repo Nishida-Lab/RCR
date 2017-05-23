@@ -52,7 +52,7 @@ class direction
 
   std::vector<boost::numeric::ublas::vector<T>> v_;
 
-  std::ifstream sensor_device_;
+  std::fstream sensor_device_;
 
 public:
   direction(const std::string& sensor_device)
@@ -71,6 +71,12 @@ public:
       v = normalized(v);
       std::cout << "[debug] v_[" << std::noshowpos << &v - &v_.front() << "] "
                 << std::fixed << std::setprecision(3) << std::showpos << v << std::endl;
+    }
+
+    if (!sensor_device_.is_open())
+    {
+      std::cerr << "[error] failed to open device \"" << sensor_device << "\"\n";
+      std::exit(EXIT_FAILURE);
     }
   }
 
