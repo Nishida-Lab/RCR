@@ -16,6 +16,9 @@
 #include <algorithm/version.hpp>
 
 
+#define DEBUG
+
+
 template <typename T>
 T angle(const boost::numeric::ublas::vector<T>& v,
         const boost::numeric::ublas::vector<T>& u)
@@ -91,12 +94,33 @@ public:
     }
   }
 
-  void read()
+  std::string read()
   {
     static std::string buffer {};
     std::getline(devin_, buffer, '\n');
 
-    std::cout << "[debug] funtion read_line(): " << buffer << std::endl;
+    return buffer;
+  }
+
+  std::string query(const std::string& prefix) // TODO timeout
+  {
+#ifdef DEBUG
+    if (prefix[0] == 's')
+    {
+      return dummy_sensor_output(0, 20);
+    }
+
+    else if (prefix[0] == 'l')
+    {
+      return dummy_sensor_output(20, 180);
+    }
+
+    else if (prefix[0] == 'a')
+    {
+      return dummy_sensor_output(0, 1023); // XXX
+    }
+#endif
+    return dummy_sensor_output();
   }
 
 protected:
@@ -106,13 +130,13 @@ protected:
     return v / boost::numeric::ublas::norm_2(v);
   }
 
-  auto dummy_sensor_output(T&& min = static_cast<T>(-1.0), T&& max = static_cast<T>(1.0))
+  auto dummy_sensor_output(T&& min = static_cast<T>(0.0), T&& max = static_cast<T>(1.0))
     -> std::string
   {
     static std::default_random_engine engine {std::random_device {}()};
-    static std::normal_distribution<T> normdist {min, max};
+    std::uniform_real_distribution<T> uniform {min, max};
 
-    return std::to_string(normdist(engine));
+    return std::to_string(uniform(engine));
   }
 };
 
@@ -134,10 +158,17 @@ int main(int argc, char** argv)
   };
 
   robocar::direction<double> direction {"/dev/stdin", "/dev/stdout"};
+  std::putchar('\n');
 
-  direction.read();
+  while (true)
+  {
+    std::cout << "[input] manual sensor data query: ";
 
-  direction.query("S2");
+    static std::string buffer {};
+    std::cin >> buffer;
+
+    std::cout << "[debug] query: " << buffer << ", result: " << direction.query(buffer) << std::endl;
+  }
 
   return 0;
 }
