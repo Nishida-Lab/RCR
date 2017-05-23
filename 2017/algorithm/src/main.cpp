@@ -80,6 +80,14 @@ public:
     }
   }
 
+  void read_line()
+  {
+    static std::string buffer {};
+    std::getline(sensor_device_, buffer, '\n');
+
+    std::cout << "[debug] funtion read_line(): " << buffer << std::endl;
+  }
+
 protected:
   auto normalized(const boost::numeric::ublas::vector<T>& v)
     -> boost::numeric::ublas::vector<T>
@@ -106,6 +114,8 @@ int main(int argc, char** argv)
   };
 
   robocar::direction<double> direction {"/dev/stdin"};
+
+  direction.read_line();
 
   return 0;
 }
