@@ -65,14 +65,14 @@ public:
 
     for (auto&& v : v_)
     {
-      v = normalize(v);
-      std::cout << "[debug] " << std::fixed << std::setprecision(3) << std::showpos
-                              << v << std::endl;
+      v = normalized(v);
+      std::cout << "[debug] v_[" << std::noshowpos << &v - &v_.front() << "] "
+                << std::fixed << std::setprecision(3) << std::showpos << v << std::endl;
     }
   }
 
 protected:
-  auto normalize(const boost::numeric::ublas::vector<T>& v)
+  auto normalized(const boost::numeric::ublas::vector<T>& v)
     -> boost::numeric::ublas::vector<T>
   {
     return v / boost::numeric::ublas::norm_2(v);
