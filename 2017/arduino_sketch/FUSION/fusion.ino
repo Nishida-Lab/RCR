@@ -2,8 +2,15 @@
 #include<VL6180X.h>
 #include<L3GD20.h>
 
+
+
+
 VL6180X vl6180x_1;
+VL6180X vl6180x_2;
+VL6180X vl6180x_3;
 L3GD20 l3gd20;
+
+
 
 void setup(){
   Serial.begin(9600);
@@ -31,6 +38,10 @@ void loop(){
   Serial.print("L3GD20_x: "); Serial.print((int) l3gd20.data.x); Serial.print(", ");
   Serial.print("L3GD20_y: "); Serial.print((int) l3gd20.data.y); Serial.print(", "); 
   Serial.print("L3GD20_z: "); Serial.println((int) l3gd20.data.z); Serial.println();
-  delay(300); 
+g
+  int gp2y0a21yk = analogRead(0);
+  Serial.print("GP2Y0A21YK: "); Serial.println(gp2y0a21yk);
+
+  delay(500); 
 
 }
