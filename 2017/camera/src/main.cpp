@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <string>
+#include <utility>
 
 #include <raspicam/raspicam_cv.h>
 #include <opencv2/imgproc/imgproc.hpp>
@@ -55,7 +56,7 @@ private:
   static const color_range<std::uint16_t> v_ { 50, 100};
 
 public:
-  camera(std::size_t width = 2592, std::size_t height = 1944)
+  camera(std::size_t width = 2592 / 8, std::size_t height = 1944 / 8)
     : raspicam::RaspiCam_Cv {},
       image_buffer_ {}
   {
