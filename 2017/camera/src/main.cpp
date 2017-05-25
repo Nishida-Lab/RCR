@@ -54,6 +54,11 @@ public:
     retrieve(image_buffer_);
   }
 
+  void read(const std::string& s) // for debug
+  {
+    image_buffer_ = cv::imread(s, CV_LOAD_IMAGE_COLOR);
+  }
+
   void write(const std::string& s)
   {
     cv::imwrite("hoge_rgb.jpg", image_buffer_);
@@ -104,7 +109,6 @@ private:
     }
   }
 };
-
 
 
 } // namespace robocar
