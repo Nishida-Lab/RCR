@@ -11,7 +11,7 @@
 
 
 #define CONSOLE_DEBUG
-// #undef  CONSOLE_DEBUG
+#undef  CONSOLE_DEBUG
 
 
 namespace robocar {
@@ -56,25 +56,8 @@ public:
 
   void read()
   {
-#ifdef CONSOLE_DEBUG
-    std::cerr << "[error] called function for release build\n"
-              << "        file: " << __FILE__ << std::endl
-              << "        line: " << __LINE__ << std::endl;
-    std::exit(EXIT_FAILURE);
-#endif
     grab();
     retrieve(image_buffer_);
-  }
-
-  void read(const std::string& s) // for debug
-  {
-#ifndef CONSOLE_DEBUG
-    std::cerr << "[error] called function for debug build\n"
-              << "        file: " << __FILE__ << std::endl
-              << "        line: " << __LINE__ << std::endl;
-    std::exit(EXIT_FAILURE);
-#endif
-    image_buffer_ = cv::imread(s, CV_LOAD_IMAGE_COLOR);
   }
 
   void write(const std::string& s)
