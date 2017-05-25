@@ -50,6 +50,10 @@ private:
   static const uint16_t vmin_ { 50};
   static const uint16_t vmax_ {100};
 
+  static const color_range<std::uint16_t> h_ { 10, 300};
+  static const color_range<std::uint16_t> s_ { 30, 100};
+  static const color_range<std::uint16_t> v_ { 50, 100};
+
 public:
   camera(std::size_t width = 2592, std::size_t height = 1944)
     : raspicam::RaspiCam_Cv {},
