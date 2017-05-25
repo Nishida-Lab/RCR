@@ -44,12 +44,12 @@ public:
 private:
   image_type image_buffer_;
 
-  static const uint16_t hmin_ { 10};
-  static const uint16_t hmax_ {300};
-  static const uint16_t smin_ { 30};
-  static const uint16_t smax_ {100};
-  static const uint16_t vmin_ { 50};
-  static const uint16_t vmax_ {100};
+  // static const uint16_t hmin_ { 10};
+  // static const uint16_t hmax_ {300};
+  // static const uint16_t smin_ { 30};
+  // static const uint16_t smax_ {100};
+  // static const uint16_t vmin_ { 50};
+  // static const uint16_t vmax_ {100};
 
   const color_range<std::uint16_t> h_ { 10, 300};
   const color_range<std::uint16_t> s_ { 30, 100};
@@ -112,7 +112,7 @@ private:
     cv::dilate(binary, binary, cv::Mat {}, cv::Point(-1, -1), 1);
   }
 
-  void red_filter(const cv::Mat& hsv, cv::Mat& binary)
+  void red_filter(const image_type& hsv, image_type& binary)
   {
     for (int row {0}; row < hsv.rows; ++row)
     {
@@ -120,7 +120,7 @@ private:
       {
         std::size_t a {hsv.step * row + col * 3};
 
-        if ((hsv.data[a] <= hmin_ || hsv.data[a] >= hmax_) && (hsv.data[a+1] >= smin_) && (hsv.data[a+2] >= vmin_))
+        if ((hsv.data[a] <= h_.min() || hsv.data[a] >= h_.max()) && (hsv.data[a+1] >= s_.min()) && (hsv.data[a+2] >= v_.min()))
         {
           binary.at<unsigned char>(row, col) = 255;
         }
