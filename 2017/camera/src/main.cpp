@@ -26,12 +26,12 @@ public:
 private:
   image_type image_buffer_;
 
-  const color_range<std::uint16_t> h_ { 10, 300};
+  const color_range<std::uint16_t> h_ { 30, 330};
   const color_range<std::uint16_t> s_ { 30, 100};
   const color_range<std::uint16_t> v_ { 50, 100};
 
 public:
-  camera(std::size_t width = 2592 / 8, std::size_t height = 1944 / 8)
+  camera(std::size_t width = 2592, std::size_t height = 1944)
     : raspicam::RaspiCam_Cv {},
       image_buffer_ {}
   {
@@ -82,14 +82,25 @@ private:
     cv::GaussianBlur(rgb, blur, cv::Size(5, 5), 4.0, 4.0);
     cv::cvtColor(blur, hsv, CV_BGR2HSV);
 
-    red_filter(hsv, binary);
+    // mask(hsv, binary);
+    binary = red_mask(hsv);
 
     cv::dilate(binary, binary, cv::Mat {}, cv::Point(-1, -1), 2);
-    cv::erode(binary, binary, cv::Mat {}, cv::Point(-1, -1), 4);
+    cv::erode( binary, binary, cv::Mat {}, cv::Point(-1, -1), 4);
     cv::dilate(binary, binary, cv::Mat {}, cv::Point(-1, -1), 1);
   }
 
-  void red_filter(const image_type& hsv, image_type& binary)
+  cv::Mat1b red_mask(const cv::Mat3b& hsv)
+  {
+    static cv::Mat1b mask1 {}, mask2 {};
+
+    cv::inRange(hsv, cv::Scalar(  0,  70,  50), cv::Scalar(  0, 255, 255), mask1);
+    cv::inRange(hsv, cv::Scalar(150,  70,  50), cv::Scalar(180, 255, 255), mask2);
+
+    return cv::Mat1b {mask1 | mask2};
+  }
+
+  void mask(const image_type& hsv, image_type& binary)
   {
     for (int row {0}; row < hsv.rows; ++row)
     {
@@ -117,7 +128,7 @@ private:
 
 int main(int argc, char** argv)
 {
-  robocar::camera camera {2592, 1944};
+  robocar::camera camera {1280, 960};
 
   camera.read();
   camera.write("hoge.jpg");
