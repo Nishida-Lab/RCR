@@ -44,13 +44,6 @@ public:
 private:
   image_type image_buffer_;
 
-  // static const uint16_t hmin_ { 10};
-  // static const uint16_t hmax_ {300};
-  // static const uint16_t smin_ { 30};
-  // static const uint16_t smax_ {100};
-  // static const uint16_t vmin_ { 50};
-  // static const uint16_t vmax_ {100};
-
   const color_range<std::uint16_t> h_ { 10, 300};
   const color_range<std::uint16_t> s_ { 30, 100};
   const color_range<std::uint16_t> v_ { 50, 100};
