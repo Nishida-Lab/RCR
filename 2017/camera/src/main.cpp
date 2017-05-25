@@ -10,6 +10,13 @@
 #include <camera/color_range.hpp>
 
 
+#define DESKTOP_DEBUG
+// #undef  DESKTOP_DEBUG
+
+#define CONSOLE_DEBUG
+#undef  CONSOLE_DEBUG
+
+
 namespace robocar {
 
 
@@ -34,6 +41,7 @@ public:
     set(CV_CAP_PROP_FRAME_WIDTH,  width);
     set(CV_CAP_PROP_FRAME_HEIGHT, height);
 
+#ifndef DESKTOP_DEBUG
     if (!open())
     {
       std::cerr << "[error] failed to open camera module\n";
@@ -41,6 +49,7 @@ public:
     }
 
     std::cout << "[debug] connected to camera module: " << getId() << std::endl;
+#endif
   }
 
   ~camera()
@@ -50,12 +59,24 @@ public:
 
   void read()
   {
+#ifdef DESKTOP_DEBUG
+    std::cerr << "[error] called function for release build\n"
+              << "        file: " << __FILE__ << std::endl
+              << "        line: " << __LINE__ << std::endl;
+    std::exit(EXIT_FAILURE);
+#endif
     grab();
     retrieve(image_buffer_);
   }
 
   void read(const std::string& s) // for debug
   {
+#ifndef DESKTOP_DEBUG
+    std::cerr << "[error] called function for debug build\n"
+              << "        file: " << __FILE__ << std::endl
+              << "        line: " << __LINE__ << std::endl;
+    std::exit(EXIT_FAILURE);
+#endif
     image_buffer_ = cv::imread(s, CV_LOAD_IMAGE_COLOR);
   }
 
