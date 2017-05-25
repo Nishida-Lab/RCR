@@ -77,12 +77,10 @@ private:
 
   void image_proc(const image_type& rgb, image_type& binary)
   {
-    image_type blur {}, hsv {};
+    image_type hsv {};
 
-    cv::GaussianBlur(rgb, blur, cv::Size(5, 5), 4.0, 4.0);
-    cv::cvtColor(blur, hsv, CV_BGR2HSV);
+    cv::cvtColor(rgb, hsv, CV_BGR2HSV);
 
-    // mask(hsv, binary);
     binary = red_mask(hsv);
 
     cv::dilate(binary, binary, cv::Mat {}, cv::Point(-1, -1), 2);
@@ -90,7 +88,7 @@ private:
     cv::dilate(binary, binary, cv::Mat {}, cv::Point(-1, -1), 1);
   }
 
-  cv::Mat1b red_mask(const cv::Mat3b& hsv)
+  cv::Mat1b red_mask(const cv::Mat3b& hsv) // TODO move to ctor
   {
     static cv::Mat1b mask1 {}, mask2 {};
 
@@ -98,27 +96,6 @@ private:
     cv::inRange(hsv, cv::Scalar(150,  70,  50), cv::Scalar(180, 255, 255), mask2);
 
     return cv::Mat1b {mask1 | mask2};
-  }
-
-  void mask(const image_type& hsv, image_type& binary)
-  {
-    for (int row {0}; row < hsv.rows; ++row)
-    {
-      for (int col {0}; col < hsv.cols; ++col)
-      {
-        std::size_t a {hsv.step * row + col * 3};
-
-        if ((hsv.data[a] <= h_.min() || hsv.data[a] >= h_.max()) && (hsv.data[a+1] >= s_.min()) && (hsv.data[a+2] >= v_.min()))
-        {
-          binary.at<unsigned char>(row, col) = 255;
-        }
-
-        else
-        {
-          binary.at<unsigned char>(row, col) = 0;
-        }
-      }
-    }
   }
 };
 
