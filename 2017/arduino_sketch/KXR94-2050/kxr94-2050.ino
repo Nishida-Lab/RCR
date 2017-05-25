@@ -5,8 +5,11 @@ void setup(){
 
 void loop(){
   long x , y , z ;
+  int i = 0;
   x = y = z = 0 ;
-  x = analogRead(3) ; // Ｘ軸
+
+  
+  x = analogRead(3); // Ｘ軸
   y = analogRead(4) ; // Ｙ軸
   z = analogRead(5) ; // Ｚ軸
   Serial.print("X:") ;
@@ -15,5 +18,5 @@ void loop(){
   Serial.print(y) ;
   Serial.print(" Z:") ;
   Serial.println(z) ;
-  delay(50) ;
+  delay(100) ;
 }

@@ -7,6 +7,11 @@
 #include <opencv2/imgproc/imgproc.hpp>
 
 #include <camera/version.hpp>
+#include <camera/color_range.hpp>
+
+
+#define CONSOLE_DEBUG
+#undef  CONSOLE_DEBUG
 
 
 namespace robocar {
@@ -21,12 +26,9 @@ public:
 private:
   image_type image_buffer_;
 
-  static const uint16_t hmin_ { 10};
-  static const uint16_t hmax_ {300};
-  static const uint16_t smin_ { 30};
-  static const uint16_t smax_ {100};
-  static const uint16_t vmin_ { 50};
-  static const uint16_t vmax_ {100};
+  const color_range<std::uint16_t> h_ { 30, 330};
+  const color_range<std::uint16_t> s_ { 30, 100};
+  const color_range<std::uint16_t> v_ { 50, 100};
 
 public:
   camera(std::size_t width = 2592, std::size_t height = 1944)
@@ -36,6 +38,7 @@ public:
     set(CV_CAP_PROP_FRAME_WIDTH,  width);
     set(CV_CAP_PROP_FRAME_HEIGHT, height);
 
+#ifndef CONSOLE_DEBUG
     if (!open())
     {
       std::cerr << "[error] failed to open camera module\n";
@@ -43,6 +46,7 @@ public:
     }
 
     std::cout << "[debug] connected to camera module: " << getId() << std::endl;
+#endif
   }
 
   ~camera()
@@ -78,14 +82,25 @@ private:
     cv::GaussianBlur(rgb, blur, cv::Size(5, 5), 4.0, 4.0);
     cv::cvtColor(blur, hsv, CV_BGR2HSV);
 
-    red_filter(hsv, binary);
+    // mask(hsv, binary);
+    binary = red_mask(hsv);
 
     cv::dilate(binary, binary, cv::Mat {}, cv::Point(-1, -1), 2);
-    cv::erode(binary, binary, cv::Mat {}, cv::Point(-1, -1), 4);
+    cv::erode( binary, binary, cv::Mat {}, cv::Point(-1, -1), 4);
     cv::dilate(binary, binary, cv::Mat {}, cv::Point(-1, -1), 1);
   }
 
-  void red_filter(const cv::Mat& hsv, cv::Mat& binary)
+  cv::Mat1b red_mask(const cv::Mat3b& hsv)
+  {
+    static cv::Mat1b mask1 {}, mask2 {};
+
+    cv::inRange(hsv, cv::Scalar(  0,  70,  50), cv::Scalar(  0, 255, 255), mask1);
+    cv::inRange(hsv, cv::Scalar(150,  70,  50), cv::Scalar(180, 255, 255), mask2);
+
+    return cv::Mat1b {mask1 | mask2};
+  }
+
+  void mask(const image_type& hsv, image_type& binary)
   {
     for (int row {0}; row < hsv.rows; ++row)
     {
@@ -93,7 +108,7 @@ private:
       {
         std::size_t a {hsv.step * row + col * 3};
 
-        if ((hsv.data[a] <= hmin_ || hsv.data[a] >= hmax_) && (hsv.data[a+1] >= smin_) && (hsv.data[a+2] >= vmin_))
+        if ((hsv.data[a] <= h_.min() || hsv.data[a] >= h_.max()) && (hsv.data[a+1] >= s_.min()) && (hsv.data[a+2] >= v_.min()))
         {
           binary.at<unsigned char>(row, col) = 255;
         }
@@ -108,13 +123,12 @@ private:
 };
 
 
-
 } // namespace robocar
 
 
 int main(int argc, char** argv)
 {
-  robocar::camera camera {2592, 1944};
+  robocar::camera camera {1280, 960};
 
   camera.read();
   camera.write("hoge.jpg");
