@@ -12,6 +12,28 @@
 namespace robocar {
 
 
+template <typename T>
+class color_range
+  : public std::pair<T,T>
+{
+public:
+  template <typename... Ts>
+  color_range(Ts&&... args)
+    : std::pair<T,T> {std::forward<Ts>(args)...}
+  {}
+
+  auto min() const noexcept
+  {
+    return (*this).first;
+  }
+
+  auto max() const noexcept
+  {
+    return (*this).second;
+  }
+}
+
+
 class camera
   : public raspicam::RaspiCam_Cv
 {
