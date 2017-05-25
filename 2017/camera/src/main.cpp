@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <string>
+#include <utility>
 
 #include <raspicam/raspicam_cv.h>
 #include <opencv2/imgproc/imgproc.hpp>
@@ -10,6 +11,28 @@
 
 
 namespace robocar {
+
+
+template <typename T>
+class color_range
+  : public std::pair<T,T>
+{
+public:
+  template <typename... Ts>
+  color_range(Ts&&... args)
+    : std::pair<T,T> {std::forward<Ts>(args)...}
+  {}
+
+  T min() const noexcept
+  {
+    return (*this).first;
+  }
+
+  T max() const noexcept
+  {
+    return (*this).second;
+  }
+};
 
 
 class camera
@@ -21,15 +44,12 @@ public:
 private:
   image_type image_buffer_;
 
-  static const uint16_t hmin_ { 10};
-  static const uint16_t hmax_ {300};
-  static const uint16_t smin_ { 30};
-  static const uint16_t smax_ {100};
-  static const uint16_t vmin_ { 50};
-  static const uint16_t vmax_ {100};
+  const color_range<std::uint16_t> h_ { 10, 300};
+  const color_range<std::uint16_t> s_ { 30, 100};
+  const color_range<std::uint16_t> v_ { 50, 100};
 
 public:
-  camera(std::size_t width = 2592, std::size_t height = 1944)
+  camera(std::size_t width = 2592 / 8, std::size_t height = 1944 / 8)
     : raspicam::RaspiCam_Cv {},
       image_buffer_ {}
   {
@@ -85,7 +105,7 @@ private:
     cv::dilate(binary, binary, cv::Mat {}, cv::Point(-1, -1), 1);
   }
 
-  void red_filter(const cv::Mat& hsv, cv::Mat& binary)
+  void red_filter(const image_type& hsv, image_type& binary)
   {
     for (int row {0}; row < hsv.rows; ++row)
     {
@@ -93,7 +113,7 @@ private:
       {
         std::size_t a {hsv.step * row + col * 3};
 
-        if ((hsv.data[a] <= hmin_ || hsv.data[a] >= hmax_) && (hsv.data[a+1] >= smin_) && (hsv.data[a+2] >= vmin_))
+        if ((hsv.data[a] <= h_.min() || hsv.data[a] >= h_.max()) && (hsv.data[a+1] >= s_.min()) && (hsv.data[a+2] >= v_.min()))
         {
           binary.at<unsigned char>(row, col) = 255;
         }
