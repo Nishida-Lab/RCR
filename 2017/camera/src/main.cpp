@@ -23,16 +23,16 @@ public:
     : std::pair<T,T> {std::forward<Ts>(args)...}
   {}
 
-  auto min() const noexcept
+  T min() const noexcept
   {
     return (*this).first;
   }
 
-  auto max() const noexcept
+  T max() const noexcept
   {
     return (*this).second;
   }
-}
+};
 
 
 class camera
@@ -51,9 +51,9 @@ private:
   static const uint16_t vmin_ { 50};
   static const uint16_t vmax_ {100};
 
-  static const color_range<std::uint16_t> h_ { 10, 300};
-  static const color_range<std::uint16_t> s_ { 30, 100};
-  static const color_range<std::uint16_t> v_ { 50, 100};
+  const color_range<std::uint16_t> h_ { 10, 300};
+  const color_range<std::uint16_t> s_ { 30, 100};
+  const color_range<std::uint16_t> v_ { 50, 100};
 
 public:
   camera(std::size_t width = 2592 / 8, std::size_t height = 1944 / 8)
