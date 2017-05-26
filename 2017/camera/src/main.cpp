@@ -122,6 +122,15 @@ private:
     return cv::Mat1b {mask1 | mask2};
   }
 
+  cv::Mat1b blue_mask(const cv::Mat3b& hsv)
+  {
+    static cv::Mat1b mask {};
+
+    cv::inRange(hsv, cv::Scalar {100, 100, 100}, cv::Scalar {140, 255, 255}, mask);
+
+    return cv::Mat1b {mask};
+  }
+
   auto find_contours(const cv::Mat1b& bin) const
     -> cv::Mat1b
   {
