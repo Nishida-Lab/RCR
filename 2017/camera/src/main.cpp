@@ -128,8 +128,8 @@ private:
   {
     static cv::Mat1b mask1 {}, mask2 {};
 
-    cv::inRange(hsv, cv::Scalar {  0, 100, 100}, cv::Scalar {  5, 255, 255}, mask1);
-    cv::inRange(hsv, cv::Scalar {175, 100, 100}, cv::Scalar {179, 255, 255}, mask2);
+    cv::inRange(hsv, cv::Scalar {  0, 100, 100}, cv::Scalar { 10, 255, 255}, mask1);
+    cv::inRange(hsv, cv::Scalar {170, 100, 100}, cv::Scalar {179, 255, 255}, mask2);
 
     return cv::Mat1b {mask1 | mask2};
   }
@@ -151,22 +151,26 @@ private:
 
     cv::findContours(bin, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE);
 
+    static constexpr double pole_ratio {static_cast<double>(2) / static_cast<double>(3)}; // XXX magic number
+    std::cout << "[debug] pole ratio: " << pole_ratio << std::endl;
+    std::cout << "        " << pole_ratio * 0.8 << " < range < " << pole_ratio * 1.2 << std::endl;
+
     for (auto iter = contours.begin(); iter != contours.end(); ++iter)
     {
       auto rect = cv::boundingRect(*iter); // bounding box
 
-      static constexpr double pole_ratio {2/3}; // XXX magic number
       double rect_ratio {static_cast<double>(rect.width) / static_cast<double>(rect.height)};
+      std::cout << "[debug] rect ratio: " << rect_ratio << std::endl;
 
-      std::cout << "[debug] bounding box ratio: " << rect_ratio << std::endl;
+      if (pole_ratio * 0.8 < rect_ratio && rect_ratio < pole_ratio * 1.2)
+      {
+        cv::rectangle(result, cv::Point {rect.x, rect.y}, cv::Point {rect.x + rect.width, rect.y + rect.height}, cv::Scalar {255, 0, 0}, 1, CV_AA);
+      }
 
-      cv::rectangle(result,
-                    cv::Point {rect.x, rect.y},
-                    cv::Point {rect.x + rect.width, rect.y + rect.height},
-                    cv::Scalar {255, 0, 0},
-                    3, // boarder width
-                    CV_AA
-                    );
+      else
+      {
+        cv::rectangle(result, cv::Point {rect.x, rect.y}, cv::Point {rect.x + rect.width, rect.y + rect.height}, cv::Scalar {255, 0, 0}, 3, CV_AA);
+      }
     }
 
     return result;
