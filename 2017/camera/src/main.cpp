@@ -94,11 +94,22 @@ private:
     return hsv;
   }
 
+  auto opening(const image_type& bin)
+    -> image_type
+  {
+    image_type res {};
+
+    cv::dilate(bin, res, cv::Mat {}, cv::Point(-1, -1), 2);
+    cv::erode( res, res, cv::Mat {}, cv::Point(-1, -1), 4);
+    cv::dilate(res, res, cv::Mat {}, cv::Point(-1, -1), 2);
+    cv::erode( res, res, cv::Mat {}, cv::Point(-1, -1), 4);
+
+    return res;
+  }
+
   void image_proc(const image_type& rgb, image_type& binary)
   {
-    image_type hsv {};
-
-    cv::cvtColor(rgb, hsv, CV_BGR2HSV);
+    image_type hsv {convert(rgb)};
 
     binary = red_mask(hsv);
 
@@ -121,7 +132,7 @@ private:
     -> cv::Mat1b
   {
     std::vector<std::vector<cv::Point>> contours {};
-    auto result {bin};
+    decltype(bin) result {bin};
 
     cv::findContours(bin, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_NONE);
     // cv::findContours(bin, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE);
