@@ -160,6 +160,8 @@ private:
         cv::rectangle(result, cv::Point {rect.x, rect.y}, cv::Point {rect.x + rect.width, rect.y + rect.height},
                       cv::Scalar {255, 0, 0}, 1, CV_AA);
 #endif
+        cv::Moments moment {cv::moments(*iter)};
+        pole_moments.emplace_back(moment.m10 / moment.m00, moment.m01 / moment.m00);
       }
 
       else
@@ -168,8 +170,6 @@ private:
         cv::rectangle(result, cv::Point {rect.x, rect.y}, cv::Point {rect.x + rect.width, rect.y + rect.height},
                       cv::Scalar {255, 0, 0}, 3, CV_AA);
 #endif
-        cv::Moments moment {cv::moments(*iter)};
-        pole_moments.emplace_back(moment.m10 / moment.m00, moment.m01 / moment.m00);
       }
     }
 
