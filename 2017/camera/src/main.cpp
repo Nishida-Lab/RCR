@@ -63,13 +63,25 @@ public:
   {
     read();
 
-    cv::imwrite(prefix + "raw.jpg", image_buffer_);
+    cv::imwrite(prefix + "1_raw.jpg", image_buffer_);
 
-    auto hsv {convert(image_buffer_)};
-    cv::imwrite(prefix + "hsv.jpg", hsv);
+    image_type hsv {convert(image_buffer_)};
+    // cv::imwrite(prefix + "hsv.jpg", hsv);
 
-    auto bin {binarize(image_buffer_)};
-    cv::imwrite(prefix + "bin.jpg", bin);
+    image_type red_masked {red_mask(hsv)};
+    cv::imwrite(prefix + "2.1_red_masked.jpg", red_masked);
+
+    image_type red_opened {opening(red_masked)};
+    cv::imwrite(prefix + "2.2_red_opened.jpg", red_opened);
+
+    image_type blue_masked {blue_mask(hsv)};
+    cv::imwrite(prefix + "3.1_blue_masked.jpg", blue_masked);
+
+    image_type blue_opened {opening(blue_masked)};
+    cv::imwrite(prefix + "3.2_blue_opened.jpg", blue_opened);
+
+    // image_type contour {find_contours(opened)};
+    // cv::imwrite(prefix + "4_contour.jpg", contour);
   }
 
   // void write(const std::string& s)
