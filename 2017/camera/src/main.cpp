@@ -84,6 +84,15 @@ private:
     return image_type {cv::Mat::zeros(rgb.size(), CV_8UC1)};
   }
 
+  auto convert_hsv(const image_type& rgb)
+    -> image_type
+  {
+    image_type hsv {};
+    cv::cvtColor(rgb, hsv, CV_BGR2HSV);
+
+    return hsv;
+  }
+
   void image_proc(const image_type& rgb, image_type& binary)
   {
     image_type hsv {};
