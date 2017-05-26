@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <string>
+#include <vector>
 
 #include <raspicam/raspicam_cv.h>
 #include <opencv2/imgproc/imgproc.hpp>
@@ -38,7 +39,6 @@ public:
     set(CV_CAP_PROP_FRAME_WIDTH,  width);
     set(CV_CAP_PROP_FRAME_HEIGHT, height);
 
-#ifndef CONSOLE_DEBUG
     if (!open())
     {
       std::cerr << "[error] failed to open camera module\n";
@@ -46,7 +46,6 @@ public:
     }
 
     std::cout << "[debug] connected to camera module: " << getId() << std::endl;
-#endif
   }
 
   ~camera()
@@ -96,6 +95,22 @@ private:
     cv::inRange(hsv, cv::Scalar(150,  70,  50), cv::Scalar(180, 255, 255), mask2);
 
     return cv::Mat1b {mask1 | mask2};
+  }
+
+  auto find_contours(const cv::Mat1b& bin) const
+    -> cv::Mat1b
+  {
+    std::vector<std::vector<cv::Point>> contours {};
+    auto result {bin};
+
+    cv::findContours(bin, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_NONE);
+
+    for (std::size_t i {0}; i < contours.size(); ++i)
+    {
+      cv::drawContours(result, contours, i, cv::Scalar(255, 0, 0), 3);
+    }
+
+    return result;
   }
 };
 
