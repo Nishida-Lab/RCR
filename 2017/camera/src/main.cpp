@@ -79,12 +79,6 @@ public:
   // }
 
 private:
-  auto binarize(const image_type& rgb)
-    -> image_type
-  {
-    return image_type {cv::Mat::zeros(rgb.size(), CV_8UC1)};
-  }
-
   auto convert(const image_type& rgb)
     -> image_type
   {
