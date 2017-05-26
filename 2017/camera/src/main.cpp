@@ -116,8 +116,8 @@ private:
   {
     static cv::Mat1b mask1 {}, mask2 {};
 
-    cv::inRange(hsv, cv::Scalar(  0,  70,  50), cv::Scalar(  0, 255, 255), mask1);
-    cv::inRange(hsv, cv::Scalar(150,  70,  50), cv::Scalar(180, 255, 255), mask2);
+    cv::inRange(hsv, cv::Scalar {  0, 100, 100}, cv::Scalar {  5, 255, 255}, mask1);
+    cv::inRange(hsv, cv::Scalar {175, 100, 100}, cv::Scalar {179, 255, 255}, mask2);
 
     return cv::Mat1b {mask1 | mask2};
   }
