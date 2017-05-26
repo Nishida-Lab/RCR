@@ -65,7 +65,10 @@ public:
 
     static const std::string prefix {"debug_"};
 
-    cv::imwrite(prefix + "raw" + ".jpg", image_buffer_);
+    cv::imwrite(prefix + "raw.jpg", image_buffer_);
+
+    auto bin {binarize(image_buffer_)};
+    cv::imwrite(prefix + "bin.jpg", bin);
   }
 
   // void write(const std::string& s)
