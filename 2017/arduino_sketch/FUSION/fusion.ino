@@ -73,8 +73,8 @@ void setup(){
 void loop(){
 
   int claim = -1;
-  claim = Serial.read();
-  if(claim > -1) Serial.write(readSensor(claim));
+  if(Serial.available() > 0) claim = Serial.read();
+  if(claim != -1) Serial.write(readSensor(claim));
  
 //  Serial.print("VL6180X_NW: ");  Serial.print(vl6180x_NW.readRangeSingleMillimeters()); Serial.println();
 //  if (vl6180x_NW.timeoutOccurred()) Serial.print(" TIMEOUT");
