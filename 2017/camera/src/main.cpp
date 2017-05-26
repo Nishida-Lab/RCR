@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <string>
+#include <vector>
 
 #include <raspicam/raspicam_cv.h>
 #include <opencv2/imgproc/imgproc.hpp>
@@ -11,7 +12,7 @@
 
 
 #define CONSOLE_DEBUG
-#undef  CONSOLE_DEBUG
+// #undef  CONSOLE_DEBUG
 
 
 namespace robocar {
@@ -38,7 +39,6 @@ public:
     set(CV_CAP_PROP_FRAME_WIDTH,  width);
     set(CV_CAP_PROP_FRAME_HEIGHT, height);
 
-#ifndef CONSOLE_DEBUG
     if (!open())
     {
       std::cerr << "[error] failed to open camera module\n";
@@ -46,7 +46,6 @@ public:
     }
 
     std::cout << "[debug] connected to camera module: " << getId() << std::endl;
-#endif
   }
 
   ~camera()
@@ -60,26 +59,56 @@ public:
     retrieve(image_buffer_);
   }
 
-  void write(const std::string& s)
+  void debug(const std::string& prefix = "debug_")
   {
-    cv::imwrite("hoge_rgb.jpg", image_buffer_);
-    cv::imwrite("hoge_bin.jpg", hoge(image_buffer_));
+    read();
+
+    cv::imwrite(prefix + "1_raw.jpg", image_buffer_);
+
+    image_type hsv {convert(image_buffer_)};
+    // cv::imwrite(prefix + "hsv.jpg", hsv);
+
+    image_type red_masked {red_mask(hsv)};
+    cv::imwrite(prefix + "2.1_red_masked.jpg", red_masked);
+
+    image_type red_opened {opening(red_masked)};
+    cv::imwrite(prefix + "2.2_red_opened.jpg", red_opened);
+
+    image_type contour {find_contours(red_opened)};
+    cv::imwrite(prefix + "4_contour.jpg", contour);
   }
 
-private:
-  image_type hoge(const image_type& rgb)
-  {
-    image_type binary {cv::Mat::zeros(rgb.size(), CV_8UC1)};
-    image_proc(rgb, binary);
+  // void write(const std::string& s)
+  // {
+  //   cv::imwrite("hoge_rgb.jpg", image_buffer_);
+  //   cv::imwrite("hoge_bin.jpg", hoge(image_buffer_));
+  // }
 
-    return binary;
+private:
+  auto convert(const image_type& rgb)
+    -> image_type
+  {
+    image_type hsv {};
+    cv::cvtColor(rgb, hsv, CV_BGR2HSV);
+
+    return hsv;
+  }
+
+  auto opening(const image_type& bin)
+    -> image_type
+  {
+    image_type res {};
+
+    cv::dilate(bin, res, cv::Mat {}, cv::Point(-1, -1), 2);
+    cv::erode( res, res, cv::Mat {}, cv::Point(-1, -1), 4);
+    cv::dilate(res, res, cv::Mat {}, cv::Point(-1, -1), 2);
+
+    return res;
   }
 
   void image_proc(const image_type& rgb, image_type& binary)
   {
-    image_type hsv {};
-
-    cv::cvtColor(rgb, hsv, CV_BGR2HSV);
+    image_type hsv {convert(rgb)};
 
     binary = red_mask(hsv);
 
@@ -92,10 +121,70 @@ private:
   {
     static cv::Mat1b mask1 {}, mask2 {};
 
-    cv::inRange(hsv, cv::Scalar(  0,  70,  50), cv::Scalar(  0, 255, 255), mask1);
-    cv::inRange(hsv, cv::Scalar(150,  70,  50), cv::Scalar(180, 255, 255), mask2);
+    cv::inRange(hsv, cv::Scalar {  0, 100, 100}, cv::Scalar { 10, 255, 255}, mask1);
+    cv::inRange(hsv, cv::Scalar {170, 100, 100}, cv::Scalar {179, 255, 255}, mask2);
 
     return cv::Mat1b {mask1 | mask2};
+  }
+
+  auto find_contours(const cv::Mat& bin) const
+    -> cv::Mat
+  {
+    std::vector<std::vector<cv::Point>> contours {};
+                std::vector<cv::Point>  pole_moments {};
+
+    cv::Mat result {bin};
+
+    cv::findContours(bin, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE);
+
+    static constexpr double pole_ratio {static_cast<double>(2) / static_cast<double>(3)}; // XXX magic number
+    static constexpr double tolerance {0.20}; // percent
+
+#ifdef CONSOLE_DEBUG
+    std::cout << "[debug] pole ratio: " << pole_ratio << std::endl;
+    std::cout << "        " << pole_ratio * (1 - tolerance) << " < range < " << pole_ratio * (1 + tolerance) << std::endl;
+#endif
+
+    for (auto iter = contours.begin(); iter != contours.end(); ++iter)
+    {
+      auto rect = cv::boundingRect(*iter); // bounding box
+      double rect_ratio {static_cast<double>(rect.width) / static_cast<double>(rect.height)};
+
+#ifdef CONSOLE_DEBUG
+      std::cout << "[debug] rect ratio: " << rect_ratio << std::endl;
+#endif
+
+      if (pole_ratio * (1 - tolerance) < rect_ratio && rect_ratio < pole_ratio * (1 + tolerance))
+      {
+#ifdef CONSOLE_DEBUG
+        cv::rectangle(result, cv::Point {rect.x, rect.y}, cv::Point {rect.x + rect.width, rect.y + rect.height},
+                      cv::Scalar {255, 0, 0}, 1, CV_AA);
+#endif
+        cv::Moments moment {cv::moments(*iter)};
+        pole_moments.emplace_back(moment.m10 / moment.m00, moment.m01 / moment.m00);
+      }
+
+      else
+      {
+#ifdef CONSOLE_DEBUG
+        cv::rectangle(result, cv::Point {rect.x, rect.y}, cv::Point {rect.x + rect.width, rect.y + rect.height},
+                      cv::Scalar {255, 0, 0}, 3, CV_AA);
+#endif
+      }
+    }
+
+#ifdef CONSOLE_DEBUG
+    for (const auto& pm : pole_moments)
+    {
+      std::cout << "[debug] maybe point of pole moment: " << pm << std::endl;
+
+      static constexpr int radius {4};
+      static constexpr int thickness {-1};
+      cv::circle(result, pm, radius, cv::Scalar {255, 0, 0}, thickness);
+    }
+#endif
+
+    return result;
   }
 };
 
@@ -107,8 +196,10 @@ int main(int argc, char** argv)
 {
   robocar::camera camera {1280, 960};
 
-  camera.read();
-  camera.write("hoge.jpg");
+  // camera.read();
+  // camera.write("hoge.jpg");
+
+  camera.debug();
 
   return 0;
 }
