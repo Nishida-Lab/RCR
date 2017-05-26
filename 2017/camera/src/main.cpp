@@ -59,13 +59,14 @@ public:
     retrieve(image_buffer_);
   }
 
-  void debug()
+  void debug(const std::string& prefix = "debug_")
   {
     read();
 
-    static const std::string prefix {"debug_"};
-
     cv::imwrite(prefix + "raw.jpg", image_buffer_);
+
+    auto hsv {convert(image_buffer_)};
+    cv::imwrite(prefix + "hsv.jpg", hsv);
 
     auto bin {binarize(image_buffer_)};
     cv::imwrite(prefix + "bin.jpg", bin);
@@ -84,7 +85,7 @@ private:
     return image_type {cv::Mat::zeros(rgb.size(), CV_8UC1)};
   }
 
-  auto convert_hsv(const image_type& rgb)
+  auto convert(const image_type& rgb)
     -> image_type
   {
     image_type hsv {};
