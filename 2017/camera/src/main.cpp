@@ -59,19 +59,26 @@ public:
     retrieve(image_buffer_);
   }
 
-  void write(const std::string& s)
+  void debug()
   {
-    cv::imwrite("hoge_rgb.jpg", image_buffer_);
-    cv::imwrite("hoge_bin.jpg", hoge(image_buffer_));
+    read();
+
+    static const std::string prefix {"debug_"};
+
+    cv::imwrite(prefix + "raw" + ".jpg", image_buffer_);
   }
 
-private:
-  image_type hoge(const image_type& rgb)
-  {
-    image_type binary {cv::Mat::zeros(rgb.size(), CV_8UC1)};
-    image_proc(rgb, binary);
+  // void write(const std::string& s)
+  // {
+  //   cv::imwrite("hoge_rgb.jpg", image_buffer_);
+  //   cv::imwrite("hoge_bin.jpg", hoge(image_buffer_));
+  // }
 
-    return binary;
+private:
+  auto binarize(const image_type& rgb)
+    -> image_type
+  {
+    return image_type {cv::Mat::zeros(rgb.size(), CV_8UC1)};
   }
 
   void image_proc(const image_type& rgb, image_type& binary)
@@ -104,6 +111,7 @@ private:
     auto result {bin};
 
     cv::findContours(bin, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_NONE);
+    // cv::findContours(bin, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE);
 
     for (std::size_t i {0}; i < contours.size(); ++i)
     {
@@ -122,8 +130,10 @@ int main(int argc, char** argv)
 {
   robocar::camera camera {1280, 960};
 
-  camera.read();
-  camera.write("hoge.jpg");
+  // camera.read();
+  // camera.write("hoge.jpg");
+
+  camera.debug();
 
   return 0;
 }
