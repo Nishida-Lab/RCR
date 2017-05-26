@@ -149,12 +149,23 @@ private:
     std::vector<std::vector<cv::Point>> contours {};
     decltype(bin) result {bin};
 
-    cv::findContours(bin, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_NONE);
-    // cv::findContours(bin, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE);
+    cv::findContours(bin, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE);
 
-    for (std::size_t i {0}; i < contours.size(); ++i)
+    for (auto iter {contours.begin()}; iter != contours.end(); ++iter)
     {
-      cv::drawContours(result, contours, i, cv::Scalar(255, 0, 0), 3);
+      auto rect {cv::boundingRect(*iter)}; // bounding box
+
+      static constexpr double pole_ratio {2/3}; // XXX magic number
+      auto rect_ratio {static_cast<double>(rect.width()) / static_cast<double>(rect.height())};
+
+      std::cout << "[debug] bounding box ratio: " << rect_ratio << std::endl;
+
+      cv::rectangle(result,
+                    cv::Point {rect.x, rect.y},
+                    cv::Point {rect.x + rect.width, rect.y + rect.height},
+                    cv::Scalar {255, 0, 0},
+                    3 // boarder width
+                    );
     }
 
     return result;
