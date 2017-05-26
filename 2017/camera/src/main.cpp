@@ -74,14 +74,14 @@ public:
     image_type red_opened {opening(red_masked)};
     cv::imwrite(prefix + "2.2_red_opened.jpg", red_opened);
 
-    image_type blue_masked {blue_mask(hsv)};
-    cv::imwrite(prefix + "3.1_blue_masked.jpg", blue_masked);
+    // image_type blue_masked {blue_mask(hsv)};
+    // cv::imwrite(prefix + "3.1_blue_masked.jpg", blue_masked);
+    //
+    // image_type blue_opened {opening(blue_masked)};
+    // cv::imwrite(prefix + "3.2_blue_opened.jpg", blue_opened);
 
-    image_type blue_opened {opening(blue_masked)};
-    cv::imwrite(prefix + "3.2_blue_opened.jpg", blue_opened);
-
-    // image_type contour {find_contours(opened)};
-    // cv::imwrite(prefix + "4_contour.jpg", contour);
+    image_type contour {find_contours(red_opened)};
+    cv::imwrite(prefix + "4_contour.jpg", contour);
   }
 
   // void write(const std::string& s)
@@ -143,20 +143,20 @@ private:
     return cv::Mat1b {mask};
   }
 
-  auto find_contours(const cv::Mat1b& bin) const
-    -> cv::Mat1b
+  auto find_contours(const cv::Mat& bin) const
+    -> cv::Mat
   {
     std::vector<std::vector<cv::Point>> contours {};
-    decltype(bin) result {bin};
+    cv::Mat result {bin};
 
     cv::findContours(bin, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE);
 
-    for (auto iter {contours.begin()}; iter != contours.end(); ++iter)
+    for (auto iter = contours.begin(); iter != contours.end(); ++iter)
     {
-      auto rect {cv::boundingRect(*iter)}; // bounding box
+      auto rect = cv::boundingRect(*iter); // bounding box
 
       static constexpr double pole_ratio {2/3}; // XXX magic number
-      auto rect_ratio {static_cast<double>(rect.width()) / static_cast<double>(rect.height())};
+      double rect_ratio {static_cast<double>(rect.width) / static_cast<double>(rect.height)};
 
       std::cout << "[debug] bounding box ratio: " << rect_ratio << std::endl;
 
@@ -164,7 +164,8 @@ private:
                     cv::Point {rect.x, rect.y},
                     cv::Point {rect.x + rect.width, rect.y + rect.height},
                     cv::Scalar {255, 0, 0},
-                    3 // boarder width
+                    3, // boarder width
+                    CV_AA
                     );
     }
 
