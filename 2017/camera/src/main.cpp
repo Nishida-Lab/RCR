@@ -74,12 +74,6 @@ public:
     image_type red_opened {opening(red_masked)};
     cv::imwrite(prefix + "2.2_red_opened.jpg", red_opened);
 
-    // image_type blue_masked {blue_mask(hsv)};
-    // cv::imwrite(prefix + "3.1_blue_masked.jpg", blue_masked);
-    //
-    // image_type blue_opened {opening(blue_masked)};
-    // cv::imwrite(prefix + "3.2_blue_opened.jpg", blue_opened);
-
     image_type contour {find_contours(red_opened)};
     cv::imwrite(prefix + "4_contour.jpg", contour);
   }
@@ -132,15 +126,6 @@ private:
     cv::inRange(hsv, cv::Scalar {170, 100, 100}, cv::Scalar {179, 255, 255}, mask2);
 
     return cv::Mat1b {mask1 | mask2};
-  }
-
-  cv::Mat1b blue_mask(const cv::Mat3b& hsv)
-  {
-    static cv::Mat1b mask {};
-
-    cv::inRange(hsv, cv::Scalar {100, 100, 100}, cv::Scalar {140, 255, 255}, mask);
-
-    return cv::Mat1b {mask};
   }
 
   auto find_contours(const cv::Mat& bin) const
