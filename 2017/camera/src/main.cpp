@@ -177,6 +177,10 @@ private:
     for (const auto& pm : pole_moments)
     {
       std::cout << "[debug] maybe point of pole moment: " << pm << std::endl;
+
+      static constexpr int radius {4};
+      static constexpr int thickness {-1};
+      cv::circle(result, pm, radius, cv::Scalar {255, 0, 0}, thickness);
     }
 #endif
 
