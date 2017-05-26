@@ -102,7 +102,6 @@ private:
     cv::dilate(bin, res, cv::Mat {}, cv::Point(-1, -1), 2);
     cv::erode( res, res, cv::Mat {}, cv::Point(-1, -1), 4);
     cv::dilate(res, res, cv::Mat {}, cv::Point(-1, -1), 2);
-    cv::erode( res, res, cv::Mat {}, cv::Point(-1, -1), 4);
 
     return res;
   }
@@ -132,6 +131,8 @@ private:
     -> cv::Mat
   {
     std::vector<std::vector<cv::Point>> contours {};
+                std::vector<cv::Point>  pole_moments {};
+
     cv::Mat result {bin};
 
     cv::findContours(bin, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE);
@@ -156,18 +157,28 @@ private:
       if (pole_ratio * (1 - tolerance) < rect_ratio && rect_ratio < pole_ratio * (1 + tolerance))
       {
 #ifdef CONSOLE_DEBUG
-        cv::rectangle(result, cv::Point {rect.x, rect.y}, cv::Point {rect.x + rect.width, rect.y + rect.height}, cv::Scalar {255, 0, 0}, 1, CV_AA);
+        cv::rectangle(result, cv::Point {rect.x, rect.y}, cv::Point {rect.x + rect.width, rect.y + rect.height},
+                      cv::Scalar {255, 0, 0}, 1, CV_AA);
 #endif
       }
 
       else
       {
 #ifdef CONSOLE_DEBUG
-        cv::rectangle(result, cv::Point {rect.x, rect.y}, cv::Point {rect.x + rect.width, rect.y + rect.height}, cv::Scalar {255, 0, 0}, 3, CV_AA);
+        cv::rectangle(result, cv::Point {rect.x, rect.y}, cv::Point {rect.x + rect.width, rect.y + rect.height},
+                      cv::Scalar {255, 0, 0}, 3, CV_AA);
 #endif
-        // contours.erase(iter);
+        cv::Moments moment {cv::moments(*iter)};
+        pole_moments.emplace_back(moment.m10 / moment.m00, moment.m01 / moment.m00);
       }
     }
+
+#ifdef CONSOLE_DEBUG
+    for (const auto& pm : pole_moments)
+    {
+      std::cout << "[debug] maybe point of pole moment: " << pm << std::endl;
+    }
+#endif
 
     return result;
   }
