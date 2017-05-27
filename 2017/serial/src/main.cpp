@@ -27,6 +27,11 @@ public:
     }
   }
 
+  ~serial()
+  {
+    serialClose(fd_);
+  }
+
   template <typename... Ts>
   void putchar(Ts&&... args)
   {
@@ -39,9 +44,16 @@ public:
     serialPuts(fd_, std::forward<Ts>(args)...);
   }
 
-  auto getchar()
+  template <typename... Ts>
+  void printf(Ts&&... args)
   {
-    return static_cast<char>(serialGetchar(fd_));
+    serialPrintf(fd_, std::forward<Ts>(args)...);
+  }
+
+  template <typename T = char>
+  T getchar()
+  {
+    return static_cast<T>(serialGetchar(fd_));
   }
 };
 
@@ -62,7 +74,7 @@ int main(int argc, char** argv)
 
     serial.putchar(buffer);
 
-    std::cout << "[debug] return: " << serialGetchar(fd) << std::endl;
+    std::cout << "[debug] return: " << serial.getchar() << std::endl;
   }
 
   return 0;
