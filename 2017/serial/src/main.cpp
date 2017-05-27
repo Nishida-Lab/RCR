@@ -30,13 +30,18 @@ public:
   template <typename... Ts>
   void putchar(Ts&&... args)
   {
-    serialPutchar(std::forward<Ts>(args)...);
+    serialPutchar(fd_, std::forward<Ts>(args)...);
   }
 
   template <typename... Ts>
   void puts(Ts&&... args)
   {
-    serialPuts(std::forward<Ts>(args)...);
+    serialPuts(fd_, std::forward<Ts>(args)...);
+  }
+
+  auto getchar()
+  {
+    return static_cast<char>(serialGetchar(fd_));
   }
 };
 
@@ -46,14 +51,7 @@ public:
 
 int main(int argc, char** argv)
 {
-  auto fd = serialOpen("/dev/ttyACM0", 9600);
-
-  if (fd == -1)
-  {
-    std::error_code error {errno, std::generic_category()};
-    std::cerr << "[error] wiringSerial(3) - " << error.message() << std::endl;
-    std::exit(EXIT_FAILURE);
-  }
+  robocar::serial serial {"/dev/ttyACM0", 115200};
 
   while (true)
   {
@@ -62,7 +60,7 @@ int main(int argc, char** argv)
     std::cout << "[debug] input: ";
     std::cin >> buffer;
 
-    serialPutchar(fd, buffer);
+    serial.putchar(buffer);
 
     std::cout << "[debug] return: " << serialGetchar(fd) << std::endl;
   }
