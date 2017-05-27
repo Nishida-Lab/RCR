@@ -19,6 +19,12 @@ public:
   serial(Ts&&... args)
     : fd_ {serialOpen(std::forward<Ts>(args)...)}
   {}
+
+  template <typename... Ts>
+  void putchar(Ts&&... args)
+  {
+    serialPutchar(std::forward<Ts>(args)...);
+  }
 };
 
 
