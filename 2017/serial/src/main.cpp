@@ -25,6 +25,12 @@ public:
   {
     serialPutchar(std::forward<Ts>(args)...);
   }
+
+  template <typename... Ts>
+  void puts(Ts&&... args)
+  {
+    serialPuts(std::forward<Ts>(args)...);
+  }
 };
 
 
