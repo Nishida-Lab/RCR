@@ -18,7 +18,14 @@ public:
   template <typename... Ts>
   serial(Ts&&... args)
     : fd_ {serialOpen(std::forward<Ts>(args)...)}
-  {}
+  {
+    if (fd_ == -1)
+    {
+      std::error_code error {errno, std::generic_category()};
+      std::cerr << "[error] wiringSerial(3) - " << error.message() << std::endl;
+      std::exit(EXIT_FAILURE);
+    }
+  }
 
   template <typename... Ts>
   void putchar(Ts&&... args)
