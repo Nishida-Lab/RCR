@@ -55,6 +55,11 @@ public:
   {
     return static_cast<T>(serialGetchar(fd_));
   }
+
+  void flush()
+  {
+    serialFlush(fd_);
+  }
 };
 
 
