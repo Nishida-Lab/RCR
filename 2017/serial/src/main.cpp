@@ -7,6 +7,24 @@
 #include <wiringSerial.h>
 
 
+namespace robocar {
+
+
+class serial
+{
+  decltype(serialOpen(std::declval<char*>{},std::declval<int>{})) fd_;
+
+public:
+  template <typename... Ts>
+  serial(Ts&&... args)
+    : fd_ {serialOpen(std::forward<Ts>(args)...)}
+  {}
+};
+
+
+} // namespace robocar
+
+
 int main(int argc, char** argv)
 {
   auto fd = serialOpen("/dev/ttyACM0", 9600);
