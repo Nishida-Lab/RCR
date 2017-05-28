@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0)
-project(camera VERSION 0.0.0 LANGUAGES CXX)
+project(camera VERSION 0.1.0 LANGUAGES CXX)
 
 add_definitions("-std=c++11 -Wall")
 
@@ -32,5 +32,20 @@ target_link_libraries(${PROJECT_NAME}
   opencv_core
   opencv_highgui
   opencv_imgproc
+)
+
+set(CMAKE_INSTALL_PREFIX /usr/local)
+
+# set_target_properties(${PROJECT_NAME} PROPERTIES
+#   VERSION   ${PROJECT_VERSION}
+#   SOVERSION ${PROJECT_VERSION_MAJOR}
+# )
+
+install(TARGETS ${PROJECT_NAME}
+  RUNTIME DESTINATION bin
+)
+
+install(DIRECTORY ${${PROJECT_NAME}_HEADER_DIR}/
+  DESTINATION include/robocar
 )
 
