@@ -1,8 +1,10 @@
+#include <algorithm>
 #include <chrono>
 #include <cmath>
 #include <cstdint>
 #include <cstdlib>
 #include <cstring>
+#include <iomanip>
 #include <iostream>
 #include <stdexcept>
 #include <string>
@@ -94,7 +96,37 @@ int main(int argc, char** argv) try
     }
   };
 
-  camera_test();
+  auto vector_to_nearest_red_object = [&]()
+  {
+    static constexpr std::size_t width  {640};
+    static constexpr std::size_t height {480};
+
+    robocar::camera camera {width, height};
+
+    while (true)
+    {
+      std::vector<std::pair<double,double>> objects {};
+
+      for (const auto& p : camera.find())
+      {
+        int x {static_cast<int>(p.first)  - static_cast<int>(width/2)};
+        int y {static_cast<int>(p.second) - static_cast<int>(height/2)};
+
+        objects.emplace_back(static_cast<double>(x) / static_cast<double>(width / 2),
+                             static_cast<double>(y) / static_cast<double>(height / 2));
+      }
+
+      std::cout << "[debug] ";
+      for (auto&& p : objects)
+      {
+        std::cout << " (" << std::showpos << std::fixed << std::setprecision(3) << p.first
+                  << ", " << std::showpos << std::fixed << std::setprecision(3) << p.second << ") ";
+      }
+      std::putchar('\n');
+    }
+  };
+
+  vector_to_nearest_red_object();
 
   return 0;
 }
