@@ -12,8 +12,8 @@
 #include <raspicam/raspicam_cv.h>
 #include <opencv2/imgproc/imgproc.hpp>
 
-#include <camera/version.hpp>
-#include <camera/color_range.hpp>
+#include <robocar/camera/version.hpp>
+#include <robocar/camera/color_range.hpp>
 
 
 namespace robocar {
