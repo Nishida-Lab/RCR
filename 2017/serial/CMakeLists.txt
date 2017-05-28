@@ -33,3 +33,17 @@ target_link_libraries(${PROJECT_NAME}
   rt
 )
 
+set(CMAKE_INSTALL_PREFIX /usr/local)
+
+# set_target_properties(${PROJECT_NAME} PROPERTIES
+#   VERSION   ${PROJECT_VERSION}
+#   SOVERSION ${PROJECT_VERSION_MAJOR}
+# )
+
+install(TARGETS ${PROJECT_NAME}
+  RUNTIME DESTINATION bin
+)
+
+install(DIRECTORY ${${PROJECT_NAME}_HEADER_DIR}/
+  DESTINATION include/robocar
+)
