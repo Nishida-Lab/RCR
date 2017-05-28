@@ -37,6 +37,12 @@ int main(int argc, char** argv) try
   return 0;
 }
 
+catch (std::logic_error& error)
+{
+  std::cerr << "[error] " << error.what() << std::endl;
+  std::exit(EXIT_FAILURE);
+}
+
 catch (std::system_error& error)
 {
   std::cerr << "[error] code: " << error.code().value() << " - " << error.code().message() << std::endl;
