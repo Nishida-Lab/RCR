@@ -3,6 +3,7 @@
 
 
 #include <iostream>
+#include <string>
 #include <system_error>
 #include <utility>
 
@@ -66,10 +67,16 @@ public:
     else return static_cast<std::size_t>(size);
   }
 
-  template <typename T = char>
-  T getchar()
+  template <typename C = char>
+  C getchar()
   {
-    return static_cast<T>(serialGetchar(fd_));
+    return static_cast<C>(serialGetchar(fd_));
+  }
+
+  template <typename C = char>
+  void getline(std::basic_string<C>& dest, C delim = '\n')
+  {
+    for (C buffer {}; (buffer = getchar<C>()) != delim; dest.push_back(buffer));
   }
 
   void flush()
