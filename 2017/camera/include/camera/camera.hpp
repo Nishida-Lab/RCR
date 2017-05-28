@@ -68,7 +68,7 @@ public:
     image_type red_opened {opening(red_masked)};
     cv::imwrite(prefix + "3_red_opened.jpg", red_opened);
 
-    image_type contour {find_contours(red_opened)};
+    image_type contour {find_contours_debug(red_opened)};
     cv::imwrite(prefix + "4_contour.jpg", contour);
   }
 
@@ -104,7 +104,7 @@ private:
     return cv::Mat1b {mask1 | mask2};
   }
 
-  auto find_contours(const cv::Mat& bin) const
+  auto find_contours_debug(const cv::Mat& bin) const
     -> cv::Mat
   {
     std::vector<std::vector<cv::Point>> contours {};
