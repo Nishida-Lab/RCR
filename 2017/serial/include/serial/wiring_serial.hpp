@@ -3,6 +3,7 @@
 
 
 #include <iostream>
+#include <string>
 #include <system_error>
 #include <utility>
 
@@ -24,7 +25,7 @@ public:
     if (fd_ == -1)
     {
       std::error_code error {errno, std::generic_category()};
-      std::cerr << "[error] wiringSerial(3) - " << error.message() << std::endl;
+      std::cerr << "[error] wiring_serial::wiring_serial(3) - " << error.message() << std::endl;
       std::exit(EXIT_FAILURE);
     }
   }
@@ -52,10 +53,30 @@ public:
     serialPrintf(fd_, std::forward<Ts>(args)...);
   }
 
-  template <typename T = char>
-  T getchar()
+  std::size_t avail()
   {
-    return static_cast<T>(serialGetchar(fd_));
+    auto size {serialDataAvail(fd_)};
+
+    if (size != -1)
+    {
+      std::error_code error {errno, std::generic_category()};
+      std::cerr << "[error] wiring_serial::avail(3) - " << error.message() << std::endl;
+      std::exit(EXIT_FAILURE);
+    }
+
+    else return static_cast<std::size_t>(size);
+  }
+
+  template <typename C = char>
+  C getchar()
+  {
+    return static_cast<C>(serialGetchar(fd_));
+  }
+
+  template <typename C = char>
+  void getline(std::basic_string<C>& dest, C delim = '\n')
+  {
+    for (C buffer {}; (buffer = getchar<C>()) != delim; dest.push_back(buffer));
   }
 
   void flush()
