@@ -1,6 +1,8 @@
 #include <cstdint>
+#include <cstdlib>
 #include <iostream>
 #include <string>
+#include <system_error>
 #include <unordered_map>
 
 #include <boost/numeric/ublas/vector.hpp>
@@ -26,7 +28,7 @@ const std::unordered_map<std::string,std::int8_t> sensor_codes {
 };
 
 
-int main(int argc, char** argv)
+int main(int argc, char** argv) try
 {
   boost::numeric::ublas::vector<double> direction {};
 
@@ -34,3 +36,18 @@ int main(int argc, char** argv)
 
   return 0;
 }
+
+catch (std::system_error& error)
+{
+  std::cerr << "[error] code: " << error.code().value() << " - " << error.code().message() << std::endl;
+  std::exit(EXIT_FAILURE);
+}
+
+catch (...)
+{
+  std::cerr << "[fatal] An unexpected error occurred. Report the following output to the developer.\n"
+            << "        error: " << errno << " - " << std::strerror(errno) << std::endl;
+
+  std::exit(EXIT_FAILURE);
+}
+
