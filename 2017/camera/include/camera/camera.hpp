@@ -94,16 +94,16 @@ private:
     return res;
   }
 
-  void image_proc(const image_type& rgb, image_type& binary)
-  {
-    image_type hsv {convert(rgb)};
-
-    binary = red_mask(hsv);
-
-    cv::dilate(binary, binary, cv::Mat {}, cv::Point(-1, -1), 2);
-    cv::erode( binary, binary, cv::Mat {}, cv::Point(-1, -1), 4);
-    cv::dilate(binary, binary, cv::Mat {}, cv::Point(-1, -1), 1);
-  }
+  // void image_proc(const image_type& rgb, image_type& binary)
+  // {
+  //   image_type hsv {convert(rgb)};
+  //
+  //   binary = red_mask(hsv);
+  //
+  //   cv::dilate(binary, binary, cv::Mat {}, cv::Point(-1, -1), 2);
+  //   cv::erode( binary, binary, cv::Mat {}, cv::Point(-1, -1), 4);
+  //   cv::dilate(binary, binary, cv::Mat {}, cv::Point(-1, -1), 1);
+  // }
 
   cv::Mat1b red_mask(const cv::Mat3b& hsv) // TODO move to ctor
   {
