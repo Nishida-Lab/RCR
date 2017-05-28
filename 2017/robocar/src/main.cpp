@@ -68,6 +68,12 @@ int main(int argc, char** argv) try
     return 45.514 * std::pow(static_cast<double>(sensor_value), static_cast<double>(-0.822));
   };
 
+  constexpr auto short_range_sensor = [&](auto sensor_value) // VL6180X
+    -> double
+  {
+    return 0.09999 * static_cast<double>(sensor_value) + 0.4477;
+  };
+
   return 0;
 }
 
