@@ -38,18 +38,16 @@ int main(int argc, char** argv) try
 
   robocar::wiring_serial serial {"/dev/ttyACM0", 115200};
 
-  auto query = [&](const std::string& name)
+  auto query = [&](const std::string& name, std::string& dest)
   {
     if (sensor_codes.find(name) != sensor_codes.end())
     {
       serial.putchar(static_cast<char>(sensor_codes.at(name)));
       std::this_thread::sleep_for(std::chrono::milliseconds(1)); // TODO adjust
+      serial.getline(dest);
     }
 
-    else
-    {
-      throw std::logic_error {"std::unordered_map::operator[]() - out of range"};
-    }
+    else throw std::logic_error {"std::unordered_map::operator[]() - out of range"};
   };
 
   return 0;
