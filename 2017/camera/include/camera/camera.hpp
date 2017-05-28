@@ -6,6 +6,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <string>
+#include <utility>
 #include <vector>
 
 #include <raspicam/raspicam_cv.h>
@@ -76,6 +77,14 @@ public:
 
     image_type contour {find_contours_debug(red_opened)};
     cv::imwrite(prefix + "4_contour.jpg", contour);
+  }
+
+  auto find()
+    -> std::vector<std::pair<std::size_t,std::size_t>>
+  {
+    read();
+
+    return find_contours(opening(red_mask(convert(image_buffer_))));
   }
 
 private:
@@ -162,10 +171,10 @@ private:
   }
 
   auto find_contours(const cv::Mat& bin) const
-    -> std::vector<cv::Point>
+    -> std::vector<std::pair<std::size_t,std::size_t>>
   {
     std::vector<std::vector<cv::Point>> contours {};
-                std::vector<cv::Point>  pole_moments {};
+    std::vector<std::pair<std::size_t,std::size_t>> pole_moments {};
 
     cv::findContours(bin, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE);
 
