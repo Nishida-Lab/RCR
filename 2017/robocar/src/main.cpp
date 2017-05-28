@@ -38,7 +38,7 @@ int main(int argc, char** argv) try
 
   robocar::wiring_serial serial {"/dev/ttyACM0", 115200};
 
-  auto query = [&](const std::string& name, std::string&& dest = std::string {})
+  auto query = [&](const std::string& name, std::string&& dest = std::string {}) -> std::string
   {
     if (sensor_codes.find(name) != sensor_codes.end())
     {
@@ -49,6 +49,15 @@ int main(int argc, char** argv) try
     }
 
     else throw std::logic_error {"std::unordered_map::operator[]() - out of range"};
+  };
+
+  constexpr auto convert_voltage_to_acceleration = [&](auto sensor_value) -> double
+  {
+    static constexpr double power_supply {5.00}; // [V]
+    static constexpr double AD_conversion_resolution {1024};
+    static constexpr double gravitational_acceleration {9.8};
+
+    return (power_supply * (static_cast<double>(sensor_value) - AD_conversion_resolution / 2)) / AD_conversion_resolution * gravitational_acceleration;
   };
 
   return 0;
