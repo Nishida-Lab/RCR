@@ -72,12 +72,6 @@ public:
     cv::imwrite(prefix + "4_contour.jpg", contour);
   }
 
-  // void write(const std::string& s)
-  // {
-  //   cv::imwrite("hoge_rgb.jpg", image_buffer_);
-  //   cv::imwrite("hoge_bin.jpg", hoge(image_buffer_));
-  // }
-
 private:
   auto convert(const image_type& rgb)
     -> image_type
