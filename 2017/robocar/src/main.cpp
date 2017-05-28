@@ -1,8 +1,10 @@
 #include <iostream>
 
+#include <boost/numeric/ublas/vector.hpp>
+
 int main(int argc, char** argv)
 {
-  std::cout << "[debug] hello, world\n";
+  boost::numeric::ublas::vector<double> direction {};
 
   return 0;
 }
