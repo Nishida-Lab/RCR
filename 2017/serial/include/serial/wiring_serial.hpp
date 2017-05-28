@@ -55,7 +55,7 @@ public:
 
   std::size_t avail()
   {
-    auto size {serialDataAvail(fd_)};
+    int size {serialDataAvail(fd_)};
 
     if (size != -1)
     {
