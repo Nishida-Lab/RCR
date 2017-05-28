@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.0)
 project(robocar VERSION 0.0.0 LANGUAGES CXX)
 
-add_definitions("-std=c++11 -Wall -O3")
+add_definitions("-std=c++1y -Wall -O3")
 
 file(GLOB ${PROJECT_NAME}_SOURCES ${PROJECT_SOURCE_DIR}/src/*.cpp)
 set(${PROJECT_NAME}_HEADER_DIR ${PROJECT_SOURCE_DIR}/include)
@@ -31,5 +31,6 @@ target_link_libraries(${PROJECT_NAME}
   wiringPi
   crypt
   rt
+  m
 )
 
