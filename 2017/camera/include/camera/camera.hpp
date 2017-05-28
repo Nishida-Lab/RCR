@@ -63,10 +63,10 @@ public:
     // cv::imwrite(prefix + "hsv.jpg", hsv);
 
     image_type red_masked {red_mask(hsv)};
-    cv::imwrite(prefix + "2.1_red_masked.jpg", red_masked);
+    cv::imwrite(prefix + "2_red_masked.jpg", red_masked);
 
     image_type red_opened {opening(red_masked)};
-    cv::imwrite(prefix + "2.2_red_opened.jpg", red_opened);
+    cv::imwrite(prefix + "3_red_opened.jpg", red_opened);
 
     image_type contour {find_contours(red_opened)};
     cv::imwrite(prefix + "4_contour.jpg", contour);
@@ -93,17 +93,6 @@ private:
 
     return res;
   }
-
-  // void image_proc(const image_type& rgb, image_type& binary)
-  // {
-  //   image_type hsv {convert(rgb)};
-  //
-  //   binary = red_mask(hsv);
-  //
-  //   cv::dilate(binary, binary, cv::Mat {}, cv::Point(-1, -1), 2);
-  //   cv::erode( binary, binary, cv::Mat {}, cv::Point(-1, -1), 4);
-  //   cv::dilate(binary, binary, cv::Mat {}, cv::Point(-1, -1), 1);
-  // }
 
   cv::Mat1b red_mask(const cv::Mat3b& hsv) // TODO move to ctor
   {
