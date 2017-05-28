@@ -24,7 +24,7 @@ public:
     if (fd_ == -1)
     {
       std::error_code error {errno, std::generic_category()};
-      std::cerr << "[error] wiringSerial(3) - " << error.message() << std::endl;
+      std::cerr << "[error] wiring_serial::wiring_serial(3) - " << error.message() << std::endl;
       std::exit(EXIT_FAILURE);
     }
   }
@@ -50,6 +50,20 @@ public:
   void printf(Ts&&... args)
   {
     serialPrintf(fd_, std::forward<Ts>(args)...);
+  }
+
+  std::size_t avail()
+  {
+    auto size {serialDataAvail(fd_)};
+
+    if (size != -1)
+    {
+      std::error_code error {errno, std::generic_category()};
+      std::cerr << "[error] wiring_serial::avail(3) - " << error.message() << std::endl;
+      std::exit(EXIT_FAILURE);
+    }
+
+    else return static_cast<std::size_t>(size);
   }
 
   template <typename T = char>
