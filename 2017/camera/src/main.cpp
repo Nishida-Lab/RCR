@@ -1,14 +1,4 @@
-#include <cstdint>
-#include <cstdlib>
-#include <iostream>
-#include <string>
-#include <vector>
-
 #include <camera/camera.hpp>
-
-
-#define CONSOLE_DEBUG
-// #undef  CONSOLE_DEBUG
 
 
 int main(int argc, char** argv)

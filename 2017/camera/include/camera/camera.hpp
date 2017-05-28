@@ -2,6 +2,12 @@
 #define INCLUDED_ROBOCAR_2017_CAMERA_CAMERA_HPP_
 
 
+#include <cstdint>
+#include <cstdlib>
+#include <iostream>
+#include <string>
+#include <vector>
+
 #include <raspicam/raspicam_cv.h>
 #include <opencv2/imgproc/imgproc.hpp>
 
@@ -117,40 +123,32 @@ private:
     static constexpr double pole_ratio {static_cast<double>(2) / static_cast<double>(3)}; // XXX magic number
     static constexpr double tolerance {0.20}; // percent
 
-#ifdef CONSOLE_DEBUG
     std::cout << "[debug] pole ratio: " << pole_ratio << std::endl;
     std::cout << "        " << pole_ratio * (1 - tolerance) << " < range < " << pole_ratio * (1 + tolerance) << std::endl;
-#endif
 
     for (auto iter = contours.begin(); iter != contours.end(); ++iter)
     {
       auto rect = cv::boundingRect(*iter); // bounding box
       double rect_ratio {static_cast<double>(rect.width) / static_cast<double>(rect.height)};
 
-#ifdef CONSOLE_DEBUG
       std::cout << "[debug] rect ratio: " << rect_ratio << std::endl;
-#endif
 
       if (pole_ratio * (1 - tolerance) < rect_ratio && rect_ratio < pole_ratio * (1 + tolerance))
       {
-#ifdef CONSOLE_DEBUG
         cv::rectangle(result, cv::Point {rect.x, rect.y}, cv::Point {rect.x + rect.width, rect.y + rect.height},
                       cv::Scalar {255, 0, 0}, 1, CV_AA);
-#endif
+
         cv::Moments moment {cv::moments(*iter)};
         pole_moments.emplace_back(moment.m10 / moment.m00, moment.m01 / moment.m00);
       }
 
       else
       {
-#ifdef CONSOLE_DEBUG
         cv::rectangle(result, cv::Point {rect.x, rect.y}, cv::Point {rect.x + rect.width, rect.y + rect.height},
                       cv::Scalar {255, 0, 0}, 3, CV_AA);
-#endif
       }
     }
 
-#ifdef CONSOLE_DEBUG
     for (const auto& pm : pole_moments)
     {
       std::cout << "[debug] maybe point of pole moment: " << pm << std::endl;
@@ -159,9 +157,34 @@ private:
       static constexpr int thickness {-1};
       cv::circle(result, pm, radius, cv::Scalar {255, 0, 0}, thickness);
     }
-#endif
 
     return result;
+  }
+
+  auto find_contours(const cv::Mat& bin) const
+    -> std::vector<cv::Point>
+  {
+    std::vector<std::vector<cv::Point>> contours {};
+                std::vector<cv::Point>  pole_moments {};
+
+    cv::findContours(bin, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE);
+
+    static constexpr double pole_ratio {static_cast<double>(2) / static_cast<double>(3)}; // XXX magic number
+    static constexpr double tolerance {0.20}; // percent
+
+    for (auto iter = contours.begin(); iter != contours.end(); ++iter)
+    {
+      auto rect = cv::boundingRect(*iter); // bounding box
+      double rect_ratio {static_cast<double>(rect.width) / static_cast<double>(rect.height)};
+
+      if (pole_ratio * (1 - tolerance) < rect_ratio && rect_ratio < pole_ratio * (1 + tolerance))
+      {
+        cv::Moments moment {cv::moments(*iter)};
+        pole_moments.emplace_back(moment.m10 / moment.m00, moment.m01 / moment.m00);
+      }
+    }
+
+    return pole_moments;
   }
 };
 
