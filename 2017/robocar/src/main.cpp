@@ -1,7 +1,7 @@
-#include <cerrno>
 #include <chrono>
 #include <cstdint>
 #include <cstdlib>
+#include <cstring>
 #include <iostream>
 #include <stdexcept>
 #include <string>
@@ -42,7 +42,7 @@ int main(int argc, char** argv) try
   {
     if (sensor_codes.find(name) != sensor_codes.end())
     {
-      serial.putchar(static_cast<char>(sensor_codes[name]));
+      serial.putchar(static_cast<char>(sensor_codes.at(name)));
       std::this_thread::sleep_for(std::chrono::milliseconds(1)); // TODO adjust
     }
 
