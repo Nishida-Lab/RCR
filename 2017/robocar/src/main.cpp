@@ -1,6 +1,8 @@
+#include <cerrno>
 #include <cstdint>
 #include <cstdlib>
 #include <iostream>
+#include <stdexcept>
 #include <string>
 #include <system_error>
 #include <unordered_map>
@@ -33,6 +35,19 @@ int main(int argc, char** argv) try
   boost::numeric::ublas::vector<double> direction {};
 
   robocar::wiring_serial serial {"/dev/ttyACM0", 115200};
+
+  auto query = [&](const std::string& name)
+  {
+    if (sensor_codes.find(name) != sensor_codes.end())
+    {
+      serial.putchar(static_cast<char>(sensor_codes[name]));
+    }
+
+    else
+    {
+      throw std::logic_error {"std::unordered_map::operator[]() - out of range"};
+    }
+  };
 
   return 0;
 }
