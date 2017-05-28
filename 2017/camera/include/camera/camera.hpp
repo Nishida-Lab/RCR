@@ -177,4 +177,7 @@ private:
 };
 
 
+} // namespace robocar
+
+
 #endif
