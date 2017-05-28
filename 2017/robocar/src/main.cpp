@@ -1,10 +1,12 @@
 #include <cerrno>
+#include <chrono>
 #include <cstdint>
 #include <cstdlib>
 #include <iostream>
 #include <stdexcept>
 #include <string>
 #include <system_error>
+#include <thread>
 #include <unordered_map>
 
 #include <boost/numeric/ublas/vector.hpp>
@@ -41,6 +43,7 @@ int main(int argc, char** argv) try
     if (sensor_codes.find(name) != sensor_codes.end())
     {
       serial.putchar(static_cast<char>(sensor_codes[name]));
+      std::this_thread::sleep_for(std::chrono::milliseconds(1)); // TODO adjust
     }
 
     else
