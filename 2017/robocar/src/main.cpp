@@ -59,9 +59,7 @@ T dummy_sensor_value(T&& min = static_cast<T>(0.0), T&& max = static_cast<T>(1.0
 
 int main(int argc, char** argv) try
 {
-  // boost::numeric::ublas::vector<double> direction {};
-
-  robocar::wiring_serial serial {"/dev/ttyACM0", 115200};
+  // robocar::wiring_serial serial {"/dev/ttyACM0", 115200};
 
   static constexpr std::size_t width  {640};
   static constexpr std::size_t height {480};
@@ -72,7 +70,7 @@ int main(int argc, char** argv) try
   {
     if (sensor_codes.find(name) != sensor_codes.end())
     {
-      serial.putchar(static_cast<char>(sensor_codes.at(name)));
+      // serial.putchar(static_cast<char>(sensor_codes.at(name)));
       std::this_thread::sleep_for(std::chrono::milliseconds(10)); // TODO adjust
 
       // serial.getline(dest);
@@ -150,7 +148,8 @@ int main(int argc, char** argv) try
     return {forward};
   };
 
-  auto long_range_sensor_array = [&]()
+  auto long_range_sensor_array_debug = [&]()
+    -> boost::numeric::ublas::vector<double>
   {
     boost::numeric::ublas::vector<double> direction {const_forward_vector()};
 
@@ -197,15 +196,17 @@ int main(int argc, char** argv) try
       double arctanh {-std::atanh(normalized_distance)};
       std::cout << "        arctanh: " << arctanh << std::endl;
 
-      ublas::vector<double> repulsive_force {v * arctanh};
+      boost::numeric::ublas::vector<double> repulsive_force {v * arctanh};
       std::cout << "        repulsive force: " << repulsive_force << std::endl;
 
       direction += repulsive_force;
       std::cout << "        direction: " << direction << std::endl;
     }
+
+    return direction;
   };
 
-  auto short_range_sensor_array = [&](boost::numeric::ublas::vector<double>&& direction)
+  auto short_range_sensor_array_debug = [&](boost::numeric::ublas::vector<double>&& direction)
   {
     static constexpr std::size_t extent {2};
     std::vector<boost::numeric::ublas::vector<double>> neighbor {3, boost::numeric::ublas::vector<double> {extent}};
@@ -263,7 +264,7 @@ int main(int argc, char** argv) try
     }
   };
 
-  short_range_sensor_array(detect_position());
+  short_range_sensor_array_debug(detect_position());
 
   // std::vector<boost::numeric::ublas::vector<double>> poles {nearest_pole()};
   // short_range_sensor_array(poles.empty() == true ? detect_position() : poles.front());
