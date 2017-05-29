@@ -165,23 +165,23 @@ int main(int argc, char** argv) try
   };
 
   auto nearest_pole = [&]()
-    -> std::pair<double,double>
+    -> std::vector<std::pair<double,double>>
   {
     std::vector<std::pair<double,double>> objects {};
 
     for (const auto& p : camera.find())
     {
-      int x {static_cast<int>(p.first)  - static_cast<int>(width/2)};
-      double vx {static_cast<double>(x) / static_cast<double>(width / 2)};
+      int x_pixel {static_cast<int>(p.first)  - static_cast<int>(width / 2)};
+      double x_ratio {static_cast<double>(x_pixel) / static_cast<double>(width / 2)};
 
-      objects.emplace_back(vx, std::pow(static_cast<double>(1.0) - std::pow(vx, 2.0), 0.5));
+      objects.emplace_back(x_ratio, std::pow(static_cast<double>(1.0) - std::pow(x_ratio, 2.0), 0.5));
     }
 
     std::sort(objects.begin(), objects.end(), [&](auto a, auto b) {
       return std::abs(a.first) < std::abs(b.first);
     });
 
-    return objects.empty() ? std::pair<double,double> {/* dummy value */} : std::pair<double,double> {objects.front()};
+    return objects;
   };
 
   // while (true)
