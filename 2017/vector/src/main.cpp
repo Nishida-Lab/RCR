@@ -97,40 +97,11 @@ public:
     return buffer;
   }
 
-  std::string query(const std::string& prefix) // TODO timeout
-  {
-#ifdef DEBUG
-    if (prefix[0] == 's')
-    {
-      return std::to_string(dummy_sensor_output(0, 20));
-    }
-
-    else if (prefix[0] == 'l')
-    {
-      return std::to_string(dummy_sensor_output(20, 180));
-    }
-
-    else if (prefix[0] == 'a')
-    {
-      return std::to_string(static_cast<int>(dummy_sensor_output(0, 1023))); // XXX
-    }
-#endif
-    return std::to_string(dummy_sensor_output());
-  }
-
 protected:
   auto normalized(const boost::numeric::ublas::vector<T>& v)
     -> boost::numeric::ublas::vector<T>
   {
     return v / boost::numeric::ublas::norm_2(v);
-  }
-
-  T dummy_sensor_output(T&& min = static_cast<T>(0.0), T&& max = static_cast<T>(1.0))
-  {
-    static std::default_random_engine engine {std::random_device {}()};
-    std::uniform_real_distribution<T> uniform {min, max};
-
-    return uniform(engine);
   }
 };
 
@@ -140,20 +111,7 @@ protected:
 
 int main(int argc, char** argv)
 {
-  std::cout << "[debug] boost version: " << boost_version << "\n\n";
-
   robocar::direction<double> direction {"/dev/stdin", "/dev/stdout"};
-  std::putchar('\n');
-
-  while (true)
-  {
-    std::cout << "[input] manual sensor data query: ";
-
-    static std::string buffer {};
-    std::cin >> buffer;
-
-    std::cout << "[debug] query: " << buffer << ", result: " << direction.query(buffer) << std::endl;
-  }
 
   return 0;
 }
