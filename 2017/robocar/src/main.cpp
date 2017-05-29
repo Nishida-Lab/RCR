@@ -118,6 +118,10 @@ int main(int argc, char** argv) try
         objects.emplace_back(vx, std::pow(static_cast<double>(1.0) - std::pow(vx, 2.0), 0.5));
       }
 
+      std::sort(objects.begin(), objects.end(), [&](auto a, auto b) {
+        return std::abs(a.first) < std::abs(b.first);
+      });
+
 #ifdef DEBUG
       std::cout << "[debug] ";
       for (auto&& p : objects)
