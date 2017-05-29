@@ -18,6 +18,9 @@
 #include <robocar/camera/camera.hpp>
 
 
+#define DEBUG
+
+
 const std::unordered_map<std::string,std::int8_t> sensor_codes {
   {"test_0",  0},
   {"test_1",  1},
@@ -77,7 +80,7 @@ int main(int argc, char** argv) try
     return 0.09999 * static_cast<double>(sensor_value) + 0.4477;
   };
 
-  auto camera_test = [&]()
+  [[deprecated]] auto camera_test = [&]()
   {
     static constexpr std::size_t width  {640};
     static constexpr std::size_t height {480};
@@ -110,16 +113,12 @@ int main(int argc, char** argv) try
       for (const auto& p : camera.find())
       {
         int x {static_cast<int>(p.first)  - static_cast<int>(width/2)};
-        int y {static_cast<int>(p.second) - static_cast<int>(height/2)};
-
-        // objects.emplace_back(static_cast<double>(x) / static_cast<double>(width / 2),
-        //                      static_cast<double>(y) / static_cast<double>(height / 2));
-
         double vx {static_cast<double>(x) / static_cast<double>(width / 2)};
 
         objects.emplace_back(vx, std::pow(static_cast<double>(1.0) - std::pow(vx, 2.0), 0.5));
       }
 
+#ifdef DEBUG
       std::cout << "[debug] ";
       for (auto&& p : objects)
       {
@@ -127,6 +126,7 @@ int main(int argc, char** argv) try
                   << ", " << std::showpos << std::fixed << std::setprecision(3) << p.second << ") ";
       }
       std::putchar('\n');
+#endif
     }
   };
 
