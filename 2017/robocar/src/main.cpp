@@ -253,8 +253,18 @@ int main(int argc, char** argv) try
     return direction;
   };
 
-  // std::vector<boost::numeric::ublas::vector<double>> poles {nearest_pole()};
-  // short_range_sensor_array(poles.empty() == true ? detect_position() : poles.front());
+  while (true)
+  {
+    std::vector<robocar::vector<double>> poles {search()};
+
+    robocar::vector<double> base {poles.empty() == true ? position() : poles.front()};
+
+    base +=  long_range_sensor_array_debug();
+    base += short_range_sensor_array_debug();
+
+    // write to motor
+    std::cout << "[debug] " << base << std::endl;
+  }
 
   return 0;
 }
