@@ -239,7 +239,7 @@ int main(int argc, char** argv) try
 
       double arctanh {};
 
-      if (sensor_value < desired_distance)
+      if (sensor_value < static_cast<int>(desired_distance))
       {
         double numerator   {static_cast<double>(desired_distance) - static_cast<double>(sensor_value)};
         double denominator {static_cast<double>(desired_distance)};
@@ -249,7 +249,7 @@ int main(int argc, char** argv) try
 
       else
       {
-        sensor_value = (sensor_value > range_max ? range_max : sensor_value);
+        sensor_value = (sensor_value > static_cast<int>(range_max) ? static_cast<int>(range_max) : sensor_value);
 
         double numerator   {static_cast<double>(sensor_value) - static_cast<double>(desired_distance)};
         double denominator {static_cast<double>(range_max) - static_cast<double>(desired_distance)};
