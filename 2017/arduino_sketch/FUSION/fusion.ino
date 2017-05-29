@@ -34,8 +34,12 @@ int readSensor(int sensor){
     if(vl6180x_NE.timeoutOccurred()) answer = -1; break;
   case 13:
     l3gd20.read();
-    answer = (int) l3gd20.data.x;
-    answer = (int) l3gd20.data.y;
+    answer = (int) l3gd20.data.x; break;
+  case 14:
+    l3gd20.read();
+    answer = (int) l3gd20.data.y; break;
+  case 15:
+    l3gd20.read();
     answer = (int) l3gd20.data.z; break;
   default: answer = -1;
   }
@@ -46,51 +50,68 @@ int readSensor(int sensor){
 void setup(){
   Serial.begin(9600);
   Wire.begin();
+  Serial.println("[debug] process start");
 
   //short-range sensor setup
-  vl6180x_NW.init();
-  vl6180x_NW.configureDefault(); //SLAVE_ADDRESS 0x212
-  vl6180x_NW.setTimeout(500);
+  pinMode(5, OUTPUT);
+  pinMode(6, OUTPUT);
+  pinMode(7, OUTPUT); //GPIO0_set
+  digitalWrite(5, LOW);
+  digitalWrite(6, LOW);
+  digitalWrite(7, LOW);
 
+  digitalWrite(5, HIGH);
+  vl6180x_NW.init();
+  vl6180x_NW.configureDefault();
+  vl6180x_NW.setAddress(98); //SLAVE_ADDRESS 500
+  vl6180x_NW.setTimeout(500);
+  Serial.println("[debug] vl6180x_NW setup");
+  
+  digitalWrite(6, HIGH);
   vl6180x_N.init();
   vl6180x_N.configureDefault(); 
-  vl6180x_N.setAddress(0x213);  //SLAVE_ADDRESS 0x213
+  vl6180x_N.setAddress(99);  //SLAVE_ADDRESS 600
   vl6180x_N.setTimeout(500);
+  Serial.println("[debug] vl6180x_N setup");
 
+  digitalWrite(7, HIGH);
   vl6180x_NE.init();
   vl6180x_NE.configureDefault(); 
-  vl6180x_NE.setAddress(0x214);  //SLAVE_ADDRESS 0x214
+  vl6180x_NE.setAddress(100);  //SLAVE_ADDRESS 700
   vl6180x_NE.setTimeout(500);
+  Serial.println("[debug] vl6180x_NE setup");
 
   //gyro sensor setup
   if(!l3gd20.begin(l3gd20.L3GD20_RANGE_250DPS)){ //SLAVE_ADDRESS 0x6A
-    Serial.write(-1);
+    Serial.print(-1);
     while(true);
   }
 }
 
 
 void loop(){
-
+  /*
   int claim = -1;
   if(Serial.available() > 0) claim = Serial.read();
   if(claim != -1) Serial.write(readSensor(claim));
- 
-//  Serial.print("VL6180X_NW: ");  Serial.print(vl6180x_NW.readRangeSingleMillimeters()); Serial.println();
-//  if (vl6180x_NW.timeoutOccurred()) Serial.print(" TIMEOUT");
-//  Serial.print("VL6180X_N: ");  Serial.print(vl6180x_N.readRangeSingleMillimeters()); Serial.println();
-//  if (vl6180x_N.timeoutOccurred()) Serial.print(" TIMEOUT");
-//  Serial.print("VL6180X_NE: ");  Serial.print(vl6180x_NE.readRangeSingleMillimeters()); Serial.println();
-//  if (vl6180x_NE.timeoutOccurred()) Serial.print(" TIMEOUT");
-// 
-//  l3gd20.read();
-//  Serial.print("L3GD20_x: "); Serial.print((int) l3gd20.data.x); Serial.print(", ");
-//  Serial.print("L3GD20_y: "); Serial.print((int) l3gd20.data.y); Serial.print(", "); 
-//  Serial.print("L3GD20_z: "); Serial.println((int) l3gd20.data.z); Serial.println();
-//  
-//  int pin;
-//  Serial.print("AnalogPin: "); Serial.print(readAnalog(pin));
-// 
-//  delay(500); 
+  */
 
+
+  Serial.print("PSD_SW: ");  Serial.print(readSensor( 0));
+  Serial.print(" PSD_W: ");  Serial.print(readSensor( 1));
+  Serial.print(" PSD_NW: "); Serial.print(readSensor( 2));
+  Serial.print(" PSD_N: ");  Serial.print(readSensor( 3));
+  Serial.print(" PSD_NE: "); Serial.print(readSensor( 4));
+  Serial.print(" PSD_E: ");  Serial.print(readSensor( 5));
+  Serial.print(" PSD_SE: "); Serial.print(readSensor( 6));
+  Serial.print(" ACC_X: ");  Serial.print(readSensor( 7));
+  Serial.print(" ACC_Y: ");  Serial.print(readSensor( 8));
+  Serial.print(" ACC_Z: ");  Serial.print(readSensor( 9));
+  Serial.print(" SRS_NW: "); Serial.print(readSensor(10));
+  Serial.print(" SRS_N: ");  Serial.print(readSensor(11)); 
+  Serial.print(" SRS_NE: "); Serial.print(readSensor(12));
+  Serial.print(" ACC_X: ");  Serial.print(readSensor(13));
+  Serial.print(" ACC_Y: ");  Serial.print(readSensor(14)); 
+  Serial.print(" ACC_Z: ");  Serial.print(readSensor(15)); 
+  Serial.println();
 }
