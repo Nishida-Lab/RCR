@@ -33,6 +33,11 @@ public:
   {
     *this <<= pair.first, pair.second;
   }
+
+  static T radian_to_degree(const T& radian)
+  {
+    return radian * static_cast<T>(180.0) / boost::math::constants::pi<T>();
+  }
 };
 
 
