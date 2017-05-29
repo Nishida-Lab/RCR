@@ -112,25 +112,6 @@ int main(int argc, char** argv) try
     return 0.09999 * static_cast<double>(sensor_value) + 0.4477;
   };
 
-  [[deprecated]] auto camera_test = [&]()
-  {
-    static constexpr std::size_t width  {640};
-    static constexpr std::size_t height {480};
-
-    robocar::camera camera {width, height};
-
-    while (true)
-    {
-      std::cout << "[debug] ";
-      for (const auto& p : camera.find())
-      {
-        std::cout << " (" << static_cast<int>(p.first) - static_cast<int>(width/2)
-                  << ", " << static_cast<int>(p.second) - static_cast<int>(height/2) << ") ";
-      }
-      std::putchar('\n');
-    }
-  };
-
   [[deprecated]] auto vector_to_nearest_red_object_debug = [&]()
   {
     static constexpr std::size_t width  {640};
