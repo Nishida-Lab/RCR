@@ -15,12 +15,9 @@
 #include <unordered_map>
 #include <vector>
 
-#include <boost/numeric/ublas/assignment.hpp>
-#include <boost/numeric/ublas/io.hpp>
-#include <boost/numeric/ublas/vector.hpp>
-
-#include <robocar/serial/serial.hpp>
 #include <robocar/camera/camera.hpp>
+#include <robocar/serial/serial.hpp>
+#include <robocar/vector/vector.hpp>
 
 
 const std::unordered_map<std::string,std::int8_t> sensor_codes {
