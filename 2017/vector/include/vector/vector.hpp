@@ -59,6 +59,12 @@ public:
                static_cast<T>( 1.0)
              ));
   }
+
+  template <template <typename...> class V = boost::numeric::ublas::vector>
+  static V<T> normalize(const V<T>& v)
+  {
+    return {v / boost::numeric::ublas::norm_2(v)};
+  }
 };
 
 

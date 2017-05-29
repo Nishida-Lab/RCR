@@ -39,14 +39,6 @@ const std::unordered_map<std::string,std::int8_t> sensor_codes {
 
 
 template <typename T>
-auto normalize(const boost::numeric::ublas::vector<T>& v)
-  -> boost::numeric::ublas::vector<T>
-{
-  return {v / boost::numeric::ublas::norm_2(v)};
-}
-
-
-template <typename T>
 T dummy_sensor_value(T&& min = static_cast<T>(0.0), T&& max = static_cast<T>(1.0))
 {
   static std::default_random_engine engine {std::random_device {}()};
@@ -160,7 +152,7 @@ int main(int argc, char** argv) try
 
     for (auto&& v : neighbor)
     {
-      v = normalize(v);
+      v = robocar::vector<double>::normalize(v);
       std::cout << "[debug] neighbor[" << std::noshowpos << &v - &neighbor.front() << "] "
                 << std::fixed << std::setprecision(3) << std::showpos << v << std::endl;
     }
@@ -216,7 +208,7 @@ int main(int argc, char** argv) try
 
     for (auto&& v : neighbor)
     {
-      v = normalize(v);
+      v = robocar::vector<double>::normalize(v);
       std::cout << "[debug] neighbor[" << std::noshowpos << &v - &neighbor.front() << "] "
                 << std::fixed << std::setprecision(3) << std::showpos << v << std::endl;
     }
