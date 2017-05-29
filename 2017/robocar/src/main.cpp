@@ -112,39 +112,6 @@ int main(int argc, char** argv) try
     return 0.09999 * static_cast<double>(sensor_value) + 0.4477;
   };
 
-  [[deprecated]] auto vector_to_nearest_red_object_debug = [&]()
-  {
-    static constexpr std::size_t width  {640};
-    static constexpr std::size_t height {480};
-
-    robocar::camera camera {width, height};
-
-    while (true)
-    {
-      std::vector<std::pair<double,double>> objects {};
-
-      for (const auto& p : camera.find())
-      {
-        int x {static_cast<int>(p.first)  - static_cast<int>(width/2)};
-        double vx {static_cast<double>(x) / static_cast<double>(width / 2)};
-
-        objects.emplace_back(vx, std::pow(static_cast<double>(1.0) - std::pow(vx, 2.0), 0.5));
-      }
-
-      std::sort(objects.begin(), objects.end(), [&](auto a, auto b) {
-        return std::abs(a.first) < std::abs(b.first);
-      });
-
-      std::cout << "[debug] ";
-      for (auto&& p : objects)
-      {
-        std::cout << " (" << std::showpos << std::fixed << std::setprecision(3) << p.first
-                  << ", " << std::showpos << std::fixed << std::setprecision(3) << p.second << ") ";
-      }
-      std::putchar('\n');
-    }
-  };
-
   auto nearest_pole = [&]()
     -> std::vector<std::pair<double,double>>
   {
