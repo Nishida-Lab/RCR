@@ -22,13 +22,13 @@ class vector
 public:
   static constexpr std::size_t extents {2};
 
-  explicit vector(T&& x = static_cast<T>(0), T&& y = static_cast<T>(0))
+  vector(T x = static_cast<T>(0), T y = static_cast<T>(0))
     : boost::numeric::ublas::vector<T> {extents}
   {
     *this <<= x, y;
   }
 
-  explicit vector(const std::pair<T,T>& pair)
+  vector(const std::pair<T,T>& pair)
     : boost::numeric::ublas::vector<T> {extents}
   {
     *this <<= pair.first, pair.second;
