@@ -13,8 +13,6 @@
 #include <boost/numeric/ublas/io.hpp>
 #include <boost/numeric/ublas/vector.hpp>
 
-#include <algorithm/version.hpp>
-
 
 template <typename T>
 T angle(const boost::numeric::ublas::vector<T>& v,
