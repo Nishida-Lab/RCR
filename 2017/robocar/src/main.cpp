@@ -21,14 +21,14 @@
 
 
 const std::unordered_map<std::string,std::int8_t> sensor_codes {
-  {"test_0",  0},
-  {"test_1",  1},
-  {"test_2",  2},
-  {"test_3",  3},
-  {"test_4",  4},
-  {"test_5",  5},
-  {"test_6",  6},
-  {"test_7",  7},
+  {"long_range_0",  0},
+  {"long_range_1",  1},
+  {"long_range_2",  2},
+  {"long_range_3",  3},
+  {"long_range_4",  4},
+  {"long_range_5",  5},
+  {"long_range_6",  6},
+  {"long_range_7",  7},
   {"test_8",  8},
   {"test_9",  9},
   {"short_range_0", 10},
@@ -53,6 +53,15 @@ auto normalize(const boost::numeric::ublas::vector<T>& v)
 }
 
 
+template <typename T>
+T dummy_sensor_value(T&& min = static_cast<T>(0.0), T&& max = static_cast<T>(1.0))
+{
+  static std::default_random_engine engine {std::random_device {}()};
+  std::uniform_real_distribution<T> uniform {min, max};
+  return uniform(engine);
+}
+
+
 int main(int argc, char** argv) try
 {
   // boost::numeric::ublas::vector<double> direction {};
@@ -69,7 +78,10 @@ int main(int argc, char** argv) try
     {
       serial.putchar(static_cast<char>(sensor_codes.at(name)));
       std::this_thread::sleep_for(std::chrono::milliseconds(1)); // TODO adjust
-      serial.getline(dest);
+
+      // serial.getline(dest);
+      dest = std::to_string(dummy_sensor_value(20.0, 180.0)); // dummy data
+
       return dest;
     }
 
