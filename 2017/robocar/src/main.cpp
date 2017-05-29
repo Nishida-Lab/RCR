@@ -74,7 +74,8 @@ int main(int argc, char** argv) try
   static constexpr std::size_t height {480};
   robocar::camera camera {width, height};
 
-  auto query = [&](const std::string& name, std::string&& dest = std::string {}) -> std::string
+  auto query = [&](const std::string& name, std::string&& dest = std::string {})
+    -> std::string
   {
     if (sensor_codes.find(name) != sensor_codes.end())
     {
