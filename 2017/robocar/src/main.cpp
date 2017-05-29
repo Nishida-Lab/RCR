@@ -114,18 +114,6 @@ int main(int argc, char** argv) try
     return objects;
   };
 
-  // auto detect_position = [&]()
-  //   -> boost::numeric::ublas::vector<double>
-  // {
-  //   static constexpr std::size_t extent {2};
-  //   boost::numeric::ublas::vector<double> result {extent};
-  //
-  //   result[0] = 0.0;
-  //   result[1] = 1.0;
-  //
-  //   return result; // nummy data
-  // };
-
   auto position = [&]()
     -> robocar::vector<double>
   {
