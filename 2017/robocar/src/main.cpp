@@ -13,6 +13,7 @@
 #include <system_error>
 #include <thread>
 #include <unordered_map>
+#include <vector>
 
 #include <boost/numeric/ublas/assignment.hpp>
 #include <boost/numeric/ublas/io.hpp>

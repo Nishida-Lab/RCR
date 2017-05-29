@@ -9,27 +9,6 @@
 #include <vector/vector.hpp>
 
 
-template <typename T>
-T angle(const boost::numeric::ublas::vector<T>& v,
-        const boost::numeric::ublas::vector<T>& u)
-{
-  namespace ublas = boost::numeric::ublas;
-
-  const T length {ublas::norm_2(v) * ublas::norm_2(u)};
-
-  if (boost::geometry::math::equals(length, static_cast<T>(0.0)))
-  {
-    return boost::math::constants::half_pi<T>();
-  }
-
-  return std::acos(
-           boost::algorithm::clamp(
-             ublas::inner_prod(v, u) / length, static_cast<T>(-1.0), static_cast<T>(+1.0)
-           )
-         );
-}
-
-
 namespace robocar {
 
 
