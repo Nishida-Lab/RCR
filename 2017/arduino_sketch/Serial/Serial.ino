@@ -3,37 +3,25 @@ void setup(){
 }
 
 void loop(){
-  char serial;
+  int serial;
 
   if(Serial.available() > 0){
     serial = Serial.read();
     switch(serial){
-    case 'a': Serial.print('A'); break;
-    case 'b': Serial.print('B'); break;
-    case 'c': Serial.write('C'); break;
-    case 'd': Serial.write('D'); break;
-    case 'e': Serial.write('E'); break;
-    case 'f': Serial.write('F'); break;
-    case 'g': Serial.write('G'); break;
-    case 'h': Serial.write('H'); break;
-    case 'i': Serial.write('I'); break;
-    case 'j': Serial.write('J'); break;
-    case 'k': Serial.write('K'); break;
-    case 'l': Serial.write('L'); break;
-    case 'm': Serial.write('M'); break;
-    case 'n': Serial.write('N'); break;
-    case 'o': Serial.write('O'); break;
-    case 'p': Serial.write('P'); break;
-    case 'q': Serial.write('Q'); break;
-    case 'r': Serial.write('R'); break;
-    case 's': Serial.write('S'); break;
-    case 't': Serial.write('T'); break;
-    case 'u': Serial.write('U'); break;
-    case 'w': Serial.write('W'); break;
-    case 'x': Serial.write('X'); break;
-    case 'y': Serial.write('Y'); break;
-    case 'z': Serial.write('Z'); break;
-    case  -1: Serial.write('?'); break;
+    case 0 : Serial.print(1);  break;
+    case 1 : Serial.print(2);  break;
+    case 2 : Serial.print(3);  break;
+    case 3 : Serial.print(4);  break;
+    case 4 : Serial.print(5);  break;
+    case 5 : Serial.print(6);  break;
+    case 6 : Serial.print(7);  break;
+    case 7 : Serial.print(8);  break;
+    case 8 : Serial.print(9);  break;
+    case 9 : Serial.print(10); break;
+    case 10: Serial.print(11); break;
+    case 11: Serial.print(12); break;
+    case 12: Serial.print(13); break;
+    case 13: Serial.print(14); break;
     }
     Serial.flush();
   }
