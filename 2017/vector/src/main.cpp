@@ -13,11 +13,6 @@
 #include <boost/numeric/ublas/io.hpp>
 #include <boost/numeric/ublas/vector.hpp>
 
-#include <algorithm/version.hpp>
-
-
-#define DEBUG
-
 
 template <typename T>
 T angle(const boost::numeric::ublas::vector<T>& v,
@@ -102,40 +97,11 @@ public:
     return buffer;
   }
 
-  std::string query(const std::string& prefix) // TODO timeout
-  {
-#ifdef DEBUG
-    if (prefix[0] == 's')
-    {
-      return std::to_string(dummy_sensor_output(0, 20));
-    }
-
-    else if (prefix[0] == 'l')
-    {
-      return std::to_string(dummy_sensor_output(20, 180));
-    }
-
-    else if (prefix[0] == 'a')
-    {
-      return std::to_string(static_cast<int>(dummy_sensor_output(0, 1023))); // XXX
-    }
-#endif
-    return std::to_string(dummy_sensor_output());
-  }
-
 protected:
   auto normalized(const boost::numeric::ublas::vector<T>& v)
     -> boost::numeric::ublas::vector<T>
   {
     return v / boost::numeric::ublas::norm_2(v);
-  }
-
-  T dummy_sensor_output(T&& min = static_cast<T>(0.0), T&& max = static_cast<T>(1.0))
-  {
-    static std::default_random_engine engine {std::random_device {}()};
-    std::uniform_real_distribution<T> uniform {min, max};
-
-    return uniform(engine);
   }
 };
 
@@ -145,29 +111,7 @@ protected:
 
 int main(int argc, char** argv)
 {
-  std::cout << "[debug] boost version: " << boost_version << "\n\n";
-
-  const std::vector<std::vector<std::string>> world_map {
-    {{"F0"}, {"F1"}, {"F2"}, {"F3"}, {"F4"}, {"F5"}},
-    {{"E0"}, {"E1"}, {"E2"}, {"E3"}, {"E4"}, {"E5"}},
-    {{"D0"}, {"D1"}, {"D2"}, {"D3"}, {"D4"}, {"D5"}},
-    {{"C0"}, {"C1"}, {"C2"}, {"C3"}, {"C4"}, {"C5"}},
-    {{"B0"}, {"B1"}, {"B2"}, {"B3"}, {"B4"}, {"B5"}},
-    {{"A0"}, {"A1"}, {"A2"}, {"A3"}, {"A4"}, {"A5"}}
-  };
-
   robocar::direction<double> direction {"/dev/stdin", "/dev/stdout"};
-  std::putchar('\n');
-
-  while (true)
-  {
-    std::cout << "[input] manual sensor data query: ";
-
-    static std::string buffer {};
-    std::cin >> buffer;
-
-    std::cout << "[debug] query: " << buffer << ", result: " << direction.query(buffer) << std::endl;
-  }
 
   return 0;
 }
