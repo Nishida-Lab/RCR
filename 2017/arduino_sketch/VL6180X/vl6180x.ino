@@ -1,6 +1,5 @@
 /* This minimal example shows how to get single-shot range
 measurements from the VL6180X.
-
 The range readings are in units of mm. */
 
 #include <Wire.h>
