@@ -112,8 +112,12 @@ int main(int argc, char** argv) try
         int x {static_cast<int>(p.first)  - static_cast<int>(width/2)};
         int y {static_cast<int>(p.second) - static_cast<int>(height/2)};
 
-        objects.emplace_back(static_cast<double>(x) / static_cast<double>(width / 2),
-                             static_cast<double>(y) / static_cast<double>(height / 2));
+        // objects.emplace_back(static_cast<double>(x) / static_cast<double>(width / 2),
+        //                      static_cast<double>(y) / static_cast<double>(height / 2));
+
+        double vx {static_cast<double>(x) / static_cast<double>(width / 2)};
+
+        objects.emplace_back(vx, std::pow(static_cast<double>(1.0) - std::pow(vx, 2.0), 0.5));
       }
 
       std::cout << "[debug] ";
