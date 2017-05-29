@@ -40,13 +40,6 @@ const std::unordered_map<std::string,std::int8_t> sensor_codes {
 };
 
 
-template <typename C, typename T>
-std::basic_ostream<C>& operator<<(std::basic_ostream<C>& lhs, const std::pair<T,T>& rhs)
-{
-  return lhs << "(" << rhs.first << ", " << rhs.second << ")";
-}
-
-
 template <typename T>
 auto normalize(const boost::numeric::ublas::vector<T>& v)
   -> boost::numeric::ublas::vector<T>
