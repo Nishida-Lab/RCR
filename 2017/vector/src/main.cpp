@@ -6,12 +6,7 @@
 #include <string>
 #include <vector>
 
-#include <boost/algorithm/clamp.hpp>
-#include <boost/geometry/util/math.hpp>
-#include <boost/math/constants/constants.hpp>
-#include <boost/numeric/ublas/assignment.hpp>
-#include <boost/numeric/ublas/io.hpp>
-#include <boost/numeric/ublas/vector.hpp>
+#include <vector/vector.hpp>
 
 
 template <typename T>
