@@ -18,7 +18,7 @@
 #include <boost/numeric/ublas/io.hpp>
 #include <boost/numeric/ublas/vector.hpp>
 
-#include <robocar/serial/wiring_serial.hpp>
+#include <robocar/serial/serial.hpp>
 #include <robocar/camera/camera.hpp>
 
 
