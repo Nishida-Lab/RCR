@@ -18,9 +18,6 @@
 #include <robocar/camera/camera.hpp>
 
 
-#define DEBUG
-
-
 const std::unordered_map<std::string,std::int8_t> sensor_codes {
   {"test_0",  0},
   {"test_1",  1},
@@ -99,7 +96,7 @@ int main(int argc, char** argv) try
     }
   };
 
-  auto vector_to_nearest_red_object = [&]()
+  [[deprecated]] auto vector_to_nearest_red_object_debug = [&]()
   {
     static constexpr std::size_t width  {640};
     static constexpr std::size_t height {480};
@@ -122,7 +119,6 @@ int main(int argc, char** argv) try
         return std::abs(a.first) < std::abs(b.first);
       });
 
-#ifdef DEBUG
       std::cout << "[debug] ";
       for (auto&& p : objects)
       {
@@ -130,7 +126,6 @@ int main(int argc, char** argv) try
                   << ", " << std::showpos << std::fixed << std::setprecision(3) << p.second << ") ";
       }
       std::putchar('\n');
-#endif
     }
   };
 
