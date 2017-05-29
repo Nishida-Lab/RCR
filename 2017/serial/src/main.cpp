@@ -2,7 +2,7 @@
 #include <system_error>
 #include <utility>
 
-#include <serial/wiring_serial.hpp>
+#include <serial/serial.hpp>
 
 
 int main(int argc, char** argv)
