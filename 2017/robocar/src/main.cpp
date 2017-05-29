@@ -184,13 +184,6 @@ int main(int argc, char** argv) try
     return objects;
   };
 
-  // while (true)
-  // {
-  //   std::pair<double,double> pole {nearest_pole()};
-  //
-  //   std::cout << "[debug] " << std::fixed << std::showpos << std::setprecision(3) << pole << std::endl;
-  // }
-
   auto detect_position = [&]()
     -> boost::numeric::ublas::vector<double>
   {
