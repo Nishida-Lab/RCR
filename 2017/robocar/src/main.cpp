@@ -235,7 +235,9 @@ int main(int argc, char** argv) try
       int sensor_value {std::stoi(query(sensor_name))};
       std::cout << "        sensor value: " << sensor_value << std::endl;
 
-      if (sensor_value > desired_distance * 2)
+      int range_max {desired_distance * 2};
+
+      if (sensor_value > range_max)
       {
         sensor_value = desired_distance;
       }
