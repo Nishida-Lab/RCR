@@ -106,7 +106,7 @@ int main(int argc, char** argv) try
     return 0.09999 * static_cast<double>(sensor_value) + 0.4477;
   };
 
-  auto nearest_pole = [&]()
+  auto search = [&]()
     -> std::vector<std::pair<double,double>>
   {
     std::vector<std::pair<double,double>> objects {};
@@ -140,11 +140,10 @@ int main(int argc, char** argv) try
 
   auto add_neighbor = [&]()
   {
-    using namespace boost::numeric;
-    ublas::vector<double> direction {detect_position()};
+    boost::numeric::ublas::vector<double> direction {detect_position()};
 
     static constexpr std::size_t extent {2};
-    std::vector<ublas::vector<double>> neighbor {8, ublas::vector<double> {extent}};
+    std::vector<boost::numeric::ublas::vector<double>> neighbor {8, boost::numeric::ublas::vector<double> {extent}};
 
     neighbor[3] <<=  1.0, -1.0;  neighbor[2] <<=  0.0, -1.0;  neighbor[1] <<= -1.0, -1.0;
     neighbor[4] <<=  1.0,  0.0;        /* robocar */          neighbor[0] <<= -1.0,  0.0;
