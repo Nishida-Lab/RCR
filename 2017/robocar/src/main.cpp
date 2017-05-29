@@ -1,11 +1,13 @@
 #include <algorithm>
 #include <chrono>
 #include <cmath>
+#include <complex>
 #include <cstdint>
 #include <cstdlib>
 #include <cstring>
 #include <iomanip>
 #include <iostream>
+#include <random>
 #include <stdexcept>
 #include <string>
 #include <system_error>
@@ -77,7 +79,7 @@ int main(int argc, char** argv) try
     if (sensor_codes.find(name) != sensor_codes.end())
     {
       serial.putchar(static_cast<char>(sensor_codes.at(name)));
-      std::this_thread::sleep_for(std::chrono::milliseconds(1)); // TODO adjust
+      std::this_thread::sleep_for(std::chrono::milliseconds(10)); // TODO adjust
 
       // serial.getline(dest);
       dest = std::to_string(dummy_sensor_value(20.0, 180.0)); // dummy data
@@ -216,8 +218,42 @@ int main(int argc, char** argv) try
     for (auto&& v : neighbor)
     {
       v = normalize(v);
-      std::cout << "[debug] v_[" << std::noshowpos << &v - &neighbor.front() << "] "
+      std::cout << "[debug] neighbor[" << std::noshowpos << &v - &neighbor.front() << "] "
                 << std::fixed << std::setprecision(3) << std::showpos << v << std::endl;
+    }
+
+    static constexpr std::size_t desired_distance {45};
+
+    for (const auto& v : neighbor)
+    {
+      int index {&v - &neighbor.front()};
+      std::cout << "[debug] index: " << index << std::endl;
+
+      std::string sensor_name {"long_range_" + std::to_string(index)};
+      std::cout << "        sensor name: " << sensor_name << std::endl;
+
+      int sensor_value {std::stoi(query(sensor_name))};
+      std::cout << "        sensor value: " << sensor_value << std::endl;
+
+      if (sensor_value > desired_distance * 2)
+      {
+        sensor_value = desired_distance;
+      }
+
+      double distance {static_cast<double>(sensor_value) - static_cast<double>(desired_distance)};
+      std::cout << "        distance from desired position: " << distance << std::endl;
+
+      double normalized_distance {distance / static_cast<double>(desired_distance)};
+      std::cout << "        normalized distance: " << normalized_distance << std::endl;
+
+      double arctanh {-std::atanh(normalized_distance)};
+      std::cout << "        arctanh: " << arctanh << std::endl;
+
+      ublas::vector<double> repulsive_force {v * arctanh};
+      std::cout << "        repulsive force: " << repulsive_force << std::endl;
+
+      direction += repulsive_force;
+      std::cout << "        direction: " << direction << std::endl;
     }
   };
 
