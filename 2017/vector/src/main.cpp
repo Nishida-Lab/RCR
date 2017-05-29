@@ -16,9 +16,6 @@
 #include <algorithm/version.hpp>
 
 
-#define DEBUG
-
-
 template <typename T>
 T angle(const boost::numeric::ublas::vector<T>& v,
         const boost::numeric::ublas::vector<T>& u)
@@ -146,15 +143,6 @@ protected:
 int main(int argc, char** argv)
 {
   std::cout << "[debug] boost version: " << boost_version << "\n\n";
-
-  const std::vector<std::vector<std::string>> world_map {
-    {{"F0"}, {"F1"}, {"F2"}, {"F3"}, {"F4"}, {"F5"}},
-    {{"E0"}, {"E1"}, {"E2"}, {"E3"}, {"E4"}, {"E5"}},
-    {{"D0"}, {"D1"}, {"D2"}, {"D3"}, {"D4"}, {"D5"}},
-    {{"C0"}, {"C1"}, {"C2"}, {"C3"}, {"C4"}, {"C5"}},
-    {{"B0"}, {"B1"}, {"B2"}, {"B3"}, {"B4"}, {"B5"}},
-    {{"A0"}, {"A1"}, {"A2"}, {"A3"}, {"A4"}, {"A5"}}
-  };
 
   robocar::direction<double> direction {"/dev/stdin", "/dev/stdout"};
   std::putchar('\n');
