@@ -206,8 +206,11 @@ int main(int argc, char** argv) try
     return direction;
   };
 
-  auto short_range_sensor_array_debug = [&](boost::numeric::ublas::vector<double>&& direction)
+  auto short_range_sensor_array_debug = [&]()
+    -> boost::numeric::ublas::vector<double>
   {
+    boost::numeric::ublas::vector<double> direction {const_forward_vector()};
+
     static constexpr std::size_t extent {2};
     std::vector<boost::numeric::ublas::vector<double>> neighbor {3, boost::numeric::ublas::vector<double> {extent}};
 
@@ -262,9 +265,9 @@ int main(int argc, char** argv) try
       direction += repulsive_force;
       std::cout << "        direction: " << direction << std::endl;
     }
-  };
 
-  short_range_sensor_array_debug(detect_position());
+    return direction;
+  };
 
   // std::vector<boost::numeric::ublas::vector<double>> poles {nearest_pole()};
   // short_range_sensor_array(poles.empty() == true ? detect_position() : poles.front());
