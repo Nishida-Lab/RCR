@@ -82,7 +82,7 @@ int main(int argc, char** argv) try
       std::this_thread::sleep_for(std::chrono::milliseconds(10)); // TODO adjust
 
       // serial.getline(dest);
-      dest = std::to_string(dummy_sensor_value(20.0, 180.0)); // dummy data
+      dest = std::to_string(dummy_sensor_value(0.0, 20.0)); // dummy data
 
       return dest;
     }
@@ -262,7 +262,7 @@ int main(int argc, char** argv) try
   auto short_range_sensor_array = [&](boost::numeric::ublas::vector<double>&& direction)
   {
     static constexpr std::size_t extent {2};
-    std::vector<ublas::vector<double>> neighbor {3, ublas::vector<double> {extent}};
+    std::vector<boost::numeric::ublas::vector<double>> neighbor {3, boost::numeric::ublas::vector<double> {extent}};
 
     neighbor[2] <<=  1.0, -1.0;  neighbor[1] <<=  0.0, -1.0;  neighbor[0] <<= -1.0, -1.0;
 
@@ -273,8 +273,49 @@ int main(int argc, char** argv) try
                 << std::fixed << std::setprecision(3) << std::showpos << v << std::endl;
     }
 
-    static constexpr std::size_t desired_distance {45};
-  }
+    static constexpr std::size_t desired_distance {3}; // [cm]
+    static constexpr std::size_t range_max {20};
+
+    for (const auto& v : neighbor)
+    {
+      int index {&v - &neighbor.front()};
+      std::cout << "[debug] index: " << index << std::endl;
+
+      std::string sensor_name {"short_range_" + std::to_string(index)};
+      std::cout << "        sensor name: " << sensor_name << std::endl;
+
+      int sensor_value {std::stoi(query(sensor_name))};
+      std::cout << "        sensor value: " << sensor_value << std::endl;
+
+      double arctanh {};
+
+      if (sensor_value < desired_distance)
+      {
+        double numerator   {static_cast<double>(desired_distance) - static_cast<double>(sensor_value)};
+        double denominator {static_cast<double>(desired_distance)};
+
+        arctanh = std::atanh(numerator / denominator);
+      }
+
+      else
+      {
+        sensor_value = (sensor_value > range_max ? range_max : sensor_value);
+
+        double numerator   {static_cast<double>(sensor_value) - static_cast<double>(desired_distance)};
+        double denominator {static_cast<double>(range_max) - static_cast<double>(desired_distance)};
+
+        arctanh = -std::atanh(numerator / denominator);
+      }
+
+      std::cout << "        arctanh: " << arctanh << std::endl;
+
+      boost::numeric::ublas::vector<double> repulsive_force {v * arctanh};
+      std::cout << "        repulsive force: " << repulsive_force << std::endl;
+
+      direction += repulsive_force;
+      std::cout << "        direction: " << direction << std::endl;
+    }
+  };
 
   short_range_sensor_array(detect_position());
 
