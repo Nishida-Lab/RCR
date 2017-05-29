@@ -45,6 +45,14 @@ std::basic_ostream<C>& operator<<(std::basic_ostream<C>& lhs, const std::pair<T,
 }
 
 
+template <typename T>
+auto normalize(const boost::numeric::ublas::vector<T>& v)
+  -> boost::numeric::ublas::vector<T>
+{
+  return {v / boost::numeric::ublas::norm_2(v)};
+}
+
+
 int main(int argc, char** argv) try
 {
   // boost::numeric::ublas::vector<double> direction {};
