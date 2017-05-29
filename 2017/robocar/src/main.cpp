@@ -138,7 +138,7 @@ int main(int argc, char** argv) try
     return result; // nummy data
   };
 
-  auto add_neighbor = [&]()
+  auto long_range_sensor_array = [&]()
   {
     boost::numeric::ublas::vector<double> direction {detect_position()};
 
