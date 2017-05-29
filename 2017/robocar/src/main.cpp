@@ -257,7 +257,27 @@ int main(int argc, char** argv) try
     }
   };
 
-  add_neighbor();
+  auto short_range_sensor_array = [&](boost::numeric::ublas::vector<double>&& direction)
+  {
+    static constexpr std::size_t extent {2};
+    std::vector<ublas::vector<double>> neighbor {3, ublas::vector<double> {extent}};
+
+    neighbor[2] <<=  1.0, -1.0;  neighbor[1] <<=  0.0, -1.0;  neighbor[0] <<= -1.0, -1.0;
+
+    for (auto&& v : neighbor)
+    {
+      v = normalize(v);
+      std::cout << "[debug] neighbor[" << std::noshowpos << &v - &neighbor.front() << "] "
+                << std::fixed << std::setprecision(3) << std::showpos << v << std::endl;
+    }
+
+    static constexpr std::size_t desired_distance {45};
+  }
+
+  short_range_sensor_array(detect_position());
+
+  // std::vector<boost::numeric::ublas::vector<double>> poles {nearest_pole()};
+  // short_range_sensor_array(poles.empty() == true ? detect_position() : poles.front());
 
   return 0;
 }
