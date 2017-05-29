@@ -138,9 +138,21 @@ int main(int argc, char** argv) try
     return result; // nummy data
   };
 
+  const auto const_forward_vector = []()
+    -> boost::numeric::ublas::vector<double>
+  {
+    static constexpr std::size_t extent {2};
+    boost::numeric::ublas::vector<double> forward {extent};
+
+    forward[0] = 0.0;
+    forward[1] = 1.0;
+
+    return {forward};
+  };
+
   auto long_range_sensor_array = [&]()
   {
-    boost::numeric::ublas::vector<double> direction {detect_position()};
+    boost::numeric::ublas::vector<double> direction {const_forward_vector()};
 
     static constexpr std::size_t extent {2};
     std::vector<boost::numeric::ublas::vector<double>> neighbor {8, boost::numeric::ublas::vector<double> {extent}};
