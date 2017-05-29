@@ -1,13 +1,13 @@
 #include <algorithm>
 #include <chrono>
 #include <cmath>
-#include <complex>
+#include <complex> // atanh
 #include <cstdint>
 #include <cstdlib>
 #include <cstring>
 #include <iomanip>
 #include <iostream>
-#include <random>
+#include <random> // dummy sensor value
 #include <stdexcept>
 #include <string>
 #include <system_error>
@@ -95,23 +95,23 @@ int main(int argc, char** argv) try
   };
 
   auto search = [&]()
-    -> std::vector<std::pair<double,double>>
+    -> std::vector<robocar::vector<double>>
   {
-    std::vector<std::pair<double,double>> objects {};
+    std::vector<robocar::vector<double>> poles {};
 
     for (const auto& p : camera.find())
     {
       int x_pixel {static_cast<int>(p.first)  - static_cast<int>(width / 2)};
       double x_ratio {static_cast<double>(x_pixel) / static_cast<double>(width / 2)};
 
-      objects.emplace_back(x_ratio, std::pow(static_cast<double>(1.0) - std::pow(x_ratio, 2.0), 0.5));
+      poles.emplace_back(x_ratio, std::pow(static_cast<double>(1.0) - std::pow(x_ratio, 2.0), 0.5));
     }
 
-    std::sort(objects.begin(), objects.end(), [&](auto a, auto b) {
-      return std::abs(a.first) < std::abs(b.first);
+    std::sort(poles.begin(), poles.end(), [&](auto a, auto b) {
+      return std::abs(a[0]) < std::abs(b[0]);
     });
 
-    return objects;
+    return poles;
   };
 
   auto position = [&]()
