@@ -12,6 +12,8 @@
 #include <thread>
 #include <unordered_map>
 
+#include <boost/numeric/ublas/assignment.hpp>
+#include <boost/numeric/ublas/io.hpp>
 #include <boost/numeric/ublas/vector.hpp>
 
 #include <robocar/serial/wiring_serial.hpp>
@@ -45,7 +47,7 @@ std::basic_ostream<C>& operator<<(std::basic_ostream<C>& lhs, const std::pair<T,
 
 int main(int argc, char** argv) try
 {
-  boost::numeric::ublas::vector<double> direction {};
+  // boost::numeric::ublas::vector<double> direction {};
 
   robocar::wiring_serial serial {"/dev/ttyACM0", 115200};
 
@@ -160,12 +162,46 @@ int main(int argc, char** argv) try
     return objects.empty() ? std::pair<double,double> {/* dummy value */} : std::pair<double,double> {objects.front()};
   };
 
-  while (true)
-  {
-    std::pair<double,double> pole {nearest_pole()};
+  // while (true)
+  // {
+  //   std::pair<double,double> pole {nearest_pole()};
+  //
+  //   std::cout << "[debug] " << std::fixed << std::showpos << std::setprecision(3) << pole << std::endl;
+  // }
 
-    std::cout << "[debug] " << std::fixed << std::showpos << std::setprecision(3) << pole << std::endl;
-  }
+  auto detect_position = [&]()
+    -> boost::numeric::ublas::vector<double>
+  {
+    static constexpr std::size_t extent {2};
+    boost::numeric::ublas::vector<double> result {extent};
+
+    result[0] = 0.0;
+    result[1] = 1.0;
+
+    return result; // nummy data
+  };
+
+  auto add_neighbor = [&]()
+  {
+    using namespace boost::numeric;
+    ublas::vector<double> direction {detect_position()};
+
+    static constexpr std::size_t extent {2};
+    std::vector<ublas::vector<double>> neighbor {8, ublas::vector<double> {extent}};
+
+    neighbor[3] <<=  1.0, -1.0;  neighbor[2] <<=  0.0, -1.0;  neighbor[1] <<= -1.0, -1.0;
+    neighbor[4] <<=  1.0,  0.0;        /* robocar */          neighbor[0] <<= -1.0,  0.0;
+    neighbor[5] <<=  1.0,  1.0;  neighbor[6] <<=  0.0,  1.0;  neighbor[7] <<= -1.0,  1.0;
+
+    for (auto&& v : neighbor)
+    {
+      v = normalize(v);
+      std::cout << "[debug] v_[" << std::noshowpos << &v - &neighbor.front() << "] "
+                << std::fixed << std::setprecision(3) << std::showpos << v << std::endl;
+    }
+  };
+
+  add_neighbor();
 
   return 0;
 }
