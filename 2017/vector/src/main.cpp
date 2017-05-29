@@ -108,6 +108,8 @@ int main(int argc, char** argv)
 {
   robocar::direction<double> direction {"/dev/stdin", "/dev/stdout"};
 
+  robocar::vector<double> v1 {0.707, 0.707};
+
   return 0;
 }
 
