@@ -36,11 +36,22 @@ const std::unordered_map<std::string,std::int8_t> sensor_codes {
 };
 
 
+template <typename C, typename T>
+std::basic_ostream<C>& operator<<(std::basic_ostream<C>& lhs, const std::pair<T,T>& rhs)
+{
+  return lhs << "(" << rhs.first << ", " << rhs.second << ")";
+}
+
+
 int main(int argc, char** argv) try
 {
   boost::numeric::ublas::vector<double> direction {};
 
   robocar::wiring_serial serial {"/dev/ttyACM0", 115200};
+
+  static constexpr std::size_t width  {640};
+  static constexpr std::size_t height {480};
+  robocar::camera camera {width, height};
 
   auto query = [&](const std::string& name, std::string&& dest = std::string {}) -> std::string
   {
@@ -77,7 +88,7 @@ int main(int argc, char** argv) try
     return 0.09999 * static_cast<double>(sensor_value) + 0.4477;
   };
 
-  auto camera_test = [&]()
+  [[deprecated]] auto camera_test = [&]()
   {
     static constexpr std::size_t width  {640};
     static constexpr std::size_t height {480};
@@ -96,7 +107,7 @@ int main(int argc, char** argv) try
     }
   };
 
-  auto vector_to_nearest_red_object = [&]()
+  [[deprecated]] auto vector_to_nearest_red_object_debug = [&]()
   {
     static constexpr std::size_t width  {640};
     static constexpr std::size_t height {480};
@@ -110,11 +121,14 @@ int main(int argc, char** argv) try
       for (const auto& p : camera.find())
       {
         int x {static_cast<int>(p.first)  - static_cast<int>(width/2)};
-        int y {static_cast<int>(p.second) - static_cast<int>(height/2)};
+        double vx {static_cast<double>(x) / static_cast<double>(width / 2)};
 
-        objects.emplace_back(static_cast<double>(x) / static_cast<double>(width / 2),
-                             static_cast<double>(y) / static_cast<double>(height / 2));
+        objects.emplace_back(vx, std::pow(static_cast<double>(1.0) - std::pow(vx, 2.0), 0.5));
       }
+
+      std::sort(objects.begin(), objects.end(), [&](auto a, auto b) {
+        return std::abs(a.first) < std::abs(b.first);
+      });
 
       std::cout << "[debug] ";
       for (auto&& p : objects)
@@ -126,7 +140,32 @@ int main(int argc, char** argv) try
     }
   };
 
-  vector_to_nearest_red_object();
+  auto nearest_pole = [&]()
+    -> std::pair<double,double>
+  {
+    std::vector<std::pair<double,double>> objects {};
+
+    for (const auto& p : camera.find())
+    {
+      int x {static_cast<int>(p.first)  - static_cast<int>(width/2)};
+      double vx {static_cast<double>(x) / static_cast<double>(width / 2)};
+
+      objects.emplace_back(vx, std::pow(static_cast<double>(1.0) - std::pow(vx, 2.0), 0.5));
+    }
+
+    std::sort(objects.begin(), objects.end(), [&](auto a, auto b) {
+      return std::abs(a.first) < std::abs(b.first);
+    });
+
+    return objects.empty() ? std::pair<double,double> {/* dummy value */} : std::pair<double,double> {objects.front()};
+  };
+
+  while (true)
+  {
+    std::pair<double,double> pole {nearest_pole()};
+
+    std::cout << "[debug] " << std::fixed << std::showpos << std::setprecision(3) << pole << std::endl;
+  }
 
   return 0;
 }
