@@ -143,7 +143,7 @@ int main(int argc, char** argv) try
   auto nearest_pole = [&]()
     -> std::pair<double,double>
   {
-    static std::vector<std::pair<double,double>> objects {};
+    std::vector<std::pair<double,double>> objects {};
 
     for (const auto& p : camera.find())
     {
@@ -157,14 +157,14 @@ int main(int argc, char** argv) try
       return std::abs(a.first) < std::abs(b.first);
     });
 
-    return objects.empty() ? std::pair<double,double> {} : std::pair<double,double> {objects.front()};
+    return objects.empty() ? std::pair<double,double> {/* dummy value */} : std::pair<double,double> {objects.front()};
   };
 
   while (true)
   {
     std::pair<double,double> pole {nearest_pole()};
 
-    std::cout << "[debug] " << pole << std::endl;
+    std::cout << "[debug] " << std::fixed << std::showpos << std::setprecision(3) << pole << std::endl;
   }
 
   return 0;
