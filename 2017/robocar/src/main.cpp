@@ -56,6 +56,8 @@ int main(int argc, char** argv) try
   static constexpr std::size_t height {480};
   robocar::camera camera {width, height};
 
+  robocar::differential_driver driver {std::pair<int,int> {35, 38}, std::pair<int,int> {37, 40}};
+
   auto query = [&](const std::string& name, std::string&& dest = std::string {})
     -> std::string
   {
@@ -244,20 +246,30 @@ int main(int argc, char** argv) try
     return direction;
   };
 
-  robocar::differential_driver driver {38, 40};
+  // while (true)
+  // {
+  //   std::vector<robocar::vector<double>> poles {search()};
+  //
+  //   robocar::vector<double> base {poles.empty() == true ? position() : poles.front()};
+  //
+  //   base +=  long_range_sensor_array_debug();
+  //   base += short_range_sensor_array_debug();
+  //
+  //   std::cout << "[debug] " << base << std::endl;
+  //   driver.write(base, 1.0);
+  // }
 
-  while (true)
+  auto carrot_test = [&]()
   {
     std::vector<robocar::vector<double>> poles {search()};
 
-    robocar::vector<double> base {poles.empty() == true ? position() : poles.front()};
+    robocar::vector<double> base {poles.empty() == true ? robocar::vector<double> {0.0, 0.0} : poles.front()};
 
-    base +=  long_range_sensor_array_debug();
-    base += short_range_sensor_array_debug();
+    std::cout << "[debug] base: " << base << std::endl;
+    driver.debug(base, 1.0);
+  };
 
-    std::cout << "[debug] " << base << std::endl;
-    driver.write(base, 1.0);
-  }
+  while (true) { carrot_test(); }
 
   return 0;
 }
