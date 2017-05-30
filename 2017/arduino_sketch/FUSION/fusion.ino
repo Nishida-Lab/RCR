@@ -8,6 +8,9 @@ VL6180X vl6180x_N;
 VL6180X vl6180x_NE;
 L3GD20 l3gd20;
 
+unsigned long time_now = 0;
+unsigned long time_last = 0;
+unsigned long time_past = 0;
 
 int readSensor(int sensor){
   int answer = 0;
@@ -21,7 +24,11 @@ int readSensor(int sensor){
   case 6:
     answer = readAnalog(sensor); break; //read PSD sensor
   case 7:
- 
+    answer = getPosition_x(acc_0,acc_1,acc_2);
+  case 8:
+    answer = getPosition_y(acc_0,acc_1,acc_2);
+  case 9:
+    answer = getPosition_z(acc_0,acc_1,acc_2);
   case 10:
     answer = vl6180x_NW.readRangeSingleMillimeters();
     if(vl6180x_NW.timeoutOccurred()) answer = -1; break;
@@ -92,16 +99,13 @@ void setup(){
 
 
 void loop(){
-  unsigned long time_now, time_last, time_past;
+  int num[3] = {0,0,0};
+  int i;
 
-  time_past = time_last;
-  time_last = time_now;
-  time_now = millis();
+  getAcc(num[i],'x');
+  i++;
+  if(i > 2) i = 0;
 
-  getAcc(0,'x');
-
-
-  getPosition_x(acc_0,acc_1,acc_2);
 
   int claim = -1;
   if(Serial.available() > 0) claim = Serial.read();
