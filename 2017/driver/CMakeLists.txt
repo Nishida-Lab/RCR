@@ -30,6 +30,8 @@ add_executable(${PROJECT_NAME}
 target_link_libraries(${PROJECT_NAME}
   wiringPi
   pthread
+  crypt
+  rt
 )
 
 set(CMAKE_INSTALL_PREFIX /usr/local)
