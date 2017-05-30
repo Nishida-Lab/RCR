@@ -49,7 +49,16 @@ public:
     const T  linear_x {v[1] < static_cast<T>(0.0) ? static_cast<T>(0.0) : v[1]};
     std::cout << "[debug]  linear_x: " << linear_x << std::endl;
 
-    const T angular_z {robocar::vector<T>::angle(forward, v) * (v[0] < static_cast<T>(0.0) ? static_cast<T>(1.0) : static_cast<T>(-1.0))};
+    T angular_z {};
+
+    if (v[0] == static_cast<T>(0.0) && v[1] == static_cast<T>(0.0))
+    {
+      angular_z = static_cast<T>(0.0);
+    }
+    else
+    {
+      angular_z = robocar::vector<T>::angle(forward, v) * (v[0] < static_cast<T>(0.0) ? static_cast<T>(1.0) : static_cast<T>(-1.0));
+    }
     std::cout << "        angular_z: " << angular_z << std::endl;
 
     const T l {linear_x - tread * static_cast<T>(0.5) * angular_z};
@@ -64,7 +73,17 @@ public:
     static const robocar::vector<T> forward {0.0, 1.0};
 
     const T  linear_x {v[1] < static_cast<T>(0.0) ? static_cast<T>(0.0) : v[1]};
-    const T angular_z {robocar::vector<T>::angle(forward, v) * (v[0] < static_cast<T>(0.0) ? static_cast<T>(1.0) : static_cast<T>(-1.0))};
+
+    T angular_z {};
+
+    if (v[0] == static_cast<T>(0.0) && v[1] == static_cast<T>(0.0))
+    {
+      angular_z = static_cast<T>(0.0);
+    }
+    else
+    {
+      angular_z = robocar::vector<T>::angle(forward, v) * (v[0] < static_cast<T>(0.0) ? static_cast<T>(1.0) : static_cast<T>(-1.0));
+    }
 
     const T l {linear_x - tread * static_cast<T>(0.5) * angular_z};
     const T r {linear_x + tread * static_cast<T>(0.5) * angular_z};
