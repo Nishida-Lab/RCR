@@ -5,6 +5,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <system_error>
+#include <utility>
 
 #include <wiringPi.h>
 #include <softPwm.h>
@@ -23,19 +24,31 @@ public:
     : lpin_ {lpin},
       rpin_ {rpin}
   {
+    setup();
+    create(lpin_);
+    create(rpin_);
+  }
+
+  differential_driver(const std::pair<int,int>& pair)
+    : lpin_ {pair.first},
+      rpin_ {pair.second}
+  {
+    setup();
+    create(lpin_);
+    create(rpin_);
+  }
+
+private:
+  void setup() noexcept
+  {
     if (wiringPiSetupPhys() == -1)
     {
       std::error_code error {errno, std::generic_category()};
       std::cerr << "[error] wiringPiSetupPhys(3) - " << error.message() << std::endl;
       std::exit(EXIT_FAILURE);
     }
-
-    create(lpin_);
-    create(rpin_);
   }
 
-
-private:
   void create(int pin_number) noexcept
   {
     if (softPwmCreate(pin_number, 0, 100) != 0)
