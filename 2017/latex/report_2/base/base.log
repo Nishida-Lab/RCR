@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.1415926-p3.4-110825-2.6 (utf8.euc) (TeX Live 2013/Debian) (format=platex 2017.4.14)  30 MAY 2017 21:12
+This is e-pTeX, Version 3.1415926-p3.4-110825-2.6 (utf8.euc) (TeX Live 2013/Debian) (format=platex 2017.4.14)  31 MAY 2017 02:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -180,44 +180,47 @@ Package: listings 2013/08/26 1.5b (Carsten Heinz)
 
 (/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
 \bigstrutjot=\dimen136
-)) (./base.aux)
+)) (./base.aux
+
+LaTeX Warning: Label `tab:list1' multiply defined.
+
+)
 \openout1 = `base.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
 \c@lstlisting=\count112
-
-(./include/titlepage.tex [1
+ (./include/titlepage.tex [1
 
 ])
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <14.4> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 11.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 9.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <14.4> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 11.
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 9.
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <12> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 23.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 21.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <12> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 23.
-LaTeX Font Info:    Try loading font information for U+msa on input line 31.
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 21.
+LaTeX Font Info:    Try loading font information for U+msa on input line 29.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 31.
+LaTeX Font Info:    Try loading font information for U+msb on input line 29.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -233,12 +236,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [1] [2]
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 105.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 103.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 105.
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 103.
 File: picture/psded.eps Graphic file (type eps)
  <picture/psded.eps>
-Overfull \hbox (4.07364pt too wide) in paragraph at lines 131--132
+Overfull \hbox (4.07364pt too wide) in paragraph at lines 129--130
  [] 
  []
 
@@ -266,52 +269,71 @@ File: ./picture/picture6.eps Graphic file (type eps)
 
 <./picture/picture6.eps>
 File: ./picture/picture7.eps Graphic file (type eps)
- <./picture/picture7.eps> [9]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 307.
-
-
-(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
-File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 307.
-File: ./picture/MD10C.eps Graphic file (type eps)
- <./picture/MD10C.eps>
-[10]
-File: ./picture/jairo.eps Graphic file (type eps)
- <./picture/jairo.eps> [11]
-Overfull \hbox (6.07442pt too wide) in paragraph at lines 380--401
+ <./picture/picture7.eps> (../kakeru/kakeru_02.tex
+[9]
+Overfull \hbox (35.209pt too wide) in paragraph at lines 20--43
  [][] 
  []
 
-[12]
-File: ./picture/RCR_raspberryPi3.eps Graphic file (type eps)
- <./picture/RCR_raspberryPi3.eps>
-File: ./picture/RCR_arduino.eps Graphic file (type eps)
- <./picture/RCR_arduino.eps> [13] [14]
+[10]
+File: ../kakeru/picture/raspberryPi3.eps Graphic file (type eps)
+ <../kakeru/picture/raspberryPi3.eps>
+File: ../kakeru/picture/arduino_02.eps Graphic file (type eps)
+ <../kakeru/picture/arduino_02.eps>
+[11]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 69.
+ (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 69.
+File: ../kakeru/picture/MD10C.eps Graphic file (type eps)
+
+<../kakeru/picture/MD10C.eps>
+File: ../kakeru/picture/TO.eps Graphic file (type eps)
+ <../kakeru/picture/TO.eps> [12]
+File: ../kakeru/picture/Distance.eps Graphic file (type eps)
+
+<../kakeru/picture/Distance.eps>
+
+LaTeX Warning: Reference `algo' on page 13 undefined on input line 127.
+
+File: ../kakeru/picture/jairo.eps Graphic file (type eps)
+<../kakeru/picture/jairo.eps> [13]
+File: ../kakeru/picture/dengen.eps Graphic file (type eps)
+ <../kakeru/picture/dengen.eps> [14]
+File: ../kakeru/picture/level.eps Graphic file (type eps)
+
+<../kakeru/picture/level.eps>) [15]
 File: ./picture/screen_shot.eps Graphic file (type eps)
-
-<./picture/screen_shot.eps>
+ <./picture/screen_shot.eps>
 File: ./picture/schedule.eps Graphic file (type eps)
- <./picture/schedule.eps> [15]
-(../../report_1/list/list.tex
-Overfull \hbox (16.28722pt too wide) in paragraph at lines 5--33
+
+<./picture/schedule.eps> [16] (../list/list.tex [17]
+Overfull \hbox (16.28722pt too wide) in paragraph at lines 33--61
  [] 
  []
 
-[16] [17]
-Overfull \hbox (50.63777pt too wide) in paragraph at lines 41--58
+[18]
+Overfull \hbox (50.63777pt too wide) in paragraph at lines 69--86
  [] 
  []
 
-) [18] (./appendix.tex) [1] (./base.aux) ) 
+) [19] (./appendix.tex) [1] (./base.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 3112 strings out of 495129
- 39908 string characters out of 6182595
- 106527 words of memory out of 5000000
- 6388 multiletter control sequences out of 15000+600000
+ 3130 strings out of 495129
+ 40163 string characters out of 6182595
+ 106606 words of memory out of 5000000
+ 6397 multiletter control sequences out of 15000+600000
  24479 words of font info for 95 fonts, out of 8000000 for 9000
  80 hyphenation exceptions out of 8191
  29i,11n,43p,494b,323s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on base.dvi (20 pages, 43260 bytes).
+Output written on base.dvi (21 pages, 50412 bytes).
