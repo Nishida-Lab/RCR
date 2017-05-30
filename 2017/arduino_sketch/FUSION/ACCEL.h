@@ -46,47 +46,18 @@ void getAcc(int num,char direction){
   }
 }
 
-int getPosition_x(ACCEL acc_0, ACCEL acc_1, ACCEL acc_2){
+int getPosition(unsigned long time_0, int acc_0, unsigned long time_1, int acc_1, unsigned long time_2, int acc_2){
   int position = 0;
-// if(acc_0.time < acc_1.time && acc_1.time < acc_2.time){
-  position = acc_0.data_x;//*(acc_2.time - acc_0.time)/6;
-// }
-// else if(acc_1.time < acc_2.time && acc_2.time < acc_0.time){
-//   position = (acc_1.data_x + 4*acc_2.data_x + acc_0.data_x)*(acc_0.time - acc_1.time)/6;
-// }
-// else if(acc_2.time < acc_0.time && acc_0.time < acc_1.time){
-//   position = (acc_2.data_x + 4*acc_0.data_x + acc_1.data_x)*(acc_1.time - acc_2.time)/6;
-// }
+  if(time_0 < time_1 && time_1 < time_2){
+    position = (acc_0 + 4*acc_1 + acc_2)*(time_2 - time_0)/6;
+  }
+  else if(time_1 < time_2 && time_2 < time_0){
+    position = (acc_1 + 4*acc_2 + acc_0)*(time_0 - time_1)/6;
+  }
+  else if(time_2 < time_0 && time_0 < time_1){
+    position = (acc_2 + 4*acc_0 + acc_1)*(time_1 - time_2)/6;
+  }
 
- return position;
+  return position;
 }
 
-int getPosition_y(ACCEL acc_0, ACCEL acc_1, ACCEL acc_2){
-  int position = 0;
-  if(acc_0.time < acc_1.time && acc_1.time < acc_2.time){
-    position = (acc_0.data_y + 4*acc_1.data_y + acc_2.data_y)*(acc_2.time - acc_0.time)/6;
-  }
-  else if(acc_1.time < acc_2.time && acc_2.time < acc_0.time){
-    position = (acc_1.data_y + 4*acc_2.data_y + acc_0.data_y)*(acc_0.time - acc_1.time)/6;
-  }
-  else if(acc_2.time < acc_0.time && acc_0.time < acc_1.time){
-    position = (acc_2.data_y + 4*acc_0.data_y + acc_1.data_y)*(acc_1.time - acc_2.time)/6;
-  }
-
- return position;
-}
-
-int getPosition_z(ACCEL acc_0, ACCEL acc_1, ACCEL acc_2){
-  int position = 0;
-  if(acc_0.time < acc_1.time && acc_1.time < acc_2.time){
-    position = (acc_0.data_z + 4*acc_1.data_z + acc_2.data_z)*(acc_2.time - acc_0.time)/6;
-  }
-  else if(acc_1.time < acc_2.time && acc_2.time < acc_0.time){
-    position = (acc_1.data_z + 4*acc_2.data_z + acc_0.data_z)*(acc_0.time - acc_1.time)/6;
-  }
-  else if(acc_2.time < acc_0.time && acc_0.time < acc_1.time){
-    position = (acc_2.data_z + 4*acc_0.data_z + acc_1.data_z)*(acc_1.time - acc_2.time)/6;
-  }
-
- return position;
-}

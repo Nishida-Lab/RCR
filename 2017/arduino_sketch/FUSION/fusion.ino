@@ -70,7 +70,7 @@ void setup(){
   pinMode(10, OUTPUT); 
   pinMode(11, OUTPUT); //Multiplexer setup
 
-  short-range sensor setup--------------------------------------------
+  //short-range sensor setup--------------------------------------------
   digitalWrite(5, LOW);
   digitalWrite(6, LOW);
   digitalWrite(7, LOW);
@@ -104,19 +104,22 @@ void setup(){
 int tim = 0;
 
 void loop(){
-//  int num[3] = {0,1,2};
-//  getAcc(num[tim],'x');
-//  tim++;
-//  if(tim > 2) tim = 0;
-//  Serial.print("X: "); Serial.print(readAnalog(7));
+  int num[3] = {0,1,2};
+  getAcc(num[tim],'x');
+  tim++;
+  if(tim > 2) tim = 0;
+  Serial.print("pos: "); Serial.print(getPosition(acc_0.time, acc_0.data_x,acc_1.time, acc_1.data_x, acc_2.time, acc_2.data_x));
 //  Serial.print("z: "); Serial.println(readAnalog(9));
 //  Serial.print(" acc_0.data_x: "); Serial.print(acc_0.data_x);
 //  Serial.print(" acc_1.data_x: "); Serial.print(acc_1.data_x);
 //  Serial.print(" acc_2.data_x: "); Serial.print(acc_2.data_x);
 //  Serial.print(" Position: ");  Serial.println(readSensor(7));
 
-  int claim = -1;
-  if(Serial.available() > 0) claim = Serial.read();
-  if(claim != -1) Serial.write(readSensor(claim));
+//  int claim = -1;
+//  if(Serial.available() > 0) claim = Serial.read();
+//  if(claim != -1) Serial.write(readSensor(claim));
 
+  Serial.print(" X: "); Serial.print(readSensor(7));
+  Serial.print(" Y: "); Serial.print(readSensor(8));
+  Serial.print(" Z: "); Serial.println(readSensor(9));
 }
