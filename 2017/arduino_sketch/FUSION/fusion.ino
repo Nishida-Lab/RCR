@@ -22,13 +22,16 @@ int readSensor(int sensor){
   case 4:
   case 5:
   case 6:
-    answer = readAnalog(sensor); break; //read PSD sensor
   case 7:
-    answer = getPosition_x(acc_0,acc_1,acc_2);
   case 8:
-    answer = getPosition_y(acc_0,acc_1,acc_2);
   case 9:
-    answer = getPosition_z(acc_0,acc_1,acc_2);
+    answer = readAnalog(sensor); break; //read PSD sensor
+//  case 7:
+//    answer = getPosition_x(acc_0,acc_1,acc_2);
+//  case 8:
+//    answer = getPosition_y(acc_0,acc_1,acc_2);
+//  case 9:
+//    answer = getPosition_z(acc_0,acc_1,acc_2);
   case 10:
     answer = vl6180x_NW.readRangeSingleMillimeters();
     if(vl6180x_NW.timeoutOccurred()) answer = -1; break;
@@ -67,54 +70,53 @@ void setup(){
   pinMode(10, OUTPUT); 
   pinMode(11, OUTPUT); //Multiplexer setup
 
-//  short-range sensor setup--------------------------------------------
-//  digitalWrite(5, LOW);
-//  digitalWrite(6, LOW);
-//  digitalWrite(7, LOW);
-// 
-//  digitalWrite(5, HIGH);
-//  vl6180x_NW.init();
-//  vl6180x_NW.configureDefault();
-//  vl6180x_NW.setAddress(98); //SLAVE_ADDRESS 98
-//  vl6180x_NW.setTimeout(500);
-//   
-//  digitalWrite(6, HIGH);
-//  vl6180x_N.init();
-//  vl6180x_N.configureDefault(); 
-//  vl6180x_N.setAddress(99);  //SLAVE_ADDRESS 99
-//  vl6180x_N.setTimeout(500);
-// 
-//  digitalWrite(7, HIGH);
-//  vl6180x_NE.init();
-//  vl6180x_NE.configureDefault(); 
-//  vl6180x_NE.setAddress(100);  //SLAVE_ADDRESS 100
-//  vl6180x_NE.setTimeout(500);
-// 
-//  //gyro sensor setup------------------------------------------------
-//  if(!l3gd20.begin(l3gd20.L3GD20_RANGE_500DPS)){ //SLAVE_ADDRESS 0x6A (106d)
-//    Serial.print(-1);
-//    while(true);
-//  }
+  short-range sensor setup--------------------------------------------
+  digitalWrite(5, LOW);
+  digitalWrite(6, LOW);
+  digitalWrite(7, LOW);
+ 
+  digitalWrite(5, HIGH);
+  vl6180x_NW.init();
+  vl6180x_NW.configureDefault();
+  vl6180x_NW.setAddress(98); //SLAVE_ADDRESS 98
+  vl6180x_NW.setTimeout(500);
+   
+  digitalWrite(6, HIGH);
+  vl6180x_N.init();
+  vl6180x_N.configureDefault(); 
+  vl6180x_N.setAddress(99);  //SLAVE_ADDRESS 99
+  vl6180x_N.setTimeout(500);
+ 
+  digitalWrite(7, HIGH);
+  vl6180x_NE.init();
+  vl6180x_NE.configureDefault(); 
+  vl6180x_NE.setAddress(100);  //SLAVE_ADDRESS 100
+  vl6180x_NE.setTimeout(500);
+ 
+  //gyro sensor setup------------------------------------------------
+  if(!l3gd20.begin(l3gd20.L3GD20_RANGE_500DPS)){ //SLAVE_ADDRESS 0x6A (106d)
+    Serial.print(-1);
+    while(true);
+  }
 }
 
 
 int tim = 0;
 
 void loop(){
-  int num[3] = {0,1,2};
-
-  getAcc(num[tim],'x');
-  tim++;
-  if(tim > 2) tim = 0;
-  Serial.print("X: "); Serial.print(readAnalog(7));
-  Serial.print("z: "); Serial.println(readAnalog(9));
+//  int num[3] = {0,1,2};
+//  getAcc(num[tim],'x');
+//  tim++;
+//  if(tim > 2) tim = 0;
+//  Serial.print("X: "); Serial.print(readAnalog(7));
+//  Serial.print("z: "); Serial.println(readAnalog(9));
 //  Serial.print(" acc_0.data_x: "); Serial.print(acc_0.data_x);
 //  Serial.print(" acc_1.data_x: "); Serial.print(acc_1.data_x);
 //  Serial.print(" acc_2.data_x: "); Serial.print(acc_2.data_x);
 //  Serial.print(" Position: ");  Serial.println(readSensor(7));
 
-//  int claim = -1;
-//  if(Serial.available() > 0) claim = Serial.read();
-//  if(claim != -1) Serial.write(readSensor(claim));
+  int claim = -1;
+  if(Serial.available() > 0) claim = Serial.read();
+  if(claim != -1) Serial.write(readSensor(claim));
 
 }
