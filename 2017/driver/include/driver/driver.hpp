@@ -17,25 +17,23 @@ namespace robocar {
 
 class differential_driver
 {
-  int lpin_, rpin_;
+  std::pair<int,int> pin_;
 
 public:
-  differential_driver(int lpin, int rpin)
-    : lpin_ {lpin},
-      rpin_ {rpin}
+  differential_driver(int l, int r)
+    : pin_ {l, r}
   {
     setup();
-    create(lpin_);
-    create(rpin_);
+    create(pin_.first);
+    create(pin_.second);
   }
 
   differential_driver(const std::pair<int,int>& pair)
-    : lpin_ {pair.first},
-      rpin_ {pair.second}
+    : pin_ {pair}
   {
     setup();
-    create(lpin_);
-    create(rpin_);
+    create(pin_.first);
+    create(pin_.second);
   }
 
 private:
