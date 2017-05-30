@@ -16,6 +16,7 @@
 #include <vector>
 
 #include <robocar/camera/camera.hpp>
+#include <robocar/driver/driver.hpp>
 #include <robocar/serial/serial.hpp>
 #include <robocar/vector/vector.hpp>
 
@@ -243,6 +244,8 @@ int main(int argc, char** argv) try
     return direction;
   };
 
+  robocar::differential_driver driver {38, 40};
+
   while (true)
   {
     std::vector<robocar::vector<double>> poles {search()};
@@ -252,8 +255,8 @@ int main(int argc, char** argv) try
     base +=  long_range_sensor_array_debug();
     base += short_range_sensor_array_debug();
 
-    // write to motor
     std::cout << "[debug] " << base << std::endl;
+    driver.write(base, 1.0);
   }
 
   return 0;
