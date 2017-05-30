@@ -38,12 +38,6 @@ public:
   }
 
 public:
-  // void write(const std::pair<int,int>& value) noexcept
-  // {
-  //   softPwmWrite(pin_.first,  value.first);
-  //   softPwmWrite(pin_.second, value.second);
-  // }
-
   template <typename T>
   void debug(const robocar::vector<T>& v, T tread) const
   {
