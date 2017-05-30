@@ -16,6 +16,7 @@
 #include <vector>
 
 #include <robocar/camera/camera.hpp>
+#include <robocar/driver/driver.hpp>
 #include <robocar/serial/serial.hpp>
 #include <robocar/vector/vector.hpp>
 
@@ -55,6 +56,8 @@ int main(int argc, char** argv) try
   static constexpr std::size_t height {480};
   robocar::camera camera {width, height};
 
+  robocar::differential_driver driver {std::pair<int,int> {35, 38}, std::pair<int,int> {37, 40}};
+
   auto query = [&](const std::string& name, std::string&& dest = std::string {})
     -> std::string
   {
@@ -70,16 +73,6 @@ int main(int argc, char** argv) try
     }
 
     else throw std::logic_error {"std::unordered_map::operator[]() - out of range"};
-  };
-
-  constexpr auto acceleration = [&](auto sensor_value) // KXR-94
-    -> double
-  {
-    static constexpr double power_supply {5.00}; // [V]
-    static constexpr double AD_conversion_resolution {1024};
-    static constexpr double gravitational_acceleration {9.8};
-
-    return (power_supply * (static_cast<double>(sensor_value) - AD_conversion_resolution / 2)) / AD_conversion_resolution * gravitational_acceleration;
   };
 
   constexpr auto long_range_sensor = [&](auto sensor_value) // GP2Y0A21
@@ -155,7 +148,7 @@ int main(int argc, char** argv) try
 
     for (const auto& v : neighbor)
     {
-      int index {&v - &neighbor.front()};
+      int index {static_cast<int>(&v - &neighbor.front())};
       std::cout << "[debug] index: " << index << std::endl;
 
       std::string sensor_name {"long_range_" + std::to_string(index)};
@@ -212,7 +205,7 @@ int main(int argc, char** argv) try
 
     for (const auto& v : neighbor)
     {
-      int index {&v - &neighbor.front()};
+      int index {static_cast<int>(&v - &neighbor.front())};
       std::cout << "[debug] index: " << index << std::endl;
 
       std::string sensor_name {"short_range_" + std::to_string(index)};
@@ -253,18 +246,30 @@ int main(int argc, char** argv) try
     return direction;
   };
 
-  while (true)
+  // while (true)
+  // {
+  //   std::vector<robocar::vector<double>> poles {search()};
+  //
+  //   robocar::vector<double> base {poles.empty() == true ? position() : poles.front()};
+  //
+  //   base +=  long_range_sensor_array_debug();
+  //   base += short_range_sensor_array_debug();
+  //
+  //   std::cout << "[debug] " << base << std::endl;
+  //   driver.write(base, 1.0);
+  // }
+
+  auto carrot_test = [&]()
   {
     std::vector<robocar::vector<double>> poles {search()};
 
-    robocar::vector<double> base {poles.empty() == true ? position() : poles.front()};
+    robocar::vector<double> base {poles.empty() == true ? robocar::vector<double> {0.0, 0.0} : poles.front()};
 
-    base +=  long_range_sensor_array_debug();
-    base += short_range_sensor_array_debug();
+    std::cout << "[debug] base: " << base << std::endl;
+    driver.debug(base, 1.0);
+  };
 
-    // write to motor
-    std::cout << "[debug] " << base << std::endl;
-  }
+  while (true) { carrot_test(); }
 
   return 0;
 }
