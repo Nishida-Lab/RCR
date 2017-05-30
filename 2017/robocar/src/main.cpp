@@ -259,17 +259,31 @@ int main(int argc, char** argv) try
   //   driver.write(base, 1.0);
   // }
 
+  auto forward = [&]()
+  {
+    driver.write(robocar::vector<double> {0.0, 1.0}, static_cast<double>(0.18));
+  };
+
+  auto stop = [&]()
+  {
+    driver.write(robocar::vector<double> {0.0, 0.0}, static_cast<double>(0.18));
+  };
+
   auto carrot_test = [&]()
   {
     std::vector<robocar::vector<double>> poles {search()};
 
     robocar::vector<double> base {poles.empty() == true ? robocar::vector<double> {0.0, 0.0} : poles.front()};
+    base[0] *= 0.3;
 
     std::cout << "[debug] base: " << base << std::endl;
-    driver.debug(base, 1.0);
+    driver.write(base, 0.18);
   };
 
-  while (true) { carrot_test(); }
+  while (true)
+  {
+    carrot_test();
+  }
 
   return 0;
 }
