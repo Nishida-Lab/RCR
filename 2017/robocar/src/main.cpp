@@ -155,7 +155,7 @@ int main(int argc, char** argv) try
 
     for (const auto& v : neighbor)
     {
-      int index {&v - &neighbor.front()};
+      int index {static_cast<int>(&v - &neighbor.front())};
       std::cout << "[debug] index: " << index << std::endl;
 
       std::string sensor_name {"long_range_" + std::to_string(index)};
@@ -212,7 +212,7 @@ int main(int argc, char** argv) try
 
     for (const auto& v : neighbor)
     {
-      int index {&v - &neighbor.front()};
+      int index {static_cast<int>(&v - &neighbor.front())};
       std::cout << "[debug] index: " << index << std::endl;
 
       std::string sensor_name {"short_range_" + std::to_string(index)};
