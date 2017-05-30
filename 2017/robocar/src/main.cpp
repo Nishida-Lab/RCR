@@ -72,16 +72,6 @@ int main(int argc, char** argv) try
     else throw std::logic_error {"std::unordered_map::operator[]() - out of range"};
   };
 
-  constexpr auto acceleration = [&](auto sensor_value) // KXR-94
-    -> double
-  {
-    static constexpr double power_supply {5.00}; // [V]
-    static constexpr double AD_conversion_resolution {1024};
-    static constexpr double gravitational_acceleration {9.8};
-
-    return (power_supply * (static_cast<double>(sensor_value) - AD_conversion_resolution / 2)) / AD_conversion_resolution * gravitational_acceleration;
-  };
-
   constexpr auto long_range_sensor = [&](auto sensor_value) // GP2Y0A21
     -> double
   {
