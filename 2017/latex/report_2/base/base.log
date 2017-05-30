@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.1415926-p3.4-110825-2.6 (utf8.euc) (TeX Live 2013/Debian) (format=platex 2017.4.14)  31 MAY 2017 02:24
+This is e-pTeX, Version 3.1415926-p3.4-110825-2.6 (utf8.euc) (TeX Live 2013/Debian) (format=platex 2017.4.14)  31 MAY 2017 02:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -250,76 +250,95 @@ File: picture/psdwd.eps Graphic file (type eps)
 File: picture/psdn.eps Graphic file (type eps)
  <picture/psdn.eps>
 File: picture/psdf.eps Graphic file (type eps)
- <picture/psdf.eps> [5] [6]
-Missing character: There is no ^^c2 in font cmr10!
-Missing character: There is no ^^b7 in font cmr10!
-File: ./picture/picture1.eps Graphic file (type eps)
-
-<./picture/picture1.eps>
-File: ./picture/picture2.eps Graphic file (type eps)
- <./picture/picture2.eps>
-File: ./picture/picture3.eps Graphic file (type eps)
- <./picture/picture3.eps>
-[7]
-File: ./picture/picture4.eps Graphic file (type eps)
- <./picture/picture4.eps>
-File: ./picture/picture5.eps Graphic file (type eps)
- <./picture/picture5.eps> [8]
-File: ./picture/picture6.eps Graphic file (type eps)
-
-<./picture/picture6.eps>
-File: ./picture/picture7.eps Graphic file (type eps)
- <./picture/picture7.eps> (../kakeru/kakeru_02.tex
-[9]
-Overfull \hbox (35.209pt too wide) in paragraph at lines 20--43
- [][] 
- []
-
-[10]
-File: ../kakeru/picture/raspberryPi3.eps Graphic file (type eps)
- <../kakeru/picture/raspberryPi3.eps>
-File: ../kakeru/picture/arduino_02.eps Graphic file (type eps)
- <../kakeru/picture/arduino_02.eps>
-[11]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 69.
+ <picture/psdf.eps> [5]
+(../kuwano/kuwano.tex
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 8.
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 69.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 8.
+
+[6]
+File: ../kuwano/picture/kuwano1.eps Graphic file (type eps)
+ <../kuwano/picture/kuwano1.eps>
+File: ../kuwano/picture/kuwano2.eps Graphic file (type eps)
+ <../kuwano/picture/kuwano2.eps>
+File: ../kuwano/picture/kuwano3.eps Graphic file (type eps)
+
+<../kuwano/picture/kuwano3.eps>
+File: ../kuwano/picture/kuwano4.eps Graphic file (type eps)
+ <../kuwano/picture/kuwano4.eps>
+File: ../kuwano/picture/kuwano5.eps Graphic file (type eps)
+
+<../kuwano/picture/kuwano5.eps>
+File: ../kuwano/picture/kuwano6.eps Graphic file (type eps)
+ <../kuwano/picture/kuwano6.eps>)
+(../kakeru/kakeru_02.tex [7]
+Overfull \hbox (35.209pt too wide) in paragraph at lines 20--43
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[8]
+File: ../kakeru/picture/raspberryPi3.eps Graphic file (type eps)
+ <../kakeru/picture/raspberryPi3.eps>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+File: ../kakeru/picture/arduino_02.eps Graphic file (type eps)
+<../kakeru/picture/arduino_02.eps>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 File: ../kakeru/picture/MD10C.eps Graphic file (type eps)
-
 <../kakeru/picture/MD10C.eps>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 File: ../kakeru/picture/TO.eps Graphic file (type eps)
- <../kakeru/picture/TO.eps> [12]
+<../kakeru/picture/TO.eps>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[9]
 File: ../kakeru/picture/Distance.eps Graphic file (type eps)
+ <../kakeru/picture/Distance.eps> [10]
 
-<../kakeru/picture/Distance.eps>
-
-LaTeX Warning: Reference `algo' on page 13 undefined on input line 127.
+LaTeX Warning: Reference `algo' on page 11 undefined on input line 127.
 
 File: ../kakeru/picture/jairo.eps Graphic file (type eps)
-<../kakeru/picture/jairo.eps> [13]
+<../kakeru/picture/jairo.eps>
 File: ../kakeru/picture/dengen.eps Graphic file (type eps)
- <../kakeru/picture/dengen.eps> [14]
+ <../kakeru/picture/dengen.eps> [11]
 File: ../kakeru/picture/level.eps Graphic file (type eps)
 
-<../kakeru/picture/level.eps>) [15]
+<../kakeru/picture/level.eps>) [12] (../nakao/nakao.tex [13] [14]) [15]
 File: ./picture/screen_shot.eps Graphic file (type eps)
- <./picture/screen_shot.eps>
-File: ./picture/schedule.eps Graphic file (type eps)
 
-<./picture/schedule.eps> [16] (../list/list.tex [17]
+<./picture/screen_shot.eps>
+File: ./picture/schedule.eps Graphic file (type eps)
+ <./picture/schedule.eps> (../list/list.tex [16]
+Overfull \vbox (26.50089pt too high) has occurred while \output is active []
+
+
+[17]
 Overfull \hbox (16.28722pt too wide) in paragraph at lines 33--61
  [] 
  []
+
+
+Overfull \vbox (295.23743pt too high) has occurred while \output is active []
+
 
 [18]
 Overfull \hbox (50.63777pt too wide) in paragraph at lines 69--86
  [] 
  []
 
-) [19] (./appendix.tex) [1] (./base.aux)
+) [19] (./appendix.tex) [1] [2] (./base.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -328,12 +347,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 3130 strings out of 495129
- 40163 string characters out of 6182595
- 106606 words of memory out of 5000000
- 6397 multiletter control sequences out of 15000+600000
+ 3139 strings out of 495129
+ 40306 string characters out of 6182595
+ 107622 words of memory out of 5000000
+ 6398 multiletter control sequences out of 15000+600000
  24479 words of font info for 95 fonts, out of 8000000 for 9000
  80 hyphenation exceptions out of 8191
  29i,11n,43p,494b,323s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on base.dvi (21 pages, 50412 bytes).
+Output written on base.dvi (22 pages, 56056 bytes).
