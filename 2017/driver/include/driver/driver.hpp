@@ -45,6 +45,23 @@ public:
   // }
 
   template <typename T>
+  void debug(const robocar::vector<T>& v, T tread) const
+  {
+    static const robocar::vector<T> forward {0.0, 1.0};
+
+    const T  linear_x {v[1] < static_cast<T>(0.0) ? static_cast<T>(0.0) : v[1]};
+    const T angular_z {robocar::vector<T>::angle(forward, v) * (v[0] < static_cast<T>(0.0) ? static_cast<T>(1.0) : static_cast<T>(-1.0))};
+
+    const T l {linear_x - tread * static_cast<T>(0.5) * angular_z};
+    const T r {linear_x + tread * static_cast<T>(0.5) * angular_z};
+
+    std::cout << "[debug] direction L: " << !std::signbit(static_cast<float>(l))  << std::endl
+              << "        direction R: " <<  std::signbit(static_cast<float>(r))  << std::endl
+              << "        PWM ratio L: " << static_cast<int>(std::abs(l) * 100.0) << std::endl
+              << "        PWM ratio R: " << static_cast<int>(std::abs(r) * 100.0) << std::endl;
+  }
+
+  template <typename T>
   void write(const robocar::vector<T>& v, T tread) const
   {
     static const robocar::vector<T> forward {0.0, 1.0};
