@@ -48,15 +48,15 @@ void getAcc(int num,char direction){
 
 int getPosition_x(ACCEL acc_0, ACCEL acc_1, ACCEL acc_2){
   int position = 0;
-  if(acc_0.time < acc_1.time && acc_1.time < acc_2.time){
-    position = (acc_0.data_x + 4*acc_1.data_x + acc_2.data_x)*(acc_2.time - acc_0.time)/6;
-  }
-  else if(acc_1.time < acc_2.time && acc_2.time < acc_0.time){
-    position = (acc_1.data_x + 4*acc_2.data_x + acc_0.data_x)*(acc_0.time - acc_1.time)/6;
-  }
-  else if(acc_2.time < acc_0.time && acc_0.time < acc_1.time){
-    position = (acc_2.data_x + 4*acc_0.data_x + acc_1.data_x)*(acc_1.time - acc_2.time)/6;
-  }
+// if(acc_0.time < acc_1.time && acc_1.time < acc_2.time){
+  position = acc_0.data_x;//*(acc_2.time - acc_0.time)/6;
+// }
+// else if(acc_1.time < acc_2.time && acc_2.time < acc_0.time){
+//   position = (acc_1.data_x + 4*acc_2.data_x + acc_0.data_x)*(acc_0.time - acc_1.time)/6;
+// }
+// else if(acc_2.time < acc_0.time && acc_0.time < acc_1.time){
+//   position = (acc_2.data_x + 4*acc_0.data_x + acc_1.data_x)*(acc_1.time - acc_2.time)/6;
+// }
 
  return position;
 }
