@@ -40,11 +40,15 @@ public:
     return radian * static_cast<T>(180.0) / boost::math::constants::pi<T>();
   }
 
+  static T degree_to_radian(const T& degree)
+  {
+    return degree * boost::math::constants::pi<T>() / static_cast<T>(180.0);
+  }
+
   template <template <typename...> class V = boost::numeric::ublas::vector>
   static T angle(const V<T>& v, const V<T>& u)
   {
     namespace ublas = boost::numeric::ublas;
-
     const T length {ublas::norm_2(v) * ublas::norm_2(u)};
 
     if (boost::geometry::math::equals(length, static_cast<T>(0)))
@@ -52,12 +56,7 @@ public:
       return boost::math::constants::half_pi<T>();
     }
 
-    return std::acos(
-             boost::algorithm::clamp(
-               ublas::inner_prod(v, u) / length,
-               static_cast<T>(-1.0),
-               static_cast<T>( 1.0)
-             ));
+    return std::acos(boost::algorithm::clamp(ublas::inner_prod(v, u) / length, static_cast<T>(-1.0), static_cast<T>( 1.0)));
   }
 
   template <template <typename...> class V = boost::numeric::ublas::vector>
