@@ -39,7 +39,7 @@ public:
 public:
   void write(const std::pair<int,int>& value) noexcept
   {
-    softPwmWrite(pin_.fisrt,  value.first);
+    softPwmWrite(pin_.first,  value.first);
     softPwmWrite(pin_.second, value.second);
   }
 
