@@ -40,6 +40,11 @@ public:
     return radian * static_cast<T>(180.0) / boost::math::constants::pi<T>();
   }
 
+  static T degree_to_radian(const T& degree)
+  {
+    return degree * boost::math::constants::pi<T>() / static_cast<T>(180.0);
+  }
+
   template <template <typename...> class V = boost::numeric::ublas::vector>
   static T angle(const V<T>& v, const V<T>& u)
   {
