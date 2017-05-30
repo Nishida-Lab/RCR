@@ -1,0 +1,463 @@
+%#MAKEINDEX makeindex interim01
+\documentclass[10pt,a4j]{jarticle}
+
+\input{include/macro.tex}
+\input{include/preamble.tex}
+
+\begin{document}
+\input{include/titlepage.tex}
+
+\newpage
+\section{目的}
+学部3年までに学習した制御理論や電気回路，
+情報工学の知識を使って, 競技場内を自律的に走行するロボットカーの製作を行う．
+各研究室でチーム一丸となってプロジェクトを進行し，
+共同で課題を達成することの難しさや楽しさを学び，
+エンジニアとして仕事を進めるための素養を身に付ける．
+情報工学の知識を使って, 競技場内を自律的に走行するロボットカーの製作を行う．
+各研究室でチーム一丸となってプロジェクトを進行し，
+共同で課題を達成することの難しさや楽しさを学び，
+
+
+\section{Robot Car Race(RCR)2017競技ルール}
+\subsection{ルール概要}
+競技場には黄色のポールや,火災に見立てた複数の赤色のポールが設置されている．
+ポールに接触せず，できるだけ速やかに火災を鎮火させる
+消防ロボットカー(ロボカー)を作成する．
+
+\subsection{競技場詳細}
+競技場の全体図を図\ref{course}に示し,以下に詳細を説明する．
+\begin{enumerate}
+  \item 競技場は板張りの床であり，縦・横ともに $5400\unit{mm}$である．
+
+  \item 競技場には黄色の固定ポールと赤色の火災ポールが設置されており，
+        スタートからゴールまで，固定ポールには接触，
+        火災ポールには衝突することなく通過しなければならない．
+
+  \item 火災ポールは青色の鎮火ポールに赤色の幕を被せたものであり，
+        上部におもりなどを落としたり，幕を剥がしたりすることで，
+        鎮火ポールに変化させる(このポールの製作も行うこと)．
+
+  \item スタート後は右手に固定ポールを見ながら直進し，
+        消火活動開始区間まで移動しなければならない．消火活動開始区間に
+        進入後は，右折し，火災ポールを発見し次第，消火にあたる．
+
+  \item すべての火災ポールを消火して，鎮火ポールに変化させたのち，
+        ゴール地点で停止する．
+
+  \item 火災ポールの配置は競技ごとに異なる．
+        また，鎮火ポールが存在することもある．
+
+  \item ポールは直径 $80\unit{mm}$・高さ $120\unit{mm}$の中空パイプであり，
+        黄・赤・青の色が付けられている．
+\end{enumerate}
+
+\begin{figure}[t]
+  \begin{center}
+    \includegraphics[width=1.0\hsize]{picture/course.eps}
+    \caption{2017年度 RCR走行コース}
+    \label{course}
+  \end{center}
+\end{figure}
+
+
+\newpage
+\section{ロボットカーの概要}
+本年度のRCRでの我々の設計コンセプトは，
+ロボットの安定した運用を可能にすることである，
+そのために，ロボットカーには比較的構造が単純な独立二輪機構を採用する．
+火災・鎮火ポールの判別は，ロボット前方に取り付けた単眼カメラの映像を
+画像処理することで行う，また，PSD(Position Sensitive Detector)センサと
+赤外線近接センサを用いてポールとロボットの距離を測定することで，
+適切な軌道の走行とポールの消火を目指す．
+製作にあたっては，研究室のメンバーをハードウェア，ソフトウェアの
+担当に分けて進めることとする．
+
+
+\section{消火について}
+\subsection{消火ポール}
+我々が用いる消火ポールは，以下のように製作する．\\
+まず，塩化ビニル管に青い布を巻きつけて青いポールを作成する．
+次に，青いポールの上から赤い布を覆うことで赤いポールとする．
+
+
+\subsection{消火方法}
+用いるポールの構造より，赤い布を青いポールから取り除くことで消火とする．
+布を取り除く方法は，ロボットアームがポールの上から赤い布を
+中に押し込んで，青いポールにするというものである．
+
+
+
+
+
+\section{PSDセンサの同定実験}
+\label{psdex}
+
+前年度までに研究室で購入していた2種類のPSDセンサについて，
+そのPSDセンサの精度を確かめるために同定実験を行った．
+
+\subsection{センサの仕様}
+前年度までに購入していた2種類のPSDセンサの仕様を以下に示す．
+また，下記2つのセンサを便宜上，順に近距離センサ，遠距離センサと
+呼ぶこととする．\\
+
+ \begin{description}
+  \item[【シャープ測距モジュール　GP2Y0A21YK】] \mbox{} \\
+	     測距範囲：$10〜80\unit{cm}$ \\
+	     出力：アナログ電圧出力 \\
+	     寸法：$29.5×13×13.5\unit{mm}$ \\
+	     電源：$4.5〜5.5\unit{V}$
+  \item[【シャープ測距モジュール　GP2Y0A02YK】] \mbox{} \\
+	     測距範囲：$20〜150\unit{cm}$ \\
+	     出力：アナログ電圧出力 \\
+	     寸法：$29.5×13×21.6\unit{mm}$ \\
+	     電源：$4.5〜5.5\unit{V}$
+ \end{description}
+
+
+\subsection{実験装置}
+PSDセンサの実験を行うため，図\ref{psded}のような実験装置を製作した．
+PSDセンサは高さ$20\unit{mm}$の位置にセンサの発光部が左，
+受光部が右になるように箱に水平に装着した．
+PSDセンサを動作せるのにはArduino Unoを用い，
+Arduino IDEのシリアルモニタを用いて出力電圧を測定した．
+実験時のセンサとArduinoの配線を図\ref{psdwd}に，
+Arduinoのプログラムを付録1に示す．
+配線にはブレッドボードを用いた．また，ポールの代わりに，
+ポールと同じ形状のスプレー缶を用いた．
+
+\begin{figure}[t]
+  \begin{center}
+   \includegraphics[scale = 0.8]{picture/psded.eps}
+   \caption{PSD実験装置}
+   \label{psded}
+  \end{center}
+\end{figure}
+
+\begin{figure}
+ \begin{center}   
+  \includegraphics[scale = 0.8]{picture/psdwd.eps}
+  \caption{PSDセンサの配線図}
+  \label{psdwd}
+ \end{center}
+\end{figure}
+
+
+\newpage
+\subsection{実験方法}
+PSDセンサの距離-出力電圧特性を測定するため以下の手順に従い実験を行った．
+\begin{enumerate}
+ \item PSDセンサの発光部・受光部の先端を距離$0\unit{cm}$とし，
+       近距離センサは$5\unit{cm}$から$100\unit{cm}$まで，
+       $5\unit{cm}$ずつスプレー缶を移動させ出力電圧を記録する．
+       このとき，スプレー缶の中心はPSDセンサの中心の正面にくるように
+       置き測定する．
+ \item 先程と同様に，遠距離センサは$5\unit{cm}$から$170\unit{cm}$まで，
+       $5\unit{cm}$ずつスプレー缶を移動させ出力電圧を記録する．
+\end{enumerate} 
+
+\subsection{実験結果}
+縦軸を出力電圧，横軸をPSDセンサ-スプレー缶間の距離とし，
+近距離センサの測定結果のグラフを図\ref{psdn}に，
+遠距離センサの測定結果のグラフを図\ref{psdf}に示す．
+図\ref{psdn}より，近距離センサは出力電圧が$40\unit{cm}$までは
+滑らかに減少しており，$40\unit{cm}$からは大きな変化は見られない．
+それに対して図\ref{psdf}より，遠距離センサは測距可能範囲内において
+出力電圧が$80\unit{cm}$までは滑らかに減少しており，
+$80\unit{cm}$からは変化に乏しいことがわかる．
+よって，近距離センサでは$40\unit{cm}$以降，遠距離センサでは$80\unit{cm}$以降の距離を算出することが難しくなると考えられる．
+ここで，今回のロボットは$40\unit{cm}$以降も距離を計測する必要がある．
+従って適当なセンサは，遠距離センサであると考えられる．
+
+
+\newpage
+\begin{figure}[htb]
+  \begin{center}
+    \includegraphics[width=1.0\hsize]{picture/psdn.eps}
+    \caption{近距離センサ}
+    \label{psdn}
+  \end{center}
+\end{figure}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\hsize]{picture/psdf.eps}
+    \caption{遠距離センサ}
+    \label{psdf}
+  \end{center}
+\end{figure}
+
+
+\newpage
+\subsection{PSDセンサの課題}
+今回のRCRにおいて用いるPSDセンサの課題として，
+実験により得られた測定値のデータにノイズが入ることが挙げられる．
+これを改善するためにフィルタをかけてノイズを除去することを考える．
+ここでは以下の2種類のフィルタについてその実用性を考察する．
+ただし，それらの検証実験は今後行うものとする．
+
+\subsubsection{平均値フィルタ}
+実測値の中で範囲を決めて，その平均値をとるフィルタのことである．
+ノイズの影響を小さくすることができるが，フィルタが長くなると応答性能が悪化する．
+
+\subsubsection{メディアンフィルタ(中間値フィルタ)}
+奇数個のデータの中間に位置する値をその位置のデータとして
+採用するフィルタのことである．スパイクノイズを取り除くのに適しているため，
+今回使用するPSDセンサにはこちらのフィルタを用いることが適切であると考えられる．
+
+\section{ハードウェア}
+\subsection{駆動系}
+　今回のRCRでは，去年と同様のモータ，エンコーダ，駆動輪を使用することにした．以下にこれらの性能を示す．
+今回の課題では自己位置推定が重要になってくるため，ロータリーエンコーダをギヤードモータにつけずに，車軸に取り付けるようにした．モータの動力はギアを介してタイヤに伝える．これによって万が一ギヤがかみ合わなかったときにもタイヤの回転を読み取ることができる．
+また，本大会で採用した機構は独立二輪機構である．独立二輪機構は，四輪車のようにステアリング操作が必要なく，モータの出力を制御することで旋回することができ，また内輪差もないため，旋回を多く行うRCRでは有効である．ただし，独立二輪機構は直線安定性に劣るため，ロータリーエンコーダを用いてソフトウェアで制御していく．
+
+\begin{description}
+ \item[【ギヤードモータ 3633K10】] \mbox{} \\ 
+	    最大回転数：372 [rpm] (無負荷時，印加電圧 8.0[V]) \\
+	    定格電圧：24[V] \\
+	    定格トルク：0.5 [kg·cm] (最大効率時)        
+ \item[【ロータリーエンコーダ RE30E-500-213-1】] \mbox{} \\
+	    インクリメンタル型 \\
+	    パルス / 回転：500 \\
+	    電源電圧：5~12 [V] ギヤを介して，ギヤを介して，
+ \item[【駆動輪】] \mbox{} \\
+	    直径64 [mm] \\
+	    厚み 24.5 [mm]
+\end{description}
+
+
+\begin{figure}[b]
+ \begin{center}
+  \includegraphics[scale=.5]{./picture/picture1.eps}
+  \caption{駆動輪}
+ \end{center}
+\end{figure}
+
+
+\begin{figure}[H]
+ \begin{center}
+  \includegraphics[scale=.7]{./picture/picture2.eps}
+  \caption{ギヤードモータ3633K10}
+ \end{center}
+\end{figure}
+
+\begin{figure}[H]
+ \begin{center}
+  \includegraphics[scale=.7]{./picture/picture3.eps}
+  \caption{ロータリーエンコーダ RE30E-500-213-1}
+ \end{center}
+\end{figure}
+
+
+
+\subsection{車体の設計}
+　3D CADソフト Inventorを用いて設計したロボットカーの全体図を図\ref{fig:robocar}に示す．設計の際に工夫した点は，センサの位置を対象物（ポール）をとらえやすい位置に置いたことである．「対象物をとらえやすい位置」はまだ実際に試走してみないと分からないが，センサの高さはスペーサーのサイズを変えることで容易に修正することができるため，ロボカーが対象物をとらえるのに最適な位置を決めることができる．
+また，車体を八角形にすることにより，ロボカーがその場で旋回するときに不意にポールに衝突するのを防ぐことができる．
+階層の構成は，駆動系を一階，センサやバッテリー類など，あまり触ることのないものを二階，マイコンやアーム部分を三階に設置した．ロボカーの一階，二階，三階部分を図\ref{fig:1F}，図\ref{fig:2F}，図\ref{fig:3F}に示す．
+
+\begin{figure}[hb]
+ \begin{center}
+  \includegraphics[scale=.3]{./picture/picture4.eps}
+  \caption{ロボカー全体図}
+  \label{fig:robocar}
+ \end{center}
+\end{figure}
+
+\begin{figure}[H]
+ \begin{center}
+  \includegraphics[scale=.3]{./picture/picture5.eps}
+  \caption{一階部分}
+  \label{fig:1F}
+ \end{center}
+\end{figure}
+
+\begin{figure}[H]
+ \begin{center}
+  \includegraphics[scale=.3]{./picture/picture6.eps}
+  \caption{二階部分}
+  \label{fig:2F}
+ \end{center}
+\end{figure}
+
+\begin{figure}[H]
+ \begin{center}
+  \includegraphics[scale=.3]{./picture/picture7.eps}
+  \caption{三階部分}
+  \label{fig:3F}
+ \end{center}
+\end{figure}
+
+\section{回路設計}
+設計した回路について選定の理由や仕様について以下に示す．また使用する部品の一覧を\ref{tab:c_parts}に示す．
+\subsection{マイコンの選定}
+設計した回路を\ref{c_raspberry}，\ref{c_arduino}に示す．
+マイコンとして「Raspberry Pi3 Model B（以下 RPi）」と「Arduino uno R3（以下 Arduino）」を使用する．それぞれが，統合・画像処理・モータ制御，
+センサ処理，を行う．RPiでは複雑な処理を行う上で，LinuxOSの支援を受けることができ有利である．さらに，処理速度がCPU 1.2[GHz]，
+メモリ1[GB]とArduinoの16[MHz]・32[KB]と比べても大きく優れている．これは，並列処理や高速な画像処理に適している．このような理由からRPi
+を採用した．
+
+また ，RPiはアナログI/Oポートを持っておらず，アナログ電圧出力を行うセンサ類の処理が困難である．そこで，アナログ・ディジタルI/Oポートを
+持つArduinoにセンサ類の処理を担わせることとした．
+\subsection{モータドライバ}
+モータドライバは「MD10C R3」\ref{MD10C}を両輪駆動用として2つ使用し，「TA7291P」をアーム用として使用する．
+各仕様を下に示す
+．
+[MD10C R3](駆動用)
+\begin{itemize}
+ \item モータ電源電圧 : DC 5[V]$〜$25[V]
+ \item モータ最大電流 : 13[A]
+ \item ロジック用電源 : モータ用より供給
+ \item ロジック電圧   : DC 5[V] or 3.3[V]
+\end{itemize}
+
+[TA7291P](アーム用)
+\begin{itemize}
+ \item モータ電源電圧 : DC 0[V]$〜$20[V]
+ \item モータ最大電流 : 1.0[A]
+ \item ロジック電圧 : DC 4.5[V]$〜$20[V]
+\end{itemize}
+\begin{figure}[b]
+ \centering
+ \includegraphics[width=0.5\hsize]{./picture/MD10C.eps}
+    \caption{MD10C R3}
+    \label{MD10C}
+\end{figure}
+
+\subsection{$I^2 C$通信}
+今回，我々のロボットには測距センサを始めとする複数のセンサが搭載されている．これらの殆どがアナログ出力
+であるが，ArduinoのアナログI/Oポートは6つしかなく，要求を満たしていない．
+
+そこで，$I^2 C$通信を用いることとする．これは，$I^2 C$通信がパーティライン構成が可能となっており
+,1つのマスタで複数のスレーブデバイスと通信することが可能であるからである.概要を以下に示す．
+\begin{enumerate}
+ \item マスタ側(Arduino)とスレーブ側(n個のセンサ等)を明確に分け，各スレーブに異なるアドレスを割り振る．
+ \item マスタ側が、Start Conditionを出力し続いてアドレスとRead/Write要求を出力する.
+ \item 全スレーブがこの時のSCLのクロックを元にSDAのデータを受信し、SSPADDレジスタにセットされたアドレスと一致したデバイスだけが、その後の送受信を継続する.
+ \item 受信した側がデータを受信完了すると自動的にACKビットを返送し、同時にSSP割込みを発生する.
+ \item これをマスタがStop Conditionを出力するまで続ける.
+\end{enumerate}
+
+\subsection{センサ仕様}
+\subsubsection{赤外線測距センサ}  
+測距センサは本体周囲に中距離用を7つ，前方に近距離用を3つ搭載する．これは自律行動の際に，
+周辺環境，特に各種ポールを把握するために用いる． センサの仕様については実験を行ったので\ref{psdex}
+ に示す．
+
+また，各測距センサには信号のノイズを吸収し安定化させるために$0.1[\mu $F]のセラミックコンデンサを接続する．
+
+\subsubsection{3軸加速度・ジャイロセンサモジュール}
+加速度センサは[ x, y, z ]軸におけるロボットの加速度を測定するものである．
+ジャイロセンサは[ x, y, z ]軸まわりの各加速度を測定するものである．
+我々はこれらをロボットの自己位置推定に用いる．特にジャイロセンサについては，
+ロボット本体の直進走行制御に使用する．
+\begin{figure}[b]
+ \centering
+ \includegraphics[width=0.4\hsize]{./picture/jairo.eps}
+ \caption{3軸加速度・ジャイロセンサモジュール}
+    \label{jairo}
+\end{figure}
+\subsection{電源回路}
+電源回路は各回路図の左上に示している．\\
+バッテリーはひとつしか搭載しないが，RPiとArduinoでは定格電流値が異なるために同一の電源は使用できない．
+そこで，それぞれに降圧レギュレータとしてDCDCコンバータを用いてバッテリーからの供給電源を
+分電することとした．各仕様を下に示す．
+
+
+\begin{description}
+ \item[【LR8697】(RPi・モータ用)] \mbox{} \\
+	    電源電圧 : DC 6.0[V]$〜$42.0[V]] \\
+	    出力電圧 : DC 5.0[V] \\
+	    出力電流 : 2.5[A]
+ \item[【BTD05-05S200D】(Arduino・センサ用)] \mbox{} \\
+	    電源電圧 : 4.5$〜$9.0[V] \\
+	    出力電圧 : 5.0[V] \\
+	    出力電流 : 2000[mA]
+\end{description}
+
+\begin{table}[hb]
+  \centering
+  \caption{回路用部品表}
+  \begin{tabular}{|c|c|r||c|} \hline
+    タイプ & 部品名 & 数 & 用途 \\ \hline \hline
+     マイコン & Raspberry Pi3 & 1& 統括・画像処理・モータ制御 \\ \cline{2-4}
+   　　& Arduino uno R3& 1 & センサ類の処理 \\ \hline
+     DCモータ & AO-8014 & 2 & 駆動用 \\ \cline{2-4}
+      & TAMIYA ミニモータ & 1&アーム用  \\ \hline
+    モータドライバ& MD10C-R3 & 2& タイヤ用 \\ \cline{2-4}
+      &  TA7291P&1 &アーム用 \\ \hline
+     赤外線測距センサ& GP2Y0A02YK &6&中距離センサ\\ \cline{2-4}
+       &GP2Y0E03&3&近距離センサ \\ \hline
+     カメラモジュール&P5V04A&1&画像処理\\ \hline
+     3軸加速度センサ&KXR94-2050&1&自己位置推定\\ \hline
+     3軸ジャイロセンサ&BGD20&1&自己位置推定\\ \hline
+    DCDCコンバータ&LT8697&1& 7.2[V]→5.0[v]2500[mA]降圧レギュレータ\\ \cline{2-4}
+       &BTD05-05S200D&1&7.2[V]→5.0[V]2000[mA]降圧レギュレータ\\ \hline
+    コンデンサ&電解コンデンサ 47[$\mu$F]&2&電源安定化\\ \cline{2-4}
+            &セラミックコンデンサ 0.1[$\mu$F]&9&センサ信号安定化\\ \hline
+　　バッテリー&POWER MAX 4000 Ni-MH&1&電源バッテリー 7.2[V]4200[mAh]\\ \hline
+                 
+  \end{tabular}
+  \label{tab:c_parts}
+\end{table}
+
+\newpage
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=0.9\hsize]{./picture/RCR_raspberryPi3.eps}
+    \caption{Raspberry Pi3 接続回路図}
+    \label{c_raspberry}
+\end{figure}
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=0.9\hsize]{./picture/RCR_arduino.eps}
+    \caption{Arduino unoR3 接続回路図}
+    \label{c_arduino}
+\end{figure}
+
+
+\newpage
+
+\section{アルゴリズム}
+3つのモードを切り替えながら完走する．
+ \subsection{直線走行}
+ まず最初の直線部分のアルゴリズムである．右斜め前についているPSDセンサが一定時間内にある閾値以上の反応を示す限り直進しする．そして車体右側についている2つのPSDセンサで同一のポールをとらえた時の測定距離の差を用いて車体のズレを検出し，車体角度を調節する．右斜め前についているPSDセンサが一定時間閾値以上の反応を見せなかった場合，右折し消火活動開始区間に入る．
+ \subsection{消火エリア内}
+火活動開始区間では一番近い入り口から順番にカメラで見ていく．ロボカーの侵入を妨げるポールがない入り口を見つけ次第すぐに消火エリアに入るように設定する．消火エリアに入ったのちすぐに左旋回しポール探索を行う．赤ポールを検出できたらそのポールまで行き消火活動を行う．消火したポールの先にまだ赤ポールがあるなら，そこまで行き消火する．その後Uターンし黄色ポールまでもどり，直線走行をする．一定距離，下に進んだのち左旋回し赤ポールを探索し消火する．これを繰り返し一番下まで探索を繰り返していく．
+ \subsection{ゴールまで} 
+色ポールに沿って下へ進んでいくが，その黄色ポールが検出できなくなると右旋回しゴールする．
+
+
+\begin{figure}[hb]
+\begin{center}
+  \includegraphics[scale = 0.4]{./picture/screen_shot.eps}
+ \caption{アルゴリズム}
+\end{center}
+\end{figure}
+
+\section{今後の予定}
+図\ref{fig:schedule}に大まかな今後の予定を示す．
+\begin{figure}[tH]
+\begin{center}
+  \includegraphics[width=1.0\hsize]{./picture/schedule.eps}
+ \caption{今後の予定}
+ \label{fig:schedule}
+\end{center}
+\end{figure}
+
+
+
+\section{使用物品}
+今回のRCRで使用する予定の物品を表\ref{tab:list1}，\ref{tab:list2}に示す．4月26日時点での合計金額は78118円である．
+\input{../../report_1/list/list.tex}
+
+\newpage
+\setcounter{page}{1}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0.0pt}
+\rhead{付録\thepage}
+\lhead{}
+\cfoot{}
+\input{./appendix.tex}
+
+
+\end{document}
