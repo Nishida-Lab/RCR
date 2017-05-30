@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.1415926-p3.4-110825-2.6 (utf8.euc) (TeX Live 2013/Debian) (format=platex 2017.4.14)  31 MAY 2017 06:50
+This is e-pTeX, Version 3.1415926-p3.4-110825-2.6 (utf8.euc) (TeX Live 2013/Debian) (format=platex 2017.4.14)  31 MAY 2017 08:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -234,11 +234,17 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[1] [2]
+[1] (../kakeru/arm.tex [2]
+File: ../kakeru/picture/arm_img.eps Graphic file (type eps)
+ <../kakeru/picture/arm_img.eps>
+File: ../kakeru/picture/arm_real.eps Graphic file (type eps)
+
+<../kakeru/picture/arm_real.eps>)
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10> not available
 (Font)              Font shape `JT1/gt/m/n' tried instead on input line 103.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
 (Font)              Font shape `JY1/gt/m/n' tried instead on input line 103.
+ [3]
 File: picture/psded.eps Graphic file (type eps)
  <picture/psded.eps>
 Overfull \hbox (4.07364pt too wide) in paragraph at lines 129--130
@@ -246,11 +252,11 @@ Overfull \hbox (4.07364pt too wide) in paragraph at lines 129--130
  []
 
 File: picture/psdwd.eps Graphic file (type eps)
-<picture/psdwd.eps> [3] [4]
+<picture/psdwd.eps> [4] [5]
 File: picture/psdn.eps Graphic file (type eps)
  <picture/psdn.eps>
 File: picture/psdf.eps Graphic file (type eps)
- <picture/psdf.eps> [5]
+ <picture/psdf.eps> [6]
 (../kuwano/kuwano.tex
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 8.
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
@@ -259,19 +265,19 @@ File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 8.
 
-[6]
+[7]
 File: ../kuwano/picture/kuwano1.eps Graphic file (type eps)
- <../kuwano/picture/kuwano1.eps> [7]
+ <../kuwano/picture/kuwano1.eps>
 File: ../kuwano/picture/kuwano2.eps Graphic file (type eps)
- <../kuwano/picture/kuwano2.eps>
-[8]
+ <../kuwano/picture/kuwano2.eps> [8]
 File: ../kuwano/picture/kuwano3.eps Graphic file (type eps)
- <../kuwano/picture/kuwano3.eps> [9]
+
+<../kuwano/picture/kuwano3.eps> [9]
 File: ../kuwano/picture/kuwano4.eps Graphic file (type eps)
- <../kuwano/picture/kuwano4.eps>
-[10]
+ <../kuwano/picture/kuwano4.eps> [10]
 File: ../kuwano/picture/kuwano5.eps Graphic file (type eps)
- <../kuwano/picture/kuwano5.eps>
+
+<../kuwano/picture/kuwano5.eps>
 File: ../kuwano/picture/kuwano6.eps Graphic file (type eps)
  <../kuwano/picture/kuwano6.eps>)
 (../kakeru/kakeru_02.tex [11]
@@ -326,12 +332,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 3149 strings out of 495129
- 40439 string characters out of 6182595
- 106650 words of memory out of 5000000
- 6403 multiletter control sequences out of 15000+600000
+ 3157 strings out of 495129
+ 40563 string characters out of 6182595
+ 106661 words of memory out of 5000000
+ 6406 multiletter control sequences out of 15000+600000
  24479 words of font info for 95 fonts, out of 8000000 for 9000
  80 hyphenation exceptions out of 8191
- 29i,12n,43p,244b,323s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 29i,12n,43p,244b,430s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on base.dvi (27 pages, 60092 bytes).
+Output written on base.dvi (27 pages, 60916 bytes).
