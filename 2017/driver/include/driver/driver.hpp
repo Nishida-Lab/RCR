@@ -36,6 +36,13 @@ public:
     create(pin_.second);
   }
 
+public:
+  void write(const std::pair<int,int>& value) noexcept
+  {
+    softPwmWrite(pin_.fisrt,  value.first);
+    softPwmWrite(pin_.second, value.second);
+  }
+
 private:
   void setup() noexcept
   {
