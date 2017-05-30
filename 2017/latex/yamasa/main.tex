@@ -14,6 +14,14 @@
   機体正面に取り付けられた測距センサ三人衆から適当にベクトルを作って合成．
   ベクトルを適当に左右のモータへの速度指令値（正確にはPWM信号値）に変換して突っ込む．
 
+  \begin{figure}[b]
+    \begin{center}
+      \includegraphics[width=1.0\hsize]{plot/minus_atanh.eps}
+    \end{center}
+    \caption{ほげほげ}
+    \label{fig::atanh}
+  \end{figure}
+
 \subsection{画像認識}
   炎上ポールの認識には配布されたRapspberry Pi NoIR Camera V2（以下，カメラモジュール）を使用する．
   画像撮影から最も近い（と思われる）ポールへのベクトルを出力する一連の手順を，簡単に以下に示す．
@@ -33,13 +41,11 @@
     \item[ノイズ除去] \mbox{} \\
       適当に膨張・縮小を繰り返してノイズを除去する．
       ちゃんとやってる処理じゃねえから現状ほとんど意味がねえ．\\
-    \item[構造解析]
+    \item[構造解析] \mbox{} \\
       2値画像中の輪郭線を検出した後，それを矩形で囲む．
       囲んだ矩形を縦横比で解析し，ポールの縦横比に対して$\pm 20 \%$以上の差があるものを除外する．
       残った矩形の重心点を求めて，適当にベクトルを作る．\\
   \end{description}
-
-
 
 \begin{thebibliography}{9}
   \bibitem{raspicam} "RaspiCam: C++ API for using Raspberry camera with/without OpenCV"，\\
