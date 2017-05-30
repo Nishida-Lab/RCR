@@ -1,25 +1,23 @@
 #include <algorithm>
 #include <chrono>
 #include <cmath>
-#include <complex>
+#include <complex> // atanh
 #include <cstdint>
 #include <cstdlib>
 #include <cstring>
 #include <iomanip>
 #include <iostream>
-#include <random>
+#include <random> // dummy sensor value
 #include <stdexcept>
 #include <string>
 #include <system_error>
 #include <thread>
 #include <unordered_map>
+#include <vector>
 
-#include <boost/numeric/ublas/assignment.hpp>
-#include <boost/numeric/ublas/io.hpp>
-#include <boost/numeric/ublas/vector.hpp>
-
-#include <robocar/serial/wiring_serial.hpp>
 #include <robocar/camera/camera.hpp>
+#include <robocar/serial/serial.hpp>
+#include <robocar/vector/vector.hpp>
 
 
 const std::unordered_map<std::string,std::int8_t> sensor_codes {
@@ -40,21 +38,6 @@ const std::unordered_map<std::string,std::int8_t> sensor_codes {
 };
 
 
-template <typename C, typename T>
-std::basic_ostream<C>& operator<<(std::basic_ostream<C>& lhs, const std::pair<T,T>& rhs)
-{
-  return lhs << "(" << rhs.first << ", " << rhs.second << ")";
-}
-
-
-template <typename T>
-auto normalize(const boost::numeric::ublas::vector<T>& v)
-  -> boost::numeric::ublas::vector<T>
-{
-  return {v / boost::numeric::ublas::norm_2(v)};
-}
-
-
 template <typename T>
 T dummy_sensor_value(T&& min = static_cast<T>(0.0), T&& max = static_cast<T>(1.0))
 {
@@ -66,19 +49,18 @@ T dummy_sensor_value(T&& min = static_cast<T>(0.0), T&& max = static_cast<T>(1.0
 
 int main(int argc, char** argv) try
 {
-  // boost::numeric::ublas::vector<double> direction {};
-
-  robocar::wiring_serial serial {"/dev/ttyACM0", 115200};
+  // robocar::wiring_serial serial {"/dev/ttyACM0", 115200};
 
   static constexpr std::size_t width  {640};
   static constexpr std::size_t height {480};
   robocar::camera camera {width, height};
 
-  auto query = [&](const std::string& name, std::string&& dest = std::string {}) -> std::string
+  auto query = [&](const std::string& name, std::string&& dest = std::string {})
+    -> std::string
   {
     if (sensor_codes.find(name) != sensor_codes.end())
     {
-      serial.putchar(static_cast<char>(sensor_codes.at(name)));
+      // serial.putchar(static_cast<char>(sensor_codes.at(name)));
       std::this_thread::sleep_for(std::chrono::milliseconds(10)); // TODO adjust
 
       // serial.getline(dest);
@@ -112,104 +94,51 @@ int main(int argc, char** argv) try
     return 0.09999 * static_cast<double>(sensor_value) + 0.4477;
   };
 
-  [[deprecated]] auto camera_test = [&]()
+  auto search = [&]()
+    -> std::vector<robocar::vector<double>>
   {
-    static constexpr std::size_t width  {640};
-    static constexpr std::size_t height {480};
-
-    robocar::camera camera {width, height};
-
-    while (true)
-    {
-      std::cout << "[debug] ";
-      for (const auto& p : camera.find())
-      {
-        std::cout << " (" << static_cast<int>(p.first) - static_cast<int>(width/2)
-                  << ", " << static_cast<int>(p.second) - static_cast<int>(height/2) << ") ";
-      }
-      std::putchar('\n');
-    }
-  };
-
-  [[deprecated]] auto vector_to_nearest_red_object_debug = [&]()
-  {
-    static constexpr std::size_t width  {640};
-    static constexpr std::size_t height {480};
-
-    robocar::camera camera {width, height};
-
-    while (true)
-    {
-      std::vector<std::pair<double,double>> objects {};
-
-      for (const auto& p : camera.find())
-      {
-        int x {static_cast<int>(p.first)  - static_cast<int>(width/2)};
-        double vx {static_cast<double>(x) / static_cast<double>(width / 2)};
-
-        objects.emplace_back(vx, std::pow(static_cast<double>(1.0) - std::pow(vx, 2.0), 0.5));
-      }
-
-      std::sort(objects.begin(), objects.end(), [&](auto a, auto b) {
-        return std::abs(a.first) < std::abs(b.first);
-      });
-
-      std::cout << "[debug] ";
-      for (auto&& p : objects)
-      {
-        std::cout << " (" << std::showpos << std::fixed << std::setprecision(3) << p.first
-                  << ", " << std::showpos << std::fixed << std::setprecision(3) << p.second << ") ";
-      }
-      std::putchar('\n');
-    }
-  };
-
-  auto nearest_pole = [&]()
-    -> std::pair<double,double>
-  {
-    std::vector<std::pair<double,double>> objects {};
+    std::vector<robocar::vector<double>> poles {};
 
     for (const auto& p : camera.find())
     {
-      int x {static_cast<int>(p.first)  - static_cast<int>(width/2)};
-      double vx {static_cast<double>(x) / static_cast<double>(width / 2)};
+      int x_pixel {static_cast<int>(p.first)  - static_cast<int>(width / 2)};
+      double x_ratio {static_cast<double>(x_pixel) / static_cast<double>(width / 2)};
 
-      objects.emplace_back(vx, std::pow(static_cast<double>(1.0) - std::pow(vx, 2.0), 0.5));
+      poles.emplace_back(x_ratio, std::pow(static_cast<double>(1.0) - std::pow(x_ratio, 2.0), 0.5));
     }
 
-    std::sort(objects.begin(), objects.end(), [&](auto a, auto b) {
-      return std::abs(a.first) < std::abs(b.first);
+    std::sort(poles.begin(), poles.end(), [&](auto a, auto b) {
+      return std::abs(a[0]) < std::abs(b[0]);
     });
 
-    return objects.empty() ? std::pair<double,double> {/* dummy value */} : std::pair<double,double> {objects.front()};
+    return poles;
   };
 
-  // while (true)
-  // {
-  //   std::pair<double,double> pole {nearest_pole()};
-  //
-  //   std::cout << "[debug] " << std::fixed << std::showpos << std::setprecision(3) << pole << std::endl;
-  // }
+  auto position = [&]()
+    -> robocar::vector<double>
+  {
+    return robocar::vector<double> {0.0, 1.0};
+  };
 
-  auto detect_position = [&]()
+  const auto const_forward_vector = []()
     -> boost::numeric::ublas::vector<double>
   {
     static constexpr std::size_t extent {2};
-    boost::numeric::ublas::vector<double> result {extent};
+    boost::numeric::ublas::vector<double> forward {extent};
 
-    result[0] = 0.0;
-    result[1] = 1.0;
+    forward[0] = 0.0;
+    forward[1] = 1.0;
 
-    return result; // nummy data
+    return {forward};
   };
 
-  auto add_neighbor = [&]()
+  auto long_range_sensor_array_debug = [&]()
+    -> boost::numeric::ublas::vector<double>
   {
-    using namespace boost::numeric;
-    ublas::vector<double> direction {detect_position()};
+    boost::numeric::ublas::vector<double> direction {const_forward_vector()};
 
     static constexpr std::size_t extent {2};
-    std::vector<ublas::vector<double>> neighbor {8, ublas::vector<double> {extent}};
+    std::vector<boost::numeric::ublas::vector<double>> neighbor {8, boost::numeric::ublas::vector<double> {extent}};
 
     neighbor[3] <<=  1.0, -1.0;  neighbor[2] <<=  0.0, -1.0;  neighbor[1] <<= -1.0, -1.0;
     neighbor[4] <<=  1.0,  0.0;        /* robocar */          neighbor[0] <<= -1.0,  0.0;
@@ -217,7 +146,7 @@ int main(int argc, char** argv) try
 
     for (auto&& v : neighbor)
     {
-      v = normalize(v);
+      v = robocar::vector<double>::normalize(v);
       std::cout << "[debug] neighbor[" << std::noshowpos << &v - &neighbor.front() << "] "
                 << std::fixed << std::setprecision(3) << std::showpos << v << std::endl;
     }
@@ -251,16 +180,21 @@ int main(int argc, char** argv) try
       double arctanh {-std::atanh(normalized_distance)};
       std::cout << "        arctanh: " << arctanh << std::endl;
 
-      ublas::vector<double> repulsive_force {v * arctanh};
+      boost::numeric::ublas::vector<double> repulsive_force {v * arctanh};
       std::cout << "        repulsive force: " << repulsive_force << std::endl;
 
       direction += repulsive_force;
       std::cout << "        direction: " << direction << std::endl;
     }
+
+    return direction;
   };
 
-  auto short_range_sensor_array = [&](boost::numeric::ublas::vector<double>&& direction)
+  auto short_range_sensor_array_debug = [&]()
+    -> boost::numeric::ublas::vector<double>
   {
+    boost::numeric::ublas::vector<double> direction {const_forward_vector()};
+
     static constexpr std::size_t extent {2};
     std::vector<boost::numeric::ublas::vector<double>> neighbor {3, boost::numeric::ublas::vector<double> {extent}};
 
@@ -268,7 +202,7 @@ int main(int argc, char** argv) try
 
     for (auto&& v : neighbor)
     {
-      v = normalize(v);
+      v = robocar::vector<double>::normalize(v);
       std::cout << "[debug] neighbor[" << std::noshowpos << &v - &neighbor.front() << "] "
                 << std::fixed << std::setprecision(3) << std::showpos << v << std::endl;
     }
@@ -289,7 +223,7 @@ int main(int argc, char** argv) try
 
       double arctanh {};
 
-      if (sensor_value < desired_distance)
+      if (sensor_value < static_cast<int>(desired_distance))
       {
         double numerator   {static_cast<double>(desired_distance) - static_cast<double>(sensor_value)};
         double denominator {static_cast<double>(desired_distance)};
@@ -299,7 +233,7 @@ int main(int argc, char** argv) try
 
       else
       {
-        sensor_value = (sensor_value > range_max ? range_max : sensor_value);
+        sensor_value = (sensor_value > static_cast<int>(range_max) ? static_cast<int>(range_max) : sensor_value);
 
         double numerator   {static_cast<double>(sensor_value) - static_cast<double>(desired_distance)};
         double denominator {static_cast<double>(range_max) - static_cast<double>(desired_distance)};
@@ -315,12 +249,22 @@ int main(int argc, char** argv) try
       direction += repulsive_force;
       std::cout << "        direction: " << direction << std::endl;
     }
+
+    return direction;
   };
 
-  short_range_sensor_array(detect_position());
+  while (true)
+  {
+    std::vector<robocar::vector<double>> poles {search()};
 
-  // std::vector<boost::numeric::ublas::vector<double>> poles {nearest_pole()};
-  // short_range_sensor_array(poles.empty() == true ? detect_position() : poles.front());
+    robocar::vector<double> base {poles.empty() == true ? position() : poles.front()};
+
+    base +=  long_range_sensor_array_debug();
+    base += short_range_sensor_array_debug();
+
+    // write to motor
+    std::cout << "[debug] " << base << std::endl;
+  }
 
   return 0;
 }

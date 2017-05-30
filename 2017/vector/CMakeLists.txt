@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.0)
-project(algorithm VERSION 0.0.0 LANGUAGES CXX)
+project(vector VERSION 0.0.0 LANGUAGES CXX)
 
-add_definitions("-std=c++11 -Wall")
+add_definitions("-std=c++1y -Wall")
 
 file(GLOB ${PROJECT_NAME}_SOURCES ${PROJECT_SOURCE_DIR}/src/*.cpp)
 set(${PROJECT_NAME}_HEADER_DIR ${PROJECT_SOURCE_DIR}/include)
@@ -28,5 +28,20 @@ add_executable(${PROJECT_NAME}
 )
 
 target_link_libraries(${PROJECT_NAME}
+)
+
+set(CMAKE_INSTALL_PREFIX /usr/local)
+
+# set_target_properties(${PROJECT_NAME} PROPERTIES
+#   VERSION   ${PROJECT_VERSION}
+#   SOVERSION ${PROJECT_VERSION_MAJOR}
+# )
+
+install(TARGETS ${PROJECT_NAME}
+  RUNTIME DESTINATION bin
+)
+
+install(DIRECTORY ${${PROJECT_NAME}_HEADER_DIR}/
+  DESTINATION include/robocar
 )
 
