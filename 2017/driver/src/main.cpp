@@ -5,7 +5,7 @@
 
 int main(int argc, char** argv)
 {
-  robocar::differential_driver driver {};
+  robocar::differential_driver driver {38, 40};
 
   return 0;
 }
