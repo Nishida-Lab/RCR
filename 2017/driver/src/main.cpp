@@ -5,7 +5,7 @@
 
 int main(int argc, char** argv)
 {
-  std::cout << "[debug] hello, world\n";
+  robocar::differential_driver driver {};
 
   return 0;
 }
