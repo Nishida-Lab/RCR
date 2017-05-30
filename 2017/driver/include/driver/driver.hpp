@@ -10,6 +10,7 @@
 #include <wiringPi.h>
 #include <softPwm.h>
 
+#include <robocar/vector/vector.hpp>
 
 
 namespace robocar {
@@ -41,6 +42,21 @@ public:
   {
     softPwmWrite(pin_.first,  value.first);
     softPwmWrite(pin_.second, value.second);
+  }
+
+  template <typename T>
+  void write(const robocar::vector<T>& v, T tread) const
+  {
+    static const robocar::vector<T> forward {0.0, 1.0};
+
+    const T  linear_x {v[1] < static_cast<T>(0.0) ? static_cast<T>(0.0) : v[1]};
+    const T angular_z {robocar::vector<T>::angle(forward, v) * (v[0] < static_cast<T>(0.0) ? static_cast<T>(1.0) : static_cast<T>(-1.0))};
+
+    const T l {linear_x - tread * static_cast<T>(0.5) * angular_z};
+    const T r {linear_x + tread * static_cast<T>(0.5) * angular_z};
+
+    softPwmWrite(pin_.first,  static_cast<int>(l * 100.0));
+    softPwmWrite(pin_.second, static_cast<int>(r * 100.0));
   }
 
 private:
