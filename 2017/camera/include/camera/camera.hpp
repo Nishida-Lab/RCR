@@ -67,16 +67,16 @@ public:
     cv::imwrite(prefix + "1_raw.jpg", image_buffer_);
 
     image_type hsv {convert(image_buffer_)};
-    // cv::imwrite(prefix + "hsv.jpg", hsv);
+    cv::imwrite(prefix + "2_hsv.jpg", hsv);
 
     image_type red_masked {red_mask(hsv)};
-    cv::imwrite(prefix + "2_red_masked.jpg", red_masked);
+    cv::imwrite(prefix + "3_red_masked.jpg", red_masked);
 
     image_type red_opened {opening(red_masked)};
-    cv::imwrite(prefix + "3_red_opened.jpg", red_opened);
+    cv::imwrite(prefix + "4_red_opened.jpg", red_opened);
 
     image_type contour {find_contours_debug(red_opened)};
-    cv::imwrite(prefix + "4_contour.jpg", contour);
+    cv::imwrite(prefix + "5_contour.jpg", contour);
   }
 
   auto find()
@@ -102,9 +102,16 @@ private:
   {
     image_type res {};
 
-    cv::dilate(bin, res, cv::Mat {}, cv::Point(-1, -1), 2);
-    cv::erode( res, res, cv::Mat {}, cv::Point(-1, -1), 4);
-    cv::dilate(res, res, cv::Mat {}, cv::Point(-1, -1), 2);
+    // cv::dilate(bin, res, cv::Mat {}, cv::Point(-1, -1), 4);
+    // cv::imwrite(prefix + "3.1_dilate.jpg", red_opened);
+    //
+    // cv::erode( res, res, cv::Mat {}, cv::Point(-1, -1), 4);
+    // cv::imwrite(prefix + "3.2_erode.jpg", red_opened);
+    //
+    // cv::dilate(res, res, cv::Mat {}, cv::Point(-1, -1), 2);
+    // cv::imwrite(prefix + "3.3_dilate.jpg", red_opened);
+
+    cv::morphologyEx(bin, res, CV_MOP_OPEN, cv::Mat {}, cv::Point {-1, -1}, 2);
 
     return res;
   }
@@ -145,7 +152,7 @@ private:
       if (pole_ratio * (1 - tolerance) < rect_ratio && rect_ratio < pole_ratio * (1 + tolerance))
       {
         cv::rectangle(result, cv::Point {rect.x, rect.y}, cv::Point {rect.x + rect.width, rect.y + rect.height},
-                      cv::Scalar {255, 0, 0}, 1, CV_AA);
+                      cv::Scalar {255, 0, 0}, 3, CV_AA);
 
         cv::Moments moment {cv::moments(*iter)};
         pole_moments.emplace_back(moment.m10 / moment.m00, moment.m01 / moment.m00);
@@ -154,7 +161,7 @@ private:
       else
       {
         cv::rectangle(result, cv::Point {rect.x, rect.y}, cv::Point {rect.x + rect.width, rect.y + rect.height},
-                      cv::Scalar {255, 0, 0}, 3, CV_AA);
+                      cv::Scalar {255, 0, 0}, 1, CV_AA);
       }
     }
 
