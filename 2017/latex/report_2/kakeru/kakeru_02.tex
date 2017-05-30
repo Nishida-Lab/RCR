@@ -14,7 +14,7 @@
 また ，RPiはアナログI/Oポートを持っておらず，アナログ電圧出力を行うセンサ類の処理が困難である．そこで，アナログ・ディジタルI/Oポートを
 持つArduinoにセンサ類の処理を担わせることとした．ただし,要求されるアナログI/Oポート数が後述の$I^2 C$通信を使用しても足りない.そこで
 Arduino用16チャンネル・アナログ・マルチプレクサを使用することで増設を行った.
-\begin{table}[h]
+\begin{table}[H]
   \centering
   \caption{回路用部品表}
   \begin{tabular}{|l|l|r||l|} \hline
@@ -42,14 +42,14 @@ Arduino用16チャンネル・アナログ・マルチプレクサを使用す�
   \label{tab:c_parts}
 \end{table}
 \newpage
-\begin{figure}[h]
+\begin{figure}[H]
  \centering
  \includegraphics[clip,scale=0.35]{../kakeru/picture/raspberryPi3.eps}
  \caption{Raspberry Pi3 接続回路図}
  \label{c_raspberry}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
  \centering
  \includegraphics[clip,scale=0.35]{../kakeru/picture/arduino_02.eps}
  \caption{Arduino unoR3 接続回路図}
@@ -58,7 +58,6 @@ Arduino用16チャンネル・アナログ・マルチプレクサを使用す�
 \newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage
 \subsection{モータドライバ}
 モータドライバは「MD10C R3」(図\ref{MD10C})を両輪駆動用として2つ使用し，
 「TA7291P」(図\ref{TA7291P})をアーム用として使用する．
@@ -78,13 +77,13 @@ Arduino用16チャンネル・アナログ・マルチプレクサを使用す�
  \item モータ最大電流 : 1.0[A]
  \item ロジック電圧 : DC 4.5[V]$〜$20[V]
 \end{itemize}
-\begin{figure}[h]
+\begin{figure}[H]
  \centering
  \includegraphics[width=0.5\hsize]{../kakeru/picture/MD10C.eps}
     \caption{MD10C R3}
     \label{MD10C}
 \end{figure}
-\begin{figure}[h]
+\begin{figure}[H]
  \centering
  \includegraphics[width=0.5\hsize]{../kakeru/picture/TO.eps}
     \caption{TA7291P}
@@ -92,7 +91,7 @@ Arduino用16チャンネル・アナログ・マルチプレクサを使用す�
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage
+
 \subsection{センサ仕様}
 ロボットに搭載されているセンサは以下である.
 \begin{itemize}

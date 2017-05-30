@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.1415926-p3.4-110825-2.6 (utf8.euc) (TeX Live 2013/Debian) (format=platex 2017.4.14)  31 MAY 2017 02:42
+This is e-pTeX, Version 3.1415926-p3.4-110825-2.6 (utf8.euc) (TeX Live 2013/Debian) (format=platex 2017.4.14)  31 MAY 2017 06:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -261,84 +261,63 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 
 [6]
 File: ../kuwano/picture/kuwano1.eps Graphic file (type eps)
- <../kuwano/picture/kuwano1.eps>
+ <../kuwano/picture/kuwano1.eps> [7]
 File: ../kuwano/picture/kuwano2.eps Graphic file (type eps)
  <../kuwano/picture/kuwano2.eps>
+[8]
 File: ../kuwano/picture/kuwano3.eps Graphic file (type eps)
-
-<../kuwano/picture/kuwano3.eps>
+ <../kuwano/picture/kuwano3.eps> [9]
 File: ../kuwano/picture/kuwano4.eps Graphic file (type eps)
  <../kuwano/picture/kuwano4.eps>
+[10]
 File: ../kuwano/picture/kuwano5.eps Graphic file (type eps)
-
-<../kuwano/picture/kuwano5.eps>
+ <../kuwano/picture/kuwano5.eps>
 File: ../kuwano/picture/kuwano6.eps Graphic file (type eps)
  <../kuwano/picture/kuwano6.eps>)
-(../kakeru/kakeru_02.tex [7]
+(../kakeru/kakeru_02.tex [11]
 Overfull \hbox (35.209pt too wide) in paragraph at lines 20--43
  [][] 
  []
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[8]
+[12] [13]
 File: ../kakeru/picture/raspberryPi3.eps Graphic file (type eps)
  <../kakeru/picture/raspberryPi3.eps>
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
 File: ../kakeru/picture/arduino_02.eps Graphic file (type eps)
-<../kakeru/picture/arduino_02.eps>
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
+<../kakeru/picture/arduino_02.eps> [14]
 File: ../kakeru/picture/MD10C.eps Graphic file (type eps)
-<../kakeru/picture/MD10C.eps>
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
+ <../kakeru/picture/MD10C.eps>
 File: ../kakeru/picture/TO.eps Graphic file (type eps)
-<../kakeru/picture/TO.eps>
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[9]
+<../kakeru/picture/TO.eps> [15]
 File: ../kakeru/picture/Distance.eps Graphic file (type eps)
- <../kakeru/picture/Distance.eps> [10]
+ <../kakeru/picture/Distance.eps>
 
-LaTeX Warning: Reference `algo' on page 11 undefined on input line 127.
+LaTeX Warning: Reference `algo' on page 16 undefined on input line 126.
 
 File: ../kakeru/picture/jairo.eps Graphic file (type eps)
-<../kakeru/picture/jairo.eps>
+<../kakeru/picture/jairo.eps> [16]
 File: ../kakeru/picture/dengen.eps Graphic file (type eps)
- <../kakeru/picture/dengen.eps> [11]
+ <../kakeru/picture/dengen.eps> [17]
 File: ../kakeru/picture/level.eps Graphic file (type eps)
 
-<../kakeru/picture/level.eps>) [12] (../nakao/nakao.tex [13] [14]) [15]
-File: ./picture/screen_shot.eps Graphic file (type eps)
-
-<./picture/screen_shot.eps>
+<../kakeru/picture/level.eps>) [18] (../nakao/nakao.tex [19])
+(../yamasa/main.tex [20]
+File: ../yamasa/plot/minus_atanh.eps Graphic file (type eps)
+ <../yamasa/plot/minus_atanh.eps> [21])
 File: ./picture/schedule.eps Graphic file (type eps)
- <./picture/schedule.eps> (../list/list.tex [16]
-Overfull \vbox (26.50089pt too high) has occurred while \output is active []
 
-
-[17]
-Overfull \hbox (16.28722pt too wide) in paragraph at lines 33--61
+<./picture/schedule.eps> (../list/list.tex [22] [23]
+Overfull \hbox (16.28722pt too wide) in paragraph at lines 34--62
  [] 
  []
 
-
-Overfull \vbox (295.23743pt too high) has occurred while \output is active []
-
-
-[18]
-Overfull \hbox (50.63777pt too wide) in paragraph at lines 69--86
+[24]
+Overfull \hbox (67.8538pt too wide) in paragraph at lines 70--85
  [] 
  []
 
-) [19] (./appendix.tex) [1] [2] (./base.aux)
+) [25] (./appendix.tex) [1] (./base.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -347,12 +326,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 3139 strings out of 495129
- 40306 string characters out of 6182595
- 107622 words of memory out of 5000000
- 6398 multiletter control sequences out of 15000+600000
+ 3149 strings out of 495129
+ 40439 string characters out of 6182595
+ 106650 words of memory out of 5000000
+ 6403 multiletter control sequences out of 15000+600000
  24479 words of font info for 95 fonts, out of 8000000 for 9000
  80 hyphenation exceptions out of 8191
- 29i,11n,43p,494b,323s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 29i,12n,43p,244b,323s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on base.dvi (22 pages, 56056 bytes).
+Output written on base.dvi (27 pages, 60092 bytes).

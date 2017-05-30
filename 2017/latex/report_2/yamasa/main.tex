@@ -1,12 +1,3 @@
-\documentclass[11pt,a4paper]{jsarticle}
-
-\input{include/macro.tex}
-\input{include/preamble.tex}
-
-\begin{document}
-
-\section{ソフトウェア} \setcounters{0}
-
 \subsection{画像認識}
   炎上ポールの認識には配布されたRapspberry Pi NoIR Camera V2（以下，カメラモジュール）を使用する．
   画像撮影から最も近いポールと思われる物体へのベクトルを出力する一連の手順を，簡単に以下に示す．
@@ -42,7 +33,7 @@
 
   \end{description}
 
-\subsection{進行方向}
+\subsection{障害物回避}
   機体周囲に放射状に取り付けられた測距センサによる距離情報をもとに障害物回避を行う．
 
   まず，スカラーである距離情報に方向の情報を付加するために，
@@ -72,9 +63,9 @@
 
   \refeq{arctanh}を図に表すと\refig{arctanh}となる．
 
-  \begin{figure}[b]
+  \begin{figure}[H]
     \begin{center}
-      \includegraphics[width=1.0\hsize]{plot/minus_atanh.eps}
+      \includegraphics[width=1.0\hsize]{../yamasa/plot/minus_atanh.eps}
     \end{center}
     \caption{$y=-\tanh^{-1}(x-1)$}
     \label{fig::arctanh}
@@ -88,24 +79,7 @@
   場合を分けて正規化を行わなければならない．\\
 
   以上の処理により近接センサ3つとPSDセンサ7つの距離情報から作成したベクトルを合成し，正規化する．
-  前節の画像処理により画像内に赤色の物体が検知されていた場合はそれに向かうベクトルに，
-  検知されていなかった場合は自己位置推定の結果から順路に沿ってゴールへ向かうベクトルを作成し，
+  前節の画像処理により画像内に赤色の物体が検知されていた場合はそれに向かうベクトルを作成し，
   それに距離情報から作成したベクトルを合成し，進行方向とする．
 
   最後に，進行方向のベクトルが左右のモータへ与える速度指令値に変換されて入力される．
-
-\begin{thebibliography}{9}
-
-  \bibitem{raspicam}
-    "RaspiCam: C++ API for using Raspberry camera with/without OpenCV"，\\
-    "\texttt{https://www.uco.es/investiga/grupos/ava/node/40}"，\\
-    2017年5月31日最終確認．
-
-  \bibitem{elinux}
-    "RPi Camera Module - eLinux.org"，\\
-    "\texttt{http://elinux.org/Rpi\_Camera\_Module\#Technical\_Parameters\_.28v.2\_board.29}"，\\
-    2017年5月31日最終確認．
-
-\end{thebibliography}
-
-\end{document}

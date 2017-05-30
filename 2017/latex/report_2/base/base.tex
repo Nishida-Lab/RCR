@@ -208,26 +208,11 @@ $80\unit{cm}$からは変化に乏しいことがわかる．
 
 \newpage
 \input{../nakao/nakao.tex}
-\subsection{アルゴリズム}
-3つのモードを切り替えながら完走する．
- \subsubsection{直線走行}
- まず最初の直線部分のアルゴリズムである．右斜め前についているPSDセンサが一定時間内にある閾値以上の反応を示す限り直進しする．そして車体右側についている2つのPSDセンサで同一のポールをとらえた時の測定距離の差を用いて車体のズレを検出し，車体角度を調節する．右斜め前についているPSDセンサが一定時間閾値以上の反応を見せなかった場合，右折し消火活動開始区間に入る．
- \subsubsection{消火エリア内}
-火活動開始区間では一番近い入り口から順番にカメラで見ていく．ロボカーの侵入を妨げるポールがない入り口を見つけ次第すぐに消火エリアに入るように設定する．消火エリアに入ったのちすぐに左旋回しポール探索を行う．赤ポールを検出できたらそのポールまで行き消火活動を行う．消火したポールの先にまだ赤ポールがあるなら，そこまで行き消火する．その後Uターンし黄色ポールまでもどり，直線走行をする．一定距離，下に進んだのち左旋回し赤ポールを探索し消火する．これを繰り返し一番下まで探索を繰り返していく．
- \subsubsection{ゴールまで} 
-色ポールに沿って下へ進んでいくが，その黄色ポールが検出できなくなると右旋回しゴールする．
-
-
-\begin{figure}[hb]
-\begin{center}
-  \includegraphics[scale = 0.4]{./picture/screen_shot.eps}
- \caption{アルゴリズム}
-\end{center}
-\end{figure}
+\input{../yamasa/main.tex}
 
 \subsection{今後の予定}
 図\ref{fig:schedule}に大まかな今後の予定を示す．
-\begin{figure}[tH]
+\begin{figure}[bH]
 \begin{center}
   \includegraphics[width=1.0\hsize]{./picture/schedule.eps}
  \caption{今後の予定}
@@ -243,6 +228,19 @@ $80\unit{cm}$からは変化に乏しいことがわかる．
 
 
 
+\begin{thebibliography}{9}
+ \bibitem{raspicam}
+    "RaspiCam: C++ API for using Raspberry camera with/without OpenCV"，\\
+    "\texttt{https://www.uco.es/investiga/grupos/ava/node/40}"，\\
+    2017年5月31日最終確認．
+
+  \bibitem{elinux}
+    "RPi Camera Module - eLinux.org"，\\
+    "\texttt{http://elinux.org/Rpi\_Camera\_Module\#Technical\_Parameters\_.28v.2\_board.29}"，\\
+    2017年5月31日最終確認．
+\end{thebibliography}
+
+
 \newpage
 \setcounter{page}{1}
 \pagestyle{fancy}
@@ -251,5 +249,4 @@ $80\unit{cm}$からは変化に乏しいことがわかる．
 \lhead{}
 \cfoot{}
 \input{./appendix.tex}
-
 \end{document}
