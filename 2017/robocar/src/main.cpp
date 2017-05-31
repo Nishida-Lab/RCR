@@ -41,15 +41,6 @@ const std::unordered_map<std::string,char> sensor_codes {
 };
 
 
-// template <typename T>
-// T dummy_sensor_value(T&& min = static_cast<T>(0.0), T&& max = static_cast<T>(1.0))
-// {
-//   static std::default_random_engine engine {std::random_device {}()};
-//   std::uniform_real_distribution<T> uniform {min, max};
-//   return uniform(engine);
-// }
-
-
 int main(int argc, char** argv) try
 {
   robocar::wiring_serial serial {"/dev/ttyACM0", 9600};
@@ -68,7 +59,7 @@ int main(int argc, char** argv) try
   {
     if (sensor_codes.find(name) != sensor_codes.end())
     {
-      std::cout << "[debug] name: " << name << std::endl;
+      // std::cout << "[debug] name: " << name << std::endl;
       if (name == "long_range_6")
       {
         dest = "45";
@@ -76,16 +67,16 @@ int main(int argc, char** argv) try
       }
 
       serial.putchar(static_cast<char>(sensor_codes.at(name)));
-      std::cout << "[debug] putchar: " << static_cast<int>(sensor_codes.at(name)) << std::endl;
+      // std::cout << "[debug] putchar: " << static_cast<int>(sensor_codes.at(name)) << std::endl;
       std::this_thread::sleep_for(std::chrono::milliseconds(100)); // TODO adjust
 
-      std::cout << "[debug] avail: " << serial.avail() << std::endl;
+      // std::cout << "[debug] avail: " << serial.avail() << std::endl;
 
       while (serial.avail() > 0)
       {
         dest.push_back(serial.getchar());
       }
-      std::cout << "[debug] dest: " << dest << std::endl;
+      // std::cout << "[debug] dest: " << dest << std::endl;
 
       return dest;
     }
@@ -156,12 +147,12 @@ int main(int argc, char** argv) try
     neighbor[4] <<=  1.0,  0.0;        /* robocar */          neighbor[0] <<= -1.0,  0.0;
     neighbor[5] <<=  1.0,  1.0;  neighbor[6] <<=  0.0,  1.0;  neighbor[7] <<= -1.0,  1.0;
 
-    for (auto&& v : neighbor)
-    {
-      v = robocar::vector<double>::normalize(v);
-      std::cout << "[debug] neighbor[" << std::noshowpos << &v - &neighbor.front() << "] "
-                << std::fixed << std::setprecision(3) << std::showpos << v << std::endl;
-    }
+    // for (auto&& v : neighbor)
+    // {
+    //   v = robocar::vector<double>::normalize(v);
+    //   std::cout << "[debug] neighbor[" << std::noshowpos << &v - &neighbor.front() << "] "
+    //             << std::fixed << std::setprecision(3) << std::showpos << v << std::endl;
+    // }
 
     static constexpr std::size_t desired_distance {45};
 
@@ -219,12 +210,12 @@ int main(int argc, char** argv) try
 
     neighbor[2] <<=  1.0, -1.0;  neighbor[1] <<=  0.0, -1.0;  neighbor[0] <<= -1.0, -1.0;
 
-    for (auto&& v : neighbor)
-    {
-      v = robocar::vector<double>::normalize(v);
-      std::cout << "[debug] neighbor[" << std::noshowpos << &v - &neighbor.front() << "] "
-                << std::fixed << std::setprecision(3) << std::showpos << v << std::endl;
-    }
+    // for (auto&& v : neighbor)
+    // {
+    //   v = robocar::vector<double>::normalize(v);
+    //   std::cout << "[debug] neighbor[" << std::noshowpos << &v - &neighbor.front() << "] "
+    //             << std::fixed << std::setprecision(3) << std::showpos << v << std::endl;
+    // }
 
     static constexpr std::size_t desired_distance {3}; // [cm]
     static constexpr std::size_t range_max {20};
@@ -251,6 +242,7 @@ int main(int argc, char** argv) try
 
       if (sensor_value < static_cast<int>(desired_distance))
       {
+        std::cout << "[debug] break point " << __LINE__ <<std::endl;
         double numerator   {static_cast<double>(desired_distance) - static_cast<double>(sensor_value)};
         double denominator {static_cast<double>(desired_distance)};
 
@@ -259,7 +251,13 @@ int main(int argc, char** argv) try
 
       else
       {
-        sensor_value = (sensor_value > static_cast<int>(range_max) ? static_cast<int>(range_max) : sensor_value);
+        std::cout << "[debug] break point " << __LINE__ <<std::endl;
+        if (sensor_value > static_cast<int>(range_max))
+        {
+          std::cout << "[debug] break point " << __LINE__ <<std::endl;
+          // sensor_value = static_cast<int>(range_max);
+          sensor_value = static_cast<int>(desired_distance);
+        }
 
         double numerator   {static_cast<double>(sensor_value) - static_cast<double>(desired_distance)};
         double denominator {static_cast<double>(range_max) - static_cast<double>(desired_distance)};
