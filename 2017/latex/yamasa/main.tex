@@ -59,7 +59,7 @@
 \subsection{画像認識}
   炎上ポールの認識には配布されたRapspberry Pi NoIR Camera V2（以下，カメラモジュール）を使用する．
   画像撮影から最も近いポールと思われる物体へのベクトルを出力する一連の手順を，簡単に以下に示す．
-  画像処理にはOpenCVライブラリを用いており，使用したライブラリ関数を併記する．
+  画像処理にはOpenCVライブラリを用いており，各処理で使用した主要なライブラリ関数を併記する．
 
   \begin{description}
 
@@ -85,15 +85,19 @@
       使用関数：\texttt{cv::findContours}，\texttt{cv::boundingRect} \\
 
     \item[ベクトル作成] \mbox{} \\
-      除外されず残った矩形の重心点を求め，カメラの画角（$62.2 \times 48.8$）
+      除外されず残った矩形の重心点を求め，カメラの画角（$62.2 \times 48.8$ \cite{elinux}）
       を元に機体中心から重心点へ向かうベクトルを作る．\\
       使用関数：\texttt{cv::moments} \\
 
   \end{description}
 
 \begin{thebibliography}{9}
-  \bibitem{raspicam} "RaspiCam: C++ API for using Raspberry camera with/without OpenCV"，\\
-                     "\texttt{https://www.uco.es/investiga/grupos/ava/node/40}"，2017年5月31日最終確認．
+  \bibitem{raspicam}
+    "RaspiCam: C++ API for using Raspberry camera with/without OpenCV"，\\
+    "\texttt{https://www.uco.es/investiga/grupos/ava/node/40}"，2017年5月31日最終確認．
+  \bibitem{elinux}
+    "RPi Camera Module - eLinux.org"，\\
+    "\texttt{http://elinux.org/Rpi\_Camera\_Module\#Technical\_Parameters\_.28v.2\_board.29}"，2017年5月31日最終確認．
 \end{thebibliography}
 
 \end{document}
