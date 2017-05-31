@@ -26,12 +26,6 @@ int readSensor(int sensor){
   case 8:
   case 9:
     answer = readAnalog(sensor); break; //read PSD sensor
-//  case 7:
-//    answer = getPosition_x(acc_0,acc_1,acc_2);
-//  case 8:
-//    answer = getPosition_y(acc_0,acc_1,acc_2);
-//  case 9:
-//    answer = getPosition_z(acc_0,acc_1,acc_2);
   case 10:
     answer = vl6180x_NW.readRangeSingleMillimeters();
     if(vl6180x_NW.timeoutOccurred()) answer = -1; break;
@@ -112,6 +106,8 @@ void loop(){
   if(tim > 2) tim = 0;
 
   if(Serial.available() > 0) claim = Serial.read();
-  if(claim != -1) Serial.write(readSensor(claim));
-
+  if(claim != -1){
+    Serial.print(readSensor(claim));
+    Serial.flush();
+  }
 }
