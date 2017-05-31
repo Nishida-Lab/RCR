@@ -21,7 +21,7 @@
 #include <robocar/vector/vector.hpp>
 
 
-const std::unordered_map<std::string,std::int8_t> sensor_codes {
+const std::unordered_map<std::string,char> sensor_codes {
   {"long_range_0",   5},
   {"long_range_1",   4},
   {"long_range_2",   3},
@@ -52,7 +52,7 @@ const std::unordered_map<std::string,std::int8_t> sensor_codes {
 
 int main(int argc, char** argv) try
 {
-  robocar::wiring_serial serial {"/dev/ttyACM0", 115200};
+  robocar::wiring_serial serial {"/dev/ttyACM0", 9600};
 
   std::cout << "[debug] wait for serial connection stabilize...\n";
   std::this_thread::sleep_for(std::chrono::seconds(3));
@@ -63,17 +63,29 @@ int main(int argc, char** argv) try
 
   robocar::differential_driver driver {std::pair<int,int> {35, 38}, std::pair<int,int> {37, 40}};
 
-  auto query = [&](const std::string& name, std::string&& dest = std::string {})
+  auto query = [&](const std::string& name, std::string& dest)
     -> std::string
   {
     if (sensor_codes.find(name) != sensor_codes.end())
     {
-      if (name == "long_range_6") { return std::string {"45"}; }
+      std::cout << "[debug] name: " << name << std::endl;
+      if (name == "long_range_6")
+      {
+        dest = "45";
+        return  dest;
+      }
 
       serial.putchar(static_cast<char>(sensor_codes.at(name)));
-      std::this_thread::sleep_for(std::chrono::milliseconds(10)); // TODO adjust
+      std::cout << "[debug] putchar: " << static_cast<int>(sensor_codes.at(name)) << std::endl;
+      std::this_thread::sleep_for(std::chrono::milliseconds(100)); // TODO adjust
 
-      while (serial.avail()) { dest += serial.getchar(); }
+      std::cout << "[debug] avail: " << serial.avail() << std::endl;
+
+      while (serial.avail() > 0)
+      {
+        dest.push_back(serial.getchar());
+      }
+      std::cout << "[debug] dest: " << dest << std::endl;
 
       return dest;
     }
@@ -84,7 +96,8 @@ int main(int argc, char** argv) try
   constexpr auto long_range_sensor = [&](auto sensor_value) // GP2Y0A21
     -> double
   {
-    return 45.514 * std::pow(static_cast<double>(sensor_value), static_cast<double>(-0.822));
+    double tmp {sensor_value * 5 / 1024};
+    return 45.514 * std::pow(static_cast<double>(tmp), static_cast<double>(-0.822));
   };
 
   constexpr auto short_range_sensor = [&](auto sensor_value) // VL6180X
@@ -160,11 +173,17 @@ int main(int argc, char** argv) try
       std::string sensor_name {"long_range_" + std::to_string(index)};
       std::cout << "        sensor name: " << sensor_name << std::endl;
 
-      int sensor_value_raw {std::stoi(query(sensor_name))};
-      int sensor_value {long_range_sensor(sensor_value_raw)};
+      std::string sensor_value_str {};
+      query(sensor_name, sensor_value_str);
+      std::cout << "        sensor value str: " << sensor_value_str << std::endl;
+
+      int sensor_value_raw {std::stoi(sensor_value_str)};
+      std::cout << "        sensor value raw: " << sensor_value_raw << std::endl;
+
+      double sensor_value {long_range_sensor(sensor_value_raw)};
       std::cout << "        sensor value: " << sensor_value << std::endl;
 
-      int range_max {desired_distance * 2};
+      double range_max {desired_distance * 2};
 
       if (sensor_value > range_max)
       {
@@ -218,7 +237,13 @@ int main(int argc, char** argv) try
       std::string sensor_name {"short_range_" + std::to_string(index)};
       std::cout << "        sensor name: " << sensor_name << std::endl;
 
-      int sensor_value_raw {std::stoi(query(sensor_name))};
+      std::string sensor_value_str {};
+      query(sensor_name, sensor_value_str);
+      std::cout << "        sensor value str: " << sensor_value_str << std::endl;
+
+      int sensor_value_raw {std::stoi(sensor_value_str)};
+      std::cout << "        sensor value raw: " << sensor_value_raw << std::endl;
+
       int sensor_value {short_range_sensor(sensor_value_raw)};
       std::cout << "        sensor value: " << sensor_value << std::endl;
 
@@ -268,38 +293,38 @@ int main(int argc, char** argv) try
     driver.write(base, 1.0);
   }
 
-  {
-    auto forward = [&]()
-    {
-      driver.write(robocar::vector<double> {0.0, 1.0}, static_cast<double>(0.18));
-    };
-
-    auto right_turn = [&]()
-    {
-      driver.write(robocar::vector<double> {1.0, 0.0}, static_cast<double>(0.18));
-    };
-
-    auto left_turn = [&]()
-    {
-      driver.write(robocar::vector<double> {-1.0, 0.0}, static_cast<double>(0.18));
-    };
-
-    auto stop = [&]()
-    {
-      driver.write(robocar::vector<double> {0.0, 0.0}, static_cast<double>(0.18));
-    };
-
-    auto carrot_test = [&]()
-    {
-      std::vector<robocar::vector<double>> poles {search()};
-
-      robocar::vector<double> base {poles.empty() == true ? robocar::vector<double> {0.0, 0.0} : poles.front()};
-      base[0] *= 0.3;
-
-      std::cout << "[debug] base: " << base << std::endl;
-      driver.write(base, 0.18);
-    };
-  }
+  // {
+  //   auto forward = [&]()
+  //   {
+  //     driver.write(robocar::vector<double> {0.0, 1.0}, static_cast<double>(0.18));
+  //   };
+  //
+  //   auto right_turn = [&]()
+  //   {
+  //     driver.write(robocar::vector<double> {1.0, 0.0}, static_cast<double>(0.18));
+  //   };
+  //
+  //   auto left_turn = [&]()
+  //   {
+  //     driver.write(robocar::vector<double> {-1.0, 0.0}, static_cast<double>(0.18));
+  //   };
+  //
+  //   auto stop = [&]()
+  //   {
+  //     driver.write(robocar::vector<double> {0.0, 0.0}, static_cast<double>(0.18));
+  //   };
+  //
+  //   auto carrot_test = [&]()
+  //   {
+  //     std::vector<robocar::vector<double>> poles {search()};
+  //
+  //     robocar::vector<double> base {poles.empty() == true ? robocar::vector<double> {0.0, 0.0} : poles.front()};
+  //     base[0] *= 0.3;
+  //
+  //     std::cout << "[debug] base: " << base << std::endl;
+  //     driver.write(base, 0.18);
+  //   };
+  // }
 
   // forward();
   // std::this_thread::sleep_for(std::chrono::seconds(3));
@@ -318,7 +343,7 @@ int main(int argc, char** argv) try
 
 catch (std::logic_error& error)
 {
-  std::cerr << "[error] " << error.what() << std::endl;
+  std::cerr << "[error] logic_error: " << error.what() << std::endl;
   std::exit(EXIT_FAILURE);
 }
 
