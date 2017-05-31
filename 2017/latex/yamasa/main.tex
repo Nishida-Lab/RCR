@@ -25,13 +25,6 @@
     \bm{u}_7 = \begin{bmatrix} -1     \\  0     \end{bmatrix}  \hspace{5mm} \\ \nonumber
   \end{eqnarray}
 
-  距離センサのセンサ値$v$より距離$d \unit{cm}$を求める式は次の2式である．
-
-  \begin{eqnarray}
-    d_{\rm{ long}} &=& 45.514 v^{-0.822} \\
-    d_{\rm{short}} &=& 0.09999 v + 0.4477 \\ \nonumber
-  \end{eqnarray}
-
   障害物との衝突を避けるため，センサにより得られた距離が小さいほど大きな斥力が
   機体の進行方向に作用するようにしなければならない．
   また同時に，離れすぎることも競技エリア外に出てしまうことが懸念されるため避けなければならない．
@@ -67,7 +60,7 @@
   \begin{description}
 
     \item[画像取得] \mbox{} \\
-      カメラモジュールへのアクセスには既成ライブラリ\cite{raspicam}を利用した．
+      カメラモジュールへのアクセスにはOpenCVとは異なる既成ライブラリ\cite{raspicam}を利用した．
       撮影によりピクセル値の2次元配列（cv::Mat）が出力として得られる．\\
 
     \item[カラーモデル変換] \mbox{} \\
@@ -95,14 +88,17 @@
   \end{description}
 
 \begin{thebibliography}{9}
+
   \bibitem{raspicam}
     "RaspiCam: C++ API for using Raspberry camera with/without OpenCV"，\\
     "\texttt{https://www.uco.es/investiga/grupos/ava/node/40}"，\\
     2017年5月31日最終確認．
+
   \bibitem{elinux}
     "RPi Camera Module - eLinux.org"，\\
     "\texttt{http://elinux.org/Rpi\_Camera\_Module\#Technical\_Parameters\_.28v.2\_board.29}"，\\
     2017年5月31日最終確認．
+
 \end{thebibliography}
 
 \end{document}
