@@ -264,6 +264,16 @@ int main(int argc, char** argv) try
     driver.write(robocar::vector<double> {0.0, 1.0}, static_cast<double>(0.18));
   };
 
+  auto right_turn = [&]()
+  {
+    driver.write(robocar::vector<double> {1.0, 0.0}, static_cast<double>(0.18));
+  };
+
+  auto left_turn = [&]()
+  {
+    driver.write(robocar::vector<double> {-1.0, 0.0}, static_cast<double>(0.18));
+  };
+
   auto stop = [&]()
   {
     driver.write(robocar::vector<double> {0.0, 0.0}, static_cast<double>(0.18));
@@ -280,10 +290,16 @@ int main(int argc, char** argv) try
     driver.write(base, 0.18);
   };
 
-  while (true)
-  {
-    carrot_test();
-  }
+  forward();
+  std::this_thread::sleep_for(std::chrono::seconds(3));
+
+  right_turn();
+  std::this_thread::sleep_for(std::chrono::seconds(3));
+
+  left_turn();
+  std::this_thread::sleep_for(std::chrono::seconds(3));
+
+  stop();
 
   return 0;
 }
