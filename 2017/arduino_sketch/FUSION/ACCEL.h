@@ -9,40 +9,25 @@ struct ACCEL{
 
 ACCEL acc_0,acc_1,acc_2;
 
-void getAcc(int num,char direction){
+void getAcc(int num){
   switch(num){
   case 0:
     acc_0.time = millis();
-    switch(direction){
-    case 'x':
-      acc_0.data_x = readAnalog(7); break;
-    case 'y':
-      acc_0.data_y = readAnalog(8); break;
-    case 'z':
-      acc_0.data_z = readAnalog(9); break;
-    } break;
+    acc_0.data_x = readAnalog(7); 
+    acc_0.data_y = readAnalog(8); 
+    acc_0.data_z = readAnalog(9); break;
  
   case 1:
     acc_1.time = millis();
-    switch(direction){
-    case 'x':
-      acc_1.data_x = readAnalog(7); break;
-    case 'y':
-      acc_1.data_y = readAnalog(8); break;
-    case 'z':
-      acc_1.data_z = readAnalog(9); break;
-    }break;
+    acc_1.data_x = readAnalog(7); 
+    acc_1.data_y = readAnalog(8); 
+    acc_1.data_z = readAnalog(9); break;
 
   case 2:
     acc_2.time = millis();
-    switch(direction){
-    case 'x':
-      acc_2.data_x = readAnalog(7); break;
-    case 'y':
-      acc_2.data_y = readAnalog(8); break;
-    case 'z':
-      acc_2.data_z = readAnalog(9); break;
-    }break;
+    acc_2.data_x = readAnalog(7); 
+    acc_2.data_y = readAnalog(8); 
+    acc_2.data_z = readAnalog(9); break;
   }
 }
 
