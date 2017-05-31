@@ -68,7 +68,7 @@ int main(int argc, char** argv) try
 
       serial.putchar(static_cast<char>(sensor_codes.at(name)));
       // std::cout << "[debug] putchar: " << static_cast<int>(sensor_codes.at(name)) << std::endl;
-      std::this_thread::sleep_for(std::chrono::milliseconds(100)); // TODO adjust
+      std::this_thread::sleep_for(std::chrono::milliseconds(200)); // TODO adjust
 
       // std::cout << "[debug] avail: " << serial.avail() << std::endl;
 
@@ -120,7 +120,7 @@ int main(int argc, char** argv) try
   auto position = [&]()
     -> robocar::vector<double>
   {
-    return robocar::vector<double> {0.0, 1.0};
+    return robocar::vector<double> {0.0, 0.0};
   };
 
   const auto const_forward_vector = []()
@@ -279,50 +279,48 @@ int main(int argc, char** argv) try
 
   while (true)
   {
-    // std::vector<robocar::vector<double>> poles {search()};
-    std::vector<robocar::vector<double>> poles {};
+    std::vector<robocar::vector<double>> poles {search()};
+    // std::vector<robocar::vector<double>> poles {};
 
     robocar::vector<double> base {poles.empty() == true ? position() : poles.front()};
 
-    base +=  long_range_sensor_array_debug();
-    base += short_range_sensor_array_debug();
+    // base += robocar::vector<double>::normalize( long_range_sensor_array_debug());
+    // base += robocar::vector<double>::normalize(short_range_sensor_array_debug());
 
     std::cout << "[debug] " << base << std::endl;
-    driver.write(base, 1.0);
+    driver.write(base, 1.0, 0.3);
   }
 
-  // {
-  //   auto forward = [&]()
-  //   {
-  //     driver.write(robocar::vector<double> {0.0, 1.0}, static_cast<double>(0.18));
-  //   };
-  //
-  //   auto right_turn = [&]()
-  //   {
-  //     driver.write(robocar::vector<double> {1.0, 0.0}, static_cast<double>(0.18));
-  //   };
-  //
-  //   auto left_turn = [&]()
-  //   {
-  //     driver.write(robocar::vector<double> {-1.0, 0.0}, static_cast<double>(0.18));
-  //   };
-  //
-  //   auto stop = [&]()
-  //   {
-  //     driver.write(robocar::vector<double> {0.0, 0.0}, static_cast<double>(0.18));
-  //   };
-  //
-  //   auto carrot_test = [&]()
-  //   {
-  //     std::vector<robocar::vector<double>> poles {search()};
-  //
-  //     robocar::vector<double> base {poles.empty() == true ? robocar::vector<double> {0.0, 0.0} : poles.front()};
-  //     base[0] *= 0.3;
-  //
-  //     std::cout << "[debug] base: " << base << std::endl;
-  //     driver.write(base, 0.18);
-  //   };
-  // }
+  auto forward = [&]()
+  {
+    driver.write(robocar::vector<double> {0.0, 1.0}, static_cast<double>(0.18), 0.5);
+  };
+
+  auto right_turn = [&]()
+  {
+    driver.write(robocar::vector<double> {1.0, 0.0}, static_cast<double>(0.18), 0.5);
+  };
+
+  auto left_turn = [&]()
+  {
+    driver.write(robocar::vector<double> {-1.0, 0.0}, static_cast<double>(0.18), 0.5);
+  };
+
+  auto stop = [&]()
+  {
+    driver.write(robocar::vector<double> {0.0, 0.0}, static_cast<double>(0.18), 0.5);
+  };
+
+  auto carrot_test = [&]()
+  {
+    std::vector<robocar::vector<double>> poles {search()};
+
+    robocar::vector<double> base {poles.empty() == true ? robocar::vector<double> {0.0, 0.0} : poles.front()};
+    base[0] *= 0.3;
+
+    std::cout << "[debug] base: " << base << std::endl;
+    driver.write(base, 0.18, 0.5);
+  };
 
   // forward();
   // std::this_thread::sleep_for(std::chrono::seconds(3));
@@ -334,7 +332,6 @@ int main(int argc, char** argv) try
   // std::this_thread::sleep_for(std::chrono::seconds(3));
   //
   // stop();
-
 
   return 0;
 }
