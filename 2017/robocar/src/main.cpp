@@ -35,7 +35,9 @@ const std::unordered_map<std::string,std::int8_t> sensor_codes {
   {"short_range_0", 10},
   {"short_range_1", 11},
   {"short_range_2", 12},
-  {"test_13", 13}
+  {"test_13", 13},
+  {"test_14", 13},
+  {"test_15", 13}
 };
 
 
@@ -50,7 +52,7 @@ T dummy_sensor_value(T&& min = static_cast<T>(0.0), T&& max = static_cast<T>(1.0
 
 int main(int argc, char** argv) try
 {
-  // robocar::wiring_serial serial {"/dev/ttyACM0", 115200};
+  robocar::wiring_serial serial {"/dev/ttyACM0", 115200};
 
   static constexpr std::size_t width  {640};
   static constexpr std::size_t height {480};
@@ -63,11 +65,10 @@ int main(int argc, char** argv) try
   {
     if (sensor_codes.find(name) != sensor_codes.end())
     {
-      // serial.putchar(static_cast<char>(sensor_codes.at(name)));
+      serial.putchar(static_cast<char>(sensor_codes.at(name)));
       std::this_thread::sleep_for(std::chrono::milliseconds(10)); // TODO adjust
 
-      // serial.getline(dest);
-      dest = std::to_string(dummy_sensor_value(0.0, 20.0)); // dummy data
+      while (serial.avail()) { dest += serial.getchar(); }
 
       return dest;
     }
@@ -290,16 +291,24 @@ int main(int argc, char** argv) try
     driver.write(base, 0.18);
   };
 
-  forward();
+  // forward();
+  // std::this_thread::sleep_for(std::chrono::seconds(3));
+  //
+  // right_turn();
+  // std::this_thread::sleep_for(std::chrono::seconds(3));
+  //
+  // left_turn();
+  // std::this_thread::sleep_for(std::chrono::seconds(3));
+  //
+  // stop();
+
+
   std::this_thread::sleep_for(std::chrono::seconds(3));
 
-  right_turn();
-  std::this_thread::sleep_for(std::chrono::seconds(3));
-
-  left_turn();
-  std::this_thread::sleep_for(std::chrono::seconds(3));
-
-  stop();
+  for (const auto& map : sensor_codes)
+  {
+    std::cout << "[debug] query " << map.first << ": " << query(map.first) << std::endl;
+  }
 
   return 0;
 }
