@@ -111,7 +111,7 @@ private:
     // cv::dilate(res, res, cv::Mat {}, cv::Point(-1, -1), 2);
     // cv::imwrite(prefix + "3.3_dilate.jpg", red_opened);
 
-    cv::morphologyEx(bin, res, CV_MOP_OPEN, cv::Mat {}, cv::Point {-1, -1}, 2);
+    cv::morphologyEx(bin, res, CV_MOP_CLOSE, cv::Mat {}, cv::Point {-1, -1}, 2);
 
     return res;
   }
@@ -120,8 +120,8 @@ private:
   {
     static cv::Mat1b mask1 {}, mask2 {};
 
-    cv::inRange(hsv, cv::Scalar {  0, 100, 100}, cv::Scalar { 10, 255, 255}, mask1);
-    cv::inRange(hsv, cv::Scalar {170, 100, 100}, cv::Scalar {179, 255, 255}, mask2);
+    cv::inRange(hsv, cv::Scalar {  0, 170, 70}, cv::Scalar { 10, 255, 255}, mask1);
+    cv::inRange(hsv, cv::Scalar {170, 170, 70}, cv::Scalar {179, 255, 255}, mask2);
 
     return cv::Mat1b {mask1 | mask2};
   }
