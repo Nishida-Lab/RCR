@@ -1,13 +1,16 @@
 #include<Wire.h>
 #include<VL6180X.h>
 #include<L3GD20.h>
-#include<./Multiplexer.h>
-
+#include<./ACCEL.h>
 
 VL6180X vl6180x_NW;
 VL6180X vl6180x_N;
 VL6180X vl6180x_NE;
 L3GD20 l3gd20;
+
+unsigned long time_now = 0;
+unsigned long time_last = 0;
+unsigned long time_past = 0;
 
 int readSensor(int sensor){
   int answer = 0;
@@ -22,7 +25,13 @@ int readSensor(int sensor){
   case 7:
   case 8:
   case 9:
-    answer = readAnalog(sensor); break;
+    answer = readAnalog(sensor); break; //read PSD sensor
+//  case 7:
+//    answer = getPosition_x(acc_0,acc_1,acc_2);
+//  case 8:
+//    answer = getPosition_y(acc_0,acc_1,acc_2);
+//  case 9:
+//    answer = getPosition_z(acc_0,acc_1,acc_2);
   case 10:
     answer = vl6180x_NW.readRangeSingleMillimeters();
     if(vl6180x_NW.timeoutOccurred()) answer = -1; break;
@@ -34,8 +43,12 @@ int readSensor(int sensor){
     if(vl6180x_NE.timeoutOccurred()) answer = -1; break;
   case 13:
     l3gd20.read();
-    answer = (int) l3gd20.data.x;
-    answer = (int) l3gd20.data.y;
+    answer = (int) l3gd20.data.x; break;
+  case 14:
+    l3gd20.read();
+    answer = (int) l3gd20.data.y; break;
+  case 15:
+    l3gd20.read();
     answer = (int) l3gd20.data.z; break;
   default: answer = -1;
   }
@@ -43,54 +56,62 @@ int readSensor(int sensor){
   return answer;
 }
 
+
 void setup(){
   Serial.begin(9600);
   Wire.begin();
+ 
+  //pin mode setup----------------------------------------------------- 
+  pinMode( 5, OUTPUT);
+  pinMode( 6, OUTPUT);
+  pinMode( 7, OUTPUT); //SRS_GPIO0 setup
+  pinMode( 8, OUTPUT); 
+  pinMode( 9, OUTPUT);
+  pinMode(10, OUTPUT); 
+  pinMode(11, OUTPUT); //Multiplexer setup
 
-  //short-range sensor setup
+  //short-range sensor setup--------------------------------------------
+  digitalWrite(5, LOW);
+  digitalWrite(6, LOW);
+  digitalWrite(7, LOW);
+ 
+  digitalWrite(5, HIGH);
   vl6180x_NW.init();
-  vl6180x_NW.configureDefault(); //SLAVE_ADDRESS 0x212
+  vl6180x_NW.configureDefault();
+  vl6180x_NW.setAddress(98); //SLAVE_ADDRESS 98
   vl6180x_NW.setTimeout(500);
-
+   
+  digitalWrite(6, HIGH);
   vl6180x_N.init();
   vl6180x_N.configureDefault(); 
-  vl6180x_N.setAddress(0x213);  //SLAVE_ADDRESS 0x213
+  vl6180x_N.setAddress(99);  //SLAVE_ADDRESS 99
   vl6180x_N.setTimeout(500);
-
+ 
+  digitalWrite(7, HIGH);
   vl6180x_NE.init();
   vl6180x_NE.configureDefault(); 
-  vl6180x_NE.setAddress(0x214);  //SLAVE_ADDRESS 0x214
+  vl6180x_NE.setAddress(100);  //SLAVE_ADDRESS 100
   vl6180x_NE.setTimeout(500);
-
-  //gyro sensor setup
-  if(!l3gd20.begin(l3gd20.L3GD20_RANGE_250DPS)){ //SLAVE_ADDRESS 0x6A
-    Serial.write(-1);
+ 
+  //gyro sensor setup------------------------------------------------
+  if(!l3gd20.begin(l3gd20.L3GD20_RANGE_500DPS)){ //SLAVE_ADDRESS 0x6A (106d)
+    Serial.print(-1);
     while(true);
   }
 }
 
 
-void loop(){
+int tim = 0;
 
+void loop(){
+  int num[3] = {0,1,2};
   int claim = -1;
+
+  getAcc(num[tim]);
+  tim++;
+  if(tim > 2) tim = 0;
+
   if(Serial.available() > 0) claim = Serial.read();
   if(claim != -1) Serial.write(readSensor(claim));
- 
-//  Serial.print("VL6180X_NW: ");  Serial.print(vl6180x_NW.readRangeSingleMillimeters()); Serial.println();
-//  if (vl6180x_NW.timeoutOccurred()) Serial.print(" TIMEOUT");
-//  Serial.print("VL6180X_N: ");  Serial.print(vl6180x_N.readRangeSingleMillimeters()); Serial.println();
-//  if (vl6180x_N.timeoutOccurred()) Serial.print(" TIMEOUT");
-//  Serial.print("VL6180X_NE: ");  Serial.print(vl6180x_NE.readRangeSingleMillimeters()); Serial.println();
-//  if (vl6180x_NE.timeoutOccurred()) Serial.print(" TIMEOUT");
-// 
-//  l3gd20.read();
-//  Serial.print("L3GD20_x: "); Serial.print((int) l3gd20.data.x); Serial.print(", ");
-//  Serial.print("L3GD20_y: "); Serial.print((int) l3gd20.data.y); Serial.print(", "); 
-//  Serial.print("L3GD20_z: "); Serial.println((int) l3gd20.data.z); Serial.println();
-//  
-//  int pin;
-//  Serial.print("AnalogPin: "); Serial.print(readAnalog(pin));
-// 
-//  delay(500); 
 
 }

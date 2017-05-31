@@ -15,6 +15,7 @@ void setup(){
 
 void loop(){
   l3gd20.read();
+  Serial.println(l3gd20.getAddress());
   Serial.print("x: "); Serial.print((int) l3gd20.data.x); Serial.print(", ");
   Serial.print("y: "); Serial.print((int) l3gd20.data.y); Serial.print(", "); 
   Serial.print("z: "); Serial.println((int) l3gd20.data.z);
