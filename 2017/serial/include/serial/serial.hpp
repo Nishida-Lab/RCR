@@ -57,7 +57,7 @@ public:
   {
     int size {serialDataAvail(fd_)};
 
-    if (size != -1)
+    if (size == -1)
     {
       std::error_code error {errno, std::generic_category()};
       std::cerr << "[error] wiring_serial::avail(3) - " << error.message() << std::endl;

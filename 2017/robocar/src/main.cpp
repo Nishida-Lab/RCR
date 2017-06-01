@@ -21,36 +21,32 @@
 #include <robocar/vector/vector.hpp>
 
 
-const std::unordered_map<std::string,std::int8_t> sensor_codes {
-  {"long_range_0",  0},
-  {"long_range_1",  1},
-  {"long_range_2",  2},
-  {"long_range_3",  3},
-  {"long_range_4",  4},
-  {"long_range_5",  5},
-  {"long_range_6",  6},
-  {"long_range_7",  7},
+const std::unordered_map<std::string,char> sensor_codes {
+  {"long_range_0",   5},
+  {"long_range_1",   4},
+  {"long_range_2",   3},
+  {"long_range_3",   2},
+  {"long_range_4",   1},
+  {"long_range_5",   0},
+  {"long_range_6",  -1},
+  {"long_range_7",   6},
   {"test_8",  8},
   {"test_9",  9},
-  {"short_range_0", 10},
+  {"short_range_0", 12},
   {"short_range_1", 11},
-  {"short_range_2", 12},
-  {"test_13", 13}
+  {"short_range_2", 10},
+  {"test_13", 13},
+  {"test_14", 13},
+  {"test_15", 13}
 };
-
-
-template <typename T>
-T dummy_sensor_value(T&& min = static_cast<T>(0.0), T&& max = static_cast<T>(1.0))
-{
-  static std::default_random_engine engine {std::random_device {}()};
-  std::uniform_real_distribution<T> uniform {min, max};
-  return uniform(engine);
-}
 
 
 int main(int argc, char** argv) try
 {
-  // robocar::wiring_serial serial {"/dev/ttyACM0", 115200};
+  robocar::wiring_serial serial {"/dev/ttyACM0", 9600};
+
+  std::cout << "[debug] wait for serial connection stabilize...\n";
+  std::this_thread::sleep_for(std::chrono::seconds(3));
 
   static constexpr std::size_t width  {640};
   static constexpr std::size_t height {480};
@@ -58,16 +54,29 @@ int main(int argc, char** argv) try
 
   robocar::differential_driver driver {std::pair<int,int> {35, 38}, std::pair<int,int> {37, 40}};
 
-  auto query = [&](const std::string& name, std::string&& dest = std::string {})
+  auto query = [&](const std::string& name, std::string& dest)
     -> std::string
   {
     if (sensor_codes.find(name) != sensor_codes.end())
     {
-      // serial.putchar(static_cast<char>(sensor_codes.at(name)));
-      std::this_thread::sleep_for(std::chrono::milliseconds(10)); // TODO adjust
+      // std::cout << "[debug] name: " << name << std::endl;
+      if (name == "long_range_6")
+      {
+        dest = "45";
+        return  dest;
+      }
 
-      // serial.getline(dest);
-      dest = std::to_string(dummy_sensor_value(0.0, 20.0)); // dummy data
+      serial.putchar(static_cast<char>(sensor_codes.at(name)));
+      // std::cout << "[debug] putchar: " << static_cast<int>(sensor_codes.at(name)) << std::endl;
+      std::this_thread::sleep_for(std::chrono::milliseconds(200)); // TODO adjust
+
+      // std::cout << "[debug] avail: " << serial.avail() << std::endl;
+
+      while (serial.avail() > 0)
+      {
+        dest.push_back(serial.getchar());
+      }
+      // std::cout << "[debug] dest: " << dest << std::endl;
 
       return dest;
     }
@@ -78,7 +87,8 @@ int main(int argc, char** argv) try
   constexpr auto long_range_sensor = [&](auto sensor_value) // GP2Y0A21
     -> double
   {
-    return 45.514 * std::pow(static_cast<double>(sensor_value), static_cast<double>(-0.822));
+    double tmp {sensor_value * 5 / 1024};
+    return 45.514 * std::pow(static_cast<double>(tmp), static_cast<double>(-0.822));
   };
 
   constexpr auto short_range_sensor = [&](auto sensor_value) // VL6180X
@@ -110,7 +120,7 @@ int main(int argc, char** argv) try
   auto position = [&]()
     -> robocar::vector<double>
   {
-    return robocar::vector<double> {0.0, 1.0};
+    return robocar::vector<double> {0.0, 0.0};
   };
 
   const auto const_forward_vector = []()
@@ -128,7 +138,7 @@ int main(int argc, char** argv) try
   auto long_range_sensor_array_debug = [&]()
     -> boost::numeric::ublas::vector<double>
   {
-    boost::numeric::ublas::vector<double> direction {const_forward_vector()};
+    boost::numeric::ublas::vector<double> direction {robocar::vector<double> {0.0, 0.0}};
 
     static constexpr std::size_t extent {2};
     std::vector<boost::numeric::ublas::vector<double>> neighbor {8, boost::numeric::ublas::vector<double> {extent}};
@@ -137,12 +147,12 @@ int main(int argc, char** argv) try
     neighbor[4] <<=  1.0,  0.0;        /* robocar */          neighbor[0] <<= -1.0,  0.0;
     neighbor[5] <<=  1.0,  1.0;  neighbor[6] <<=  0.0,  1.0;  neighbor[7] <<= -1.0,  1.0;
 
-    for (auto&& v : neighbor)
-    {
-      v = robocar::vector<double>::normalize(v);
-      std::cout << "[debug] neighbor[" << std::noshowpos << &v - &neighbor.front() << "] "
-                << std::fixed << std::setprecision(3) << std::showpos << v << std::endl;
-    }
+    // for (auto&& v : neighbor)
+    // {
+    //   v = robocar::vector<double>::normalize(v);
+    //   std::cout << "[debug] neighbor[" << std::noshowpos << &v - &neighbor.front() << "] "
+    //             << std::fixed << std::setprecision(3) << std::showpos << v << std::endl;
+    // }
 
     static constexpr std::size_t desired_distance {45};
 
@@ -154,10 +164,17 @@ int main(int argc, char** argv) try
       std::string sensor_name {"long_range_" + std::to_string(index)};
       std::cout << "        sensor name: " << sensor_name << std::endl;
 
-      int sensor_value {std::stoi(query(sensor_name))};
+      std::string sensor_value_str {};
+      query(sensor_name, sensor_value_str);
+      std::cout << "        sensor value str: " << sensor_value_str << std::endl;
+
+      int sensor_value_raw {std::stoi(sensor_value_str)};
+      std::cout << "        sensor value raw: " << sensor_value_raw << std::endl;
+
+      double sensor_value {long_range_sensor(sensor_value_raw)};
       std::cout << "        sensor value: " << sensor_value << std::endl;
 
-      int range_max {desired_distance * 2};
+      double range_max {desired_distance * 2};
 
       if (sensor_value > range_max)
       {
@@ -186,19 +203,19 @@ int main(int argc, char** argv) try
   auto short_range_sensor_array_debug = [&]()
     -> boost::numeric::ublas::vector<double>
   {
-    boost::numeric::ublas::vector<double> direction {const_forward_vector()};
+    boost::numeric::ublas::vector<double> direction {robocar::vector<double> {0.0, 0.0}};
 
     static constexpr std::size_t extent {2};
     std::vector<boost::numeric::ublas::vector<double>> neighbor {3, boost::numeric::ublas::vector<double> {extent}};
 
     neighbor[2] <<=  1.0, -1.0;  neighbor[1] <<=  0.0, -1.0;  neighbor[0] <<= -1.0, -1.0;
 
-    for (auto&& v : neighbor)
-    {
-      v = robocar::vector<double>::normalize(v);
-      std::cout << "[debug] neighbor[" << std::noshowpos << &v - &neighbor.front() << "] "
-                << std::fixed << std::setprecision(3) << std::showpos << v << std::endl;
-    }
+    // for (auto&& v : neighbor)
+    // {
+    //   v = robocar::vector<double>::normalize(v);
+    //   std::cout << "[debug] neighbor[" << std::noshowpos << &v - &neighbor.front() << "] "
+    //             << std::fixed << std::setprecision(3) << std::showpos << v << std::endl;
+    // }
 
     static constexpr std::size_t desired_distance {3}; // [cm]
     static constexpr std::size_t range_max {20};
@@ -211,13 +228,21 @@ int main(int argc, char** argv) try
       std::string sensor_name {"short_range_" + std::to_string(index)};
       std::cout << "        sensor name: " << sensor_name << std::endl;
 
-      int sensor_value {std::stoi(query(sensor_name))};
+      std::string sensor_value_str {};
+      query(sensor_name, sensor_value_str);
+      std::cout << "        sensor value str: " << sensor_value_str << std::endl;
+
+      int sensor_value_raw {std::stoi(sensor_value_str)};
+      std::cout << "        sensor value raw: " << sensor_value_raw << std::endl;
+
+      int sensor_value {short_range_sensor(sensor_value_raw)};
       std::cout << "        sensor value: " << sensor_value << std::endl;
 
       double arctanh {};
 
       if (sensor_value < static_cast<int>(desired_distance))
       {
+        std::cout << "[debug] break point " << __LINE__ <<std::endl;
         double numerator   {static_cast<double>(desired_distance) - static_cast<double>(sensor_value)};
         double denominator {static_cast<double>(desired_distance)};
 
@@ -226,7 +251,13 @@ int main(int argc, char** argv) try
 
       else
       {
-        sensor_value = (sensor_value > static_cast<int>(range_max) ? static_cast<int>(range_max) : sensor_value);
+        std::cout << "[debug] break point " << __LINE__ <<std::endl;
+        if (sensor_value > static_cast<int>(range_max))
+        {
+          std::cout << "[debug] break point " << __LINE__ <<std::endl;
+          // sensor_value = static_cast<int>(range_max);
+          sensor_value = static_cast<int>(desired_distance);
+        }
 
         double numerator   {static_cast<double>(sensor_value) - static_cast<double>(desired_distance)};
         double denominator {static_cast<double>(range_max) - static_cast<double>(desired_distance)};
@@ -246,27 +277,38 @@ int main(int argc, char** argv) try
     return direction;
   };
 
-  // while (true)
-  // {
-  //   std::vector<robocar::vector<double>> poles {search()};
-  //
-  //   robocar::vector<double> base {poles.empty() == true ? position() : poles.front()};
-  //
-  //   base +=  long_range_sensor_array_debug();
-  //   base += short_range_sensor_array_debug();
-  //
-  //   std::cout << "[debug] " << base << std::endl;
-  //   driver.write(base, 1.0);
-  // }
+  while (true)
+  {
+    std::vector<robocar::vector<double>> poles {search()};
+    // std::vector<robocar::vector<double>> poles {};
+
+    robocar::vector<double> base {poles.empty() == true ? position() : poles.front()};
+
+    // base += robocar::vector<double>::normalize( long_range_sensor_array_debug());
+    // base += robocar::vector<double>::normalize(short_range_sensor_array_debug());
+
+    std::cout << "[debug] " << base << std::endl;
+    driver.write(base, 1.0, 0.3);
+  }
 
   auto forward = [&]()
   {
-    driver.write(robocar::vector<double> {0.0, 1.0}, static_cast<double>(0.18));
+    driver.write(robocar::vector<double> {0.0, 1.0}, static_cast<double>(0.18), 0.5);
+  };
+
+  auto right_turn = [&]()
+  {
+    driver.write(robocar::vector<double> {1.0, 0.0}, static_cast<double>(0.18), 0.5);
+  };
+
+  auto left_turn = [&]()
+  {
+    driver.write(robocar::vector<double> {-1.0, 0.0}, static_cast<double>(0.18), 0.5);
   };
 
   auto stop = [&]()
   {
-    driver.write(robocar::vector<double> {0.0, 0.0}, static_cast<double>(0.18));
+    driver.write(robocar::vector<double> {0.0, 0.0}, static_cast<double>(0.18), 0.5);
   };
 
   auto carrot_test = [&]()
@@ -277,20 +319,26 @@ int main(int argc, char** argv) try
     base[0] *= 0.3;
 
     std::cout << "[debug] base: " << base << std::endl;
-    driver.write(base, 0.18);
+    driver.write(base, 0.18, 0.5);
   };
 
-  while (true)
-  {
-    carrot_test();
-  }
+  // forward();
+  // std::this_thread::sleep_for(std::chrono::seconds(3));
+  //
+  // right_turn();
+  // std::this_thread::sleep_for(std::chrono::seconds(3));
+  //
+  // left_turn();
+  // std::this_thread::sleep_for(std::chrono::seconds(3));
+  //
+  // stop();
 
   return 0;
 }
 
 catch (std::logic_error& error)
 {
-  std::cerr << "[error] " << error.what() << std::endl;
+  std::cerr << "[error] logic_error: " << error.what() << std::endl;
   std::exit(EXIT_FAILURE);
 }
 
