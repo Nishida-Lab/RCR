@@ -68,7 +68,7 @@ public:
   }
 
   template <typename T>
-  void write(const robocar::vector<T>& v, T tread) const
+  void write(const robocar::vector<T>& v, T tread, double power) const
   {
     static const robocar::vector<T> forward {0.0, 1.0};
 
@@ -88,11 +88,11 @@ public:
     const T l {linear_x - tread * static_cast<T>(0.5) * angular_z};
     const T r {linear_x + tread * static_cast<T>(0.5) * angular_z};
 
-    digitalWrite(dir_pin_.first,   std::signbit(static_cast<float>(l)));
-    digitalWrite(dir_pin_.second, !std::signbit(static_cast<float>(r)));
+    digitalWrite(dir_pin_.first,   std::signbit(static_cast<float>(l)) > 0.0 ? HIGH : LOW);
+    digitalWrite(dir_pin_.second,  std::signbit(static_cast<float>(r)) > 0.0 ? LOW : HIGH);
 
-    softPwmWrite(pwm_pin_.first,  static_cast<int>(std::abs(l) * 100.0));
-    softPwmWrite(pwm_pin_.second, static_cast<int>(std::abs(r) * 100.0));
+    softPwmWrite(pwm_pin_.first,  static_cast<int>(std::abs(l) * 100.0 * power));
+    softPwmWrite(pwm_pin_.second, static_cast<int>(std::abs(r) * 100.0 * power));
   }
 
 private:
