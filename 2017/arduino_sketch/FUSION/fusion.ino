@@ -25,7 +25,7 @@ int readSensor(int sensor){
   case 7:
   case 8:
   case 9:
-    answer = readAnalog(sensor); break; //read PSD sensor
+    return readAnalog(sensor); break; //read PSD sensor
   case 10:
     answer = vl6180x_NW.readRangeSingleMillimeters();
     if(vl6180x_NW.timeoutOccurred()) answer = -1; break;
@@ -44,7 +44,6 @@ int readSensor(int sensor){
   case 15:
     l3gd20.read();
     answer = (int) l3gd20.data.z; break;
-  default: answer = -1;
   }
 
   return answer;
@@ -105,9 +104,10 @@ void loop(){
   tim++;
   if(tim > 2) tim = 0;
 
-  if(Serial.available() > 0) claim = Serial.read();
-  if(claim != -1){
+
+  if(Serial.available() > 0){
+    claim = Serial.read();
     Serial.print(readSensor(claim));
-    Serial.flush();
   }
+  Serial.flush();
 }
