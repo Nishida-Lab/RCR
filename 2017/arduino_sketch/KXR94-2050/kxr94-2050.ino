@@ -38,6 +38,7 @@ void getAcc(int num){
   switch(num){
   case 0:
     acc_0.time = millis();
+    //重力加速度[m/s^2]*(電圧[mV]-オフセット電圧[mV])/感度[mV/g] = 加速度[m/s^2]
     acc_0.data_x = 9.8*(readAnalog(7)*4.9-1650)/660; 
     acc_0.data_y = 9.8*(readAnalog(8)*4.9-1650)/660; 
     acc_0.data_z = 9.8*(readAnalog(9)*4.9-1650)/660; break;
@@ -71,26 +72,49 @@ int getPosition(unsigned long time_0, double acc_0, unsigned long time_1, double
   return position;
 }
 
+
+double kalman(double odm, double obs){
+
+
+}
+
+double new_data = 0,last_answer = 0,answer = 0;
+int tim = 0;
+unsigned long new_time = 0, last_time = 0, dt = 0;
+double vel,pos;
+
 void setup(){
   pinMode( 8, OUTPUT);
   pinMode( 9, OUTPUT);
   pinMode(10, OUTPUT);
   pinMode(11, OUTPUT);
 
-  Serial.begin(9600) ;
+  Serial.begin(115200) ;
 }
 
-int tim = 0;
 
 void loop(){  
-
   int num[3] = {0,1,2};
-  getAcc(num[tim]);
- 
-  if(++tim > 2) tim = 0;
+  double a = 0.85;
 
-  Serial.print(" acc_0.data_x: "); Serial.print(acc_0.data_x);
-  Serial.print(" acc_1.data_x: "); Serial.print(acc_1.data_x);
-  Serial.print(" acc_2.data_x: "); Serial.print(acc_2.data_x);
-  Serial.print(" pos: "); Serial.println(getPosition(acc_0.time, acc_0.data_x,acc_1.time, acc_1.data_x, acc_2.time, acc_2.data_x));
+//  getAcc(num[tim]);
+//  tim++; 
+//  if(tim > 2) tim = 0;
+
+  getAcc(0);
+  new_data = acc_0.data_z;
+  answer = a*last_answer + (1-a)*new_data;
+
+// new_time = micros();
+// dt = new_time - last_time;
+// 
+// vel = answer * dt;
+  
+//  Serial.print(acc_0.time); Serial.print(" "); Serial.print(acc_0.data_z); Serial.print(" ");
+//  Serial.print(acc_1.time); Serial.print(" "); Serial.print(acc_1.data_z); Serial.print(" ");
+//  Serial.print(acc_2.time); Serial.print(" "); Serial.print(acc_2.data_z);
+  Serial.print(answer); Serial.print(" "); Serial.println(new_data); 
+  last_answer = answer; 
+
+//  last_time = new_time;
 }
