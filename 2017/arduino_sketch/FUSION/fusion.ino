@@ -111,12 +111,15 @@ void loop(){
 
   new_data[0] = readAnalog(7);
   answer[0] = rc_param * last_answer[0] + (1-rc_param) * new_data[0]; 
+  last_answer[0] = answer[0];
 
   new_data[1] = readAnalog(8);
   answer[1] = rc_param * last_answer[1] + (1-rc_param) * new_data[1]; 
+  last_answer[1] = answer[1];
 
   new_data[2] = readAnalog(9);
   answer[2] = rc_param * last_answer[2] + (1-rc_param) * new_data[2]; 
+  last_answer[2] = answer[2];
 
   getAcc(num[tim],answer[0],answer[1],answer[2]);
   tim++;

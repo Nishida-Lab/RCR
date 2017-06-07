@@ -1,17 +1,16 @@
-#define ACC_X  7
+#define ACC_X  7 //set Pin number
 #define ACC_Y  8
 #define ACC_Z  9
-#define OFFSET_X 1801.7
+#define OFFSET_X 1801.7 //sensor offset
 #define OFFSET_Y 1856
 
 int tim = 0;
 double new_data[3] = {0,0,0};
 double last_answer[3] = {0,0,0};
 double answer[3] = {0,0,0};
-unsigned long new_time = 0, last_time = 0, dt = 0;
 double pos_x,pos_y,pos_z;
 
-int readAnalog(int pin){
+int readAnalog(int pin){ //read kxr94 by Multiplexer
   switch(pin){
   case ACC_X:
     digitalWrite( 8, HIGH);
@@ -33,14 +32,14 @@ int readAnalog(int pin){
   return analogRead(0);
 }
 
-struct ACCEL{
+struct DATA{
   unsigned long time;
   double data_x;
   double data_y;
   double data_z;
 };
 
-ACCEL acc_0,acc_1,acc_2,vel_0,vel_1,vel_2;
+DATA acc_0,acc_1,acc_2,vel_0,vel_1,vel_2;
 
 void getAcc(int num, double x, double y, double z){
   switch(num){
@@ -110,10 +109,12 @@ void setup(){
 
 void loop(){  
   int num[3] = {0,1,2};
-  double rc_param = 0.85;
+  double rc_param = 0.85; //RC filter parametor
 
+
+  //get Accel
   new_data[0] = readAnalog(7);
-  answer[0] = rc_param * last_answer[0] + (1-rc_param) * new_data[0]; 
+  answer[0] = rc_param * last_answer[0] + (1-rc_param) * new_data[0]; //RC filter
   last_answer[0] = answer[0];
 
   new_data[1] = readAnalog(8);
@@ -128,6 +129,8 @@ void loop(){
   tim++;
   if(tim > 2) tim = 0;
 
+
+  //get Velocity
   vel_0.time = acc_0.time;
   vel_0.data_x = getVelocity(acc_0.time, acc_0.data_x, acc_1.time, acc_1.data_x, acc_2.time, acc_2.data_x);
   vel_0.data_y = getVelocity(acc_0.time, acc_0.data_y, acc_1.time, acc_1.data_y, acc_2.time, acc_2.data_y);
@@ -143,10 +146,12 @@ void loop(){
   vel_2.data_y = getVelocity(acc_2.time, acc_0.data_y, acc_1.time, acc_1.data_y, acc_2.time, acc_2.data_y);
   vel_2.data_z = getVelocity(acc_2.time, acc_0.data_z, acc_1.time, acc_1.data_z, acc_2.time, acc_2.data_z);
  
+
+  //get Position
   pos_x = getPosition(vel_0.time, vel_0.data_x, vel_1.time, vel_1.data_x, vel_2.time, vel_2.data_x);
   pos_y = getPosition(vel_0.time, vel_0.data_y, vel_1.time, vel_1.data_y, vel_2.time, vel_2.data_y);
   pos_z = getPosition(vel_0.time, vel_0.data_z, vel_1.time, vel_1.data_z, vel_2.time, vel_2.data_z);
 
 
-  Serial.print(acc_0.data_x); Serial.print(" "); Serial.print(vel_1.data_x); Serial.print(" "); Serial.println(pos_x);
+  Serial.print(acc_0.data_x); Serial.print(" "); Serial.print(vel_1.data_x); Serial.print(" "); Serial.println(pos_x); //print Screen
 }
