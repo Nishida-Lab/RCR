@@ -44,20 +44,20 @@ DATA acc_0,acc_1,acc_2,vel_0,vel_1,vel_2;
 void getAcc(int num, double x, double y, double z){
   switch(num){
     case 0:
-    acc_0.time = micros();
+    acc_0.time = micros() * 1000000;
     //重力加速度[m/s^2]*(電圧[mV]-オフセット電圧[mV])/感度[mV/g] = 加速度[m/s^2]
     acc_0.data_x = 9.8*(x * 4.9 - OFFSET_X)/660; 
     acc_0.data_y = 9.8*(y * 4.9 - OFFSET_Y)/660; 
     acc_0.data_z = 9.8*(z * 4.9)/660; break;
  
   case 1:
-    acc_1.time = micros();
+    acc_1.time = micros() * 1000000;
     acc_1.data_x = 9.8*(x * 4.9 - OFFSET_X)/660; 
     acc_1.data_y = 9.8*(y * 4.9 - OFFSET_Y)/660; 
     acc_1.data_z = 9.8*(z * 4.9 - 1650)/660; break;
 
   case 2:
-    acc_2.time = micros();
+    acc_2.time = micros() * 1000000;
     acc_2.data_x = 9.8*(x * 4.9-OFFSET_X)/660;
     acc_2.data_y = 9.8*(y * 4.9-OFFSET_Y)/660; 
     acc_2.data_z = 9.8*(z * 4.9-1650)/660; break;
@@ -65,7 +65,7 @@ void getAcc(int num, double x, double y, double z){
 }
 
 
-int getIntegral(unsigned long time_0, double data_0, unsigned long time_1, double data_1, unsigned long time_2, double data_2){
+double getIntegral(unsigned long time_0, double data_0, unsigned long time_1, double data_1, unsigned long time_2, double data_2){
   double answer = 0;
   if(time_0 < time_1 && time_1 < time_2){
     answer = (data_0 + 4*data_1 + data_2)*(time_2 - time_0)/6;
@@ -80,6 +80,33 @@ int getIntegral(unsigned long time_0, double data_0, unsigned long time_1, doubl
   return answer;
 }
 
+double Gn  = 0;
+double hn[2] = {0,0};
+double theta_hat[2] = {0,0};
+double psi[2] = {0.0};
+int estimate_count = 0;
+
+//use ARMA model
+double estimate(double y_2, double y_1, double y_0){
+  psi[0] = -y_1;
+  psi[1] = -y_0;
+
+  Gn += psi[0]*psi[0] + psi[1]*psi[1];
+  hn[0] += y_2*psi[0];
+  hn[1] += y_2*psi[1];
+
+  Gn /= estimate_count+1;
+  hn[0] /= estimate_count+1;
+  hn[1] /= estimate_count+1;
+
+  theta_hat[0] = hn[0] / Gn;
+  theta_hat[1] = hn[1] / Gn;
+
+  y_2 = theta_hat[0]*psi[0] + theta_hat[1]*psi[1];
+  estimate_count++;
+
+  return y_2;
+}
 
 void setup(){
   pinMode( 8, OUTPUT);
@@ -110,6 +137,12 @@ void loop(){
   last_answer[2] = answer[2];
 
   getAcc(num[tim],answer[0],answer[1],answer[2]);
+
+  if(estimate_count%3 == 0) acc_2.data_x = estimate(acc_2.data_x, acc_1.data_x, acc_0.data_x);
+  if(estimate_count%3 == 1) acc_0.data_x = estimate(acc_0.data_x, acc_2.data_x, acc_1.data_x);
+  if(estimate_count%3 == 2) acc_1.data_x = estimate(acc_1.data_x, acc_0.data_x, acc_2.data_x);
+
+
   tim++;
   if(tim > 2) tim = 0;
 
@@ -137,5 +170,7 @@ void loop(){
   pos_z = getIntegral(vel_0.time, vel_0.data_z, vel_1.time, vel_1.data_z, vel_2.time, vel_2.data_z);
 
 
-  Serial.print(acc_0.data_x); Serial.print(" "); Serial.print(vel_1.data_x); Serial.print(" "); Serial.println(pos_x); //print Screen
+  Serial.print(acc_0.data_x); Serial.print(" "); 
+  //Serial.print(vel_1.data_x); Serial.print(" "); 
+  //Serial.println(pos_x); //print Screen
 }
