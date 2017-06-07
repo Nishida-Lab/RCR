@@ -69,7 +69,7 @@ int main(int argc, char** argv) try
       }
 
       serial.putchar(static_cast<char>(sensor_codes.at(name)));
-      std::this_thread::sleep_for(std::chrono::milliseconds(200)); // TODO adjust
+      std::this_thread::sleep_for(std::chrono::milliseconds(20)); // TODO adjust
 
       while (serial.avail() > 0)
       {
@@ -275,19 +275,19 @@ int main(int argc, char** argv) try
     return direction;
   };
 
-  while (true)
-  {
-    std::vector<robocar::vector<double>> poles {search()};
-    // std::vector<robocar::vector<double>> poles {};
-
-    robocar::vector<double> base {poles.empty() == true ? position() : poles.front()};
-
-    // base += robocar::vector<double>::normalize( long_range_sensor_array_debug());
-    // base += robocar::vector<double>::normalize(short_range_sensor_array_debug());
-
-    std::cout << "[debug] " << base << std::endl;
-    driver.write(base, 1.0, 0.3);
-  }
+  // while (true)
+  // {
+  //   // std::vector<robocar::vector<double>> poles {search()};
+  //   std::vector<robocar::vector<double>> poles {};
+  //
+  //   robocar::vector<double> base {poles.empty() == true ? position() : poles.front()};
+  //
+  //   // base += robocar::vector<double>::normalize( long_range_sensor_array_debug());
+  //   // base += robocar::vector<double>::normalize(short_range_sensor_array_debug());
+  //
+  //   std::cout << "[debug] " << base << std::endl;
+  //   driver.write(base, 1.0, 0.3);
+  // }
 
   auto stop = [&]()
   {
@@ -299,11 +299,23 @@ int main(int argc, char** argv) try
     std::vector<robocar::vector<double>> poles {search()};
 
     robocar::vector<double> base {poles.empty() == true ? robocar::vector<double> {0.0, 0.0} : poles.front()};
-    base[0] *= 0.3;
 
     std::cout << "[debug] base: " << base << std::endl;
     driver.write(base, 0.18, 0.5);
   };
+
+
+  while (true)
+  {
+    static std::string gyro_x {};
+    static std::string gyro_y {};
+
+    query("gyro_x", gyro_x);
+    query("gyro_y", gyro_y);
+
+    std::cout << "[debug] x: " << gyro_x << ", y:" << gyro_y << std::endl;
+  }
+
 
   return 0;
 }
