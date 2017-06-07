@@ -3,14 +3,15 @@
 #define OFFSET_X 1801.7
 #define OFFSET_Y 1856
 
-struct ACCEL{
+struct DATA{
   unsigned long time;
   double data_x;
   double data_y;
   double data_z;
 };
 
-ACCEL acc_0,acc_1,acc_2;
+
+DATA acc_0,acc_1,acc_2,vel_0,vel_1,vel_2;
 
 void getAcc(int num, double x, double y, double z){
   switch(num){
@@ -36,17 +37,32 @@ void getAcc(int num, double x, double y, double z){
 }
 
 int getVelocity(unsigned long time_0, int acc_0, unsigned long time_1, int acc_1, unsigned long time_2, int acc_2){
-  int position = 0;
+  int velocity = 0;
   if(time_0 < time_1 && time_1 < time_2){
-    position = (acc_0 + 4*acc_1 + acc_2)*(time_2 - time_0)/6;
+    velocity = (acc_0 + 4*acc_1 + acc_2)*(time_2 - time_0)/6;
   }
   else if(time_1 < time_2 && time_2 < time_0){
-    position = (acc_1 + 4*acc_2 + acc_0)*(time_0 - time_1)/6;
+    velocity = (acc_1 + 4*acc_2 + acc_0)*(time_0 - time_1)/6;
   }
   else if(time_2 < time_0 && time_0 < time_1){
-    position = (acc_2 + 4*acc_0 + acc_1)*(time_1 - time_2)/6;
+    velocity = (acc_2 + 4*acc_0 + acc_1)*(time_1 - time_2)/6;
+  }
+
+  return velocity;
+}
+
+
+int getPosition(unsigned long time_0, int vel_0, unsigned long time_1, int vel_1, unsigned long time_2, int vel_2){
+  int position = 0;
+  if(time_0 < time_1 && time_1 < time_2){
+    position = (vel_0 + 4*vel_1 + vel_2)*(time_2 - time_0)/6;
+  }
+  else if(time_1 < time_2 && time_2 < time_0){
+    position = (vel_1 + 4*vel_2 + vel_0)*(time_0 - time_1)/6;
+  }
+  else if(time_2 < time_0 && time_0 < time_1){
+    position = (vel_2 + 4*vel_0 + vel_1)*(time_1 - time_2)/6;
   }
 
   return position;
 }
-
