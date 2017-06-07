@@ -52,7 +52,9 @@ int main(int argc, char** argv) try
   static constexpr std::size_t height {480};
   robocar::camera camera {width, height};
 
-  robocar::differential_driver driver {std::pair<int,int> {35, 38}, std::pair<int,int> {37, 40}};
+  robocar::differential_driver driver {
+    std::pair<int,int> {35, 38}, std::pair<int,int> {37, 40}
+  };
 
   auto query = [&](const std::string& name, std::string& dest)
     -> std::string
@@ -291,21 +293,6 @@ int main(int argc, char** argv) try
     driver.write(base, 1.0, 0.3);
   }
 
-  auto forward = [&]()
-  {
-    driver.write(robocar::vector<double> {0.0, 1.0}, static_cast<double>(0.18), 0.5);
-  };
-
-  auto right_turn = [&]()
-  {
-    driver.write(robocar::vector<double> {1.0, 0.0}, static_cast<double>(0.18), 0.5);
-  };
-
-  auto left_turn = [&]()
-  {
-    driver.write(robocar::vector<double> {-1.0, 0.0}, static_cast<double>(0.18), 0.5);
-  };
-
   auto stop = [&]()
   {
     driver.write(robocar::vector<double> {0.0, 0.0}, static_cast<double>(0.18), 0.5);
@@ -321,17 +308,6 @@ int main(int argc, char** argv) try
     std::cout << "[debug] base: " << base << std::endl;
     driver.write(base, 0.18, 0.5);
   };
-
-  // forward();
-  // std::this_thread::sleep_for(std::chrono::seconds(3));
-  //
-  // right_turn();
-  // std::this_thread::sleep_for(std::chrono::seconds(3));
-  //
-  // left_turn();
-  // std::this_thread::sleep_for(std::chrono::seconds(3));
-  //
-  // stop();
 
   return 0;
 }
