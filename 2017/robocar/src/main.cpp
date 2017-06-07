@@ -30,14 +30,15 @@ const std::unordered_map<std::string,char> sensor_codes {
   {"long_range_5",   0},
   {"long_range_6",  -1},
   {"long_range_7",   6},
-  {"test_8",  8},
-  {"test_9",  9},
+  {"accel_x",  7},
+  {"accel_y",  8},
+  {"accel_y",  9},
   {"short_range_0", 12},
   {"short_range_1", 11},
   {"short_range_2", 10},
-  {"test_13", 13},
-  {"test_14", 13},
-  {"test_15", 13}
+  {"gyro_x", 13},
+  {"gyro_y", 14},
+  {"gyro_z", 15}
 };
 
 
