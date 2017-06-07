@@ -123,6 +123,7 @@ void loop(){
   vel_x = getVelocity(acc_0.time, acc_0.data_x, acc_1.time, acc_1.data_x, acc_2.time, acc_2.data_x);
   vel_y = getVelocity(acc_0.time, acc_0.data_y, acc_1.time, acc_1.data_y, acc_2.time, acc_2.data_y);
   vel_z = getVelocity(acc_0.time, acc_0.data_z, acc_1.time, acc_1.data_z, acc_2.time, acc_2.data_z);
+
   if(tim > 2) tim = 0;
 
 
