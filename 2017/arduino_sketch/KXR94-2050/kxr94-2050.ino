@@ -65,36 +65,20 @@ void getAcc(int num, double x, double y, double z){
 }
 
 
-int getVelocity(unsigned long time_0, int acc_0, unsigned long time_1, int acc_1, unsigned long time_2, int acc_2){
-  int velocity = 0;
+int getIntegral(unsigned long time_0, double data_0, unsigned long time_1, double data_1, unsigned long time_2, double data_2){
+  double answer = 0;
   if(time_0 < time_1 && time_1 < time_2){
-    velocity = (acc_0 + 4*acc_1 + acc_2)*(time_2 - time_0)/6;
+    answer = (data_0 + 4*data_1 + data_2)*(time_2 - time_0)/6;
   }
   else if(time_1 < time_2 && time_2 < time_0){
-    velocity = (acc_1 + 4*acc_2 + acc_0)*(time_0 - time_1)/6;
+    answer = (data_1 + 4*data_2 + data_0)*(time_0 - time_1)/6;
   }
   else if(time_2 < time_0 && time_0 < time_1){
-    velocity = (acc_2 + 4*acc_0 + acc_1)*(time_1 - time_2)/6;
+    answer = (data_2 + 4*data_0 + data_1)*(time_1 - time_2)/6;
   }
 
-  return velocity;
+  return answer;
 }
-
-int getPosition(unsigned long time_0, double acc_0, unsigned long time_1, double acc_1, unsigned long time_2, double acc_2){
-  int position = 0;
-  if(time_0 < time_1 && time_1 < time_2){
-    position = (acc_0 + 4*acc_1 + acc_2)*(time_2 - time_0)/6;
-  }
-  else if(time_1 < time_2 && time_2 < time_0){
-    position = (acc_1 + 4*acc_2 + acc_0)*(time_0 - time_1)/6;
-  }
-  else if(time_2 < time_0 && time_0 < time_1){
-    position = (acc_2 + 4*acc_0 + acc_1)*(time_1 - time_2)/6;
-  }
-
-  return position;
-}
-
 
 
 void setup(){
@@ -132,25 +116,25 @@ void loop(){
 
   //get Velocity
   vel_0.time = acc_0.time;
-  vel_0.data_x = getVelocity(acc_0.time, acc_0.data_x, acc_1.time, acc_1.data_x, acc_2.time, acc_2.data_x);
-  vel_0.data_y = getVelocity(acc_0.time, acc_0.data_y, acc_1.time, acc_1.data_y, acc_2.time, acc_2.data_y);
-  vel_0.data_z = getVelocity(acc_0.time, acc_0.data_z, acc_1.time, acc_1.data_z, acc_2.time, acc_2.data_z);
+  vel_0.data_x = getIntegral(acc_0.time, acc_0.data_x, acc_1.time, acc_1.data_x, acc_2.time, acc_2.data_x);
+  vel_0.data_y = getIntegral(acc_0.time, acc_0.data_y, acc_1.time, acc_1.data_y, acc_2.time, acc_2.data_y);
+  vel_0.data_z = getIntegral(acc_0.time, acc_0.data_z, acc_1.time, acc_1.data_z, acc_2.time, acc_2.data_z);
 
   vel_1.time = acc_1.time;
-  vel_1.data_x = getVelocity(acc_0.time, acc_0.data_x, acc_1.time, acc_1.data_x, acc_2.time, acc_2.data_x);
-  vel_1.data_y = getVelocity(acc_0.time, acc_0.data_y, acc_1.time, acc_1.data_y, acc_2.time, acc_2.data_y);
-  vel_1.data_z = getVelocity(acc_0.time, acc_0.data_z, acc_1.time, acc_1.data_z, acc_2.time, acc_2.data_z);
+  vel_1.data_x = getIntegral(acc_0.time, acc_0.data_x, acc_1.time, acc_1.data_x, acc_2.time, acc_2.data_x);
+  vel_1.data_y = getIntegral(acc_0.time, acc_0.data_y, acc_1.time, acc_1.data_y, acc_2.time, acc_2.data_y);
+  vel_1.data_z = getIntegral(acc_0.time, acc_0.data_z, acc_1.time, acc_1.data_z, acc_2.time, acc_2.data_z);
 
   vel_2.time = acc_2.time;
-  vel_2.data_x = getVelocity(acc_2.time, acc_0.data_x, acc_1.time, acc_1.data_x, acc_2.time, acc_2.data_x);
-  vel_2.data_y = getVelocity(acc_2.time, acc_0.data_y, acc_1.time, acc_1.data_y, acc_2.time, acc_2.data_y);
-  vel_2.data_z = getVelocity(acc_2.time, acc_0.data_z, acc_1.time, acc_1.data_z, acc_2.time, acc_2.data_z);
+  vel_2.data_x = getIntegral(acc_2.time, acc_0.data_x, acc_1.time, acc_1.data_x, acc_2.time, acc_2.data_x);
+  vel_2.data_y = getIntegral(acc_2.time, acc_0.data_y, acc_1.time, acc_1.data_y, acc_2.time, acc_2.data_y);
+  vel_2.data_z = getIntegral(acc_2.time, acc_0.data_z, acc_1.time, acc_1.data_z, acc_2.time, acc_2.data_z);
  
 
   //get Position
-  pos_x = getPosition(vel_0.time, vel_0.data_x, vel_1.time, vel_1.data_x, vel_2.time, vel_2.data_x);
-  pos_y = getPosition(vel_0.time, vel_0.data_y, vel_1.time, vel_1.data_y, vel_2.time, vel_2.data_y);
-  pos_z = getPosition(vel_0.time, vel_0.data_z, vel_1.time, vel_1.data_z, vel_2.time, vel_2.data_z);
+  pos_x = getIntegral(vel_0.time, vel_0.data_x, vel_1.time, vel_1.data_x, vel_2.time, vel_2.data_x);
+  pos_y = getIntegral(vel_0.time, vel_0.data_y, vel_1.time, vel_1.data_y, vel_2.time, vel_2.data_y);
+  pos_z = getIntegral(vel_0.time, vel_0.data_z, vel_1.time, vel_1.data_z, vel_2.time, vel_2.data_z);
 
 
   Serial.print(acc_0.data_x); Serial.print(" "); Serial.print(vel_1.data_x); Serial.print(" "); Serial.println(pos_x); //print Screen
