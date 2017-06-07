@@ -56,12 +56,11 @@ int main(int argc, char** argv) try
     std::pair<int,int> {35, 38}, std::pair<int,int> {37, 40}
   };
 
-  auto query = [&](const std::string& name, std::string& dest)
+  auto query = [&](const std::string& name, std::string& dest) // TODO remake
     -> std::string
   {
     if (sensor_codes.find(name) != sensor_codes.end())
     {
-      // std::cout << "[debug] name: " << name << std::endl;
       if (name == "long_range_6")
       {
         dest = "45";
@@ -69,16 +68,12 @@ int main(int argc, char** argv) try
       }
 
       serial.putchar(static_cast<char>(sensor_codes.at(name)));
-      // std::cout << "[debug] putchar: " << static_cast<int>(sensor_codes.at(name)) << std::endl;
       std::this_thread::sleep_for(std::chrono::milliseconds(200)); // TODO adjust
-
-      // std::cout << "[debug] avail: " << serial.avail() << std::endl;
 
       while (serial.avail() > 0)
       {
         dest.push_back(serial.getchar());
       }
-      // std::cout << "[debug] dest: " << dest << std::endl;
 
       return dest;
     }
