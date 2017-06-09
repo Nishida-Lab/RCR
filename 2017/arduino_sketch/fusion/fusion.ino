@@ -59,6 +59,12 @@ int readSensor(int sensor){
 }
 
 
+unsigned double distance(){
+
+
+}
+
+
 void setup(){
   Serial.begin(9600);
   Wire.begin();
