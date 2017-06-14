@@ -106,7 +106,7 @@ void setup(){
 
 void loop(){
   int distance = 0;
-  distance = PSDdistance(readAnalog(1));
+  distance = PSDdistance(readAnalog(3));
   Serial.println(distance);
   delay(100);
 
