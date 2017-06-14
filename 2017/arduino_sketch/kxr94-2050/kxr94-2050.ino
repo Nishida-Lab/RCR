@@ -1,10 +1,10 @@
 #define ACC_X  7 //set Pin number
 #define ACC_Y  8
 #define ACC_Z  9
-#define ACC_G 9.8
+#define ACC_G 9.80665
 #define OFFSET_X 1780 //sensor offset
 #define OFFSET_Y 1856
-#define OFFSET_Z 1650
+#define OFFSET_Z 1710
 
 
 int tim = 0;
@@ -160,7 +160,7 @@ void loop(){
   acc[1] = rc_filter(new_acc[1], last_acc[1], rc_param);
   last_acc[1] = acc[1];
 
-  new_acc[2] = new_acc[2] - readAnalog(9);
+  new_acc[2] = readAnalog(9);
   acc[2] =  rc_filter(new_acc[2], last_acc[2], rc_param);
   last_acc[2] = acc[2];
 
