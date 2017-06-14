@@ -7,7 +7,7 @@
 #include <cstring>
 #include <iomanip>
 #include <iostream>
-#include <random> // dummy sensor value
+// #include <random> // dummy sensor value
 #include <stdexcept>
 #include <string>
 #include <system_error>
@@ -15,10 +15,17 @@
 #include <unordered_map>
 #include <vector>
 
+#include <fcntl.h>
+#include <unistd.h>
+#include <sys/ioctl.h>
+#include <linux/joystick.h>
+
 #include <robocar/camera/camera.hpp>
 #include <robocar/driver/driver.hpp>
 #include <robocar/serial/serial.hpp>
 #include <robocar/vector/vector.hpp>
+
+#include <utilib/unique_fd.hpp>
 
 
 const std::unordered_map<std::string,char> sensor_codes {
@@ -302,6 +309,73 @@ int main(int argc, char** argv) try
 
     std::cout << "[debug] base: " << base << std::endl;
     driver.write(base, 0.18, 0.5);
+  };
+
+  auto radio_control = [&]()
+  {
+    const std::string device {"/dev/input/js0"};
+    utilib::unique_fd joy_fd {open(device.c_str(), O_RDONLY)};
+
+    if (joy_fd)
+    {
+      std::cerr << "[error] failed to open " << device << std::endl;
+      std::exit(EXIT_FAILURE);
+    }
+
+    int num_of_axis {0}, num_of_buttons {0};
+
+    std::vector<char> joy_button;
+    std::vector<int>  joy_axis;
+
+    ioctl(joy_fd, JSIOCGAXES,     &num_of_axis);
+    ioctl(joy_fd, JSIOCGBUTTONS,  &num_of_buttons);
+
+    joy_button.resize(num_of_buttons, 0);
+    joy_axis.resize(num_of_axis, 0);
+
+    fcntl(joy_fd, F_SETFL, O_NONBLOCK);   // using non-blocking mode
+
+    while (true)
+    {
+      js_event js {};
+
+      read(joy_fd, &js, sizeof(js_event));
+
+      switch (js.type & ~JS_EVENT_INIT)
+      {
+        case JS_EVENT_AXIS:
+          if (static_cast<std::size_t>(js.number) >= joy_axis.size())
+          {
+            std::cerr << "[error] " << static_cast<std::size_t>(js.number) << std::endl;
+            continue;
+          }
+          joy_axis[static_cast<std::size_t>(js.number)] = js.value;
+          break;
+
+        case JS_EVENT_BUTTON:
+          if (static_cast<std::size_t>(js.number) >= joy_button.size())
+          {
+            std::cerr << "[error] " << static_cast<std::size_t>(js.number) << std::endl;
+            continue;
+          }
+          joy_button[static_cast<std::size_t>(js.number)] = js.value;
+          break;
+      }
+
+      std::cout << "\e[2A\r[debug] axis: ";
+      for (const auto& axis : joy_axis)
+      {
+        std::cout << std::showpos << std::fixed << std::setprecision(3) << static_cast<double>(axis) / -32768 << (&axis != &joy_axis.back() ? ' ' : '\n');
+      }
+
+      std::cout << "        button: ";
+      for(const auto& button : joy_button)
+      {
+        std::cout << static_cast<int>(button) << (&button != &joy_button.back() ? ' ' : '\n');
+      }
+
+      usleep(100);
+    }
   };
 
 
