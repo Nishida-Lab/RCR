@@ -30,14 +30,15 @@ const std::unordered_map<std::string,char> sensor_codes {
   {"long_range_5",   0},
   {"long_range_6",  -1},
   {"long_range_7",   6},
-  {"test_8",  8},
-  {"test_9",  9},
+  {"accel_x",  7},
+  {"accel_y",  8},
+  {"accel_y",  9},
   {"short_range_0", 12},
   {"short_range_1", 11},
   {"short_range_2", 10},
-  {"test_13", 13},
-  {"test_14", 13},
-  {"test_15", 13}
+  {"gyro_x", 13},
+  {"gyro_y", 14},
+  {"gyro_z", 15}
 };
 
 
@@ -52,14 +53,15 @@ int main(int argc, char** argv) try
   static constexpr std::size_t height {480};
   robocar::camera camera {width, height};
 
-  robocar::differential_driver driver {std::pair<int,int> {35, 38}, std::pair<int,int> {37, 40}};
+  robocar::differential_driver driver {
+    std::pair<int,int> {35, 38}, std::pair<int,int> {37, 40}
+  };
 
-  auto query = [&](const std::string& name, std::string& dest)
+  auto query = [&](const std::string& name, std::string& dest) // TODO remake
     -> std::string
   {
     if (sensor_codes.find(name) != sensor_codes.end())
     {
-      // std::cout << "[debug] name: " << name << std::endl;
       if (name == "long_range_6")
       {
         dest = "45";
@@ -67,16 +69,12 @@ int main(int argc, char** argv) try
       }
 
       serial.putchar(static_cast<char>(sensor_codes.at(name)));
-      // std::cout << "[debug] putchar: " << static_cast<int>(sensor_codes.at(name)) << std::endl;
-      std::this_thread::sleep_for(std::chrono::milliseconds(200)); // TODO adjust
-
-      // std::cout << "[debug] avail: " << serial.avail() << std::endl;
+      std::this_thread::sleep_for(std::chrono::milliseconds(20)); // TODO adjust
 
       while (serial.avail() > 0)
       {
         dest.push_back(serial.getchar());
       }
-      // std::cout << "[debug] dest: " << dest << std::endl;
 
       return dest;
     }
@@ -277,34 +275,19 @@ int main(int argc, char** argv) try
     return direction;
   };
 
-  while (true)
-  {
-    std::vector<robocar::vector<double>> poles {search()};
-    // std::vector<robocar::vector<double>> poles {};
-
-    robocar::vector<double> base {poles.empty() == true ? position() : poles.front()};
-
-    // base += robocar::vector<double>::normalize( long_range_sensor_array_debug());
-    // base += robocar::vector<double>::normalize(short_range_sensor_array_debug());
-
-    std::cout << "[debug] " << base << std::endl;
-    driver.write(base, 1.0, 0.3);
-  }
-
-  auto forward = [&]()
-  {
-    driver.write(robocar::vector<double> {0.0, 1.0}, static_cast<double>(0.18), 0.5);
-  };
-
-  auto right_turn = [&]()
-  {
-    driver.write(robocar::vector<double> {1.0, 0.0}, static_cast<double>(0.18), 0.5);
-  };
-
-  auto left_turn = [&]()
-  {
-    driver.write(robocar::vector<double> {-1.0, 0.0}, static_cast<double>(0.18), 0.5);
-  };
+  // while (true)
+  // {
+  //   // std::vector<robocar::vector<double>> poles {search()};
+  //   std::vector<robocar::vector<double>> poles {};
+  //
+  //   robocar::vector<double> base {poles.empty() == true ? position() : poles.front()};
+  //
+  //   // base += robocar::vector<double>::normalize( long_range_sensor_array_debug());
+  //   // base += robocar::vector<double>::normalize(short_range_sensor_array_debug());
+  //
+  //   std::cout << "[debug] " << base << std::endl;
+  //   driver.write(base, 1.0, 0.3);
+  // }
 
   auto stop = [&]()
   {
@@ -316,22 +299,23 @@ int main(int argc, char** argv) try
     std::vector<robocar::vector<double>> poles {search()};
 
     robocar::vector<double> base {poles.empty() == true ? robocar::vector<double> {0.0, 0.0} : poles.front()};
-    base[0] *= 0.3;
 
     std::cout << "[debug] base: " << base << std::endl;
     driver.write(base, 0.18, 0.5);
   };
 
-  // forward();
-  // std::this_thread::sleep_for(std::chrono::seconds(3));
-  //
-  // right_turn();
-  // std::this_thread::sleep_for(std::chrono::seconds(3));
-  //
-  // left_turn();
-  // std::this_thread::sleep_for(std::chrono::seconds(3));
-  //
-  // stop();
+
+  while (true)
+  {
+    static std::string gyro_x {};
+    static std::string gyro_y {};
+
+    query("gyro_x", gyro_x);
+    query("gyro_y", gyro_y);
+
+    std::cout << "[debug] x: " << gyro_x << ", y:" << gyro_y << std::endl;
+  }
+
 
   return 0;
 }
