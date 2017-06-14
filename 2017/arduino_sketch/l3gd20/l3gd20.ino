@@ -13,45 +13,55 @@ struct GYRO{
 GYRO gyro_0,gyro_1,gyro_2;
 
 void getGyro(int num){
-  l3gd20.read();
   switch(int num){
   case 0:
     gyro_0.time = millis();
-    gyro_0.x = l3gd20.data.x;
-    gyro_0.y = l3gd20.data.y;
-    gyro_0.z = l3gd20.data.z;
+    gyro_0.x = gyro_x;
+    gyro_0.y = gyro_y;
+    gyro_0.z = gyro_z;
   case 1:
     gyro_1.time = millis();
-    gyro_1x = l3gd20.data.x;
-    gyro_1.y = l3gd20.data.y;
-    gyro_1.z = l3gd20.data.z;
+    gyro_1.x = gyro_x;
+    gyro_1.y = gyro_y;
+    gyro_1.z = gyro_z;
   case 2:
     gyro_2.time = millis();
-    gyro_2.x = l3gd20.data.x;
-    gyro_2.y = l3gd20.data.y;
-    gyro_2.z = l3gd20.data.z;
+    gyro_2.x = gyro_x;
+    gyro_2.y = gyro_y;
+    gyro_2.z = gyro_z;
   }
 }
 
 void setup(){
   Serial.begin(9600);
 
-  if(!l3gd20.begin(l3gd20.L3GD20_RANGE_250DPS)){
+  if(!l3gd20.begin(l3gd20.L3GD20_RANGE_500DPS)){
     Serial.println("Unable to initialize");
     while(true);
   }
 }
 
 int tim = 0;
+double last_gyro_x = 0, last_gyro_y = 0, last_gyro_z = 0;
+double gyro_x, gyro_y, gyro_z;
 
 void loop(){
   int num[3] = {0,1,2};
-  
+  double param = 0.97;
+
+  l3gd20.read();
+  gyro_x = param * last_gyro_x + (1-param)*l3gd20.data.x;
+  last_gyro_x = gyro_x;
+  gyro_y = param * last_gyro_y + (1-param)*l3gd20.data.y;
+  last_gyro_y = gyro_y;
+  gyro_z = param * last_gyro_z + (1-param)*l3gd20.data.z;
+  last_gyro_z = gyro_z;
+
   getGyro(num[tim]);
   if(++tim > 2) tim = 0;
   
-  Serial.print(" gyro_0.x: "); Serial.print(gyro_0.x);
-  Serial.print(" gyro_0.y: "); Serial.print(gyro_0.y);
-  Serial.print(" gyro_0.z: "); Serial.print(gyro_0.z);
+  Serial.print(gyro_0.x); Serial.print(" ");
+  Serial.print(gyro_1.x); Serial.print(" ");
+  Serial.print(gyro_2.x); Serial.print(" ");
   Serial.println();
 }
