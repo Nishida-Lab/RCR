@@ -58,10 +58,15 @@ void loop(){
   last_gyro_z = gyro_z;
 
   getGyro(num[tim]);
-  if(++tim > 2) tim = 0;
   
-  Serial.print(gyro_0.x); Serial.print(" ");
-  Serial.print(gyro_1.x); Serial.print(" ");
-  Serial.print(gyro_2.x); Serial.print(" ");
+  int value = 0;
+
+  if(tim == 0) value = gyro_0.x;
+  if(tim == 1) value = gyro_1.x;
+  if(tim == 2) value = gyro_2.x;
+
+  if(++tim > 2) tim = 0;
+
+  Serial.print(value);
   Serial.println();
 }

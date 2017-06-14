@@ -1,8 +1,11 @@
 #define ACC_X  7 //set Pin number
 #define ACC_Y  8
 #define ACC_Z  9
-#define OFFSET_X 1751.7 //sensor offset
+#define ACC_G 9.8
+#define OFFSET_X 1780 //sensor offset
 #define OFFSET_Y 1856
+#define OFFSET_Z 1650
+
 
 int tim = 0;
 double new_acc[3] = {0,0,0};
@@ -12,6 +15,8 @@ double pos_x,pos_y,pos_z;
 double new_vel[3] = {0,0,0};
 double last_vel[3] = {0,0,0};
 double vel[3] = {0,0,0};
+ 
+
 
 
 int readAnalog(int pin){ //read kxr94 by Multiplexer
@@ -52,19 +57,28 @@ void getAcc(int num, double x, double y, double z){
     //重力加速度[m/s^2]*(電圧[mV]-オフセット電圧[mV])/感度[mV/g] = 加速度[m/s^2]
     acc_0.data_x = 9.8*(x * 4.9 - OFFSET_X)/660; 
     acc_0.data_y = 9.8*(y * 4.9 - OFFSET_Y)/660; 
-    acc_0.data_z = 9.8*(z * 4.9)/660; break;
+    acc_0.data_z = 9.8*(z * 4.9 - OFFSET_Z)/660; 
+
+    acc_0.data_x = sqrt(acc_0.data_x*acc_0.data_x + acc_0.data_z*acc_0.data_z - ACC_G*ACC_G);
+    break;
  
   case 1:
     acc_1.time = micros();
     acc_1.data_x = 9.8*(x * 4.9 - OFFSET_X)/660; 
     acc_1.data_y = 9.8*(y * 4.9 - OFFSET_Y)/660; 
-    acc_1.data_z = 9.8*(z * 4.9 - 1650)/660; break;
+    acc_1.data_z = 9.8*(z * 4.9 - OFFSET_Z)/660; 
+
+    acc_1.data_x = sqrt(acc_1.data_x*acc_1.data_x + acc_1.data_z*acc_1.data_z - ACC_G*ACC_G);
+    break;
 
   case 2:
     acc_2.time = micros();
-    acc_2.data_x = 9.8*(x * 4.9-OFFSET_X)/660;
-    acc_2.data_y = 9.8*(y * 4.9-OFFSET_Y)/660; 
-    acc_2.data_z = 9.8*(z * 4.9-1650)/660; break;
+    acc_2.data_x = 9.8*(x * 4.9 - OFFSET_X)/660;
+    acc_2.data_y = 9.8*(y * 4.9 - OFFSET_Y)/660; 
+    acc_2.data_z = 9.8*(z * 4.9 - OFFSET_Z)/660; 
+
+    acc_2.data_x = sqrt(acc_2.data_x*acc_2.data_x + acc_2.data_z*acc_2.data_z - ACC_G*ACC_G);
+    break;
   }
 }
 
@@ -81,7 +95,7 @@ double getIntegral(unsigned long time_0, double data_0, unsigned long time_1, do
     answer = (data_2 + 4*data_0 + data_1)*(time_1 - time_2)/6;
   }
 
-  return answer / 1000000;
+  return answer;
 }
 
 double rc_filter(double new_data, double last_answer, double param){
@@ -134,19 +148,19 @@ double last_poss = 0;
 
 void loop(){  
   int num[3] = {0,1,2};
-  double rc_param = 0.97; //RC filter parametor
+  double rc_param = 0.95; //RC filter parametor
 
 
   //get Accel(RC filter)
   new_acc[0] = readAnalog(7);
-  acc[0] =  rc_filter(new_acc[0], last_acc[0], rc_param);
+  acc[0] = rc_filter(new_acc[0], acc[0], rc_param);
   last_acc[0] = acc[0];
 
   new_acc[1] = readAnalog(8);
-  acc[1] =  rc_filter(new_acc[1], last_acc[1], rc_param);
+  acc[1] =  new_acc[1] - rc_filter(new_acc[1], last_acc[1], rc_param);
   last_acc[1] = acc[1];
 
-  new_acc[2] = readAnalog(9);
+  new_acc[2] = new_acc[2] - readAnalog(9);
   acc[2] =  rc_filter(new_acc[2], last_acc[2], rc_param);
   last_acc[2] = acc[2];
 
@@ -154,19 +168,19 @@ void loop(){
 
   //get Velocity
   vel_0.time = acc_1.time;
-  vel_0.data_x = getIntegral(acc_0.time, acc_0.data_x, acc_1.time, acc_1.data_x, acc_2.time, acc_2.data_x);
-  vel_0.data_y = getIntegral(acc_0.time, acc_0.data_y, acc_1.time, acc_1.data_y, acc_2.time, acc_2.data_y);
-  vel_0.data_z = getIntegral(acc_0.time, acc_0.data_z, acc_1.time, acc_1.data_z, acc_2.time, acc_2.data_z);
+  vel_0.data_x = getIntegral(acc_0.time, acc_0.data_x, acc_1.time, acc_1.data_x, acc_2.time, acc_2.data_x)/(1000*1000);
+  vel_0.data_y = getIntegral(acc_0.time, acc_0.data_y, acc_1.time, acc_1.data_y, acc_2.time, acc_2.data_y)/(1000*1000);
+  vel_0.data_z = getIntegral(acc_0.time, acc_0.data_z, acc_1.time, acc_1.data_z, acc_2.time, acc_2.data_z)/(1000*1000);
 
   vel_1.time = acc_2.time;
-  vel_1.data_x = getIntegral(acc_0.time, acc_0.data_x, acc_1.time, acc_1.data_x, acc_2.time, acc_2.data_x);
-  vel_1.data_y = getIntegral(acc_0.time, acc_0.data_y, acc_1.time, acc_1.data_y, acc_2.time, acc_2.data_y);
-  vel_1.data_z = getIntegral(acc_0.time, acc_0.data_z, acc_1.time, acc_1.data_z, acc_2.time, acc_2.data_z);
+  vel_1.data_x = getIntegral(acc_0.time, acc_0.data_x, acc_1.time, acc_1.data_x, acc_2.time, acc_2.data_x)/(1000*1000);
+  vel_1.data_y = getIntegral(acc_0.time, acc_0.data_y, acc_1.time, acc_1.data_y, acc_2.time, acc_2.data_y)/(1000*1000);
+  vel_1.data_z = getIntegral(acc_0.time, acc_0.data_z, acc_1.time, acc_1.data_z, acc_2.time, acc_2.data_z)/(1000*1000);
 
   vel_2.time = acc_0.time;
-  vel_2.data_x = getIntegral(acc_0.time, acc_0.data_x, acc_1.time, acc_1.data_x, acc_2.time, acc_2.data_x);
-  vel_2.data_y = getIntegral(acc_0.time, acc_0.data_y, acc_1.time, acc_1.data_y, acc_2.time, acc_2.data_y);
-  vel_2.data_z = getIntegral(acc_0.time, acc_0.data_z, acc_1.time, acc_1.data_z, acc_2.time, acc_2.data_z);
+  vel_2.data_x = getIntegral(acc_0.time, acc_0.data_x, acc_1.time, acc_1.data_x, acc_2.time, acc_2.data_x)/(1000*1000);
+  vel_2.data_y = getIntegral(acc_0.time, acc_0.data_y, acc_1.time, acc_1.data_y, acc_2.time, acc_2.data_y)/(1000*1000);
+  vel_2.data_z = getIntegral(acc_0.time, acc_0.data_z, acc_1.time, acc_1.data_z, acc_2.time, acc_2.data_z)/(1000*1000);
  
 //  if(tim == 0){
 //    vel_0.data_x = rc_filter(vel_0.data_x, vel_2.data_x, rc_param);
@@ -197,17 +211,19 @@ void loop(){
     now_Accel = acc_2.data_x;
     now_Velocity = vel_2.data_x;
   }
+
   //get Position
-  pos_x = getIntegral(vel_0.time, vel_0.data_x, vel_1.time, vel_1.data_x, vel_2.time, vel_2.data_x);  //get Position
-  pos_y = getIntegral(vel_0.time, vel_0.data_y, vel_1.time, vel_1.data_y, vel_2.time, vel_2.data_y);
-  pos_z = getIntegral(vel_0.time, vel_0.data_z, vel_1.time, vel_1.data_z, vel_2.time, vel_2.data_z);
+  pos_x = getIntegral(vel_0.time, vel_0.data_x, vel_1.time, vel_1.data_x, vel_2.time, vel_2.data_x)/(1000*1000);  //get Position
+  pos_y = getIntegral(vel_0.time, vel_0.data_y, vel_1.time, vel_1.data_y, vel_2.time, vel_2.data_y)/(1000*1000);
+  pos_z = getIntegral(vel_0.time, vel_0.data_z, vel_1.time, vel_1.data_z, vel_2.time, vel_2.data_z)/(1000*1000);
 
   pos_x = rc_param * last_poss + (1-rc_param) * pos_x;
   last_poss = pos_x; 
 
-  Serial.print(now_Accel,6); Serial.print(" ");
-  Serial.print(now_Velocity,6); Serial.print(" "); 
-  Serial.println(pos_x,6); //print Screen
+  Serial.println(now_Accel,10);// Serial.print(" ");
+ 
+  //Serial.print(now_Velocity,10); Serial.print(" "); 
+  //Serial.println(pos_x,10); //print Screen
 
 
   tim++;
