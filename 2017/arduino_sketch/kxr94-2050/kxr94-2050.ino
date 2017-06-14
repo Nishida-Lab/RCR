@@ -157,7 +157,7 @@ void loop(){
   last_acc[0] = acc[0];
 
   new_acc[1] = readAnalog(8);
-  acc[1] =  new_acc[1] - rc_filter(new_acc[1], last_acc[1], rc_param);
+  acc[1] = rc_filter(new_acc[1], last_acc[1], rc_param);
   last_acc[1] = acc[1];
 
   new_acc[2] = new_acc[2] - readAnalog(9);

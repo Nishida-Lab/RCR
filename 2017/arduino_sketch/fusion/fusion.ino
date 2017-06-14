@@ -2,7 +2,6 @@
 #include<../../arduino_libraries/VL6180X/VL6180X.h>
 #include<../../arduino_libraries/L3GD20/L3GD20.h>
 #include<./ACCEL.h>
-#include<math.h>
 
 VL6180X vl6180x_NW;
 VL6180X vl6180x_N;
