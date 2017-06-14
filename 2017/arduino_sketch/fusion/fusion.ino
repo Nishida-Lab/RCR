@@ -1,6 +1,6 @@
 #include<Wire.h>
-#include<VL6180X.h>
-#include<L3GD20.h>
+#include<../../arduino_libraries/VL6180X/VL6180X.h>
+#include<../../arduino_libraries/L3GD20/L3GD20.h>
 #include<./ACCEL.h>
 #include<math.h>
 

@@ -1,5 +1,5 @@
 #include <Wire.h>
-#include <L3GD20.h>
+#include <../../arduino_libraries/L3GD20/L3GD20.h>
 
 int tim = 0;
 double last_gyro_x = 0, last_gyro_y = 0, last_gyro_z = 0;
