@@ -7,3 +7,4 @@ version ${PROJECT_VERSION} in development
 
 - C++14 standard library
 - Boost C++ Libraries 1.58.0
+- OpenCV 3.2.0
