@@ -103,6 +103,7 @@ double rc_filter(double new_data, double last_answer, double param){
   return answer = param * last_answer + (1-param) * new_data;
 }
 
+/*
 double Gn  = 0;
 double hn[2] = {0,0};
 double theta_hat[2] = {0,0};
@@ -133,6 +134,7 @@ double estimate(double y_2, double y_1, double y_0){
   hn[1] *= estimate_count+1;
   return y_2;
 }
+*/
 
 void setup(){
   pinMode( 8, OUTPUT);
@@ -228,5 +230,4 @@ void loop(){
 
   tim++;
   if(tim > 2) tim = 0;
-  delay(10);
 }
