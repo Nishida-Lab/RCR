@@ -11,6 +11,7 @@ struct DATA{
   double z;
 };
 
+
 DATA gyro_0,gyro_1,gyro_2,vel_0,vel_1,vel_2;
 
 void getGyro(int num, double data_x, double data_y, double data_z){
@@ -139,13 +140,13 @@ void loop(){
   last_deg_z = deg_z;
 
 
-  value += deg_z; 
+  value += deg_z*2; 
 
   if(++tim > 2) tim = 0;
 
 
-//  Serial.print(gyro_z); Serial.print(" ");
-//  Serial.print(Avel_z); Serial.print(" ");
-//  Serial.println(deg_z);
+//Serial.print(gyro_z); Serial.print(" ");
+//Serial.print(Avel_z); Serial.print(" ");
+//Serial.println(deg_z);
   Serial.println(value);
 }
