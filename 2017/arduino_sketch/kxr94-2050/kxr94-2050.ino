@@ -2,14 +2,13 @@
 #define ACC_Y  8
 #define ACC_Z  9
 #define ACC_G 9.80665
-#define OFFSET_X 1780 //sensor offset
-#define OFFSET_Y 1856
-#define OFFSET_Z 1710
+#define OFFSET_X 1744 //sensor offset
+#define OFFSET_Y 1323
+#define OFFSET_Z 1570
 
 
 int tim = 0;
 double new_acc[3] = {0,0,0};
-double last_acc[3] = {0,0,0};
 double acc[3] = {0,0,0};
 double pos_x,pos_y,pos_z;
 double new_vel[3] = {0,0,0};
@@ -51,33 +50,46 @@ struct DATA{
 DATA acc_0,acc_1,acc_2,vel_0,vel_1,vel_2;
 
 void getAcc(int num, double x, double y, double z){
+  double sum_x, sum_y;
   switch(num){
   case 0:
     acc_0.time = micros();
     //重力加速度[m/s^2]*(電圧[mV]-オフセット電圧[mV])/感度[mV/g] = 加速度[m/s^2]
-    acc_0.data_x = 9.8*(x * 4.9 - OFFSET_X)/660; 
-    acc_0.data_y = 9.8*(y * 4.9 - OFFSET_Y)/660; 
-    acc_0.data_z = 9.8*(z * 4.9 - OFFSET_Z)/660; 
-
-    acc_0.data_x = sqrt(acc_0.data_x*acc_0.data_x + acc_0.data_z*acc_0.data_z - ACC_G*ACC_G);
+    acc_0.data_x = 9.8*(x * 4.9 - OFFSET_X)/1000; 
+    acc_0.data_y = 9.8*(y * 4.9 - OFFSET_Y)/1000; 
+    acc_0.data_z = 9.8*(z * 4.9 - OFFSET_Z)/1000;
+ //   sum_x = acc_0.data_x*acc_0.data_x + acc_0.data_z*acc_0.data_z - ACC_G*ACC_G;
+ //   sum_y = acc_0.data_y*acc_0.data_y + acc_0.data_z*acc_0.data_z - ACC_G*ACC_G;
+ //   if(sum_x < 0) acc_0.data_x = -sqrt(-sum_x);
+ //   else if(sum_x >= 0) acc_0.data_x = sqrt(sum_x);
+ //   if(sum_y < 0) acc_0.data_y = -sqrt(-sum_y);
+ //   else if(sum_y >= 0) acc_0.data_y = sqrt(sum_y);
     break;
  
   case 1:
     acc_1.time = micros();
-    acc_1.data_x = 9.8*(x * 4.9 - OFFSET_X)/660; 
-    acc_1.data_y = 9.8*(y * 4.9 - OFFSET_Y)/660; 
-    acc_1.data_z = 9.8*(z * 4.9 - OFFSET_Z)/660; 
-
-    acc_1.data_x = sqrt(acc_1.data_x*acc_1.data_x + acc_1.data_z*acc_1.data_z - ACC_G*ACC_G);
+    acc_1.data_x = 9.8*(x * 4.9 - OFFSET_X)/1000; 
+    acc_1.data_y = 9.8*(y * 4.9 - OFFSET_Y)/1000; 
+    acc_1.data_z = 9.8*(z * 4.9 - OFFSET_Z)/1000; 
+//    sum_x = acc_1.data_x*acc_1.data_x + acc_1.data_z*acc_1.data_z - ACC_G*ACC_G;
+//    sum_y = acc_1.data_y*acc_1.data_y + acc_1.data_z*acc_1.data_z - ACC_G*ACC_G;
+//    if(sum_x < 0) acc_1.data_x = -sqrt(-sum_x);
+//    else if(sum_x >= 0) acc_1.data_x = sqrt(sum_x);
+//    if(sum_y < 0) acc_1.data_y = -sqrt(-sum_y);
+//    else if(sum_y >= 0) acc_1.data_y = sqrt(sum_y);
     break;
 
   case 2:
     acc_2.time = micros();
-    acc_2.data_x = 9.8*(x * 4.9 - OFFSET_X)/660;
-    acc_2.data_y = 9.8*(y * 4.9 - OFFSET_Y)/660; 
-    acc_2.data_z = 9.8*(z * 4.9 - OFFSET_Z)/660; 
-
-    acc_2.data_x = sqrt(acc_2.data_x*acc_2.data_x + acc_2.data_z*acc_2.data_z - ACC_G*ACC_G);
+    acc_2.data_x = 9.8*(x * 4.9 - OFFSET_X)/1000;
+    acc_2.data_y = 9.8*(y * 4.9 - OFFSET_Y)/1000; 
+    acc_2.data_z = 9.8*(z * 4.9 - OFFSET_Z)/1000; 
+//    sum_x = acc_2.data_x*acc_2.data_x + acc_2.data_z*acc_2.data_z - ACC_G*ACC_G; 
+//    sum_y = acc_2.data_y*acc_2.data_y + acc_2.data_z*acc_2.data_z - ACC_G*ACC_G;
+//    if(sum_x < 0) acc_2.data_x = -sqrt(-sum_x);
+//    else if(sum_x >= 0) acc_2.data_x = sqrt(sum_x);
+//    if(sum_y < 0) acc_2.data_y = -sqrt(-sum_y);
+//    else if(sum_y >= 0) acc_2.data_y = sqrt(sum_y);
     break;
   }
 }
@@ -154,18 +166,15 @@ void loop(){
 
 
   //get Accel(RC filter)
-  new_acc[0] = readAnalog(7);
+  new_acc[0] = readAnalog(ACC_X);
   acc[0] = rc_filter(new_acc[0], acc[0], rc_param);
-  last_acc[0] = acc[0];
-
-  new_acc[1] = readAnalog(8);
-  acc[1] = rc_filter(new_acc[1], last_acc[1], rc_param);
-  last_acc[1] = acc[1];
-
-  new_acc[2] = readAnalog(9);
-  acc[2] =  rc_filter(new_acc[2], last_acc[2], rc_param);
-  last_acc[2] = acc[2];
-
+ 
+  new_acc[1] = readAnalog(ACC_Y);
+  acc[1] = rc_filter(new_acc[1], acc[1], rc_param);
+ 
+  new_acc[2] = readAnalog(ACC_Z);
+  acc[2] = rc_filter(new_acc[2], acc[2], rc_param);
+ 
   getAcc(num[tim],acc[0],acc[1],acc[2]);
 
   //get Velocity
@@ -183,16 +192,6 @@ void loop(){
   vel_2.data_x = getIntegral(acc_0.time, acc_0.data_x, acc_1.time, acc_1.data_x, acc_2.time, acc_2.data_x)/(1000*1000);
   vel_2.data_y = getIntegral(acc_0.time, acc_0.data_y, acc_1.time, acc_1.data_y, acc_2.time, acc_2.data_y)/(1000*1000);
   vel_2.data_z = getIntegral(acc_0.time, acc_0.data_z, acc_1.time, acc_1.data_z, acc_2.time, acc_2.data_z)/(1000*1000);
- 
-//  if(tim == 0){
-//    vel_0.data_x = rc_filter(vel_0.data_x, vel_2.data_x, rc_param);
-//  }
-//  else if(tim == 1){
-//    vel_1.data_x = rc_filter(vel_1.data_x, vel_0.data_x, rc_param);
-//  }
-//  else if(tim == 2){
-//    vel_2.data_x = rc_filter(vel_2.data_x, vel_1.data_x, rc_param);
-//  }
 
 
   double now_Accel;
@@ -222,8 +221,9 @@ void loop(){
   pos_x = rc_param * last_poss + (1-rc_param) * pos_x;
   last_poss = pos_x; 
 
-  Serial.println(now_Accel,10);// Serial.print(" ");
- 
+  Serial.print(acc[0]); Serial.print(" ");
+  Serial.print(acc[1]); Serial.print(" ");
+  Serial.println(acc[2]);
   //Serial.print(now_Velocity,10); Serial.print(" "); 
   //Serial.println(pos_x,10); //print Screen
 
