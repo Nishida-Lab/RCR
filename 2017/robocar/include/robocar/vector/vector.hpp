@@ -20,7 +20,7 @@ class vector
   : public boost::numeric::ublas::vector<T>
 {
 public:
-  static constexpr std::size_t extents {2};
+  static constexpr std::size_t extents {2}; // TODO recursive extents setting
 
   vector(T x = static_cast<T>(0), T y = static_cast<T>(0))
     : boost::numeric::ublas::vector<T> {extents}

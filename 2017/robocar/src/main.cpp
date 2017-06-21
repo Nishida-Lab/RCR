@@ -122,23 +122,23 @@ int main(int argc, char** argv) try
     return poles;
   };
 
-  auto position = [&]()
-    -> robocar::vector<double>
-  {
-    return robocar::vector<double> {0.0, 0.0};
-  };
+  // auto position = [&]()
+  //   -> robocar::vector<double>
+  // {
+  //   return robocar::vector<double> {0.0, 0.0};
+  // };
 
-  const auto const_forward_vector = []()
-    -> boost::numeric::ublas::vector<double>
-  {
-    static constexpr std::size_t extent {2};
-    boost::numeric::ublas::vector<double> forward {extent};
-
-    forward[0] = 0.0;
-    forward[1] = 1.0;
-
-    return {forward};
-  };
+  // const auto const_forward_vector = []()
+  //   -> boost::numeric::ublas::vector<double>
+  // {
+  //   static constexpr std::size_t extent {2};
+  //   boost::numeric::ublas::vector<double> forward {extent};
+  //
+  //   forward[0] = 0.0;
+  //   forward[1] = 1.0;
+  //
+  //   return {forward};
+  // };
 
   auto long_range_sensor_array_debug = [&]()
     -> boost::numeric::ublas::vector<double>
@@ -240,7 +240,7 @@ int main(int argc, char** argv) try
       int sensor_value_raw {std::stoi(sensor_value_str)};
       std::cout << "        sensor value raw: " << sensor_value_raw << std::endl;
 
-      int sensor_value {short_range_sensor(sensor_value_raw)};
+      auto sensor_value {short_range_sensor(sensor_value_raw)};
       std::cout << "        sensor value: " << sensor_value << std::endl;
 
       double arctanh {};
