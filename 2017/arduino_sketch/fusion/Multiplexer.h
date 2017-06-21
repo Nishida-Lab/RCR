@@ -13,55 +13,55 @@
 int readAnalog(int pin){
   switch(pin){
   case PSD_SW: 
-    digitalWrite( 8, LOW);
-    digitalWrite( 9, LOW);
+    digitalWrite(11, LOW);
     digitalWrite(10, LOW);
-    digitalWrite(11, LOW); break; //PSD_SW
+    digitalWrite( 9, LOW);
+    digitalWrite( 8, LOW); break; //PSD_SW
   case PSD_W : 
-    digitalWrite( 8, HIGH);
-    digitalWrite( 9, LOW);
+    digitalWrite(11, HIGH);
     digitalWrite(10, LOW);
-    digitalWrite(11, LOW); break; //PSD_W
+    digitalWrite( 9, LOW);
+    digitalWrite( 8, LOW); break; //PSD_W
   case PSD_NW:
-    digitalWrite( 8, LOW);
-    digitalWrite( 9, HIGH);
-    digitalWrite(10, LOW);
-    digitalWrite(11, LOW); break; //PSD_NW
+    digitalWrite(11, LOW);
+    digitalWrite(10, HIGH);
+    digitalWrite( 9, LOW);
+    digitalWrite( 8, LOW); break; //PSD_NW
   case PSD_N: 
-    digitalWrite( 8, HIGH);
-    digitalWrite( 9, HIGH);
-    digitalWrite(10, LOW);
-    digitalWrite(11, LOW); break; //PSD_N
+    digitalWrite(11, HIGH);
+    digitalWrite(10, HIGH);
+    digitalWrite( 9, LOW);
+    digitalWrite( 8, LOW); break; //PSD_N
   case PSD_NE: 
-    digitalWrite( 8, LOW);
-    digitalWrite( 9, LOW);
-    digitalWrite(10, HIGH);
-    digitalWrite(11, LOW); break; //PSD_NE
+    digitalWrite(11, LOW);
+    digitalWrite(10, LOW);
+    digitalWrite( 9, HIGH);
+    digitalWrite( 8, LOW); break; //PSD_NE
   case PSD_E:
-    digitalWrite( 8, HIGH);
-    digitalWrite( 9, LOW);
-    digitalWrite(10, HIGH);
-    digitalWrite(11, LOW); break; //PSD_E
+    digitalWrite(11, HIGH);
+    digitalWrite(10, LOW);
+    digitalWrite( 9, HIGH);
+    digitalWrite( 8, LOW); break; //PSD_E
   case PSD_SE:
-    digitalWrite( 8, LOW);
-    digitalWrite( 9, HIGH);
+    digitalWrite(11, LOW);
     digitalWrite(10, HIGH);
-    digitalWrite(11, LOW); break; //PSD_SE
+    digitalWrite( 9, HIGH);
+    digitalWrite( 8, LOW); break; //PSD_SE
   case ACC_X:
-    digitalWrite( 8, HIGH);
-    digitalWrite( 9, HIGH);
+    digitalWrite(11, HIGH);
     digitalWrite(10, HIGH);
-    digitalWrite(11, LOW); break; //Acc_x
+    digitalWrite( 9, HIGH);
+    digitalWrite( 8, LOW); break; //Acc_x
   case ACC_Y:
-    digitalWrite( 8, LOW);
-    digitalWrite( 9, LOW);
+    digitalWrite(11, LOW);
     digitalWrite(10, LOW);
-    digitalWrite(11, HIGH); break; //Acc_y
+    digitalWrite( 9, LOW);
+    digitalWrite( 8, HIGH); break; //Acc_y
   case ACC_Z: 
-    digitalWrite( 8, HIGH);
-    digitalWrite( 9, LOW);
+    digitalWrite(11, HIGH);
     digitalWrite(10, LOW);
-    digitalWrite(11, HIGH); break; //Acc_z
+    digitalWrite( 9, LOW);
+    digitalWrite( 8, HIGH); break; //Acc_z
   }
 
   return analogRead(0);
