@@ -2,9 +2,9 @@
 #define ACC_Y  8
 #define ACC_Z  9
 #define ACC_G 9.80665
-#define OFFSET_X 1744 //sensor offset
-#define OFFSET_Y 1323
-#define OFFSET_Z 1570
+#define OFFSET_X 1642 //sensor offset
+#define OFFSET_Y 1642
+#define OFFSET_Z 1230
 
 
 int tim = 0;
@@ -21,15 +21,15 @@ double vel[3] = {0,0,0};
 int readAnalog(int pin){ //read kxr94 by Multiplexer
   switch(pin){
   case ACC_X:
-    digitalWrite( 8, HIGH);
+    digitalWrite( 8, LOW);
     digitalWrite( 9, HIGH);
     digitalWrite(10, HIGH);
-    digitalWrite(11, LOW); break; //Acc_x
+    digitalWrite(11, HIGH); break; //Acc_x
   case ACC_Y:
-    digitalWrite( 8, LOW);
+    digitalWrite( 8, HIGH);
     digitalWrite( 9, LOW);
     digitalWrite(10, LOW);
-    digitalWrite(11, HIGH); break; //Acc_y
+    digitalWrite(11, LOW); break; //Acc_y
   case ACC_Z: 
     digitalWrite( 8, HIGH);
     digitalWrite( 9, LOW);
@@ -45,12 +45,13 @@ struct DATA{
   double data_x;
   double data_y;
   double data_z;
+  double sum;
 };
 
 DATA acc_0,acc_1,acc_2,vel_0,vel_1,vel_2;
 
 void getAcc(int num, double x, double y, double z){
-  double sum_x, sum_y;
+  double sum, answer;
   switch(num){
   case 0:
     acc_0.time = micros();
@@ -58,12 +59,9 @@ void getAcc(int num, double x, double y, double z){
     acc_0.data_x = 9.8*(x * 4.9 - OFFSET_X)/1000; 
     acc_0.data_y = 9.8*(y * 4.9 - OFFSET_Y)/1000; 
     acc_0.data_z = 9.8*(z * 4.9 - OFFSET_Z)/1000;
- //   sum_x = acc_0.data_x*acc_0.data_x + acc_0.data_z*acc_0.data_z - ACC_G*ACC_G;
- //   sum_y = acc_0.data_y*acc_0.data_y + acc_0.data_z*acc_0.data_z - ACC_G*ACC_G;
- //   if(sum_x < 0) acc_0.data_x = -sqrt(-sum_x);
- //   else if(sum_x >= 0) acc_0.data_x = sqrt(sum_x);
- //   if(sum_y < 0) acc_0.data_y = -sqrt(-sum_y);
- //   else if(sum_y >= 0) acc_0.data_y = sqrt(sum_y);
+    sum = acc_0.data_x*acc_0.data_x + acc_0.data_y*acc_0.data_y;// + acc_0.data_z*acc_0.data_z - ACC_G*ACC_G;
+    if(sum < 0) acc_0.sum = -sqrt(-sum);
+    else if(sum >= 0) acc_0.sum = sqrt(sum);
     break;
  
   case 1:
@@ -71,12 +69,9 @@ void getAcc(int num, double x, double y, double z){
     acc_1.data_x = 9.8*(x * 4.9 - OFFSET_X)/1000; 
     acc_1.data_y = 9.8*(y * 4.9 - OFFSET_Y)/1000; 
     acc_1.data_z = 9.8*(z * 4.9 - OFFSET_Z)/1000; 
-//    sum_x = acc_1.data_x*acc_1.data_x + acc_1.data_z*acc_1.data_z - ACC_G*ACC_G;
-//    sum_y = acc_1.data_y*acc_1.data_y + acc_1.data_z*acc_1.data_z - ACC_G*ACC_G;
-//    if(sum_x < 0) acc_1.data_x = -sqrt(-sum_x);
-//    else if(sum_x >= 0) acc_1.data_x = sqrt(sum_x);
-//    if(sum_y < 0) acc_1.data_y = -sqrt(-sum_y);
-//    else if(sum_y >= 0) acc_1.data_y = sqrt(sum_y);
+    sum = acc_1.data_x*acc_1.data_x + acc_1.data_y*acc_1.data_y;// + acc_1.data_z*acc_1.data_z - ACC_G*ACC_G;
+    if(sum < 0) acc_1.sum = -sqrt(-sum);
+    else if(sum >= 0) acc_1.sum = sqrt(sum);
     break;
 
   case 2:
@@ -84,16 +79,14 @@ void getAcc(int num, double x, double y, double z){
     acc_2.data_x = 9.8*(x * 4.9 - OFFSET_X)/1000;
     acc_2.data_y = 9.8*(y * 4.9 - OFFSET_Y)/1000; 
     acc_2.data_z = 9.8*(z * 4.9 - OFFSET_Z)/1000; 
-//    sum_x = acc_2.data_x*acc_2.data_x + acc_2.data_z*acc_2.data_z - ACC_G*ACC_G; 
-//    sum_y = acc_2.data_y*acc_2.data_y + acc_2.data_z*acc_2.data_z - ACC_G*ACC_G;
-//    if(sum_x < 0) acc_2.data_x = -sqrt(-sum_x);
-//    else if(sum_x >= 0) acc_2.data_x = sqrt(sum_x);
-//    if(sum_y < 0) acc_2.data_y = -sqrt(-sum_y);
-//    else if(sum_y >= 0) acc_2.data_y = sqrt(sum_y);
+    sum = acc_2.data_x*acc_2.data_x + acc_2.data_y*acc_2.data_y;// + acc_2.data_z*acc_2.data_z - ACC_G*ACC_G;
+    if(sum < 0) acc_2.sum = -sqrt(-sum);
+    else if(sum >= 0) acc_2.sum = sqrt(sum);
     break;
   }
 }
 
+  
 
 double getIntegral(unsigned long time_0, double data_0, unsigned long time_1, double data_1, unsigned long time_2, double data_2){
   double answer = 0;
@@ -110,20 +103,34 @@ double getIntegral(unsigned long time_0, double data_0, unsigned long time_1, do
   return answer;
 }
 
-double rc_filter(double new_data, double last_answer, double param){
-  double answer = 0;
-  return answer = param * last_answer + (1-param) * new_data;
+
+void getVelocity(int t){
+  switch(t){
+  case 0:
+    vel_0.time = acc_1.time;    
+    vel_0.sum = getIntegral(acc_0.time, acc_0.sum, acc_1.time, acc_1.sum, acc_2.time, acc_2.sum)/(1000*1000);
+    break;
+  case 1:
+    vel_1.time = acc_2.time;
+    vel_1.sum = getIntegral(acc_0.time, acc_0.sum, acc_1.time, acc_1.sum, acc_2.time, acc_2.sum)/(1000*1000);
+    break;
+  case 2:
+    vel_2.time = acc_0.time;
+    vel_2.sum = getIntegral(acc_0.time, acc_0.sum, acc_1.time, acc_1.sum, acc_2.time, acc_2.sum)/(1000*1000);
+    break;
+  }
 }
 
-/*
-double Gn  = 0;
-double hn[2] = {0,0};
-double theta_hat[2] = {0,0};
-double psi[2] = {0.0};
-int estimate_count = 0;
 
-//use ARMA model
-double estimate(double y_2, double y_1, double y_0){
+/*
+  double Gn  = 0;
+  double hn[2] = {0,0};
+  double theta_hat[2] = {0,0};
+  double psi[2] = {0.0};
+  int estimate_count = 0;
+
+  //use ARMA model
+  double estimate(double y_2, double y_1, double y_0){
   psi[0] = -y_1;
   psi[1] = -y_0;
 
@@ -145,7 +152,7 @@ double estimate(double y_2, double y_1, double y_0){
   hn[0] *= estimate_count+1;  
   hn[1] *= estimate_count+1;
   return y_2;
-}
+  }
 */
 
 void setup(){
@@ -159,75 +166,47 @@ void setup(){
 
 int count = 0;
 double last_poss = 0;
+double value = 0;
 
 void loop(){  
   int num[3] = {0,1,2};
-  double rc_param = 0.95; //RC filter parametor
-
+  double param = 0.95; //RC filter parametor
 
   //get Accel(RC filter)
   new_acc[0] = readAnalog(ACC_X);
-  acc[0] = rc_filter(new_acc[0], acc[0], rc_param);
- 
+  acc[0] = (1-param) * acc[0] + param * new_acc[0];
+    
   new_acc[1] = readAnalog(ACC_Y);
-  acc[1] = rc_filter(new_acc[1], acc[1], rc_param);
- 
+  acc[1] = (1-param) * acc[1] + param * new_acc[1];
+  
   new_acc[2] = readAnalog(ACC_Z);
-  acc[2] = rc_filter(new_acc[2], acc[2], rc_param);
+  acc[2] = (1-param) * acc[2] + param * new_acc[2];
  
-  getAcc(num[tim],acc[0],acc[1],acc[2]);
-
-  //get Velocity
-  vel_0.time = acc_1.time;
-  vel_0.data_x = getIntegral(acc_0.time, acc_0.data_x, acc_1.time, acc_1.data_x, acc_2.time, acc_2.data_x)/(1000*1000);
-  vel_0.data_y = getIntegral(acc_0.time, acc_0.data_y, acc_1.time, acc_1.data_y, acc_2.time, acc_2.data_y)/(1000*1000);
-  vel_0.data_z = getIntegral(acc_0.time, acc_0.data_z, acc_1.time, acc_1.data_z, acc_2.time, acc_2.data_z)/(1000*1000);
-
-  vel_1.time = acc_2.time;
-  vel_1.data_x = getIntegral(acc_0.time, acc_0.data_x, acc_1.time, acc_1.data_x, acc_2.time, acc_2.data_x)/(1000*1000);
-  vel_1.data_y = getIntegral(acc_0.time, acc_0.data_y, acc_1.time, acc_1.data_y, acc_2.time, acc_2.data_y)/(1000*1000);
-  vel_1.data_z = getIntegral(acc_0.time, acc_0.data_z, acc_1.time, acc_1.data_z, acc_2.time, acc_2.data_z)/(1000*1000);
-
-  vel_2.time = acc_0.time;
-  vel_2.data_x = getIntegral(acc_0.time, acc_0.data_x, acc_1.time, acc_1.data_x, acc_2.time, acc_2.data_x)/(1000*1000);
-  vel_2.data_y = getIntegral(acc_0.time, acc_0.data_y, acc_1.time, acc_1.data_y, acc_2.time, acc_2.data_y)/(1000*1000);
-  vel_2.data_z = getIntegral(acc_0.time, acc_0.data_z, acc_1.time, acc_1.data_z, acc_2.time, acc_2.data_z)/(1000*1000);
-
-
-  double now_Accel;
-  double now_Velocity;
-  double now_time;
-  if(tim == 0){
-    now_time = acc_0.time;
-    now_Accel = acc_0.data_x;
-    now_Velocity = vel_0.data_x;
-  }
-  if(tim == 1){
-    now_time = acc_1.time;
-    now_Accel = acc_1.data_x;
-    now_Velocity = vel_1.data_x;
-  }
-  if(tim == 2){
-    now_time = acc_2.time;
-    now_Accel = acc_2.data_x;
-    now_Velocity = vel_2.data_x;
-  }
-
+  getAcc(num[tim],acc[0],acc[1],acc[2]); //get Accel[m/s^2]
+  getVelocity(num[tim]); //get Velocity[m/s]
+  
   //get Position
-  pos_x = getIntegral(vel_0.time, vel_0.data_x, vel_1.time, vel_1.data_x, vel_2.time, vel_2.data_x)/(1000*1000);  //get Position
-  pos_y = getIntegral(vel_0.time, vel_0.data_y, vel_1.time, vel_1.data_y, vel_2.time, vel_2.data_y)/(1000*1000);
-  pos_z = getIntegral(vel_0.time, vel_0.data_z, vel_1.time, vel_1.data_z, vel_2.time, vel_2.data_z)/(1000*1000);
-
-  pos_x = rc_param * last_poss + (1-rc_param) * pos_x;
+  pos_x = getIntegral(vel_0.time, vel_0.sum, vel_1.time, vel_1.sum, vel_2.time, vel_2.sum)/(1000*1000);  //get Position[m]
+  pos_x = param * last_poss + (1-param) * pos_x;
   last_poss = pos_x; 
 
-  Serial.print(acc[0]); Serial.print(" ");
-  Serial.print(acc[1]); Serial.print(" ");
-  Serial.println(acc[2]);
-  //Serial.print(now_Velocity,10); Serial.print(" "); 
-  //Serial.println(pos_x,10); //print Screen
+  value += pos_x;
 
+//  Serial.print(acc[0]); Serial.print(" ");
+//  Serial.print(acc[1]); Serial.print(" ");
+//  Serial.println(acc[2]);
 
+  Serial.print(ACC_G); Serial.print(" ");
+  Serial.print(acc_0.data_x); Serial.print(" ");
+  Serial.print(acc_0.data_y); Serial.print(" ");
+  Serial.print(acc_0.data_z); Serial.print(" ");
+  Serial.println(acc_0.sum);
+
+//  Serial.print(acc_0.sum,10); Serial.print(" ");
+//  Serial.print(vel_0.sum,10); Serial.print(" "); 
+//  Serial.println(pos_x,10); //print Screen
+//  Serial.println(value,10);
+  
   tim++;
   if(tim > 2) tim = 0;
 }
