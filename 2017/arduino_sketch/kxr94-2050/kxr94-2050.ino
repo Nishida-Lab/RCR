@@ -68,7 +68,6 @@ void getAcc(int num, double x, double y, double z){
     }else{
       sum =  acc_0.data_x*acc_0.data_x + acc_0.data_y*acc_0.data_y + acc_0.data_z*acc_0.data_z - ACC_G*ACC_G;
     }
-    
     if(sum < 0) acc_0.sum = -sqrt(-sum);
     else if(sum >= 0) acc_0.sum = sqrt(sum);
     break;
@@ -204,17 +203,16 @@ void loop(){
 //  Serial.print(acc[0]); Serial.print(" ");
 //  Serial.print(acc[1]); Serial.print(" ");
 //  Serial.println(acc[2]);
+  Serial.print(ACC_G); Serial.print(" ");
+  Serial.print(acc_0.data_x); Serial.print(" ");
+  Serial.print(acc_0.data_y); Serial.print(" ");
+  Serial.print(acc_0.data_z); Serial.print(" ");
+  Serial.println(acc_0.sum);
 
-//  Serial.print(ACC_G); Serial.print(" ");
-//  Serial.print(acc_0.data_x); Serial.print(" ");
-//  Serial.print(acc_0.data_y); Serial.print(" ");
-//  Serial.print(acc_0.data_z); Serial.print(" ");
-//  Serial.println(acc_0.sum);
-
-  Serial.print(acc_0.sum,10); Serial.print(" ");
-  Serial.print(vel_0.sum,10); Serial.print(" "); 
-  //  Serial.println(pos_x,10); //print Screen
-  Serial.println(value,10);
+//  Serial.print(acc_0.sum,10); Serial.print(" ");
+//  Serial.print(vel_0.sum,10); Serial.print(" "); 
+//  Serial.println(pos_x,10); //print Screen
+//  Serial.println(value,10);
   
   tim++;
   if(tim > 2) tim = 0;
