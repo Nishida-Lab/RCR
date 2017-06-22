@@ -55,9 +55,9 @@ void getAcc(int num, double x, double y, double z){
   case 0:
     acc_0.time = micros();
     //重力加速度[m/s^2]*(電圧[mV]-オフセット電圧[mV])/感度[mV/g] = 加速度[m/s^2]
-    acc_0.data_x = 9.8*(x * 4.9)/1000; 
-    acc_0.data_y = 9.8*(y * 4.9)/1000; 
-    acc_0.data_z = 9.8*(z * 4.9)/1000;
+    acc_0.data_x = 9.8*(x * 4.9 - OFFSET_X)/1000; 
+    acc_0.data_y = 9.8*(y * 4.9 - OFFSET_Y)/1000; 
+    acc_0.data_z = 9.8*(z * 4.9 - OFFSET_Z)/1000;
     acc_0.data_x = (acc_0.data_x + acc_1.data_x + acc_2.data_x)/3;
     acc_0.data_y = (acc_0.data_y + acc_1.data_y + acc_2.data_y)/3;
     acc_0.data_z = (acc_0.data_z + acc_1.data_z + acc_2.data_z)/3;
@@ -65,9 +65,9 @@ void getAcc(int num, double x, double y, double z){
 
   case 1:
     acc_1.time = micros();
-    acc_1.data_x = 9.8*(x * 4.9)/1000; 
-    acc_1.data_y = 9.8*(y * 4.9)/1000; 
-    acc_1.data_z = 9.8*(z * 4.9)/1000;
+    acc_1.data_x = 9.8*(x * 4.9 - OFFSET_X)/1000; 
+    acc_1.data_y = 9.8*(y * 4.9 - OFFSET_Y)/1000; 
+    acc_1.data_z = 9.8*(z * 4.9 - OFFSET_Z)/1000;
     acc_1.data_x = (acc_0.data_x + acc_1.data_x + acc_2.data_x)/3;
     acc_1.data_y = (acc_0.data_y + acc_1.data_y + acc_2.data_y)/3;
     acc_1.data_z = (acc_0.data_z + acc_1.data_z + acc_2.data_z)/3;
@@ -75,9 +75,9 @@ void getAcc(int num, double x, double y, double z){
 
   case 2:
     acc_2.time = micros();
-    acc_2.data_x = 9.8*(x * 4.9)/1000;
-    acc_2.data_y = 9.8*(y * 4.9)/1000; 
-    acc_2.data_z = 9.8*(z * 4.9)/1000;
+    acc_2.data_x = 9.8*(x * 4.9 - OFFSET_X)/1000;
+    acc_2.data_y = 9.8*(y * 4.9 - OFFSET_Y)/1000; 
+    acc_2.data_z = 9.8*(z * 4.9 - OFFSET_Z)/1000;
     acc_2.data_x = (acc_0.data_x + acc_1.data_x + acc_2.data_x)/3;
     acc_2.data_y = (acc_0.data_y + acc_1.data_y + acc_2.data_y)/3;
     acc_2.data_z = (acc_0.data_z + acc_1.data_z + acc_2.data_z)/3;
@@ -107,21 +107,21 @@ void getVelocity(int t){
   switch(t){
   case 0:
     vel_0.time = acc_1.time;    
-    vel_0.data_x = getIntegral(acc_0.time, acc_0.data_x, acc_1.time, acc_1.data_x, acc_2.time, acc_2.data_x)/(100*10);
-    vel_0.data_y = getIntegral(acc_0.time, acc_0.data_y, acc_1.time, acc_1.data_y, acc_2.time, acc_2.data_y)/(100*10);
-    vel_0.data_z = getIntegral(acc_0.time, acc_0.data_z, acc_1.time, acc_1.data_z, acc_2.time, acc_2.data_z)/(100*10);
-    break;												     	 
-  case 1:													 
-    vel_1.time = acc_2.time;											 
-    vel_1.data_x = getIntegral(acc_0.time, acc_0.data_x, acc_1.time, acc_1.data_x, acc_2.time, acc_2.data_x)/(100*10);
-    vel_1.data_y = getIntegral(acc_0.time, acc_0.data_y, acc_1.time, acc_1.data_y, acc_2.time, acc_2.data_y)/(100*10);
-    vel_1.data_z = getIntegral(acc_0.time, acc_0.data_z, acc_1.time, acc_1.data_z, acc_2.time, acc_2.data_z)/(100*10);
-    break;												     	 
-  case 2:													 
-    vel_2.time = acc_0.time;											 
-    vel_2.data_x = getIntegral(acc_0.time, acc_0.data_x, acc_1.time, acc_1.data_x, acc_2.time, acc_2.data_x)/(100*10);
-    vel_2.data_y = getIntegral(acc_0.time, acc_0.data_y, acc_1.time, acc_1.data_y, acc_2.time, acc_2.data_y)/(100*10);
-    vel_2.data_z = getIntegral(acc_0.time, acc_0.data_z, acc_1.time, acc_1.data_z, acc_2.time, acc_2.data_z)/(100*10);
+    vel_0.data_x = getIntegral(acc_0.time, acc_0.data_x, acc_1.time, acc_1.data_x, acc_2.time, acc_2.data_x)/(1000*1000);
+    vel_0.data_y = getIntegral(acc_0.time, acc_0.data_y, acc_1.time, acc_1.data_y, acc_2.time, acc_2.data_y)/(1000*1000);
+    vel_0.data_z = getIntegral(acc_0.time, acc_0.data_z, acc_1.time, acc_1.data_z, acc_2.time, acc_2.data_z)/(1000*1000);
+    break;					 
+  case 1:					 
+    vel_1.time = acc_2.time;			 
+    vel_1.data_x = getIntegral(acc_0.time, acc_0.data_x, acc_1.time, acc_1.data_x, acc_2.time, acc_2.data_x)/(1000*1000);
+    vel_1.data_y = getIntegral(acc_0.time, acc_0.data_y, acc_1.time, acc_1.data_y, acc_2.time, acc_2.data_y)/(1000*1000);
+    vel_1.data_z = getIntegral(acc_0.time, acc_0.data_z, acc_1.time, acc_1.data_z, acc_2.time, acc_2.data_z)/(1000*1000);
+    break;			 
+  case 2:				 
+    vel_2.time = acc_0.time;		 
+    vel_2.data_x = getIntegral(acc_0.time, acc_0.data_x, acc_1.time, acc_1.data_x, acc_2.time, acc_2.data_x)/(1000*1000);
+    vel_2.data_y = getIntegral(acc_0.time, acc_0.data_y, acc_1.time, acc_1.data_y, acc_2.time, acc_2.data_y)/(1000*1000);
+    vel_2.data_z = getIntegral(acc_0.time, acc_0.data_z, acc_1.time, acc_1.data_z, acc_2.time, acc_2.data_z)/(1000*1000);
     break;
   }
 }
@@ -178,41 +178,38 @@ void loop(){
   double param = 0.9; //RC filter parametor
 
   //get Accel(RC filter)
-  new_acc[0] = readAnalog(ACC_X);
-  acc_low[0] = (1-param) * acc_low[0] + param * new_acc[0];
-  acc[0] = new_acc[0] - acc_low[0]; //High pass filter
+  new_acc[0] = analogRead(5);//readAnalog(ACC_X);
+  acc[0] = param * acc_low[0] + (1-param) * new_acc[0];
   
-  new_acc[1] = readAnalog(ACC_Y);
-  acc_low[1] = (1-param) * acc_low[1] + param * new_acc[1];
-  acc[1] = new_acc[1] - acc_low[1];
+  new_acc[1] = analogRead(4);//readAnalog(ACC_Y);
+  acc[1] = param * acc_low[1] + (1-param) * new_acc[1];
 
-  new_acc[2] = readAnalog(ACC_Z);
-  acc_low[2] = (1-param) * acc_low[2] + param * new_acc[2];
-  acc[2] = new_acc[2] - acc_low[2];
+  new_acc[2] = analogRead(3);//readAnalog(ACC_Z);
+  acc[2] = param * acc_low[2] + (1-param) * new_acc[2];
   
   getAcc(num[tim],acc[0],acc[1],acc[2]); //get Accel[m/s^2]
   getVelocity(num[tim]); //get Velocity[m/s]
   
   //get Position
-  pos_x = getIntegral(vel_0.time, vel_0.data_x, vel_1.time, vel_1.data_x, vel_2.time, vel_2.data_x)/(100*10);  //get Position[m]
+  pos_x = getIntegral(vel_0.time, vel_0.data_x, vel_1.time, vel_1.data_x, vel_2.time, vel_2.data_x)/(1000*1000);  //get Position[m]
   pos_x = param * last_poss + (1-param) * pos_x;
   last_poss = pos_x; 
 
-  if(count > 50) value += pos_x;
+  if(count > 100) value += pos_x*2;
 
-// Serial.print(acc[0]); Serial.print(" ");
-// Serial.print(acc[1]); Serial.print(" ");
-// Serial.print(acc[2]);
+Serial.print(acc[0]); Serial.print(" ");
+Serial.print(acc[1]); Serial.print(" ");
+Serial.println(acc[2]);
 
 //  Serial.print(ACC_G); Serial.print(" ");
 //  Serial.print(acc_0.data_x); Serial.print(" ");
 //  Serial.print(acc_0.data_y); Serial.print(" ");
 //  Serial.println(acc_0.data_z);
-  
- // Serial.print(acc_0.data_x,10); Serial.print(" ");
- // Serial.print(vel_0.data_x,10); Serial.print(" "); 
-  Serial.print(pos_x,10); Serial.print(" ");
-  Serial.println(value,10);
+
+//  Serial.print(acc_0.data_x,10); Serial.print(" ");
+//  Serial.print(vel_0.data_x,10); Serial.print(" "); 
+//  Serial.print(pos_x,10); Serial.print(" ");
+//  Serial.println(value,10);
 
   count++;
   tim++;
