@@ -12,6 +12,7 @@
 #include <system_error>
 #include <thread>
 #include <unordered_map>
+#include <utility>
 #include <vector>
 
 #include <fcntl.h>
@@ -25,6 +26,7 @@
 #include <robocar/vector/vector.hpp>
 
 #include <utilib/unique_fd.hpp>
+#include <utilib/runtime_typename.hpp>
 
 
 const std::unordered_map<std::string,char> sensor_codes {
@@ -46,6 +48,30 @@ const std::unordered_map<std::string,char> sensor_codes {
   {"gyro_y", 14},
   {"gyro_z", 15}
 };
+
+
+namespace robocar {
+
+class sensor
+  : public robocar::wiring_serial
+{
+public:
+  template <typename... Ts>
+  explicit sensor(Ts&&... args)
+    : robocar::wiring_serial {std::forward<Ts>(args)...}
+  {}
+
+  auto operator[]()
+  {}
+
+public:
+  enum class sensor_type
+  {
+    position,
+  };
+};
+
+} // namespace robocar
 
 
 int main(int argc, char** argv) try
@@ -346,11 +372,13 @@ int main(int argc, char** argv) try
        std::chrono::duration_cast<std::chrono::seconds>(last - begin) < std::chrono::seconds {140};
        last = std::chrono::high_resolution_clock::now())
   {
+    std::this_thread::sleep_for(std::chrono::milliseconds {10});
+
 #ifndef NDEBUG
     auto  t {std::chrono::duration_cast<std::chrono::seconds>(last - begin)};
     auto dt {std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::high_resolution_clock::now() - last)};
 
-    std::cout << "\r[debug] t: " << t.count() << ", dt: " << dt.count();
+    std::cout << "\r\e[K[debug] t: " << t.count() << ", dt: " << dt.count() << std::flush;
 #endif
   }
 
