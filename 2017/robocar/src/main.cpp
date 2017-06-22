@@ -7,7 +7,6 @@
 #include <cstring>
 #include <iomanip>
 #include <iostream>
-// #include <random> // dummy sensor value
 #include <stdexcept>
 #include <string>
 #include <system_error>
@@ -121,24 +120,6 @@ int main(int argc, char** argv) try
 
     return poles;
   };
-
-  // auto position = [&]()
-  //   -> robocar::vector<double>
-  // {
-  //   return robocar::vector<double> {0.0, 0.0};
-  // };
-
-  // const auto const_forward_vector = []()
-  //   -> boost::numeric::ublas::vector<double>
-  // {
-  //   static constexpr std::size_t extent {2};
-  //   boost::numeric::ublas::vector<double> forward {extent};
-  //
-  //   forward[0] = 0.0;
-  //   forward[1] = 1.0;
-  //
-  //   return {forward};
-  // };
 
   auto long_range_sensor_array_debug = [&]()
     -> boost::numeric::ublas::vector<double>
@@ -282,25 +263,6 @@ int main(int argc, char** argv) try
     return direction;
   };
 
-  // while (true)
-  // {
-  //   // std::vector<robocar::vector<double>> poles {search()};
-  //   std::vector<robocar::vector<double>> poles {};
-  //
-  //   robocar::vector<double> base {poles.empty() == true ? position() : poles.front()};
-  //
-  //   // base += robocar::vector<double>::normalize( long_range_sensor_array_debug());
-  //   // base += robocar::vector<double>::normalize(short_range_sensor_array_debug());
-  //
-  //   std::cout << "[debug] " << base << std::endl;
-  //   driver.write(base, 1.0, 0.3);
-  // }
-
-  auto stop = [&]()
-  {
-    driver.write(robocar::vector<double> {0.0, 0.0}, static_cast<double>(0.18), 0.5);
-  };
-
   auto carrot_test = [&]()
   {
     std::vector<robocar::vector<double>> poles {search()};
@@ -377,19 +339,6 @@ int main(int argc, char** argv) try
       usleep(100);
     }
   };
-
-
-  while (true)
-  {
-    static std::string gyro_x {};
-    static std::string gyro_y {};
-
-    query("gyro_x", gyro_x);
-    query("gyro_y", gyro_y);
-
-    std::cout << "[debug] x: " << gyro_x << ", y:" << gyro_y << std::endl;
-  }
-
 
   return 0;
 }
