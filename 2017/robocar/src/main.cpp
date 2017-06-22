@@ -50,6 +50,7 @@ const std::unordered_map<std::string,char> sensor_codes {
 
 int main(int argc, char** argv) try
 {
+#ifdef NDEBUG
   robocar::wiring_serial serial {"/dev/ttyACM0", 9600};
 
   std::cout << "[debug] wait for serial connection stabilize...\n";
@@ -339,6 +340,19 @@ int main(int argc, char** argv) try
       usleep(100);
     }
   };
+#endif
+
+  for (auto begin {std::chrono::high_resolution_clock::now()}, last {std::chrono::high_resolution_clock::now()};
+       std::chrono::duration_cast<std::chrono::seconds>(last - begin) < std::chrono::seconds {140};
+       last = std::chrono::high_resolution_clock::now())
+  {
+#ifndef NDEBUG
+    auto  t {std::chrono::duration_cast<std::chrono::seconds>(last - begin)};
+    auto dt {std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::high_resolution_clock::now() - last)};
+
+    std::cout << "\r[debug] t: " << t.count() << ", dt: " << dt.count();
+#endif
+  }
 
   return 0;
 }
