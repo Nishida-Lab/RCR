@@ -34,6 +34,17 @@ public:
     *this <<= pair.first, pair.second;
   }
 
+  template <typename... Ts>
+  vector(Ts&&... args)
+    : boost::numeric::ublas::vector<T> {std::forward<Ts>(args)...}
+  {}
+
+public:
+  auto& normalized()
+  {
+    return *this = normalize(*this);
+  }
+
 public:
   static T radian_to_degree(const T& radian)
   {

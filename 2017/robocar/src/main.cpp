@@ -57,6 +57,7 @@ int main(int argc, char** argv) try
   std::cout << "[debug] project version: " << project_version.data() << " (" << cmake_build_type.data() << ")\n";
   std::cout << "[debug]   boost version: " <<   boost_version.data() << "\n\n";
 
+
   robocar::sensor_node<char> sensor {"/dev/ttyACM0", 115200};
 
   sensor["distance"]["long"]["south_west"].set_code(0);
@@ -80,6 +81,34 @@ int main(int argc, char** argv) try
   sensor["dummy"]["f"].set_code(15);
 
   std::this_thread::sleep_for(std::chrono::seconds(3));
+
+
+  std::vector<std::vector<robocar::vector<double>>> predefined_filed {
+    {{ 1.0,  0.0}, { 0.0, -1.0}, { 0.0, -1.0}, { 0.0, -1.0}, { 0.0, -1.0}, { 0.0, -1.0}},
+    {{ 0.0,  1.0}, { 0.0, -1.0}, { 0.0, -1.0}, { 0.0, -1.0}, { 0.0, -1.0}, {-1.0, -1.0}},
+    {{ 0.0,  1.0}, { 0.0, -1.0}, { 0.0, -1.0}, { 0.0, -1.0}, {-1.0, -1.0}, {-1.0,  0.0}},
+    {{ 0.0,  1.0}, { 0.0, -1.0}, { 0.0, -1.0}, {-1.0, -1.0}, {-1.0,  0.0}, {-1.0,  0.0}},
+    {{ 0.0,  1.0}, { 0.0, -1.0}, {-1.0, -1.0}, {-1.0,  0.0}, {-1.0,  0.0}, {-1.0,  0.0}},
+    {{ 0.0,  1.0}, {-1.0,  0.0}, {-1.0,  0.0}, {-1.0,  0.0}, {-1.0,  0.0}, {-1.0,  0.0}}
+  };
+
+  std::pair<double, double> position {0.0, 0.0};
+  double grid_size {0.90}; // [m]
+  auto target_vector {predefined_filed[position.second / grid_size][position.first / grid_size]};
+
+  for (double row {0.0}; row < grid_size * predefined_filed.size(); row += 0.1)
+  {
+    for (double col {0.0}; col < grid_size * predefined_filed[0].size(); col += 0.01)
+    {
+      std::cout << "\r\e[K[debug] " << row << ", " << col << ": "
+                << std::showpos << std::fixed << std::setprecision(3)
+                << predefined_filed[row/grid_size][col/grid_size].normalized() << std::flush;
+
+#ifndef NDEBUG
+      std::this_thread::sleep_for(std::chrono::milliseconds(10));
+#define
+    }
+  }
 
 
 #ifdef NDEBUG
