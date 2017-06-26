@@ -59,31 +59,27 @@ int main(int argc, char** argv) try
 
   robocar::sensor_node<char> sensor {"/dev/ttyACM0", 9600};
 
-  std::thread create_sensor_graph {[&]()
-  {
-    sensor["distance"]["long"]["south_west"].set_code(0);
-    sensor["distance"]["long"][      "west"].set_code(1);
-    sensor["distance"]["long"]["north_west"].set_code(2);
-    sensor["distance"]["long"]["north"     ].set_code(3);
-    sensor["distance"]["long"]["north_east"].set_code(4);
-    sensor["distance"]["long"][      "east"].set_code(5);
-    sensor["distance"]["long"]["south_east"].set_code(6);
+  sensor["distance"]["long"]["south_west"].set_code(0);
+  sensor["distance"]["long"][      "west"].set_code(1);
+  sensor["distance"]["long"]["north_west"].set_code(2);
+  sensor["distance"]["long"]["north"     ].set_code(3);
+  sensor["distance"]["long"]["north_east"].set_code(4);
+  sensor["distance"]["long"][      "east"].set_code(5);
+  sensor["distance"]["long"]["south_east"].set_code(6);
 
-    sensor["dummy"]["a"].set_code(7);
-    sensor["dummy"]["b"].set_code(8);
-    sensor["dummy"]["c"].set_code(9);
+  sensor["dummy"]["a"].set_code(7);
+  sensor["dummy"]["b"].set_code(8);
+  sensor["dummy"]["c"].set_code(9);
 
-    sensor["distance"]["short"]["north_west"].set_code(10);
-    sensor["distance"]["short"]["north"     ].set_code(11);
-    sensor["distance"]["short"]["north_east"].set_code(12);
+  sensor["distance"]["short"]["north_west"].set_code(10);
+  sensor["distance"]["short"]["north"     ].set_code(11);
+  sensor["distance"]["short"]["north_east"].set_code(12);
 
-    sensor["dummy"]["d"].set_code(13);
-    sensor["dummy"]["e"].set_code(14);
-    sensor["dummy"]["f"].set_code(15);
-  }};
+  sensor["dummy"]["d"].set_code(13);
+  sensor["dummy"]["e"].set_code(14);
+  sensor["dummy"]["f"].set_code(15);
 
   std::this_thread::sleep_for(std::chrono::seconds(3));
-  create_sensor_graph.join();
 
 
 #ifdef NDEBUG
