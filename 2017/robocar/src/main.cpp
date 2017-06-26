@@ -360,16 +360,16 @@ int main(int argc, char** argv) try
   };
 #endif
 
-  for (auto begin {std::chrono::high_resolution_clock::now()},
-             last {std::chrono::high_resolution_clock::now()};
+  for (auto begin = std::chrono::high_resolution_clock::now(),
+             last = std::chrono::high_resolution_clock::now();
        std::chrono::duration_cast<std::chrono::seconds>(last - begin) < std::chrono::seconds {10};
        last = std::chrono::high_resolution_clock::now())
   {
     std::this_thread::sleep_for(std::chrono::milliseconds {10});
 
 #ifndef NDEBUG
-    auto  t {std::chrono::duration_cast<std::chrono::seconds>(last - begin)};
-    auto dt {std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::high_resolution_clock::now() - last)};
+    auto  t = std::chrono::duration_cast<std::chrono::seconds>(last - begin);
+    auto dt = std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::high_resolution_clock::now() - last);
 
     std::cout << "\r\e[K[debug] t: " << t.count() << ", dt: " << dt.count() << "[microsec]" << std::flush;
 #endif
