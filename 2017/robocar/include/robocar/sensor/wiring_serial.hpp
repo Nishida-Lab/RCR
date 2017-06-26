@@ -16,46 +16,75 @@ namespace robocar {
 template <typename C>
 class wiring_serial
 {
-  int fd_;
+  static std::size_t reference_count_;
 
 public:
+  int fd;
+
   wiring_serial(const std::basic_string<C>& device, int baudrate)
-    : fd_ {serialOpen(device.c_str(), baudrate)}
+    : fd {serialOpen(device.c_str(), baudrate)}
   {
-    if (fd_ == -1)
+    if (fd == -1)
     {
       std::error_code error {errno, std::generic_category()};
       std::cerr << "[error] wiring_serial::wiring_serial(3) - " << error.message() << std::endl;
       std::exit(EXIT_FAILURE);
     }
+
+    ++reference_count_;
+
+#ifndef NDEBUG
+    std::cout << "[debug] robocar::wiring_serial::wiring_serial(" << __LINE__ << ") - reference count: "
+              << reference_count_ << std::endl;
+#endif
+  }
+
+  explicit wiring_serial(const robocar::wiring_serial<C>& parent)
+    : fd {parent.fd}
+  {
+    ++reference_count_;
+
+#ifndef NDEBUG
+    std::cout << "[debug] robocar::wiring_serial::wiring_serial(" << __LINE__ << ") - reference count: "
+              << reference_count_ << std::endl;
+#endif
   }
 
   ~wiring_serial()
   {
-    serialClose(fd_);
+#ifndef NDEBUG
+    std::cout << "[debug] robocar::wiring_serial::~wiring_serial() - reference count: "
+              << reference_count_ << std::endl;
+#endif
+
+    if (!--reference_count_)
+    {
+      serialClose(fd);
+    }
   }
 
+public:
   template <typename... Ts>
   void putchar(Ts&&... args)
   {
-    serialPutchar(fd_, std::forward<Ts>(args)...);
+    serialPutchar(fd, std::forward<Ts>(args)...);
   }
 
   template <typename... Ts>
   void puts(Ts&&... args)
   {
-    serialPuts(fd_, std::forward<Ts>(args)...);
+    serialPuts(fd, std::forward<Ts>(args)...);
   }
 
   template <typename... Ts>
   void printf(Ts&&... args)
   {
-    serialPrintf(fd_, std::forward<Ts>(args)...);
+    serialPrintf(fd, std::forward<Ts>(args)...);
   }
 
   std::size_t avail()
   {
-    int size {serialDataAvail(fd_)};
+    int size {serialDataAvail(fd)};
 
     if (size == -1)
     {
@@ -69,7 +98,7 @@ public:
 
   C getchar()
   {
-    return static_cast<C>(serialGetchar(fd_));
+    return static_cast<C>(serialGetchar(fd));
   }
 
   void getline(std::basic_string<C>& dest, C delim = '\n')
@@ -79,12 +108,16 @@ public:
 
   void flush()
   {
-    serialFlush(fd_);
+    serialFlush(fd);
   }
 };
 
 
 } // namespace robocar
+
+
+template <typename C>
+std::size_t robocar::wiring_serial<C>::reference_count_;
 
 
 #endif
