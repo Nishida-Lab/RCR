@@ -61,6 +61,7 @@ void getAcc(int num, double x, double y, double z){
     acc_0.data_x = (acc_0.data_x + acc_1.data_x + acc_2.data_x)/3;
     acc_0.data_y = (acc_0.data_y + acc_1.data_y + acc_2.data_y)/3;
     acc_0.data_z = (acc_0.data_z + acc_1.data_z + acc_2.data_z)/3;
+    acc_0.sum = sqrt(pow(acc_0.data_x,2) + pow(acc_0.data_y,2) + pow(acc_0.data_z,2));
     break;
 
   case 1:
@@ -71,6 +72,7 @@ void getAcc(int num, double x, double y, double z){
     acc_1.data_x = (acc_0.data_x + acc_1.data_x + acc_2.data_x)/3;
     acc_1.data_y = (acc_0.data_y + acc_1.data_y + acc_2.data_y)/3;
     acc_1.data_z = (acc_0.data_z + acc_1.data_z + acc_2.data_z)/3;
+    acc_1.sum = sqrt(pow(acc_1.data_x,2) + pow(acc_1.data_y,2) + pow(acc_1.data_z,2));
     break;
 
   case 2:
@@ -81,6 +83,7 @@ void getAcc(int num, double x, double y, double z){
     acc_2.data_x = (acc_0.data_x + acc_1.data_x + acc_2.data_x)/3;
     acc_2.data_y = (acc_0.data_y + acc_1.data_y + acc_2.data_y)/3;
     acc_2.data_z = (acc_0.data_z + acc_1.data_z + acc_2.data_z)/3;
+    acc_2.sum = sqrt(pow(acc_2.data_x,2) + pow(acc_2.data_y,2) + pow(acc_2.data_z,2));
     break;
   }
 }
@@ -142,17 +145,17 @@ double value = 0;
 
 void loop(){  
   int num[3] = {0,1,2};
-  double param = 0.9; //RC filter parametor
+  double param = 0.95; //RC filter parametor
 
   //get Accel(RC filter)
-  new_acc[0] = analogRead(5);//readAnalog(ACC_X);
-  acc[0] = param * acc_low[0] + (1-param) * new_acc[0];
+  new_acc[0] = readAnalog(ACC_X);
+  acc[0] = param * acc[0] + (1-param) * new_acc[0];
   
-  new_acc[1] = analogRead(4);//readAnalog(ACC_Y);
-  acc[1] = param * acc_low[1] + (1-param) * new_acc[1];
+  new_acc[1] = readAnalog(ACC_Y);
+  acc[1] = param * acc[1] + (1-param) * new_acc[1];
 
-  new_acc[2] = analogRead(3);//readAnalog(ACC_Z);
-  acc[2] = param * acc_low[2] + (1-param) * new_acc[2];
+  new_acc[2] = readAnalog(ACC_Z);
+  acc[2] = param * acc[2] + (1-param) * new_acc[2];
   
   getAcc(num[tim],acc[0],acc[1],acc[2]); //get Accel[m/s^2]
   getVelocity(num[tim]); //get Velocity[m/s]
@@ -164,14 +167,14 @@ void loop(){
 
   if(count > 100) value += pos_x*2;
 
-  Serial.print(acc[0]); Serial.print(" ");
-  Serial.print(acc[1]); Serial.print(" ");
-  Serial.println(acc[2]);
-
-//  Serial.print(ACC_G); Serial.print(" ");
-//  Serial.print(acc_0.data_x); Serial.print(" ");
-//  Serial.print(acc_0.data_y); Serial.print(" ");
-//  Serial.println(acc_0.data_z);
+// Serial.print(acc[0]); Serial.print(" ");
+// Serial.print(acc[1]); Serial.print(" ");
+// Serial.println(acc[2]);
+  
+ Serial.print(ACC_G); Serial.print(" ");
+ Serial.print(acc_0.data_x); Serial.print(" ");
+ Serial.print(acc_0.data_y); Serial.print(" ");
+ Serial.println(acc_0.data_z);
 
 //  Serial.print(acc_0.data_x,10); Serial.print(" ");
 //  Serial.print(vel_0.data_x,10); Serial.print(" "); 
