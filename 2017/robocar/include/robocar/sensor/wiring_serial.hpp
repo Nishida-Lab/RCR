@@ -75,56 +75,31 @@ public:
     return *this;
   }
 
-  // template <typename C>
-  // auto& operator>>(const robocar::wiring_serial<C>& lhs, std::basic_string<C>& rhs)
-  // {
-  //   std::cout << "[debug] putchar: " << static_cast<int>(code_) << std::endl;
-  //   return lhs;
-  // }
-
   auto& operator>>(std::basic_string<C>& rhs)
   {
+#ifndef NDEBUG
     std::cout << "[debug] putchar: " << static_cast<int>(code_) << std::endl;
+#endif
     putchar(code_);
-
     rhs.clear();
-    // std::basic_string<C> res {};
 
     while (true)
     {
-      wait_for_avail();
+      while (!avail())
+      {
+        std::this_thread::sleep_for(std::chrono::milliseconds {1});
+      }
+
       C buffer = static_cast<C>(getchar());
 
       if (buffer != '\n')
       {
-        // std::cout << "[debug] getchar: " << buffer << std::endl;
         rhs.push_back(buffer);
       }
-
       else break;
     }
 
-    // wait_for_avail();
-    // std::this_thread::sleep_for(std::chrono::milliseconds {20});
-    //
-    // while (avail() > 0)
-    // {
-    //   rhs.push_back(static_cast<char>(getchar()));
-    // }
-    // std::putchar('\n');
-
     return *this;
-  }
-
-  void wait_for_avail()
-  {
-    while (!avail())
-    {
-      // std::cout << "\r\e[K[debug] wait for avail...";
-      std::this_thread::sleep_for(std::chrono::milliseconds {1});
-    }
-
-    // std::cout << "\n[debug] avail!\n";
   }
 
 public:
@@ -133,18 +108,6 @@ public:
   {
     serialPutchar(fd, std::forward<Ts>(args)...);
   }
-
-  // template <typename... Ts>
-  // void puts(Ts&&... args)
-  // {
-  //   serialPuts(fd, std::forward<Ts>(args)...);
-  // }
-
-  // template <typename... Ts>
-  // void printf(Ts&&... args)
-  // {
-  //   serialPrintf(fd, std::forward<Ts>(args)...);
-  // }
 
   std::size_t avail()
   {
@@ -163,11 +126,6 @@ public:
   auto getchar()
   {
     return serialGetchar(fd);
-  }
-
-  void getline(std::basic_string<C>& dest, C delim = '\n')
-  {
-    for (C buffer {}; (buffer = getchar()) != delim; dest.push_back(buffer));
   }
 
   void flush()
