@@ -1,5 +1,5 @@
 #include <Wire.h>
-#include <../../arduino_libraries/L3GD20/L3GD20.cpp>
+#include <../../libraries/L3GD20/L3GD20.cpp>
 
 L3GD20 l3gd20;
 
@@ -139,7 +139,7 @@ void loop(){
   deg_z = param * last_deg_z + (1-param) * deg_z;
   last_deg_z = deg_z;
 
-
+  if(abs(deg_z) < 0.001) deg_z = 0;
   value += deg_z*2; 
 
   if(++tim > 2) tim = 0;
@@ -147,6 +147,5 @@ void loop(){
 
 //Serial.print(gyro_z); Serial.print(" ");
 //Serial.print(Avel_z); Serial.print(" ");
-//Serial.println(deg_z);
-  Serial.println(value);
+  Serial.println(value, 10);
 }

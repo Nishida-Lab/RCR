@@ -3,7 +3,7 @@ measurements from the VL6180X.
 The range readings are in units of mm. */
 
 #include <Wire.h>
-#include <../../arduino_libraries/VL6180X/VL6180X.h>
+#include <../../libraries/VL6180X/VL6180X.cpp>
 
 VL6180X vl6180x;
 VL6180X vl6180x_2;

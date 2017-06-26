@@ -1,12 +1,12 @@
 #include<Wire.h>
-#include<../../arduino_libraries/VL6180X/VL6180X.cpp>
-#include<../../arduino_libraries/L3GD20/L3GD20.cpp>
-#include<./ACCEL.h>
+#include<../../libraries/VL6180X/VL6180X.cpp>
+#include"./setup.h"
+#include"./ACCEL.h"
+#include"./GYRO.h"
 
 VL6180X vl6180x_NW;
 VL6180X vl6180x_N;
 VL6180X vl6180x_NE;
-L3GD20 l3gd20;
 
 int readSensor(int sensor){
   int answer = 0;
@@ -18,16 +18,10 @@ int readSensor(int sensor){
   case 4:
   case 5:
   case 6:
-    return readAnalog(sensor); //read PSD sensor
-
-    //get Position
-//  case 7:
-//    answer = pos_x;
-//  case 8:
-//    answer = pos_y;
-//  case 9:
-//    answer = pos_z;
-    //get position
+  case 7:
+  case 8:
+  case 9:
+    return readAnalog(sensor); //read PSD & ACC sensor
   case 10:
     answer = vl6180x_NW.readRangeSingleMillimeters();
     if(vl6180x_NW.timeoutOccurred()) answer = -1; break;
@@ -38,29 +32,67 @@ int readSensor(int sensor){
     answer = vl6180x_NE.readRangeSingleMillimeters();
     if(vl6180x_NE.timeoutOccurred()) answer = -1; break;
   case 13:
-    l3gd20.read();
-    answer = (int) l3gd20.data.x; break;
+    return deg.data_x;
   case 14:
-    l3gd20.read();
-    answer = (int) l3gd20.data.y; break;
+    return deg.data_y;
   case 15:
-    l3gd20.read();
-    answer = (int) l3gd20.data.z; break;
+    return deg.data_z;
   }
-
   return answer;
 }
 
+void affine(int timing){
+  int i,j;
+  double global_acc[3];
+  double affine_x[3][3] = {{1, 0, 0}, {0, cos(deg.data_x), sin(deg.data_x)}, {0, -sin(deg.data_x), cos(deg.data_x)}};
+  double affine_y[3][3] = {{cos(deg.data_y), 0, -sin(deg.data_y)}, {0, 1, 0}, {sin(deg.data_x), 0, cos(deg.data_y)}};
+  double affine_z[3][3] = {{cos(deg.data_z), sin(deg.data_z), 0}, {-sin(deg.data_z), cos(deg.data_z), 0}, {0, 0, 1}};
 
-double PSDdistance(int n){
-  double answer = 45.514*pow(n*0.0049, -0.822);
+  switch(timing){
+  case 0:
+    global_acc[0] = acc_0.data_x;
+    global_acc[1] = acc_0.data_y;
+    global_acc[2] = acc_0.data_z;
+    break;
+    
+  case 1:
+    global_acc[0] = acc_1.data_x;
+    global_acc[1] = acc_1.data_y;
+    global_acc[2] = acc_1.data_z;
+    break;
+    
+  case 2:
+    global_acc[0] = acc_2.data_x;
+    global_acc[1] = acc_2.data_y;
+    global_acc[2] = acc_2.data_z;
+    break;
+  }
+  
+  for(i = 0;i < 3;i++) for(j = 0;j < 3;j++) global_acc[i] += global_acc[i] * affine_x[j][i];
+  for(i = 0;i < 3;i++) for(j = 0;j < 3;j++) global_acc[i] += global_acc[i] * affine_y[j][i];
+  for(i = 0;i < 3;i++) for(j = 0;j < 3;j++) global_acc[i] += global_acc[i] * affine_z[j][i];
 
-  return answer;
+  switch(timing){
+  case 0:
+    acc_0.data_x = global_acc[0];
+    acc_0.data_y = global_acc[1];
+    acc_0.data_z = global_acc[2];
+    break;
+  case 1:
+    acc_1.data_x = global_acc[0];
+    acc_1.data_y = global_acc[1];
+    acc_1.data_z = global_acc[2];
+    break;
+  case 2:
+    acc_2.data_x = global_acc[0];
+    acc_2.data_y = global_acc[1];
+    acc_2.data_z = global_acc[2];
+    break;
+  }  
 }
-
 
 void setup(){
-  Serial.begin(9600);
+  Serial.begin(115200);
   Wire.begin();
  
   //pin mode setup----------------------------------------------------- 
@@ -102,24 +134,45 @@ void setup(){
   }
 }
 
+int timing = 0;
+double acc[3] = {0,0,0};
+double gyro_x = 0, gyro_y = 0, gyro_z = 0;
+double param = 0.95;
+
 
 void loop(){
-  int distance = 0;
-  distance = PSDdistance(readAnalog(3));
-  Serial.println(distance);
-  delay(100);
+  
+  l3gd20.read();
+  gyro_x = param * gyro_x + (1-param) * l3gd20.data.x;
+  gyro_y = param * gyro_y + (1-param) * l3gd20.data.y;
+  gyro_z = param * gyro_z + (1-param) * l3gd20.data.z;
+  getGyro(timing, gyro_x, gyro_y, gyro_z);
+  getDeg();
+  
+  acc[0] = param * acc[0] + (1-param) * readSensor(ACC_X);
+  acc[1] = param * acc[1] + (1-param) * readSensor(ACC_Y);
+  acc[2] = param * acc[2] + (1-param) * readSensor(ACC_Z);
+  getAcc(timing,acc[0],acc[1],acc[2]);
+  affine(timing);
+  getVel(timing);
+  getPos();
 
-  /*
-  int distance = 0;
-  int i;
-  for(i = 0;i < 7;i++){
-    distance = PSDdistance(readAnalog(i));
-    Serial.print(distance); Serial.print(" ");
-  }
-  Serial.println();
-  delay(100);
-  */
 
+
+  
+//  Serial.print(deg.data_x,10); Serial.print(" ");
+//  Serial.print(deg.data_y,10); Serial.print(" ");
+//  Serial.println(deg.data_z,10);  
+
+  
+//  Serial.print(GRAVITY); Serial.print(" ");
+//  Serial.print(acc_0.data_x); Serial.print(" ");
+//  Serial.print(acc_0.data_y); Serial.print(" ");
+//  Serial.println(acc_0.data_z);  
+  
+  timing++;
+  if(timing > 2) timing = 0;
+  delay(10);
   /*
   int claim = -1;
   if(Serial.available() > 0){
