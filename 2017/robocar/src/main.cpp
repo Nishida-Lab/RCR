@@ -31,25 +31,25 @@
 #include <utilib/runtime_typename.hpp>
 
 
-const std::unordered_map<std::string, char> sensor_codes {
-  {"long_range_0",   5},
-  {"long_range_1",   4},
-  {"long_range_2",   3},
-  {"long_range_3",   2},
-  {"long_range_4",   1},
-  {"long_range_5",   0},
-  {"long_range_6",  -1},
-  {"long_range_7",   6},
-  {"accel_x",  7},
-  {"accel_y",  8},
-  {"accel_y",  9},
-  {"short_range_0", 12},
-  {"short_range_1", 11},
-  {"short_range_2", 10},
-  {"gyro_x", 13},
-  {"gyro_y", 14},
-  {"gyro_z", 15}
-};
+// const std::unordered_map<std::string, char> sensor_codes {
+//   {"long_range_0",   5},
+//   {"long_range_1",   4},
+//   {"long_range_2",   3},
+//   {"long_range_3",   2},
+//   {"long_range_4",   1},
+//   {"long_range_5",   0},
+//   {"long_range_6",  -1},
+//   {"long_range_7",   6},
+//   {"accel_x",  7},
+//   {"accel_y",  8},
+//   {"accel_y",  9},
+//   {"short_range_0", 12},
+//   {"short_range_1", 11},
+//   {"short_range_2", 10},
+//   {"gyro_x", 13},
+//   {"gyro_y", 14},
+//   {"gyro_z", 15}
+// };
 
 
 int main(int argc, char** argv) try
@@ -83,10 +83,10 @@ int main(int argc, char** argv) try
 
 
 #ifdef NDEBUG
-  robocar::wiring_serial serial {"/dev/ttyACM0", 115200};
-
-  std::cout << "[debug] wait for serial connection stabilize...\n";
-  std::this_thread::sleep_for(std::chrono::seconds(3));
+  // robocar::wiring_serial serial {"/dev/ttyACM0", 115200};
+  //
+  // std::cout << "[debug] wait for serial connection stabilize...\n";
+  // std::this_thread::sleep_for(std::chrono::seconds(3));
 
   static constexpr std::size_t width  {640};
   static constexpr std::size_t height {480};
@@ -96,30 +96,30 @@ int main(int argc, char** argv) try
     std::pair<int,int> {35, 38}, std::pair<int,int> {37, 40}
   };
 
-  auto query = [&](const std::string& name, std::string& dest) // TODO remake
-    -> std::string
-  {
-    if (sensor_codes.find(name) != sensor_codes.end())
-    {
-      if (name == "long_range_6")
-      {
-        dest = "45";
-        return  dest;
-      }
-
-      serial.putchar(static_cast<char>(sensor_codes.at(name)));
-      std::this_thread::sleep_for(std::chrono::milliseconds(20)); // TODO adjust
-
-      while (serial.avail() > 0)
-      {
-        dest.push_back(serial.getchar());
-      }
-
-      return dest;
-    }
-
-    else throw std::logic_error {"std::unordered_map::operator[]() - out of range"};
-  };
+  // auto query = [&](const std::string& name, std::string& dest) // TODO remake
+  //   -> std::string
+  // {
+  //   if (sensor_codes.find(name) != sensor_codes.end())
+  //   {
+  //     if (name == "long_range_6")
+  //     {
+  //       dest = "45";
+  //       return  dest;
+  //     }
+  //
+  //     serial.putchar(static_cast<char>(sensor_codes.at(name)));
+  //     std::this_thread::sleep_for(std::chrono::milliseconds(20)); // TODO adjust
+  //
+  //     while (serial.avail() > 0)
+  //     {
+  //       dest.push_back(serial.getchar());
+  //     }
+  //
+  //     return dest;
+  //   }
+  //
+  //   else throw std::logic_error {"std::unordered_map::operator[]() - out of range"};
+  // };
 
   constexpr auto long_range_sensor = [&](auto sensor_value) // GP2Y0A21
     -> double
