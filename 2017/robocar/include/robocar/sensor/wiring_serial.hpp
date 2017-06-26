@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string>
 #include <system_error>
+#include <thread>
 #include <utility>
 
 #include <wiringSerial.h>
@@ -17,6 +18,7 @@ template <typename C>
 class wiring_serial
 {
   static std::size_t reference_count_;
+  C code_;
 
 public:
   int fd;
@@ -59,8 +61,55 @@ public:
 
     if (!--reference_count_)
     {
+#ifndef NDEBUG
+      std::cout << "[debug] robocar::wiring_serial::~wiring_serial() - serial close\n";
       serialClose(fd);
+#endif
     }
+  }
+
+public:
+  auto& set_code(const C& rhs) // XXX UGLY CODE
+  {
+    code_ = rhs;
+    return *this;
+  }
+
+  auto& operator>>(std::basic_string<C>& rhs)
+  {
+#ifndef NDEBUG
+    std::cout << "[debug] putchar: " << static_cast<int>(code_) << std::endl;
+#endif
+    putchar(code_);
+    rhs.clear();
+
+    while (true)
+    {
+      while (!avail())
+      {
+        std::this_thread::sleep_for(std::chrono::milliseconds {1});
+      }
+
+      C buffer = static_cast<C>(getchar());
+
+      if (buffer != '\n')
+      {
+        rhs.push_back(buffer);
+      }
+      else break;
+    }
+
+    return *this;
+  }
+
+  auto& operator>>(double& rhs)
+  {
+    static std::basic_string<C> buffer {};
+
+    (*this).operator>>(buffer);
+    rhs = std::stod(buffer);
+
+    return *this;
   }
 
 public:
@@ -68,18 +117,6 @@ public:
   void putchar(Ts&&... args)
   {
     serialPutchar(fd, std::forward<Ts>(args)...);
-  }
-
-  template <typename... Ts>
-  void puts(Ts&&... args)
-  {
-    serialPuts(fd, std::forward<Ts>(args)...);
-  }
-
-  template <typename... Ts>
-  void printf(Ts&&... args)
-  {
-    serialPrintf(fd, std::forward<Ts>(args)...);
   }
 
   std::size_t avail()
@@ -93,17 +130,12 @@ public:
       std::exit(EXIT_FAILURE);
     }
 
-    else return static_cast<std::size_t>(size);
+    return static_cast<std::size_t>(size);
   }
 
-  C getchar()
+  auto getchar()
   {
-    return static_cast<C>(serialGetchar(fd));
-  }
-
-  void getline(std::basic_string<C>& dest, C delim = '\n')
-  {
-    for (C buffer {}; (buffer = getchar()) != delim; dest.push_back(buffer));
+    return serialGetchar(fd);
   }
 
   void flush()
