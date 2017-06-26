@@ -67,13 +67,13 @@ int main(int argc, char** argv) try
   sensor["distance"]["long"][      "east"].set_code(5);
   sensor["distance"]["long"]["south_east"].set_code(6);
 
-  sensor["dummy"]["a"].set_code(7);
-  sensor["dummy"]["b"].set_code(8);
-  sensor["dummy"]["c"].set_code(9);
-
   sensor["distance"]["short"]["north_west"].set_code(10);
   sensor["distance"]["short"]["north"     ].set_code(11);
   sensor["distance"]["short"]["north_east"].set_code(12);
+
+  sensor["dummy"]["a"].set_code(7);
+  sensor["dummy"]["b"].set_code(8);
+  sensor["dummy"]["c"].set_code(9);
 
   sensor["dummy"]["d"].set_code(13);
   sensor["dummy"]["e"].set_code(14);
@@ -381,31 +381,19 @@ int main(int argc, char** argv) try
        std::chrono::duration_cast<std::chrono::seconds>(last - begin) < std::chrono::seconds {10};
        last = std::chrono::high_resolution_clock::now())
   {
-    // std::this_thread::sleep_for(std::chrono::milliseconds {10});
-
-    std::string buffer {};
+    static std::string buffer {};
 
     for (const auto& pair : sensor["distance"]["long"])
     {
-      *pair.second >> buffer;
+      *(pair.second) >> buffer;
       std::cout << "[input] " << buffer << std::endl;
     }
 
-    // for (const auto& s : sensor["position"]["short"])
-    // {
-    //   s >> buffer;
-    // }
-    //
-    // for (const auto& s : sensor["dummy"])
-    // {
-    //   s >> buffer;
-    // }
-
 #ifndef NDEBUG
     auto  t = std::chrono::duration_cast<std::chrono::seconds>(last - begin);
-    auto dt = std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::high_resolution_clock::now() - last);
+    auto dt = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::high_resolution_clock::now() - last);
 
-    // std::cout << "\r\e[K[debug] t: " << t.count() << ", dt: " << dt.count() << "[microsec]" << std::flush;
+    std::cout << "[debug] t: " << t.count() << ", dt: " << dt.count() << "[msec]\n";
 #endif
   }
 
