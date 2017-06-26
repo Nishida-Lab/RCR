@@ -22,7 +22,8 @@
 
 #include <robocar/camera/camera.hpp>
 #include <robocar/driver/driver.hpp>
-#include <robocar/serial/serial.hpp>
+#include <robocar/sensor/wiring_serial.hpp>
+#include <robocar/sensor/sensor_node.hpp>
 #include <robocar/vector/vector.hpp>
 
 #include <utilib/unique_fd.hpp>
@@ -50,32 +51,10 @@ const std::unordered_map<std::string,char> sensor_codes {
 };
 
 
-namespace robocar {
-
-class sensor
-  : public robocar::wiring_serial
-{
-public:
-  template <typename... Ts>
-  explicit sensor(Ts&&... args)
-    : robocar::wiring_serial {std::forward<Ts>(args)...}
-  {}
-
-  auto operator[]()
-  {}
-
-public:
-  enum class sensor_type
-  {
-    position,
-  };
-};
-
-} // namespace robocar
-
-
 int main(int argc, char** argv) try
 {
+  // robocar::sensor_node<char> sensor {"/dev/stdout", 9600};
+
 #ifdef NDEBUG
   robocar::wiring_serial serial {"/dev/ttyACM0", 9600};
 
@@ -368,8 +347,9 @@ int main(int argc, char** argv) try
   };
 #endif
 
-  for (auto begin {std::chrono::high_resolution_clock::now()}, last {std::chrono::high_resolution_clock::now()};
-       std::chrono::duration_cast<std::chrono::seconds>(last - begin) < std::chrono::seconds {140};
+  for (auto begin {std::chrono::high_resolution_clock::now()},
+             last {std::chrono::high_resolution_clock::now()};
+       std::chrono::duration_cast<std::chrono::seconds>(last - begin) < std::chrono::seconds {10};
        last = std::chrono::high_resolution_clock::now())
   {
     std::this_thread::sleep_for(std::chrono::milliseconds {10});
@@ -378,7 +358,7 @@ int main(int argc, char** argv) try
     auto  t {std::chrono::duration_cast<std::chrono::seconds>(last - begin)};
     auto dt {std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::high_resolution_clock::now() - last)};
 
-    std::cout << "\r\e[K[debug] t: " << t.count() << ", dt: " << dt.count() << std::flush;
+    std::cout << "\r\e[K[debug] t: " << t.count() << ", dt: " << dt.count() << "[microsec]" << std::flush;
 #endif
   }
 

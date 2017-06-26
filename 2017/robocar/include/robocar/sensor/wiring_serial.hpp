@@ -1,5 +1,5 @@
-#ifndef INCLUDED_ROBOCAR_SERIAL_SERIAL_HPP_
-#define INCLUDED_ROBOCAR_SERIAL_SERIAL_HPP_
+#ifndef INCLUDED_ROBOCAR_SENSOR_WIRING_SERIAL_HPP_
+#define INCLUDED_ROBOCAR_SENSOR_WIRING_SERIAL_HPP_
 
 
 #include <iostream>
@@ -13,14 +13,14 @@
 namespace robocar {
 
 
+template <typename C>
 class wiring_serial
 {
-  decltype(serialOpen(std::declval<char*>{},std::declval<int>{})) fd_;
+  int fd_;
 
 public:
-  template <typename... Ts>
-  wiring_serial(Ts&&... args)
-    : fd_ {serialOpen(std::forward<Ts>(args)...)}
+  wiring_serial(const std::basic_string<C>& device, int baudrate)
+    : fd_ {serialOpen(device.c_str(), baudrate)}
   {
     if (fd_ == -1)
     {
@@ -67,16 +67,14 @@ public:
     else return static_cast<std::size_t>(size);
   }
 
-  template <typename C = char>
   C getchar()
   {
     return static_cast<C>(serialGetchar(fd_));
   }
 
-  template <typename C = char>
   void getline(std::basic_string<C>& dest, C delim = '\n')
   {
-    for (C buffer {}; (buffer = getchar<C>()) != delim; dest.push_back(buffer));
+    for (C buffer {}; (buffer = getchar()) != delim; dest.push_back(buffer));
   }
 
   void flush()
@@ -90,3 +88,4 @@ public:
 
 
 #endif
+
