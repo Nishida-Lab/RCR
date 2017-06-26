@@ -74,8 +74,14 @@ public:
     return *this;
   }
 
-  template <typename T>
-  auto& operator>>(T&& rhs)
+  // template <typename C>
+  // auto& operator>>(const robocar::wiring_serial<C>& lhs, std::basic_string<C>& rhs)
+  // {
+  //   std::cout << "[debug] putchar: " << static_cast<int>(code_) << std::endl;
+  //   return lhs;
+  // }
+
+  auto& operator>>(std::basic_string<C>& rhs)
   {
     std::cout << "[debug] putchar: " << static_cast<int>(code_) << std::endl;
     return *this;
@@ -86,6 +92,11 @@ public:
   void putchar(Ts&&... args)
   {
     serialPutchar(fd, std::forward<Ts>(args)...);
+  }
+
+  void putcode()
+  {
+    serialPutchar(fd, code_);
   }
 
   template <typename... Ts>

@@ -374,12 +374,30 @@ int main(int argc, char** argv) try
   };
 #endif
 
+  std::cout << "\n";
+
   for (auto begin = std::chrono::high_resolution_clock::now(),
              last = std::chrono::high_resolution_clock::now();
        std::chrono::duration_cast<std::chrono::seconds>(last - begin) < std::chrono::seconds {10};
        last = std::chrono::high_resolution_clock::now())
   {
-    std::this_thread::sleep_for(std::chrono::milliseconds {10});
+    // std::this_thread::sleep_for(std::chrono::milliseconds {10});
+
+    std::string buffer {};
+    for (const auto& s : sensor["position"]["long"])
+    {
+      (*s.second).putcode();
+    }
+
+    // for (const auto& s : sensor["position"]["short"])
+    // {
+    //   s >> buffer;
+    // }
+    //
+    // for (const auto& s : sensor["dummy"])
+    // {
+    //   s >> buffer;
+    // }
 
 #ifndef NDEBUG
     auto  t = std::chrono::duration_cast<std::chrono::seconds>(last - begin);
