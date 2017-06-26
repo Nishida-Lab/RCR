@@ -21,7 +21,7 @@ const std::string boost_patch_version {std::to_string(BOOST_VERSION % 100)};
 const std::string boost_version {boost_major_version + "." + boost_minor_version + "." + boost_patch_version};
 
 
-const std::string cmake_build_type {"Debug"};
+const std::string cmake_build_type {""};
 
 
 #endif

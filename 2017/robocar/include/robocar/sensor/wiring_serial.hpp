@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string>
 #include <system_error>
+#include <thread>
 #include <utility>
 
 #include <wiringSerial.h>
@@ -84,6 +85,16 @@ public:
   auto& operator>>(std::basic_string<C>& rhs)
   {
     std::cout << "[debug] putchar: " << static_cast<int>(code_) << std::endl;
+    putchar(code_);
+
+    while (!avail())
+    {
+      std::cout << "[debug] wait for avail...\n";
+      std::this_thread::sleep_for(std::chrono::milliseconds {1});
+    }
+
+    getline(rhs);
+
     return *this;
   }
 
@@ -94,22 +105,17 @@ public:
     serialPutchar(fd, std::forward<Ts>(args)...);
   }
 
-  void putcode()
-  {
-    serialPutchar(fd, code_);
-  }
+  // template <typename... Ts>
+  // void puts(Ts&&... args)
+  // {
+  //   serialPuts(fd, std::forward<Ts>(args)...);
+  // }
 
-  template <typename... Ts>
-  void puts(Ts&&... args)
-  {
-    serialPuts(fd, std::forward<Ts>(args)...);
-  }
-
-  template <typename... Ts>
-  void printf(Ts&&... args)
-  {
-    serialPrintf(fd, std::forward<Ts>(args)...);
-  }
+  // template <typename... Ts>
+  // void printf(Ts&&... args)
+  // {
+  //   serialPrintf(fd, std::forward<Ts>(args)...);
+  // }
 
   std::size_t avail()
   {
@@ -122,7 +128,7 @@ public:
       std::exit(EXIT_FAILURE);
     }
 
-    else return static_cast<std::size_t>(size);
+    return static_cast<std::size_t>(size);
   }
 
   C getchar()

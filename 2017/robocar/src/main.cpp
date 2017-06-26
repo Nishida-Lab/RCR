@@ -384,9 +384,9 @@ int main(int argc, char** argv) try
     // std::this_thread::sleep_for(std::chrono::milliseconds {10});
 
     std::string buffer {};
-    for (const auto& s : sensor["position"]["long"])
+    for (const auto& pair : sensor["position"]["long"])
     {
-      (*s.second).putcode();
+      *pair.second >> buffer;
     }
 
     // for (const auto& s : sensor["position"]["short"])
