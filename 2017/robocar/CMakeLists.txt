@@ -1,7 +1,8 @@
 cmake_minimum_required(VERSION 3.0)
 project(robocar VERSION 0.0.0 LANGUAGES CXX)
 
-add_definitions("-std=c++14 -Wall -O3")
+# add_definitions("-std=c++14 -Wall -O3")
+add_definitions("-std=c++14 -Wall")
 
 set(CMAKE_BUILD_TYPE Debug)
 set(CMAKE_CXX_COMPILER clang++)
@@ -39,5 +40,6 @@ target_link_libraries(${PROJECT_NAME}
   opencv_core
   opencv_highgui
   opencv_imgproc
+  pthread
 )
 
