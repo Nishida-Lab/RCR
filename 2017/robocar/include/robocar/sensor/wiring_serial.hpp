@@ -87,15 +87,44 @@ public:
     std::cout << "[debug] putchar: " << static_cast<int>(code_) << std::endl;
     putchar(code_);
 
+    rhs.clear();
+    // std::basic_string<C> res {};
+
+    while (true)
+    {
+      wait_for_avail();
+      C buffer = static_cast<C>(getchar());
+
+      if (buffer != '\n')
+      {
+        // std::cout << "[debug] getchar: " << buffer << std::endl;
+        rhs.push_back(buffer);
+      }
+
+      else break;
+    }
+
+    // wait_for_avail();
+    // std::this_thread::sleep_for(std::chrono::milliseconds {20});
+    //
+    // while (avail() > 0)
+    // {
+    //   rhs.push_back(static_cast<char>(getchar()));
+    // }
+    // std::putchar('\n');
+
+    return *this;
+  }
+
+  void wait_for_avail()
+  {
     while (!avail())
     {
-      std::cout << "[debug] wait for avail...\n";
+      // std::cout << "\r\e[K[debug] wait for avail...";
       std::this_thread::sleep_for(std::chrono::milliseconds {1});
     }
 
-    getline(rhs);
-
-    return *this;
+    // std::cout << "\n[debug] avail!\n";
   }
 
 public:
@@ -131,9 +160,9 @@ public:
     return static_cast<std::size_t>(size);
   }
 
-  C getchar()
+  auto getchar()
   {
-    return static_cast<C>(serialGetchar(fd));
+    return serialGetchar(fd);
   }
 
   void getline(std::basic_string<C>& dest, C delim = '\n')

@@ -57,7 +57,7 @@ int main(int argc, char** argv) try
   std::cout << "[debug] project version: " << project_version.data() << " (" << cmake_build_type.data() << ")\n";
   std::cout << "[debug]   boost version: " <<   boost_version.data() << "\n\n";
 
-  robocar::sensor_node<char> sensor {"/dev/ttyACM0", 9600};
+  robocar::sensor_node<char> sensor {"/dev/ttyACM0", 115200};
 
   sensor["distance"]["long"]["south_west"].set_code(0);
   sensor["distance"]["long"][      "west"].set_code(1);
@@ -83,7 +83,7 @@ int main(int argc, char** argv) try
 
 
 #ifdef NDEBUG
-  robocar::wiring_serial serial {"/dev/ttyACM0", 9600};
+  robocar::wiring_serial serial {"/dev/ttyACM0", 115200};
 
   std::cout << "[debug] wait for serial connection stabilize...\n";
   std::this_thread::sleep_for(std::chrono::seconds(3));
@@ -384,9 +384,11 @@ int main(int argc, char** argv) try
     // std::this_thread::sleep_for(std::chrono::milliseconds {10});
 
     std::string buffer {};
-    for (const auto& pair : sensor["position"]["long"])
+
+    for (const auto& pair : sensor["distance"]["long"])
     {
       *pair.second >> buffer;
+      std::cout << "[input] " << buffer << std::endl;
     }
 
     // for (const auto& s : sensor["position"]["short"])
@@ -403,7 +405,7 @@ int main(int argc, char** argv) try
     auto  t = std::chrono::duration_cast<std::chrono::seconds>(last - begin);
     auto dt = std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::high_resolution_clock::now() - last);
 
-    std::cout << "\r\e[K[debug] t: " << t.count() << ", dt: " << dt.count() << "[microsec]" << std::flush;
+    // std::cout << "\r\e[K[debug] t: " << t.count() << ", dt: " << dt.count() << "[microsec]" << std::flush;
 #endif
   }
 
