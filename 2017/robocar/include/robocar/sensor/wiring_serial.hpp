@@ -60,7 +60,10 @@ public:
 
     if (!--reference_count_)
     {
+#ifndef NDEBUG
+      std::cout << "[debug] robocar::wiring_serial::~wiring_serial() - serial close\n";
       serialClose(fd);
+#endif
     }
   }
 
