@@ -3,6 +3,8 @@ project(robocar VERSION 0.0.0 LANGUAGES CXX)
 
 add_definitions("-std=c++1y -Wall -O3")
 
+set(CMAKE_BUILD_TYPE Debug)
+
 file(GLOB ${PROJECT_NAME}_SOURCES ${PROJECT_SOURCE_DIR}/src/*.cpp)
 set(${PROJECT_NAME}_HEADER_DIR ${PROJECT_SOURCE_DIR}/include)
 

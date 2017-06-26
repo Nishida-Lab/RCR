@@ -22,9 +22,10 @@
 
 #include <robocar/camera/camera.hpp>
 #include <robocar/driver/driver.hpp>
-#include <robocar/sensor/wiring_serial.hpp>
 #include <robocar/sensor/sensor_node.hpp>
+#include <robocar/sensor/wiring_serial.hpp>
 #include <robocar/vector/vector.hpp>
+#include <robocar/version.hpp>
 
 #include <utilib/unique_fd.hpp>
 #include <utilib/runtime_typename.hpp>
@@ -53,6 +54,9 @@ const std::unordered_map<std::string,char> sensor_codes {
 
 int main(int argc, char** argv) try
 {
+  std::cout << "[debug] project version: " << project_version.data() << " (" << cmake_build_type.data() << ")\n";
+  std::cout << "[debug]   boost version: " <<   boost_version.data() << std::endl;
+
   // robocar::sensor_node<char> sensor {"/dev/stdout", 9600};
 
 #ifdef NDEBUG

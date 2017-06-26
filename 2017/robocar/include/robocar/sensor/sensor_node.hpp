@@ -8,7 +8,7 @@
 #include <unordered_map>
 #include <utility>
 
-#include <robocar/sensor/sensor_node.hpp>
+#include <robocar/sensor/wiring_serial.hpp>
 
 
 namespace robocar {
