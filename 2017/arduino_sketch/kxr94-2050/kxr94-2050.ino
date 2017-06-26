@@ -127,39 +127,6 @@ void getVelocity(int t){
 }
 
 
-/*
-  double Gn  = 0;
-  double hn[2] = {0,0};
-  double theta_hat[2] = {0,0};
-  double psi[2] = {0.0};
-  int estimate_count = 0;
-
-  //use ARMA model
-  double estimate(double y_2, double y_1, double y_0){
-  psi[0] = -y_1;
-  psi[1] = -y_0;
-
-  Gn += psi[0]*psi[0] + psi[1]*psi[1];
-  hn[0] += y_2*psi[0];
-  hn[1] += y_2*psi[1];
-
-  Gn /= estimate_count+1;
-  hn[0] /= estimate_count+1;
-  hn[1] /= estimate_count+1;
-
-  theta_hat[0] = hn[0] / Gn;
-  theta_hat[1] = hn[1] / Gn;
-
-  y_2 = theta_hat[0]*psi[0] + theta_hat[1]*psi[1];
-  estimate_count++;
-
-  Gn *= estimate_count+1;
-  hn[0] *= estimate_count+1;  
-  hn[1] *= estimate_count+1;
-  return y_2;
-  }
-*/
-
 void setup(){
   pinMode( 8, OUTPUT);
   pinMode( 9, OUTPUT);
@@ -197,9 +164,9 @@ void loop(){
 
   if(count > 100) value += pos_x*2;
 
-Serial.print(acc[0]); Serial.print(" ");
-Serial.print(acc[1]); Serial.print(" ");
-Serial.println(acc[2]);
+  Serial.print(acc[0]); Serial.print(" ");
+  Serial.print(acc[1]); Serial.print(" ");
+  Serial.println(acc[2]);
 
 //  Serial.print(ACC_G); Serial.print(" ");
 //  Serial.print(acc_0.data_x); Serial.print(" ");
