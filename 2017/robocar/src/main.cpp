@@ -23,7 +23,7 @@
 #include <robocar/camera/camera.hpp>
 #include <robocar/driver/driver.hpp>
 #include <robocar/sensor/sensor_node.hpp>
-#include <robocar/sensor/wiring_serial.hpp>
+#include <robocar/sensor/wiring_serial.hpp> // TODO CLEANUP
 #include <robocar/vector/vector.hpp>
 #include <robocar/version.hpp>
 
@@ -381,7 +381,7 @@ int main(int argc, char** argv) try
        std::chrono::duration_cast<std::chrono::seconds>(last - begin) < std::chrono::seconds {10};
        last = std::chrono::high_resolution_clock::now())
   {
-    static std::string buffer {};
+    double buffer {};
 
     for (const auto& pair : sensor["distance"]["long"])
     {

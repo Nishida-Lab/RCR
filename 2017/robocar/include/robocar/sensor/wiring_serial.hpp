@@ -102,6 +102,16 @@ public:
     return *this;
   }
 
+  auto& operator>>(double& rhs)
+  {
+    static std::basic_string<C> buffer {};
+
+    (*this).operator>>(buffer);
+    rhs = std::stod(buffer);
+
+    return *this;
+  }
+
 public:
   template <typename... Ts>
   void putchar(Ts&&... args)
