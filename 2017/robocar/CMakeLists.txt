@@ -4,7 +4,6 @@ project(robocar VERSION 0.0.0 LANGUAGES CXX)
 # add_definitions("-std=c++14 -Wall -O3")
 add_definitions("-std=c++14 -Wall")
 
-set(CMAKE_BUILD_TYPE Debug)
 set(CMAKE_CXX_COMPILER clang++)
 
 file(GLOB ${PROJECT_NAME}_SOURCES ${PROJECT_SOURCE_DIR}/src/*.cpp)
