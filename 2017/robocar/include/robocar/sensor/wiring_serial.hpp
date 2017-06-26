@@ -17,6 +17,7 @@ template <typename C>
 class wiring_serial
 {
   static std::size_t reference_count_;
+  C code_;
 
 public:
   int fd;
@@ -61,6 +62,20 @@ public:
     {
       serialClose(fd);
     }
+  }
+
+public:
+  auto& set_code(const C& rhs) // XXX UGLY CODE
+  {
+    code_ = rhs;
+    return *this;
+  }
+
+  template <typename T>
+  auto& operator>>(T&& rhs)
+  {
+    std::cout << "[debug] putchar: " << static_cast<int>(code_) << std::endl;
+    return *this;
   }
 
 public:

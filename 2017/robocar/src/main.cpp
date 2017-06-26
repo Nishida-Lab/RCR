@@ -31,7 +31,7 @@
 #include <utilib/runtime_typename.hpp>
 
 
-const std::unordered_map<std::string,char> sensor_codes {
+const std::unordered_map<std::string, char> sensor_codes {
   {"long_range_0",   5},
   {"long_range_1",   4},
   {"long_range_2",   3},
@@ -55,9 +55,18 @@ const std::unordered_map<std::string,char> sensor_codes {
 int main(int argc, char** argv) try
 {
   std::cout << "[debug] project version: " << project_version.data() << " (" << cmake_build_type.data() << ")\n";
-  std::cout << "[debug]   boost version: " <<   boost_version.data() << std::endl;
+  std::cout << "[debug]   boost version: " <<   boost_version.data() << "\n\n";
 
-  // robocar::sensor_node<char> sensor {"/dev/stdout", 9600};
+  robocar::sensor_node<char> sensor {"/dev/ttyACM0", 9600};
+
+  sensor["distance"]["long"]["south_west"].set_code(0);
+  sensor["distance"]["long"][      "west"].set_code(1);
+  sensor["distance"]["long"]["north_west"].set_code(2);
+  sensor["distance"]["long"]["north"     ].set_code(3);
+  sensor["distance"]["long"]["north_east"].set_code(4);
+  sensor["distance"]["long"][      "east"].set_code(5);
+  sensor["distance"]["long"]["south_east"].set_code(6);
+
 
 #ifdef NDEBUG
   robocar::wiring_serial serial {"/dev/ttyACM0", 9600};

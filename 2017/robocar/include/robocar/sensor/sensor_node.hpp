@@ -33,7 +33,7 @@ public:
   {
     if ((*this).find(node_name) == (*this).end())
     {
-      robocar::sensor_edge<C> edge {new robocar::sensor_edge<C> {*this}};
+      robocar::sensor_edge<C> edge {new robocar::sensor_node<C> {*this}};
       (*this).emplace(node_name, std::move(edge));
     }
 
