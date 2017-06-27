@@ -14,7 +14,7 @@ set xrange [-range_max:range_max]
 set yrange [-range_max:range_max]
 set zrange [-10:10]
 
-U(x,y) = -atanh((x**2+y**2) - 1)
+U(x,y) = -atanh(x**2 + y**2 - 1)
 
-splot U(x/range_max,y/range_max)
+splot abs(U(x/(range_mid), y/(range_mid)))
 
