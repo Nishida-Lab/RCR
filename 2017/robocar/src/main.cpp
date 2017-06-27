@@ -7,6 +7,7 @@
 #include <cstring>
 #include <iomanip>
 #include <iostream>
+#include <regex>
 #include <stdexcept>
 #include <string>
 #include <system_error>
@@ -103,12 +104,64 @@ int main(int argc, char** argv) try
       std::cout << "\r\e[K[debug] " << row << ", " << col << ": "
                 << std::showpos << std::fixed << std::setprecision(3)
                 << predefined_filed[row/grid_size][col/grid_size].normalized() << std::flush;
-
 #ifndef NDEBUG
       std::this_thread::sleep_for(std::chrono::milliseconds(10));
-#define
+#endif
     }
   }
+
+
+  std::vector<robocar::vector<double>> runtime_field {};
+
+  double range_min {0.03};
+  double range_mid {0.45};
+  double range_max {0.90};
+
+  auto update_runtime_field = [&]()
+  {
+    for (const auto& psd : sensor["distance"]["long"])
+    {
+      static double buffer;
+
+      if (std::regex_search(psd.first, std::regex {"north"}))
+      {
+#ifndef NDEBUG
+        std::cout << "[debug] regex find \"north\": " << psd.first << std::endl;
+#endif
+        sensor["distance"]["short"][psd.first] >> buffer;
+        buffer = 0.09999 * buffer + 0.4477;
+
+        if (0.18 < buffer)
+        {
+          *(psd.second) >> buffer;
+          buffer = 45.514 * std::pow(buffer, -0.822);
+        }
+      }
+
+      else
+      {
+        *(psd.second) >> buffer;
+        buffer = 45.514 * std::pow(buffer, -0.822);
+      }
+
+      // buffer は自機のローカル座標系からのポールへの距離（メートル）
+      // 方向はセンサの物理的な設置角度による
+      //
+      // これをグローバル座標上の一点に変換して，
+      // フィールドに距離 0.90[m] / 4 よりも近いものが既にあれば，先住民を両者の平均値で更新
+      // 無ければ追加
+    }
+  };
+
+
+  auto avoid_vector = [&]()
+  {
+    // ランタイムフィールドを機体座標からの距離でソート
+    // ミニマムレンジからマックスレンジ間で採用
+    // 自機の位置（グローバル）マイナス，ランタイムフィールド内のポール座標（グローバル）
+    // を該当するものすべてについて算出し，合計
+    // それを正規化してリターン
+  };
 
 
 #ifdef NDEBUG
