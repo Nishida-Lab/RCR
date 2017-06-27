@@ -2,7 +2,7 @@
 
 #define OFFSET_X 1642
 #define OFFSET_Y 1642
-#define OFFSET_Z 1230
+#define OFFSET_Z 1400
 #define GRAVITY 9.80665
 
 DATA acc_0,acc_1,acc_2,vel_0,vel_1,vel_2,pos;
@@ -14,32 +14,23 @@ void getAcc(int num, double x, double y, double z){
     case 0:
     acc_0.time = micros();
     //重力加速度[m/s^2]*(電圧[mV]-オフセット電圧[mV])/感度[mV/g] = 加速度[m/s^2]
-    acc_0.data_x = 9.8*(x * 4.9 - OFFSET_X)/1000; 
-    acc_0.data_y = 9.8*(y * 4.9 - OFFSET_Y)/1000; 
-    acc_0.data_z = 9.8*(z * 4.9 - OFFSET_Z)/1000;
-    acc_0.data_x = (acc_0.data_x + acc_1.data_x + acc_2.data_x)/3;
-    acc_0.data_y = (acc_0.data_y + acc_1.data_y + acc_2.data_y)/3;
-    acc_0.data_z = (acc_0.data_z + acc_1.data_z + acc_2.data_z)/3;
+    acc_0.data_x = GRAVITY*(x * 4.9 - OFFSET_X)/1000; 
+    acc_0.data_y = GRAVITY*(y * 4.9 - OFFSET_Y)/1000; 
+    acc_0.data_z = GRAVITY*(z * 4.9 - OFFSET_Z)/1000;
     break;
  
   case 1:
     acc_1.time = micros();
-    acc_1.data_x = 9.8*(x * 4.9 - OFFSET_X)/1000; 
-    acc_1.data_y = 9.8*(y * 4.9 - OFFSET_Y)/1000; 
-    acc_1.data_z = 9.8*(z * 4.9 - OFFSET_Z)/1000;
-    acc_1.data_x = (acc_0.data_x + acc_1.data_x + acc_2.data_x)/3;
-    acc_1.data_y = (acc_0.data_y + acc_1.data_y + acc_2.data_y)/3;
-    acc_1.data_z = (acc_0.data_z + acc_1.data_z + acc_2.data_z)/3;
+    acc_1.data_x = GRAVITY*(x * 4.9 - OFFSET_X)/1000; 
+    acc_1.data_y = GRAVITY*(y * 4.9 - OFFSET_Y)/1000; 
+    acc_1.data_z = GRAVITY*(z * 4.9 - OFFSET_Z)/1000;
     break;
 
   case 2:
     acc_2.time = micros();
-    acc_2.data_x = 9.8*(x * 4.9 - OFFSET_X)/1000;
-    acc_2.data_y = 9.8*(y * 4.9 - OFFSET_Y)/1000; 
-    acc_2.data_z = 9.8*(z * 4.9 - OFFSET_Z)/1000;
-    acc_2.data_x = (acc_0.data_x + acc_1.data_x + acc_2.data_x)/3;
-    acc_2.data_y = (acc_0.data_y + acc_1.data_y + acc_2.data_y)/3;
-    acc_2.data_z = (acc_0.data_z + acc_1.data_z + acc_2.data_z)/3;
+    acc_2.data_x = GRAVITY*(x * 4.9 - OFFSET_X)/1000;
+    acc_2.data_y = GRAVITY*(y * 4.9 - OFFSET_Y)/1000; 
+    acc_2.data_z = GRAVITY*(z * 4.9 - OFFSET_Z)/1000;
     break;
   }
 }
@@ -61,10 +52,6 @@ double getIntegral(unsigned long time_0, double data_0, unsigned long time_1, do
 
 
 void getVel(int timing){
-  acc_0.data_z -= GRAVITY;
-  acc_1.data_z -= GRAVITY;
-  acc_2.data_z -= GRAVITY;
-  
   switch(timing){
   case 0:
   vel_0.time = acc_1.time;
