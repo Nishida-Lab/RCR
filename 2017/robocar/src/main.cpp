@@ -111,17 +111,23 @@ int main(int argc, char** argv) try
   }
 
 
-  std::vector<robocar::vector<double>> runtime_field {};
-
-  double range_min {0.03};
-  double range_mid {0.45};
-  double range_max {0.90};
-
-  auto update_runtime_field = [&]()
+  auto avoid_vector = [&]()
   {
+    robocar::vector<double> result {0.0, 0.0};
+
+    static constexpr double range_min {0.03};
+    static constexpr double range_mid {0.45};
+    static constexpr double range_max {0.90};
+
+    const std::unordered_map<std::string, robocar::vector<double>> nearest_neighbor {
+      {"notrh_west", { 1.0, -1.0}}, {"north"     , { 0.0, -1.0}}, {"north_east", {-1.0, -1.0}},
+      {      "west", { 1.0,  1.0}},                               {      "east", {-1.0,  0.0}},
+      {"south_west", { 1.0,  1.0}}, {"south"     , { 0.0,  1.0}}, {"south_east", {-1.0,  1.0}}
+    };
+
     for (const auto& psd : sensor["distance"]["long"])
     {
-      static double buffer;
+      double buffer;
 
       if (std::regex_search(psd.first, std::regex {"north"}))
       {
@@ -137,30 +143,33 @@ int main(int argc, char** argv) try
           buffer = 45.514 * std::pow(buffer, -0.822);
         }
       }
-
       else
       {
         *(psd.second) >> buffer;
         buffer = 45.514 * std::pow(buffer, -0.822);
       }
 
-      // buffer は自機のローカル座標系からのポールへの距離（メートル）
-      // 方向はセンサの物理的な設置角度による
-      //
-      // これをグローバル座標上の一点に変換して，
-      // フィールドに距離 0.90[m] / 4 よりも近いものが既にあれば，先住民を両者の平均値で更新
-      // 無ければ追加
+      double repulsive_force;
+
+      if (range_min < buffer && buffer < range_mid)
+      {
+        auto x {(buffer - range_min) / (range_mid - range_min)};
+        repulsive_force = -std::atanh(x - 1);
+      }
+      else if (range_mid <= buffer && buffer < range_max)
+      {
+        auto x {buffer / range_mid};
+        repulsive_force = -std::atanh(x - 1);
+      }
+      else
+      {
+        repulsive_force = -std::atanh(range_mid - 1);
+      }
+
+      result += nearest_neighbor.at(psd.first) * repulsive_force;
     }
-  };
 
-
-  auto avoid_vector = [&]()
-  {
-    // ランタイムフィールドを機体座標からの距離でソート
-    // ミニマムレンジからマックスレンジ間で採用
-    // 自機の位置（グローバル）マイナス，ランタイムフィールド内のポール座標（グローバル）
-    // を該当するものすべてについて算出し，合計
-    // それを正規化してリターン
+    return result;
   };
 
 
