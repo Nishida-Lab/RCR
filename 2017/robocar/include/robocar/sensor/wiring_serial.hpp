@@ -45,20 +45,10 @@ public:
     : fd {parent.fd}
   {
     ++reference_count_;
-
-#ifndef NDEBUG
-    std::cout << "[debug] robocar::wiring_serial::wiring_serial(" << __LINE__ << ") - reference count: "
-              << reference_count_ << std::endl;
-#endif
   }
 
   ~wiring_serial()
   {
-#ifndef NDEBUG
-    std::cout << "[debug] robocar::wiring_serial::~wiring_serial() - reference count: "
-              << reference_count_ << std::endl;
-#endif
-
     if (!--reference_count_)
     {
 #ifndef NDEBUG
@@ -82,9 +72,6 @@ public:
 
   auto& operator>>(std::basic_string<C>& rhs)
   {
-#ifndef NDEBUG
-    std::cout << "[debug] putchar: " << static_cast<int>(code_) << std::endl;
-#endif
     putchar(code_);
     rhs.clear();
 
@@ -92,7 +79,8 @@ public:
     {
       while (!avail())
       {
-        std::this_thread::sleep_for(std::chrono::milliseconds {1});
+        std::cout << "[debug] wait for avail...\n";
+        std::this_thread::sleep_for(std::chrono::milliseconds {10});
       }
 
       C buffer = static_cast<C>(getchar());
@@ -111,7 +99,7 @@ public:
   {
     static std::basic_string<C> buffer {};
 
-    (*this).operator>>(buffer);
+    (*this) >> buffer;
     rhs = std::stod(buffer);
 
     return *this;

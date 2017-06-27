@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.0)
 project(robocar VERSION 0.0.0 LANGUAGES CXX)
 
-# add_definitions("-std=c++14 -Wall -O3")
-add_definitions("-std=c++14 -Wall")
+add_definitions("-std=c++14 -Wall -O3")
+# add_definitions("-std=c++14 -Wall")
 
 set(CMAKE_CXX_COMPILER clang++)
 

@@ -72,8 +72,8 @@ public:
   {
     static const robocar::vector<T> forward {0.0, 1.0};
 
-    // const T  linear_x {v[1] < static_cast<T>(0.0) ? static_cast<T>(0.0) : v[1]};
-    const T  linear_x {v[1]};
+    const T  linear_x {v[1] < static_cast<T>(0.0) ? static_cast<T>(0.0) : v[1]};
+    // const T  linear_x {v[1]};
 
     T angular_z {};
 
