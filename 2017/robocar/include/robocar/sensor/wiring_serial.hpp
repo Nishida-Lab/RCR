@@ -75,6 +75,11 @@ public:
     return *this;
   }
 
+  double get() // TODO IMPLEMENT
+  {
+    return 0.0;
+  }
+
   auto& operator>>(std::basic_string<C>& rhs)
   {
 #ifndef NDEBUG
