@@ -656,57 +656,8 @@ $a(t)[\mathrm{m}/\mathrm{s}^{2}]$を加速度，$v(t)$[m/s]を速度とすると
 
   \end{description}
 
-\subsection{障害物回避}
-  機体周囲に放射状に取り付けられた測距センサによる距離情報をもとに障害物回避を行う．
-
-  まず，スカラーである距離情報に方向の情報を付加するために，
-  実際の機体周囲の測距センサの配置を元に，
-  次のように8つの二次元単位ベクトルを定義する．
-
-  \begin{eqnarray}
-    \bm{u}_0 = \begin{bmatrix} -0.707 \\ -0.707 \end{bmatrix}, \hspace{5mm} \nonumber
-    \bm{u}_1 = \begin{bmatrix}  0     \\ -1     \end{bmatrix}, \hspace{5mm}
-    \bm{u}_2 = \begin{bmatrix}  0.707 \\ -0.707 \end{bmatrix}, \hspace{5mm}
-    \bm{u}_3 = \begin{bmatrix}  1     \\  0     \end{bmatrix}, \hspace{5mm} \\[3mm]
-    \bm{u}_4 = \begin{bmatrix}  0.707 \\  0.707 \end{bmatrix}, \hspace{5mm} \nonumber
-    \bm{u}_5 = \begin{bmatrix}  0     \\  1     \end{bmatrix}, \hspace{5mm}
-    \bm{u}_6 = \begin{bmatrix} -0.707 \\  0707  \end{bmatrix}, \hspace{5mm}
-    \bm{u}_7 = \begin{bmatrix} -1     \\  0     \end{bmatrix}  \hspace{5mm} \\ \nonumber
-  \end{eqnarray}
-
-  障害物との衝突を避けるため，センサにより得られた距離が小さいほど大きな斥力が
-  機体の進行方向に作用するようにしなければならない．
-  また同時に，離れすぎることも競技エリア外に出てしまうことが懸念されるため避けなければならない．
-  そのため，距離が大きい時には大きな負の斥力，すなわち障害物からの引力を受けるように，
-  次の式を利用して距離情報を『危険度』の情報に変換する．
-
-  \begin{equation}
-    y = -\tanh^{-1}(x-1) \label{eq::arctanh}
-  \end{equation}
-
-  \refeq{arctanh}を図に表すと\refig{arctanh}となる．
-
-  \begin{figure}[H]
-    \begin{center}
-      \includegraphics[width=1.0\hsize]{../../report_2/yamasa/plot/minus_atanh.eps}
-    \end{center}
-    \caption{$y=-\tanh^{-1}(x-1)$}
-    \label{fig::arctanh}
-  \end{figure}
-
-  実際には適正距離で$\tanh^{-1}(x-1) = 0$となるように，
-  維持したい距離とセンサの最大レンジないしは採用する最大の距離を考慮に入れて，
-  それらを正規化した値を代入しなければならない．
-
-  また，零距離から適正距離，適正距離から最大距離の比が$1:1$とならない場合は，
-  場合を分けて正規化を行わなければならない．\\
-
-  以上の処理により近接センサ3つとPSDセンサ7つの距離情報から作成したベクトルを合成し，正規化する．
-  前節の画像処理により画像内に赤色の物体が検知されていた場合はそれに向かうベクトルを作成し，
-  それに距離情報から作成したベクトルを合成し，進行方向とする．
-
-  最後に，進行方向のベクトルが左右のモータへ与える速度指令値に変換されて入力される．
-
+\input{../../report_3/yamasa_report3/main.tex}
+  
 \subsection{今後の予定}
 図\ref{fig:schedule}に大まかな今後の予定を示す．
 \begin{figure}[bH]
