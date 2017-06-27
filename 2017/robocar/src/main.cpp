@@ -73,9 +73,9 @@ int main(int argc, char** argv) try
   sensor["distance"]["short"]["north"     ].set_code(11);
   sensor["distance"]["short"]["north_east"].set_code(12);
 
-  sensor["dummy"]["a"].set_code(7);
-  sensor["dummy"]["b"].set_code(8);
-  sensor["dummy"]["c"].set_code(9);
+  sensor["position"]["x"].set_code(7);
+  sensor["position"]["y"].set_code(8);
+  sensor["position"]["z"].set_code(9);
 
   sensor["dummy"]["d"].set_code(13);
   sensor["dummy"]["e"].set_code(14);
@@ -173,7 +173,6 @@ int main(int argc, char** argv) try
   };
 
 
-#ifdef NDEBUG
   // robocar::wiring_serial serial {"/dev/ttyACM0", 115200};
   //
   // std::cout << "[debug] wait for serial connection stabilize...\n";
@@ -212,18 +211,18 @@ int main(int argc, char** argv) try
   //   else throw std::logic_error {"std::unordered_map::operator[]() - out of range"};
   // };
 
-  constexpr auto long_range_sensor = [&](auto sensor_value) // GP2Y0A21
-    -> double
-  {
-    double tmp {sensor_value * 5 / 1024};
-    return 45.514 * std::pow(static_cast<double>(tmp), static_cast<double>(-0.822));
-  };
-
-  constexpr auto short_range_sensor = [&](auto sensor_value) // VL6180X
-    -> double
-  {
-    return 0.09999 * static_cast<double>(sensor_value) + 0.4477;
-  };
+  // constexpr auto long_range_sensor = [&](auto sensor_value) // GP2Y0A21
+  //   -> double
+  // {
+  //   double tmp {sensor_value * 5 / 1024};
+  //   return 45.514 * std::pow(static_cast<double>(tmp), static_cast<double>(-0.822));
+  // };
+  //
+  // constexpr auto short_range_sensor = [&](auto sensor_value) // VL6180X
+  //   -> double
+  // {
+  //   return 0.09999 * static_cast<double>(sensor_value) + 0.4477;
+  // };
 
   auto search = [&]()
     -> std::vector<robocar::vector<double>>
@@ -245,147 +244,147 @@ int main(int argc, char** argv) try
     return poles;
   };
 
-  auto long_range_sensor_array_debug = [&]()
-    -> boost::numeric::ublas::vector<double>
-  {
-    boost::numeric::ublas::vector<double> direction {robocar::vector<double> {0.0, 0.0}};
-
-    static constexpr std::size_t extent {2};
-    std::vector<boost::numeric::ublas::vector<double>> neighbor {8, boost::numeric::ublas::vector<double> {extent}};
-
-    neighbor[3] <<=  1.0, -1.0;  neighbor[2] <<=  0.0, -1.0;  neighbor[1] <<= -1.0, -1.0;
-    neighbor[4] <<=  1.0,  0.0;        /* robocar */          neighbor[0] <<= -1.0,  0.0;
-    neighbor[5] <<=  1.0,  1.0;  neighbor[6] <<=  0.0,  1.0;  neighbor[7] <<= -1.0,  1.0;
-
-    // for (auto&& v : neighbor)
-    // {
-    //   v = robocar::vector<double>::normalize(v);
-    //   std::cout << "[debug] neighbor[" << std::noshowpos << &v - &neighbor.front() << "] "
-    //             << std::fixed << std::setprecision(3) << std::showpos << v << std::endl;
-    // }
-
-    static constexpr std::size_t desired_distance {45};
-
-    for (const auto& v : neighbor)
-    {
-      int index {static_cast<int>(&v - &neighbor.front())};
-      std::cout << "[debug] index: " << index << std::endl;
-
-      std::string sensor_name {"long_range_" + std::to_string(index)};
-      std::cout << "        sensor name: " << sensor_name << std::endl;
-
-      std::string sensor_value_str {};
-      query(sensor_name, sensor_value_str);
-      std::cout << "        sensor value str: " << sensor_value_str << std::endl;
-
-      int sensor_value_raw {std::stoi(sensor_value_str)};
-      std::cout << "        sensor value raw: " << sensor_value_raw << std::endl;
-
-      double sensor_value {long_range_sensor(sensor_value_raw)};
-      std::cout << "        sensor value: " << sensor_value << std::endl;
-
-      double range_max {desired_distance * 2};
-
-      if (sensor_value > range_max)
-      {
-        sensor_value = desired_distance;
-      }
-
-      double distance {static_cast<double>(sensor_value) - static_cast<double>(desired_distance)};
-      std::cout << "        distance from desired position: " << distance << std::endl;
-
-      double normalized_distance {distance / static_cast<double>(desired_distance)};
-      std::cout << "        normalized distance: " << normalized_distance << std::endl;
-
-      double arctanh {-std::atanh(normalized_distance)};
-      std::cout << "        arctanh: " << arctanh << std::endl;
-
-      boost::numeric::ublas::vector<double> repulsive_force {v * arctanh};
-      std::cout << "        repulsive force: " << repulsive_force << std::endl;
-
-      direction += repulsive_force;
-      std::cout << "        direction: " << direction << std::endl;
-    }
-
-    return direction;
-  };
-
-  auto short_range_sensor_array_debug = [&]()
-    -> boost::numeric::ublas::vector<double>
-  {
-    boost::numeric::ublas::vector<double> direction {robocar::vector<double> {0.0, 0.0}};
-
-    static constexpr std::size_t extent {2};
-    std::vector<boost::numeric::ublas::vector<double>> neighbor {3, boost::numeric::ublas::vector<double> {extent}};
-
-    neighbor[2] <<=  1.0, -1.0;  neighbor[1] <<=  0.0, -1.0;  neighbor[0] <<= -1.0, -1.0;
-
-    // for (auto&& v : neighbor)
-    // {
-    //   v = robocar::vector<double>::normalize(v);
-    //   std::cout << "[debug] neighbor[" << std::noshowpos << &v - &neighbor.front() << "] "
-    //             << std::fixed << std::setprecision(3) << std::showpos << v << std::endl;
-    // }
-
-    static constexpr std::size_t desired_distance {3}; // [cm]
-    static constexpr std::size_t range_max {20};
-
-    for (const auto& v : neighbor)
-    {
-      int index {static_cast<int>(&v - &neighbor.front())};
-      std::cout << "[debug] index: " << index << std::endl;
-
-      std::string sensor_name {"short_range_" + std::to_string(index)};
-      std::cout << "        sensor name: " << sensor_name << std::endl;
-
-      std::string sensor_value_str {};
-      query(sensor_name, sensor_value_str);
-      std::cout << "        sensor value str: " << sensor_value_str << std::endl;
-
-      int sensor_value_raw {std::stoi(sensor_value_str)};
-      std::cout << "        sensor value raw: " << sensor_value_raw << std::endl;
-
-      auto sensor_value {short_range_sensor(sensor_value_raw)};
-      std::cout << "        sensor value: " << sensor_value << std::endl;
-
-      double arctanh {};
-
-      if (sensor_value < static_cast<int>(desired_distance))
-      {
-        std::cout << "[debug] break point " << __LINE__ <<std::endl;
-        double numerator   {static_cast<double>(desired_distance) - static_cast<double>(sensor_value)};
-        double denominator {static_cast<double>(desired_distance)};
-
-        arctanh = std::atanh(numerator / denominator);
-      }
-
-      else
-      {
-        std::cout << "[debug] break point " << __LINE__ <<std::endl;
-        if (sensor_value > static_cast<int>(range_max))
-        {
-          std::cout << "[debug] break point " << __LINE__ <<std::endl;
-          // sensor_value = static_cast<int>(range_max);
-          sensor_value = static_cast<int>(desired_distance);
-        }
-
-        double numerator   {static_cast<double>(sensor_value) - static_cast<double>(desired_distance)};
-        double denominator {static_cast<double>(range_max) - static_cast<double>(desired_distance)};
-
-        arctanh = -std::atanh(numerator / denominator);
-      }
-
-      std::cout << "        arctanh: " << arctanh << std::endl;
-
-      boost::numeric::ublas::vector<double> repulsive_force {v * arctanh};
-      std::cout << "        repulsive force: " << repulsive_force << std::endl;
-
-      direction += repulsive_force;
-      std::cout << "        direction: " << direction << std::endl;
-    }
-
-    return direction;
-  };
+  // auto long_range_sensor_array_debug = [&]()
+  //   -> boost::numeric::ublas::vector<double>
+  // {
+  //   boost::numeric::ublas::vector<double> direction {robocar::vector<double> {0.0, 0.0}};
+  //
+  //   static constexpr std::size_t extent {2};
+  //   std::vector<boost::numeric::ublas::vector<double>> neighbor {8, boost::numeric::ublas::vector<double> {extent}};
+  //
+  //   neighbor[3] <<=  1.0, -1.0;  neighbor[2] <<=  0.0, -1.0;  neighbor[1] <<= -1.0, -1.0;
+  //   neighbor[4] <<=  1.0,  0.0;        /* robocar */          neighbor[0] <<= -1.0,  0.0;
+  //   neighbor[5] <<=  1.0,  1.0;  neighbor[6] <<=  0.0,  1.0;  neighbor[7] <<= -1.0,  1.0;
+  //
+  //   // for (auto&& v : neighbor)
+  //   // {
+  //   //   v = robocar::vector<double>::normalize(v);
+  //   //   std::cout << "[debug] neighbor[" << std::noshowpos << &v - &neighbor.front() << "] "
+  //   //             << std::fixed << std::setprecision(3) << std::showpos << v << std::endl;
+  //   // }
+  //
+  //   static constexpr std::size_t desired_distance {45};
+  //
+  //   for (const auto& v : neighbor)
+  //   {
+  //     int index {static_cast<int>(&v - &neighbor.front())};
+  //     std::cout << "[debug] index: " << index << std::endl;
+  //
+  //     std::string sensor_name {"long_range_" + std::to_string(index)};
+  //     std::cout << "        sensor name: " << sensor_name << std::endl;
+  //
+  //     std::string sensor_value_str {};
+  //     query(sensor_name, sensor_value_str);
+  //     std::cout << "        sensor value str: " << sensor_value_str << std::endl;
+  //
+  //     int sensor_value_raw {std::stoi(sensor_value_str)};
+  //     std::cout << "        sensor value raw: " << sensor_value_raw << std::endl;
+  //
+  //     double sensor_value {long_range_sensor(sensor_value_raw)};
+  //     std::cout << "        sensor value: " << sensor_value << std::endl;
+  //
+  //     double range_max {desired_distance * 2};
+  //
+  //     if (sensor_value > range_max)
+  //     {
+  //       sensor_value = desired_distance;
+  //     }
+  //
+  //     double distance {static_cast<double>(sensor_value) - static_cast<double>(desired_distance)};
+  //     std::cout << "        distance from desired position: " << distance << std::endl;
+  //
+  //     double normalized_distance {distance / static_cast<double>(desired_distance)};
+  //     std::cout << "        normalized distance: " << normalized_distance << std::endl;
+  //
+  //     double arctanh {-std::atanh(normalized_distance)};
+  //     std::cout << "        arctanh: " << arctanh << std::endl;
+  //
+  //     boost::numeric::ublas::vector<double> repulsive_force {v * arctanh};
+  //     std::cout << "        repulsive force: " << repulsive_force << std::endl;
+  //
+  //     direction += repulsive_force;
+  //     std::cout << "        direction: " << direction << std::endl;
+  //   }
+  //
+  //   return direction;
+  // };
+  //
+  // auto short_range_sensor_array_debug = [&]()
+  //   -> boost::numeric::ublas::vector<double>
+  // {
+  //   boost::numeric::ublas::vector<double> direction {robocar::vector<double> {0.0, 0.0}};
+  //
+  //   static constexpr std::size_t extent {2};
+  //   std::vector<boost::numeric::ublas::vector<double>> neighbor {3, boost::numeric::ublas::vector<double> {extent}};
+  //
+  //   neighbor[2] <<=  1.0, -1.0;  neighbor[1] <<=  0.0, -1.0;  neighbor[0] <<= -1.0, -1.0;
+  //
+  //   // for (auto&& v : neighbor)
+  //   // {
+  //   //   v = robocar::vector<double>::normalize(v);
+  //   //   std::cout << "[debug] neighbor[" << std::noshowpos << &v - &neighbor.front() << "] "
+  //   //             << std::fixed << std::setprecision(3) << std::showpos << v << std::endl;
+  //   // }
+  //
+  //   static constexpr std::size_t desired_distance {3}; // [cm]
+  //   static constexpr std::size_t range_max {20};
+  //
+  //   for (const auto& v : neighbor)
+  //   {
+  //     int index {static_cast<int>(&v - &neighbor.front())};
+  //     std::cout << "[debug] index: " << index << std::endl;
+  //
+  //     std::string sensor_name {"short_range_" + std::to_string(index)};
+  //     std::cout << "        sensor name: " << sensor_name << std::endl;
+  //
+  //     std::string sensor_value_str {};
+  //     query(sensor_name, sensor_value_str);
+  //     std::cout << "        sensor value str: " << sensor_value_str << std::endl;
+  //
+  //     int sensor_value_raw {std::stoi(sensor_value_str)};
+  //     std::cout << "        sensor value raw: " << sensor_value_raw << std::endl;
+  //
+  //     auto sensor_value {short_range_sensor(sensor_value_raw)};
+  //     std::cout << "        sensor value: " << sensor_value << std::endl;
+  //
+  //     double arctanh {};
+  //
+  //     if (sensor_value < static_cast<int>(desired_distance))
+  //     {
+  //       std::cout << "[debug] break point " << __LINE__ <<std::endl;
+  //       double numerator   {static_cast<double>(desired_distance) - static_cast<double>(sensor_value)};
+  //       double denominator {static_cast<double>(desired_distance)};
+  //
+  //       arctanh = std::atanh(numerator / denominator);
+  //     }
+  //
+  //     else
+  //     {
+  //       std::cout << "[debug] break point " << __LINE__ <<std::endl;
+  //       if (sensor_value > static_cast<int>(range_max))
+  //       {
+  //         std::cout << "[debug] break point " << __LINE__ <<std::endl;
+  //         // sensor_value = static_cast<int>(range_max);
+  //         sensor_value = static_cast<int>(desired_distance);
+  //       }
+  //
+  //       double numerator   {static_cast<double>(sensor_value) - static_cast<double>(desired_distance)};
+  //       double denominator {static_cast<double>(range_max) - static_cast<double>(desired_distance)};
+  //
+  //       arctanh = -std::atanh(numerator / denominator);
+  //     }
+  //
+  //     std::cout << "        arctanh: " << arctanh << std::endl;
+  //
+  //     boost::numeric::ublas::vector<double> repulsive_force {v * arctanh};
+  //     std::cout << "        repulsive force: " << repulsive_force << std::endl;
+  //
+  //     direction += repulsive_force;
+  //     std::cout << "        direction: " << direction << std::endl;
+  //   }
+  //
+  //   return direction;
+  // };
 
   auto carrot_test = [&]()
   {
@@ -463,7 +462,7 @@ int main(int argc, char** argv) try
       usleep(100);
     }
   };
-#endif
+
 
   std::cout << "\n";
 
@@ -472,13 +471,11 @@ int main(int argc, char** argv) try
        std::chrono::duration_cast<std::chrono::seconds>(last - begin) < std::chrono::seconds {10};
        last = std::chrono::high_resolution_clock::now())
   {
-    double buffer {};
+    auto poles {search()};
 
-    for (const auto& pair : sensor["distance"]["long"])
-    {
-      *(pair.second) >> buffer;
-      std::cout << "[input] " << buffer << std::endl;
-    }
+    auto target_vector {
+      poles.empty() ? predefined_filed[sensor["position"]["y"].get()/grid_size][sensor["position"]["x"].get()/grid_size] : poles.front().normalized()
+    };
 
 #ifndef NDEBUG
     auto  t = std::chrono::duration_cast<std::chrono::seconds>(last - begin);
