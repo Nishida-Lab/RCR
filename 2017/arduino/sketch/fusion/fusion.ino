@@ -22,10 +22,10 @@ int readSensor(int sensor){
   case 4:
   case 5:
   case 6:
-  case 7:
-  case 8:
-  case 9:
-    return readAnalog(sensor); //read PSD & ACC sensor
+    return readAnalog(sensor); //read PSD sensor
+  case 7: return pos.data_x;
+  case 8: return pos.data_y;
+  case 9: return pos.data_z;
   case 10:
     answer = vl6180x_NW.readRangeSingleMillimeters();
     if(vl6180x_NW.timeoutOccurred()) answer = -1; break;
@@ -47,8 +47,8 @@ int readSensor(int sensor){
 
 void affine(int timing){
   int i,j;
-  double global_acc[3];
-  double buff,term_x[3],term_y[3],term_z[3];
+  double global_acc[3] = {0,0,0};
+  double buff = 0,term_x[3] = {0,0,0},term_y[3] = {0,0,0},term_z[3] = {0,0,0};
   double deg_x, deg_y, deg_z;
 
   deg_x = deg.data_x * PI / 180; 
@@ -173,17 +173,16 @@ double acc[3] = {0,0,0};
 double gyro_x = 0, gyro_y = 0, gyro_z = 0;
 double param = 0.97;
 double sum_offset[3] = {0,0,0};
+double offset[3] = {0,0,0};
 
-
-void loop(){
-  double offset[3];
+void loop(){  
   int i;
   int count_offset = 0;
   
-  while(millis() < 5000){
-    acc[0] = param * acc[0] + (1-param) * readSensor(ACC_X);
-    acc[1] = param * acc[1] + (1-param) * readSensor(ACC_Y);
-    acc[2] = param * acc[2] + (1-param) * readSensor(ACC_Z);
+  while(millis() < 3000){
+    acc[0] = param * acc[0] + (1-param) * readAnalog(ACC_X);
+    acc[1] = param * acc[1] + (1-param) * readAnalog(ACC_Y);
+    acc[2] = param * acc[2] + (1-param) * readAnalog(ACC_Z);
 
     if(OFFSET_L < count_offset && count_offset <= OFFSET_H){
       for(i = 0;i < 3;i++)  sum_offset[i] += acc[i];
@@ -193,10 +192,9 @@ void loop(){
     offset[1] = 4.9 * sum_offset[1]/(OFFSET_H - OFFSET_L);
     offset[2] = (4.9 * sum_offset[2] / (OFFSET_H - OFFSET_L)) - 1000;
 
-//    Serial.print(millis()); Serial.print(" ");
-//    Serial.print(offset[0],10); Serial.print(" ");
-//    Serial.print(offset[1],10); Serial.print(" ");
-//    Serial.println(offset[2],10);
+    Serial.print(offset[0],10); Serial.print(" ");
+    Serial.print(offset[1],10); Serial.print(" ");
+    Serial.println(offset[2],10);
 
     count_offset++;
   }
@@ -208,15 +206,14 @@ void loop(){
   getGyro(timing, gyro_x, gyro_y, gyro_z);
   getDeg();
   
-  acc[0] = param * acc[0] + (1-param) * readSensor(ACC_X);
-  acc[1] = param * acc[1] + (1-param) * readSensor(ACC_Y);
-  acc[2] = param * acc[2] + (1-param) * readSensor(ACC_Z);
+  acc[0] = param * acc[0] + (1-param) * readAnalog(ACC_X);
+  acc[1] = param * acc[1] + (1-param) * readAnalog(ACC_Y);
+  acc[2] = param * acc[2] + (1-param) * readAnalog(ACC_Z);
  
-  getAcc(timing,acc[0],offset[0],acc[1],offset[1],acc[2],offset[2]);
+  getAcc(timing, acc[0], offset[0], acc[1], offset[1], acc[2], offset[2]);
   affine(timing);
   getVel(timing);
   getPos();
-  
     
   //  Serial.print(deg.data_x,10); Serial.print(" ");
   //  Serial.print(deg.data_y,10); Serial.print(" ");
@@ -226,10 +223,10 @@ void loop(){
   //  Serial.print(acc[1]); Serial.print(" ");
   //  Serial.println(acc[2]);  
   
-  //Serial.print(GRAVITY); Serial.print(" ");
-  //Serial.print(acc_0.data_x); Serial.print(" ");
-  //Serial.print(acc_0.data_y); Serial.print(" ");
-  //Serial.println(acc_0.data_z);  
+  Serial.print(GRAVITY); Serial.print(" ");
+  Serial.print(acc_0.data_x); Serial.print(" ");
+  Serial.print(acc_0.data_y); Serial.print(" ");
+  Serial.println(acc_0.data_z);  
 
    // Serial.print(acc_0.data_x,10); Serial.print(" ");
    // Serial.print(vel_0.data_x,10); Serial.print(" ");
@@ -239,13 +236,13 @@ void loop(){
   //if(timing == 1)  Serial.println(acc_1.time - acc_0.time,10);
   //if(timing == 2)  Serial.println(acc_2.time - acc_1.time,10);
   
-    int claim = -1;
-    if(Serial.available() > 0){
-    claim = Serial.read();
-    Serial.println(readSensor(claim));
-    }
-    Serial.flush();
-
+//    int claim = -1;
+//    if(Serial.available() > 0){
+//    claim = Serial.read();
+//    Serial.println(readSensor(claim));
+//    }
+//    Serial.flush();
+    delay(10);
     timing++;
     if(timing > 2) timing = 0;
 
