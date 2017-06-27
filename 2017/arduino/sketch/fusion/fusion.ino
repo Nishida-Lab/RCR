@@ -181,25 +181,25 @@ void loop(){
   acc[1] = param * acc[1] + (1-param) * readSensor(ACC_Y);
   acc[2] = param * acc[2] + (1-param) * readSensor(ACC_Z);
   getAcc(timing,acc[0],acc[1],acc[2]);
-  affine(timing);
+  // affine(timing);
   //getVel(timing);
   //getPos();
 
 
 
   
-  Serial.print(deg.data_x,10); Serial.print(" ");
-  Serial.print(deg.data_y,10); Serial.print(" ");
-  Serial.println(deg.data_z,10);  
+//  Serial.print(deg.data_x,10); Serial.print(" ");
+//  Serial.print(deg.data_y,10); Serial.print(" ");
+//  Serial.println(deg.data_z,10);  
 
 //  Serial.print(acc[0]); Serial.print(" ");
 //  Serial.print(acc[1]); Serial.print(" ");
 //  Serial.println(acc[2]);  
   
-//  Serial.print(GRAVITY); Serial.print(" ");
-//  Serial.print(acc_0.data_x); Serial.print(" ");
-//  Serial.print(acc_0.data_y); Serial.print(" ");
-//  Serial.println(acc_0.data_z);  
+  Serial.print(GRAVITY); Serial.print(" ");
+  Serial.print(acc_0.data_x); Serial.print(" ");
+  Serial.print(acc_0.data_y); Serial.print(" ");
+  Serial.println(acc_0.data_z);  
   
   timing++;
   if(timing > 2) timing = 0;
