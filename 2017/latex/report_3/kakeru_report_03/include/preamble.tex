@@ -1,0 +1,48 @@
+% -- Package ---------------------------------------------------
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{amsmath, amssymb}
+\usepackage{bm}
+\usepackage{fancyhdr}
+\usepackage{here}
+\usepackage{listings}
+\usepackage{multirow}
+
+
+% -- Margin Config ---------------------------------------------
+\setlength{\textheight}{\paperheight}
+\setlength{\topmargin}{4.6truemm} % 30mm(=1.0in+4.6mm)
+\addtolength{\topmargin}{-\headheight}
+\addtolength{\topmargin}{-\headsep}
+\addtolength{\textheight}{-60truemm}
+
+\setlength{\textwidth}{\paperwidth}
+\setlength{\oddsidemargin}{-0.4truemm} % 25mm(=1.0in-0.4mm)
+\setlength{\evensidemargin}{-0.4truemm}
+\addtolength{\textwidth}{-50truemm}
+
+
+% -- Renewcommand ----------------------------------------------
+\renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
+\renewcommand{\thefigure}{\arabic{figure}}
+\renewcommand{\thetable}{\thesection.\arabic{table}}
+\renewcommand{\lstlistingname}{ソースコード}
+\renewcommand{\headrulewidth}{0mm} % fancy
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+
+% -- Config for fancy package ----------------------------------
+\pagestyle{fancy}
+\rhead{\thepage}
+\lhead{}
+\cfoot{}
+
+
+% -- Config for package listings -------------------------------
+\lstset{
+  basicstyle={\ttfamily \small},
+  breaklines=true,
+  frame=trBL,
+  numbers=left,
+  numberstyle={\ttfamily \small},
+}
+
