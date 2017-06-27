@@ -105,7 +105,7 @@ void affine(int timing){
     buff = 0;
   }
   for(i = 0;i < 3;i++) global_acc[i] = term_y[i];
-   
+  
   switch(timing){
   case 0:
     acc_0.data_x = global_acc[0];
