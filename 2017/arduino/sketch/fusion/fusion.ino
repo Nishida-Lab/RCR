@@ -110,17 +110,20 @@ void affine(int timing){
   case 0:
     acc_0.data_x = global_acc[0];
     acc_0.data_y = global_acc[1];
-    acc_0.data_z = global_acc[2];
+    acc_0.data_z = global_acc[2] - GRAVITY;
+    if(abs(acc_0.data_z) < 0.25) acc_0.data_z = 0;
     break;
   case 1:
     acc_1.data_x = global_acc[0];
     acc_1.data_y = global_acc[1];
-    acc_1.data_z = global_acc[2];
+    acc_1.data_z = global_acc[2] - GRAVITY;
+    if(abs(acc_1.data_z) < 0.25) acc_1.data_z = 0;
     break;
   case 2:
     acc_2.data_x = global_acc[0];
     acc_2.data_y = global_acc[1];
-    acc_2.data_z = global_acc[2];
+    acc_2.data_z = global_acc[2] - GRAVITY;
+    if(abs(acc_1.data_z) < 0.25) acc_1.data_z = 0;
     break;
   }  
 }
@@ -223,18 +226,14 @@ void loop(){
   //  Serial.print(acc[1]); Serial.print(" ");
   //  Serial.println(acc[2]);  
   
-  Serial.print(GRAVITY); Serial.print(" ");
-  Serial.print(acc_0.data_x); Serial.print(" ");
-  Serial.print(acc_0.data_y); Serial.print(" ");
-  Serial.println(acc_0.data_z);  
+  //Serial.print(GRAVITY); Serial.print(" ");
+  //Serial.print(acc_0.data_x); Serial.print(" ");
+  //Serial.print(acc_0.data_y); Serial.print(" ");
+  //Serial.println(acc_0.data_z);  
 
-   // Serial.print(acc_0.data_x,10); Serial.print(" ");
-   // Serial.print(vel_0.data_x,10); Serial.print(" ");
-   // Serial.println(pos.data_x,10);  
-
-  //if(timing == 0)  Serial.println(acc_0.time - acc_2.time,10);
-  //if(timing == 1)  Serial.println(acc_1.time - acc_0.time,10);
-  //if(timing == 2)  Serial.println(acc_2.time - acc_1.time,10);
+    Serial.print(acc_0.data_x,10); Serial.print(" ");
+    Serial.print(vel_0.data_x,10); Serial.print(" ");
+    Serial.println(pos.data_x,10);  
   
 //    int claim = -1;
 //    if(Serial.available() > 0){
