@@ -39,9 +39,9 @@ int main(int argc, char** argv) try
 
   // std::this_thread::sleep_for(std::chrono::seconds(3));
 
-  // robocar::differential_driver driver {
-  //   std::pair<int,int> {35, 38}, std::pair<int,int> {37, 40}
-  // };
+  robocar::differential_driver driver {
+    std::pair<int,int> {35, 38}, std::pair<int,int> {37, 40}
+  };
 
 
   // sensor["distance"]["long"]["south_west"].set_code(0);
@@ -198,10 +198,17 @@ int main(int argc, char** argv) try
 
     ps3joy.update();
 
-    std::cout << std::showpos << std::fixed << std::setprecision(3)
-              << "[debug] x: " <<  ps3joy.axis[0] / static_cast<double>(std::numeric_limits<std::int16_t>::max())
-                     << " y: " << -ps3joy.axis[1] / static_cast<double>(std::numeric_limits<std::int16_t>::max())
-              << std::endl;
+    robocar::vector<double> direction {
+       ps3joy.axis[0] / static_cast<double>(std::numeric_limits<std::int16_t>::max()),
+      -ps3joy.axis[1] / static_cast<double>(std::numeric_limits<std::int16_t>::max())
+    };
+
+    driver.write(direction, 0.18, 0.5);
+
+    // std::cout << std::showpos << std::fixed << std::setprecision(3)
+    //           << "[debug] x: " <<  ps3joy.axis[0] / static_cast<double>(std::numeric_limits<std::int16_t>::max())
+    //                  << " y: " << -ps3joy.axis[1] / static_cast<double>(std::numeric_limits<std::int16_t>::max())
+    //           << std::endl;
 
 #ifndef NDEBUG
     auto  t = std::chrono::duration_cast<std::chrono::seconds>(last - begin);
