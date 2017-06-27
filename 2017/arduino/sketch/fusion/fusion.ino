@@ -54,11 +54,11 @@ void affine(int timing){
   double affine_x[3][3] = {{1, 0, 0}, {0, cos(deg_x), sin(deg_x)}, {0, -sin(deg_x), cos(deg_x)}};
   double affine_y[3][3] = {{cos(deg_y), 0, -sin(deg_y)}, {0, 1, 0}, {sin(deg_y), 0, cos(deg_y)}};
   double affine_z[3][3] = {{cos(deg_z), sin(deg_z), 0}, {-sin(deg_z), cos(deg_z), 0}, {0, 0, 1}};
-/*
-  double affine_x[3][3] = {{1,0,0},{0,1,0},{0,0,1}}; 
-  double affine_y[3][3] = {{0,0,1},{0,1,0},{1,0,0}}; 
-  double affine_z[3][3] = {{1,0,0},{0,1,0},{0,0,1}}; 
-*/
+  /*
+    double affine_x[3][3] = {{1,0,0},{0,1,0},{0,0,1}}; 
+    double affine_y[3][3] = {{0,0,1},{0,1,0},{1,0,0}}; 
+    double affine_z[3][3] = {{1,0,0},{0,1,0},{0,0,1}}; 
+  */
   switch(timing){
   case 0:
     global_acc[0] = acc_0.data_x;
@@ -78,6 +78,14 @@ void affine(int timing){
     global_acc[2] = acc_2.data_z;
     break;
   }
+
+  //affine transformation z>x>y
+  for(i = 0;i < 3;i++) {
+    for(j = 0;j < 3;j++) buff += global_acc[j] * affine_z[j][i];
+    term_z[i] = buff;
+    buff = 0;
+  }
+  for(i = 0;i < 3;i++) global_acc[i] = term_z[i];
   
   for(i = 0;i < 3;i++) {
     for(j = 0;j < 3;j++) buff += global_acc[j] * affine_x[j][i];
@@ -86,20 +94,14 @@ void affine(int timing){
   }
   for(i = 0;i < 3;i++) global_acc[i] = term_x[i];
   
-  for(i = 0;i < 3;i++) {
-   for(j = 0;j < 3;j++) buff += global_acc[j] * affine_y[j][i];
-   term_y[i] = buff;
-   buff = 0;
- }
-  for(i = 0;i < 3;i++) global_acc[i] = term_y[i];
   
- for(i = 0;i < 3;i++) {
-   for(j = 0;j < 3;j++) buff += global_acc[j] * affine_z[j][i];
-   term_z[i] = buff;
-   buff = 0;
- }
-   for(i = 0;i < 3;i++) global_acc[i] = term_z[i];
- 
+  for(i = 0;i < 3;i++) {
+    for(j = 0;j < 3;j++) buff += global_acc[j] * affine_y[j][i];
+    term_y[i] = buff;
+    buff = 0;
+  }
+  for(i = 0;i < 3;i++) global_acc[i] = term_y[i];
+   
   switch(timing){
   case 0:
     acc_0.data_x = global_acc[0];
@@ -165,7 +167,7 @@ void setup(){
 int timing = 0;
 double acc[3] = {0,0,0};
 double gyro_x = 0, gyro_y = 0, gyro_z = 0;
-double param = 0.95;
+double param = 0.97;
 
 
 void loop(){
@@ -181,35 +183,42 @@ void loop(){
   acc[1] = param * acc[1] + (1-param) * readSensor(ACC_Y);
   acc[2] = param * acc[2] + (1-param) * readSensor(ACC_Z);
   getAcc(timing,acc[0],acc[1],acc[2]);
-  // affine(timing);
-  //getVel(timing);
-  //getPos();
+  affine(timing);
+  getVel(timing);
+  getPos();
 
 
 
   
-//  Serial.print(deg.data_x,10); Serial.print(" ");
-//  Serial.print(deg.data_y,10); Serial.print(" ");
-//  Serial.println(deg.data_z,10);  
+  //  Serial.print(deg.data_x,10); Serial.print(" ");
+  //  Serial.print(deg.data_y,10); Serial.print(" ");
+  //  Serial.println(deg.data_z,10);  
 
-//  Serial.print(acc[0]); Serial.print(" ");
-//  Serial.print(acc[1]); Serial.print(" ");
-//  Serial.println(acc[2]);  
+  //  Serial.print(acc[0]); Serial.print(" ");
+  //  Serial.print(acc[1]); Serial.print(" ");
+  //  Serial.println(acc[2]);  
   
-  Serial.print(GRAVITY); Serial.print(" ");
-  Serial.print(acc_0.data_x); Serial.print(" ");
-  Serial.print(acc_0.data_y); Serial.print(" ");
-  Serial.println(acc_0.data_z);  
-  
+  //  Serial.print(GRAVITY); Serial.print(" ");
+  //  Serial.print(acc_0.data_x); Serial.print(" ");
+  //  Serial.print(acc_0.data_y); Serial.print(" ");
+  //  Serial.println(acc_0.data_z);  
+
+    Serial.print(acc_0.data_x,10); Serial.print(" ");
+    Serial.print(vel_0.data_x,10); Serial.print(" ");
+    Serial.println(pos.data_x,10);  
+
+  //if(timing == 0)  Serial.println(acc_0.time - acc_2.time,10);
+  //if(timing == 1)  Serial.println(acc_1.time - acc_0.time,10);
+  //if(timing == 2)  Serial.println(acc_2.time - acc_1.time,10);
   timing++;
   if(timing > 2) timing = 0;
   delay(10);
   /*
-  int claim = -1;
-  if(Serial.available() > 0){
+    int claim = -1;
+    if(Serial.available() > 0){
     claim = Serial.read();
     Serial.print(readSensor(claim));
-  }
-  Serial.flush();
+    }
+    Serial.flush();
   */
 }

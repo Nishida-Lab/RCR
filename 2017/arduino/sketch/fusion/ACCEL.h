@@ -1,8 +1,8 @@
 #include<./Multiplexer.h>
-
-#define OFFSET_X 1642
-#define OFFSET_Y 1642
-#define OFFSET_Z 1400
+ 
+#define OFFSET_X 1750
+#define OFFSET_Y 1720
+#define OFFSET_Z 1370
 #define GRAVITY 9.80665
 
 DATA acc_0,acc_1,acc_2,vel_0,vel_1,vel_2,pos;
@@ -17,6 +17,9 @@ void getAcc(int num, double x, double y, double z){
     acc_0.data_x = GRAVITY*(x * 4.9 - OFFSET_X)/1000; 
     acc_0.data_y = GRAVITY*(y * 4.9 - OFFSET_Y)/1000; 
     acc_0.data_z = GRAVITY*(z * 4.9 - OFFSET_Z)/1000;
+    if(abs(acc_0.data_x) < 0.25) acc_0.data_x = 0;
+    if(abs(acc_0.data_y) < 0.25) acc_0.data_y = 0;
+    if(abs(acc_0.data_z) < 0.25) acc_0.data_z = 0;
     break;
  
   case 1:
@@ -24,6 +27,9 @@ void getAcc(int num, double x, double y, double z){
     acc_1.data_x = GRAVITY*(x * 4.9 - OFFSET_X)/1000; 
     acc_1.data_y = GRAVITY*(y * 4.9 - OFFSET_Y)/1000; 
     acc_1.data_z = GRAVITY*(z * 4.9 - OFFSET_Z)/1000;
+    if(abs(acc_1.data_x) < 0.25) acc_1.data_x = 0;
+    if(abs(acc_1.data_y) < 0.25) acc_1.data_y = 0;
+    if(abs(acc_1.data_z) < 0.25) acc_1.data_z = 0;
     break;
 
   case 2:
@@ -31,6 +37,9 @@ void getAcc(int num, double x, double y, double z){
     acc_2.data_x = GRAVITY*(x * 4.9 - OFFSET_X)/1000;
     acc_2.data_y = GRAVITY*(y * 4.9 - OFFSET_Y)/1000; 
     acc_2.data_z = GRAVITY*(z * 4.9 - OFFSET_Z)/1000;
+    if(abs(acc_2.data_x) < 0.25) acc_2.data_x = 0;
+    if(abs(acc_2.data_y) < 0.25) acc_2.data_y = 0;
+    if(abs(acc_2.data_z) < 0.25) acc_2.data_z = 0;
     break;
   }
 }
@@ -60,52 +69,70 @@ void getVel(int timing){
   new_vel_x = getIntegral(vel_0.time, acc_0.data_x, vel_1.time, acc_1.data_x, vel_2.time, acc_2.data_x)/(1000*1000);
   new_vel_y = getIntegral(vel_0.time, acc_0.data_y, vel_1.time, acc_1.data_y, vel_2.time, acc_2.data_y)/(1000*1000);
   new_vel_z = getIntegral(vel_0.time, acc_0.data_z, vel_1.time, acc_1.data_z, vel_2.time, acc_2.data_z)/(1000*1000);
-  vel_0.data_x = param * vel_0.data_x * (1-param) * new_vel_x;
-  vel_0.data_y = param * vel_0.data_y * (1-param) * new_vel_y; 
-  vel_0.data_z = param * vel_0.data_z * (1-param) * new_vel_z;
+  vel_0.data_x = param * vel_2.data_x + (1-param) * new_vel_x;						
+  vel_0.data_y = param * vel_2.data_y + (1-param) * new_vel_y;						
+  vel_0.data_z = param * vel_2.data_z + (1-param) * new_vel_z;
   vel_0.data_x = new_vel_x - vel_0.data_x; 
   vel_0.data_y = new_vel_y - vel_0.data_y; 
-  vel_0.data_z = new_vel_z - vel_0.data_z;	
- break;										 
-											 
-  case 1:										 
-  vel_1.time = acc_2.time;								 
-  vel_1.data_x = getIntegral(vel_0.time, acc_0.data_x, vel_1.time, acc_1.data_x, vel_2.time, acc_2.data_x)/(1000*1000);
-  vel_1.data_y = getIntegral(vel_0.time, acc_0.data_y, vel_1.time, acc_1.data_y, vel_2.time, acc_2.data_y)/(1000*1000);
-  vel_1.data_z = getIntegral(vel_0.time, acc_0.data_z, vel_1.time, acc_1.data_z, vel_2.time, acc_2.data_z)/(1000*1000);
-  vel_1.data_x = param * vel_1.data_x * (1-param) * new_vel_x;
-  vel_1.data_y = param * vel_1.data_y * (1-param) * new_vel_y; 
-  vel_1.data_z = param * vel_1.data_z * (1-param) * new_vel_z;
+  vel_0.data_z = new_vel_z - vel_0.data_z;
+  vel_0.data_x = (vel_0.data_x + vel_1.data_x + vel_2.data_x )/3; 
+  vel_0.data_y = (vel_0.data_y + vel_1.data_y + vel_2.data_y )/3; 
+  vel_0.data_z = (vel_0.data_z + vel_1.data_z + vel_2.data_z )/3;  
+ break;														
+														
+  case 1:													
+  vel_1.time = acc_2.time;											
+  new_vel_x = getIntegral(vel_0.time, acc_0.data_x, vel_1.time, acc_1.data_x, vel_2.time, acc_2.data_x)/(1000*1000);
+  new_vel_y = getIntegral(vel_0.time, acc_0.data_y, vel_1.time, acc_1.data_y, vel_2.time, acc_2.data_y)/(1000*1000);
+  new_vel_z = getIntegral(vel_0.time, acc_0.data_z, vel_1.time, acc_1.data_z, vel_2.time, acc_2.data_z)/(1000*1000);
+  vel_1.data_x = param * vel_0.data_x + (1-param) * new_vel_x;						
+  vel_1.data_y = param * vel_0.data_y + (1-param) * new_vel_y;						
+  vel_1.data_z = param * vel_0.data_z + (1-param) * new_vel_z;
   vel_1.data_x = new_vel_x - vel_1.data_x; 
   vel_1.data_y = new_vel_y - vel_1.data_y; 
   vel_1.data_z = new_vel_z - vel_1.data_z;
-  break;										     
-											     
-  case 2:										     
-  vel_2.time = acc_0.time;								     
-  vel_2.data_x = getIntegral(vel_0.time, acc_0.data_x, vel_1.time, acc_1.data_x, vel_2.time, acc_2.data_x)/(1000*1000);
-  vel_2.data_y = getIntegral(vel_0.time, acc_0.data_y, vel_1.time, acc_1.data_y, vel_2.time, acc_2.data_y)/(1000*1000);
-  vel_2.data_z = getIntegral(vel_0.time, acc_0.data_z, vel_1.time, acc_1.data_z, vel_2.time, acc_2.data_z)/(1000*1000);
-  vel_2.data_x = param * vel_2.data_x * (1-param) * new_vel_x;
-  vel_2.data_y = param * vel_2.data_y * (1-param) * new_vel_y; 
-  vel_2.data_z = param * vel_2.data_z * (1-param) * new_vel_z;
+  vel_1.data_x = (vel_0.data_x + vel_1.data_x + vel_2.data_x )/3; 
+  vel_1.data_y = (vel_0.data_y + vel_1.data_y + vel_2.data_y )/3; 
+  vel_1.data_z = (vel_0.data_z + vel_1.data_z + vel_2.data_z )/3;  
+  break;													
+														
+  case 2:													
+  vel_2.time = acc_0.time;											
+  new_vel_x = getIntegral(vel_0.time, acc_0.data_x, vel_1.time, acc_1.data_x, vel_2.time, acc_2.data_x)/(1000*1000);
+  new_vel_y = getIntegral(vel_0.time, acc_0.data_y, vel_1.time, acc_1.data_y, vel_2.time, acc_2.data_y)/(1000*1000);
+  new_vel_z = getIntegral(vel_0.time, acc_0.data_z, vel_1.time, acc_1.data_z, vel_2.time, acc_2.data_z)/(1000*1000);
+  vel_2.data_x = param * vel_1.data_x + (1-param) * new_vel_x;
+  vel_2.data_y = param * vel_1.data_y + (1-param) * new_vel_y; 
+  vel_2.data_z = param * vel_1.data_z + (1-param) * new_vel_z;
   vel_2.data_x = new_vel_x - vel_2.data_x; 
   vel_2.data_y = new_vel_y - vel_2.data_y; 
   vel_2.data_z = new_vel_z - vel_2.data_z;
+  vel_2.data_x = (vel_0.data_x + vel_1.data_x + vel_2.data_x )/3; 
+  vel_2.data_y = (vel_0.data_y + vel_1.data_y + vel_2.data_y )/3; 
+  vel_2.data_z = (vel_0.data_z + vel_1.data_z + vel_2.data_z )/3;  
   break;
   }
 }
 
+int count_pos = 0;
 void getPos(){
   double new_pos_x, new_pos_y, new_pos_z;
+  double pos_x, pos_y, pos_z;
   double param = 0.95;
   new_pos_x = getIntegral(vel_0.time, vel_0.data_x, vel_1.time, vel_1.data_x, vel_2.time, vel_2.data_x)/(1000*1000);
   new_pos_y = getIntegral(vel_0.time, vel_0.data_y, vel_1.time, vel_1.data_y, vel_2.time, vel_2.data_y)/(1000*1000);
   new_pos_z = getIntegral(vel_0.time, vel_0.data_z, vel_1.time, vel_1.data_z, vel_2.time, vel_2.data_z)/(1000*1000);
-  pos.data_x = param * pos.data_x + (1-param) * new_pos_x; 
-  pos.data_y = param * pos.data_y + (1-param) * new_pos_y; 
-  pos.data_z = param * pos.data_z + (1-param) * new_pos_z;
-  pos.data_x = new_pos_x - pos.data_x; 
-  pos.data_y = new_pos_y - pos.data_y; 
-  pos.data_z = new_pos_z - pos.data_z; 
+  pos_x = param * pos_x + (1-param) * new_pos_x; 
+  pos_y = param * pos_y + (1-param) * new_pos_y; 
+  pos_z = param * pos_z + (1-param) * new_pos_z;  
+  pos_x = new_pos_x - pos_x; 
+  pos_y = new_pos_y - pos_y; 
+  pos_z = new_pos_z - pos_z;
+
+  if(count_pos > 300){
+    pos.data_x += pos_x/10; 
+    pos.data_y += pos_y/10; 
+    pos.data_z += pos_z/10;    
+  }
+  count_pos++;
 }

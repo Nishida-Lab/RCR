@@ -51,9 +51,9 @@ void getDeg(){
   if(abs(deg_z) < 0.1) deg_z = 0; 
 
   if(count > 100){
-  deg.data_y += deg_x*4; 
-  deg.data_x += deg_y*4; 
-  deg.data_z += deg_z*4; 
+    deg.data_y += deg_x*4; //transformation
+    deg.data_x += deg_y*4; 
+    deg.data_z += deg_z*4; 
   }
 
   count++;
