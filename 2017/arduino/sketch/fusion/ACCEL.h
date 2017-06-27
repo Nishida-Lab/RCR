@@ -1,22 +1,19 @@
 #include<./Multiplexer.h>
  
-#define OFFSET_X 1750
-#define OFFSET_Y 1720
-#define OFFSET_Z 1370
 #define GRAVITY 9.80665
 
 DATA acc_0,acc_1,acc_2,vel_0,vel_1,vel_2,pos;
 
 
 
-void getAcc(int num, double x, double y, double z){
+void getAcc(int num, double x, double offset_x, double y, double offset_y, double z, double offset_z){
   switch(num){
     case 0:
     acc_0.time = micros();
     //重力加速度[m/s^2]*(電圧[mV]-オフセット電圧[mV])/感度[mV/g] = 加速度[m/s^2]
-    acc_0.data_x = GRAVITY*(x * 4.9 - OFFSET_X)/1000; 
-    acc_0.data_y = GRAVITY*(y * 4.9 - OFFSET_Y)/1000; 
-    acc_0.data_z = GRAVITY*(z * 4.9 - OFFSET_Z)/1000;
+    acc_0.data_x = GRAVITY*(x * 4.9 - offset_x)/1000; 
+    acc_0.data_y = GRAVITY*(y * 4.9 - offset_y)/1000; 
+    acc_0.data_z = GRAVITY*(z * 4.9 - offset_z)/1000;
     if(abs(acc_0.data_x) < 0.25) acc_0.data_x = 0;
     if(abs(acc_0.data_y) < 0.25) acc_0.data_y = 0;
     if(abs(acc_0.data_z) < 0.25) acc_0.data_z = 0;
@@ -24,9 +21,9 @@ void getAcc(int num, double x, double y, double z){
  
   case 1:
     acc_1.time = micros();
-    acc_1.data_x = GRAVITY*(x * 4.9 - OFFSET_X)/1000; 
-    acc_1.data_y = GRAVITY*(y * 4.9 - OFFSET_Y)/1000; 
-    acc_1.data_z = GRAVITY*(z * 4.9 - OFFSET_Z)/1000;
+    acc_1.data_x = GRAVITY*(x * 4.9 - offset_x)/1000; 
+    acc_1.data_y = GRAVITY*(y * 4.9 - offset_y)/1000; 
+    acc_1.data_z = GRAVITY*(z * 4.9 - offset_z)/1000;
     if(abs(acc_1.data_x) < 0.25) acc_1.data_x = 0;
     if(abs(acc_1.data_y) < 0.25) acc_1.data_y = 0;
     if(abs(acc_1.data_z) < 0.25) acc_1.data_z = 0;
@@ -34,9 +31,9 @@ void getAcc(int num, double x, double y, double z){
 
   case 2:
     acc_2.time = micros();
-    acc_2.data_x = GRAVITY*(x * 4.9 - OFFSET_X)/1000;
-    acc_2.data_y = GRAVITY*(y * 4.9 - OFFSET_Y)/1000; 
-    acc_2.data_z = GRAVITY*(z * 4.9 - OFFSET_Z)/1000;
+    acc_2.data_x = GRAVITY*(x * 4.9 - offset_x)/1000;
+    acc_2.data_y = GRAVITY*(y * 4.9 - offset_y)/1000; 
+    acc_2.data_z = GRAVITY*(z * 4.9 - offset_z)/1000;
     if(abs(acc_2.data_x) < 0.25) acc_2.data_x = 0;
     if(abs(acc_2.data_y) < 0.25) acc_2.data_y = 0;
     if(abs(acc_2.data_z) < 0.25) acc_2.data_z = 0;

@@ -4,6 +4,10 @@
 #include"./ACCEL.h"
 #include"./GYRO.h"
 
+#define OFFSET_L 200
+#define OFFSET_H 300
+
+
 VL6180X vl6180x_NW;
 VL6180X vl6180x_N;
 VL6180X vl6180x_NE;
@@ -158,19 +162,44 @@ void setup(){
   vl6180x_NE.setTimeout(500);
  
   //gyro sensor setup------------------------------------------------
-  if(!l3gd20.begin(l3gd20.L3GD20_RANGE_500DPS)){ //SLAVE_ADDRESS 0x6A (106d)
-    Serial.print(-1);
-    while(true);
-  }
+ if(!l3gd20.begin(l3gd20.L3GD20_RANGE_250DPS)){ //SLAVE_ADDRESS 0x6A (106d)
+   Serial.println("failed to connect l3gd20");
+   //   while(true);
+ }
 }
 
 int timing = 0;
 double acc[3] = {0,0,0};
 double gyro_x = 0, gyro_y = 0, gyro_z = 0;
 double param = 0.97;
+double sum_offset[3] = {0,0,0};
 
 
 void loop(){
+  double offset[3];
+  int i;
+  int count_offset = 0;
+  
+  while(millis() < 5000){
+    acc[0] = param * acc[0] + (1-param) * readSensor(ACC_X);
+    acc[1] = param * acc[1] + (1-param) * readSensor(ACC_Y);
+    acc[2] = param * acc[2] + (1-param) * readSensor(ACC_Z);
+
+    if(OFFSET_L < count_offset && count_offset <= OFFSET_H){
+      for(i = 0;i < 3;i++)  sum_offset[i] += acc[i];
+    }
+    
+    offset[0] = 4.9 * sum_offset[0]/(OFFSET_H - OFFSET_L);
+    offset[1] = 4.9 * sum_offset[1]/(OFFSET_H - OFFSET_L);
+    offset[2] = (4.9 * sum_offset[2] / (OFFSET_H - OFFSET_L)) - 1000;
+
+//    Serial.print(millis()); Serial.print(" ");
+//    Serial.print(offset[0],10); Serial.print(" ");
+//    Serial.print(offset[1],10); Serial.print(" ");
+//    Serial.println(offset[2],10);
+
+    count_offset++;
+  }
   
   l3gd20.read();
   gyro_x = param * gyro_x + (1-param) * l3gd20.data.x;
@@ -182,14 +211,13 @@ void loop(){
   acc[0] = param * acc[0] + (1-param) * readSensor(ACC_X);
   acc[1] = param * acc[1] + (1-param) * readSensor(ACC_Y);
   acc[2] = param * acc[2] + (1-param) * readSensor(ACC_Z);
-  getAcc(timing,acc[0],acc[1],acc[2]);
+ 
+  getAcc(timing,acc[0],offset[0],acc[1],offset[1],acc[2],offset[2]);
   affine(timing);
   getVel(timing);
   getPos();
-
-
-
   
+    
   //  Serial.print(deg.data_x,10); Serial.print(" ");
   //  Serial.print(deg.data_y,10); Serial.print(" ");
   //  Serial.println(deg.data_z,10);  
@@ -198,27 +226,27 @@ void loop(){
   //  Serial.print(acc[1]); Serial.print(" ");
   //  Serial.println(acc[2]);  
   
-  //  Serial.print(GRAVITY); Serial.print(" ");
-  //  Serial.print(acc_0.data_x); Serial.print(" ");
-  //  Serial.print(acc_0.data_y); Serial.print(" ");
-  //  Serial.println(acc_0.data_z);  
+  //Serial.print(GRAVITY); Serial.print(" ");
+  //Serial.print(acc_0.data_x); Serial.print(" ");
+  //Serial.print(acc_0.data_y); Serial.print(" ");
+  //Serial.println(acc_0.data_z);  
 
-    Serial.print(acc_0.data_x,10); Serial.print(" ");
-    Serial.print(vel_0.data_x,10); Serial.print(" ");
-    Serial.println(pos.data_x,10);  
+   // Serial.print(acc_0.data_x,10); Serial.print(" ");
+   // Serial.print(vel_0.data_x,10); Serial.print(" ");
+   // Serial.println(pos.data_x,10);  
 
   //if(timing == 0)  Serial.println(acc_0.time - acc_2.time,10);
   //if(timing == 1)  Serial.println(acc_1.time - acc_0.time,10);
   //if(timing == 2)  Serial.println(acc_2.time - acc_1.time,10);
-  timing++;
-  if(timing > 2) timing = 0;
-  delay(10);
-  /*
+  
     int claim = -1;
     if(Serial.available() > 0){
     claim = Serial.read();
-    Serial.print(readSensor(claim));
+    Serial.println(readSensor(claim));
     }
     Serial.flush();
-  */
+
+    timing++;
+    if(timing > 2) timing = 0;
+
 }
