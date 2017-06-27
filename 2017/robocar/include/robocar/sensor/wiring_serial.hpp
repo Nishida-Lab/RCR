@@ -79,7 +79,8 @@ public:
     {
       while (!avail())
       {
-        std::this_thread::sleep_for(std::chrono::milliseconds {1});
+        std::cout << "[debug] wait for avail...\n";
+        std::this_thread::sleep_for(std::chrono::milliseconds {10});
       }
 
       C buffer = static_cast<C>(getchar());
@@ -99,7 +100,6 @@ public:
     static std::basic_string<C> buffer {};
 
     (*this) >> buffer;
-    std::cout << "[debug] " << buffer;
     rhs = std::stod(buffer);
 
     return *this;

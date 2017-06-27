@@ -95,8 +95,6 @@ int main(int argc, char** argv) try
 
       if (std::regex_search(psd.first, std::regex {"north"}))
       {
-        std::cout << "[debug] find north: " << psd.first << std::endl;
-
         sensor["distance"]["short"][psd.first] >> buffer;
         buffer = 0.09999 * buffer + 0.4477;
 
@@ -170,16 +168,19 @@ int main(int argc, char** argv) try
     //   poles.empty() ? predefined_filed[sensor["position"]["y"].get()/grid_size][sensor["position"]["x"].get()/grid_size] : poles.front().normalized()
     // };
 
-    driver.write(avoid_vector(), 0.18, 0.5);
+    robocar::vector<double> direction {avoid_vector()};
+    std::cout << "\r\e[K[debug] " << direction.normalized();
+    driver.write(direction, 0.18, 0.5);
 
 #ifndef NDEBUG
     auto  t = std::chrono::duration_cast<std::chrono::seconds>(last - begin);
     auto dt = std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::high_resolution_clock::now() - last);
 
-    std::cout << std::fixed << std::setw(2) << "\r\e[K[debug] t: " << t.count() << ", dt: " << dt.count() << "[msec]" << std::flush;
+    std::cout << std::fixed << std::setw(2) << ", t: " << t.count() << ", dt: " << dt.count() << "[msec]" << std::flush;
 #endif
   }
 
+  driver.write(robocar::vector<double> {0.0, 0.0}, 0.18, 0.3);
 
 
   // for (robocar::radio_controler ps3joy {"/dev/input/js0"}; ;)
