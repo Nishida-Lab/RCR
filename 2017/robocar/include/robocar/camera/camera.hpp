@@ -4,6 +4,7 @@
 
 #include <cstdint>
 #include <cstdlib>
+#include <fstream>
 #include <iostream>
 #include <string>
 #include <utility>
@@ -58,11 +59,34 @@ public:
   {
     grab();
     retrieve(image_buffer_);
+    cv::rect(0, 0.5*height, width, 0.5*height); 
+    image_type image_buffer_Sub_(image_buffer_, rect);
+    
   }
 
   void debug(const std::string& prefix = "debug_")
   {
     read();
+
+    std::string filename = "test.txt"
+    std::fstream ifs(filename, std::ios::out);
+    if (!ifs){
+      std::exit(EXIT_FAILURE);
+    }
+
+    for (){
+    ifs
+      << "i: "  << double VideoCapture::get(CV_CAP_PROP_BRIGHTNESS) 
+      << double VideoCapture::get(CV_CAP_PROP_CONTRAST) 
+      << double VideoCapture::get(CV_CAP_PROP_SATURATION)
+      << double VideoCapture::get(CV_CAP_PROP_GAIN)
+      << double VideoCapture::get(CV_CAP_PROP_EXPOSURE)
+      << double VideoCapture::get(CV_CAP_PROP_WHITE_BALANCE_RED_V)
+      << double VideoCapture::get(CV_CAP_PROP_WHITE_BALANCE_BLUE_U)      
+      <<std::endl;  
+    }
+    
+    return true;
 
     cv::imwrite(prefix + "1_raw.jpg", image_buffer_);
 
