@@ -185,7 +185,7 @@ int main(int argc, char** argv) try
 
   for (auto begin = std::chrono::high_resolution_clock::now(),
              last = std::chrono::high_resolution_clock::now();
-       std::chrono::duration_cast<std::chrono::seconds>(last - begin) < std::chrono::seconds {30};
+       std::chrono::duration_cast<std::chrono::seconds>(last - begin) < std::chrono::seconds {140};
        last = std::chrono::high_resolution_clock::now())
   {
     // auto poles {search()};
@@ -205,17 +205,12 @@ int main(int argc, char** argv) try
 
     driver.write(direction, 0.18, 0.5);
 
-    // std::cout << std::showpos << std::fixed << std::setprecision(3)
-    //           << "[debug] x: " <<  ps3joy.axis[0] / static_cast<double>(std::numeric_limits<std::int16_t>::max())
-    //                  << " y: " << -ps3joy.axis[1] / static_cast<double>(std::numeric_limits<std::int16_t>::max())
-    //           << std::endl;
-
 #ifndef NDEBUG
     auto  t = std::chrono::duration_cast<std::chrono::seconds>(last - begin);
     auto dt = std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::high_resolution_clock::now() - last);
 
-    std::cout << std::fixed << std::setprecision(2)
-              << "\r\e[K[debug] t: " << t.count() << ", dt: " << dt.count() << "[msec]\e[1A\r\e[K";
+    std::cout << std::fixed << std::setw(2)
+              << "\r\e[K[debug] t: " << t.count() << ", dt: " << dt.count() << "[msec]" << std::flush;
 #endif
   }
 
