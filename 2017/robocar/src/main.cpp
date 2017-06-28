@@ -125,7 +125,8 @@ int main(int argc, char** argv) try
         repulsive_force = -std::atanh(range_mid - 1);
       }
 
-      result += nearest_neighbor.at(psd.first) * repulsive_force;
+      // std::cout << "[debug] " << psd.first << ", " << repulsive_force << std::endl;
+      result += nearest_neighbor.at(psd.first) * -repulsive_force;
     }
 
     return result;
@@ -154,16 +155,16 @@ int main(int argc, char** argv) try
 
 
   std::cout << "[debug] please wait";
-  for (std::size_t count {0}; count < 10; ++count)
+  for (std::size_t count {0}; count < 3; ++count)
   {
-    std::cout << ".";
+    std::cout << "." << std::flush;
     std::this_thread::sleep_for(std::chrono::seconds {1});
   }
   std::cout << std::endl;
 
   for (auto begin = std::chrono::high_resolution_clock::now(),
              last = std::chrono::high_resolution_clock::now();
-       std::chrono::duration_cast<std::chrono::seconds>(last - begin) < std::chrono::seconds {30};
+       std::chrono::duration_cast<std::chrono::seconds>(last - begin) < std::chrono::seconds {20};
        last = std::chrono::high_resolution_clock::now())
   {
     // auto poles {search()};
@@ -172,15 +173,17 @@ int main(int argc, char** argv) try
     //   poles.empty() ? predefined_filed[sensor["position"]["y"].get()/grid_size][sensor["position"]["x"].get()/grid_size] : poles.front().normalized()
     // };
 
-    robocar::vector<double> direction {avoid_vector()};
-    std::cout << "\r\e[K[debug] " << direction.normalized();
-    driver.write(direction, 0.18, 0.5);
+    robocar::vector<double> forward {0.0, 1.0};
+    robocar::vector<double> repulse {avoid_vector()};
+    robocar::vector<double> direction = forward + repulse;
+    std::cout << "[debug] " << direction.normalized() << std::endl;
+    driver.write(direction.normalized(), 0.18, 0.3);
 
 #ifndef NDEBUG
-    auto  t = std::chrono::duration_cast<std::chrono::seconds>(last - begin);
-    auto dt = std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::high_resolution_clock::now() - last);
-
-    std::cout << std::fixed << std::setw(2) << ", t: " << t.count() << ", dt: " << dt.count() << "[msec]" << std::flush;
+    // auto  t = std::chrono::duration_cast<std::chrono::seconds>(last - begin);
+    // auto dt = std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::high_resolution_clock::now() - last);
+    //
+    // std::cout << std::fixed << std::setw(2) << ", t: " << t.count() << ", dt: " << dt.count() << "[msec]" << std::flush;
 #endif
   }
 
