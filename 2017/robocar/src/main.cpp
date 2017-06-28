@@ -82,9 +82,9 @@ int main(int argc, char** argv) try
     robocar::vector<double> result {0.0, 0.0};
 
     const std::unordered_map<std::string, robocar::vector<double>> nearest_neighbor {
-      {"north_west", { 1.0, -1.0}}, {"north", { 0.0, -1.0}}, {"north_east", {-1.0, -1.0}},
-      {      "west", { 1.0,  1.0}},                          {      "east", {-1.0,  0.0}},
-      {"south_west", { 1.0,  1.0}}, {"south", { 0.0,  1.0}}, {"south_east", {-1.0,  1.0}}
+      {"north_west", { 0.707, -0.707}}, {"north", { 0.000, -1.000}}, {"north_east", {-0.707, -0.707}},
+      {      "west", { 1.000,  0.000}},                              {      "east", {-1.000,  0.000}},
+      {"south_west", { 0.707,  0.707}}, {"south", { 0.000,  1.000}}, {"south_east", {-0.707,  0.707}}
     };
 
     for (const auto& psd : sensor["distance"]["long"])
