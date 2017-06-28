@@ -2,8 +2,6 @@
 #include <chrono>
 #include <cmath>
 #include <complex> // atanh
-// #include <cstdint>
-// #include <cstdlib>
 #include <cstring>
 #include <iomanip>
 #include <iostream>
@@ -155,7 +153,13 @@ int main(int argc, char** argv) try
   };
 
 
-  std::this_thread::sleep_for(std::chrono::seconds(3));
+  std::cout << "[debug] please wait";
+  for (std::size_t count {0}; count < 10; ++count)
+  {
+    std::cout << ".";
+    std::this_thread::sleep_for(std::chrono::seconds {1});
+  }
+  std::cout << std::endl;
 
   for (auto begin = std::chrono::high_resolution_clock::now(),
              last = std::chrono::high_resolution_clock::now();

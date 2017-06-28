@@ -77,11 +77,12 @@ public:
 
     while (true)
     {
-      while (!avail())
+      for (std::size_t count {0}; !avail(); ++count)
       {
-        std::cout << "[debug] wait for avail...\n";
+        std::cout << "\r\e[K[debug] wait for avail: " << count;
         std::this_thread::sleep_for(std::chrono::milliseconds {10});
       }
+      std::cout << std::endl;
 
       C buffer = static_cast<C>(getchar());
 
