@@ -22,11 +22,9 @@ namespace robocar {
 class camera
   : public raspicam::RaspiCam_Cv
 {
-public:
-  using image_type = cv::Mat;
+  cv::Mat3b image_;
 
-private:
-  image_type image_buffer_;
+  const std::size_t width_, height_;
 
   const color_range<std::uint16_t> h_ { 30, 330};
   const color_range<std::uint16_t> s_ { 30, 100};
@@ -35,10 +33,11 @@ private:
 public:
   camera(std::size_t width = 2592, std::size_t height = 1944)
     : raspicam::RaspiCam_Cv {},
-      image_buffer_ {}
+      width_  {width},
+      height_ {height}
   {
-    set(CV_CAP_PROP_FRAME_WIDTH,  width);
-    set(CV_CAP_PROP_FRAME_HEIGHT, height);
+    set(CV_CAP_PROP_FRAME_WIDTH, width_);
+    set(CV_CAP_PROP_FRAME_HEIGHT, height_);
 
     if (!open())
     {
@@ -49,7 +48,7 @@ public:
     std::cout << "[debug] connected to camera module: " << getId() << std::endl;
   }
 
-  ~camera()
+  ~camera() noexcept
   {
     release();
   }
@@ -57,9 +56,8 @@ public:
   void read()
   {
     grab();
-    retrieve(image_buffer_);
-    // cv::rect(0, 0.5*height, width, 0.5*height);
-    // image_type image_buffer_Sub_(image_buffer_, rect);
+    retrieve(image_);
+    image_ = cv::Mat3b {image_, cv::Rect {0, static_cast<int>(height_ * 0.5), static_cast<int>(width_), static_cast<int>(height_ * 0.5)}};
   }
 
   // void debug(const std::string& prefix = "debug_")
@@ -83,18 +81,18 @@ public:
   //       << "white balance blue: " << get(CV_CAP_PROP_WHITE_BALANCE_BLUE_U)
   //       << std::endl;
   //
-  //   cv::imwrite(prefix + "1_raw.jpg", image_buffer_);
+  //   cv::imwrite(prefix + "1_raw.jpg", image_);
   //
-  //   image_type hsv {convert(image_buffer_)};
+  //   cv::Mat3b hsv {convert(image_)};
   //   cv::imwrite(prefix + "2_hsv.jpg", hsv);
   //
-  //   image_type red_masked {red_mask(hsv)};
+  //   cv::Mat1b red_masked {red_mask(hsv)};
   //   cv::imwrite(prefix + "3_red_masked.jpg", red_masked);
   //
-  //   image_type red_opened {opening(red_masked)};
+  //   cv::Mat1b red_opened {opening(red_masked)};
   //   cv::imwrite(prefix + "4_red_opened.jpg", red_opened);
   //
-  //   image_type contour {find_contours_debug(red_opened)};
+  //   cv::Mat1b contour {find_contours_debug(red_opened)};
   //   cv::imwrite(prefix + "5_contour.jpg", contour);
   // }
 
@@ -102,7 +100,7 @@ public:
     -> std::vector<std::pair<std::size_t,std::size_t>>
   {
     read();
-    return find_contours(opening(red_mask(convert(image_buffer_))));
+    return find_contours(opening(red_mask(convert(image_))));
   }
 
   template <typename T>
@@ -127,32 +125,20 @@ public:
   }
 
 private:
-  auto convert(const image_type& rgb)
-    -> image_type
+  cv::Mat3b convert(const cv::Mat3b& rgb) const
   {
-    image_type hsv {};
+    cv::Mat3b hsv {};
     cv::cvtColor(rgb, hsv, CV_BGR2HSV);
 
     return hsv;
   }
 
-  auto opening(const image_type& bin)
-    -> image_type
+  cv::Mat1b opening(const cv::Mat1b& bin)
   {
-    image_type res {};
+    cv::Mat1b result {};
+    cv::morphologyEx(bin, result, CV_MOP_CLOSE, cv::Mat1b {}, cv::Point {-1, -1}, 2);
 
-    // cv::dilate(bin, res, cv::Mat {}, cv::Point(-1, -1), 4);
-    // cv::imwrite(prefix + "3.1_dilate.jpg", red_opened);
-    //
-    // cv::erode( res, res, cv::Mat {}, cv::Point(-1, -1), 4);
-    // cv::imwrite(prefix + "3.2_erode.jpg", red_opened);
-    //
-    // cv::dilate(res, res, cv::Mat {}, cv::Point(-1, -1), 2);
-    // cv::imwrite(prefix + "3.3_dilate.jpg", red_opened);
-
-    cv::morphologyEx(bin, res, CV_MOP_CLOSE, cv::Mat {}, cv::Point {-1, -1}, 2);
-
-    return res;
+    return result;
   }
 
   cv::Mat1b red_mask(const cv::Mat3b& hsv) // TODO move to ctor
@@ -216,7 +202,7 @@ private:
   //   return result;
   // }
 
-  auto find_contours(const cv::Mat& bin) const
+  auto find_contours(const cv::Mat1b& bin) const
     -> std::vector<std::pair<std::size_t,std::size_t>>
   {
     std::vector<std::vector<cv::Point>> contours {};
