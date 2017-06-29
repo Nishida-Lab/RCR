@@ -15,7 +15,7 @@
 #include <robocar/driver/driver.hpp>
 #include <robocar/driver/radio_controler.hpp>
 #include <robocar/sensor/sensor_node.hpp>
-#include <robocar/sensor/wiring_serial.hpp> // TODO CLEANUP
+#include <robocar/sensor/wiring_serial.hpp>
 #include <robocar/vector/vector.hpp>
 #include <robocar/version.hpp>
 
@@ -74,12 +74,8 @@ int main(int argc, char** argv) try
     {{ 0.0,  1.0}, {-1.0,  0.0}, {-1.0,  0.0}, {-1.0,  0.0}, {-1.0,  0.0}, {-1.0,  0.0}}
   };
 
-  for (auto&& row : predefined_field) { for (auto&& v : row) { v.normalized(); } }
+  for (auto&& row : predefined_field) { for (auto&& v : row) { v = v.normalized(); } }
 
-
-  // static constexpr double range_min {0.03};
-  // static constexpr double range_mid {0.45};
-  // static constexpr double range_max {0.90};
 
   auto avoid_vector = [&](double range_min, double range_mid, double range_max)
   {
