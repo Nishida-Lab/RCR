@@ -2,6 +2,7 @@
 #define INCLUDED_ROBOCAR_SENSOR_WIRING_SERIAL_HPP_
 
 
+#include <chrono>
 #include <iostream>
 #include <string>
 #include <system_error>
@@ -34,11 +35,6 @@ public:
     }
 
     ++reference_count_;
-
-#ifndef NDEBUG
-    std::cout << "[debug] robocar::wiring_serial::wiring_serial(" << __LINE__ << ") - reference count: "
-              << reference_count_ << std::endl;
-#endif
   }
 
   explicit wiring_serial(const robocar::wiring_serial<C>& parent)
@@ -51,23 +47,33 @@ public:
   {
     if (!--reference_count_)
     {
-#ifndef NDEBUG
-      std::cout << "[debug] robocar::wiring_serial::~wiring_serial() - serial close\n";
       serialClose(fd);
-#endif
     }
   }
 
 public:
-  auto& set_code(const C& rhs) // XXX UGLY CODE
+  auto& set(const C& rhs) // XXX ABSTRUCTION
   {
     code_ = rhs;
     return *this;
   }
 
-  double get() // TODO IMPLEMENT
+  std::basic_string<C> get() // TODO IMPLEMENT
   {
-    return 0.0;
+    putchar(code_);
+
+    std::basic_string<C> result {};
+
+    while (true)
+    {
+      while (!avail()) { std::this_thread::sleep_for(std::chrono::milliseconds {1}); }
+
+      C buffer = static_cast<C>(getchar());
+      if (buffer != '\n') { result.push_back(buffer); }
+      else break;
+    }
+
+    return result;
   }
 
   auto& operator>>(std::basic_string<C>& rhs)

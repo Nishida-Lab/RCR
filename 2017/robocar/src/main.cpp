@@ -37,25 +37,25 @@ int main(int argc, char** argv) try
   };
 
 
-  sensor["distance"]["long"]["south_west"].set_code(0);
-  sensor["distance"]["long"][      "west"].set_code(1);
-  sensor["distance"]["long"]["north_west"].set_code(2);
-  sensor["distance"]["long"]["north"     ].set_code(3);
-  sensor["distance"]["long"]["north_east"].set_code(4);
-  sensor["distance"]["long"][      "east"].set_code(5);
-  sensor["distance"]["long"]["south_east"].set_code(6);
+  sensor["distance"]["long"]["south_west"].set(0);
+  sensor["distance"]["long"][      "west"].set(1);
+  sensor["distance"]["long"]["north_west"].set(2);
+  sensor["distance"]["long"]["north"     ].set(3);
+  sensor["distance"]["long"]["north_east"].set(4);
+  sensor["distance"]["long"][      "east"].set(5);
+  sensor["distance"]["long"]["south_east"].set(6);
 
-  sensor["distance"]["short"]["north_west"].set_code(10);
-  sensor["distance"]["short"]["north"     ].set_code(11);
-  sensor["distance"]["short"]["north_east"].set_code(12);
+  sensor["distance"]["short"]["north_west"].set(10);
+  sensor["distance"]["short"]["north"     ].set(11);
+  sensor["distance"]["short"]["north_east"].set(12);
 
-  sensor["accel"]["x"].set_code(7);
-  sensor["accel"]["y"].set_code(8);
-  sensor["accel"]["z"].set_code(9);
+  sensor["accel"]["x"].set(7);
+  sensor["accel"]["y"].set(8);
+  sensor["accel"]["z"].set(9);
 
-  sensor["angle"]["x"].set_code(13);
-  sensor["angle"]["y"].set_code(14);
-  sensor["angle"]["z"].set_code(15);
+  sensor["angle"]["x"].set(13);
+  sensor["angle"]["y"].set(14);
+  sensor["angle"]["z"].set(15);
 
 
   std::vector<std::vector<robocar::vector<double>>> predefined_field {
