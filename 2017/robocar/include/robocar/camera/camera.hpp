@@ -104,15 +104,15 @@ public:
   }
 
   template <typename T>
-  auto search(std::size_t width, std::size_t height)
+  auto search()
     -> std::vector<robocar::vector<T>>
   {
     std::vector<robocar::vector<T>> poles {};
 
     for (const auto& p : find())
     {
-      int x_pixel {static_cast<int>(p.first) - static_cast<int>(width / 2)};
-      T x_ratio {static_cast<double>(x_pixel) / static_cast<double>(width / 2)};
+      int x_pixel {static_cast<int>(p.first) - static_cast<int>(width_ / 2)};
+      T x_ratio {static_cast<double>(x_pixel) / static_cast<double>(width_ / 2)};
 
       poles.emplace_back(x_ratio, std::pow(static_cast<double>(1.0) - std::pow(x_ratio, 2.0), 0.5));
     }
