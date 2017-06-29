@@ -37,9 +37,7 @@ int main(int argc, char** argv) try
 
   robocar::sensor_node<char> sensor {"/dev/ttyACM0", 115200};
 
-  static constexpr std::size_t camera_width  {640};
-  static constexpr std::size_t camera_height {480};
-  robocar::camera camera {camera_width, camera_height};
+  robocar::camera camera {640, 480};
 
   robocar::differential_driver driver {
     std::pair<int,int> {35, 38}, std::pair<int,int> {37, 40}
@@ -79,11 +77,11 @@ int main(int argc, char** argv) try
   for (auto&& row : predefined_field) { for (auto&& v : row) { v.normalized(); } }
 
 
-  static constexpr double range_min {0.03};
-  static constexpr double range_mid {0.45};
-  static constexpr double range_max {0.90};
+  // static constexpr double range_min {0.03};
+  // static constexpr double range_mid {0.45};
+  // static constexpr double range_max {0.90};
 
-  auto avoid_vector = [&]()
+  auto avoid_vector = [&](double range_min, double range_mid, double range_max)
   {
     robocar::vector<double> result {0.0, 0.0};
 
@@ -128,7 +126,7 @@ int main(int argc, char** argv) try
       }
       else
       {
-        repulsive_force = -std::atanh(range_mid - 1);
+        repulsive_force = -std::atanh(range_mid / range_mid - 1);
       }
 
       result += nearest_neighbor.at(psd.first) * repulsive_force;
@@ -145,13 +143,13 @@ int main(int argc, char** argv) try
        duration_cast<seconds>(last - begin) < seconds {30};
        last = high_resolution_clock::now())
   {
-    // auto poles {camera.search(camera_width, camera_height)};
+    // auto poles {camera.search()};
 
     // auto target_vector {
     //   poles.empty() ? predefined_filed[sensor["position"]["y"].get()/grid_size][sensor["position"]["x"].get()/grid_size] : poles.front().normalized()
     // };
 
-    robocar::vector<double> direction {avoid_vector()};
+    robocar::vector<double> direction {avoid_vector(0.03, 0.45, 0.90)};
     std::cout << "\r\e[K[debug] " << direction.normalized();
     driver.write(direction, 0.18, 0.5);
 
