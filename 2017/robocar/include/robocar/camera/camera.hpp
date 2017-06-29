@@ -2,8 +2,9 @@
 #define INCLUDED_ROBOCAR_2017_CAMERA_CAMERA_HPP_
 
 
-#include <cstdint>
-#include <cstdlib>
+#include <algorithm>
+// #include <cstdint>
+// #include <cstdlib>
 #include <iostream>
 #include <string>
 #include <utility>
@@ -13,6 +14,7 @@
 #include <opencv2/imgproc/imgproc.hpp>
 
 #include <robocar/camera/color_range.hpp>
+#include <robocar/vector/vector.hpp>
 
 
 namespace robocar {
@@ -82,8 +84,28 @@ public:
     -> std::vector<std::pair<std::size_t,std::size_t>>
   {
     read();
-
     return find_contours(opening(red_mask(convert(image_buffer_))));
+  }
+
+  template <typename T>
+  auto search(std::size_t width, std::size_t height)
+    -> std::vector<robocar::vector<T>>
+  {
+    std::vector<robocar::vector<T>> poles {};
+
+    for (const auto& p : find())
+    {
+      int x_pixel {static_cast<int>(p.first) - static_cast<int>(width / 2)};
+      T x_ratio {static_cast<double>(x_pixel) / static_cast<double>(width / 2)};
+
+      poles.emplace_back(x_ratio, std::pow(static_cast<double>(1.0) - std::pow(x_ratio, 2.0), 0.5));
+    }
+
+    std::sort(poles.begin(), poles.end(), [&](auto a, auto b) {
+      return std::abs(a[0]) < std::abs(b[0]);
+    });
+
+    return poles;
   }
 
 private:

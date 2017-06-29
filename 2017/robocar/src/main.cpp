@@ -33,9 +33,9 @@ int main(int argc, char** argv) try
 
   robocar::sensor_node<char> sensor {"/dev/ttyACM0", 115200};
 
-  static constexpr std::size_t width  {640};
-  static constexpr std::size_t height {480};
-  robocar::camera camera {width, height};
+  static constexpr std::size_t camera_width  {640};
+  static constexpr std::size_t camera_height {480};
+  robocar::camera camera {camera_width, camera_height};
 
   robocar::differential_driver driver {
     std::pair<int,int> {35, 38}, std::pair<int,int> {37, 40}
@@ -134,25 +134,25 @@ int main(int argc, char** argv) try
   };
 
 
-  auto search = [&]() // TODO MOVE TO CAMERA.HPP
-    -> std::vector<robocar::vector<double>>
-  {
-    std::vector<robocar::vector<double>> poles {};
-
-    for (const auto& p : camera.find())
-    {
-      int x_pixel {static_cast<int>(p.first)  - static_cast<int>(width / 2)};
-      double x_ratio {static_cast<double>(x_pixel) / static_cast<double>(width / 2)};
-
-      poles.emplace_back(x_ratio, std::pow(static_cast<double>(1.0) - std::pow(x_ratio, 2.0), 0.5));
-    }
-
-    std::sort(poles.begin(), poles.end(), [&](auto a, auto b) {
-      return std::abs(a[0]) < std::abs(b[0]);
-    });
-
-    return poles;
-  };
+  // auto search = [&]() // TODO MOVE TO CAMERA.HPP
+  //   -> std::vector<robocar::vector<double>>
+  // {
+  //   std::vector<robocar::vector<double>> poles {};
+  //
+  //   for (const auto& p : camera.find())
+  //   {
+  //     int x_pixel {static_cast<int>(p.first)  - static_cast<int>(width / 2)};
+  //     double x_ratio {static_cast<double>(x_pixel) / static_cast<double>(width / 2)};
+  //
+  //     poles.emplace_back(x_ratio, std::pow(static_cast<double>(1.0) - std::pow(x_ratio, 2.0), 0.5));
+  //   }
+  //
+  //   std::sort(poles.begin(), poles.end(), [&](auto a, auto b) {
+  //     return std::abs(a[0]) < std::abs(b[0]);
+  //   });
+  //
+  //   return poles;
+  // };
 
 
   std::this_thread::sleep_for(std::chrono::seconds(3));
@@ -162,7 +162,7 @@ int main(int argc, char** argv) try
        std::chrono::duration_cast<std::chrono::seconds>(last - begin) < std::chrono::seconds {30};
        last = std::chrono::high_resolution_clock::now())
   {
-    // auto poles {search()};
+    // auto poles {camera.search(camera_width, camera_height)};
 
     // auto target_vector {
     //   poles.empty() ? predefined_filed[sensor["position"]["y"].get()/grid_size][sensor["position"]["x"].get()/grid_size] : poles.front().normalized()
