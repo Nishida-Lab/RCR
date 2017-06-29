@@ -1,10 +1,5 @@
-#include <algorithm>
 #include <chrono>
-#include <cmath>
 #include <complex> // atanh
-// #include <cstdint>
-// #include <cstdlib>
-#include <cstring>
 #include <iomanip>
 #include <iostream>
 #include <regex>
@@ -132,27 +127,6 @@ int main(int argc, char** argv) try
 
     return result;
   };
-
-
-  // auto search = [&]() // TODO MOVE TO CAMERA.HPP
-  //   -> std::vector<robocar::vector<double>>
-  // {
-  //   std::vector<robocar::vector<double>> poles {};
-  //
-  //   for (const auto& p : camera.find())
-  //   {
-  //     int x_pixel {static_cast<int>(p.first)  - static_cast<int>(width / 2)};
-  //     double x_ratio {static_cast<double>(x_pixel) / static_cast<double>(width / 2)};
-  //
-  //     poles.emplace_back(x_ratio, std::pow(static_cast<double>(1.0) - std::pow(x_ratio, 2.0), 0.5));
-  //   }
-  //
-  //   std::sort(poles.begin(), poles.end(), [&](auto a, auto b) {
-  //     return std::abs(a[0]) < std::abs(b[0]);
-  //   });
-  //
-  //   return poles;
-  // };
 
 
   std::this_thread::sleep_for(std::chrono::seconds(3));
