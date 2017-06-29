@@ -1,8 +1,5 @@
-#include <algorithm>
 #include <chrono>
-#include <cmath>
 #include <complex> // atanh
-#include <cstring>
 #include <iomanip>
 #include <iostream>
 #include <regex>
@@ -25,40 +22,47 @@
 
 int main(int argc, char** argv) try
 {
+  using std::chrono::duration_cast;
+  using std::chrono::high_resolution_clock;
+
+  using std::chrono::seconds;
+  using std::chrono::milliseconds;
+  using std::chrono::microseconds;
+
+#ifndef NDEBUG
   std::cout << "[debug] project version: " << project_version.data() << " (" << cmake_build_type.data() << ")\n";
   std::cout << "[debug]   boost version: " <<   boost_version.data() << "\n\n";
+#endif
 
 
   robocar::sensor_node<char> sensor {"/dev/ttyACM0", 115200};
 
-  static constexpr std::size_t width  {640};
-  static constexpr std::size_t height {480};
-  robocar::camera camera {width, height};
+  robocar::camera camera {640, 480};
 
   robocar::differential_driver driver {
     std::pair<int,int> {35, 38}, std::pair<int,int> {37, 40}
   };
 
 
-  sensor["distance"]["long"]["south_west"].set_code(0);
-  sensor["distance"]["long"][      "west"].set_code(1);
-  sensor["distance"]["long"]["north_west"].set_code(2);
-  sensor["distance"]["long"]["north"     ].set_code(3);
-  sensor["distance"]["long"]["north_east"].set_code(4);
-  sensor["distance"]["long"][      "east"].set_code(5);
-  sensor["distance"]["long"]["south_east"].set_code(6);
+  sensor["distance"]["long"]["south_west"].set(0);
+  sensor["distance"]["long"][      "west"].set(1);
+  sensor["distance"]["long"]["north_west"].set(2);
+  sensor["distance"]["long"]["north"     ].set(3);
+  sensor["distance"]["long"]["north_east"].set(4);
+  sensor["distance"]["long"][      "east"].set(5);
+  sensor["distance"]["long"]["south_east"].set(6);
 
-  sensor["distance"]["short"]["north_west"].set_code(10);
-  sensor["distance"]["short"]["north"     ].set_code(11);
-  sensor["distance"]["short"]["north_east"].set_code(12);
+  sensor["distance"]["short"]["north_west"].set(10);
+  sensor["distance"]["short"]["north"     ].set(11);
+  sensor["distance"]["short"]["north_east"].set(12);
 
-  sensor["accel"]["x"].set_code(7);
-  sensor["accel"]["y"].set_code(8);
-  sensor["accel"]["z"].set_code(9);
+  sensor["accel"]["x"].set(7);
+  sensor["accel"]["y"].set(8);
+  sensor["accel"]["z"].set(9);
 
-  sensor["angle"]["x"].set_code(13);
-  sensor["angle"]["y"].set_code(14);
-  sensor["angle"]["z"].set_code(15);
+  sensor["angle"]["x"].set(13);
+  sensor["angle"]["y"].set(14);
+  sensor["angle"]["z"].set(15);
 
 
   std::vector<std::vector<robocar::vector<double>>> predefined_field {
@@ -73,11 +77,11 @@ int main(int argc, char** argv) try
   for (auto&& row : predefined_field) { for (auto&& v : row) { v.normalized(); } }
 
 
-  static constexpr double range_min {0.03};
-  static constexpr double range_mid {0.45};
-  static constexpr double range_max {0.90};
+  // static constexpr double range_min {0.03};
+  // static constexpr double range_mid {0.45};
+  // static constexpr double range_max {0.90};
 
-  auto avoid_vector = [&]()
+  auto avoid_vector = [&](double range_min, double range_mid, double range_max)
   {
     robocar::vector<double> result {0.0, 0.0};
 
@@ -122,7 +126,7 @@ int main(int argc, char** argv) try
       }
       else
       {
-        repulsive_force = -std::atanh(range_mid - 1);
+        repulsive_force = -std::atanh(range_mid / range_mid - 1);
       }
 
       // std::cout << "[debug] " << psd.first << ", " << repulsive_force << std::endl;
@@ -130,27 +134,6 @@ int main(int argc, char** argv) try
     }
 
     return result;
-  };
-
-
-  auto search = [&]() // TODO MOVE TO CAMERA.HPP
-    -> std::vector<robocar::vector<double>>
-  {
-    std::vector<robocar::vector<double>> poles {};
-
-    for (const auto& p : camera.find())
-    {
-      int x_pixel {static_cast<int>(p.first)  - static_cast<int>(width / 2)};
-      double x_ratio {static_cast<double>(x_pixel) / static_cast<double>(width / 2)};
-
-      poles.emplace_back(x_ratio, std::pow(static_cast<double>(1.0) - std::pow(x_ratio, 2.0), 0.5));
-    }
-
-    std::sort(poles.begin(), poles.end(), [&](auto a, auto b) {
-      return std::abs(a[0]) < std::abs(b[0]);
-    });
-
-    return poles;
   };
 
 
@@ -162,28 +145,28 @@ int main(int argc, char** argv) try
   }
   std::cout << std::endl;
 
-  for (auto begin = std::chrono::high_resolution_clock::now(),
-             last = std::chrono::high_resolution_clock::now();
-       std::chrono::duration_cast<std::chrono::seconds>(last - begin) < std::chrono::seconds {20};
-       last = std::chrono::high_resolution_clock::now())
+
+  for (auto begin = high_resolution_clock::now(), last = high_resolution_clock::now();
+       duration_cast<seconds>(last - begin) < seconds {30};
+       last = high_resolution_clock::now())
   {
-    // auto poles {search()};
+    // auto poles {camera.search()};
 
     // auto target_vector {
     //   poles.empty() ? predefined_filed[sensor["position"]["y"].get()/grid_size][sensor["position"]["x"].get()/grid_size] : poles.front().normalized()
     // };
 
-    robocar::vector<double> forward {0.0, 1.0};
-    robocar::vector<double> repulse {avoid_vector()};
-    robocar::vector<double> direction = forward + repulse;
-    std::cout << "[debug] " << direction.normalized() << std::endl;
-    driver.write(direction.normalized(), 0.18, 0.3);
+    robocar::vector<double> direction {avoid_vector(0.03, 0.45, 0.90)};
+    std::cout << "\r\e[K[debug] " << direction.normalized();
+    driver.write(direction, 0.18, 0.5);
 
 #ifndef NDEBUG
-    // auto  t = std::chrono::duration_cast<std::chrono::seconds>(last - begin);
-    // auto dt = std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::high_resolution_clock::now() - last);
+    // auto  t = duration_cast<seconds>(last - begin);
+    // auto dt = duration_cast<microseconds>(high_resolution_clock::now() - last);
     //
-    // std::cout << std::fixed << std::setw(2) << ", t: " << t.count() << ", dt: " << dt.count() << "[msec]" << std::flush;
+    // std::cout << std::fixed << std::setw(2)
+    //           << ", t: " << t.count()
+    //           << ", dt: " << dt.count() << "[msec]" << std::flush;
 #endif
   }
 
