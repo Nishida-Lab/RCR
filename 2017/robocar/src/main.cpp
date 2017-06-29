@@ -22,8 +22,17 @@
 
 int main(int argc, char** argv) try
 {
+  using std::chrono::duration_cast;
+  using std::chrono::high_resolution_clock;
+
+  using std::chrono::seconds;
+  using std::chrono::milliseconds;
+  using std::chrono::microseconds;
+
+#ifndef NDEBUG
   std::cout << "[debug] project version: " << project_version.data() << " (" << cmake_build_type.data() << ")\n";
   std::cout << "[debug]   boost version: " <<   boost_version.data() << "\n\n";
+#endif
 
 
   robocar::sensor_node<char> sensor {"/dev/ttyACM0", 115200};
@@ -129,12 +138,12 @@ int main(int argc, char** argv) try
   };
 
 
-  std::this_thread::sleep_for(std::chrono::seconds(3));
+  std::this_thread::sleep_for(seconds {3});
 
-  for (auto begin = std::chrono::high_resolution_clock::now(),
-             last = std::chrono::high_resolution_clock::now();
-       std::chrono::duration_cast<std::chrono::seconds>(last - begin) < std::chrono::seconds {30};
-       last = std::chrono::high_resolution_clock::now())
+
+  for (auto begin = high_resolution_clock::now(), last = high_resolution_clock::now();
+       duration_cast<seconds>(last - begin) < seconds {30};
+       last = high_resolution_clock::now())
   {
     // auto poles {camera.search(camera_width, camera_height)};
 
@@ -147,10 +156,12 @@ int main(int argc, char** argv) try
     driver.write(direction, 0.18, 0.5);
 
 #ifndef NDEBUG
-    auto  t = std::chrono::duration_cast<std::chrono::seconds>(last - begin);
-    auto dt = std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::high_resolution_clock::now() - last);
+    auto  t = duration_cast<seconds>(last - begin);
+    auto dt = duration_cast<microseconds>(high_resolution_clock::now() - last);
 
-    std::cout << std::fixed << std::setw(2) << ", t: " << t.count() << ", dt: " << dt.count() << "[msec]" << std::flush;
+    std::cout << std::fixed << std::setw(2)
+              << ", t: " << t.count()
+              << ", dt: " << dt.count() << "[msec]" << std::flush;
 #endif
   }
 

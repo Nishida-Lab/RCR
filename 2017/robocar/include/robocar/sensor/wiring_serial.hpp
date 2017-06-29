@@ -95,6 +95,11 @@ public:
     serialPutchar(fd, std::forward<Ts>(args)...);
   }
 
+  auto getchar()
+  {
+    return serialGetchar(fd);
+  }
+
   std::size_t avail()
   {
     int size {serialDataAvail(fd)};
@@ -107,11 +112,6 @@ public:
     }
 
     return static_cast<std::size_t>(size);
-  }
-
-  auto getchar()
-  {
-    return serialGetchar(fd);
   }
 
   void flush()
