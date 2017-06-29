@@ -78,36 +78,13 @@ public:
 
   auto& operator>>(std::basic_string<C>& rhs)
   {
-    putchar(code_);
-    rhs.clear();
-
-    while (true)
-    {
-      while (!avail())
-      {
-        std::cout << "[debug] wait for avail...\n";
-        std::this_thread::sleep_for(std::chrono::milliseconds {10});
-      }
-
-      C buffer = static_cast<C>(getchar());
-
-      if (buffer != '\n')
-      {
-        rhs.push_back(buffer);
-      }
-      else break;
-    }
-
+    rhs = get();
     return *this;
   }
 
   auto& operator>>(double& rhs)
   {
-    static std::basic_string<C> buffer {};
-
-    (*this) >> buffer;
-    rhs = std::stod(buffer);
-
+    rhs = std::stod(get());
     return *this;
   }
 
