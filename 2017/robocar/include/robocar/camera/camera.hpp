@@ -3,6 +3,7 @@
 
 
 #include <algorithm>
+#include <fstream>
 #include <iostream>
 #include <string>
 #include <utility>
@@ -57,11 +58,30 @@ public:
   {
     grab();
     retrieve(image_buffer_);
+    // cv::rect(0, 0.5*height, width, 0.5*height);
+    // image_type image_buffer_Sub_(image_buffer_, rect);
   }
 
   // void debug(const std::string& prefix = "debug_")
   // {
   //   read();
+  //
+  //   std::ofstream ofs {prefix + "props.txt"/*, std::ios::out*/};
+  //
+  //   if (!ofs)
+  //   {
+  //     std::cout << "[error] failed to open file: " << prefix + "props.txt\n";
+  //     std::exit(EXIT_FAILURE);
+  //   }
+  //
+  //   ofs << "brightness:         " << get(CV_CAP_PROP_BRIGHTNESS)
+  //       << "contrast:           " << get(CV_CAP_PROP_CONTRAST)
+  //       << "saturation:         " << get(CV_CAP_PROP_SATURATION)
+  //       << "gain:               " << get(CV_CAP_PROP_GAIN)
+  //       << "exposure:           " << get(CV_CAP_PROP_EXPOSURE)
+  //       << "white balance red:  " << get(CV_CAP_PROP_WHITE_BALANCE_RED_V)
+  //       << "white balance blue: " << get(CV_CAP_PROP_WHITE_BALANCE_BLUE_U)
+  //       << std::endl;
   //
   //   cv::imwrite(prefix + "1_raw.jpg", image_buffer_);
   //
