@@ -59,24 +59,24 @@ public:
     retrieve(image_buffer_);
   }
 
-  void debug(const std::string& prefix = "debug_")
-  {
-    read();
-
-    cv::imwrite(prefix + "1_raw.jpg", image_buffer_);
-
-    image_type hsv {convert(image_buffer_)};
-    cv::imwrite(prefix + "2_hsv.jpg", hsv);
-
-    image_type red_masked {red_mask(hsv)};
-    cv::imwrite(prefix + "3_red_masked.jpg", red_masked);
-
-    image_type red_opened {opening(red_masked)};
-    cv::imwrite(prefix + "4_red_opened.jpg", red_opened);
-
-    image_type contour {find_contours_debug(red_opened)};
-    cv::imwrite(prefix + "5_contour.jpg", contour);
-  }
+  // void debug(const std::string& prefix = "debug_")
+  // {
+  //   read();
+  //
+  //   cv::imwrite(prefix + "1_raw.jpg", image_buffer_);
+  //
+  //   image_type hsv {convert(image_buffer_)};
+  //   cv::imwrite(prefix + "2_hsv.jpg", hsv);
+  //
+  //   image_type red_masked {red_mask(hsv)};
+  //   cv::imwrite(prefix + "3_red_masked.jpg", red_masked);
+  //
+  //   image_type red_opened {opening(red_masked)};
+  //   cv::imwrite(prefix + "4_red_opened.jpg", red_opened);
+  //
+  //   image_type contour {find_contours_debug(red_opened)};
+  //   cv::imwrite(prefix + "5_contour.jpg", contour);
+  // }
 
   auto find()
     -> std::vector<std::pair<std::size_t,std::size_t>>
@@ -125,56 +125,56 @@ private:
     return cv::Mat1b {mask1 | mask2};
   }
 
-  auto find_contours_debug(const cv::Mat& bin) const
-    -> cv::Mat
-  {
-    std::vector<std::vector<cv::Point>> contours {};
-                std::vector<cv::Point>  pole_moments {};
-
-    cv::Mat result {bin};
-
-    cv::findContours(bin, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE);
-
-    static constexpr double pole_ratio {static_cast<double>(2) / static_cast<double>(3)}; // XXX magic number
-    static constexpr double tolerance {0.20}; // percent
-
-    std::cout << "[debug] pole ratio: " << pole_ratio << std::endl;
-    std::cout << "        " << pole_ratio * (1 - tolerance) << " < range < " << pole_ratio * (1 + tolerance) << std::endl;
-
-    for (auto iter = contours.begin(); iter != contours.end(); ++iter)
-    {
-      auto rect = cv::boundingRect(*iter); // bounding box
-      double rect_ratio {static_cast<double>(rect.width) / static_cast<double>(rect.height)};
-
-      std::cout << "[debug] rect ratio: " << rect_ratio << std::endl;
-
-      if (pole_ratio * (1 - tolerance) < rect_ratio && rect_ratio < pole_ratio * (1 + tolerance))
-      {
-        cv::rectangle(result, cv::Point {rect.x, rect.y}, cv::Point {rect.x + rect.width, rect.y + rect.height},
-                      cv::Scalar {255, 0, 0}, 3, CV_AA);
-
-        cv::Moments moment {cv::moments(*iter)};
-        pole_moments.emplace_back(moment.m10 / moment.m00, moment.m01 / moment.m00);
-      }
-
-      else
-      {
-        cv::rectangle(result, cv::Point {rect.x, rect.y}, cv::Point {rect.x + rect.width, rect.y + rect.height},
-                      cv::Scalar {255, 0, 0}, 1, CV_AA);
-      }
-    }
-
-    for (const auto& pm : pole_moments)
-    {
-      std::cout << "[debug] maybe point of pole moment: " << pm << std::endl;
-
-      static constexpr int radius {4};
-      static constexpr int thickness {-1};
-      cv::circle(result, pm, radius, cv::Scalar {255, 0, 0}, thickness);
-    }
-
-    return result;
-  }
+  // auto find_contours_debug(const cv::Mat& bin) const
+  //   -> cv::Mat
+  // {
+  //   std::vector<std::vector<cv::Point>> contours {};
+  //               std::vector<cv::Point>  pole_moments {};
+  //
+  //   cv::Mat result {bin};
+  //
+  //   cv::findContours(bin, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE);
+  //
+  //   static constexpr double pole_ratio {static_cast<double>(2) / static_cast<double>(3)}; // XXX magic number
+  //   static constexpr double tolerance {0.20}; // percent
+  //
+  //   std::cout << "[debug] pole ratio: " << pole_ratio << std::endl;
+  //   std::cout << "        " << pole_ratio * (1 - tolerance) << " < range < " << pole_ratio * (1 + tolerance) << std::endl;
+  //
+  //   for (auto iter = contours.begin(); iter != contours.end(); ++iter)
+  //   {
+  //     auto rect = cv::boundingRect(*iter); // bounding box
+  //     double rect_ratio {static_cast<double>(rect.width) / static_cast<double>(rect.height)};
+  //
+  //     std::cout << "[debug] rect ratio: " << rect_ratio << std::endl;
+  //
+  //     if (pole_ratio * (1 - tolerance) < rect_ratio && rect_ratio < pole_ratio * (1 + tolerance))
+  //     {
+  //       cv::rectangle(result, cv::Point {rect.x, rect.y}, cv::Point {rect.x + rect.width, rect.y + rect.height},
+  //                     cv::Scalar {255, 0, 0}, 3, CV_AA);
+  //
+  //       cv::Moments moment {cv::moments(*iter)};
+  //       pole_moments.emplace_back(moment.m10 / moment.m00, moment.m01 / moment.m00);
+  //     }
+  //
+  //     else
+  //     {
+  //       cv::rectangle(result, cv::Point {rect.x, rect.y}, cv::Point {rect.x + rect.width, rect.y + rect.height},
+  //                     cv::Scalar {255, 0, 0}, 1, CV_AA);
+  //     }
+  //   }
+  //
+  //   for (const auto& pm : pole_moments)
+  //   {
+  //     std::cout << "[debug] maybe point of pole moment: " << pm << std::endl;
+  //
+  //     static constexpr int radius {4};
+  //     static constexpr int thickness {-1};
+  //     cv::circle(result, pm, radius, cv::Scalar {255, 0, 0}, thickness);
+  //   }
+  //
+  //   return result;
+  // }
 
   auto find_contours(const cv::Mat& bin) const
     -> std::vector<std::pair<std::size_t,std::size_t>>
