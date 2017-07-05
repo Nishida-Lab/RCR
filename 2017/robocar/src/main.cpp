@@ -94,18 +94,18 @@ int main(int argc, char** argv) try
       if (std::regex_search(psd.first, std::regex {"north"}))
       {
         sensor["distance"]["short"][psd.first] >> buffer;
-        buffer = 0.09999 * buffer + 0.4477;
+        buffer = (0.09999 * buffer + 0.4477) / 100;
 
         if (0.18 < buffer)
         {
           *(psd.second) >> buffer;
-          buffer = 45.514 * std::pow(buffer, -0.822);
+          buffer = (45.514 * std::pow(buffer, -0.822)) / 100;
         }
       }
       else
       {
         *(psd.second) >> buffer;
-        buffer = 45.514 * std::pow(buffer, -0.822);
+        buffer = (45.514 * std::pow(buffer, -0.822)) / 100;
       }
 
       double repulsive_force;
@@ -126,7 +126,7 @@ int main(int argc, char** argv) try
       }
 
       // std::cout << "[debug] " << psd.first << ", " << repulsive_force << std::endl;
-      result += nearest_neighbor.at(psd.first) * -repulsive_force;
+      result += nearest_neighbor.at(psd.first) * repulsive_force;
     }
 
     return result;
