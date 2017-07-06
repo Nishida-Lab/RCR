@@ -1,6 +1,5 @@
 #include <Wire.h>
 #include "../../libraries/L3GD20/L3GD20.cpp"
-//#include "struct.h"
 
 L3GD20 l3gd20;
 DATA gyro_0,gyro_1,gyro_2,deg;

@@ -1,23 +1,23 @@
 #include<./Multiplexer.h>
  
-#define GRAVITY 9.80665
+#define GRAVITY 9.80665 //set gravity constant
 
-DATA acc_0,acc_1,acc_2,vel_0,vel_1,vel_2,pos;
+DATA acc_0,acc_1,acc_2,vel_0,vel_1,vel_2,pos; //set struct
 
 
 
 void getAcc(int num, double x, double offset_x, double y, double offset_y, double z, double offset_z){
-  switch(num){
+  switch(num){ //"num" is timing
     case 0:
-    acc_0.time = micros();
-    //重力加速度[m/s^2]*(電圧[mV]-オフセット電圧[mV])/感度[mV/g] = 加速度[m/s^2]
-    acc_0.data_x = GRAVITY*(x * 4.9 - offset_x)/1000; 
-    acc_0.data_y = GRAVITY*(y * 4.9 - offset_y)/1000; 
-    acc_0.data_z = GRAVITY*(z * 4.9 - offset_z)/1000;
-    if(abs(acc_0.data_x) < 0.25) acc_0.data_x = 0;
-    if(abs(acc_0.data_y) < 0.25) acc_0.data_y = 0;
-    if(abs(acc_0.data_z) < 0.25) acc_0.data_z = 0;
-    break;
+      acc_0.time = micros(); //get time
+      //重力加速度[m/s^2]*(電圧[mV]-オフセット電圧[mV])/感度[mV/g] = 加速度[m/s^2]
+      acc_0.data_x = GRAVITY*(x * 4.9 - offset_x)/1000; //caliculate accelaration 
+      acc_0.data_y = GRAVITY*(y * 4.9 - offset_y)/1000; 
+      acc_0.data_z = GRAVITY*(z * 4.9 - offset_z)/1000;
+      if(abs(acc_0.data_x) < 0.25) acc_0.data_x = 0;  //cut low value
+      if(abs(acc_0.data_y) < 0.25) acc_0.data_y = 0;
+      if(abs(acc_0.data_z) < 0.25) acc_0.data_z = 0;
+      break;
  
   case 1:
     acc_1.time = micros();
@@ -61,21 +61,21 @@ double buff_vel_x[3] = {0,0,0},buff_vel_y[3] = {0,0,0},buff_vel_z[3] = {0,0,0};
 int count_vel = 0;
 void getVel(int timing){
   double new_vel_x,new_vel_y,new_vel_z;
-  double param = 0.95;
+  double param = 0.95; //rc filter rapametor
   switch(timing){
   case 0:
   vel_0.time = acc_1.time;
   new_vel_x = getIntegral(vel_0.time, acc_0.data_x, vel_1.time, acc_1.data_x, vel_2.time, acc_2.data_x)/(1000*1000);
   new_vel_y = getIntegral(vel_0.time, acc_0.data_y, vel_1.time, acc_1.data_y, vel_2.time, acc_2.data_y)/(1000*1000);
   new_vel_z = getIntegral(vel_0.time, acc_0.data_z, vel_1.time, acc_1.data_z, vel_2.time, acc_2.data_z)/(1000*1000);
-  buff_vel_x[0] = param * buff_vel_x[2] + (1-param) * new_vel_x;						
+  buff_vel_x[0] = param * buff_vel_x[2] + (1-param) * new_vel_x; //rc filter						
   buff_vel_y[0] = param * buff_vel_y[2] + (1-param) * new_vel_y;						
   buff_vel_z[0] = param * buff_vel_z[2] + (1-param) * new_vel_z;
-  buff_vel_x[0] = new_vel_x - buff_vel_x[0]; 
+  buff_vel_x[0] = new_vel_x - buff_vel_x[0]; //High pass filter
   buff_vel_y[0] = new_vel_y - buff_vel_y[0]; 
   buff_vel_z[0] = new_vel_z - buff_vel_z[0];
   if(count_vel > 300){
-    vel_0.data_x = vel_2.data_x + buff_vel_x[0];
+    vel_0.data_x = vel_2.data_x + buff_vel_x[0]; //accumulation velocity
     vel_0.data_y = vel_2.data_y + buff_vel_y[0];
     vel_0.data_z = vel_2.data_z + buff_vel_z[0];
   }
@@ -138,7 +138,7 @@ void getPos(){
   pos_z = new_pos_z - pos_z;
 
   if(count_pos > 300){
-    pos.data_x += pos_x/100; 
+    pos.data_x += pos_x/100; // "/100" is arbitary value 
     pos.data_y += pos_y/100; 
     pos.data_z += pos_z/100;    
   }
