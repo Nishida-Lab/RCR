@@ -131,7 +131,8 @@ void affine(int timing){
 void setup(){
   Serial.begin(115200);
   Wire.begin();
- 
+  Serial.println("Wire begin");
+  
   //pin mode setup----------------------------------------------------- 
   pinMode( 5, OUTPUT);
   pinMode( 6, OUTPUT);
@@ -141,34 +142,41 @@ void setup(){
   pinMode(10, OUTPUT); 
   pinMode(11, OUTPUT); //Multiplexer setup
 
+  Serial.println("PIN mode Setup");
+   //gyro sensor setup------------------------------------------------
+  if(!l3gd20.begin(l3gd20.L3GD20_RANGE_250DPS)){ //SLAVE_ADDRESS 0x6A (106d)
+    Serial.println("failed to connect l3gd20");
+    while(true);
+  }
+  Serial.println("GYRO setup");
+  
   //short-range sensor setup--------------------------------------------
-  digitalWrite(5, LOW);
+  //digitalWrite(5, LOW);
   digitalWrite(6, LOW);
   digitalWrite(7, LOW);
- 
-  digitalWrite(5, HIGH);
-  vl6180x_NW.init();
-  vl6180x_NW.configureDefault();
-  vl6180x_NW.setAddress(98); //SLAVE_ADDRESS 98
-  vl6180x_NW.setTimeout(500);
-   
-  digitalWrite(6, HIGH);
-  vl6180x_N.init();
-  vl6180x_N.configureDefault(); 
+  Serial.println("PIN Setup LOW");
+  
+  //digitalWrite(5, HIGH);          //Serial.println("D5 Setup HIGH");
+  //vl6180x_NW.init();              //Serial.println("vl6180x_NW Setup Start");
+  //vl6180x_NW.configureDefault();  //Serial.println("vl6180x_NW Setup default");
+  //vl6180x_NW.setAddress(98); //SLAVE_ADDRESS 98  //Serial.println("vl6180x_NW Setup Addless");
+  //vl6180x_NW.setTimeout(500);      //Serial.println("D5 Setup complete");
+  
+  digitalWrite(6, HIGH);                   Serial.println("D6 Setup HIGH");
+  vl6180x_N.init();                        Serial.println("vl6180x_NW Setup Start");
+  vl6180x_N.configureDefault();            Serial.println("vl6180x_NW Setup default");
   vl6180x_N.setAddress(99);  //SLAVE_ADDRESS 99
-  vl6180x_N.setTimeout(500);
+  vl6180x_N.setTimeout(500);               Serial.println("D5 Setup complete"); 
  
-  digitalWrite(7, HIGH);
-  vl6180x_NE.init();
-  vl6180x_NE.configureDefault(); 
+  digitalWrite(7, HIGH);                   Serial.println("D6 Setup HIGH");
+  vl6180x_NE.init();                       Serial.println("vl6180x_NW Setup Start");
+  vl6180x_NE.configureDefault();           Serial.println("vl6180x_NW Setup default");
   vl6180x_NE.setAddress(100);  //SLAVE_ADDRESS 100
-  vl6180x_NE.setTimeout(500);
+  vl6180x_NE.setTimeout(500);              Serial.println("D5 Setup complete");
+
+  Serial.println("SRS Setup complete");
  
-  //gyro sensor setup------------------------------------------------
- if(!l3gd20.begin(l3gd20.L3GD20_RANGE_250DPS)){ //SLAVE_ADDRESS 0x6A (106d)
-   Serial.println("failed to connect l3gd20");
-   //   while(true);
- }
+ Serial.println("All Setup complete");
 }
 
 int timing = 0;
@@ -226,22 +234,26 @@ void loop(){
   //  Serial.print(acc[1]); Serial.print(" ");
   //  Serial.println(acc[2]);  
   
-  //Serial.print(GRAVITY); Serial.print(" ");
-  //Serial.print(acc_0.data_x); Serial.print(" ");
-  //Serial.print(acc_0.data_y); Serial.print(" ");
-  //Serial.println(acc_0.data_z);  
+  //  Serial.print(GRAVITY); Serial.print(" ");
+  //  Serial.print(acc_0.data_x); Serial.print(" ");
+  //  Serial.print(acc_0.data_y); Serial.print(" ");
+  //  Serial.println(acc_0.data_z);  
 
-    Serial.print(acc_0.data_x,10); Serial.print(" ");
-    Serial.print(vel_0.data_x,10); Serial.print(" ");
-    Serial.println(pos.data_x,10);  
+  //  Serial.print(acc_0.data_x,10); Serial.print(" ");
+  //  Serial.print(vel_0.data_x,10); Serial.print(" ");
+  //  Serial.println(pos.data_x,10);  
+
+  for(i = 0;i < 16;i++){
+    Serial.print(readSensor(i)); Serial.print(" ");
+  }Serial.println("");
   
-//    int claim = -1;
-//    if(Serial.available() > 0){
-//    claim = Serial.read();
-//    Serial.println(readSensor(claim));
-//    }
-//    Serial.flush();
-    delay(10);
+  //  int claim = -1;
+  //  if(Serial.available() > 0){
+  //  claim = Serial.read();
+  //  Serial.println(readSensor(claim));
+  //  }
+  //  Serial.flush();
+
     timing++;
     if(timing > 2) timing = 0;
 

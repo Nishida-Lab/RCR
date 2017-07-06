@@ -167,14 +167,14 @@ void loop(){
 
   if(count > 100) value += pos_x*2;
 
-// Serial.print(acc[0]); Serial.print(" ");
-// Serial.print(acc[1]); Serial.print(" ");
-// Serial.println(acc[2]);
+ Serial.print(acc[0]); Serial.print(" ");
+ Serial.print(acc[1]); Serial.print(" ");
+ Serial.println(acc[2]);
   
- Serial.print(ACC_G); Serial.print(" ");
- Serial.print(acc_0.data_x); Serial.print(" ");
- Serial.print(acc_0.data_y); Serial.print(" ");
- Serial.println(acc_0.data_z);
+// Serial.print(ACC_G); Serial.print(" ");
+// Serial.print(acc_0.data_x); Serial.print(" ");
+// Serial.print(acc_0.data_y); Serial.print(" ");
+// Serial.println(acc_0.data_z);
 
 //  Serial.print(acc_0.data_x,10); Serial.print(" ");
 //  Serial.print(vel_0.data_x,10); Serial.print(" "); 

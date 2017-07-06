@@ -86,7 +86,7 @@ void setup(){
 
 
   if(!l3gd20.begin()){ //SLAVE_ADDRESS 0x6A (106d)
-    Serial.print(-1);
+    Serial.print("failed to connect");
     while(true);
   }
 }

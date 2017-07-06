@@ -42,16 +42,12 @@ void setup()
 }
 
 void loop() {
-  int distance = 0;
-  distance = proximal_distance(vl6180x.readRangeSingle());
-  Serial.println(distance);
-  delay(100);
+ // int distance = 0;
+ // distance = proximal_distance(vl6180x.readRangeSingle());
+ // Serial.println(distance);
+ // delay(100);
 
-  /* //digitalWrite(2, LOW); */
-  /*  Serial.print(" Range: ");   Serial.print(vl6180x.readRangeSingle());  */
-  /* //digitalWrite(2, HIGH); */
+   Serial.print(" Range: ");   Serial.print(vl6180x.readRangeSingle());  
+   Serial.print(" Range: ");    Serial.println(vl6180x_2.readRangeSingle()); 
 
-  /* //digitalWrite(4, LOW); */
-  /*  Serial.print(" Range: ");    Serial.println(vl6180x_2.readRangeSingle()); */
-  /* //digitalWrite(4, HIGH); */
 }
