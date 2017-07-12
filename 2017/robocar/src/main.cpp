@@ -90,24 +90,23 @@ int main(int argc, char** argv) try
     for (const auto& psd : sensor["distance"]["long"])
     {
       double buffer;
-
       static const std::regex north_regex {"^north.*$"};
-      // if (std::regex_search(psd.first, std::regex {"north"}))
+
       if (std::regex_match(psd.first, north_regex))
       {
         sensor["distance"]["short"][psd.first] >> buffer;
-        buffer = (0.09999 * buffer + 0.4477) / 100;
+        buffer = (0.09999 * buffer + 0.4477);
 
         if (0.18 < buffer)
         {
           *(psd.second) >> buffer;
-          buffer = (45.514 * std::pow(buffer, -0.822)) / 100;
+          buffer = (45.514 * std::pow(buffer, -0.822));
         }
       }
       else
       {
         *(psd.second) >> buffer;
-        buffer = (45.514 * std::pow(buffer, -0.822)) / 100;
+        buffer = (45.514 * std::pow(buffer, -0.822));
       }
 
       double repulsive_force;
@@ -127,7 +126,7 @@ int main(int argc, char** argv) try
         repulsive_force = -std::atanh(range_mid / range_mid - 1);
       }
 
-      // std::cout << "[debug] " << psd.first << ", " << repulsive_force << std::endl;
+      // std::cout << "[debug] " << psd.first << ":\t" << repulsive_force << std::endl;
       result += nearest_neighbor.at(psd.first) * repulsive_force;
     }
 
@@ -136,7 +135,7 @@ int main(int argc, char** argv) try
 
 
   std::cout << "[debug] please wait";
-  for (std::size_t count {0}; count < 3; ++count)
+  for (std::size_t count {0}; count < 5; ++count)
   {
     std::cout << "." << std::flush;
     std::this_thread::sleep_for(std::chrono::seconds {1});
@@ -155,8 +154,8 @@ int main(int argc, char** argv) try
     // };
 
     robocar::vector<double> direction {avoid_vector(0.03, 0.45, 0.90)};
-    std::cout << "\r\e[K[debug] " << direction.normalized();
-    driver.write(direction, 0.18, 0.5);
+    // std::cout << "[debug] " << direction.normalized() << "\n";
+    driver.write(direction.normalized(), 0.18, 0.5);
 
 #ifndef NDEBUG
     // auto  t = duration_cast<seconds>(last - begin);
