@@ -91,7 +91,9 @@ int main(int argc, char** argv) try
     {
       double buffer;
 
-      if (std::regex_search(psd.first, std::regex {"north"}))
+      static const std::regex north_regex {"^north.*$"};
+      // if (std::regex_search(psd.first, std::regex {"north"}))
+      if (std::regex_match(psd.first, north_regex))
       {
         sensor["distance"]["short"][psd.first] >> buffer;
         buffer = (0.09999 * buffer + 0.4477) / 100;
