@@ -41,6 +41,8 @@ int readSensor(int sensor){
     return deg.data_y;
   case 15:
     return deg.data_z;  //call degree
+  default:
+    answer = -1; break;
   }
   return answer;
 }
