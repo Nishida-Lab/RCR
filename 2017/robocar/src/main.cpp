@@ -20,6 +20,12 @@
 #include <robocar/version.hpp>
 
 
+static const robocar::vector<double>
+  north_west {-0.707,  0.707}, north { 0.000,  1.000}, north_east { 0.707,  0.707},
+        west {-1.000,  0.000},                               east { 1.000,  0.000},
+  south_west {-0.707, -0.707}, south { 0.000, -1.000}, south_east { 0.707, -0.707};
+
+
 int main(int argc, char** argv) try
 {
   using std::chrono::duration_cast;
@@ -65,16 +71,25 @@ int main(int argc, char** argv) try
   sensor["angle"]["z"].set(15);
 
 
-  std::vector<std::vector<robocar::vector<double>>> predefined_field {
-    {{ 1.0,  0.0}, { 0.0, -1.0}, { 0.0, -1.0}, { 0.0, -1.0}, { 0.0, -1.0}, { 0.0, -1.0}},
-    {{ 0.0,  1.0}, { 0.0, -1.0}, { 0.0, -1.0}, { 0.0, -1.0}, { 0.0, -1.0}, {-1.0, -1.0}},
-    {{ 0.0,  1.0}, { 0.0, -1.0}, { 0.0, -1.0}, { 0.0, -1.0}, {-1.0, -1.0}, {-1.0,  0.0}},
-    {{ 0.0,  1.0}, { 0.0, -1.0}, { 0.0, -1.0}, {-1.0, -1.0}, {-1.0,  0.0}, {-1.0,  0.0}},
-    {{ 0.0,  1.0}, { 0.0, -1.0}, {-1.0, -1.0}, {-1.0,  0.0}, {-1.0,  0.0}, {-1.0,  0.0}},
-    {{ 0.0,  1.0}, {-1.0,  0.0}, {-1.0,  0.0}, {-1.0,  0.0}, {-1.0,  0.0}, {-1.0,  0.0}}
-  };
+  // std::vector<std::vector<robocar::vector<double>>> predefined_field {
+  //   {{ 1.0,  0.0}, { 0.0, -1.0}, { 0.0, -1.0}, { 0.0, -1.0}, { 0.0, -1.0}, { 0.0, -1.0}},
+  //   {{ 0.0,  1.0}, { 0.0, -1.0}, { 0.0, -1.0}, { 0.0, -1.0}, { 0.0, -1.0}, {-1.0, -1.0}},
+  //   {{ 0.0,  1.0}, { 0.0, -1.0}, { 0.0, -1.0}, { 0.0, -1.0}, {-1.0, -1.0}, {-1.0,  0.0}},
+  //   {{ 0.0,  1.0}, { 0.0, -1.0}, { 0.0, -1.0}, {-1.0, -1.0}, {-1.0,  0.0}, {-1.0,  0.0}},
+  //   {{ 0.0,  1.0}, { 0.0, -1.0}, {-1.0, -1.0}, {-1.0,  0.0}, {-1.0,  0.0}, {-1.0,  0.0}},
+  //   {{ 0.0,  1.0}, {-1.0,  0.0}, {-1.0,  0.0}, {-1.0,  0.0}, {-1.0,  0.0}, {-1.0,  0.0}}
+  // };
+  //
+  // for (auto&& row : predefined_field) { for (auto&& v : row) { v = v.normalized(); } }
 
-  for (auto&& row : predefined_field) { for (auto&& v : row) { v = v.normalized(); } }
+  const std::vector<std::vector<robocar::vector<double>>> predefined_field {
+    {      east,       east,       east,       east,       east, south     },
+    {north     , south     , south     , south     , south     , south_west},
+    {north     , south     , south     , south     , south_west,       west},
+    {north     , south     , south     , south_west,       west,       west},
+    {north     , south     , south_west,       west,       west,       west},
+    {north     ,       west,       west,       west,       west,       west}
+  };
 
 
   auto avoid_vector = [&](double range_min, double range_mid, double range_max)
