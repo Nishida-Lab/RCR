@@ -41,13 +41,9 @@ int main(int argc, char** argv) try
 #endif
 
 
-  robocar::sensor_node<char> sensor {"/dev/ttyACM0", 115200};
-
-  robocar::camera camera {640, 480};
-
-  robocar::differential_driver driver {
-    std::pair<int,int> {35, 38}, std::pair<int,int> {37, 40}
-  };
+  robocar::sensor_node<char>   sensor {"/dev/ttyACM0", 115200};
+  robocar::camera              camera {640, 480};
+  robocar::differential_driver driver {{35, 38}, {37, 40}};
 
 
   sensor["distance"]["long"]["south_west"].set(0);
@@ -70,17 +66,6 @@ int main(int argc, char** argv) try
   sensor["angle"]["y"].set(14);
   sensor["angle"]["z"].set(15);
 
-
-  // std::vector<std::vector<robocar::vector<double>>> predefined_field {
-  //   {{ 1.0,  0.0}, { 0.0, -1.0}, { 0.0, -1.0}, { 0.0, -1.0}, { 0.0, -1.0}, { 0.0, -1.0}},
-  //   {{ 0.0,  1.0}, { 0.0, -1.0}, { 0.0, -1.0}, { 0.0, -1.0}, { 0.0, -1.0}, {-1.0, -1.0}},
-  //   {{ 0.0,  1.0}, { 0.0, -1.0}, { 0.0, -1.0}, { 0.0, -1.0}, {-1.0, -1.0}, {-1.0,  0.0}},
-  //   {{ 0.0,  1.0}, { 0.0, -1.0}, { 0.0, -1.0}, {-1.0, -1.0}, {-1.0,  0.0}, {-1.0,  0.0}},
-  //   {{ 0.0,  1.0}, { 0.0, -1.0}, {-1.0, -1.0}, {-1.0,  0.0}, {-1.0,  0.0}, {-1.0,  0.0}},
-  //   {{ 0.0,  1.0}, {-1.0,  0.0}, {-1.0,  0.0}, {-1.0,  0.0}, {-1.0,  0.0}, {-1.0,  0.0}}
-  // };
-  //
-  // for (auto&& row : predefined_field) { for (auto&& v : row) { v = v.normalized(); } }
 
   const std::vector<std::vector<robocar::vector<double>>> predefined_field {
     {      east,       east,       east,       east,       east, south     },
