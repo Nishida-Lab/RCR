@@ -238,9 +238,9 @@ void loop(){
   //  Serial.print(deg.data_y,10); Serial.print(" ");
   //  Serial.println(deg.data_z,10);  
 
-    Serial.print(acc[0]); Serial.print(" ");
-    Serial.print(acc[1]); Serial.print(" ");
-    Serial.println(acc[2]);  
+   // Serial.print(acc[0]); Serial.print(" ");
+   // Serial.print(acc[1]); Serial.print(" ");
+   // Serial.println(acc[2]);  
   
   //  Serial.print(GRAVITY); Serial.print(" ");
   //  Serial.print(acc_0.data_x); Serial.print(" ");
