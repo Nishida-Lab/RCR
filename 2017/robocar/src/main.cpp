@@ -158,14 +158,15 @@ int main(int argc, char** argv) try
     driver.write(direction.normalized(), 0.18, 0.5);
 
 #ifndef NDEBUG
-    // auto  t = duration_cast<seconds>(last - begin);
-    // auto dt = duration_cast<microseconds>(high_resolution_clock::now() - last);
-    //
-    // std::cout << std::fixed << std::setw(2)
-    //           << ", t: " << t.count()
-    //           << ", dt: " << dt.count() << "[msec]" << std::flush;
+    auto  t = duration_cast<seconds>(last - begin);
+    auto dt = duration_cast<microseconds>(high_resolution_clock::now() - last);
+
+    std::cout << std::fixed << std::setw(2)
+              << "\r\e[K[debug] t: " <<  t.count()
+                         << ", dt: " << dt.count() << "[msec]" << std::flush;
 #endif
   }
+  std::cout << "\n";
 
   driver.write(robocar::vector<double> {0.0, 0.0}, 0.18, 0.3);
 
