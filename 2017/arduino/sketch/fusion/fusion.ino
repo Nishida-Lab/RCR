@@ -1,5 +1,5 @@
 #include<Wire.h>
-#include<../../libraries/VL6180X/VL6180X.cpp>
+#include"../../libraries/VL6180X/VL6180X.cpp"
 #include"./setup.h"
 #include"./ACCEL.h"
 #include"./GYRO.h"
@@ -51,18 +51,23 @@ void affine(int timing){ //affine transformation
   double buff = 0,term_x[3] = {0,0,0},term_y[3] = {0,0,0},term_z[3] = {0,0,0};
   double deg_x, deg_y, deg_z;
 
+  //degree to radian
   deg_x = deg.data_x * PI / 180; 
   deg_y = deg.data_y * PI / 180; 
   deg_z = deg.data_z * PI / 180;
 
+  //rotate transformation matrix
   double affine_x[3][3] = {{1, 0, 0}, {0, cos(deg_x), sin(deg_x)}, {0, -sin(deg_x), cos(deg_x)}};
   double affine_y[3][3] = {{cos(deg_y), 0, -sin(deg_y)}, {0, 1, 0}, {sin(deg_y), 0, cos(deg_y)}};
   double affine_z[3][3] = {{cos(deg_z), sin(deg_z), 0}, {-sin(deg_z), cos(deg_z), 0}, {0, 0, 1}};
+
   /*
     double affine_x[3][3] = {{1,0,0},{0,1,0},{0,0,1}}; 
     double affine_y[3][3] = {{0,0,1},{0,1,0},{1,0,0}}; 
     double affine_z[3][3] = {{1,0,0},{0,1,0},{0,0,1}}; 
   */
+
+  //set matrix
   switch(timing){
   case 0:
     global_acc[0] = acc_0.data_x;
@@ -83,7 +88,7 @@ void affine(int timing){ //affine transformation
     break;
   }
 
-  //affine transformation z>x>y
+  //affine transformation z -> x -> y
   for(i = 0;i < 3;i++) {
     for(j = 0;j < 3;j++) buff += global_acc[j] * affine_z[j][i];
     term_z[i] = buff;
@@ -105,7 +110,8 @@ void affine(int timing){ //affine transformation
     buff = 0;
   }
   for(i = 0;i < 3;i++) global_acc[i] = term_y[i];
-  
+
+  //set matrix
   switch(timing){
   case 0:
     acc_0.data_x = global_acc[0];
@@ -131,7 +137,7 @@ void affine(int timing){ //affine transformation
 void setup(){
   Serial.begin(115200);
   Wire.begin();
-  Serial.println("Wire begin");
+  //  Serial.println("Wire begin");
   
   //pin mode setup----------------------------------------------------- 
   pinMode( 5, OUTPUT);
@@ -142,41 +148,41 @@ void setup(){
   pinMode(10, OUTPUT); 
   pinMode(11, OUTPUT); //Multiplexer setup
 
-  Serial.println("PIN mode Setup");
+  //Serial.println("PIN mode Setup");
    //gyro sensor setup------------------------------------------------
   if(!l3gd20.begin(l3gd20.L3GD20_RANGE_250DPS)){ //SLAVE_ADDRESS 0x6A (106d)
-    Serial.println("failed to connect l3gd20");
+    Serial.println(-1);
     while(true);
   }
-  Serial.println("GYRO setup");
+  //Serial.println("GYRO setup");
   
   //short-range sensor setup--------------------------------------------
   digitalWrite(5, LOW);
   digitalWrite(6, LOW);
   digitalWrite(7, LOW);
-  Serial.println("PIN Setup LOW");
+  //Serial.println("PIN Setup LOW");
   
-  digitalWrite(5, HIGH);          Serial.println("D5 Setup HIGH");
-  vl6180x_NW.init();              Serial.println("vl6180x_NW Setup Start");
-  vl6180x_NW.configureDefault();  Serial.println("vl6180x_NW Setup default");
-  vl6180x_NW.setAddress(98);      Serial.println("vl6180x_NW Setup Addless"); //SLAVE_ADDRESS 98 
-  vl6180x_NW.setTimeout(500);     Serial.println("D5 Setup complete");
-  
-  digitalWrite(6, HIGH);          Serial.println("D6 Setup HIGH");
-  vl6180x_N.init();               Serial.println("vl6180x_N Setup Start");
-  vl6180x_N.configureDefault();   Serial.println("vl6180x_N Setup default");
-  vl6180x_N.setAddress(99);       Serial.println("vl6180x_N Setup Addless"); //SLAVE_ADDRESS 99
-  vl6180x_N.setTimeout(500);      Serial.println("D6 Setup complete"); 
- 
-  digitalWrite(7, HIGH);          Serial.println("D7 Setup HIGH");
-  vl6180x_NE.init();              Serial.println("vl6180x_NE Setup Start");
-  vl6180x_NE.configureDefault();  Serial.println("vl6180x_NE Setup default");
-  vl6180x_NE.setAddress(100);     Serial.println("vl6180x_NE Setup Addless"); //SLAVE_ADDRESS 100
-  vl6180x_NE.setTimeout(500);     Serial.println("D7 Setup complete");
+  digitalWrite(5, HIGH);         // Serial.println("[debug]:D5 Setup HIGH");
+  vl6180x_NW.init();             // Serial.println("[debug]:vl6180x_NW Setup Start");
+  vl6180x_NW.configureDefault(); // Serial.println("[debug]:vl6180x_NW Setup default");
+  vl6180x_NW.setAddress(98);     // Serial.println("[debug]:vl6180x_NW Setup Addless"); //SLAVE_ADDRESS 98 
+  vl6180x_NW.setTimeout(500);    // Serial.println("[debug]:D5 Setup complete");
+				  
+  digitalWrite(6, HIGH);         // Serial.println("[debug]:D6 Setup HIGH");
+  vl6180x_N.init();              // Serial.println("[debug]:vl6180x_N Setup Start");
+  vl6180x_N.configureDefault();  // Serial.println("[debug]:vl6180x_N Setup default");
+  vl6180x_N.setAddress(99);      // Serial.println("[debug]:vl6180x_N Setup Addless"); //SLAVE_ADDRESS 99
+  vl6180x_N.setTimeout(500);     // Serial.println("[debug]:D6 Setup complete"); 
+ 				  
+  digitalWrite(7, HIGH);         // Serial.println("[debug]:D7 Setup HIGH");
+  vl6180x_NE.init();             // Serial.println("[debug]:vl6180x_NE Setup Start");
+  vl6180x_NE.configureDefault(); // Serial.println("[debug]:vl6180x_NE Setup default");
+  vl6180x_NE.setAddress(100);    // Serial.println("[debug]:vl6180x_NE Setup Addless"); //SLAVE_ADDRESS 100
+  vl6180x_NE.setTimeout(500);    // Serial.println("[debug]:D7 Setup complete");
 
-  Serial.println("SRS Setup complete");
+  //Serial.println("SRS Setup complete");
  
- Serial.println("All Setup complete");
+  //Serial.println("All Setup complete");
 }
 
 int timing = 0;
@@ -186,7 +192,7 @@ double param = 0.97;
 double sum_offset[3] = {0,0,0};
 double offset[3] = {0,0,0};
 
-void loop(){  
+void loop(){
   int i;
   int count_offset = 0;
   
@@ -203,9 +209,9 @@ void loop(){
     offset[1] = 4.9 * sum_offset[1]/(OFFSET_H - OFFSET_L);
     offset[2] = (4.9 * sum_offset[2] / (OFFSET_H - OFFSET_L)) - 1000;
 
-    Serial.print(offset[0],10); Serial.print(" ");
-    Serial.print(offset[1],10); Serial.print(" ");
-    Serial.println(offset[2],10);
+    //Serial.print(offset[0],10); Serial.print(" ");
+    //Serial.print(offset[1],10); Serial.print(" ");
+    //Serial.println(offset[2],10);
 
     count_offset++;
   }
@@ -232,9 +238,9 @@ void loop(){
   //  Serial.print(deg.data_y,10); Serial.print(" ");
   //  Serial.println(deg.data_z,10);  
 
-  //  Serial.print(acc[0]); Serial.print(" ");
-  //  Serial.print(acc[1]); Serial.print(" ");
-  //  Serial.println(acc[2]);  
+    Serial.print(acc[0]); Serial.print(" ");
+    Serial.print(acc[1]); Serial.print(" ");
+    Serial.println(acc[2]);  
   
   //  Serial.print(GRAVITY); Serial.print(" ");
   //  Serial.print(acc_0.data_x); Serial.print(" ");
@@ -252,12 +258,12 @@ void loop(){
 
 
 
-  //  int claim = -1;
-  //  if(Serial.available() > 0){
-  //  claim = Serial.read();
-  //  Serial.println(readSensor(claim));
-  //  }
-  //  Serial.flush();
+    int claim = -1;
+    if(Serial.available() > 0){
+    claim = Serial.read();
+    Serial.println(readSensor(claim));
+    }
+    Serial.flush();
 
     timing++;
     if(timing > 2) timing = 0;
