@@ -58,18 +58,27 @@ public:
     return *this;
   }
 
-  std::basic_string<C> get() // TODO IMPLEMENT
+  std::basic_string<C>& get() // TODO IMPLEMENT
   {
+    flush();
     putchar(code_);
 
-    std::basic_string<C> result {};
+    static std::basic_string<C> result {};
+    result.clear();
 
     while (true)
     {
-      while (!avail()) { std::this_thread::sleep_for(std::chrono::milliseconds {1}); }
+      while (!avail())
+      {
+        std::this_thread::sleep_for(std::chrono::milliseconds {1});
+      }
 
       C buffer = static_cast<C>(getchar());
-      if (buffer != '\n') { result.push_back(buffer); }
+
+      if (buffer != '\n')
+      {
+        result.push_back(buffer);
+      }
       else break;
     }
 
