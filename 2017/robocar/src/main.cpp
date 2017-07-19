@@ -174,19 +174,22 @@ int main(int argc, char** argv) try
        duration_cast<seconds>(last - begin) < seconds {30};
        last = high_resolution_clock::now())
   {
-    // auto poles {camera.search()};
+    static decltype(camera.search<double>()) poles {};
 
-    // auto target_vector {
-    //   poles.empty() ? predefined_filed[sensor["position"]["y"].get()/grid_size][sensor["position"]["x"].get()/grid_size] : poles.front().normalized()
-    // };
+    std::thread snapshot {[&]() {
+      poles = camera.search<double>();
+    }};
 
-    robocar::vector<double> direction {distract_vector(0.03, 0.45, 0.90)};
-    // std::cout << "[debug] " << direction.normalized() << "\n";
+    robocar::vector<double> hoge {distract_vector(0.03, 0.45, 0.90).normalized()};
+    robocar::vector<double> fuga {attract_vector().normalized()};
+
+    snapshot.join();
+
+    robocar::vector<double> direction {
+      hoge + (poles.empty() ? fuga : poles.front().normalized())
+    };
+
     driver.write(direction.normalized(), 0.18, 0.5);
-
-    // std::cout << "\r\e[K[debug] accel x: " << sensor["accel"]["x"].get() << "\n";
-    // std::cout << "\r\e[K        accel y: " << sensor["accel"]["y"].get() << "\n";
-    // std::cout << "\r\e[K        angle z: " << sensor["angle"]["z"].get() << "\e[2A" << std::flush;
   }
 
   driver.write(robocar::vector<double> {0.0, 0.0}, 0.18, 0.3);
