@@ -63,6 +63,7 @@ void affine(int timing){ //affine transformation
   double affine_y[3][3] = {{cos(deg_y), 0, -sin(deg_y)}, {0, 1, 0}, {sin(deg_y), 0, cos(deg_y)}};
   double affine_z[3][3] = {{cos(deg_z), sin(deg_z), 0}, {-sin(deg_z), cos(deg_z), 0}, {0, 0, 1}};
 
+
   /*
     double affine_x[3][3] = {{1,0,0},{0,1,0},{0,0,1}}; 
     double affine_y[3][3] = {{0,0,1},{0,1,0},{1,0,0}}; 
@@ -136,7 +137,12 @@ void affine(int timing){ //affine transformation
   }  
 }
 
+
 void setup(){
+  int count_offset = 0;
+  double sum_offset[3] = {0,0,0};
+  double offset[3] = {0,0,0};
+  
   Serial.begin(115200);
   Wire.begin();
   //  Serial.println("Wire begin");
@@ -183,22 +189,10 @@ void setup(){
   vl6180x_NE.setTimeout(500);    // Serial.println("[debug]:D7 Setup complete");
 
   //Serial.println("SRS Setup complete");
- 
   //Serial.println("All Setup complete");
-}
 
-int timing = 0;
-double acc[3] = {0,0,0};
-double gyro_x = 0, gyro_y = 0, gyro_z = 0;
-double param = 0.97;
-double sum_offset[3] = {0,0,0};
-double offset[3] = {0,0,0};
 
-void loop(){
-  int i;
-  int count_offset = 0;
-  
-  while(millis() < 3000){//auto offset
+    while(millis() < 3000){//auto offset
     acc[0] = param * acc[0] + (1-param) * readAnalog(ACC_X);
     acc[1] = param * acc[1] + (1-param) * readAnalog(ACC_Y);
     acc[2] = param * acc[2] + (1-param) * readAnalog(ACC_Z);
@@ -209,7 +203,7 @@ void loop(){
     
     offset[0] = 4.9 * sum_offset[0]/(OFFSET_H - OFFSET_L);
     offset[1] = 4.9 * sum_offset[1]/(OFFSET_H - OFFSET_L);
-    offset[2] = (4.9 * sum_offset[2] / (OFFSET_H - OFFSET_L)) - 1000;
+    offset[2] = (4.9 * sum_offset[2] / (OFFSET_H - OFFSET_L));
 
     //Serial.print(offset[0],10); Serial.print(" ");
     //Serial.print(offset[1],10); Serial.print(" ");
@@ -217,11 +211,22 @@ void loop(){
 
     count_offset++;
   }
+}
+
+int timing = 0;
+double acc[3] = {0,0,0};
+double gyro_x = 0, gyro_y = 0, gyro_z = 0;
+double param = 0.97;
+
+
+void loop(){
+  int i;
+  
   
   l3gd20.read(); //read Gyro sensor
   gyro_x = param * gyro_x + (1-param) * l3gd20.data.x; //RC filter
-  gyro_y = param * gyro_y + (1-param) * l3gd20.data.y;
-  gyro_z = param * gyro_z + (1-param) * l3gd20.data.z;
+  gyro_y =  param * gyro_y + (1-param) * l3gd20.data.y;
+  gyro_z =  param * gyro_z + (1-param) * l3gd20.data.z;
   getGyro(timing, gyro_x, gyro_y, gyro_z); //get degree velocity
   getDeg(); //get degree
   
@@ -238,11 +243,11 @@ void loop(){
   /*--------------Debug--------------------*/
   //  Serial.print(deg.data_x,10); Serial.print(" ");
   //  Serial.print(deg.data_y,10); Serial.print(" ");
-  //  Serial.println(deg.data_z,10);  
+  //  Serial.print(deg.data_z,10); Serial.print("\n");
 
-   // Serial.print(acc[0]); Serial.print(" ");
-   // Serial.print(acc[1]); Serial.print(" ");
-   // Serial.println(acc[2]);  
+  //  Serial.print(acc[0]); Serial.print(" ");
+  //  Serial.print(acc[1]); Serial.print(" ");
+  //  Serial.print(acc[2]); Serial.print(" "); 
   
   //  Serial.print(GRAVITY); Serial.print(" ");
   //  Serial.print(acc_0.data_x); Serial.print(" ");
@@ -253,8 +258,9 @@ void loop(){
   //  Serial.print(vel_0.data_x,10); Serial.print(" ");
   //  Serial.println(pos.data_x,10);  
 
-  //for(i = 0;i < 16;i++){
-  //  Serial.print(readSensor(i)); Serial.print(" ");
+  
+  //for(i = 0;i < 7;i++){
+  //  Serial.print(readAnalog(i)); Serial.print(" ");
   //}Serial.println("");
   /*----------------------------------------*/
 
@@ -263,11 +269,10 @@ void loop(){
     int claim = -1;
     if(Serial.available() > 0){
     claim = Serial.read();
-    Serial.println(readSensor(claim));
+    Serial.println(readSensor(claim), 10);
     }
     Serial.flush();
 
     timing++;
     if(timing > 2) timing = 0;
-
 }

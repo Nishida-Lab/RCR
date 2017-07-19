@@ -1,6 +1,8 @@
 #include<./Multiplexer.h>
  
 #define GRAVITY 9.80665 //set gravity constant
+#define SENSITIVITY 660
+
 
 DATA acc_0,acc_1,acc_2,vel_0,vel_1,vel_2,pos; //set struct
 
@@ -11,9 +13,9 @@ void getAcc(int num, double x, double offset_x, double y, double offset_y, doubl
     case 0:
       acc_0.time = micros(); //get time
       //重力加速度[m/s^2]*(電圧[mV]-オフセット電圧[mV])/感度[mV/g] = 加速度[m/s^2]
-      acc_0.data_x = GRAVITY*(x * 4.9 - offset_x)/1000; //caliculate accelaration 
-      acc_0.data_y = GRAVITY*(y * 4.9 - offset_y)/1000; 
-      acc_0.data_z = GRAVITY*(z * 4.9 - offset_z)/1000;
+      acc_0.data_x = GRAVITY*(x * 4.9 - offset_x)/SENSITIVITY; //caliculate accelaration 
+      acc_0.data_y = GRAVITY*(y * 4.9 - offset_y)/SENSITIVITY; 
+      acc_0.data_z = GRAVITY*(z * 4.9 - offset_z)/SENSITIVITY; 
       if(abs(acc_0.data_x) < 0.25) acc_0.data_x = 0;  //cut low value
       if(abs(acc_0.data_y) < 0.25) acc_0.data_y = 0;
       if(abs(acc_0.data_z) < 0.25) acc_0.data_z = 0;
@@ -21,9 +23,9 @@ void getAcc(int num, double x, double offset_x, double y, double offset_y, doubl
  
   case 1:
     acc_1.time = micros();
-    acc_1.data_x = GRAVITY*(x * 4.9 - offset_x)/1000; 
-    acc_1.data_y = GRAVITY*(y * 4.9 - offset_y)/1000; 
-    acc_1.data_z = GRAVITY*(z * 4.9 - offset_z)/1000;
+    acc_1.data_x = GRAVITY*(x * 4.9 - offset_x)/SENSITIVITY; 
+    acc_1.data_y = GRAVITY*(y * 4.9 - offset_y)/SENSITIVITY; 
+    acc_1.data_z = GRAVITY*(z * 4.9 - offset_z)/SENSITIVITY;
     if(abs(acc_1.data_x) < 0.25) acc_1.data_x = 0;
     if(abs(acc_1.data_y) < 0.25) acc_1.data_y = 0;
     if(abs(acc_1.data_z) < 0.25) acc_1.data_z = 0;
@@ -31,9 +33,9 @@ void getAcc(int num, double x, double offset_x, double y, double offset_y, doubl
 
   case 2:
     acc_2.time = micros();
-    acc_2.data_x = GRAVITY*(x * 4.9 - offset_x)/1000;
-    acc_2.data_y = GRAVITY*(y * 4.9 - offset_y)/1000; 
-    acc_2.data_z = GRAVITY*(z * 4.9 - offset_z)/1000;
+    acc_2.data_x = GRAVITY*(x * 4.9 - offset_x)/SENSITIVITY;
+    acc_2.data_y = GRAVITY*(y * 4.9 - offset_y)/SENSITIVITY; 
+    acc_2.data_z = GRAVITY*(z * 4.9 - offset_z)/SENSITIVITY;
     if(abs(acc_2.data_x) < 0.25) acc_2.data_x = 0;
     if(abs(acc_2.data_y) < 0.25) acc_2.data_y = 0;
     if(abs(acc_2.data_z) < 0.25) acc_2.data_z = 0;
@@ -144,3 +146,5 @@ void getPos(){
   }
   count_pos++;
 }
+
+
