@@ -161,6 +161,11 @@ int main(int argc, char** argv) try
     robocar::vector<double> direction {avoid_vector(0.03, 0.45, 0.90)};
     // std::cout << "[debug] " << direction.normalized() << "\n";
     driver.write(direction.normalized(), 0.18, 0.5);
+
+    std::cout << "[debug] sensor x: " << sensor["accel"]["x"].get() << std::endl;
+    std::cout << "        sensor y: " << sensor["accel"]["y"].get() << std::endl;
+    std::cout << "        angle  z: " << sensor["angle"]["z"].get() << std::endl
+              << std::endl;
   }
 
   driver.write(robocar::vector<double> {0.0, 0.0}, 0.18, 0.3);
