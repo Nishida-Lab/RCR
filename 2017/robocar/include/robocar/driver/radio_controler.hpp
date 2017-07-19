@@ -113,6 +113,19 @@ public:
 };
 
 
+  // for (robocar::radio_controler ps3joy {"/dev/input/js0"}; ;)
+  // {
+  //   ps3joy.update();
+  //
+  //   robocar::vector<double> direction {
+  //     ps3joy.axis[0] / static_cast<double>(std::numeric_limits<std::int16_t>::max()),
+  //    -ps3joy.axis[1] / static_cast<double>(std::numeric_limits<std::int16_t>::max())
+  //   };
+  //
+  //   driver.write(direction, 0.18, 0.5);
+  // }
+
+
 } // namespace robocar
 
 

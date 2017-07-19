@@ -162,27 +162,12 @@ int main(int argc, char** argv) try
     auto dt = duration_cast<microseconds>(high_resolution_clock::now() - last);
 
     std::cout << std::fixed << std::setw(2)
-              << "\r\e[K[debug] t: " <<  t.count()
-                         << ", dt: " << dt.count() << "[msec]" << std::flush;
+              << "\r\e[K[debug] t: " <<  t.count() << ", dt: " << dt.count() << "[msec]" << std::flush;
 #endif
   }
   std::cout << "\n";
 
   driver.write(robocar::vector<double> {0.0, 0.0}, 0.18, 0.3);
-
-
-  // for (robocar::radio_controler ps3joy {"/dev/input/js0"}; ;)
-  // {
-  //   ps3joy.update();
-  //
-  //   robocar::vector<double> direction {
-  //     ps3joy.axis[0] / static_cast<double>(std::numeric_limits<std::int16_t>::max()),
-  //    -ps3joy.axis[1] / static_cast<double>(std::numeric_limits<std::int16_t>::max())
-  //   };
-  //
-  //   driver.write(direction, 0.18, 0.5);
-  // }
-
 
   return 0;
 }
