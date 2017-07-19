@@ -60,17 +60,34 @@ public:
 
   std::basic_string<C>& get() // TODO IMPLEMENT
   {
+    // flush();
+    // putchar(code_);
+    if (write(fd, &code_, 1) == -1)
+    {
+      std::exit(EXIT_FAILURE);
+    }
     flush();
-    putchar(code_);
+    std::this_thread::sleep_for(std::chrono::milliseconds {1});
 
     static std::basic_string<C> result {};
     result.clear();
 
     while (true)
     {
-      while (!avail())
+      for (auto begin = std::chrono::high_resolution_clock::now(),
+                 last = std::chrono::high_resolution_clock::now();
+           serialDataAvail(fd) == 0;
+           last = std::chrono::high_resolution_clock::now())
       {
+        auto time = std::chrono::duration_cast<std::chrono::milliseconds>(last - begin);
+        std::cout << "\r\e[K[debug] waiting: " << time.count() << std::flush;
         std::this_thread::sleep_for(std::chrono::milliseconds {1});
+
+        if (1000 < time.count())
+        {
+          result = "timeout!";
+          return result;
+        }
       }
 
       C buffer = static_cast<C>(getchar());
@@ -81,6 +98,10 @@ public:
       }
       else break;
     }
+
+    flush();
+
+    std::cout << result << std::flush;
 
     return result;
   }
@@ -93,13 +114,22 @@ public:
 
   auto& operator>>(double& rhs)
   {
-    rhs = std::stod(get());
+    // while ((rhs = std::stod(get())) == -1);
+
+    std::string result {get()};
+    while (result == "timeout!")
+    {
+      result = get();
+    }
+
+    rhs = std::stod(result);
+
     return *this;
   }
 
 public:
   template <typename... Ts>
-  void putchar(Ts&&... args)
+  [[deprecated]] void putchar(Ts&&... args)
   {
     serialPutchar(fd, std::forward<Ts>(args)...);
   }
@@ -109,7 +139,7 @@ public:
     return serialGetchar(fd);
   }
 
-  std::size_t avail()
+  [[deprecated]] std::size_t avail()
   {
     int size {serialDataAvail(fd)};
 

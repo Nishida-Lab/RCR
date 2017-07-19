@@ -44,7 +44,7 @@ int main(int argc, char** argv) try
 
   // robocar::sensor_node<char>   sensor {"/dev/ttyACM0", 115200};
   robocar::graph::labeled_tree<std::string, robocar::wiring_serial<char>> sensor {
-    "/dev/ttyACM0", 115200
+    "/dev/ttyACM0", 9600
   };
 
   robocar::camera              camera {640, 480};
@@ -148,6 +148,30 @@ int main(int argc, char** argv) try
   std::cout << std::endl;
 
 
+  while (true)
+  {
+    sensor["distance"]["long"]["south_west"].get();
+    sensor["distance"]["long"][      "west"].get();
+    sensor["distance"]["long"]["north_west"].get();
+    sensor["distance"]["long"]["north"     ].get();
+    sensor["distance"]["long"]["north_east"].get();
+    sensor["distance"]["long"][      "east"].get();
+    sensor["distance"]["long"]["south_east"].get();
+
+    sensor["distance"]["short"]["north_west"].get();
+    sensor["distance"]["short"]["north"     ].get();
+    sensor["distance"]["short"]["north_east"].get();
+
+    sensor["accel"]["x"].get();
+    sensor["accel"]["y"].get();
+    sensor["accel"]["z"].get();
+
+    sensor["angle"]["x"].get();
+    sensor["angle"]["y"].get();
+    sensor["angle"]["z"].get();
+  }
+
+
   for (auto begin = high_resolution_clock::now(), last = high_resolution_clock::now();
        duration_cast<seconds>(last - begin) < seconds {30};
        last = high_resolution_clock::now())
@@ -162,9 +186,9 @@ int main(int argc, char** argv) try
     // std::cout << "[debug] " << direction.normalized() << "\n";
     driver.write(direction.normalized(), 0.18, 0.5);
 
-    std::cout << "\r\e[K[debug] sensor x: " << sensor["accel"]["x"].get() << std::endl;
-    std::cout << "\r\e[K        sensor y: " << sensor["accel"]["y"].get() << std::endl;
-    std::cout << "\r\e[K        angle  z: " << sensor["angle"]["z"].get() << "\e[2A";
+    // std::cout << "\r\e[K[debug] accel x: " << sensor["accel"]["x"].get() << "\n";
+    // std::cout << "\r\e[K        accel y: " << sensor["accel"]["y"].get() << "\n";
+    // std::cout << "\r\e[K        angle z: " << sensor["angle"]["z"].get() << "\e[2A" << std::flush;
   }
 
   driver.write(robocar::vector<double> {0.0, 0.0}, 0.18, 0.3);
