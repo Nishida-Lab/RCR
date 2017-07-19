@@ -14,10 +14,11 @@
 #include <robocar/camera/camera.hpp>
 #include <robocar/driver/driver.hpp>
 #include <robocar/driver/radio_controler.hpp>
-#include <robocar/sensor/sensor_node.hpp>
+#include <robocar/graph/labeled_tree.hpp>
 #include <robocar/sensor/wiring_serial.hpp>
 #include <robocar/vector/vector.hpp>
 #include <robocar/version.hpp>
+// #include <robocar/sensor/sensor_node.hpp>
 
 
 static const robocar::vector<double>
@@ -41,7 +42,11 @@ int main(int argc, char** argv) try
 #endif
 
 
-  robocar::sensor_node<char>   sensor {"/dev/ttyACM0", 115200};
+  // robocar::sensor_node<char>   sensor {"/dev/ttyACM0", 115200};
+  robocar::graph::labeled_tree<std::string, robocar::wiring_serial<char>> sensor {
+    "/dev/ttyACM0", 115200
+  };
+
   robocar::camera              camera {640, 480};
   robocar::differential_driver driver {{35, 38}, {37, 40}};
 

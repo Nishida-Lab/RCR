@@ -19,7 +19,7 @@ template <typename C> using sensor_edge = std::unique_ptr<robocar::sensor_node<C
 
 
 template <typename C>
-class sensor_node
+class [[deprecated]] sensor_node
   : public robocar::wiring_serial<C>,
     public std::unordered_map<std::basic_string<C>, robocar::sensor_edge<C>>
 {
