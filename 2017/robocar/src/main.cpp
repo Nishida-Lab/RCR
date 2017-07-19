@@ -14,12 +14,12 @@
 #include <robocar/camera/camera.hpp>
 #include <robocar/driver/driver.hpp>
 #include <robocar/driver/radio_controler.hpp>
-#include <robocar/graph/labeled_tree.hpp>
 #include <robocar/sensor/wiring_serial.hpp>
 #include <robocar/vector/vector.hpp>
 #include <robocar/version.hpp>
-// #include <robocar/sensor/sensor_node.hpp>
 
+#include <meevax/graph/labeled_tree.hpp>
+#include <meevax/utility/paired_points.hpp>
 
 static const robocar::vector<double>
   north_west {-0.707,  0.707}, north { 0.000,  1.000}, north_east { 0.707,  0.707},
@@ -42,12 +42,8 @@ int main(int argc, char** argv) try
 #endif
 
 
-  // robocar::sensor_node<char>   sensor {"/dev/ttyACM0", 115200};
-  robocar::graph::labeled_tree<std::string, robocar::wiring_serial<char>> sensor {
-    "/dev/ttyACM0", 9600
-  };
-
-  robocar::camera              camera {640, 480};
+  meevax::graph::labeled_tree<std::string, robocar::wiring_serial<char>> sensor {"/dev/ttyACM0", 9600};
+  robocar::camera camera {640, 480};
   robocar::differential_driver driver {{35, 38}, {37, 40}};
 
 
@@ -63,9 +59,9 @@ int main(int argc, char** argv) try
   sensor["distance"]["short"]["north"     ].set(11);
   sensor["distance"]["short"]["north_east"].set(12);
 
-  sensor["accel"]["x"].set(7);
-  sensor["accel"]["y"].set(8);
-  sensor["accel"]["z"].set(9);
+  sensor["position"]["x"].set(7);
+  sensor["position"]["y"].set(8);
+  sensor["position"]["z"].set(9);
 
   sensor["angle"]["x"].set(13);
   sensor["angle"]["y"].set(14);
@@ -82,7 +78,7 @@ int main(int argc, char** argv) try
   };
 
 
-  auto avoid_vector = [&](double range_min, double range_mid, double range_max)
+  auto distract_vector = [&](double range_min, double range_mid, double range_max)
   {
     robocar::vector<double> result {0.0, 0.0};
 
@@ -139,6 +135,32 @@ int main(int argc, char** argv) try
   };
 
 
+  auto attract_vector = [&]()
+  {
+    double current_angle_in_world_coordinate {std::stod(sensor["angle"]["z"].get())};
+
+    robocar::vector<double> current_direction_in_world_coordinate {
+      std::cos(robocar::vector<double>::degree_to_radian(current_angle_in_world_coordinate + 90)),
+      std::sin(robocar::vector<double>::degree_to_radian(current_angle_in_world_coordinate + 90)),
+    };
+
+    robocar::vector<double> target_direction_in_world_coordinate {
+      predefined_field[std::stod(sensor["position"]["y"].get()) / 0.90]
+                      [std::stod(sensor["position"]["x"].get()) / 0.90]
+    };
+
+    double target_angle_in_local_coordinate {robocar::vector<double>::angle(
+      current_direction_in_world_coordinate,
+       target_direction_in_world_coordinate
+    )};
+
+    return robocar::vector<double> {
+      std::cos(robocar::vector<double>::degree_to_radian(target_angle_in_local_coordinate)),
+      std::sin(robocar::vector<double>::degree_to_radian(target_angle_in_local_coordinate)),
+    };
+  };
+
+
   std::cout << "[debug] please wait";
   for (std::size_t count {0}; count < 5; ++count)
   {
@@ -146,30 +168,6 @@ int main(int argc, char** argv) try
     std::this_thread::sleep_for(std::chrono::seconds {1});
   }
   std::cout << std::endl;
-
-
-  while (true)
-  {
-    sensor["distance"]["long"]["south_west"].get();
-    sensor["distance"]["long"][      "west"].get();
-    sensor["distance"]["long"]["north_west"].get();
-    sensor["distance"]["long"]["north"     ].get();
-    sensor["distance"]["long"]["north_east"].get();
-    sensor["distance"]["long"][      "east"].get();
-    sensor["distance"]["long"]["south_east"].get();
-
-    sensor["distance"]["short"]["north_west"].get();
-    sensor["distance"]["short"]["north"     ].get();
-    sensor["distance"]["short"]["north_east"].get();
-
-    sensor["accel"]["x"].get();
-    sensor["accel"]["y"].get();
-    sensor["accel"]["z"].get();
-
-    sensor["angle"]["x"].get();
-    sensor["angle"]["y"].get();
-    sensor["angle"]["z"].get();
-  }
 
 
   for (auto begin = high_resolution_clock::now(), last = high_resolution_clock::now();
@@ -182,7 +180,7 @@ int main(int argc, char** argv) try
     //   poles.empty() ? predefined_filed[sensor["position"]["y"].get()/grid_size][sensor["position"]["x"].get()/grid_size] : poles.front().normalized()
     // };
 
-    robocar::vector<double> direction {avoid_vector(0.03, 0.45, 0.90)};
+    robocar::vector<double> direction {distract_vector(0.03, 0.45, 0.90)};
     // std::cout << "[debug] " << direction.normalized() << "\n";
     driver.write(direction.normalized(), 0.18, 0.5);
 

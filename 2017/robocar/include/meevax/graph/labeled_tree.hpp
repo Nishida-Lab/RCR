@@ -1,5 +1,5 @@
-#ifndef INCLUDED_ROBOCAR_GRAPH_LABELED_TREE_HPP_
-#define INCLUDED_ROBOCAR_GRAPH_LABELED_TREE_HPP_
+#ifndef INCLUDED_MEEVAX_GRAPH_LABELED_TREE_HPP_
+#define INCLUDED_MEEVAX_GRAPH_LABELED_TREE_HPP_
 
 
 #include <memory>
@@ -7,16 +7,16 @@
 #include <utility>
 
 
-namespace robocar { namespace graph {
+namespace meevax { namespace graph {
 
 
 template <typename S, typename T>
 class labeled_tree
   : public T,
-    public std::unordered_map<S, std::unique_ptr<robocar::graph::labeled_tree<S,T>>>
+    public std::unordered_map<S, std::unique_ptr<meevax::graph::labeled_tree<S,T>>>
 {
-  using node_type = robocar::graph::labeled_tree<S,T>;
-  using edge_type = std::unique_ptr<robocar::graph::labeled_tree<S,T>>;
+  using node_type = meevax::graph::labeled_tree<S,T>;
+  using edge_type = std::unique_ptr<meevax::graph::labeled_tree<S,T>>;
 
 public:
   template <typename... Ts>
@@ -36,7 +36,7 @@ public:
 };
 
 
-}} // namespace robocar::graph
+}} // namespace meevax::graph
 
 
 #endif

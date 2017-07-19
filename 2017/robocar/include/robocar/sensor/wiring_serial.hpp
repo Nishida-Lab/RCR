@@ -60,13 +60,9 @@ public:
 
   std::basic_string<C>& get() // TODO IMPLEMENT
   {
-    // flush();
-    // putchar(code_);
-    if (write(fd, &code_, 1) == -1)
-    {
-      std::exit(EXIT_FAILURE);
-    }
+    write(fd, &code_, 1);
     flush();
+
     std::this_thread::sleep_for(std::chrono::milliseconds {1});
 
     static std::basic_string<C> result {};
@@ -82,12 +78,6 @@ public:
         auto time = std::chrono::duration_cast<std::chrono::milliseconds>(last - begin);
         std::cout << "\r\e[K[debug] waiting: " << time.count() << std::flush;
         std::this_thread::sleep_for(std::chrono::milliseconds {1});
-
-        if (1000 < time.count())
-        {
-          result = "timeout!";
-          return result;
-        }
       }
 
       C buffer = static_cast<C>(getchar());
@@ -114,16 +104,7 @@ public:
 
   auto& operator>>(double& rhs)
   {
-    // while ((rhs = std::stod(get())) == -1);
-
-    std::string result {get()};
-    while (result == "timeout!")
-    {
-      result = get();
-    }
-
-    rhs = std::stod(result);
-
+    rhs = std::stod(get());
     return *this;
   }
 
