@@ -162,10 +162,9 @@ int main(int argc, char** argv) try
     // std::cout << "[debug] " << direction.normalized() << "\n";
     driver.write(direction.normalized(), 0.18, 0.5);
 
-    std::cout << "[debug] sensor x: " << sensor["accel"]["x"].get() << std::endl;
-    std::cout << "        sensor y: " << sensor["accel"]["y"].get() << std::endl;
-    std::cout << "        angle  z: " << sensor["angle"]["z"].get() << std::endl
-              << std::endl;
+    std::cout << "\r\e[K[debug] sensor x: " << sensor["accel"]["x"].get() << std::endl;
+    std::cout << "\r\e[K        sensor y: " << sensor["accel"]["y"].get() << std::endl;
+    std::cout << "\r\e[K        angle  z: " << sensor["angle"]["z"].get() << "\e[2A";
   }
 
   driver.write(robocar::vector<double> {0.0, 0.0}, 0.18, 0.3);
