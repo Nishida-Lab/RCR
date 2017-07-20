@@ -23,9 +23,9 @@ int readSensor(int sensor){
   case 5:
   case 6:
     return readAnalog(sensor); //read PSD sensor
-  case 7: return pos.data_x;
-  case 8: return pos.data_y;
-  case 9: return pos.data_z;  //call position or accel
+  case 7: return acc_1.data_x;
+  case 8: return acc_1.data_y;
+  case 9: return acc_1.data_z;  //call position or accel
   case 10:
     answer = vl6180x_NW.readRangeSingleMillimeters(); 
     if(vl6180x_NW.timeoutOccurred()) answer = -1; break;
@@ -137,13 +137,19 @@ void affine(int timing){ //affine transformation
   }  
 }
 
+int timing = 0;
+double acc[3] = {0,0,0};
+double gyro_x = 0, gyro_y = 0, gyro_z = 0;
+double param = 0.97;
+double offset[3] = {0,0,0};
 
 void setup(){
+  int i;
   int count_offset = 0;
   double sum_offset[3] = {0,0,0};
-  double offset[3] = {0,0,0};
+ 
   
-  Serial.begin(115200);
+  Serial.begin(9600);
   Wire.begin();
   //  Serial.println("Wire begin");
   
@@ -213,17 +219,14 @@ void setup(){
   }
 }
 
-int timing = 0;
-double acc[3] = {0,0,0};
-double gyro_x = 0, gyro_y = 0, gyro_z = 0;
-double param = 0.97;
 
 
 void loop(){
   int i;
-  
+  // Serial.println("loop head");
   
   l3gd20.read(); //read Gyro sensor
+  //Serial.println("Gyro read");
   gyro_x = param * gyro_x + (1-param) * l3gd20.data.x; //RC filter
   gyro_y =  param * gyro_y + (1-param) * l3gd20.data.y;
   gyro_z =  param * gyro_z + (1-param) * l3gd20.data.z;
@@ -247,7 +250,7 @@ void loop(){
 
   //  Serial.print(acc[0]); Serial.print(" ");
   //  Serial.print(acc[1]); Serial.print(" ");
-  //  Serial.print(acc[2]); Serial.print(" "); 
+  //  Serial.println(acc[2]);
   
   //  Serial.print(GRAVITY); Serial.print(" ");
   //  Serial.print(acc_0.data_x); Serial.print(" ");
@@ -259,20 +262,26 @@ void loop(){
   //  Serial.println(pos.data_x,10);  
 
   
-  //for(i = 0;i < 7;i++){
-  //  Serial.print(readAnalog(i)); Serial.print(" ");
-  //}Serial.println("");
+  //  for(i = 0;i < 15;i++){
+  //    Serial.print(readAnalog(i)); Serial.print(" ");
+  //  }Serial.println("");
   /*----------------------------------------*/
 
 
 
     int claim = -1;
+    long serial_size = 0;
     if(Serial.available() > 0){
     claim = Serial.read();
-    Serial.println(readSensor(claim), 10);
-    }
+    // Serial.println(claim - '0');
+    serial_size = Serial.println(readSensor(claim), 10);
+    //Serial.println(serial_size);
     Serial.flush();
+    }
+
 
     timing++;
     if(timing > 2) timing = 0;
+
+    //Serial.println("loop end");
 }

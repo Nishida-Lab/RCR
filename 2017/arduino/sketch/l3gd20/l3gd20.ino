@@ -1,5 +1,5 @@
 #include <Wire.h>
-#include <../../libraries/L3GD20/L3GD20.cpp>
+#include "../../libraries/L3GD20/L3GD20.cpp"
 
 L3GD20 l3gd20;
 
@@ -81,7 +81,7 @@ double last_deg_x = 0, last_deg_y = 0 ,last_deg_z = 0;
 double value = 0; 
 
 void setup(){
-  Serial.begin(115200);
+  Serial.begin(9600);
   Wire.begin();
 
 
@@ -99,17 +99,20 @@ void loop(){
   double Avel_x, Avel_y, Avel_z;
   double deg_x,deg_y,deg_z;
 
+  Serial.print("loop head : ");
   l3gd20.read();
+  Serial.print("gyro read : ");
   gyro_x = param * last_gyro_x + (1-param)*l3gd20.data.x;
   last_gyro_x = gyro_x;
   gyro_y = param * last_gyro_y + (1-param)*l3gd20.data.y;
   last_gyro_y = gyro_y;
   gyro_z = param * last_gyro_z + (1-param)*l3gd20.data.z;
   last_gyro_z = gyro_z;
-
-  getGyro(num[tim], gyro_x, gyro_y, gyro_z);
+  Serial.print("RC filter : ");
   
-
+  getGyro(num[tim], gyro_x, gyro_y, gyro_z);
+  Serial.print("set data : ");
+  
   Avel_x = gyro_x * 0.00875; //range 250dps
   //  Avel_x = gyro_x * 0.01750; //range 500dps
   Avel_x = param * last_vel_x + (1-param) * Avel_x;
@@ -127,6 +130,7 @@ void loop(){
 
   getAngularvelocity(num[tim], Avel_x, Avel_y, Avel_z);
 
+  
   deg_x = getIntegral(gyro_0.time, vel_0.x, gyro_1.time, vel_1.x, gyro_2.time, vel_2.x)/(1000*1000);
   deg_x = param * last_deg_x + (1-param) * deg_x;
   last_deg_x = deg_x;
@@ -139,13 +143,20 @@ void loop(){
   deg_z = param * last_deg_z + (1-param) * deg_z;
   last_deg_z = deg_z;
 
+  Serial.print("get integral : ");
+  
   if(abs(deg_z) < 0.001) deg_z = 0;
   value += deg_z*2; 
 
   if(++tim > 2) tim = 0;
 
+  Serial.print(Avel_x, 10); Serial.print(" ");
+  Serial.print(Avel_y, 10); Serial.print(" ");
+  Serial.print(Avel_z, 10); Serial.print(" ");
 
-//Serial.print(gyro_z); Serial.print(" ");
-//Serial.print(Avel_z); Serial.print(" ");
-  Serial.println(value, 10);
+//  Serial.print(gyro_z); Serial.print(" ");
+//  Serial.print(Avel_z); Serial.print(" ");
+//  Serial.println(value, 10);
+
+    Serial.println("loop tale");
 }
