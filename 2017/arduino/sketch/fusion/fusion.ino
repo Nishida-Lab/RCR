@@ -5,7 +5,7 @@
 #include"./GYRO.h"
 
 #define OFFSET_L 200
-#define OFFSET_H 300
+#define OFFSET_H 250
 
 
 VL6180X vl6180x_NW;
@@ -58,12 +58,17 @@ void affine(int timing){ //affine transformation
   deg_y = deg.data_y * PI / 180; 
   deg_z = deg.data_z * PI / 180;
 
+  Serial.print(deg_x); Serial.print(" ");
+  Serial.print(deg_y); Serial.print(" ");
+  Serial.print(deg_z); Serial.print(" ");
+  Serial.print(" : ");
+  
   //rotate transformation matrix
   double affine_x[3][3] = {{1, 0, 0}, {0, cos(deg_x), sin(deg_x)}, {0, -sin(deg_x), cos(deg_x)}};
   double affine_y[3][3] = {{cos(deg_y), 0, -sin(deg_y)}, {0, 1, 0}, {sin(deg_y), 0, cos(deg_y)}};
   double affine_z[3][3] = {{cos(deg_z), sin(deg_z), 0}, {-sin(deg_z), cos(deg_z), 0}, {0, 0, 1}};
 
-
+  
   /*
     double affine_x[3][3] = {{1,0,0},{0,1,0},{0,0,1}}; 
     double affine_y[3][3] = {{0,0,1},{0,1,0},{1,0,0}}; 
@@ -91,14 +96,23 @@ void affine(int timing){ //affine transformation
     break;
   }
 
-  //affine transformation z -> x -> y
+//  Serial.print(global_acc[0]); Serial.print(" ");
+//  Serial.print(global_acc[1]); Serial.print(" ");
+//  Serial.print(global_acc[2]); Serial.print(" ");
+//    Serial.print(" : ");
+
+    //affine transformation z -> x -> y
   for(i = 0;i < 3;i++) {
     for(j = 0;j < 3;j++) buff += global_acc[j] * affine_z[j][i];
     term_z[i] = buff;
     buff = 0;
   }
   for(i = 0;i < 3;i++) global_acc[i] = term_z[i];
-  
+
+//  Serial.print(global_acc[0]); Serial.print(" ");
+//  Serial.print(global_acc[1]); Serial.print(" ");
+//  Serial.print(global_acc[2]); Serial.print(" ");
+//    Serial.print(" : ");
   for(i = 0;i < 3;i++) {
     for(j = 0;j < 3;j++) buff += global_acc[j] * affine_x[j][i];
     term_x[i] = buff;
@@ -106,7 +120,10 @@ void affine(int timing){ //affine transformation
   }
   for(i = 0;i < 3;i++) global_acc[i] = term_x[i];
   
-  
+//  Serial.print(global_acc[0]); Serial.print(" ");
+//  Serial.print(global_acc[1]); Serial.print(" ");
+//  Serial.print(global_acc[2]); Serial.print(" ");
+//    Serial.print(" : ");
   for(i = 0;i < 3;i++) {
     for(j = 0;j < 3;j++) buff += global_acc[j] * affine_y[j][i];
     term_y[i] = buff;
@@ -114,24 +131,27 @@ void affine(int timing){ //affine transformation
   }
   for(i = 0;i < 3;i++) global_acc[i] = term_y[i];
 
+//  Serial.print(global_acc[0]); Serial.print(" ");
+//  Serial.print(global_acc[1]); Serial.print(" ");
+//  Serial.println(global_acc[2]);  
   //set matrix
   switch(timing){
   case 0:
     acc_0.data_x = global_acc[0];
     acc_0.data_y = global_acc[1];
-    acc_0.data_z = global_acc[2] - GRAVITY; //remove gravity
+    acc_0.data_z = global_acc[2]; //remove gravity
     if(abs(acc_0.data_z) < 0.25) acc_0.data_z = 0;
     break;
   case 1:
     acc_1.data_x = global_acc[0];
     acc_1.data_y = global_acc[1];
-    acc_1.data_z = global_acc[2] - GRAVITY;
+    acc_1.data_z = global_acc[2];
     if(abs(acc_1.data_z) < 0.25) acc_1.data_z = 0;
     break;
   case 2:
     acc_2.data_x = global_acc[0];
     acc_2.data_y = global_acc[1];
-    acc_2.data_z = global_acc[2] - GRAVITY;
+    acc_2.data_z = global_acc[2];
     if(abs(acc_1.data_z) < 0.25) acc_1.data_z = 0;
     break;
   }  
@@ -146,8 +166,8 @@ double offset[3] = {0,0,0};
 void setup(){
   int i;
   int count_offset = 0;
-  double sum_offset[3] = {0,0,0};
- 
+  long sum_offset[3] = {0,0,0};
+  
   
   Serial.begin(9600);
   Wire.begin();
@@ -204,16 +224,12 @@ void setup(){
     acc[2] = param * acc[2] + (1-param) * readAnalog(ACC_Z);
 
     if(OFFSET_L < count_offset && count_offset <= OFFSET_H){
-      for(i = 0;i < 3;i++)  sum_offset[i] += acc[i];
+      for(i = 0;i < 3;i++)sum_offset[i] += acc[i];
     }
     
     offset[0] = 4.9 * sum_offset[0]/(OFFSET_H - OFFSET_L);
     offset[1] = 4.9 * sum_offset[1]/(OFFSET_H - OFFSET_L);
-    offset[2] = (4.9 * sum_offset[2] / (OFFSET_H - OFFSET_L));
-
-    //Serial.print(offset[0],10); Serial.print(" ");
-    //Serial.print(offset[1],10); Serial.print(" ");
-    //Serial.println(offset[2],10);
+    offset[2] = (4.9 * sum_offset[2] / (OFFSET_H - OFFSET_L)) -1000;
 
     count_offset++;
   }
@@ -223,31 +239,47 @@ void setup(){
 
 void loop(){
   int i;
+  unsigned long time;
   // Serial.println("loop head");
   
   l3gd20.read(); //read Gyro sensor
+  acc[0] = param * acc[0] + (1-param) * readAnalog(ACC_X); //RC filter
+  acc[1] = param * acc[1] + (1-param) * readAnalog(ACC_Y);
+  acc[2] = param * acc[2] + (1-param) * readAnalog(ACC_Z);
+  
+  time = micros();
+
   //Serial.println("Gyro read");
   gyro_x = param * gyro_x + (1-param) * l3gd20.data.x; //RC filter
   gyro_y =  param * gyro_y + (1-param) * l3gd20.data.y;
   gyro_z =  param * gyro_z + (1-param) * l3gd20.data.z;
-  getGyro(timing, gyro_x, gyro_y, gyro_z); //get degree velocity
+  getGyro(timing, time, gyro_x, gyro_y, gyro_z); //get degree velocity
   getDeg(); //get degree
-  
-  acc[0] = param * acc[0] + (1-param) * readAnalog(ACC_X); //RC filter
-  acc[1] = param * acc[1] + (1-param) * readAnalog(ACC_Y);
-  acc[2] = param * acc[2] + (1-param) * readAnalog(ACC_Z);
  
-  getAcc(timing, acc[0], offset[0], acc[1], offset[1], acc[2], offset[2]); //get accelaration
-  affine(timing); //affine transformation
+  getAcc(timing, time, acc[0], offset[0], acc[1], offset[1], acc[2], offset[2]); //get accelaration
+  //  affine(timing); //affine transformation
   getVel(timing); //get velocity
   getPos(); //get position
 
 
   /*--------------Debug--------------------*/
+  Serial.print(time, 10); Serial.print(" ");
+  Serial.print(acc_0.time,10); Serial.print(" "); 
+  Serial.print(acc_1.time,10); Serial.print(" ");
+  Serial.println(acc_2.time,10);
+  
+  //  Serial.print(gyro_x,10); Serial.print(" "); 
+  //  Serial.print(gyro_y,10); Serial.print(" ");
+  //  Serial.println(gyro_z,10);
+  
   //  Serial.print(deg.data_x,10); Serial.print(" ");
   //  Serial.print(deg.data_y,10); Serial.print(" ");
-  //  Serial.print(deg.data_z,10); Serial.print("\n");
-
+  //  Serial.println(deg.data_z,10);
+  
+  //  Serial.print(acc[0]); Serial.print(" ");
+  //  Serial.print(acc[1]); Serial.print(" ");
+  //  Serial.println(acc[2]);
+  
   //  Serial.print(acc[0]); Serial.print(" ");
   //  Serial.print(acc[1]); Serial.print(" ");
   //  Serial.println(acc[2]);
@@ -262,22 +294,22 @@ void loop(){
   //  Serial.println(pos.data_x,10);  
 
   
-  //  for(i = 0;i < 15;i++){
+  //  for(i = 0;i < 10;i++){
   //    Serial.print(readAnalog(i)); Serial.print(" ");
   //  }Serial.println("");
   /*----------------------------------------*/
 
 
 
-    int claim = -1;
-    long serial_size = 0;
-    if(Serial.available() > 0){
-    claim = Serial.read();
-    // Serial.println(claim - '0');
-    serial_size = Serial.println(readSensor(claim), 10);
-    //Serial.println(serial_size);
-    Serial.flush();
-    }
+  //  int claim = -1;
+  //  long serial_size = 0;
+  //  if(Serial.available() > 0){
+  //  claim = Serial.read();
+  //  // Serial.println(claim - '0');
+  //  serial_size = Serial.println(readSensor(claim), 10);
+  //  //Serial.println(serial_size);
+  //  Serial.flush();
+  //  }
 
 
     timing++;

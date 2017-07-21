@@ -4,24 +4,24 @@
 L3GD20 l3gd20;
 DATA gyro_0,gyro_1,gyro_2,deg;
 
-void getGyro(int num, double data_x, double data_y, double data_z){
+void getGyro(int num, unsigned long time, double data_x, double data_y, double data_z){
   double k = 0.00875;  //range 250dps
   //double k = 0.0175; //range 500dps
   switch(num){
   case 0:
-    gyro_0.time = micros();
+    gyro_0.time = time;
     gyro_0.data_x = data_x*k;
     gyro_0.data_y = data_y*k;
     gyro_0.data_z = data_z*k;
     
   case 1:
-    gyro_1.time = micros();
+    gyro_1.time = time;
     gyro_1.data_x = data_x*k;
     gyro_1.data_y = data_y*k;
     gyro_1.data_z = data_z*k;
 
   case 2:
-    gyro_2.time = micros();
+    gyro_2.time = time;
     gyro_2.data_x = data_x*k;
     gyro_2.data_y = data_y*k;
     gyro_2.data_z = data_z*k;
