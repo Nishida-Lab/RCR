@@ -18,6 +18,8 @@
 #include <robocar/vector/vector.hpp>
 #include <robocar/version.hpp>
 
+#include <robocar/chrono/time_limited_for.hpp>
+
 #include <meevax/graph/labeled_tree.hpp>
 #include <meevax/utility/renamed_pair.hpp>
 
@@ -160,9 +162,10 @@ int main(int argc, char** argv) try
   std::cout << std::endl;
 
 
-  for (auto begin = std::chrono::high_resolution_clock::now(), last = std::chrono::high_resolution_clock::now();
-       std::chrono::duration_cast<std::chrono::seconds>(last - begin) < std::chrono::seconds {60};
-       last = std::chrono::high_resolution_clock::now())
+  // for (auto begin = std::chrono::high_resolution_clock::now(), last = std::chrono::high_resolution_clock::now();
+  //      std::chrono::duration_cast<std::chrono::seconds>(last - begin) < std::chrono::seconds {60};
+  //      last = std::chrono::high_resolution_clock::now())
+  robocar::chrono::for_duration(std::chrono::seconds {60}, [&](auto&& elapsed, auto&& duration)
   {
     decltype(camera.search<double>()) poles {};
 
@@ -192,7 +195,7 @@ int main(int argc, char** argv) try
     else { std::cout << "empty\n"; }
 
     std::cout << "\r\e[K         direction: " <<  direction << "\e[3A" << std::flush;
-  }
+  });
 
   driver.write(robocar::vector<double> {0.0, 0.0}, 0.18, 0.0);
 
