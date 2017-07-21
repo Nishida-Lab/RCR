@@ -17,6 +17,7 @@
 #include <robocar/driver/radio_controller.hpp>
 #include <robocar/graph/labeled_tree.hpp>
 #include <robocar/sensor/wiring_serial.hpp>
+#include <robocar/string/runtime_typename.hpp>
 #include <robocar/utility/renamed_pair.hpp>
 #include <robocar/vector/vector.hpp>
 #include <robocar/version.hpp>

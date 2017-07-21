@@ -10,7 +10,7 @@ version ${PROJECT_VERSION} in development
 - OpenCV 3.2.0
 
 
-### robocar::chrono::for_duration
+### for_duration (include/robocar/chrono/for_duration.hpp)
 
 テンプレート関数．一定時間ループを回したい時にどうぞ．<br>
 第一引数に時間（`std::chrono::seconds`など），第二引数にファンクタを取ります．<br>
@@ -27,4 +27,9 @@ robocar::chrono::for_duration(std::chrono::seconds {5}, [](auto&& elapsed, auto&
   std::this_thread::sleep_for(std::chrono::seconds {1});
 });
 ```
+
+### runtime_typename (include/robocar/string/runtime_typename.hpp)
+
+テンプレート関数．引数として与えられたオブジェクトの型名を`std::string`型のオブジェクトで返します．<br>
+主にデバッグ用です．テンプレートメタプログラミング等で実行時の型名が知りたい時にどうぞ．<br>
 
