@@ -216,23 +216,23 @@ int main(int argc, char** argv) try
   return 0;
 }
 
-catch (std::logic_error& error)
+catch (std::system_error& error)
 {
-  std::cerr << "[error] logic_error: " << error.what() << std::endl;
+  std::cerr << "[error] system error occurred\n"
+            << "        code: " << error.code().value() << " - " << error.code().message() << std::endl;
   std::exit(EXIT_FAILURE);
 }
 
-catch (std::system_error& error)
+catch (std::exception& error)
 {
-  std::cerr << "[error] code: " << error.code().value() << " - " << error.code().message() << std::endl;
+  std::cerr << "[error] caught standard exception - " << error.what() << std::endl;
   std::exit(EXIT_FAILURE);
 }
 
 catch (...)
 {
-  std::cerr << "[fatal] An unexpected error occurred. Report the following output to the developer.\n"
-            << "        error: " << errno << " - " << std::strerror(errno) << std::endl;
-
+  std::cerr << "[fatal] unexpected error occurred. report this to the developer.\n"
+            << "        errno: " << errno << " - " << std::strerror(errno) << std::endl;
   std::exit(EXIT_FAILURE);
 }
 
