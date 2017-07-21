@@ -19,30 +19,30 @@
 #include <robocar/version.hpp>
 
 #include <meevax/graph/labeled_tree.hpp>
-#include <meevax/utility/paired_points.hpp>
+#include <meevax/utility/renamed_pair.hpp>
+
 
 static const robocar::vector<double>
   north_west {-0.707,  0.707}, north { 0.000,  1.000}, north_east { 0.707,  0.707},
         west {-1.000,  0.000},                               east { 1.000,  0.000},
   south_west {-0.707, -0.707}, south { 0.000, -1.000}, south_east { 0.707, -0.707};
 
+static const std::vector<std::vector<robocar::vector<double>>> predefined_field {
+  {      east,       east,       east,       east,       east, south     },
+  {north     , south     , south     , south     , south     , south_west},
+  {north     , south     , south     , south     , south_west,       west},
+  {north     , south     , south     , south_west,       west,       west},
+  {north     , south     , south_west,       west,       west,       west},
+  {north     ,       west,       west,       west,       west,       west}
+};
+
 
 int main(int argc, char** argv) try
 {
-  using std::chrono::duration_cast;
-  using std::chrono::high_resolution_clock;
+  meevax::graph::labeled_tree<
+    std::string, robocar::wiring_serial<char>
+  > sensor {"/dev/ttyACM0", 9600};
 
-  using std::chrono::seconds;
-  using std::chrono::milliseconds;
-  using std::chrono::microseconds;
-
-#ifndef NDEBUG
-  std::cout << "[debug] project version: " << project_version.data() << " (" << cmake_build_type.data() << ")\n";
-  std::cout << "[debug]   boost version: " <<   boost_version.data() << "\n\n";
-#endif
-
-
-  meevax::graph::labeled_tree<std::string, robocar::wiring_serial<char>> sensor {"/dev/ttyACM0", 9600};
   robocar::camera camera {640, 480};
   robocar::differential_driver driver {{35, 38}, {37, 40}};
 
@@ -66,16 +66,6 @@ int main(int argc, char** argv) try
   sensor["angle"]["x"].set(13);
   sensor["angle"]["y"].set(14);
   sensor["angle"]["z"].set(15);
-
-
-  const std::vector<std::vector<robocar::vector<double>>> predefined_field {
-    {      east,       east,       east,       east,       east, south     },
-    {north     , south     , south     , south     , south     , south_west},
-    {north     , south     , south     , south     , south_west,       west},
-    {north     , south     , south     , south_west,       west,       west},
-    {north     , south     , south_west,       west,       west,       west},
-    {north     ,       west,       west,       west,       west,       west}
-  };
 
 
   auto distract_vector = [&](double range_min, double range_mid, double range_max)
@@ -170,9 +160,9 @@ int main(int argc, char** argv) try
   std::cout << std::endl;
 
 
-  for (auto begin = high_resolution_clock::now(), last = high_resolution_clock::now();
-       duration_cast<seconds>(last - begin) < seconds {60};
-       last = high_resolution_clock::now())
+  for (auto begin = std::chrono::high_resolution_clock::now(), last = std::chrono::high_resolution_clock::now();
+       std::chrono::duration_cast<std::chrono::seconds>(last - begin) < std::chrono::seconds {60};
+       last = std::chrono::high_resolution_clock::now())
   {
     decltype(camera.search<double>()) poles {};
 
@@ -184,7 +174,6 @@ int main(int argc, char** argv) try
 
     // robocar::vector<double> fuga {attract_vector().normalized()};
     robocar::vector<double> attractor {0.0, 0.0};
-    // attractor.normalized();
 
     // snapshot.join();
 
@@ -199,19 +188,13 @@ int main(int argc, char** argv) try
               << "\r\e[K         attractor: " <<  attractor << "\n"
               << "\e\r[K        red object: ";
 
-    if (!poles.empty())
-    {
-      std::cout << poles.front().normalized() << "\n";
-    }
-    else
-    {
-      std::cout << "empty\n";
-    }
+    if (!poles.empty()) { std::cout << poles.front().normalized() << "\n"; }
+    else { std::cout << "empty\n"; }
 
     std::cout << "\r\e[K         direction: " <<  direction << "\e[3A" << std::flush;
   }
 
-  driver.write(robocar::vector<double> {0.0, 0.0}, 0.18, 0.3);
+  driver.write(robocar::vector<double> {0.0, 0.0}, 0.18, 0.0);
 
   return 0;
 }
