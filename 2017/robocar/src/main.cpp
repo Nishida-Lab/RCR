@@ -161,24 +161,45 @@ int main(int argc, char** argv) try
 
   robocar::chrono::for_duration(std::chrono::seconds {60}, [&](auto&& elapsed, auto&& duration)
   {
-    decltype(camera.search<double>()) poles {};
+    // decltype(camera.search<double>()) poles {};
 
-    // std::thread snapshot {[&]() -> void {
-      poles = camera.search<double>();
-    // }};
+    static std::vector<
+      std::pair<
+        robocar::vector<double>,
+        decltype(std::chrono::high_resolution_clock::now())
+      >
+    > history {};
+
+    auto poles = camera.search<double>();
 
     robocar::vector<double> distractor {distract_vector(0.03, 0.45, 0.90).normalized()};
 
     // robocar::vector<double> fuga {attract_vector().normalized()};
     robocar::vector<double> attractor {0.0, 0.0};
 
-    // snapshot.join();
 
     robocar::vector<double> direction {
       distractor + (poles.empty() ? attractor : poles.front().normalized())
     };
 
+    auto now = std::chrono::high_resolution_clock::now();
+
+    history.erase(
+      std::remove_if(std::begin(history), std::end(history), [&](auto& his) {
+        auto t = std::chrono::duration_cast<std::chrono::milliseconds>(now - his.second);
+        return std::exp(-t.count() * 0.001) < 0.01;
+      }),
+      std::end(history)
+    );
+
+    for (const auto& his : history)
+    {
+      auto t = std::chrono::duration_cast<std::chrono::milliseconds>(now - his.second);
+      direction += his.first * std::exp(-t.count() * 0.001);
+    }
+
     driver.write(direction.normalized(), 0.18, 0.5);
+    history.emplace_back(direction, now);
 
     std::cout << std::fixed << std::showpos << std::setprecision(3)
               << "\r\e[K[debug] distractor: " << distractor << "\n"
@@ -188,7 +209,7 @@ int main(int argc, char** argv) try
     if (!poles.empty()) { std::cout << poles.front().normalized() << "\n"; }
     else { std::cout << "empty\n"; }
 
-    std::cout << "\r\e[K         direction: " <<  direction << "\e[3A" << std::flush;
+    std::cout << "\r\e[K         direction: " <<  direction << " (" << history.size() << ")\e[3A" << std::flush;
   });
 
   driver.write(robocar::vector<double> {0.0, 0.0}, 0.18, 0.0);
