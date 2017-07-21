@@ -5,8 +5,8 @@
 #include"./GYRO.h"
 
 #define OFFSET_L 200
-#define OFFSET_H 250
-
+#define OFFSET_H 300
+#define OFFSET_TIME 20000
 
 VL6180X vl6180x_NW;
 VL6180X vl6180x_N;
@@ -134,6 +134,7 @@ void affine(int timing){ //affine transformation
 //  Serial.print(global_acc[0]); Serial.print(" ");
 //  Serial.print(global_acc[1]); Serial.print(" ");
 //  Serial.println(global_acc[2]);  
+
   //set matrix
   switch(timing){
   case 0:
@@ -162,11 +163,13 @@ double acc[3] = {0,0,0};
 double gyro_x = 0, gyro_y = 0, gyro_z = 0;
 double param = 0.97;
 double offset[3] = {0,0,0};
+double offset_gyro[3] = {0,0,0};
 
 void setup(){
   int i;
   int count_offset = 0;
   long sum_offset[3] = {0,0,0};
+  double sum_gyro[3] = {0,0,0};
   
   
   Serial.begin(9600);
@@ -218,19 +221,35 @@ void setup(){
   //Serial.println("All Setup complete");
 
 
-    while(millis() < 3000){//auto offset
+    while(millis() < OFFSET_TIME){//auto offset
     acc[0] = param * acc[0] + (1-param) * readAnalog(ACC_X);
     acc[1] = param * acc[1] + (1-param) * readAnalog(ACC_Y);
     acc[2] = param * acc[2] + (1-param) * readAnalog(ACC_Z);
-
+ 
+    l3gd20.read();
+    gyro_x = param*gyro_x + (1-param)*l3gd20.data.x; 
+    gyro_y = param*gyro_y + (1-param)*l3gd20.data.y; 
+    gyro_z = param*gyro_z + (1-param)*l3gd20.data.z; 
+ 
     if(OFFSET_L < count_offset && count_offset <= OFFSET_H){
-      for(i = 0;i < 3;i++)sum_offset[i] += acc[i];
+      for(i = 0;i < 3;i++) sum_offset[i] += acc[i];
+      sum_gyro[0] += gyro_x; 
+      sum_gyro[1] += gyro_y; 
+      sum_gyro[2] += gyro_z; 
     }
     
     offset[0] = 4.9 * sum_offset[0]/(OFFSET_H - OFFSET_L);
     offset[1] = 4.9 * sum_offset[1]/(OFFSET_H - OFFSET_L);
     offset[2] = (4.9 * sum_offset[2] / (OFFSET_H - OFFSET_L)) -1000;
+ 
+    offset_gyro[0] = sum_gyro[0]/(OFFSET_H - OFFSET_L); 
+    offset_gyro[1] = sum_gyro[1]/(OFFSET_H - OFFSET_L); 
+    offset_gyro[2] = sum_gyro[2]/(OFFSET_H - OFFSET_L); 
 
+//    Serial.print(offset_gyro[0],10); Serial.print(" "); 
+//    Serial.print(offset_gyro[1],10); Serial.print(" ");
+//    Serial.println(offset_gyro[2],10);
+  
     count_offset++;
   }
 }
@@ -251,9 +270,10 @@ void loop(){
 
   //Serial.println("Gyro read");
   gyro_x = param * gyro_x + (1-param) * l3gd20.data.x; //RC filter
-  gyro_y =  param * gyro_y + (1-param) * l3gd20.data.y;
-  gyro_z =  param * gyro_z + (1-param) * l3gd20.data.z;
-  getGyro(timing, time, gyro_x, gyro_y, gyro_z); //get degree velocity
+  gyro_y = param * gyro_y + (1-param) * l3gd20.data.y;
+  gyro_z = param * gyro_z + (1-param) * l3gd20.data.z;
+  
+  getGyro(timing, time, gyro_x, gyro_y, gyro_z, offset_gyro[0], offset_gyro[1], offset_gyro[2]); //get degree velocity
   getDeg(); //get degree
  
   getAcc(timing, time, acc[0], offset[0], acc[1], offset[1], acc[2], offset[2]); //get accelaration
@@ -263,23 +283,27 @@ void loop(){
 
 
   /*--------------Debug--------------------*/
-  Serial.print(time, 10); Serial.print(" ");
-  Serial.print(acc_0.time,10); Serial.print(" "); 
-  Serial.print(acc_1.time,10); Serial.print(" ");
-  Serial.println(acc_2.time,10);
+  //  Serial.print(time, 10); Serial.print(" ");
+  //  Serial.print(acc_0.time,10); Serial.print(" "); 
+  //  Serial.print(acc_1.time,10); Serial.print(" ");
+  //  Serial.println(acc_2.time,10);
   
   //  Serial.print(gyro_x,10); Serial.print(" "); 
   //  Serial.print(gyro_y,10); Serial.print(" ");
   //  Serial.println(gyro_z,10);
   
-  //  Serial.print(deg.data_x,10); Serial.print(" ");
-  //  Serial.print(deg.data_y,10); Serial.print(" ");
-  //  Serial.println(deg.data_z,10);
+  //  Serial.print(offset_gyro[0]*0.00875,10); Serial.print(" "); 
+  //  Serial.print(offset_gyro[1]*0.00875,10); Serial.print(" ");
+  //  Serial.print(offset_gyro[2]*0.00875,10); Serial.print(" ");
   
-  //  Serial.print(acc[0]); Serial.print(" ");
-  //  Serial.print(acc[1]); Serial.print(" ");
-  //  Serial.println(acc[2]);
+  //  Serial.print(gyro_0.data_x,10); Serial.print(" "); 
+  //  Serial.print(gyro_0.data_y,10); Serial.print(" ");
+  //  Serial.println(gyro_0.data_z,10);
   
+  Serial.print(deg.data_x,10); Serial.print(" ");
+  Serial.print(deg.data_y,10); Serial.print(" ");
+  Serial.println(deg.data_z,10);
+    
   //  Serial.print(acc[0]); Serial.print(" ");
   //  Serial.print(acc[1]); Serial.print(" ");
   //  Serial.println(acc[2]);
