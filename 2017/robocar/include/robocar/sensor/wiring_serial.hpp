@@ -63,24 +63,19 @@ public:
     write(fd, &code_, 1);
     flush();
 
-    std::this_thread::sleep_for(std::chrono::milliseconds {1});
+    std::this_thread::sleep_for(std::chrono::microseconds {100});
 
     static std::basic_string<C> result {};
     result.clear();
 
     while (true)
     {
-      for (auto begin = std::chrono::high_resolution_clock::now(),
-                 last = std::chrono::high_resolution_clock::now();
-           serialDataAvail(fd) == 0;
-           last = std::chrono::high_resolution_clock::now())
+      while (serialDataAvail(fd) == 0)
       {
-        // auto time = std::chrono::duration_cast<std::chrono::milliseconds>(last - begin);
-        // std::cout << "\r\e[K[debug] waiting: " << time.count() << std::flush;
         std::this_thread::sleep_for(std::chrono::microseconds {100});
       }
 
-      C buffer = static_cast<C>(getchar());
+      auto buffer = static_cast<C>(getchar());
 
       if (buffer != '\n')
       {
