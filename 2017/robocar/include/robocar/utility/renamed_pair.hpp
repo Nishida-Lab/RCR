@@ -16,7 +16,7 @@ public:                                                     \
   U& SECOND;                                                \
                                                             \
   template <typename... Ts>                                 \
-  explicit NAME(Ts&&... args)                               \
+  explicit constexpr NAME(Ts&&... args)                     \
     : std::pair<T,U> {std::forward<Ts>(args)...},           \
       FIRST  {(*this).first},                               \
       SECOND {(*this).second}                               \

@@ -12,7 +12,6 @@
 #include <raspicam/raspicam_cv.h>
 #include <opencv2/imgproc/imgproc.hpp>
 
-// #include <robocar/camera/color_range.hpp>
 #include <robocar/vector/vector.hpp>
 #include <robocar/utility/renamed_pair.hpp>
 
@@ -25,16 +24,17 @@ class camera
 {
   cv::Mat3b image_;
 
-  const std::size_t width_, height_;
+public:
+  static constexpr robocar::utility::renamed_pair::area<std::size_t> size_max {2592, 1944};
+         const     robocar::utility::renamed_pair::area<std::size_t> size;
 
 public:
-  camera(std::size_t width = 2592, std::size_t height = 1944)
+  camera(std::size_t width = size_max.width, std::size_t height = size_max.height)
     : raspicam::RaspiCam_Cv {},
-      width_  {width},
-      height_ {height}
+      size {width, height}
   {
-    set(CV_CAP_PROP_FRAME_WIDTH, width_);
-    set(CV_CAP_PROP_FRAME_HEIGHT, height_);
+    set(CV_CAP_PROP_FRAME_WIDTH,  size.width);
+    set(CV_CAP_PROP_FRAME_HEIGHT, size.height);
 
     if (!open())
     {
@@ -108,8 +108,8 @@ public:
 
     for (const auto& p : find())
     {
-      int x_pixel {static_cast<int>(p.first) - static_cast<int>(width_ / 2)};
-      T x_ratio {static_cast<double>(x_pixel) / static_cast<double>(width_ / 2)};
+      int x_pixel {static_cast<int>(p.first) - static_cast<int>(size.width / 2)};
+      T x_ratio {static_cast<double>(x_pixel) / static_cast<double>(size.width / 2)};
 
       poles.emplace_back(x_ratio, std::pow(static_cast<double>(1.0) - std::pow(x_ratio, 2.0), 0.5));
     }
