@@ -12,13 +12,12 @@
 #include <vector>
 
 #include <robocar/camera/camera.hpp>
+#include <robocar/chrono/for_duration.hpp>
 #include <robocar/driver/driver.hpp>
 #include <robocar/driver/radio_controler.hpp>
 #include <robocar/sensor/wiring_serial.hpp>
 #include <robocar/vector/vector.hpp>
 #include <robocar/version.hpp>
-
-#include <robocar/chrono/time_limited_for.hpp>
 
 #include <meevax/graph/labeled_tree.hpp>
 #include <meevax/utility/renamed_pair.hpp>
@@ -153,18 +152,13 @@ int main(int argc, char** argv) try
   };
 
 
-  std::cout << "[debug] please wait";
-  for (std::size_t count {0}; count < 5; ++count)
+  robocar::chrono::for_duration(std::chrono::seconds {5}, [](auto&& elapsed, auto&& duration)
   {
-    std::cout << "." << std::flush;
+    std::cout << "\r\e[K[debug] please wait for " << duration.count() - elapsed.count() << " sec" << std::flush;
     std::this_thread::sleep_for(std::chrono::seconds {1});
-  }
-  std::cout << std::endl;
+  });
 
 
-  // for (auto begin = std::chrono::high_resolution_clock::now(), last = std::chrono::high_resolution_clock::now();
-  //      std::chrono::duration_cast<std::chrono::seconds>(last - begin) < std::chrono::seconds {60};
-  //      last = std::chrono::high_resolution_clock::now())
   robocar::chrono::for_duration(std::chrono::seconds {60}, [&](auto&& elapsed, auto&& duration)
   {
     decltype(camera.search<double>()) poles {};
