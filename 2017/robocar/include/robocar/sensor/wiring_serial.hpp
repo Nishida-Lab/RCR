@@ -75,9 +75,9 @@ public:
            serialDataAvail(fd) == 0;
            last = std::chrono::high_resolution_clock::now())
       {
-        auto time = std::chrono::duration_cast<std::chrono::milliseconds>(last - begin);
-        std::cout << "\r\e[K[debug] waiting: " << time.count() << std::flush;
-        std::this_thread::sleep_for(std::chrono::milliseconds {1});
+        // auto time = std::chrono::duration_cast<std::chrono::milliseconds>(last - begin);
+        // std::cout << "\r\e[K[debug] waiting: " << time.count() << std::flush;
+        std::this_thread::sleep_for(std::chrono::microseconds {100});
       }
 
       C buffer = static_cast<C>(getchar());
@@ -88,10 +88,6 @@ public:
       }
       else break;
     }
-
-    flush();
-
-    std::cout << result << std::flush;
 
     return result;
   }

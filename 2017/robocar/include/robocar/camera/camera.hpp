@@ -57,7 +57,7 @@ public:
   {
     grab();
     retrieve(image_);
-    image_ = cv::Mat3b {image_, cv::Rect {0, static_cast<int>(height_ * 0.5), static_cast<int>(width_), static_cast<int>(height_ * 0.5)}};
+    // image_ = cv::Mat3b {image_, cv::Rect {0, static_cast<int>(height_ * 0.5), static_cast<int>(width_), static_cast<int>(height_ * 0.5)}};
   }
 
   // void debug(const std::string& prefix = "debug_")
@@ -145,8 +145,8 @@ private:
   {
     static cv::Mat1b mask1 {}, mask2 {};
 
-    cv::inRange(hsv, cv::Scalar {  0, 170, 70}, cv::Scalar { 10, 255, 255}, mask1);
-    cv::inRange(hsv, cv::Scalar {170, 170, 70}, cv::Scalar {179, 255, 255}, mask2);
+    cv::inRange(hsv, cv::Scalar {  0, 170, 70}, cv::Scalar { 20, 255, 255}, mask1);
+    cv::inRange(hsv, cv::Scalar {160, 170, 70}, cv::Scalar {179, 255, 255}, mask2);
 
     return cv::Mat1b {mask1 | mask2};
   }

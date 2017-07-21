@@ -171,25 +171,44 @@ int main(int argc, char** argv) try
 
 
   for (auto begin = high_resolution_clock::now(), last = high_resolution_clock::now();
-       duration_cast<seconds>(last - begin) < seconds {30};
+       duration_cast<seconds>(last - begin) < seconds {60};
        last = high_resolution_clock::now())
   {
-    static decltype(camera.search<double>()) poles {};
+    decltype(camera.search<double>()) poles {};
 
-    std::thread snapshot {[&]() {
+    // std::thread snapshot {[&]() -> void {
       poles = camera.search<double>();
-    }};
+    // }};
 
-    robocar::vector<double> hoge {distract_vector(0.03, 0.45, 0.90).normalized()};
-    robocar::vector<double> fuga {attract_vector().normalized()};
+    robocar::vector<double> distractor {distract_vector(0.03, 0.45, 0.90).normalized()};
 
-    snapshot.join();
+    // robocar::vector<double> fuga {attract_vector().normalized()};
+    robocar::vector<double> attractor {0.0, 0.0};
+    // attractor.normalized();
+
+    // snapshot.join();
 
     robocar::vector<double> direction {
-      hoge + (poles.empty() ? fuga : poles.front().normalized())
+      distractor + (poles.empty() ? attractor : poles.front().normalized())
     };
 
     driver.write(direction.normalized(), 0.18, 0.5);
+
+    std::cout << std::fixed << std::showpos << std::setprecision(3)
+              << "\r\e[K[debug] distractor: " << distractor << "\n"
+              << "\r\e[K         attractor: " <<  attractor << "\n"
+              << "\e\r[K        red object: ";
+
+    if (!poles.empty())
+    {
+      std::cout << poles.front().normalized() << "\n";
+    }
+    else
+    {
+      std::cout << "empty\n";
+    }
+
+    std::cout << "\r\e[K         direction: " <<  direction << "\e[3A" << std::flush;
   }
 
   driver.write(robocar::vector<double> {0.0, 0.0}, 0.18, 0.3);
