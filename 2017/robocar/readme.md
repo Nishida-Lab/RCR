@@ -30,5 +30,6 @@ robocar::chrono::for_duration(std::chrono::seconds {5}, [](auto&& elapsed, auto&
 
 ### runtime_typename (include/robocar/string/runtime_typename.hpp)
 
-テンプレート関数．引数として与えられたオブジェクトの
+テンプレート関数．引数として与えられたオブジェクトの型名を`std::string`型のオブジェクトで返します．<br>
+主にデバッグ用です．テンプレートメタプログラミング等で実行時の型名が知りたい時にどうぞ．<br>
 
