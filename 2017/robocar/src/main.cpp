@@ -14,13 +14,12 @@
 #include <robocar/camera/camera.hpp>
 #include <robocar/chrono/for_duration.hpp>
 #include <robocar/driver/driver.hpp>
-#include <robocar/driver/radio_controler.hpp>
+#include <robocar/driver/radio_controller.hpp>
+#include <robocar/graph/labeled_tree.hpp>
 #include <robocar/sensor/wiring_serial.hpp>
+#include <robocar/utility/renamed_pair.hpp>
 #include <robocar/vector/vector.hpp>
 #include <robocar/version.hpp>
-
-#include <meevax/graph/labeled_tree.hpp>
-#include <meevax/utility/renamed_pair.hpp>
 
 
 static const robocar::vector<double>
@@ -40,7 +39,7 @@ static const std::vector<std::vector<robocar::vector<double>>> predefined_field 
 
 int main(int argc, char** argv) try
 {
-  meevax::graph::labeled_tree<
+  robocar::graph::labeled_tree<
     std::string, robocar::wiring_serial<char>
   > sensor {"/dev/ttyACM0", 9600};
 
@@ -70,10 +69,10 @@ int main(int argc, char** argv) try
 
 
   auto distract_vector = [&](double range_min, double range_mid, double range_max)
-  {
+  { // TODO OPTIMIZE
     robocar::vector<double> result {0.0, 0.0};
 
-    const std::unordered_map<std::string, robocar::vector<double>> nearest_neighbor {
+    static const std::unordered_map<std::string, robocar::vector<double>> nearest_neighbor {
       {"north_west", { 0.707, -0.707}}, {"north", { 0.000, -1.000}}, {"north_east", {-0.707, -0.707}},
       {      "west", { 1.000,  0.000}},                              {      "east", {-1.000,  0.000}},
       {"south_west", { 0.707,  0.707}}, {"south", { 0.000,  1.000}}, {"south_east", {-0.707,  0.707}}
@@ -127,7 +126,7 @@ int main(int argc, char** argv) try
 
 
   auto attract_vector = [&]()
-  {
+  { // TODO OPTIMIZE
     double current_angle_in_world_coordinate {std::stod(sensor["angle"]["z"].get())};
 
     robocar::vector<double> current_direction_in_world_coordinate {
