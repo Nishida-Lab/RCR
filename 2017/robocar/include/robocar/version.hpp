@@ -1,5 +1,5 @@
-#ifndef INCLUDED_ROBOCAR_2017_VERSION_HPP_
-#define INCLUDED_ROBOCAR_2017_VERSION_HPP_
+#ifndef INCLUDED_ROBOCAR_VERSION_HPP_
+#define INCLUDED_ROBOCAR_VERSION_HPP_
 
 
 #include <string>
@@ -19,6 +19,9 @@ const std::string boost_minor_version {std::to_string(BOOST_VERSION / 100 % 1000
 const std::string boost_patch_version {std::to_string(BOOST_VERSION % 100)};
 
 const std::string boost_version {boost_major_version + "." + boost_minor_version + "." + boost_patch_version};
+
+
+const std::string cmake_build_type {""};
 
 
 #endif

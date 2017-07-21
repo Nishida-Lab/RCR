@@ -20,7 +20,7 @@ class vector
   : public boost::numeric::ublas::vector<T>
 {
 public:
-  static constexpr std::size_t extents {2};
+  static constexpr std::size_t extents {2}; // TODO recursive extents setting
 
   vector(T x = static_cast<T>(0), T y = static_cast<T>(0))
     : boost::numeric::ublas::vector<T> {extents}
@@ -32,6 +32,17 @@ public:
     : boost::numeric::ublas::vector<T> {extents}
   {
     *this <<= pair.first, pair.second;
+  }
+
+  template <typename... Ts>
+  vector(Ts&&... args)
+    : boost::numeric::ublas::vector<T> {std::forward<Ts>(args)...}
+  {}
+
+public:
+  auto& normalized()
+  {
+    return *this = normalize(*this);
   }
 
 public:
