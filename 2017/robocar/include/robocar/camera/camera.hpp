@@ -12,8 +12,9 @@
 #include <raspicam/raspicam_cv.h>
 #include <opencv2/imgproc/imgproc.hpp>
 
-#include <robocar/camera/color_range.hpp>
+// #include <robocar/camera/color_range.hpp>
 #include <robocar/vector/vector.hpp>
+#include <robocar/utility/renamed_pair.hpp>
 
 
 namespace robocar {
@@ -25,10 +26,6 @@ class camera
   cv::Mat3b image_;
 
   const std::size_t width_, height_;
-
-  const color_range<std::uint16_t> h_ { 30, 330};
-  const color_range<std::uint16_t> s_ { 30, 100};
-  const color_range<std::uint16_t> v_ { 50, 100};
 
 public:
   camera(std::size_t width = 2592, std::size_t height = 1944)
