@@ -137,12 +137,15 @@ int main(int argc, char** argv)
       if (pixel < hue)
       {
         auto distance = (hue - 1) - pixel;
-        pixel = std::max(pixel * (1.0 - distance / static_cast<double>(hue)), 0.0);
+        // pixel = std::max(pixel * (1.0 - distance / static_cast<double>(hue)), 0.0);
+        pixel *= (1.0 - distance / static_cast<double>(hue));
       }
       else
       {
         auto distance = pixel - hue;
         pixel = std::min(pixel * (distance / static_cast<double>(hue) + 1.0), 179.0);
+
+        if (170 < pixel) { pixel = 0; }
       }
     }
   };
@@ -153,7 +156,8 @@ int main(int argc, char** argv)
   {
     emphasize_specific_hue(90);
 
-    if (i == (iteration - 1))
+    // if (i == (iteration - 1))
+    if (true)
     {
       cv::namedWindow(std::string {"emphasize_"} + std::to_string(i), cv::WINDOW_AUTOSIZE);
       cv::imshow(std::string {"emphasize_"} + std::to_string(i), splited_image[0]);
