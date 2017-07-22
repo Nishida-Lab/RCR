@@ -105,12 +105,6 @@ int main(int argc, char** argv)
   cv::namedWindow("splited_hue", cv::WINDOW_AUTOSIZE);
   cv::imshow("splited_hue", splited_image[0]);
 
-  // cv::namedWindow("splited_saturation", cv::WINDOW_AUTOSIZE);
-  // cv::imshow("splited_saturation", splited_image[1]);
-  //
-  // cv::namedWindow("splited_lightness", cv::WINDOW_AUTOSIZE);
-  // cv::imshow("splited_lightness", splited_image[2]);
-
 
   // 色相を180度回転する
   // OpenCVでは0~360度の色相が0~180に正規化されているため、値を90ずらす
@@ -129,6 +123,28 @@ int main(int argc, char** argv)
   };
 
   std::cout << "[debug] average: " << average << std::endl;
+
+
+  // 俺フィルタ
+  // 赤じゃないものほど赤じゃなくする
+  for (auto&& pixel : splited_image[0])
+  {
+    static constexpr std::uint8_t target {90};
+
+    if (pixel < target)
+    {
+      auto distance = (target - 1) - pixel;
+      pixel = std::max(pixel * (1.0 - distance / static_cast<double>(target)), 0.0);
+    }
+    else
+    {
+      auto distance = pixel - target;
+      pixel = std::min(pixel * (distance / static_cast<double>(target) + 1.0), 179.0);
+    }
+  }
+
+  cv::namedWindow("filtered", cv::WINDOW_AUTOSIZE);
+  cv::imshow("filtered", splited_image[0]);
 
 
   cv::Mat1b edge_image {};
