@@ -112,6 +112,25 @@ int main(int argc, char** argv)
   // cv::imshow("splited_lightness", splited_image[2]);
 
 
+  // 色相を180度回転する
+  // OpenCVでは0~360度の色相が0~180に正規化されているため、値を90ずらす
+  for (auto&& pixel : splited_image[0])
+  {
+    pixel += (pixel < 90 ? 90 : -89);
+  }
+
+  cv::namedWindow("spinned_hue", cv::WINDOW_AUTOSIZE);
+  cv::imshow("spinned_hue", splited_image[0]);
+
+
+  auto average {
+    std::accumulate(std::begin(splited_image[0]), std::end(splited_image[0]), 0)
+    / (splited_image[0].size().width * splited_image[0].size().height)
+  };
+
+  std::cout << "[debug] average: " << average << std::endl;
+
+
   cv::Mat1b edge_image {};
   cv::Canny(splited_image[0], edge_image, 50, 200);
 
