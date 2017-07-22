@@ -127,24 +127,35 @@ int main(int argc, char** argv)
 
   // 俺フィルタ
   // 赤じゃないものほど赤じゃなくする
-  for (auto&& pixel : splited_image[0])
+  auto emphasize_specific_hue = [&](auto&& hue)
   {
-    static constexpr std::uint8_t target {90};
-
-    if (pixel < target)
+    for (auto&& pixel : splited_image[0])
     {
-      auto distance = (target - 1) - pixel;
-      pixel = std::max(pixel * (1.0 - distance / static_cast<double>(target)), 0.0);
+      if (pixel < hue)
+      {
+        auto distance = (hue - 1) - pixel;
+        pixel = std::max(pixel * (1.0 - distance / static_cast<double>(hue)), 0.0);
+      }
+      else
+      {
+        auto distance = pixel - hue;
+        pixel = std::min(pixel * (distance / static_cast<double>(hue) + 1.0), 179.0);
+      }
     }
-    else
+  };
+
+
+  std::size_t iteration {5};
+  for (std::size_t i {0}; i < iteration; ++i)
+  {
+    emphasize_specific_hue(90);
+
+    if (i == (iteration - 1))
     {
-      auto distance = pixel - target;
-      pixel = std::min(pixel * (distance / static_cast<double>(target) + 1.0), 179.0);
+      cv::namedWindow(std::string {"emphasize_"} + std::to_string(i), cv::WINDOW_AUTOSIZE);
+      cv::imshow(std::string {"emphasize_"} + std::to_string(i), splited_image[0]);
     }
   }
-
-  cv::namedWindow("filtered", cv::WINDOW_AUTOSIZE);
-  cv::imshow("filtered", splited_image[0]);
 
 
   cv::Mat1b edge_image {};
