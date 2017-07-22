@@ -1,15 +1,15 @@
-#ifndef INCLUDED_ROBOCAR_VERSION_HPP_
-#define INCLUDED_ROBOCAR_VERSION_HPP_
+#ifndef INCLUDED_DEBUGGER_VERSION_HPP_
+#define INCLUDED_DEBUGGER_VERSION_HPP_
 
 
-#include <string>
+#include <debugger/string/static_concatenate.hpp>
 
 
-const std::string project_major_version {"0"};
-const std::string project_minor_version {"0"};
-const std::string project_patch_version {"0"};
+static constexpr auto project_major_version {scat("0")};
+static constexpr auto project_minor_version {scat("0")};
+static constexpr auto project_patch_version {scat("0")};
 
-const std::string project_version {"0.0.0"};
+static constexpr auto project_version {scat("0.0.0")};
 
 
 #endif
