@@ -105,11 +105,18 @@ int main(int argc, char** argv)
   cv::namedWindow("splited_hue", cv::WINDOW_AUTOSIZE);
   cv::imshow("splited_hue", splited_image[0]);
 
-  cv::namedWindow("splited_saturation", cv::WINDOW_AUTOSIZE);
-  cv::imshow("splited_saturation", splited_image[1]);
+  // cv::namedWindow("splited_saturation", cv::WINDOW_AUTOSIZE);
+  // cv::imshow("splited_saturation", splited_image[1]);
+  //
+  // cv::namedWindow("splited_lightness", cv::WINDOW_AUTOSIZE);
+  // cv::imshow("splited_lightness", splited_image[2]);
 
-  cv::namedWindow("splited_lightness", cv::WINDOW_AUTOSIZE);
-  cv::imshow("splited_lightness", splited_image[2]);
+
+  cv::Mat1b edge_image {};
+  cv::Canny(splited_image[0], edge_image, 50, 200);
+
+  cv::namedWindow("edge", cv::WINDOW_AUTOSIZE);
+  cv::imshow("edge", edge_image);
 
 
   while (true)
