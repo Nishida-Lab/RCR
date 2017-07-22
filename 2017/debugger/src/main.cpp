@@ -84,8 +84,9 @@ int main(int argc, char** argv)
 
 
   const cv::Mat3b cutted_image {
-    origin_image,
-    cv::Rect {0, static_cast<int>(origin_image.size().height * 0.5), origin_image.size().width, static_cast<int>(origin_image.size().height * 0.5)}
+    // origin_image,
+    // cv::Rect {0, static_cast<int>(origin_image.size().height * 0.5), origin_image.size().width, static_cast<int>(origin_image.size().height * 0.5)}
+    origin_image
   };
 
   cv::namedWindow("cutted", cv::WINDOW_AUTOSIZE);
@@ -102,8 +103,8 @@ int main(int argc, char** argv)
   std::vector<cv::Mat1b> splited_image {};
   cv::split(converted_image, splited_image);
 
-  // cv::namedWindow("splited_hue", cv::WINDOW_AUTOSIZE);
-  // cv::imshow("splited_hue", splited_image[0]);
+  cv::namedWindow("splited_hue", cv::WINDOW_AUTOSIZE);
+  cv::imshow("splited_hue", splited_image[0]);
 
 
   // 色相を180度回転する
@@ -139,13 +140,16 @@ int main(int argc, char** argv)
         auto distance = (hue - 1) - pixel;
         // pixel = std::max(pixel * (1.0 - distance / static_cast<double>(hue)), 0.0);
         pixel *= (1.0 - distance / static_cast<double>(hue));
+
+        if (pixel < 10)
+        {
+          pixel = 179;
+        }
       }
       else
       {
         auto distance = pixel - hue;
         pixel = std::min(pixel * (distance / static_cast<double>(hue) + 1.0), 179.0);
-
-        if (170 < pixel) { pixel = 0; }
       }
     }
   };
@@ -155,6 +159,8 @@ int main(int argc, char** argv)
   for (std::size_t i {0}; i < iteration; ++i)
   {
     emphasize_specific_hue(90);
+    // cv::morphologyEx(splited_image[0], splited_image[0],
+    //                  CV_MOP_CLOSE, cv::Mat1b {}, cv::Point {-1, -1}, 2);
 
     // if (i == (iteration - 1))
     if (true)
@@ -179,3 +185,4 @@ int main(int argc, char** argv)
 
   return 0;
 }
+
