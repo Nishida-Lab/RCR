@@ -79,8 +79,8 @@ int main(int argc, char** argv)
     std::exit(EXIT_FAILURE);
   }
 
-  cv::namedWindow("origin", cv::WINDOW_AUTOSIZE);
-  cv::imshow("origin", origin_image);
+  // cv::namedWindow("origin", cv::WINDOW_AUTOSIZE);
+  // cv::imshow("origin", origin_image);
 
 
   const cv::Mat3b cutted_image {
@@ -95,15 +95,15 @@ int main(int argc, char** argv)
   cv::Mat3b converted_image {};
   convert_color(cutted_image, converted_image, cv::COLOR_BGR2HSV);
 
-  cv::namedWindow("converted", cv::WINDOW_AUTOSIZE);
-  cv::imshow("converted", converted_image);
+  // cv::namedWindow("converted", cv::WINDOW_AUTOSIZE);
+  // cv::imshow("converted", converted_image);
 
 
   std::vector<cv::Mat1b> splited_image {};
   cv::split(converted_image, splited_image);
 
-  cv::namedWindow("splited_hue", cv::WINDOW_AUTOSIZE);
-  cv::imshow("splited_hue", splited_image[0]);
+  // cv::namedWindow("splited_hue", cv::WINDOW_AUTOSIZE);
+  // cv::imshow("splited_hue", splited_image[0]);
 
 
   // 色相を180度回転する
@@ -117,16 +117,19 @@ int main(int argc, char** argv)
   cv::imshow("spinned_hue", splited_image[0]);
 
 
+  // 赤色が環境によって変化することが予想されるため
+  // （夕日に照らされたらすべてのものがオレンジっぽく見えてしまうみたいに），
+  // 画像の色相平均値（おそらく床の色相に近くなると思われ）を求めて
+  // そこから幾らか値をずらしたものを俺フィルタのターゲットにすれば良いのか？
   auto average {
     std::accumulate(std::begin(splited_image[0]), std::end(splited_image[0]), 0)
     / (splited_image[0].size().width * splited_image[0].size().height)
   };
-
   std::cout << "[debug] average: " << average << std::endl;
 
 
   // 俺フィルタ
-  // 赤じゃないものほど赤じゃなくする
+  // 引数の色相から遠いものほど遠くする
   auto emphasize_specific_hue = [&](auto&& hue)
   {
     for (auto&& pixel : splited_image[0])
