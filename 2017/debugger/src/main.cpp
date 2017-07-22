@@ -11,11 +11,12 @@
 #include <debugger/version.hpp>
 
 
-template <typename... Ts>
-inline decltype(auto) convert_color(Ts&&... args)
-{
-  return cv::cvtColor(std::forward<Ts>(args)...);
-}
+#define function_alias(func, alias)         \
+template <typename... Ts>                   \
+inline decltype(auto) alias(Ts&&... args)   \
+{ return func(std::forward<Ts>(args)...); } \
+
+function_alias(cv::cvtColor, convert_color);
 
 
 int main(int argc, char** argv)
