@@ -1,7 +1,7 @@
 #include <iostream>
 #include <regex>
 #include <string>
-#include <thread>
+#include <utility>
 #include <vector>
 
 #include <opencv2/core/core.hpp>
@@ -9,6 +9,13 @@
 #include <opencv2/imgproc/imgproc.hpp>
 
 #include <debugger/version.hpp>
+
+
+template <typename... Ts>
+inline decltype(auto) convert_color(Ts&&... args)
+{
+  return cv::cvtColor(std::forward<Ts>(args)...);
+}
 
 
 int main(int argc, char** argv)
@@ -82,6 +89,14 @@ int main(int argc, char** argv)
 
   cv::namedWindow("cutted", cv::WINDOW_AUTOSIZE);
   cv::imshow("cutted", cutted_image);
+
+
+  cv::Mat3b converted_image {};
+  convert_color(cutted_image, converted_image, cv::COLOR_BGR2HSV);
+
+  cv::namedWindow("converted", cv::WINDOW_AUTOSIZE);
+  cv::imshow("converted", converted_image);
+
 
   while (true)
   {
