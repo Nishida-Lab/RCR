@@ -61,7 +61,9 @@ int main(int argc, char** argv)
   }();
 
 
-  const cv::Mat3b origin_image {cv::imread(name, CV_LOAD_IMAGE_COLOR)};
+  const cv::Mat3b origin_image {
+    cv::imread(name, CV_LOAD_IMAGE_COLOR)
+  };
 
   if (!origin_image.data)
   {
@@ -71,6 +73,15 @@ int main(int argc, char** argv)
 
   cv::namedWindow("origin", cv::WINDOW_AUTOSIZE);
   cv::imshow("origin", origin_image);
+
+
+  const cv::Mat3b cutted_image {
+    origin_image,
+    cv::Rect {0, static_cast<int>(origin_image.size().height * 0.5), origin_image.size().width, static_cast<int>(origin_image.size().height * 0.5)}
+  };
+
+  cv::namedWindow("cutted", cv::WINDOW_AUTOSIZE);
+  cv::imshow("cutted", cutted_image);
 
   while (true)
   {
