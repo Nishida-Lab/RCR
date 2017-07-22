@@ -21,8 +21,7 @@ void for_duration(Duration&& duration, const Functor& functor)
        elapsed < duration;
        elapsed = duration_cast<Duration>(clock::now() - begin))
   {
-    functor(std::forward<decltype(elapsed)>(elapsed),
-            std::forward<decltype(duration)>(duration));
+    functor(elapsed, duration);
   }
 }
 
