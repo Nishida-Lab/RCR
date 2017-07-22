@@ -1,10 +1,12 @@
 #include <iostream>
 #include <regex>
 #include <string>
+#include <thread>
 #include <vector>
 
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
 
 #include <debugger/version.hpp>
 
@@ -12,6 +14,8 @@
 int main(int argc, char** argv)
 {
   const std::vector<std::string> argv_ {argv, argv + argc};
+
+  std::string name {""};
 
 
   for (auto iter {argv_.begin() + 1}; iter != argv_.end(); ++iter) [&]()
@@ -40,7 +44,7 @@ int main(int argc, char** argv)
       {
         if (++iter != argv_.end())
         {
-          std::cout << "[debug] file: " << *iter << std::endl;
+          name = *iter;
         }
 
         else
@@ -55,6 +59,23 @@ int main(int argc, char** argv)
 
     std::cerr << "[error] unknown option \"" << *iter << "\"\n";
   }();
+
+
+  const cv::Mat3b origin_image {cv::imread(name, CV_LOAD_IMAGE_COLOR)};
+
+  if (!origin_image.data)
+  {
+    std::cerr << "[error] failed to open image: " << name << std::endl;
+    std::exit(EXIT_FAILURE);
+  }
+
+  cv::namedWindow("origin", cv::WINDOW_AUTOSIZE);
+  cv::imshow("origin", origin_image);
+
+  while (true)
+  {
+    cv::waitKey(0);
+  }
 
   return 0;
 }
