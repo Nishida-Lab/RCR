@@ -79,14 +79,14 @@ int main(int argc, char** argv)
     std::exit(EXIT_FAILURE);
   }
 
-  // cv::namedWindow("origin", cv::WINDOW_AUTOSIZE);
-  // cv::imshow("origin", origin_image);
+  cv::namedWindow("origin", cv::WINDOW_AUTOSIZE);
+  cv::imshow("origin", origin_image);
 
 
   const cv::Mat3b cutted_image {
-    // origin_image,
-    // cv::Rect {0, static_cast<int>(origin_image.size().height * 0.5), origin_image.size().width, static_cast<int>(origin_image.size().height * 0.5)}
-    origin_image
+    origin_image,
+    cv::Rect {0, static_cast<int>(origin_image.size().height * 0.5), origin_image.size().width, static_cast<int>(origin_image.size().height * 0.5)}
+    // origin_image
   };
 
   cv::namedWindow("cutted", cv::WINDOW_AUTOSIZE);
@@ -96,8 +96,8 @@ int main(int argc, char** argv)
   cv::Mat3b converted_image {};
   convert_color(cutted_image, converted_image, cv::COLOR_BGR2HSV);
 
-  // cv::namedWindow("converted", cv::WINDOW_AUTOSIZE);
-  // cv::imshow("converted", converted_image);
+  cv::namedWindow("converted", cv::WINDOW_AUTOSIZE);
+  cv::imshow("converted", converted_image);
 
 
   std::vector<cv::Mat1b> splited_image {};
@@ -159,8 +159,7 @@ int main(int argc, char** argv)
   for (std::size_t i {0}; i < iteration; ++i)
   {
     emphasize_specific_hue(90);
-    // cv::morphologyEx(splited_image[0], splited_image[0],
-    //                  CV_MOP_CLOSE, cv::Mat1b {}, cv::Point {-1, -1}, 2);
+    // cv::morphologyEx(splited_image[0], splited_image[0], CV_MOP_CLOSE, cv::Mat1b {}, cv::Point {-1, -1}, 2);
 
     // if (i == (iteration - 1))
     if (true)
