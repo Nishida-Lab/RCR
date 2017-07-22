@@ -99,6 +99,19 @@ int main(int argc, char** argv)
   cv::imshow("converted", converted_image);
 
 
+  std::vector<cv::Mat1b> splited_image {};
+  cv::split(converted_image, splited_image);
+
+  cv::namedWindow("splited_hue", cv::WINDOW_AUTOSIZE);
+  cv::imshow("splited_hue", splited_image[0]);
+
+  cv::namedWindow("splited_saturation", cv::WINDOW_AUTOSIZE);
+  cv::imshow("splited_saturation", splited_image[1]);
+
+  cv::namedWindow("splited_lightness", cv::WINDOW_AUTOSIZE);
+  cv::imshow("splited_lightness", splited_image[2]);
+
+
   while (true)
   {
     cv::waitKey(0);
