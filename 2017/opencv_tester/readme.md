@@ -1,6 +1,6 @@
-### debugger
+### opencv_tester
 
-version 0.0.0 in development
+version 1.0.0 in development
 
 
 ### dependency
