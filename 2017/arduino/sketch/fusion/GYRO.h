@@ -18,18 +18,30 @@ void getGyro(int num, unsigned long time, double data_x, double data_y, double d
   switch(num){
   case 0:
     gyro_0.time = time;
+    gyro_0.data_x = (gyro_0.data_x + gyro_1.data_x + gyro_2.data_x)/3;
+    gyro_0.data_y = (gyro_0.data_y + gyro_1.data_y + gyro_2.data_y)/3;
+    gyro_0.data_z = (gyro_0.data_z + gyro_1.data_z + gyro_2.data_z)/3;
+
     gyro_0.data_x = data_x;
     gyro_0.data_y = data_y;
     gyro_0.data_z = data_z;
     
   case 1:
     gyro_1.time = time;
+    gyro_1.data_x = (gyro_0.data_x + gyro_1.data_x + gyro_2.data_x)/3;
+    gyro_1.data_y = (gyro_0.data_y + gyro_1.data_y + gyro_2.data_y)/3;
+    gyro_1.data_z = (gyro_0.data_z + gyro_1.data_z + gyro_2.data_z)/3;
+
     gyro_1.data_x = data_x;
     gyro_1.data_y = data_y;
     gyro_1.data_z = data_z;
 
   case 2:
     gyro_2.time = time;
+    gyro_2.data_x = (gyro_0.data_x + gyro_1.data_x + gyro_2.data_x)/3;
+    gyro_2.data_y = (gyro_0.data_y + gyro_1.data_y + gyro_2.data_y)/3;
+    gyro_2.data_z = (gyro_0.data_z + gyro_1.data_z + gyro_2.data_z)/3;
+
     gyro_2.data_x = data_x;
     gyro_2.data_y = data_y;
     gyro_2.data_z = data_z;

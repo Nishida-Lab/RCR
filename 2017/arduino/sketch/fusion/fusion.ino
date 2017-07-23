@@ -4,9 +4,9 @@
 #include"./ACCEL.h"
 #include"./GYRO.h"
 
-#define OFFSET_L 200
-#define OFFSET_H 300
-#define OFFSET_TIME 20000
+#define OFFSET_L 100
+#define OFFSET_H 150
+#define OFFSET_TIME 7000
 
 VL6180X vl6180x_NW;
 VL6180X vl6180x_N;
@@ -246,9 +246,10 @@ void setup(){
     offset_gyro[1] = sum_gyro[1]/(OFFSET_H - OFFSET_L); 
     offset_gyro[2] = sum_gyro[2]/(OFFSET_H - OFFSET_L); 
 
-//    Serial.print(offset_gyro[0],10); Serial.print(" "); 
-//    Serial.print(offset_gyro[1],10); Serial.print(" ");
-//    Serial.println(offset_gyro[2],10);
+    //    Serial.print(count_offset); Serial.print(" ");
+    //    Serial.print(gyro_x,10); Serial.print(" "); 
+    //    Serial.print(gyro_y,10); Serial.print(" ");
+    //    Serial.println(gyro_z,10);
   
     count_offset++;
   }
@@ -268,12 +269,7 @@ void loop(){
   
   time = micros();
 
-  //Serial.println("Gyro read");
-  gyro_x = param * gyro_x + (1-param) * l3gd20.data.x; //RC filter
-  gyro_y = param * gyro_y + (1-param) * l3gd20.data.y;
-  gyro_z = param * gyro_z + (1-param) * l3gd20.data.z;
-  
-  getGyro(timing, time, gyro_x, gyro_y, gyro_z, offset_gyro[0], offset_gyro[1], offset_gyro[2]); //get degree velocity
+  getGyro(timing, time, l3gd20.data.x, l3gd20.data.y, l3gd20.data.z, offset_gyro[0], offset_gyro[1], offset_gyro[2]); //get degree velocity
   getDeg(); //get degree
  
   getAcc(timing, time, acc[0], offset[0], acc[1], offset[1], acc[2], offset[2]); //get accelaration
@@ -287,22 +283,22 @@ void loop(){
   //  Serial.print(acc_0.time,10); Serial.print(" "); 
   //  Serial.print(acc_1.time,10); Serial.print(" ");
   //  Serial.println(acc_2.time,10);
+
+  //  Serial.print(l3gd20.data.x,10); Serial.print(" "); 
+  //  Serial.print(l3gd20.data.y,10); Serial.print(" ");
+  //  Serial.println(l3gd20.data.z,10);
   
   //  Serial.print(gyro_x,10); Serial.print(" "); 
   //  Serial.print(gyro_y,10); Serial.print(" ");
   //  Serial.println(gyro_z,10);
-  
-  //  Serial.print(offset_gyro[0]*0.00875,10); Serial.print(" "); 
-  //  Serial.print(offset_gyro[1]*0.00875,10); Serial.print(" ");
-  //  Serial.print(offset_gyro[2]*0.00875,10); Serial.print(" ");
-  
+    
   //  Serial.print(gyro_0.data_x,10); Serial.print(" "); 
   //  Serial.print(gyro_0.data_y,10); Serial.print(" ");
   //  Serial.println(gyro_0.data_z,10);
   
-  Serial.print(deg.data_x,10); Serial.print(" ");
-  Serial.print(deg.data_y,10); Serial.print(" ");
-  Serial.println(deg.data_z,10);
+  //  Serial.print(deg.data_x,10); Serial.print(" ");
+  //  Serial.print(deg.data_y,10); Serial.print(" ");
+  //  Serial.println(deg.data_z,10);
     
   //  Serial.print(acc[0]); Serial.print(" ");
   //  Serial.print(acc[1]); Serial.print(" ");
