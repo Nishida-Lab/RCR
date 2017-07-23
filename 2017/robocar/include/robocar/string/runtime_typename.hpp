@@ -1,5 +1,5 @@
-#ifndef INCLUDED_UTILIB_STRING_RUNTIME_TYPENAME_HPP_
-#define INCLUDED_UTILIB_STRING_RUNTIME_TYPENAME_HPP_
+#ifndef INCLUDED_ROBOCAR_STRING_RUNTIME_TYPENAME_HPP_
+#define INCLUDED_ROBOCAR_STRING_RUNTIME_TYPENAME_HPP_
 
 
 #include <cstdlib>
@@ -10,10 +10,10 @@
 #include <cxxabi.h>
 
 
-namespace utilib {
+namespace robocar {
 
 
-template <typename C, typename T>
+template <typename T, typename C = char>
 auto runtime_typename(const T& object)
   -> std::basic_string<C>
 {
@@ -28,7 +28,7 @@ auto runtime_typename(const T& object)
 }
 
 
-} // namespace utilib
+} // namespace robocar
 
 
 #endif

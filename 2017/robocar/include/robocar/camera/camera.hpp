@@ -12,8 +12,8 @@
 #include <raspicam/raspicam_cv.h>
 #include <opencv2/imgproc/imgproc.hpp>
 
-#include <robocar/camera/color_range.hpp>
 #include <robocar/vector/vector.hpp>
+#include <robocar/utility/renamed_pair.hpp>
 
 
 namespace robocar {
@@ -24,22 +24,19 @@ class camera
 {
   cv::Mat3b image_;
 
-  const std::size_t width_, height_;
-
-  const color_range<std::uint16_t> h_ { 30, 330};
-  const color_range<std::uint16_t> s_ { 30, 100};
-  const color_range<std::uint16_t> v_ { 50, 100};
+public:
+  static constexpr robocar::utility::renamed_pair::area<std::size_t> size_max {2592, 1944};
+         const     robocar::utility::renamed_pair::area<std::size_t> size;
 
 public:
-  camera(std::size_t width = 2592, std::size_t height = 1944)
+  camera(std::size_t width = size_max.width, std::size_t height = size_max.height)
     : raspicam::RaspiCam_Cv {},
-      width_  {width},
-      height_ {height}
+      size {width, height}
   {
-    set(CV_CAP_PROP_FRAME_WIDTH, width_);
-    set(CV_CAP_PROP_FRAME_HEIGHT, height_);
+    set(CV_CAP_PROP_FRAME_WIDTH,  size.width);
+    set(CV_CAP_PROP_FRAME_HEIGHT, size.height);
 
-    if (!open())
+    if (!raspicam::RaspiCam_Cv::open())
     {
       std::cerr << "[error] failed to open camera module\n";
       std::exit(EXIT_FAILURE);
@@ -50,13 +47,13 @@ public:
 
   ~camera() noexcept
   {
-    release();
+    raspicam::RaspiCam_Cv::release();
   }
 
   void read()
   {
-    grab();
-    retrieve(image_);
+    raspicam::RaspiCam_Cv::grab();
+    raspicam::RaspiCam_Cv::retrieve(image_);
     // image_ = cv::Mat3b {image_, cv::Rect {0, static_cast<int>(height_ * 0.5), static_cast<int>(width_), static_cast<int>(height_ * 0.5)}};
   }
 
@@ -97,10 +94,9 @@ public:
   // }
 
   auto find()
-    -> std::vector<std::pair<std::size_t,std::size_t>>
   {
     read();
-    return find_contours(opening(red_mask(convert(image_))));
+    return find_contours(morphology(red_mask(convert(image_))));
   }
 
   template <typename T>
@@ -111,8 +107,8 @@ public:
 
     for (const auto& p : find())
     {
-      int x_pixel {static_cast<int>(p.first) - static_cast<int>(width_ / 2)};
-      T x_ratio {static_cast<double>(x_pixel) / static_cast<double>(width_ / 2)};
+      int x_pixel {static_cast<int>(p.x) - static_cast<int>(size.width / 2)};
+      T x_ratio {static_cast<double>(x_pixel) / static_cast<double>(size.width / 2)};
 
       poles.emplace_back(x_ratio, std::pow(static_cast<double>(1.0) - std::pow(x_ratio, 2.0), 0.5));
     }
@@ -125,88 +121,40 @@ public:
   }
 
 private:
-  cv::Mat3b convert(const cv::Mat3b& rgb) const
+  cv::Mat3b& convert(const cv::Mat3b& rgb) const
   {
-    cv::Mat3b hsv {};
-    cv::cvtColor(rgb, hsv, CV_BGR2HSV);
+    static cv::Mat3b result {};
+    cv::cvtColor(rgb, result, CV_BGR2HSV);
 
-    return hsv;
+    return result;
   }
 
-  cv::Mat1b opening(const cv::Mat1b& bin)
+  cv::Mat1b& morphology(const cv::Mat1b& bin)
   {
-    cv::Mat1b result {};
+    static cv::Mat1b result {};
     cv::morphologyEx(bin, result, CV_MOP_CLOSE, cv::Mat1b {}, cv::Point {-1, -1}, 2);
 
     return result;
   }
 
-  cv::Mat1b red_mask(const cv::Mat3b& hsv) // TODO move to ctor
+  cv::Mat1b& red_mask(const cv::Mat3b& hsv) // TODO move to ctor
   {
-    static cv::Mat1b mask1 {}, mask2 {};
+    static cv::Mat1b mask1 {}, mask2 {}, result;
 
     cv::inRange(hsv, cv::Scalar {  0, 170, 70}, cv::Scalar { 20, 255, 255}, mask1);
     cv::inRange(hsv, cv::Scalar {160, 170, 70}, cv::Scalar {179, 255, 255}, mask2);
 
-    return cv::Mat1b {mask1 | mask2};
+    return result = mask1 | mask2;
   }
 
-  // auto find_contours_debug(const cv::Mat& bin) const
-  //   -> cv::Mat
-  // {
-  //   std::vector<std::vector<cv::Point>> contours {};
-  //               std::vector<cv::Point>  pole_moments {};
-  //
-  //   cv::Mat result {bin};
-  //
-  //   cv::findContours(bin, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE);
-  //
-  //   static constexpr double pole_ratio {static_cast<double>(2) / static_cast<double>(3)}; // XXX magic number
-  //   static constexpr double tolerance {0.20}; // percent
-  //
-  //   std::cout << "[debug] pole ratio: " << pole_ratio << std::endl;
-  //   std::cout << "        " << pole_ratio * (1 - tolerance) << " < range < " << pole_ratio * (1 + tolerance) << std::endl;
-  //
-  //   for (auto iter = contours.begin(); iter != contours.end(); ++iter)
-  //   {
-  //     auto rect = cv::boundingRect(*iter); // bounding box
-  //     double rect_ratio {static_cast<double>(rect.width) / static_cast<double>(rect.height)};
-  //
-  //     std::cout << "[debug] rect ratio: " << rect_ratio << std::endl;
-  //
-  //     if (pole_ratio * (1 - tolerance) < rect_ratio && rect_ratio < pole_ratio * (1 + tolerance))
-  //     {
-  //       cv::rectangle(result, cv::Point {rect.x, rect.y}, cv::Point {rect.x + rect.width, rect.y + rect.height},
-  //                     cv::Scalar {255, 0, 0}, 3, CV_AA);
-  //
-  //       cv::Moments moment {cv::moments(*iter)};
-  //       pole_moments.emplace_back(moment.m10 / moment.m00, moment.m01 / moment.m00);
-  //     }
-  //
-  //     else
-  //     {
-  //       cv::rectangle(result, cv::Point {rect.x, rect.y}, cv::Point {rect.x + rect.width, rect.y + rect.height},
-  //                     cv::Scalar {255, 0, 0}, 1, CV_AA);
-  //     }
-  //   }
-  //
-  //   for (const auto& pm : pole_moments)
-  //   {
-  //     std::cout << "[debug] maybe point of pole moment: " << pm << std::endl;
-  //
-  //     static constexpr int radius {4};
-  //     static constexpr int thickness {-1};
-  //     cv::circle(result, pm, radius, cv::Scalar {255, 0, 0}, thickness);
-  //   }
-  //
-  //   return result;
-  // }
-
   auto find_contours(const cv::Mat1b& bin) const
-    -> std::vector<std::pair<std::size_t,std::size_t>>
+    -> std::vector<robocar::utility::renamed_pair::point<std::size_t>>&
   {
-    std::vector<std::vector<cv::Point>> contours {};
-    std::vector<std::pair<std::size_t,std::size_t>> pole_moments {};
+    static std::vector<std::vector<cv::Point>> contours {};
+
+    static std::vector<
+      robocar::utility::renamed_pair::point<std::size_t>
+    > pole_moments {};
 
     cv::findContours(bin, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE);
 
@@ -234,3 +182,4 @@ private:
 
 
 #endif
+
