@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0)
-project(debugger VERSION 0.0.0 LANGUAGES CXX)
+project(opencv_tester VERSION 0.0.0 LANGUAGES CXX)
 
 add_definitions("-std=c++14 -Wall -O3")
 
