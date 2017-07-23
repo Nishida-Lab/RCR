@@ -1,4 +1,5 @@
 #include <iostream>
+#include <limits>
 #include <regex>
 #include <string>
 #include <utility>
@@ -17,6 +18,28 @@ inline decltype(auto) alias(Ts&&... args)   \
 { return func(std::forward<Ts>(args)...); } \
 
 function_alias(cv::cvtColor, convert_color);
+
+
+// 俺フィルタ改
+// 一般化したやつ．型から最大最小の情報を引っ張りだすから
+// 範囲0~180の色相には対応していないというゴミ
+template <typename T, typename U>
+auto emphasize(T& image, U&& target)
+{
+  for (auto&& pixel : image)
+  {
+    if (pixel < target)
+    {
+      double distance {static_cast<double>(target - 1 - pixel)};
+      pixel = std::max(pixel * (1.0 - distance / target), std::numeric_limits<T>::min());
+    }
+    else
+    {
+      double distance {static_cast<double>(pixel - target)};
+      pixel = std::min(pixel * (1.0 + distance / target), std::numeric_limits<T>::max());
+    }
+  }
+};
 
 
 int main(int argc, char** argv)
@@ -131,6 +154,7 @@ int main(int argc, char** argv)
 
   // 俺フィルタ
   // 引数の色相から遠いものほど遠くする
+  // 目標の色以外が，ゼロと最大値に二極化するのが嫌なので適当に最大側はゼロに飛ばしてる
   auto emphasize_specific_hue = [&](auto&& hue)
   {
     for (auto&& pixel : splited_image[0])
@@ -141,7 +165,7 @@ int main(int argc, char** argv)
         // pixel = std::max(pixel * (1.0 - distance / static_cast<double>(hue)), 0.0);
         pixel *= (1.0 - distance / static_cast<double>(hue));
 
-        if (pixel < 10)
+        if (pixel < 1)
         {
           pixel = 179;
         }
@@ -158,8 +182,7 @@ int main(int argc, char** argv)
   std::size_t iteration {5};
   for (std::size_t i {0}; i < iteration; ++i)
   {
-    emphasize_specific_hue(90);
-    // cv::morphologyEx(splited_image[0], splited_image[0], CV_MOP_CLOSE, cv::Mat1b {}, cv::Point {-1, -1}, 2);
+    emphasize_specific_hue(average + 20);
 
     // if (i == (iteration - 1))
     if (true)
@@ -168,6 +191,13 @@ int main(int argc, char** argv)
       cv::imshow(std::string {"emphasize_"} + std::to_string(i), splited_image[0]);
     }
   }
+
+
+  cv::morphologyEx(splited_image[0], splited_image[0], cv::MORPH_CLOSE,
+                   cv::Mat1b {}, cv::Point {-1, -1}, 3);
+
+  cv::namedWindow("morphology", cv::WINDOW_AUTOSIZE);
+  cv::imshow("morphology", splited_image[0]);
 
 
   cv::Mat1b edge_image {};
