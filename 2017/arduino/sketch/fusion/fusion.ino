@@ -4,9 +4,22 @@
 #include"./ACCEL.h"
 #include"./GYRO.h"
 
+/*
+#define TIME_DEBUG
+#define GYRO_DEBUG
+#define GYOR_FUNC_DEBUG
+#define DEG_DEBUG
+#define ACC_DEBUG
+#define ACC_FUNC_DEBU
+#define ACC_POS_DEBUG
+#define SRS_DEBUG
+#define ALL_DEBUG
+*/
+#define RASPI_DEBUG
+
 #define OFFSET_L 100
 #define OFFSET_H 150
-#define OFFSET_TIME 7000
+#define OFFSET_TIME 3000
 
 VL6180X vl6180x_NW;
 VL6180X vl6180x_N;
@@ -246,10 +259,9 @@ void setup(){
     offset_gyro[1] = sum_gyro[1]/(OFFSET_H - OFFSET_L); 
     offset_gyro[2] = sum_gyro[2]/(OFFSET_H - OFFSET_L); 
 
-    //    Serial.print(count_offset); Serial.print(" ");
-    //    Serial.print(gyro_x,10); Serial.print(" "); 
-    //    Serial.print(gyro_y,10); Serial.print(" ");
-    //    Serial.println(gyro_z,10);
+    //    Serial.print(acc[0],10); Serial.print(" "); 
+    //    Serial.print(acc[1],10); Serial.print(" ");
+    //    Serial.println(acc[2],10);
   
     count_offset++;
   }
@@ -260,12 +272,14 @@ void setup(){
 void loop(){
   int i;
   unsigned long time;
-  // Serial.println("loop head");
+  //  Serial.println("loop head");
   
   l3gd20.read(); //read Gyro sensor
-  acc[0] = param * acc[0] + (1-param) * readAnalog(ACC_X); //RC filter
-  acc[1] = param * acc[1] + (1-param) * readAnalog(ACC_Y);
-  acc[2] = param * acc[2] + (1-param) * readAnalog(ACC_Z);
+  acc[0] = readAnalog(ACC_X);// * (1-param) + param * acc[0]; //RC filter
+  acc[1] = readAnalog(ACC_Y);// * (1-param) + param * acc[1];
+  acc[2] = readAnalog(ACC_Z);// * (1-param) + param * acc[2];
+
+
   
   time = micros();
 
@@ -279,61 +293,77 @@ void loop(){
 
 
   /*--------------Debug--------------------*/
-  //  Serial.print(time, 10); Serial.print(" ");
-  //  Serial.print(acc_0.time,10); Serial.print(" "); 
-  //  Serial.print(acc_1.time,10); Serial.print(" ");
-  //  Serial.println(acc_2.time,10);
+#ifdef TIME_DEBUG 
+  Serial.print(time, 10); Serial.print(" ");
+  Serial.print(acc_0.time,10); Serial.print(" "); 
+  Serial.print(acc_1.time,10); Serial.print(" ");
+  Serial.println(acc_2.time,10);
+#endif
 
-  //  Serial.print(l3gd20.data.x,10); Serial.print(" "); 
-  //  Serial.print(l3gd20.data.y,10); Serial.print(" ");
-  //  Serial.println(l3gd20.data.z,10);
-  
-  //  Serial.print(gyro_x,10); Serial.print(" "); 
-  //  Serial.print(gyro_y,10); Serial.print(" ");
-  //  Serial.println(gyro_z,10);
-    
-  //  Serial.print(gyro_0.data_x,10); Serial.print(" "); 
-  //  Serial.print(gyro_0.data_y,10); Serial.print(" ");
-  //  Serial.println(gyro_0.data_z,10);
-  
-  //  Serial.print(deg.data_x,10); Serial.print(" ");
-  //  Serial.print(deg.data_y,10); Serial.print(" ");
-  //  Serial.println(deg.data_z,10);
-    
-  //  Serial.print(acc[0]); Serial.print(" ");
-  //  Serial.print(acc[1]); Serial.print(" ");
-  //  Serial.println(acc[2]);
-  
-  //  Serial.print(GRAVITY); Serial.print(" ");
-  //  Serial.print(acc_0.data_x); Serial.print(" ");
-  //  Serial.print(acc_0.data_y); Serial.print(" ");
-  //  Serial.println(acc_0.data_z);  
+#ifdef GYRO_DEBUG
+  Serial.print(l3gd20.data.x,10); Serial.print(" "); 
+  Serial.print(l3gd20.data.y,10); Serial.print(" ");
+  Serial.println(l3gd20.data.z,10);  
+#endif
 
-  //  Serial.print(acc_0.data_x,10); Serial.print(" ");
-  //  Serial.print(vel_0.data_x,10); Serial.print(" ");
-  //  Serial.println(pos.data_x,10);  
+#ifdef GYRO_FUNC_DEBUG
+  Serial.print(gyro_0.data_x,10); Serial.print(" "); 
+  Serial.print(gyro_0.data_y,10); Serial.print(" ");
+  Serial.println(gyro_0.data_z,10);
+#endif
 
-  
-  //  for(i = 0;i < 10;i++){
-  //    Serial.print(readAnalog(i)); Serial.print(" ");
-  //  }Serial.println("");
+#ifdef DEG_DEBUG
+  Serial.print(deg.data_x,10); Serial.print(" ");
+  Serial.print(deg.data_y,10); Serial.print(" ");
+  Serial.println(deg.data_z,10);
+#endif
+
+#ifdef ACC_DEBUG
+  Serial.print(acc[0]); Serial.print(" ");
+  Serial.print(acc[1]); Serial.print(" ");
+  Serial.println(acc[2]);
+#endif
+
+#ifdef ACC_FUNC_DEBUG
+  Serial.print(GRAVITY); Serial.print(" ");
+  Serial.print(acc_0.data_x); Serial.print(" ");
+  Serial.print(acc_0.data_y); Serial.print(" ");
+  Serial.println(acc_0.data_z);  
+#endif
+
+#ifdef ACC_POS_DEBUG
+  Serial.print(acc_0.data_x,10); Serial.print(" ");
+  Serial.print(vel_0.data_x,10); Serial.print(" ");
+  Serial.println(pos.data_x,10);  
+#endif
+
+#ifdef SRS_DEBUG
+  Serial.print(readSensor(10)); Serial.print(" ");
+  Serial.print(readSensor(11)); Serial.print(" ");
+  Serial.println(readSensor(12));
+#endif
+
+#ifdef ALL_DEBUG
+  for(i = 0;i < 10;i++){
+    Serial.print(readSensor(i)); Serial.print(" ");
+  }Serial.println("");
+#endif
   /*----------------------------------------*/
 
 
-
-  //  int claim = -1;
-  //  long serial_size = 0;
-  //  if(Serial.available() > 0){
-  //  claim = Serial.read();
-  //  // Serial.println(claim - '0');
-  //  serial_size = Serial.println(readSensor(claim), 10);
-  //  //Serial.println(serial_size);
-  //  Serial.flush();
-  //  }
-
-
-    timing++;
-    if(timing > 2) timing = 0;
-
-    //Serial.println("loop end");
+#ifdef RASPI_DEBUG
+  int claim = -1;
+  long serial_size = 0;
+  if(Serial.available() > 0){
+  claim = Serial.read();
+  // Serial.println(claim - '0');
+  serial_size = Serial.println(readSensor(claim), 10);
+  //Serial.println(serial_size);
+  Serial.flush();
+  }
+#endif
+  
+  timing++;
+  if(timing > 2) timing = 0;
+  //Serial.println("loop end");
 }

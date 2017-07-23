@@ -9,7 +9,6 @@ DATA acc_0,acc_1,acc_2,vel_0,vel_1,vel_2,pos; //set struct
 
 
 void getAcc(int num, unsigned long time, double x, double offset_x, double y, double offset_y, double z, double offset_z){
-  
   switch(num){ //"num" is timing
   case 0:
     acc_0.time = time; //get time
@@ -17,7 +16,7 @@ void getAcc(int num, unsigned long time, double x, double offset_x, double y, do
     acc_0.data_x = GRAVITY*(x * 4.9 - offset_x)/SENSITIVITY; //caliculate accelaration 
     acc_0.data_y = GRAVITY*(y * 4.9 - offset_y)/SENSITIVITY; 
     acc_0.data_z = GRAVITY*(z * 4.9 - offset_z)/SENSITIVITY;
-    
+
     acc_0.data_x = (acc_0.data_x + acc_1.data_x + acc_2.data_x)/3;
     acc_0.data_y = (acc_0.data_y + acc_1.data_y + acc_2.data_y)/3;
     acc_0.data_z = (acc_0.data_z + acc_1.data_z + acc_2.data_z)/3;
@@ -32,6 +31,11 @@ void getAcc(int num, unsigned long time, double x, double offset_x, double y, do
     acc_1.data_x = GRAVITY*(x * 4.9 - offset_x)/SENSITIVITY; 
     acc_1.data_y = GRAVITY*(y * 4.9 - offset_y)/SENSITIVITY; 
     acc_1.data_z = GRAVITY*(z * 4.9 - offset_z)/SENSITIVITY;
+
+    acc_1.data_x = (acc_0.data_x + acc_1.data_x + acc_2.data_x)/3;
+    acc_1.data_y = (acc_0.data_y + acc_1.data_y + acc_2.data_y)/3;
+    acc_1.data_z = (acc_0.data_z + acc_1.data_z + acc_2.data_z)/3;
+    
     if(abs(acc_1.data_x) < 0.25) acc_1.data_x = 0;
     if(abs(acc_1.data_y) < 0.25) acc_1.data_y = 0;
     if(abs(acc_1.data_z) < 0.25) acc_1.data_z = 0;
@@ -42,6 +46,11 @@ void getAcc(int num, unsigned long time, double x, double offset_x, double y, do
     acc_2.data_x = GRAVITY*(x * 4.9 - offset_x)/SENSITIVITY;
     acc_2.data_y = GRAVITY*(y * 4.9 - offset_y)/SENSITIVITY; 
     acc_2.data_z = GRAVITY*(z * 4.9 - offset_z)/SENSITIVITY;
+
+    acc_2.data_x = (acc_0.data_x + acc_1.data_x + acc_2.data_x)/3;
+    acc_2.data_y = (acc_0.data_y + acc_1.data_y + acc_2.data_y)/3;
+    acc_2.data_z = (acc_0.data_z + acc_1.data_z + acc_2.data_z)/3;
+    
     if(abs(acc_2.data_x) < 0.25) acc_2.data_x = 0;
     if(abs(acc_2.data_y) < 0.25) acc_2.data_y = 0;
     if(abs(acc_2.data_z) < 0.25) acc_2.data_z = 0;
