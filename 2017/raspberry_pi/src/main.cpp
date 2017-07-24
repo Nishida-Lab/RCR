@@ -153,14 +153,14 @@ int main(int argc, char** argv) try
     };
   };
 
-  robocar::chrono::for_duration(std::chrono::seconds {5}, [](auto&& elapsed, auto&& duration)
+  robocar::chrono::for_duration(std::chrono::seconds {10}, [](auto&& elapsed, auto&& duration)
   {
     std::cout << "\r\e[K[debug] please wait for " << duration.count() - elapsed.count() << " sec" << std::flush;
     std::this_thread::sleep_for(std::chrono::seconds {1});
   });
 
 
-  robocar::chrono::for_duration(std::chrono::milliseconds {60 * 1000}, [&](auto& elapsed, auto& duration)
+  robocar::chrono::for_duration(std::chrono::milliseconds {30 * 1000}, [&](auto& elapsed, auto& duration)
   {
     // static std::pair<robocar::vector<double>, decltype(elapsed)> feedback_vector {
     //   {0.0, 0.0}, elapsed
@@ -168,13 +168,13 @@ int main(int argc, char** argv) try
     //
     // static constexpr double feedback_gein {1.0};
 
-    // const robocar::vector<double> distractor {distract_vector(0.03, 0.45, 0.90).normalized()};
-    const robocar::vector<double> distractor {0.0, 0.0};
+    const robocar::vector<double> distractor {distract_vector(0.03, 0.45, 0.90).normalized()};
+    // const robocar::vector<double> distractor {0.0, 0.0};
     const robocar::vector<double>  attractor {0.0, 0.0};
 
     // 最後のパラメータは赤色の色相（90）から画像色相平均値を引いたもの
     robocar::vector<double> toward_fire {
-      camera.capture(camera.untested_filter, camera.size.width, 60)
+      camera.capture(camera.untested_filter, camera.size.width, 20)
     };
 
     robocar::vector<double> reversed_toward_fire {-toward_fire[0], toward_fire[1]};
