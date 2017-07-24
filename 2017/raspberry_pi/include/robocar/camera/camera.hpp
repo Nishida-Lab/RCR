@@ -35,6 +35,10 @@ public:
   {
     set(CV_CAP_PROP_FRAME_WIDTH,  size.width);
     set(CV_CAP_PROP_FRAME_HEIGHT, size.height);
+    set(CV_CAP_PROP_GAIN,                 50); // values range from 0 to 100
+    set(CV_CAP_PROP_EXPOSURE,             50); // -1 is auto, values range from 0 to 100
+    set(CV_CAP_PROP_WHITE_BALANCE_RED_V,  50); // values range from 0 to 100, -1 auto whitebalance
+    set(CV_CAP_PROP_WHITE_BALANCE_BLUE_U, 50); // values range from 0 to 100, -1 auto whitebalance
 
     if (!raspicam::RaspiCam_Cv::open())
     {
