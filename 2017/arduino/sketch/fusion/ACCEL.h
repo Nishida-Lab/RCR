@@ -20,10 +20,7 @@ void getAcc(int num, unsigned long time, double x, double y, double z, double of
     acc_0.data_x = GRAVITY*(x * 4.9 - offset_x)/SENSITIVITY; //caliculate accelaration 
     acc_0.data_y = GRAVITY*(y * 4.9 - offset_y)/SENSITIVITY; 
     acc_0.data_z = GRAVITY*(z * 4.9 - offset_z)/SENSITIVITY;
-    acc_0.data_x = acc_0.data_x * (1-param) + acc_2.data_x * param;
-    acc_0.data_y = acc_0.data_y * (1-param) + acc_2.data_y * param;
-    acc_0.data_z = acc_0.data_z * (1-param) + acc_2.data_z * param;
-
+    
     if(abs(acc_0.data_x) < 0.25) acc_0.data_x = 0;  //cut low value
     if(abs(acc_0.data_y) < 0.25) acc_0.data_y = 0;
     if(abs(acc_0.data_z-GRAVITY) < 0.25) acc_0.data_z = GRAVITY;
@@ -34,9 +31,6 @@ void getAcc(int num, unsigned long time, double x, double y, double z, double of
     acc_1.data_x = GRAVITY*(x * 4.9 - offset_x)/SENSITIVITY; 
     acc_1.data_y = GRAVITY*(y * 4.9 - offset_y)/SENSITIVITY; 
     acc_1.data_z = GRAVITY*(z * 4.9 - offset_z)/SENSITIVITY;
-    acc_1.data_x = acc_1.data_x * (1-param) + acc_0.data_x * param;
-    acc_1.data_y = acc_1.data_y * (1-param) + acc_0.data_y * param;
-    acc_1.data_z = acc_1.data_z * (1-param) + acc_0.data_z * param;
     
     if(abs(acc_1.data_x) < 0.25) acc_1.data_x = 0;
     if(abs(acc_1.data_y) < 0.25) acc_1.data_y = 0;
@@ -48,9 +42,7 @@ void getAcc(int num, unsigned long time, double x, double y, double z, double of
     acc_2.data_x = GRAVITY*(x * 4.9 - offset_x)/SENSITIVITY;
     acc_2.data_y = GRAVITY*(y * 4.9 - offset_y)/SENSITIVITY; 
     acc_2.data_z = GRAVITY*(z * 4.9 - offset_z)/SENSITIVITY;
-    acc_2.data_x = acc_2.data_x * (1-param) + acc_1.data_x * param;
-    acc_2.data_y = acc_2.data_y * (1-param) + acc_1.data_y * param;
-    acc_2.data_z = acc_2.data_z * (1-param) + acc_1.data_z * param;    
+
     if(abs(acc_2.data_x) < 0.25) acc_2.data_x = 0;
     if(abs(acc_2.data_y) < 0.25) acc_2.data_y = 0;
     if(abs(acc_2.data_z-GRAVITY) < 0.25) acc_2.data_z = GRAVITY;

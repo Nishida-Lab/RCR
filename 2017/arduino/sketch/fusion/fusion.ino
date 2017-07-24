@@ -7,26 +7,34 @@
 
 
 //#define ROTATE_OFFSET_DEBUG
-#define ACC_OFFSET_DEBUG
+//#define ACC_OFFSET_DEBUG
 //#define GYRO_OFFSET_DEBUG
 //#define TIME_DEBUG
 //#define GYRO_DEBUG
-//#define GYRO_FUNC_DEBUG
+//define GYRO_FUNC_DEBUG
 //#define DEG_DEBUG
 //#define ACC_DEBUG
-#define ACC_FUNC_DEBUG
+//#define ACC_FUNC_DEBUG
 //#define ACC_POS_DEBUG
 //#define SRS_DEBUG
 //#define ALL_DEBUG
-//#define RASPI_DEBUG
+#define RASPI_DEBUG
 
-#define OFFSET_L 200
-#define OFFSET_H 250
-#define OFFSET_TIME 15000
+#define OFFSET_L 100
+#define OFFSET_H 200
+#define OFFSET_TIME 10000
 
 VL6180X vl6180x_NW;
 VL6180X vl6180x_N;
 VL6180X vl6180x_NE;
+
+int timing = 0;
+double acc[3] = {0,0,0};
+double gyro_x = 0, gyro_y = 0, gyro_z = 0;
+double offset[3] = {0,0,0};
+double offset_gyro[3] = {0,0,0};
+double pitch = 0,roll = 0;
+double now_angular_velocity_z;
 
 int readSensor(int sensor){
   int answer = 0;
@@ -57,6 +65,8 @@ int readSensor(int sensor){
     return deg.data_y;
   case 15:
     return deg.data_z;  //call degree
+  case 16:
+    return now_angular_velocity_z;
   default:
     answer = -1; break;
   }
@@ -174,12 +184,28 @@ void affine(int timing){ //affine transformation
   }  
 }
 
-int timing = 0;
-double acc[3] = {0,0,0};
-double gyro_x = 0, gyro_y = 0, gyro_z = 0;
-double offset[3] = {0,0,0};
-double offset_gyro[3] = {0,0,0};
-double pitch = 0,roll = 0;
+void rotate_offset(int timing){
+  switch(timing){
+  case 0:
+    acc_0.data_y = cos(PI*roll /180) *acc_0.data_y;
+    acc_0.data_z = cos(PI*roll /180) *acc_0.data_z;
+    acc_0.data_x = cos(PI*pitch/180)*acc_0.data_x;
+    acc_0.data_z = cos(PI*pitch/180)*acc_0.data_z;
+    break;
+  case 1:
+    acc_1.data_y = cos(PI*roll /180) *acc_1.data_y;
+    acc_1.data_z = cos(PI*roll /180) *acc_1.data_z;
+    acc_1.data_x = cos(PI*pitch/180)*acc_1.data_x;
+    acc_1.data_z = cos(PI*pitch/180)*acc_1.data_z;
+    break;
+  case 2:
+    acc_2.data_y = cos(PI*roll /180) *acc_2.data_y;
+    acc_2.data_z = cos(PI*roll /180) *acc_2.data_z;
+    acc_2.data_x = cos(PI*pitch/180)*acc_2.data_x;
+    acc_2.data_z = cos(PI*pitch/180)*acc_2.data_z;
+    break;  
+  }  
+}
 
 void setup(){
   int i;
@@ -296,43 +322,24 @@ void setup(){
   }
 }
 
-
-void rotate_offset(int timing){
-  switch(timing){
-  case 0:
-    acc_0.data_y = cos(PI*roll /180) *acc_0.data_y;
-    acc_0.data_z = cos(PI*roll /180) *acc_0.data_z;
-    acc_0.data_x = cos(PI*pitch/180)*acc_0.data_x;
-    acc_0.data_z = cos(PI*pitch/180)*acc_0.data_z;
-    break;
-  case 1:
-    acc_1.data_y = cos(PI*roll /180) *acc_1.data_y;
-    acc_1.data_z = cos(PI*roll /180) *acc_1.data_z;
-    acc_1.data_x = cos(PI*pitch/180)*acc_1.data_x;
-    acc_1.data_z = cos(PI*pitch/180)*acc_1.data_z;
-    break;
-  case 2:
-    acc_2.data_y = cos(PI*roll /180) *acc_2.data_y;
-    acc_2.data_z = cos(PI*roll /180) *acc_2.data_z;
-    acc_2.data_x = cos(PI*pitch/180)*acc_2.data_x;
-    acc_2.data_z = cos(PI*pitch/180)*acc_2.data_z;
-    break;  
-  }  
-}
-
 void loop(){
   int i;
+  int param = 0.97;
   unsigned long time;
   //  Serial.println("loop head");
   
-  while(!l3gd20.read() > 0) Serial.println(-1); //read Gyro sensor
-  acc[0] = readAnalog(ACC_X);// * (1-param) + param * acc[0]; //RC filter
-  acc[1] = readAnalog(ACC_Y);// * (1-param) + param * acc[1];
-  acc[2] = readAnalog(ACC_Z);// * (1-param) + param * acc[2];
+  while(!l3gd20.read()) Serial.println(-1); //read Gyro sensor
+  acc[0] = readAnalog(ACC_X) * (1-param) + param * acc[0]; //RC filter
+  acc[1] = readAnalog(ACC_Y) * (1-param) + param * acc[1];
+  acc[2] = readAnalog(ACC_Z) * (1-param) + param * acc[2];
   
   time = micros();
 
   getGyro(timing, time, l3gd20.data.x, l3gd20.data.y, l3gd20.data.z, offset_gyro[0], offset_gyro[1], offset_gyro[2]); //get degree velocity
+  if(timing == 0) now_angular_velocity_z = gyro_0.data_z;
+  if(timing == 1) now_angular_velocity_z = gyro_1.data_z;
+  if(timing == 2) now_angular_velocity_z = gyro_2.data_z;
+
   getDeg(); //get degree
  
   getAcc(timing, time, acc[0], acc[1], acc[2], offset[0], offset[1], offset[2]); //get accelaration
@@ -399,6 +406,7 @@ void loop(){
 #endif
   /*----------------------------------------*/
 
+  //  Serial.println(now_angular_velocity_z,10);
 
 #ifdef RASPI_DEBUG
   int claim = -1;
