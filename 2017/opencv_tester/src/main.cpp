@@ -21,25 +21,27 @@ function_alias(cv::cvtColor, convert_color);
 
 
 // 俺フィルタ改
-// 一般化したやつ．型から最大最小の情報を引っ張りだすから
-// 範囲0~180の色相には対応していないというゴミ
 template <typename T, typename U>
-auto emphasize(T& image, U&& target)
+static auto emphasize(T& image, U&& target_value,
+                                U&& min = std::numeric_limits<U>::min(),
+                                U&& max = std::numeric_limits<U>::max())
 {
   for (auto&& pixel : image)
   {
-    if (pixel < target)
+    if (pixel < target_value)
     {
-      double distance {static_cast<double>(target - 1 - pixel)};
-      pixel = std::max(pixel * (1.0 - distance / target), std::numeric_limits<T>::min());
+      double distance {static_cast<double>(target_value - pixel - 1)};
+      pixel = std::max(pixel * (1.0 - distance / target_value), static_cast<double>(min));
     }
     else
     {
-      double distance {static_cast<double>(pixel - target)};
-      pixel = std::min(pixel * (1.0 + distance / target), std::numeric_limits<T>::max());
+      double distance {static_cast<double>(pixel - target_value)};
+      pixel = std::min(pixel * (1.0 + distance / target_value), static_cast<double>(max));
     }
   }
-};
+
+  return image;
+}
 
 
 int main(int argc, char** argv)
@@ -182,7 +184,8 @@ int main(int argc, char** argv)
   std::size_t iteration {5};
   for (std::size_t i {0}; i < iteration; ++i)
   {
-    emphasize_specific_hue(average + 20);
+    // emphasize_specific_hue(average + 20);
+    emphasize(splited_image[0], average + 20, 0, 179);
 
     // if (i == (iteration - 1))
     if (true)
@@ -192,6 +195,10 @@ int main(int argc, char** argv)
     }
   }
 
+  for (auto&& pixel : splited_image[0])
+  {
+    pixel = (pixel < 2 ? 179 : pixel);
+  }
 
   cv::morphologyEx(splited_image[0], splited_image[0], cv::MORPH_CLOSE,
                    cv::Mat1b {}, cv::Point {-1, -1}, 3);
