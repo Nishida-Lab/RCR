@@ -177,9 +177,7 @@ int main(int argc, char** argv) try
       camera.capture(camera.untested_filter, camera.size.width, 60)
     };
 
-    robocar<double> reversed_toward_fire {
-      -toward_fire[0], toward_fire[1]
-    };
+    robocar::vector<double> reversed_toward_fire {-toward_fire[0], toward_fire[1]};
 
     robocar::vector<double> direction {
       distractor + (toward_fire[0] == 0.0 && toward_fire[1] == 0.0 ? attractor : reversed_toward_fire.normalized())

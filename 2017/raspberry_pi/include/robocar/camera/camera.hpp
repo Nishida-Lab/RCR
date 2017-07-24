@@ -165,15 +165,15 @@ public:
         static_cast<int>(origin_image.size().height * 0.5)
       }
     };
-#ifndef NDEBUG
-    cv::imwrite("debug/cutted_image.jpg", cutted_image);
-#endif
+// #ifndef NDEBUG
+//     cv::imwrite("debug/cutted_image.jpg", cutted_image);
+// #endif
 
     static cv::Mat3b hsv_converted_image {};
     cv::cvtColor(cutted_image, hsv_converted_image, cv::COLOR_BGR2HSV);
-#ifndef NDEBUG
-    cv::imwrite("debug/hsv_converted_image.jpg", hsv_converted_image);
-#endif
+// #ifndef NDEBUG
+//     cv::imwrite("debug/hsv_converted_image.jpg", hsv_converted_image);
+// #endif
 
     static std::vector<cv::Mat1b> splited_images {};
     cv::split(hsv_converted_image, splited_images);
@@ -184,9 +184,9 @@ public:
     {
       pixel += (pixel < 90 ? 90 : -89);
     }
-#ifndef NDEBUG
-    cv::imwrite("debug/spinned_image.jpg", result_image);
-#endif
+// #ifndef NDEBUG
+//     cv::imwrite("debug/spinned_image.jpg", result_image);
+// #endif
 
     int average {
       std::accumulate(std::begin(result_image), std::end(result_image), 0)
@@ -202,9 +202,9 @@ public:
     {
       pixel = (pixel < 2 ? 179 : pixel);
     }
-#ifndef NDEBUG
-    cv::imwrite("debug/filtered_image.jpg", result_image);
-#endif
+// #ifndef NDEBUG
+//     cv::imwrite("debug/filtered_image.jpg", result_image);
+// #endif
 
     cv::Mat1b edge_image {};
     cv::morphologyEx(result_image, result_image, cv::MORPH_CLOSE, cv::Mat1b {}, cv::Point {-1, -1}, 3);
@@ -213,10 +213,10 @@ public:
     static std::vector<std::vector<cv::Point>> contours {};
     cv::findContours(edge_image, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE);
 
-#ifndef NDEBUG
-    std::cout << "[debug] average: " << average << std::endl;
-    std::cout << "[debug] contour: " << contours.size() << std::endl;
-#endif
+// #ifndef NDEBUG
+//     std::cout << "[debug] average: " << average << std::endl;
+//     std::cout << "[debug] contour: " << contours.size() << std::endl;
+// #endif
 
     if (contours.empty())
     {
@@ -248,16 +248,16 @@ public:
     const int pixel {static_cast<int>(point.x) - static_cast<int>(width / 2)};
     const double ratio {static_cast<double>(pixel) / static_cast<double>(width / 2)};
 
-#ifndef NDEBUG
-    cv::Mat3b contours_image {cutted_image};
-    cv::drawContours(contours_image,
-                     std::vector<std::vector<cv::Point>> {area_max.second},
-                     -1, cv::Scalar {0, 255, 0}, CV_FILLED);
-    cv::circle(contours_image,
-               cv::Point {static_cast<int>(point.x), static_cast<int>(point.y)},
-               10, cv::Scalar {0, 0, 255});
-    cv::imwrite("debug/contours_image.jpg", contours_image);
-#endif
+// #ifndef NDEBUG
+//     cv::Mat3b contours_image {cutted_image};
+//     cv::drawContours(contours_image,
+//                      std::vector<std::vector<cv::Point>> {area_max.second},
+//                      -1, cv::Scalar {0, 255, 0}, CV_FILLED);
+//     cv::circle(contours_image,
+//                cv::Point {static_cast<int>(point.x), static_cast<int>(point.y)},
+//                10, cv::Scalar {0, 0, 255});
+//     cv::imwrite("debug/contours_image.jpg", contours_image);
+// #endif
 
     return robocar::vector<double> {
       ratio,
