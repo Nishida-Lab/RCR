@@ -18,33 +18,30 @@ void getGyro(int num, unsigned long time, double data_x, double data_y, double d
   switch(num){
   case 0:
     gyro_0.time = time;
-    gyro_0.data_x = (gyro_0.data_x + gyro_1.data_x + gyro_2.data_x)/3;
-    gyro_0.data_y = (gyro_0.data_y + gyro_1.data_y + gyro_2.data_y)/3;
-    gyro_0.data_z = (gyro_0.data_z + gyro_1.data_z + gyro_2.data_z)/3;
-
     gyro_0.data_x = data_x;
     gyro_0.data_y = data_y;
     gyro_0.data_z = data_z;
-    
+    gyro_0.data_x = (gyro_0.data_x + gyro_1.data_x + gyro_2.data_x)/3;
+    gyro_0.data_y = (gyro_0.data_y + gyro_1.data_y + gyro_2.data_y)/3;
+    gyro_0.data_z = (gyro_0.data_z + gyro_1.data_z + gyro_2.data_z)/3;    
+
   case 1:
     gyro_1.time = time;
-    gyro_1.data_x = (gyro_0.data_x + gyro_1.data_x + gyro_2.data_x)/3;
-    gyro_1.data_y = (gyro_0.data_y + gyro_1.data_y + gyro_2.data_y)/3;
-    gyro_1.data_z = (gyro_0.data_z + gyro_1.data_z + gyro_2.data_z)/3;
-
     gyro_1.data_x = data_x;
     gyro_1.data_y = data_y;
     gyro_1.data_z = data_z;
-
+    gyro_1.data_x = (gyro_0.data_x + gyro_1.data_x + gyro_2.data_x)/3;
+    gyro_1.data_y = (gyro_0.data_y + gyro_1.data_y + gyro_2.data_y)/3;
+    gyro_1.data_z = (gyro_0.data_z + gyro_1.data_z + gyro_2.data_z)/3;
+    
   case 2:
     gyro_2.time = time;
-    gyro_2.data_x = (gyro_0.data_x + gyro_1.data_x + gyro_2.data_x)/3;
-    gyro_2.data_y = (gyro_0.data_y + gyro_1.data_y + gyro_2.data_y)/3;
-    gyro_2.data_z = (gyro_0.data_z + gyro_1.data_z + gyro_2.data_z)/3;
-
     gyro_2.data_x = data_x;
     gyro_2.data_y = data_y;
     gyro_2.data_z = data_z;
+    gyro_2.data_x = (gyro_0.data_x + gyro_1.data_x + gyro_2.data_x)/3;
+    gyro_2.data_y = (gyro_0.data_y + gyro_1.data_y + gyro_2.data_y)/3;
+    gyro_2.data_z = (gyro_0.data_z + gyro_1.data_z + gyro_2.data_z)/3;
   }
 
 }
@@ -53,14 +50,21 @@ int count = 0;
 double deg_x = 0,deg_y = 0,deg_z = 0;
 void getDeg(){
   double new_deg_x,new_deg_y,new_deg_z;
-  double param = 0.95;
-  deg_x = getIntegral(gyro_0.time, gyro_0.data_x, gyro_1.time, gyro_1.data_x, gyro_2.time, gyro_2.data_x)/(1000*1000);
-  deg_y = getIntegral(gyro_0.time, gyro_0.data_y, gyro_1.time, gyro_1.data_y, gyro_2.time, gyro_2.data_y)/(1000*1000);
-  deg_z = getIntegral(gyro_0.time, gyro_0.data_z, gyro_1.time, gyro_1.data_z, gyro_2.time, gyro_2.data_z)/(1000*1000);
-
-  if(abs(deg_x) < 0.005) deg_x = 0;
-  if(abs(deg_y) < 0.005) deg_y = 0;
-  if(abs(deg_z) < 0.005) deg_z = 0;
+  double buff_x,buff_y,buff_z;
+  double param = 0.8;
+  new_deg_x = getIntegral(gyro_0.time, gyro_0.data_x, gyro_1.time, gyro_1.data_x, gyro_2.time, gyro_2.data_x)/(1000*1000);
+  new_deg_y = getIntegral(gyro_0.time, gyro_0.data_y, gyro_1.time, gyro_1.data_y, gyro_2.time, gyro_2.data_y)/(1000*1000);
+  new_deg_z = getIntegral(gyro_0.time, gyro_0.data_z, gyro_1.time, gyro_1.data_z, gyro_2.time, gyro_2.data_z)/(1000*1000);
+  buff_x = new_deg_x * (1-param) + buff_x * param; 
+  buff_y = new_deg_y * (1-param) + buff_y * param; 
+  buff_z = new_deg_z * (1-param) + buff_z * param;
+  deg_x = new_deg_x - buff_x;
+  deg_y = new_deg_y - buff_y;
+  deg_z = new_deg_z - buff_z;
+  
+  if(abs(deg.data_x) < 0.005) deg_x = 0;
+  if(abs(deg.data_y) < 0.005) deg_y = 0;
+  if(abs(deg.data_z) < 0.005) deg_z = 0;
   
   deg.data_y += deg_x*4; //transformation
   deg.data_x += deg_y*4; 
