@@ -162,11 +162,11 @@ int main(int argc, char** argv) try
 
   robocar::chrono::for_duration(std::chrono::milliseconds {60 * 1000}, [&](auto& elapsed, auto& duration)
   {
-    static std::pair<robocar::vector<double>, decltype(elapsed)> feedback_vector {
-      {0.0, 0.0}, elapsed
-    };
-
-    static constexpr double feedback_gein {1.0};
+    // static std::pair<robocar::vector<double>, decltype(elapsed)> feedback_vector {
+    //   {0.0, 0.0}, elapsed
+    // };
+    //
+    // static constexpr double feedback_gein {1.0};
 
     const robocar::vector<double> distractor {distract_vector(0.03, 0.45, 0.90).normalized()};
     const robocar::vector<double>  attractor {0.0, 0.0};
@@ -176,12 +176,13 @@ int main(int argc, char** argv) try
     robocar::vector<double> direction {
       distractor
       + (poles.empty() ? attractor : poles.front().normalized())
-      + feedback_vector.first * std::exp(-feedback_gein * (elapsed - feedback_vector.second).count() * 0.001)
+      // + feedback_vector.first * std::exp(-feedback_gein * (elapsed - feedback_vector.second).count() * 0.001)
     };
 
     driver.write(direction.normalized(), 0.18, 0.5);
-    feedback_vector = std::make_pair(direction, elapsed);
+    // feedback_vector = std::make_pair(direction, elapsed);
 
+#ifndef NDEBUG
     // std::cout << std::fixed << std::showpos << std::setprecision(3)
     //           << "\r\e[K[debug] distractor: " << distractor << "\n"
     //           << "\r\e[K         attractor: " <<  attractor << " (";
@@ -190,6 +191,7 @@ int main(int argc, char** argv) try
     // else { std::cout << "empty)\n"; }
     //
     // std::cout << "\r\e[K         direction: " <<  direction << " (" << history.size() << ")\e[3A" << std::flush;
+#endif
   });
 
   driver.write(robocar::vector<double> {0.0, 0.0}, 0.18, 0.0);
