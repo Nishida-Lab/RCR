@@ -128,7 +128,7 @@ int main(int argc, char** argv) try
 
 
   auto attract_vector = [&]()
-  { // TODO OPTIMIZE
+  { // XXX UGLY CODE!!!
     double current_angle_in_world_coordinate {std::stod(sensor["angle"]["z"].get())};
 
     robocar::vector<double> current_direction_in_world_coordinate {
@@ -136,9 +136,10 @@ int main(int argc, char** argv) try
       std::sin(robocar::vector<double>::degree_to_radian(current_angle_in_world_coordinate + 90)),
     };
 
+
     robocar::vector<double> target_direction_in_world_coordinate {
-      predefined_field[std::stod(sensor["position"]["y"].get()) / 0.90]
-                      [std::stod(sensor["position"]["x"].get()) / 0.90]
+      predefined_field[std::max(0.0, std::min(static_cast<double>(predefined_field.size()), std::stod(sensor["position"]["y"].get()) / 0.90))]
+                      [std::max(0.0, std::min(static_cast<double>(predefined_field.size()), std::stod(sensor["position"]["x"].get()) / 0.90))]
     };
 
     double target_angle_in_local_coordinate {robocar::vector<double>::angle(
