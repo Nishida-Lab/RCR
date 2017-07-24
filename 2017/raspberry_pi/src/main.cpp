@@ -23,6 +23,9 @@
 #include <robocar/version.hpp>
 
 
+#define DISABLE_POSITION_SENSOR
+
+
 static const robocar::vector<double>
   north_west {-0.707,  0.707}, north { 0.000,  1.000}, north_east { 0.707,  0.707},
         west {-1.000,  0.000},                               east { 1.000,  0.000},
@@ -138,8 +141,12 @@ int main(int argc, char** argv) try
 
 
     robocar::vector<double> target_direction_in_world_coordinate {
+#ifndef DISABLE_POSITION_SENSOR // XXX UNTESTED
       predefined_field[std::max(0.0, std::min(static_cast<double>(predefined_field.size()), std::stod(sensor["position"]["y"].get()) / 0.90))]
                       [std::max(0.0, std::min(static_cast<double>(predefined_field.size()), std::stod(sensor["position"]["x"].get()) / 0.90))]
+#else
+      0.0, 1.0
+#endif
     };
 
     double target_angle_in_local_coordinate {robocar::vector<double>::angle(
@@ -152,6 +159,7 @@ int main(int argc, char** argv) try
       std::sin(robocar::vector<double>::degree_to_radian(target_angle_in_local_coordinate)),
     };
   };
+
 
   robocar::chrono::for_duration(std::chrono::seconds {10}, [](auto&& elapsed, auto&& duration)
   {
@@ -171,8 +179,8 @@ int main(int argc, char** argv) try
     const robocar::vector<double> distractor {distract_vector(0.03, 0.45, 0.90).normalized()};
     // const robocar::vector<double> distractor {0.0, 0.0};
 
-    // const robocar::vector<double>  attractor {attract_vector().normalized()};
-    const robocar::vector<double>  attractor {0.0, 0.0};
+    const robocar::vector<double>  attractor {attract_vector().normalized()};
+    // const robocar::vector<double>  attractor {0.0, 0.0};
 
     // 最後のパラメータは赤色の色相（90）から画像色相平均値を引いたもの
     robocar::vector<double> toward_fire {
