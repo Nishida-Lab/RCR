@@ -54,11 +54,11 @@ public:
     raspicam::RaspiCam_Cv::release();
   }
 
-  void read()
+  const auto& read()
   {
     raspicam::RaspiCam_Cv::grab();
-    raspicam::RaspiCam_Cv::retrieve(image_);
-    // image_ = cv::Mat3b {image_, cv::Rect {0, static_cast<int>(height_ * 0.5), static_cast<int>(width_), static_cast<int>(height_ * 0.5)}};
+    raspicam::RaspiCam_Cv::retrieve(buffer_);
+    return buffer_;
   }
 
   // void debug(const std::string& prefix = "debug_")
