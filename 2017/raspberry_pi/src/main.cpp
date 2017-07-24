@@ -153,6 +153,8 @@ int main(int argc, char** argv) try
     };
   };
 
+  std::cout << camera.capture(camera.untested_filter, camera.size.width) << std::endl;
+  return 0;
 
   robocar::chrono::for_duration(std::chrono::seconds {5}, [](auto&& elapsed, auto&& duration)
   {

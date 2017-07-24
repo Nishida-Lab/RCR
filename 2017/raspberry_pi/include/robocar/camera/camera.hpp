@@ -12,6 +12,7 @@
 #include <raspicam/raspicam_cv.h>
 #include <opencv2/core/core.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
+#include <opencv2/highgui/highgui.hpp>
 
 #include <robocar/vector/vector.hpp>
 #include <robocar/utility/renamed_pair.hpp>
@@ -36,10 +37,10 @@ public:
   {
     set(CV_CAP_PROP_FRAME_WIDTH,  size.width);
     set(CV_CAP_PROP_FRAME_HEIGHT, size.height);
-    set(CV_CAP_PROP_GAIN,                 50); // values range from 0 to 100
-    set(CV_CAP_PROP_EXPOSURE,             50); // -1 is auto, values range from 0 to 100
-    set(CV_CAP_PROP_WHITE_BALANCE_RED_V,  50); // values range from 0 to 100, -1 auto whitebalance
-    set(CV_CAP_PROP_WHITE_BALANCE_BLUE_U, 50); // values range from 0 to 100, -1 auto whitebalance
+    // set(CV_CAP_PROP_GAIN,                 50); // values range from 0 to 100
+    // set(CV_CAP_PROP_EXPOSURE,             50); // -1 is auto, values range from 0 to 100
+    // set(CV_CAP_PROP_WHITE_BALANCE_RED_V,  50); // values range from 0 to 100, -1 auto whitebalance
+    // set(CV_CAP_PROP_WHITE_BALANCE_BLUE_U, 50); // values range from 0 to 100, -1 auto whitebalance
 
     if (!raspicam::RaspiCam_Cv::open())
     {
@@ -59,6 +60,7 @@ public:
   {
     raspicam::RaspiCam_Cv::grab();
     raspicam::RaspiCam_Cv::retrieve(buffer_);
+    cv::imwrite("debug/origin_image.jpg", buffer_);
     return buffer_;
   }
 
@@ -163,19 +165,28 @@ public:
         static_cast<int>(origin_image.size().height * 0.5)
       }
     };
+#ifndef NDEBUG
+    cv::imwrite("debug/cutted_image.jpg", cutted_image);
+#endif
 
     static cv::Mat3b hsv_converted_image {};
     cv::cvtColor(cutted_image, hsv_converted_image, cv::COLOR_BGR2HSV);
+#ifndef NDEBUG
+    cv::imwrite("debug/hsv_converted_image.jpg", hsv_converted_image);
+#endif
 
     static std::vector<cv::Mat1b> splited_images {};
     cv::split(hsv_converted_image, splited_images);
 
-    static cv::Mat1b& result_image {splited_images[0]};
+    cv::Mat1b& result_image {splited_images[0]};
 
     for (auto&& pixel : result_image)
     {
       pixel += (pixel < 90 ? 90 : -89);
     }
+#ifndef NDEBUG
+    cv::imwrite("debug/spinned_image.jpg", result_image);
+#endif
 
     int average {
       std::accumulate(std::begin(result_image), std::end(result_image), 0)
@@ -191,9 +202,20 @@ public:
     {
       pixel = (pixel < 2 ? 179 : pixel);
     }
+#ifndef NDEBUG
+    cv::imwrite("debug/filtered_image.jpg", result_image);
+#endif
+
+    cv::Mat1b edge_image {};
+    cv::morphologyEx(result_image, result_image, cv::MORPH_CLOSE, cv::Mat1b {}, cv::Point {-1, -1}, 3);
+    cv::Canny(result_image, edge_image, 50, 200);
 
     static std::vector<std::vector<cv::Point>> contours {};
-    cv::findContours(result_image, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE);
+    cv::findContours(edge_image, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE);
+
+#ifndef NDEBUG
+    std::cout << "[debug] contour size: " << contours.size() << std::endl;
+#endif
 
     if (contours.empty())
     {
@@ -224,6 +246,17 @@ public:
 
     const int pixel {static_cast<int>(point.x) - static_cast<int>(width / 2)};
     const double ratio {static_cast<double>(pixel) / static_cast<double>(width / 2)};
+
+#ifndef NDEBUG
+    cv::Mat3b contours_image {cutted_image};
+    cv::drawContours(contours_image,
+                     std::vector<std::vector<cv::Point>> {area_max.second},
+                     -1, cv::Scalar {0, 255, 0}, CV_FILLED);
+    cv::circle(contours_image,
+               cv::Point {static_cast<int>(point.x), static_cast<int>(point.y)},
+               10, cv::Scalar {0, 0, 255});
+    cv::imwrite("debug/contours_image.jpg", contours_image);
+#endif
 
     return robocar::vector<double> {
       ratio,
