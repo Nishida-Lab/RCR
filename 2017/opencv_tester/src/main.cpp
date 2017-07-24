@@ -214,6 +214,17 @@ int main(int argc, char** argv)
   cv::imshow("edge", edge_image);
 
 
+  static std::vector<std::vector<cv::Point>> contours {};
+  cv::findContours(edge_image, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE);
+
+  std::cout << "[debug] size: " << contours.size() << std::endl;
+
+  cv::Mat3b contours_image {cutted_image};
+  cv::drawContours(contours_image, contours, -1, cv::Scalar {255, 0, 0}, CV_FILLED, 4);
+
+  cv::namedWindow("contours", cv::WINDOW_AUTOSIZE);
+  cv::imshow("contours", contours_image);
+
   while (true)
   {
     cv::waitKey(0);
