@@ -52,25 +52,27 @@ int main(int argc, char** argv) try
   robocar::differential_driver driver {{35, 38}, {37, 40}};
 
 
-  sensor["distance"]["long"]["south_west"].set(0);
-  sensor["distance"]["long"][      "west"].set(1);
-  sensor["distance"]["long"]["north_west"].set(2);
-  sensor["distance"]["long"]["north"     ].set(3);
-  sensor["distance"]["long"]["north_east"].set(4);
-  sensor["distance"]["long"][      "east"].set(5);
-  sensor["distance"]["long"]["south_east"].set(6);
+  { // sensor initialize
+    sensor["distance"]["long"]["south_west"].set(0);
+    sensor["distance"]["long"][      "west"].set(1);
+    sensor["distance"]["long"]["north_west"].set(2);
+    sensor["distance"]["long"]["north"     ].set(3);
+    sensor["distance"]["long"]["north_east"].set(4);
+    sensor["distance"]["long"][      "east"].set(5);
+    sensor["distance"]["long"]["south_east"].set(6);
 
-  sensor["distance"]["short"]["north_west"].set(10);
-  sensor["distance"]["short"]["north"     ].set(11);
-  sensor["distance"]["short"]["north_east"].set(12);
+    sensor["distance"]["short"]["north_west"].set(10);
+    sensor["distance"]["short"]["north"     ].set(11);
+    sensor["distance"]["short"]["north_east"].set(12);
 
-  sensor["position"]["x"].set(7);
-  sensor["position"]["y"].set(8);
-  sensor["position"]["z"].set(9);
+    sensor["position"]["x"].set(7);
+    sensor["position"]["y"].set(8);
+    sensor["position"]["z"].set(9);
 
-  sensor["angle"]["x"].set(13);
-  sensor["angle"]["y"].set(14);
-  sensor["angle"]["z"].set(15);
+    sensor["angle"]["x"].set(13);
+    sensor["angle"]["y"].set(14);
+    sensor["angle"]["z"].set(15);
+  }
 
 
   auto distract_vector = [&](double range_min, double range_mid, double range_max)
