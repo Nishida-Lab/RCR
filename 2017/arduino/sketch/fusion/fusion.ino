@@ -1,25 +1,27 @@
-#include<Wire.h>
-#include"../../libraries/VL6180X/VL6180X.cpp"
-#include"./setup.h"
-#include"./ACCEL.h"
-#include"./GYRO.h"
+#include <Wire.h>
+#include <math.h>
+#include "../../libraries/VL6180X/VL6180X.cpp"
+#include "./setup.h"
+#include "./ACCEL.h"
+#include "./GYRO.h"
 
-/*
-#define TIME_DEBUG
-#define GYRO_DEBUG
-#define GYOR_FUNC_DEBUG
-#define DEG_DEBUG
-#define ACC_DEBUG
-#define ACC_FUNC_DEBU
-#define ACC_POS_DEBUG
-#define SRS_DEBUG
-#define ALL_DEBUG
-*/
-#define RASPI_DEBUG
 
-#define OFFSET_L 100
-#define OFFSET_H 150
-#define OFFSET_TIME 3000
+//#define ACC_OFFSET_DEBUG
+//#define GYOR_OFFSET_DEBUG
+//#define TIME_DEBUG
+//#define GYRO_DEBUG
+//#define GYOR_FUNC_DEBUG
+//#define DEG_DEBUG
+//#define ACC_DEBUG
+//#define ACC_FUNC_DEBUG
+//#define ACC_POS_DEBUG
+//#define SRS_DEBUG
+//#define ALL_DEBUG
+//#define RASPI_DEBUG
+
+#define OFFSET_L 200
+#define OFFSET_H 300
+#define OFFSET_TIME 20000
 
 VL6180X vl6180x_NW;
 VL6180X vl6180x_N;
@@ -112,7 +114,7 @@ void affine(int timing){ //affine transformation
 //  Serial.print(global_acc[0]); Serial.print(" ");
 //  Serial.print(global_acc[1]); Serial.print(" ");
 //  Serial.print(global_acc[2]); Serial.print(" ");
-//    Serial.print(" : ");
+//  Serial.print(" : ");
 
     //affine transformation z -> x -> y
   for(i = 0;i < 3;i++) {
@@ -177,6 +179,7 @@ double gyro_x = 0, gyro_y = 0, gyro_z = 0;
 double param = 0.97;
 double offset[3] = {0,0,0};
 double offset_gyro[3] = {0,0,0};
+double pitch = 0,roll = 0;
 
 void setup(){
   int i;
@@ -239,7 +242,7 @@ void setup(){
     acc[1] = param * acc[1] + (1-param) * readAnalog(ACC_Y);
     acc[2] = param * acc[2] + (1-param) * readAnalog(ACC_Z);
  
-    l3gd20.read();
+    while(!l3gd20.read() > 0) Serial.println(-1);
     gyro_x = param*gyro_x + (1-param)*l3gd20.data.x; 
     gyro_y = param*gyro_y + (1-param)*l3gd20.data.y; 
     gyro_z = param*gyro_z + (1-param)*l3gd20.data.z; 
@@ -253,44 +256,98 @@ void setup(){
     
     offset[0] = 4.9 * sum_offset[0]/(OFFSET_H - OFFSET_L);
     offset[1] = 4.9 * sum_offset[1]/(OFFSET_H - OFFSET_L);
-    offset[2] = (4.9 * sum_offset[2] / (OFFSET_H - OFFSET_L)) -1000;
- 
+    offset[2] = (4.9 * sum_offset[2] / (OFFSET_H - OFFSET_L));
+
+    double buffer[3];
+    
+    buffer[0] = (offset[0] - 1650)/660;
+    buffer[1] = (offset[1] - 1650)/660;
+    buffer[2] = (offset[2] - 1650)/660;
+
+    if(abs(buffer[0]) < 50/4.9) buffer[0] = 0;
+    if(abs(buffer[1]) < 50/4.9) buffer[1] = 0;
+    if(abs(buffer[2]-1) < 50/4.9) buffer[2] = 1;
+    
+    double sum_x;
+    sum_x = sqrt(pow(buffer[1],2) + pow(buffer[2], 2));
+    pitch = atan2(sum_x, buffer[0]);
+    roll  = atan2(buffer[2], buffer[1]);
+    
     offset_gyro[0] = sum_gyro[0]/(OFFSET_H - OFFSET_L); 
     offset_gyro[1] = sum_gyro[1]/(OFFSET_H - OFFSET_L); 
-    offset_gyro[2] = sum_gyro[2]/(OFFSET_H - OFFSET_L); 
+    offset_gyro[2] = sum_gyro[2]/(OFFSET_H - OFFSET_L);
 
-    //    Serial.print(acc[0],10); Serial.print(" "); 
-    //    Serial.print(acc[1],10); Serial.print(" ");
-    //    Serial.println(acc[2],10);
-  
+
+#ifdef ROTATE_OFFSET
+    Serial.print(buffer[0],10); Serial.print(" "); 
+    Serial.print(buffer[1],10); Serial.print(" ");
+    Serial.print(buffer[2],10); Serial.print(" ");
+    Serial.print(pitch); Serial.print(" "); 
+    Serial.println(roll);
+#endif
+    
+#ifdef ACC_OFFSET_DEBUG
+    Serial.print(acc[0],10); Serial.print(" "); 
+    Serial.print(acc[1],10); Serial.print(" ");
+    Serial.println(acc[2],10);
+#endif
+
+#ifdef GYRO_OFFSET_DEBUG
+    Serial.print(offset_gyro[0],10); Serial.print(" ");
+    Serial.print(offset_gyro[1],10); Serial.print(" ");
+    Serial.println(offset_gyro[2],10);
+#endif    
     count_offset++;
   }
 }
 
+
+void rotate_offset(int timing){
+  switch(timing){
+  case 0:
+    acc_0.data_y = cos(roll) *acc_0.data_y;
+    acc_0.data_z = cos(roll) *acc_0.data_z;
+    acc_0.data_x = cos(pitch)*acc_0.data_x;
+    acc_0.data_z = cos(pitch)*acc_0.data_z;
+    break;
+  case 1:
+    acc_1.data_y = cos(roll) *acc_1.data_y;
+    acc_1.data_z = cos(roll) *acc_1.data_z;
+    acc_1.data_x = cos(pitch)*acc_1.data_x;
+    acc_1.data_z = cos(pitch)*acc_1.data_z;
+    break;
+  case 2:
+    acc_2.data_y = cos(roll) *acc_2.data_y;
+    acc_2.data_z = cos(roll) *acc_2.data_z;
+    acc_2.data_x = cos(pitch)*acc_2.data_x;
+    acc_2.data_z = cos(pitch)*acc_2.data_z;
+    break;  
+  }  
+}
 
 
 void loop(){
   int i;
   unsigned long time;
   //  Serial.println("loop head");
+
+  if(millis() > 150000);
   
-  l3gd20.read(); //read Gyro sensor
+  while(!l3gd20.read() > 0) Serial.println(-1); //read Gyro sensor
   acc[0] = readAnalog(ACC_X);// * (1-param) + param * acc[0]; //RC filter
   acc[1] = readAnalog(ACC_Y);// * (1-param) + param * acc[1];
   acc[2] = readAnalog(ACC_Z);// * (1-param) + param * acc[2];
-
-
   
   time = micros();
 
   getGyro(timing, time, l3gd20.data.x, l3gd20.data.y, l3gd20.data.z, offset_gyro[0], offset_gyro[1], offset_gyro[2]); //get degree velocity
   getDeg(); //get degree
  
-  getAcc(timing, time, acc[0], offset[0], acc[1], offset[1], acc[2], offset[2]); //get accelaration
+  getAcc(timing, time, acc[0], acc[1], acc[2]); //get accelaration
+  rotate_offset(timing);  
   //  affine(timing); //affine transformation
   getVel(timing); //get velocity
-  getPos(); //get position
-
+  getPos(timing); //get position
 
   /*--------------Debug--------------------*/
 #ifdef TIME_DEBUG 

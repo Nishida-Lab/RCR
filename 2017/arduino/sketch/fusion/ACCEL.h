@@ -1,59 +1,60 @@
 #include<./Multiplexer.h>
  
 #define GRAVITY 9.80665 //set gravity constant
-#define SENSITIVITY 1000
+#define SENSITIVITY 660
+#define ACC_OFFSET 1650
 
 
 DATA acc_0,acc_1,acc_2,vel_0,vel_1,vel_2,pos; //set struct
 
 
 
-void getAcc(int num, unsigned long time, double x, double offset_x, double y, double offset_y, double z, double offset_z){
+void getAcc(int num, unsigned long time, double x, double y, double z){
   switch(num){ //"num" is timing
   case 0:
     acc_0.time = time; //get time
     //重力加速度[m/s^2]*(電圧[mV]-オフセット電圧[mV])/感度[mV/g] = 加速度[m/s^2]
-    acc_0.data_x = GRAVITY*(x * 4.9 - offset_x)/SENSITIVITY; //caliculate accelaration 
-    acc_0.data_y = GRAVITY*(y * 4.9 - offset_y)/SENSITIVITY; 
-    acc_0.data_z = GRAVITY*(z * 4.9 - offset_z)/SENSITIVITY;
-
+    acc_0.data_x = GRAVITY*(x * 4.9 - ACC_OFFSET)/SENSITIVITY; //caliculate accelaration 
+    acc_0.data_y = GRAVITY*(y * 4.9 - ACC_OFFSET)/SENSITIVITY; 
+    acc_0.data_z = GRAVITY*(z * 4.9 - ACC_OFFSET)/SENSITIVITY;
+    
     acc_0.data_x = (acc_0.data_x + acc_1.data_x + acc_2.data_x)/3;
     acc_0.data_y = (acc_0.data_y + acc_1.data_y + acc_2.data_y)/3;
     acc_0.data_z = (acc_0.data_z + acc_1.data_z + acc_2.data_z)/3;
 
-    if(abs(acc_0.data_x) < 0.25) acc_0.data_x = 0;  //cut low value
-    if(abs(acc_0.data_y) < 0.25) acc_0.data_y = 0;
-    if(abs(acc_0.data_z) < 0.25) acc_0.data_z = 0;
+    if(abs(acc_0.data_x) < 0.15) acc_0.data_x = 0;  //cut low value
+    if(abs(acc_0.data_y) < 0.15) acc_0.data_y = 0;
+    if(abs(acc_0.data_z-9.8) < 0.15) acc_0.data_z = GRAVITY;
     break;
     
   case 1:
     acc_1.time = time;
-    acc_1.data_x = GRAVITY*(x * 4.9 - offset_x)/SENSITIVITY; 
-    acc_1.data_y = GRAVITY*(y * 4.9 - offset_y)/SENSITIVITY; 
-    acc_1.data_z = GRAVITY*(z * 4.9 - offset_z)/SENSITIVITY;
+    acc_1.data_x = GRAVITY*(x * 4.9 - ACC_OFFSET)/SENSITIVITY; 
+    acc_1.data_y = GRAVITY*(y * 4.9 - ACC_OFFSET)/SENSITIVITY; 
+    acc_1.data_z = GRAVITY*(z * 4.9 - ACC_OFFSET)/SENSITIVITY;
 
     acc_1.data_x = (acc_0.data_x + acc_1.data_x + acc_2.data_x)/3;
     acc_1.data_y = (acc_0.data_y + acc_1.data_y + acc_2.data_y)/3;
     acc_1.data_z = (acc_0.data_z + acc_1.data_z + acc_2.data_z)/3;
     
-    if(abs(acc_1.data_x) < 0.25) acc_1.data_x = 0;
-    if(abs(acc_1.data_y) < 0.25) acc_1.data_y = 0;
-    if(abs(acc_1.data_z) < 0.25) acc_1.data_z = 0;
+    if(abs(acc_1.data_x) < 0.15) acc_1.data_x = 0;
+    if(abs(acc_1.data_y) < 0.15) acc_1.data_y = 0;
+    if(abs(acc_1.data_z-9.8) < 0.15) acc_1.data_z = GRAVITY;
     break;
 
   case 2:
     acc_2.time = time;
-    acc_2.data_x = GRAVITY*(x * 4.9 - offset_x)/SENSITIVITY;
-    acc_2.data_y = GRAVITY*(y * 4.9 - offset_y)/SENSITIVITY; 
-    acc_2.data_z = GRAVITY*(z * 4.9 - offset_z)/SENSITIVITY;
+    acc_2.data_x = GRAVITY*(x * 4.9 - ACC_OFFSET)/SENSITIVITY;
+    acc_2.data_y = GRAVITY*(y * 4.9 - ACC_OFFSET)/SENSITIVITY; 
+    acc_2.data_z = GRAVITY*(z * 4.9 - ACC_OFFSET)/SENSITIVITY;
 
     acc_2.data_x = (acc_0.data_x + acc_1.data_x + acc_2.data_x)/3;
     acc_2.data_y = (acc_0.data_y + acc_1.data_y + acc_2.data_y)/3;
     acc_2.data_z = (acc_0.data_z + acc_1.data_z + acc_2.data_z)/3;
     
-    if(abs(acc_2.data_x) < 0.25) acc_2.data_x = 0;
-    if(abs(acc_2.data_y) < 0.25) acc_2.data_y = 0;
-    if(abs(acc_2.data_z) < 0.25) acc_2.data_z = 0;
+    if(abs(acc_2.data_x) < 0.15) acc_2.data_x = 0;
+    if(abs(acc_2.data_y) < 0.15) acc_2.data_y = 0;
+    if(abs(acc_2.data_z-9.8) < 0.15) acc_2.data_z = GRAVITY;
     break;
   }
 }
@@ -85,18 +86,15 @@ void getVel(int timing){
   new_vel_x = getIntegral(vel_0.time, acc_0.data_x, vel_1.time, acc_1.data_x, vel_2.time, acc_2.data_x)/(1000*1000);
   new_vel_y = getIntegral(vel_0.time, acc_0.data_y, vel_1.time, acc_1.data_y, vel_2.time, acc_2.data_y)/(1000*1000);
   new_vel_z = getIntegral(vel_0.time, acc_0.data_z, vel_1.time, acc_1.data_z, vel_2.time, acc_2.data_z)/(1000*1000);
-  buff_vel_x[0] = param * buff_vel_x[2] + (1-param) * new_vel_x; //rc filter						
-  buff_vel_y[0] = param * buff_vel_y[2] + (1-param) * new_vel_y;						
-  buff_vel_z[0] = param * buff_vel_z[2] + (1-param) * new_vel_z;
-  buff_vel_x[0] = new_vel_x - buff_vel_x[0]; //High pass filter
-  buff_vel_y[0] = new_vel_y - buff_vel_y[0]; 
-  buff_vel_z[0] = new_vel_z - buff_vel_z[0];
-  if(count_vel > 300){
-    vel_0.data_x = vel_2.data_x + buff_vel_x[0]; //accumulation velocity
-    vel_0.data_y = vel_2.data_y + buff_vel_y[0];
-    vel_0.data_z = vel_2.data_z + buff_vel_z[0];
-  }
-  count_vel++;
+  buff_vel_x[0] = (buff_vel_x[1] + buff_vel_x[2] + new_vel_x)/3; //rc filter						
+  buff_vel_y[0] = (buff_vel_y[1] + buff_vel_y[2] + new_vel_y)/3;						
+  buff_vel_z[0] = (buff_vel_z[1] + buff_vel_z[2] + new_vel_z)/3;
+  buff_vel_x[0] = new_vel_x;// - buff_vel_x[0]; //High pass filter
+  buff_vel_y[0] = new_vel_y;// - buff_vel_y[0]; 
+  buff_vel_z[0] = new_vel_z;// - buff_vel_z[0];
+  vel_0.data_x = buff_vel_x[0] + vel_2.data_x; //accumulation velocity
+  vel_0.data_y = buff_vel_y[0] + vel_2.data_y;
+  vel_0.data_z = buff_vel_z[0] + vel_2.data_z;
  break;														
 														
   case 1:													
@@ -104,18 +102,15 @@ void getVel(int timing){
   new_vel_x = getIntegral(vel_0.time, acc_0.data_x, vel_1.time, acc_1.data_x, vel_2.time, acc_2.data_x)/(1000*1000);
   new_vel_y = getIntegral(vel_0.time, acc_0.data_y, vel_1.time, acc_1.data_y, vel_2.time, acc_2.data_y)/(1000*1000);
   new_vel_z = getIntegral(vel_0.time, acc_0.data_z, vel_1.time, acc_1.data_z, vel_2.time, acc_2.data_z)/(1000*1000);
-  buff_vel_x[1] = param * buff_vel_x[0] + (1-param) * new_vel_x;						
-  buff_vel_y[1] = param * buff_vel_y[0] + (1-param) * new_vel_y;						
-  buff_vel_z[1] = param * buff_vel_z[0] + (1-param) * new_vel_z;
-  buff_vel_x[1] = new_vel_x - buff_vel_x[1]; 
-  buff_vel_y[1] = new_vel_y - buff_vel_y[1]; 
-  buff_vel_z[1] = new_vel_z - buff_vel_z[1];
-  if(count_vel > 300){
-    vel_1.data_x = vel_0.data_x + buff_vel_x[1];
-    vel_1.data_y = vel_0.data_y + buff_vel_y[1];
-    vel_1.data_z = vel_0.data_z + buff_vel_z[1];
-  }
-  count_vel++;
+  buff_vel_x[1] = (buff_vel_x[0] + buff_vel_x[2] + new_vel_x)/3;						
+  buff_vel_y[1] = (buff_vel_y[0] + buff_vel_y[2] + new_vel_y)/3;						
+  buff_vel_z[1] = (buff_vel_z[0] + buff_vel_z[2] + new_vel_z)/3;
+  buff_vel_x[1] = new_vel_x;// - buff_vel_x[1]; 
+  buff_vel_y[1] = new_vel_y;// - buff_vel_y[1]; 
+  buff_vel_z[1] = new_vel_z;// - buff_vel_z[1];
+  vel_1.data_x = buff_vel_x[1] + vel_0.data_x;
+  vel_1.data_y = buff_vel_y[1] + vel_0.data_y;
+  vel_1.data_z = buff_vel_z[1] + vel_0.data_z;
   break;													
 														
   case 2:													
@@ -123,43 +118,78 @@ void getVel(int timing){
   new_vel_x = getIntegral(vel_0.time, acc_0.data_x, vel_1.time, acc_1.data_x, vel_2.time, acc_2.data_x)/(1000*1000);
   new_vel_y = getIntegral(vel_0.time, acc_0.data_y, vel_1.time, acc_1.data_y, vel_2.time, acc_2.data_y)/(1000*1000);
   new_vel_z = getIntegral(vel_0.time, acc_0.data_z, vel_1.time, acc_1.data_z, vel_2.time, acc_2.data_z)/(1000*1000);
-  buff_vel_x[2] = param * buff_vel_x[1] + (1-param) * new_vel_x;						
-  buff_vel_y[2] = param * buff_vel_y[1] + (1-param) * new_vel_y;						
-  buff_vel_z[2] = param * buff_vel_z[1] + (1-param) * new_vel_z;
-  buff_vel_x[2] = new_vel_x - buff_vel_x[2]; 
-  buff_vel_y[2] = new_vel_y - buff_vel_y[2]; 
-  buff_vel_z[2] = new_vel_z - buff_vel_z[2];
-  if(count_vel > 300){
-    vel_2.data_x = vel_1.data_x + buff_vel_x[2];
-    vel_2.data_y = vel_1.data_y + buff_vel_y[2];
-    vel_2.data_z = vel_1.data_z + buff_vel_z[2];
-  }
-  count_vel++;
+  buff_vel_x[2] = (buff_vel_x[1] + buff_vel_x[0] + new_vel_x)/3;						
+  buff_vel_y[2] = (buff_vel_y[1] + buff_vel_y[0] + new_vel_y)/3;						
+  buff_vel_z[2] = (buff_vel_z[1] + buff_vel_x[0] + new_vel_z)/3;
+  buff_vel_x[2] = new_vel_x;// - buff_vel_x[2]; 
+  buff_vel_y[2] = new_vel_y;// - buff_vel_y[2]; 
+  buff_vel_z[2] = new_vel_z;// - buff_vel_z[2];
+  vel_2.data_x = buff_vel_x[2] + vel_1.data_x;
+  vel_2.data_y = buff_vel_y[2] + vel_1.data_y;
+  vel_2.data_z = buff_vel_z[2] + vel_1.data_z;
   break;
   }
 }
 
 int count_pos = 0;
-void getPos(){
+void getPos(int timing){
   double new_pos_x, new_pos_y, new_pos_z;
-  double pos_x, pos_y, pos_z;
+  double pos_x[3], pos_y[3], pos_z[3];
   double param = 0.95;
+
+//  switch(timing){
+//  case 0:
+//    new_pos_x = getIntegral(vel_0.time, vel_0.data_x, vel_1.time, vel_1.data_x, vel_2.time, vel_2.data_x)/(1000*1000);
+//    new_pos_y = getIntegral(vel_0.time, vel_0.data_y, vel_1.time, vel_1.data_y, vel_2.time, vel_2.data_y)/(1000*1000);
+//    new_pos_z = getIntegral(vel_0.time, vel_0.data_z, vel_1.time, vel_1.data_z, vel_2.time, vel_2.data_z)/(1000*1000);
+//    pos_x[0] = (new_pos_x + pos_x[1] + pos_x[2])/3;
+//    pos_y[0] = (new_pos_y + pos_y[1] + pos_y[2])/3;
+//    pos_z[0] = (new_pos_z + pos_z[1] + pos_z[2])/3;
+//    pos_x[0] = new_pos_x - pos_x[0]; 
+//    pos_y[0] = new_pos_y - pos_y[0]; 
+//    pos_z[0] = new_pos_z - pos_z[0];
+//    pos.data_x += pos_x[0]/100; // "/100" is arbitary value 
+//    pos.data_y += pos_y[0]/100; 
+//    pos.data_z += pos_z[0]/100;    
+//    break;
+// 
+//  case 1:
+//    new_pos_x = getIntegral(vel_0.time, vel_0.data_x, vel_1.time, vel_1.data_x, vel_2.time, vel_2.data_x)/(1000*1000);
+//    new_pos_y = getIntegral(vel_0.time, vel_0.data_y, vel_1.time, vel_1.data_y, vel_2.time, vel_2.data_y)/(1000*1000);
+//    new_pos_z = getIntegral(vel_0.time, vel_0.data_z, vel_1.time, vel_1.data_z, vel_2.time, vel_2.data_z)/(1000*1000);
+//    pos_x[1] = (new_pos_x + pos_x[0] + pos_x[2])/3;
+//    pos_y[1] = (new_pos_y + pos_y[0] + pos_y[2])/3;
+//    pos_z[1] = (new_pos_z + pos_z[0] + pos_z[2])/3;
+//    pos_x[1] = new_pos_x - pos_x[1]; 
+//    pos_y[1] = new_pos_y - pos_y[1]; 
+//    pos_z[1] = new_pos_z - pos_z[1];
+//    pos.data_x += pos_x[1]/100; // "/100" is arbitary value 
+//    pos.data_y += pos_y[1]/100; 
+//    pos.data_z += pos_z[1]/100;    
+//    break;
+// 
+//  case 2:
+//    new_pos_x = getIntegral(vel_0.time, vel_0.data_x, vel_1.time, vel_1.data_x, vel_2.time, vel_2.data_x)/(1000*1000);
+//    new_pos_y = getIntegral(vel_0.time, vel_0.data_y, vel_1.time, vel_1.data_y, vel_2.time, vel_2.data_y)/(1000*1000);
+//    new_pos_z = getIntegral(vel_0.time, vel_0.data_z, vel_1.time, vel_1.data_z, vel_2.time, vel_2.data_z)/(1000*1000);
+//    pos_x[2] = (new_pos_x + pos_x[1] + pos_x[0])/3;
+//    pos_y[2] = (new_pos_y + pos_y[1] + pos_y[0])/3;
+//    pos_z[2] = (new_pos_z + pos_z[1] + pos_z[0])/3;
+//    pos_x[2] = new_pos_x - pos_x[2]; 
+//    pos_y[2] = new_pos_y - pos_y[2]; 
+//    pos_z[2] = new_pos_z - pos_z[2];
+//    pos.data_x += pos_x[2]/100; // "/100" is arbitary value 
+//    pos.data_y += pos_y[2]/100; 
+//    pos.data_z += pos_z[2]/100;    
+//    break;    
+//  }
+
   new_pos_x = getIntegral(vel_0.time, vel_0.data_x, vel_1.time, vel_1.data_x, vel_2.time, vel_2.data_x)/(1000*1000);
   new_pos_y = getIntegral(vel_0.time, vel_0.data_y, vel_1.time, vel_1.data_y, vel_2.time, vel_2.data_y)/(1000*1000);
   new_pos_z = getIntegral(vel_0.time, vel_0.data_z, vel_1.time, vel_1.data_z, vel_2.time, vel_2.data_z)/(1000*1000);
-  pos_x = param * pos_x + (1-param) * new_pos_x; 
-  pos_y = param * pos_y + (1-param) * new_pos_y; 
-  pos_z = param * pos_z + (1-param) * new_pos_z;  
-  pos_x = new_pos_x - pos_x; 
-  pos_y = new_pos_y - pos_y; 
-  pos_z = new_pos_z - pos_z;
-
-  if(count_pos > 300){
-    pos.data_x += pos_x/100; // "/100" is arbitary value 
-    pos.data_y += pos_y/100; 
-    pos.data_z += pos_z/100;    
-  }
-  count_pos++;
+  pos.data_x += new_pos_x/100; // "/100" is arbitary value 
+  pos.data_y += new_pos_y/100; 
+  pos.data_z += new_pos_z/100;    
 }
 
 

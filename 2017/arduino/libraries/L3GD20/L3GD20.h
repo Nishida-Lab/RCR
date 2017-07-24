@@ -88,7 +88,7 @@ class L3GD20
     L3GD20(void);
 
     bool begin(L3GD20Range r=L3GD20_RANGE_250DPS, byte addr=L3GD20_ADDRESS);
-    void read(void);
+    int read(void);
     uint8_t getAddress(void){ return address;}
 
     L3GD20Data data;
