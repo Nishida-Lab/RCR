@@ -192,16 +192,18 @@ int main(int argc, char** argv)
 
 
   std::size_t iteration {5};
-  for (std::size_t i {0}; i < iteration; ++i)
+  for (std::size_t iter {0}; iter < iteration; ++iter)
   {
     // emphasize_specific_hue(average + 20);
     emphasize(splited_image[0], average + 0, 0, 179);
+    for (auto&& pixel : splited_image[0]) { pixel = (pixel < 10 ? 179 : pixel); }
+    cv::imwrite(std::string {"debug/image5-"} + std::to_string(iter) + "_filtering.jpg", splited_image[0]);
 
-    if (i == (iteration - 1))
-    // if (true)
+    // if (i == (iteration - 1))
+    if (true)
     {
-      cv::namedWindow(std::string {"emphasize_"} + std::to_string(i), cv::WINDOW_AUTOSIZE);
-      cv::imshow(std::string {"emphasize_"} + std::to_string(i), splited_image[0]);
+      cv::namedWindow(std::string {"emphasize_"} + std::to_string(iter), cv::WINDOW_AUTOSIZE);
+      cv::imshow(std::string {"emphasize_"} + std::to_string(iter), splited_image[0]);
     }
   }
 
