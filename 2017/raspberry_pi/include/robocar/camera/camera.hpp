@@ -152,7 +152,7 @@ private:
   }
 
 public:
-  static auto& hoge(const cv::Mat3b& origin_image)
+  auto untested_filter(const cv::Mat3b& origin_image)
   {
     const cv::Mat3b cutted_image {
       origin_image,
@@ -187,7 +187,48 @@ public:
       emphasize(result_image, average + 20, 0, 179);
     }
 
-    return result_image;
+    for (auto&& pixel : result_image)
+    {
+      pixel = (pixel < 2 ? 179 : pixel);
+    }
+
+    static std::vector<std::vector<cv::Point>> contours {};
+    cv::findContours(result_image, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE);
+
+    if (contours.empty())
+    {
+      return robocar::vector<double> {0.0, 0.0};
+    }
+
+    std::pair<double, decltype(contours.front())> area_max {
+      cv::contourArea(contours.front()), contours.front()
+    };
+
+    if (1 < contours.size())
+    {
+      for (auto iter {std::begin(contours) + 1}; iter != std::end(contours); ++iter)
+      {
+        const double area {cv::contourArea(*iter)};
+        if (area_max.first < area)
+        {
+          area_max.first = area;
+          area_max.second = *iter;
+        }
+      }
+    }
+
+    auto moment {cv::moments(area_max.second)};
+    robocar::utility::renamed_pair::point<std::size_t> point {
+      static_cast<int>(moment.m10 / moment.m00), static_cast<int>(moment.m01 / moment.m00)
+    };
+
+    const int pixel {static_cast<int>(point.x) - static_cast<int>(size.width / 2)};
+    const double ratio {static_cast<double>(pixel) / static_cast<double>(size.width / 2)};
+
+    return robocar::vector<double> {
+      ratio,
+      std::pow(static_cast<double>(1.0) - std::pow(ratio, 2.0), 0.5)
+    };
   }
 
   template <typename T, typename U>
