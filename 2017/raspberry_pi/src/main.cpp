@@ -153,9 +153,6 @@ int main(int argc, char** argv) try
     };
   };
 
-  std::cout << camera.capture(camera.untested_filter, camera.size.width) << std::endl;
-  return 0;
-
   robocar::chrono::for_duration(std::chrono::seconds {5}, [](auto&& elapsed, auto&& duration)
   {
     std::cout << "\r\e[K[debug] please wait for " << duration.count() - elapsed.count() << " sec" << std::flush;
@@ -175,16 +172,21 @@ int main(int argc, char** argv) try
     const robocar::vector<double> distractor {0.0, 0.0};
     const robocar::vector<double>  attractor {0.0, 0.0};
 
-    const robocar::vector<double> toward_fire {
-      camera.capture(camera.untested_filter, camera.size.width).normalized()
+    // 最後のパラメータは赤色の色相（90）から画像色相平均値を引いたもの
+    robocar::vector<double> toward_fire {
+      camera.capture(camera.untested_filter, camera.size.width, 60)
+    };
+
+    robocar<double> reversed_toward_fire {
+      -toward_fire[0], toward_fire[1]
     };
 
     robocar::vector<double> direction {
-      distractor + (toward_fire[0] == 0.0 && toward_fire[1] == 0.0 ? attractor : toward_fire)
+      distractor + (toward_fire[0] == 0.0 && toward_fire[1] == 0.0 ? attractor : reversed_toward_fire.normalized())
       // + feedback_vector.first * std::exp(-feedback_gein * (elapsed - feedback_vector.second).count() * 0.001)
     };
 
-    driver.write(direction.normalized(), 0.18, 0.5);
+    driver.write(direction.normalized(), 0.18, 0.4);
     // feedback_vector = std::make_pair(direction, elapsed);
 
 #ifndef NDEBUG

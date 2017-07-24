@@ -37,10 +37,10 @@ public:
   {
     set(CV_CAP_PROP_FRAME_WIDTH,  size.width);
     set(CV_CAP_PROP_FRAME_HEIGHT, size.height);
-    // set(CV_CAP_PROP_GAIN,                 50); // values range from 0 to 100
-    // set(CV_CAP_PROP_EXPOSURE,             50); // -1 is auto, values range from 0 to 100
-    // set(CV_CAP_PROP_WHITE_BALANCE_RED_V,  50); // values range from 0 to 100, -1 auto whitebalance
-    // set(CV_CAP_PROP_WHITE_BALANCE_BLUE_U, 50); // values range from 0 to 100, -1 auto whitebalance
+    set(CV_CAP_PROP_GAIN,                 50); // values range from 0 to 100
+    set(CV_CAP_PROP_EXPOSURE,             50); // -1 is auto, values range from 0 to 100
+    set(CV_CAP_PROP_WHITE_BALANCE_RED_V,  50); // values range from 0 to 100, -1 auto whitebalance
+    set(CV_CAP_PROP_WHITE_BALANCE_BLUE_U, 50); // values range from 0 to 100, -1 auto whitebalance
 
     if (!raspicam::RaspiCam_Cv::open())
     {
@@ -154,7 +154,7 @@ private:
   }
 
 public:
-  static auto untested_filter(const cv::Mat3b& origin_image, std::size_t& width)
+  static auto untested_filter(const cv::Mat3b& origin_image, std::size_t& width, std::uint8_t hue)
   {
     const cv::Mat3b cutted_image {
       origin_image,
@@ -195,7 +195,7 @@ public:
 
     for (std::size_t iter {0}; iter < 5; ++iter)
     {
-      emphasize(result_image, average + 20, 0, 179);
+      emphasize(result_image, average + hue, 0, 179);
     }
 
     for (auto&& pixel : result_image)
@@ -214,7 +214,8 @@ public:
     cv::findContours(edge_image, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE);
 
 #ifndef NDEBUG
-    std::cout << "[debug] contour size: " << contours.size() << std::endl;
+    std::cout << "[debug] average: " << average << std::endl;
+    std::cout << "[debug] contour: " << contours.size() << std::endl;
 #endif
 
     if (contours.empty())
