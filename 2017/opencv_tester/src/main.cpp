@@ -187,8 +187,8 @@ int main(int argc, char** argv)
     // emphasize_specific_hue(average + 20);
     emphasize(splited_image[0], average + 20, 0, 179);
 
-    // if (i == (iteration - 1))
-    if (true)
+    if (i == (iteration - 1))
+    // if (true)
     {
       cv::namedWindow(std::string {"emphasize_"} + std::to_string(i), cv::WINDOW_AUTOSIZE);
       cv::imshow(std::string {"emphasize_"} + std::to_string(i), splited_image[0]);
@@ -197,7 +197,7 @@ int main(int argc, char** argv)
 
   for (auto&& pixel : splited_image[0])
   {
-    pixel = (pixel < 2 ? 179 : pixel);
+    pixel = (pixel < 10 ? 179 : pixel);
   }
 
   cv::morphologyEx(splited_image[0], splited_image[0], cv::MORPH_CLOSE,
@@ -215,15 +215,54 @@ int main(int argc, char** argv)
 
 
   static std::vector<std::vector<cv::Point>> contours {};
-  cv::findContours(edge_image, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE);
+  cv::findContours(edge_image, contours, CV_RETR_LIST, CV_CHAIN_APPROX_SIMPLE);
 
-  std::cout << "[debug] size: " << contours.size() << std::endl;
-
+  // std::cout << "[debug] size: " << contours.size() << std::endl;
+  //
   cv::Mat3b contours_image {cutted_image};
-  cv::drawContours(contours_image, contours, -1, cv::Scalar {255, 0, 0}, CV_FILLED, 4);
+  // cv::drawContours(contours_image, contours, -1, cv::Scalar {255, 0, 0}, CV_FILLED);
+  //
+  //
+  // static std::vector<std::pair<std::size_t, std::size_t>> moments {};
+  // for (const auto& points : contours)
+  // {
+  //   auto moment {cv::moments(points)};
+  //   moments.emplace_back(moment.m10 / moment.m00, moment.m01 / moment.m00);
+  //
+  //   cv::Point point {
+  //     static_cast<int>(moment.m10 / moment.m00),
+  //     static_cast<int>(moment.m01 / moment.m00)
+  //   };
+  //   cv::circle(contours_image, point, 10, cv::Scalar {0, 0, 255});
+  // }
+
+
+  std::pair<double, std::vector<cv::Point>> area_max {0.0, {}};
+  for (const auto& points : contours)
+  {
+    double area {cv::contourArea(points)};
+    if (area_max.first < area)
+    {
+      area_max.first = area;
+      area_max.second = points;
+    }
+    std::cout << "[debug] area: " << area << ", area_max: " << area_max.first << std::endl;
+  }
+
+  cv::drawContours(contours_image, std::vector<std::vector<cv::Point>> {area_max.second}, -1, cv::Scalar {0, 255, 0}, CV_FILLED);
+
+  auto moment {cv::moments(area_max.second)};
+
+  cv::Point point {
+    static_cast<int>(moment.m10 / moment.m00),
+    static_cast<int>(moment.m01 / moment.m00)
+  };
+  cv::circle(contours_image, point, 10, cv::Scalar {0, 0, 255});
+
 
   cv::namedWindow("contours", cv::WINDOW_AUTOSIZE);
   cv::imshow("contours", contours_image);
+
 
   while (true)
   {
