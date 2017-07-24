@@ -21,25 +21,27 @@ function_alias(cv::cvtColor, convert_color);
 
 
 // 俺フィルタ改
-// 一般化したやつ．型から最大最小の情報を引っ張りだすから
-// 範囲0~180の色相には対応していないというゴミ
 template <typename T, typename U>
-auto emphasize(T& image, U&& target)
+static auto emphasize(T& image, U&& target_value,
+                                U&& min = std::numeric_limits<U>::min(),
+                                U&& max = std::numeric_limits<U>::max())
 {
   for (auto&& pixel : image)
   {
-    if (pixel < target)
+    if (pixel < target_value)
     {
-      double distance {static_cast<double>(target - 1 - pixel)};
-      pixel = std::max(pixel * (1.0 - distance / target), std::numeric_limits<T>::min());
+      double distance {static_cast<double>(target_value - pixel - 1)};
+      pixel = std::max(pixel * (1.0 - distance / target_value), static_cast<double>(min));
     }
     else
     {
-      double distance {static_cast<double>(pixel - target)};
-      pixel = std::min(pixel * (1.0 + distance / target), std::numeric_limits<T>::max());
+      double distance {static_cast<double>(pixel - target_value)};
+      pixel = std::min(pixel * (1.0 + distance / target_value), static_cast<double>(max));
     }
   }
-};
+
+  return image;
+}
 
 
 int main(int argc, char** argv)
@@ -104,7 +106,9 @@ int main(int argc, char** argv)
 
   cv::namedWindow("origin", cv::WINDOW_AUTOSIZE);
   cv::imshow("origin", origin_image);
-
+#ifndef NDEBUG
+  cv::imwrite("debug/image1_origin.jpg", origin_image);
+#endif
 
   const cv::Mat3b cutted_image {
     origin_image,
@@ -114,6 +118,9 @@ int main(int argc, char** argv)
 
   cv::namedWindow("cutted", cv::WINDOW_AUTOSIZE);
   cv::imshow("cutted", cutted_image);
+#ifndef NDEBUG
+  cv::imwrite("debug/image2_cutted.jpg", cutted_image);
+#endif
 
 
   cv::Mat3b converted_image {};
@@ -128,6 +135,9 @@ int main(int argc, char** argv)
 
   cv::namedWindow("splited_hue", cv::WINDOW_AUTOSIZE);
   cv::imshow("splited_hue", splited_image[0]);
+#ifndef NDEBUG
+  cv::imwrite("debug/image3_default_hue.jpg", splited_image[0]);
+#endif
 
 
   // 色相を180度回転する
@@ -139,7 +149,9 @@ int main(int argc, char** argv)
 
   cv::namedWindow("spinned_hue", cv::WINDOW_AUTOSIZE);
   cv::imshow("spinned_hue", splited_image[0]);
-
+#ifndef NDEBUG
+  cv::imwrite("debug/image4_spinned_hue.jpg", splited_image[0]);
+#endif
 
   // 赤色が環境によって変化することが予想されるため
   // （夕日に照らされたらすべてのものがオレンジっぽく見えてしまうみたいに），
@@ -180,24 +192,38 @@ int main(int argc, char** argv)
 
 
   std::size_t iteration {5};
-  for (std::size_t i {0}; i < iteration; ++i)
+  for (std::size_t iter {0}; iter < iteration; ++iter)
   {
-    emphasize_specific_hue(average + 20);
+    // emphasize_specific_hue(average + 20);
+    emphasize(splited_image[0], average + 0, 0, 179);
+    for (auto&& pixel : splited_image[0]) { pixel = (pixel < 10 ? 179 : pixel); }
+    cv::imwrite(std::string {"debug/image5-"} + std::to_string(iter) + "_filtering.jpg", splited_image[0]);
 
     // if (i == (iteration - 1))
     if (true)
     {
-      cv::namedWindow(std::string {"emphasize_"} + std::to_string(i), cv::WINDOW_AUTOSIZE);
-      cv::imshow(std::string {"emphasize_"} + std::to_string(i), splited_image[0]);
+      cv::namedWindow(std::string {"emphasize_"} + std::to_string(iter), cv::WINDOW_AUTOSIZE);
+      cv::imshow(std::string {"emphasize_"} + std::to_string(iter), splited_image[0]);
     }
   }
 
+  for (auto&& pixel : splited_image[0])
+  {
+    pixel = (pixel < 10 ? 179 : pixel);
+  }
+
+#ifndef NDEBUG
+  cv::imwrite("debug/image5_filtered.jpg", splited_image[0]);
+#endif
 
   cv::morphologyEx(splited_image[0], splited_image[0], cv::MORPH_CLOSE,
                    cv::Mat1b {}, cv::Point {-1, -1}, 3);
 
   cv::namedWindow("morphology", cv::WINDOW_AUTOSIZE);
   cv::imshow("morphology", splited_image[0]);
+#ifndef NDEBUG
+  cv::imwrite("debug/image6_morphology.jpg", splited_image[0]);
+#endif
 
 
   cv::Mat1b edge_image {};
@@ -205,6 +231,68 @@ int main(int argc, char** argv)
 
   cv::namedWindow("edge", cv::WINDOW_AUTOSIZE);
   cv::imshow("edge", edge_image);
+#ifndef NDEBUG
+  cv::imwrite("debug/image7_edge.jpg", edge_image);
+#endif
+
+
+  static std::vector<std::vector<cv::Point>> contours {};
+  cv::findContours(edge_image, contours, CV_RETR_LIST, CV_CHAIN_APPROX_SIMPLE);
+
+  // std::cout << "[debug] size: " << contours.size() << std::endl;
+  //
+  cv::Mat3b contours_image {cutted_image};
+  cv::drawContours(contours_image, contours, -1, cv::Scalar {255, 0, 0}, CV_FILLED);
+#ifndef NDEBUG
+  cv::imwrite("debug/image8_all_contours.jpg", contours_image);
+#endif
+
+
+  // static std::vector<std::pair<std::size_t, std::size_t>> moments {};
+  // for (const auto& points : contours)
+  // {
+  //   auto moment {cv::moments(points)};
+  //   moments.emplace_back(moment.m10 / moment.m00, moment.m01 / moment.m00);
+  //
+  //   cv::Point point {
+  //     static_cast<int>(moment.m10 / moment.m00),
+  //     static_cast<int>(moment.m01 / moment.m00)
+  //   };
+  //   cv::circle(contours_image, point, 10, cv::Scalar {0, 0, 255});
+  // }
+
+
+  std::pair<double, std::vector<cv::Point>> area_max {0.0, {}};
+  for (const auto& points : contours)
+  {
+    double area {cv::contourArea(points)};
+    if (area_max.first < area)
+    {
+      area_max.first = area;
+      area_max.second = points;
+    }
+    std::cout << "[debug] area: " << area << ", area_max: " << area_max.first << std::endl;
+  }
+
+  cv::drawContours(contours_image, std::vector<std::vector<cv::Point>> {area_max.second}, -1, cv::Scalar {0, 255, 0}, CV_FILLED);
+#ifndef NDEBUG
+  cv::imwrite("debug/image8_maxarea_contours.jpg", contours_image);
+#endif
+
+  auto moment {cv::moments(area_max.second)};
+
+  cv::Point point {
+    static_cast<int>(moment.m10 / moment.m00),
+    static_cast<int>(moment.m01 / moment.m00)
+  };
+  cv::circle(contours_image, point, 10, cv::Scalar {0, 0, 255});
+
+  cv::namedWindow("contours", cv::WINDOW_AUTOSIZE);
+  cv::imshow("contours", contours_image);
+#ifndef NDEBUG
+  cv::imwrite("debug/image9_maxarea_contour_moment.jpg", contours_image);
+#endif
+
 
 
   while (true)

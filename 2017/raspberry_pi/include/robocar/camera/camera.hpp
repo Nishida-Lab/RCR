@@ -1,16 +1,18 @@
-#ifndef INCLUDED_ROBOCAR_2017_CAMERA_CAMERA_HPP_
-#define INCLUDED_ROBOCAR_2017_CAMERA_CAMERA_HPP_
+#ifndef INCLUDED_ROBOCAR_CAMERA_CAMERA_HPP_
+#define INCLUDED_ROBOCAR_CAMERA_CAMERA_HPP_
 
 
 #include <algorithm>
-#include <fstream>
 #include <iostream>
+#include <limits>
 #include <string>
 #include <utility>
 #include <vector>
 
 #include <raspicam/raspicam_cv.h>
+#include <opencv2/core/core.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
+#include <opencv2/highgui/highgui.hpp>
 
 #include <robocar/vector/vector.hpp>
 #include <robocar/utility/renamed_pair.hpp>
@@ -22,7 +24,7 @@ namespace robocar {
 class camera
   : public raspicam::RaspiCam_Cv
 {
-  cv::Mat3b image_;
+  cv::Mat3b buffer_;
 
 public:
   static constexpr robocar::utility::renamed_pair::area<std::size_t> size_max {2592, 1944};
@@ -35,6 +37,10 @@ public:
   {
     set(CV_CAP_PROP_FRAME_WIDTH,  size.width);
     set(CV_CAP_PROP_FRAME_HEIGHT, size.height);
+    set(CV_CAP_PROP_GAIN,                 50); // values range from 0 to 100
+    set(CV_CAP_PROP_EXPOSURE,             50); // -1 is auto, values range from 0 to 100
+    set(CV_CAP_PROP_WHITE_BALANCE_RED_V,  50); // values range from 0 to 100, -1 auto whitebalance
+    set(CV_CAP_PROP_WHITE_BALANCE_BLUE_U, 50); // values range from 0 to 100, -1 auto whitebalance
 
     if (!raspicam::RaspiCam_Cv::open())
     {
@@ -50,57 +56,28 @@ public:
     raspicam::RaspiCam_Cv::release();
   }
 
-  void read()
+  const auto& read()
   {
     raspicam::RaspiCam_Cv::grab();
-    raspicam::RaspiCam_Cv::retrieve(image_);
-    // image_ = cv::Mat3b {image_, cv::Rect {0, static_cast<int>(height_ * 0.5), static_cast<int>(width_), static_cast<int>(height_ * 0.5)}};
+    raspicam::RaspiCam_Cv::retrieve(buffer_);
+    cv::imwrite("debug/origin_image.jpg", buffer_);
+    return buffer_;
   }
 
-  // void debug(const std::string& prefix = "debug_")
-  // {
-  //   read();
-  //
-  //   std::ofstream ofs {prefix + "props.txt"/*, std::ios::out*/};
-  //
-  //   if (!ofs)
-  //   {
-  //     std::cout << "[error] failed to open file: " << prefix + "props.txt\n";
-  //     std::exit(EXIT_FAILURE);
-  //   }
-  //
-  //   ofs << "brightness:         " << get(CV_CAP_PROP_BRIGHTNESS)
-  //       << "contrast:           " << get(CV_CAP_PROP_CONTRAST)
-  //       << "saturation:         " << get(CV_CAP_PROP_SATURATION)
-  //       << "gain:               " << get(CV_CAP_PROP_GAIN)
-  //       << "exposure:           " << get(CV_CAP_PROP_EXPOSURE)
-  //       << "white balance red:  " << get(CV_CAP_PROP_WHITE_BALANCE_RED_V)
-  //       << "white balance blue: " << get(CV_CAP_PROP_WHITE_BALANCE_BLUE_U)
-  //       << std::endl;
-  //
-  //   cv::imwrite(prefix + "1_raw.jpg", image_);
-  //
-  //   cv::Mat3b hsv {convert(image_)};
-  //   cv::imwrite(prefix + "2_hsv.jpg", hsv);
-  //
-  //   cv::Mat1b red_masked {red_mask(hsv)};
-  //   cv::imwrite(prefix + "3_red_masked.jpg", red_masked);
-  //
-  //   cv::Mat1b red_opened {opening(red_masked)};
-  //   cv::imwrite(prefix + "4_red_opened.jpg", red_opened);
-  //
-  //   cv::Mat1b contour {find_contours_debug(red_opened)};
-  //   cv::imwrite(prefix + "5_contour.jpg", contour);
-  // }
+  template <typename FilterFunction, typename... Ts>
+  decltype(auto) capture(FilterFunction&& func, Ts&&... args)
+  {
+    return func(std::forward<decltype(read())>(read()), std::forward<Ts>(args)...);
+  }
 
-  auto find()
+  [[deprecated]] auto find()
   {
     read();
-    return find_contours(morphology(red_mask(convert(image_))));
+    return find_contours(morphology(red_mask(convert(buffer_))));
   }
 
   template <typename T>
-  auto search()
+  [[deprecated]] auto search()
     -> std::vector<robocar::vector<T>>
   {
     std::vector<robocar::vector<T>> poles {};
@@ -121,7 +98,7 @@ public:
   }
 
 private:
-  cv::Mat3b& convert(const cv::Mat3b& rgb) const
+  [[deprecated]] cv::Mat3b& convert(const cv::Mat3b& rgb) const
   {
     static cv::Mat3b result {};
     cv::cvtColor(rgb, result, CV_BGR2HSV);
@@ -129,7 +106,7 @@ private:
     return result;
   }
 
-  cv::Mat1b& morphology(const cv::Mat1b& bin)
+  [[deprecated]] cv::Mat1b& morphology(const cv::Mat1b& bin)
   {
     static cv::Mat1b result {};
     cv::morphologyEx(bin, result, CV_MOP_CLOSE, cv::Mat1b {}, cv::Point {-1, -1}, 2);
@@ -137,7 +114,7 @@ private:
     return result;
   }
 
-  cv::Mat1b& red_mask(const cv::Mat3b& hsv) // TODO move to ctor
+  [[deprecated]] cv::Mat1b& red_mask(const cv::Mat3b& hsv) // TODO move to ctor
   {
     static cv::Mat1b mask1 {}, mask2 {}, result;
 
@@ -147,7 +124,7 @@ private:
     return result = mask1 | mask2;
   }
 
-  auto find_contours(const cv::Mat1b& bin) const
+  [[deprecated]] auto find_contours(const cv::Mat1b& bin) const
     -> std::vector<robocar::utility::renamed_pair::point<std::size_t>>&
   {
     static std::vector<std::vector<cv::Point>> contours {};
@@ -174,6 +151,141 @@ private:
     }
 
     return pole_moments;
+  }
+
+public:
+  static auto untested_filter(const cv::Mat3b& origin_image, std::size_t& width, std::uint8_t hue)
+  {
+    const cv::Mat3b cutted_image {
+      origin_image,
+      cv::Rect {
+        0,
+        static_cast<int>(origin_image.size().height * 0.5),
+        origin_image.size().width,
+        static_cast<int>(origin_image.size().height * 0.5)
+      }
+    };
+// #ifndef NDEBUG
+//     cv::imwrite("debug/cutted_image.jpg", cutted_image);
+// #endif
+
+    static cv::Mat3b hsv_converted_image {};
+    cv::cvtColor(cutted_image, hsv_converted_image, cv::COLOR_BGR2HSV);
+// #ifndef NDEBUG
+//     cv::imwrite("debug/hsv_converted_image.jpg", hsv_converted_image);
+// #endif
+
+    static std::vector<cv::Mat1b> splited_images {};
+    cv::split(hsv_converted_image, splited_images);
+
+    cv::Mat1b& result_image {splited_images[0]};
+
+    for (auto&& pixel : result_image)
+    {
+      pixel += (pixel < 90 ? 90 : -89);
+    }
+// #ifndef NDEBUG
+//     cv::imwrite("debug/spinned_image.jpg", result_image);
+// #endif
+
+    int average {
+      std::accumulate(std::begin(result_image), std::end(result_image), 0)
+        / (result_image.size().width * result_image.size().width)
+    };
+
+#ifndef NDEBUG
+    std::cout << "\r\e[K[debug] average hue: " << average << "\n";
+#endif
+
+    for (std::size_t iter {0}; iter < 5; ++iter)
+    {
+      emphasize(result_image, average + hue, 0, 179);
+    }
+
+    for (auto&& pixel : result_image)
+    {
+      pixel = (pixel < 2 ? 179 : pixel);
+    }
+// #ifndef NDEBUG
+//     cv::imwrite("debug/filtered_image.jpg", result_image);
+// #endif
+
+    cv::Mat1b edge_image {};
+    cv::morphologyEx(result_image, result_image, cv::MORPH_CLOSE, cv::Mat1b {}, cv::Point {-1, -1}, 3);
+    cv::Canny(result_image, edge_image, 50, 200);
+
+    static std::vector<std::vector<cv::Point>> contours {};
+    cv::findContours(edge_image, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE);
+
+// #ifndef NDEBUG
+//     std::cout << "[debug] contour: " << contours.size() << std::endl;
+// #endif
+
+    if (contours.empty())
+    {
+      return robocar::vector<double> {0.0, 0.0};
+    }
+
+    std::pair<double, decltype(contours.front())> area_max {
+      cv::contourArea(contours.front()), contours.front()
+    };
+
+    if (1 < contours.size())
+    {
+      for (auto iter = std::begin(contours) + 1; iter != std::end(contours); ++iter)
+      {
+        const double area {cv::contourArea(*iter)};
+        if (area_max.first < area)
+        {
+          area_max.first = area;
+          area_max.second = *iter;
+        }
+      }
+    }
+
+    auto moment = cv::moments(area_max.second);
+    robocar::utility::renamed_pair::point<std::size_t> point {
+      static_cast<int>(moment.m10 / moment.m00), static_cast<int>(moment.m01 / moment.m00)
+    };
+
+    const int pixel {static_cast<int>(point.x) - static_cast<int>(width / 2)};
+    const double ratio {static_cast<double>(pixel) / static_cast<double>(width / 2)};
+
+// #ifndef NDEBUG
+//     cv::Mat3b contours_image {cutted_image};
+//     cv::drawContours(contours_image,
+//                      std::vector<std::vector<cv::Point>> {area_max.second},
+//                      -1, cv::Scalar {0, 255, 0}, CV_FILLED);
+//     cv::circle(contours_image,
+//                cv::Point {static_cast<int>(point.x), static_cast<int>(point.y)},
+//                10, cv::Scalar {0, 0, 255});
+//     cv::imwrite("debug/contours_image.jpg", contours_image);
+// #endif
+
+    return robocar::vector<double> {
+      ratio,
+      std::pow(static_cast<double>(1.0) - std::pow(ratio, 2.0), 0.5)
+    };
+  }
+
+  template <typename T, typename U>
+  static void emphasize(T& image, U&& target_value,
+                                  U&& min = std::numeric_limits<U>::min(),
+                                  U&& max = std::numeric_limits<U>::max())
+  {
+    for (auto&& pixel : image)
+    {
+      if (pixel < target_value)
+      {
+        double distance {static_cast<double>(target_value - pixel - 1)};
+        pixel = std::max(pixel * (1.0 - distance / target_value), static_cast<double>(min));
+      }
+      else
+      {
+        double distance {static_cast<double>(pixel - target_value)};
+        pixel = std::min(pixel * (1.0 + distance / target_value), static_cast<double>(max));
+      }
+    }
   }
 };
 

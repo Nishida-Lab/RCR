@@ -23,6 +23,9 @@
 #include <robocar/version.hpp>
 
 
+#define DISABLE_POSITION_SENSOR
+
+
 static const robocar::vector<double>
   north_west {-0.707,  0.707}, north { 0.000,  1.000}, north_east { 0.707,  0.707},
         west {-1.000,  0.000},                               east { 1.000,  0.000},
@@ -49,25 +52,27 @@ int main(int argc, char** argv) try
   robocar::differential_driver driver {{35, 38}, {37, 40}};
 
 
-  sensor["distance"]["long"]["south_west"].set(0);
-  sensor["distance"]["long"][      "west"].set(1);
-  sensor["distance"]["long"]["north_west"].set(2);
-  sensor["distance"]["long"]["north"     ].set(3);
-  sensor["distance"]["long"]["north_east"].set(4);
-  sensor["distance"]["long"][      "east"].set(5);
-  sensor["distance"]["long"]["south_east"].set(6);
+  { // sensor initialize
+    sensor["distance"]["long"]["south_west"].set(0);
+    sensor["distance"]["long"][      "west"].set(1);
+    sensor["distance"]["long"]["north_west"].set(2);
+    sensor["distance"]["long"]["north"     ].set(3);
+    sensor["distance"]["long"]["north_east"].set(4);
+    sensor["distance"]["long"][      "east"].set(5);
+    sensor["distance"]["long"]["south_east"].set(6);
 
-  sensor["distance"]["short"]["north_west"].set(10);
-  sensor["distance"]["short"]["north"     ].set(11);
-  sensor["distance"]["short"]["north_east"].set(12);
+    sensor["distance"]["short"]["north_west"].set(10);
+    sensor["distance"]["short"]["north"     ].set(11);
+    sensor["distance"]["short"]["north_east"].set(12);
 
-  sensor["position"]["x"].set(7);
-  sensor["position"]["y"].set(8);
-  sensor["position"]["z"].set(9);
+    sensor["position"]["x"].set(7);
+    sensor["position"]["y"].set(8);
+    sensor["position"]["z"].set(9);
 
-  sensor["angle"]["x"].set(13);
-  sensor["angle"]["y"].set(14);
-  sensor["angle"]["z"].set(15);
+    sensor["angle"]["x"].set(13);
+    sensor["angle"]["y"].set(14);
+    sensor["angle"]["z"].set(15);
+  }
 
 
   auto distract_vector = [&](double range_min, double range_mid, double range_max)
@@ -128,7 +133,7 @@ int main(int argc, char** argv) try
 
 
   auto attract_vector = [&]()
-  { // TODO OPTIMIZE
+  { // XXX UGLY CODE!!!
     double current_angle_in_world_coordinate {std::stod(sensor["angle"]["z"].get())};
 
     robocar::vector<double> current_direction_in_world_coordinate {
@@ -136,9 +141,14 @@ int main(int argc, char** argv) try
       std::sin(robocar::vector<double>::degree_to_radian(current_angle_in_world_coordinate + 90)),
     };
 
+
     robocar::vector<double> target_direction_in_world_coordinate {
-      predefined_field[std::stod(sensor["position"]["y"].get()) / 0.90]
-                      [std::stod(sensor["position"]["x"].get()) / 0.90]
+#ifndef DISABLE_POSITION_SENSOR // XXX UNTESTED
+      predefined_field[std::max(0.0, std::min(static_cast<double>(predefined_field.size()), std::stod(sensor["position"]["y"].get()) / 0.90))]
+                      [std::max(0.0, std::min(static_cast<double>(predefined_field.size()), std::stod(sensor["position"]["x"].get()) / 0.90))]
+#else
+      0.0, 1.0
+#endif
     };
 
     double target_angle_in_local_coordinate {robocar::vector<double>::angle(
@@ -153,43 +163,48 @@ int main(int argc, char** argv) try
   };
 
 
-  robocar::chrono::for_duration(std::chrono::seconds {5}, [](auto&& elapsed, auto&& duration)
+  robocar::chrono::for_duration(std::chrono::seconds {10}, [](auto&& elapsed, auto&& duration)
   {
     std::cout << "\r\e[K[debug] please wait for " << duration.count() - elapsed.count() << " sec" << std::flush;
     std::this_thread::sleep_for(std::chrono::seconds {1});
   });
 
 
-  robocar::chrono::for_duration(std::chrono::milliseconds {60 * 1000}, [&](auto& elapsed, auto& duration)
+  robocar::chrono::for_duration(std::chrono::milliseconds {30 * 1000}, [&](auto& elapsed, auto& duration)
   {
-    static std::pair<robocar::vector<double>, decltype(elapsed)> feedback_vector {
-      {0.0, 0.0}, elapsed
-    };
-
-    static constexpr double feedback_gein {1.0};
+    // static std::pair<robocar::vector<double>, decltype(elapsed)> feedback_vector {
+    //   {0.0, 0.0}, elapsed
+    // };
+    //
+    // static constexpr double feedback_gein {1.0};
 
     const robocar::vector<double> distractor {distract_vector(0.03, 0.45, 0.90).normalized()};
-    const robocar::vector<double>  attractor {0.0, 0.0};
+    // const robocar::vector<double> distractor {0.0, 0.0};
 
-    auto poles = camera.search<double>();
+    const robocar::vector<double>  attractor {attract_vector().normalized()};
+    // const robocar::vector<double>  attractor {0.0, 0.0};
 
-    robocar::vector<double> direction {
-      distractor
-      + (poles.empty() ? attractor : poles.front().normalized())
-      + feedback_vector.first * std::exp(-feedback_gein * (elapsed - feedback_vector.second).count() * 0.001)
+    // 最後のパラメータは赤色の色相（90）から画像色相平均値を引いたもの
+    robocar::vector<double> toward_fire {
+      camera.capture(camera.untested_filter, camera.size.width, 20)
     };
 
-    driver.write(direction.normalized(), 0.18, 0.5);
-    feedback_vector = std::make_pair(direction, elapsed);
+    robocar::vector<double> reversed_toward_fire {-toward_fire[0], toward_fire[1]};
 
-    // std::cout << std::fixed << std::showpos << std::setprecision(3)
-    //           << "\r\e[K[debug] distractor: " << distractor << "\n"
-    //           << "\r\e[K         attractor: " <<  attractor << " (";
-    //
-    // if (!poles.empty()) { std::cout << poles.front().normalized() << ")\n"; }
-    // else { std::cout << "empty)\n"; }
-    //
-    // std::cout << "\r\e[K         direction: " <<  direction << " (" << history.size() << ")\e[3A" << std::flush;
+    robocar::vector<double> direction {
+      distractor + (toward_fire[0] == 0.0 && toward_fire[1] == 0.0 ? attractor : reversed_toward_fire.normalized())
+      // + feedback_vector.first * std::exp(-feedback_gein * (elapsed - feedback_vector.second).count() * 0.001)
+    };
+
+    driver.write(direction.normalized(), 0.18, 0.4);
+    // feedback_vector = std::make_pair(direction, elapsed);
+
+#ifndef NDEBUG
+    std::cout << std::fixed << std::showpos << std::setprecision(3)
+              << "\r\e[K[debug] distractor: " << distractor << "\n"
+              << "\r\e[K         attractor: " <<  attractor << " (" << toward_fire << ")\n"
+              << "\r\e[K         direction: " <<  direction << "\e[3A" << std::flush;
+#endif
   });
 
   driver.write(robocar::vector<double> {0.0, 0.0}, 0.18, 0.0);
