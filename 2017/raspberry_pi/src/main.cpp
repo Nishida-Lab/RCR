@@ -170,6 +170,8 @@ int main(int argc, char** argv) try
 
     const robocar::vector<double> distractor {distract_vector(0.03, 0.45, 0.90).normalized()};
     // const robocar::vector<double> distractor {0.0, 0.0};
+
+    // const robocar::vector<double>  attractor {attract_vector().normalized()};
     const robocar::vector<double>  attractor {0.0, 0.0};
 
     // 最後のパラメータは赤色の色相（90）から画像色相平均値を引いたもの
@@ -191,7 +193,7 @@ int main(int argc, char** argv) try
     std::cout << std::fixed << std::showpos << std::setprecision(3)
               << "\r\e[K[debug] distractor: " << distractor << "\n"
               << "\r\e[K         attractor: " <<  attractor << " (" << toward_fire << ")\n"
-              << "\r\e[K         direction: " <<  direction << "\e[2A" << std::flush;
+              << "\r\e[K         direction: " <<  direction << "\e[3A" << std::flush;
 #endif
   });
 

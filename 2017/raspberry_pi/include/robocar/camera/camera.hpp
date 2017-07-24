@@ -193,6 +193,10 @@ public:
         / (result_image.size().width * result_image.size().width)
     };
 
+#ifndef NDEBUG
+    std::cout << "\r\e[K[debug] average hue: " << average << "\n";
+#endif
+
     for (std::size_t iter {0}; iter < 5; ++iter)
     {
       emphasize(result_image, average + hue, 0, 179);
@@ -214,7 +218,6 @@ public:
     cv::findContours(edge_image, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE);
 
 // #ifndef NDEBUG
-//     std::cout << "[debug] average: " << average << std::endl;
 //     std::cout << "[debug] contour: " << contours.size() << std::endl;
 // #endif
 
