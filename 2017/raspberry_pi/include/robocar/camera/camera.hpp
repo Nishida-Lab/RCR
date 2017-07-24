@@ -62,10 +62,10 @@ public:
     return buffer_;
   }
 
-  template <typename FilterFunction>
-  decltype(auto) capture(FilterFunction&& func)
+  template <typename FilterFunction, typename... Ts>
+  decltype(auto) capture(FilterFunction&& func, Ts&&... args)
   {
-    return func(std::forward<decltype(read())>(read()));
+    return func(std::forward<decltype(read())>(read()), std::forward<Ts>(args)...);
   }
 
   [[deprecated]] auto find()
@@ -122,7 +122,7 @@ private:
     return result = mask1 | mask2;
   }
 
-  auto find_contours(const cv::Mat1b& bin) const
+  [[deprecated]] auto find_contours(const cv::Mat1b& bin) const
     -> std::vector<robocar::utility::renamed_pair::point<std::size_t>>&
   {
     static std::vector<std::vector<cv::Point>> contours {};
@@ -152,7 +152,7 @@ private:
   }
 
 public:
-  auto untested_filter(const cv::Mat3b& origin_image)
+  static auto untested_filter(const cv::Mat3b& origin_image, std::size_t& width)
   {
     const cv::Mat3b cutted_image {
       origin_image,
@@ -222,8 +222,8 @@ public:
       static_cast<int>(moment.m10 / moment.m00), static_cast<int>(moment.m01 / moment.m00)
     };
 
-    const int pixel {static_cast<int>(point.x) - static_cast<int>(size.width / 2)};
-    const double ratio {static_cast<double>(pixel) / static_cast<double>(size.width / 2)};
+    const int pixel {static_cast<int>(point.x) - static_cast<int>(width / 2)};
+    const double ratio {static_cast<double>(pixel) / static_cast<double>(width / 2)};
 
     return robocar::vector<double> {
       ratio,

@@ -172,11 +172,12 @@ int main(int argc, char** argv) try
     const robocar::vector<double> distractor {distract_vector(0.03, 0.45, 0.90).normalized()};
     const robocar::vector<double>  attractor {0.0, 0.0};
 
-    auto poles = camera.search<double>();
+    const auto toward_fire {
+      camera.capture(camera.untested_filter, camera.size.width).normalized()
+    };
 
     robocar::vector<double> direction {
-      distractor
-      + (poles.empty() ? attractor : poles.front().normalized())
+      distractor + (toward_fire[0] == 0.0 && toward_fire[1] == 0.0 ? attractor : toward_fire)
       // + feedback_vector.first * std::exp(-feedback_gein * (elapsed - feedback_vector.second).count() * 0.001)
     };
 
