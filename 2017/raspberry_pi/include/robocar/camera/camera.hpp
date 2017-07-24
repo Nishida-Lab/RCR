@@ -3,13 +3,14 @@
 
 
 #include <algorithm>
-#include <fstream>
 #include <iostream>
+#include <limits>
 #include <string>
 #include <utility>
 #include <vector>
 
 #include <raspicam/raspicam_cv.h>
+#include <opencv2/core/core.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 
 #include <robocar/vector/vector.hpp>
@@ -148,6 +149,65 @@ private:
     }
 
     return pole_moments;
+  }
+
+public:
+  static auto& hoge(const cv::Mat3b& origin_image)
+  {
+    const cv::Mat3b cutted_image {
+      origin_image,
+      cv::Rect {
+        0,
+        static_cast<int>(origin_image.size().height * 0.5),
+        origin_image.size().width,
+        static_cast<int>(origin_image.size().height * 0.5)
+      }
+    };
+
+    static cv::Mat3b hsv_converted_image {};
+    cv::cvtColor(cutted_image, hsv_converted_image, cv::COLOR_BGR2HSV);
+
+    static std::vector<cv::Mat1b> splited_images {};
+    cv::split(hsv_converted_image, splited_images);
+
+    static cv::Mat1b& result_image {splited_images[0]};
+
+    for (auto&& pixel : result_image)
+    {
+      pixel += (pixel < 90 ? 90 : -89);
+    }
+
+    auto average {
+      std::accumulate(std::begin(result_image), std::end(result_image), 0)
+        / (result_image.size().width * result_image.size().width)
+    };
+
+    for (std::size_t iter {0}; iter < 5; ++iter)
+    {
+      emphasize(result_image, average + 20, 0, 179);
+    }
+
+    return result_image;
+  }
+
+  template <typename T, typename U>
+  static void emphasize(T& image, U&& target_value,
+                                  U&& min = std::numeric_limits<U>::min(),
+                                  U&& max = std::numeric_limits<U>::max())
+  {
+    for (auto&& pixel : image)
+    {
+      if (pixel < target_value)
+      {
+        double distance {static_cast<double>(target_value - pixel - 1)};
+        pixel = std::max(pixel * (1.0 - distance / target_value), static_cast<double>(min));
+      }
+      else
+      {
+        double distance {static_cast<double>(pixel - target_value)};
+        pixel = std::min(pixel * (1.0 + distance / target_value), static_cast<double>(max));
+      }
+    }
   }
 };
 
