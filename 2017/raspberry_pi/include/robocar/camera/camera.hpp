@@ -177,7 +177,7 @@ public:
       pixel += (pixel < 90 ? 90 : -89);
     }
 
-    auto average {
+    int average {
       std::accumulate(std::begin(result_image), std::end(result_image), 0)
         / (result_image.size().width * result_image.size().width)
     };
@@ -206,7 +206,7 @@ public:
 
     if (1 < contours.size())
     {
-      for (auto iter {std::begin(contours) + 1}; iter != std::end(contours); ++iter)
+      for (auto iter = std::begin(contours) + 1; iter != std::end(contours); ++iter)
       {
         const double area {cv::contourArea(*iter)};
         if (area_max.first < area)
@@ -217,7 +217,7 @@ public:
       }
     }
 
-    auto moment {cv::moments(area_max.second)};
+    auto moment = cv::moments(area_max.second);
     robocar::utility::renamed_pair::point<std::size_t> point {
       static_cast<int>(moment.m10 / moment.m00), static_cast<int>(moment.m01 / moment.m00)
     };

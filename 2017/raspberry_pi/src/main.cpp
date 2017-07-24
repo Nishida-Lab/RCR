@@ -169,10 +169,11 @@ int main(int argc, char** argv) try
     //
     // static constexpr double feedback_gein {1.0};
 
-    const robocar::vector<double> distractor {distract_vector(0.03, 0.45, 0.90).normalized()};
+    // const robocar::vector<double> distractor {distract_vector(0.03, 0.45, 0.90).normalized()};
+    const robocar::vector<double> distractor {0.0, 0.0};
     const robocar::vector<double>  attractor {0.0, 0.0};
 
-    const auto toward_fire {
+    const robocar::vector<double> toward_fire {
       camera.capture(camera.untested_filter, camera.size.width).normalized()
     };
 
@@ -185,14 +186,10 @@ int main(int argc, char** argv) try
     // feedback_vector = std::make_pair(direction, elapsed);
 
 #ifndef NDEBUG
-    // std::cout << std::fixed << std::showpos << std::setprecision(3)
-    //           << "\r\e[K[debug] distractor: " << distractor << "\n"
-    //           << "\r\e[K         attractor: " <<  attractor << " (";
-    //
-    // if (!poles.empty()) { std::cout << poles.front().normalized() << ")\n"; }
-    // else { std::cout << "empty)\n"; }
-    //
-    // std::cout << "\r\e[K         direction: " <<  direction << " (" << history.size() << ")\e[3A" << std::flush;
+    std::cout << std::fixed << std::showpos << std::setprecision(3)
+              << "\r\e[K[debug] distractor: " << distractor << "\n"
+              << "\r\e[K         attractor: " <<  attractor << " (" << toward_fire << ")\n"
+              << "\r\e[K         direction: " <<  direction << "\e[2A" << std::flush;
 #endif
   });
 
