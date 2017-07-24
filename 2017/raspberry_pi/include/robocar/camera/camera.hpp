@@ -22,7 +22,7 @@ namespace robocar {
 class camera
   : public raspicam::RaspiCam_Cv
 {
-  cv::Mat3b image_;
+  cv::Mat3b buffer_;
 
 public:
   static constexpr robocar::utility::renamed_pair::area<std::size_t> size_max {2592, 1944};
@@ -61,50 +61,20 @@ public:
     return buffer_;
   }
 
-  // void debug(const std::string& prefix = "debug_")
-  // {
-  //   read();
-  //
-  //   std::ofstream ofs {prefix + "props.txt"/*, std::ios::out*/};
-  //
-  //   if (!ofs)
-  //   {
-  //     std::cout << "[error] failed to open file: " << prefix + "props.txt\n";
-  //     std::exit(EXIT_FAILURE);
-  //   }
-  //
-  //   ofs << "brightness:         " << get(CV_CAP_PROP_BRIGHTNESS)
-  //       << "contrast:           " << get(CV_CAP_PROP_CONTRAST)
-  //       << "saturation:         " << get(CV_CAP_PROP_SATURATION)
-  //       << "gain:               " << get(CV_CAP_PROP_GAIN)
-  //       << "exposure:           " << get(CV_CAP_PROP_EXPOSURE)
-  //       << "white balance red:  " << get(CV_CAP_PROP_WHITE_BALANCE_RED_V)
-  //       << "white balance blue: " << get(CV_CAP_PROP_WHITE_BALANCE_BLUE_U)
-  //       << std::endl;
-  //
-  //   cv::imwrite(prefix + "1_raw.jpg", image_);
-  //
-  //   cv::Mat3b hsv {convert(image_)};
-  //   cv::imwrite(prefix + "2_hsv.jpg", hsv);
-  //
-  //   cv::Mat1b red_masked {red_mask(hsv)};
-  //   cv::imwrite(prefix + "3_red_masked.jpg", red_masked);
-  //
-  //   cv::Mat1b red_opened {opening(red_masked)};
-  //   cv::imwrite(prefix + "4_red_opened.jpg", red_opened);
-  //
-  //   cv::Mat1b contour {find_contours_debug(red_opened)};
-  //   cv::imwrite(prefix + "5_contour.jpg", contour);
-  // }
+  template <typename FilterFunction>
+  decltype(auto) capture(FilterFunction&& func)
+  {
+    return func(std::forward<decltype(read())>(read()));
+  }
 
-  auto find()
+  [[deprecated]] auto find()
   {
     read();
-    return find_contours(morphology(red_mask(convert(image_))));
+    return find_contours(morphology(red_mask(convert(buffer_))));
   }
 
   template <typename T>
-  auto search()
+  [[deprecated]] auto search()
     -> std::vector<robocar::vector<T>>
   {
     std::vector<robocar::vector<T>> poles {};
@@ -125,7 +95,7 @@ public:
   }
 
 private:
-  cv::Mat3b& convert(const cv::Mat3b& rgb) const
+  [[deprecated]] cv::Mat3b& convert(const cv::Mat3b& rgb) const
   {
     static cv::Mat3b result {};
     cv::cvtColor(rgb, result, CV_BGR2HSV);
@@ -133,7 +103,7 @@ private:
     return result;
   }
 
-  cv::Mat1b& morphology(const cv::Mat1b& bin)
+  [[deprecated]] cv::Mat1b& morphology(const cv::Mat1b& bin)
   {
     static cv::Mat1b result {};
     cv::morphologyEx(bin, result, CV_MOP_CLOSE, cv::Mat1b {}, cv::Point {-1, -1}, 2);
@@ -141,7 +111,7 @@ private:
     return result;
   }
 
-  cv::Mat1b& red_mask(const cv::Mat3b& hsv) // TODO move to ctor
+  [[deprecated]] cv::Mat1b& red_mask(const cv::Mat3b& hsv) // TODO move to ctor
   {
     static cv::Mat1b mask1 {}, mask2 {}, result;
 
