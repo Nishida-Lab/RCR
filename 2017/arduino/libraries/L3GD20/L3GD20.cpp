@@ -53,7 +53,7 @@ bool L3GD20::begin(L3GD20Range r, byte addr) {
   return true;   
 }
 
-void L3GD20::read() {
+int L3GD20::read() {
   uint8_t xhi, xlo, ylo, yhi, zlo, zhi;
 
   if(_cs == -1) {
@@ -62,7 +62,7 @@ void L3GD20::read() {
     Wire.write(L3GD20_REGISTER_OUT_X_L | 0x80);
     Wire.endTransmission();
     Wire.requestFrom(address, (byte)6);
-    while(Wire.available() < 6) ;
+    if(Wire.available() < 6) return -1;
     xlo = Wire.read();
     xhi = Wire.read();
     ylo = Wire.read();
@@ -103,7 +103,8 @@ void L3GD20::read() {
       data.y *= L3GD20_SENSITIVITY_2000DPS;       
       data.z *= L3GD20_SENSITIVITY_2000DPS;       
       break;   
-  } 
+  }
+  return 1;
 } 
 
 void L3GD20::write8(L3GD20Register reg, byte value) {   
