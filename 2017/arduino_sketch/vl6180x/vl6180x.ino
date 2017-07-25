@@ -10,7 +10,11 @@ VL6180X vl6180x_2;
 
 double proximal_distance(int n){
   double answer = 0.1*n+0.4477;
-  return answer;
+  if(answer < 18){
+    return answer;
+  }else{
+    return ;
+  }
 }
 
 void setup() 

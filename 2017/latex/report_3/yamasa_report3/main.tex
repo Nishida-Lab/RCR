@@ -1,0 +1,50 @@
+\begin{document}
+
+\section{制御系} \setcounters{0}
+
+
+\section{アルゴリズム} \setcounters{0}
+
+  機体の進行方向及び速度は人工ポテンシャル法により制御を行う．
+
+  目標方向として，赤い物体へ向かうベクトル$\bm{v}_{\rm{red}}$または順路に沿ってゴールへ向かうベクトル$\bm{v}_{\rm{goal}}$を与える．
+  また，障害物回避のためポテンシャル場を設定する．\\
+
+  二次元平面上の円筒状の障害物（ポール）$p_i$について，中心軸を原点にスカラー場$f_i$を設定する．
+
+  \begin{equation}
+    f_i(x,y) = - \tanh^{-1}(x^2 + y^2 - 1)
+  \end{equation}
+
+  次に障害物$p_i$のスカラー場の勾配として表されるベクトル場は次のようにな．
+  ただし，$\hat{x}$，$\hat{y}$はそれぞれ$x$，$y$軸方向の単位ベクトルである．
+
+  \begin{equation}
+    \frac{\partial f_i}{\partial x}\hat{x} + \frac{\partial f_i}{\partial y}\hat{y} = \nabla f_i(x,y)
+  \end{equation}
+
+  しかし，実際の機体はコース上の全障害物の位置を常に把握しておくことは不可能であり，
+  測距センサの検出距離にも限りがあることから，
+  機体から半径$d_{\rm{max}} = 0.9 \unit{m}$の範囲内のポールについてのみベクトル場を考慮している．
+
+  測距センサにより得られたポール$p_i$へのベクトルを$\bm{d}_i = [d_{ix}, d_{iy}]^{T}$とすると，
+  機体がポールから受ける斥力$\bm{F}_i$は次のように表せる
+
+  \begin{equation}
+    \bm{F}_i = \nabla f_i(\frac{d_{ix}}{d_{\rm{max}}}, \frac{d_{iy}}{d_{\rm{max}}})
+  \end{equation}
+
+  以上より，範囲内に$n$個ポールが存在する場合の機体の進行方向$\bm{v}$は次のように表せる．
+
+  \begin{equation}
+    \bm{v} = \frac{\bm{v}_{\rm{target}}}{\|\bm{v}_{\rm{target}}\|} + \frac{\sum_{i=0}^{n-1}{\bm{F}_i}}{\|\sum_{i=0}^{n-1}{\bm{F}_i}\|}
+  \end{equation}
+
+  $\bm{v}_{\rm{target}}$には，$\bm{v}_{\rm{red}}$と$\bm{v}_{\rm{goal}}$のどちらかが設定される．
+  機体正面のカメラにより撮影された画像を元に$\bm{v}_{\rm{red}}$が生成されている場合はそれが，
+  ない場合は$\bm{v}_{\rm{goal}}$が設定される．\\
+
+  なお，$\bm{v}_{\rm{target}}$に$\bm{v}_{\rm{red}}$が設定された場合，機体は赤い物体の直前で$\bm{v} = [0, 0]^{T}$となり停止する．
+  これを消火作業を行うための条件とし，消火作業により機体正面のカメラから赤色の物体が消えることで消火作業が終了する．
+
+\end{document}
