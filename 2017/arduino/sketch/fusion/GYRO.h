@@ -61,16 +61,18 @@ void getDeg(){
   deg_x = new_deg_x - buff_x;
   deg_y = new_deg_y - buff_y;
   deg_z = new_deg_z - buff_z;
+
+
+  if(abs(deg_x) < 0.05) deg_x = 0;
+  if(abs(deg_y) < 0.05) deg_y = 0;
+  if(abs(deg_z) < 0.05) deg_z = 0;
+
+//  Serial.print(deg_x,10); Serial.print(" ");
+//  Serial.print(deg_y,10); Serial.print(" ");
+//  Serial.print(deg_z,10); Serial.print(" ");
+
   
-  if(abs(deg_x) < 0.005) deg_x = 0;
-  if(abs(deg_y) < 0.005) deg_y = 0;
-  if(abs(deg_z) < 0.005) deg_z = 0;
-
-//  Serial.print(deg_x); Serial.print(" ");
-//  Serial.print(deg_y); Serial.print(" ");
-//  Serial.println(deg_z);
-
-  deg.data_y += deg_x*4; //transformation
-  deg.data_x += deg_y*4; 
-  deg.data_z += deg_z*4; 
+  deg.data_y += deg_x*3; //transformation
+  deg.data_x += deg_y*3; 
+  deg.data_z += deg_z*3; 
  }

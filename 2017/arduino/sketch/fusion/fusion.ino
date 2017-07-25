@@ -36,8 +36,8 @@ double offset_gyro[3] = {0,0,0};
 double pitch = 0,roll = 0;
 double now_angular_velocity_z;
 
-int readSensor(int sensor){
-  int answer = 0;
+double readSensor(int sensor){
+  double answer = 0;
   switch(sensor){
   case 0:
   case 1:
@@ -400,7 +400,7 @@ void loop(){
 #endif
 
 #ifdef ALL_DEBUG
-  for(i = 0;i < 16;i++){
+  for(i = 5;i < 7;i++){
     Serial.print(readSensor(i)); Serial.print(" ");
   }Serial.println("");
 #endif
