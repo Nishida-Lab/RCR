@@ -38,7 +38,7 @@
 
     \labeledfigure{t}{1.0}{picture/course.eps}{2017年度 RCR走行コース}
 
-\section{機体の概要} \setcounters{0} % TODO REWRITE
+\section{機体の概要} \setcounters{0} % TODO
 
   本年度のRCRでの我々の設計コンセプトは，ロボットの安定した運用を可能にすることである．
   そのために，ロボットカーには比較的構造が単純な独立二輪機構を採用する．
@@ -47,7 +47,7 @@
   赤外線近接センサを用いてポールとロボットの距離を測定することで，
   適切な軌道の走行とポールの消火を目指す．
 
-\section{消火について} \setcounters{0}
+\section{消火方法} \setcounters{0} % TODO
 
   \subsection{消火ポール}
     我々が用いる消火ポールは，以下のように製作する．\\
@@ -60,10 +60,10 @@
   \subsection{消火ポールの構造の変更}
     前節の消火ポールを実際に作成してみて以下の欠点が挙げられた．
     \begin{itemize}
-     \item 	赤い布で青ポールを綺麗に隠せない
-     \item  布を押し込む力が弱いとポールの中に入らない
-     \item  布の中心を押し込む必要がある
-     \item  布が長すぎてポールの中に入っても外に飛び出してしまう
+      \item 赤い布で青ポールを綺麗に隠せない
+      \item 布を押し込む力が弱いとポールの中に入らない
+      \item 布の中心を押し込む必要がある
+      \item 布が長すぎてポールの中に入っても外に飛び出してしまう
     \end{itemize}
     そこで，当初考えていたポールの周りに短冊状の裏表が赤と青の紙を取り付け，
     紙が自重によって裏返ることで消火とする．消火ポールを\refig{picture/poll.eps}に示す．
@@ -73,49 +73,32 @@
 
     \labeledfigure{t}{0.8}{picture/poll.eps}{完成した消火ポール}
 
-\section{消火用機構} \setcounters{0}
-消火方法は前述の通りであるが,ここではそのための機構であるアーム機構について述べる.
+  \subsection{消火機構} \setcounters{0} % TODO
+    % アームは垂直方向に上下する1リンク機構を考える．
+    % これは,消火方法がストッパを外すという単純なものであるからだ.
 
-\subsection{往復スライダ・クランク機構}
-アームは垂直方向に上下する1リンク機構を考える.これは,消火方法がストッパを外すという
-単純なものであるからだ.
+    アームの動作には，往復スライダ・クランク機構を採用する（\refig{picture/slide_clank.eps}）．
+    これは，回転運動を直線運動に変換する機構であり，
+    回転はローテーションモータGWS S35 STDから得る．
+    クランク腕長さを$r$，連接棒長さを$l$とするとその理想的なリンク比$\rho$は，
+    \begin{equation}
+      \rho = \frac{r}{l}=\frac{1}{3}
+    \end{equation}
+    とされている．
 
-アームの動作には,往復スライダ・クランク機構を採用する（図\ref{arm_con}）.
-これは,回転運動を直線運動に変換する機構であり,回転はローテーションモータ「GWS S35 STD」から得る.
-クランク腕長さを$r$,連接棒長さを$l$とするとその理想的なリンク比$\rho$は,
+    今回は必要なストローク長が$80\unit{mm}$であったので，それぞれ$r=20\unit{mm}$，$l=60\unit{mm}$とした．
+    実際に製作したアームを\refig{picture/arm_left.eps}，\refig{picture/arm_right.eps}に示す．
 
-\begin{equation}
-	\rho = \frac{r}{l}=\frac{1}{3}
-\end{equation}
-とされている.今回は,必要なストローク長が$80$[mm]であったのでそれぞれ,$r=20$[mm],$l=60$[mm]とした.
-実際に製作したアームを図.\ref{arm_real}に示す.
+    \labeledfigure{H}{0.4}{picture/slide_clank.eps}{消火用アーム概念図}
 
-\begin{figure}[h]
- \centering
-   \includegraphics[clip,scale=0.3]{./picture/kakeru/slide_clank.eps}
-   \caption{消火用アーム概念図}
- \label{arm_con}
-\end{figure}
-
-\begin{figure}[h]
- \centering
- \begin{tabular}{c}
-
-  \begin{minipage}{0.3\hsize}
-   \centering
-   \includegraphics[clip,scale=0.06]{./picture/kakeru/arm_left.eps}
-   \hspace{1.6cm} [1]アーム 左
-  \end{minipage}
-
-  \begin{minipage}{0.45\hsize}
-   \centering
-   \includegraphics[clip,scale=0.06]{./picture/kakeru/arm_right.eps}
-   \hspace{1.6cm} [2]アーム 右
-  \end{minipage}
- \end{tabular}
- \caption{消火用アーム}
- \label{arm_real}
-\end{figure}
+    \begin{tabular}{c}
+      \begin{minipage}{0.4\hsize}
+        \labeledfigure{H}{1.0}{picture/arm_left.eps}{アーム左面}
+      \end{minipage}
+      \begin{minipage}{0.4\hsize}
+        \labeledfigure{H}{1.0}{picture/arm_right.eps}{アーム左面}
+      \end{minipage}
+    \end{tabular}
 
 \newpage
 \subsection{使用モータ}
