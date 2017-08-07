@@ -187,7 +187,8 @@
     \labeledfigure{H}{0.6}{picture/kuwano5.eps}{1号機のタイヤ}
     \labeledfigure{H}{0.6}{picture/kuwano6.eps}{2号機のタイヤ}
 
-\section{回路設計・作成} % TODO
+\section{回路設計・作成} \setcounters{0} % TODO
+
   設計・作成した回路について仕様や選定理由について以下に示す．
   また使用する部品の一覧を表\ref{tab:c_parts}に示す．
 
@@ -264,7 +265,7 @@
       測距センサは本体周囲にPSDセンサを7つ，前方にToF近接センサを3つ搭載する（\refig{picture/distance_sensors.eps})．
       これは自律行動の際に周辺環境，特に各種ポールを把握するために用いる．
       このとき，近接センサは$I^2 C$通信によって使用する．
-      センサの仕様については実験を行ったので\ref{psdex}に示す．
+      % センサの仕様については実験を行ったので\ref{psdex}に示す．
 
       また，各測距センサには信号のノイズを吸収し安定化させるために$0.1[\mu $F]のセラミックコンデンサを接続する．
       これは,コンデンサの持つ交流成分のみを吸収し,直流成分を通すというローパスフィルタ的特徴を利用したものである.
@@ -341,138 +342,82 @@
     そこで，センサ配線のハブモジュールの作成や各種ピンのコネクタによる一元化を行うことで整理された配線となるように工夫した．
     それでもメンテナンスの困難さは解消されなかったことが反省点であり，センサの数の最適化や回路仕様の工夫を検討すべきだったと考える．
 
-\section{ソフトウェア}
+\section{PSDセンサの同定} \setcounters{0} % TODO
+  引き継ぎ物品の内2種類のPSDセンサから本機のセンサ用途により適した一方を選定する．
+  選定に際しセンサ値-距離特性を求めるため同定実験を行った．
 
-\section{PSDセンサの同定実験}
-\label{psdex}
+  実験対象の2種類のPSDセンサの仕様を以下に示す．
+  また便宜上，仕様における最大測定距離から，それぞれを近距離センサ・遠距離センサと呼ぶ．
 
-前年度までに研究室で購入していた2種類のPSDセンサについて，
-そのPSDセンサの精度を確かめるために同定実験を行った．
+  \begin{description}
+    \item[シャープ測距モジュール GP2Y0A21YK] \mbox{} \\
+      範囲：$10~80\unit{cm}$ \\
+      出力：アナログ電圧 \\
+      寸法：$29.5x13x13.5\unit{mm}$ \\
+      電源：$4.5~5.5\unit{V}$
+  \end{description}
 
-\subsection{センサの仕様}
-前年度までに購入していた2種類のPSDセンサの仕様を以下に示す．
-また，下記2つのセンサを便宜上，順に近距離センサ，遠距離センサと
-呼ぶこととする．\\
+  \begin{description}
+    \item[シャープ測距モジュール GP2Y0A02YK] \mbox{} \\
+      範囲：$20~150\unit{cm}$ \\
+      出力：アナログ電圧 \\
+      寸法：$29.5x13x21.6\unit{mm}$ \\
+      電源：$4.5~5.5\unit{V}$
+  \end{description}
 
- \begin{description}
-  \item[【シャープ測距モジュール　GP2Y0A21YK】] \mbox{} \\
-	     測距範囲：$10〜80\unit{cm}$ \\
-	     出力：アナログ電圧出力 \\
-	     寸法：$29.5×13×13.5\unit{mm}$ \\
-	     電源：$4.5〜5.5\unit{V}$
-  \item[【シャープ測距モジュール　GP2Y0A02YK】] \mbox{} \\
-	     測距範囲：$20〜150\unit{cm}$ \\
-	     出力：アナログ電圧出力 \\
-	     寸法：$29.5×13×21.6\unit{mm}$ \\
-	     電源：$4.5〜5.5\unit{V}$
- \end{description}
+  \subsection{実験装置}
+    PSDセンサの実験を行うため，\refig{picture/psded.eps}のような実験装置を製作した．
+    PSDセンサは高さ$20\unit{mm}$の位置にセンサの発光部が左，受光部が右になるように箱に水平に装着した．
+    PSDセンサの読み取りにはArduino Unoを用いた．
+    % 実験時のセンサとArduinoの配線を図\refig{picture/psdwd.eps}に示す．
+    実験時点ではポールが完成していなかったため，同等の径を持つ缶を用いた．
 
+    \labeledfigure{t}{0.7}{picture/psded.eps}{PSD実験装置}
+    % \labeledfigure{t}{0.7}{picture/psdwd.eps}{PSDセンサの配線図}
 
-\subsection{実験装置}
-PSDセンサの実験を行うため，図\ref{psded}のような実験装置を製作した．
-PSDセンサは高さ$20\unit{mm}$の位置にセンサの発光部が左，
-受光部が右になるように箱に水平に装着した．
-PSDセンサを動作せるのにはArduino Unoを用い，
-Arduino IDEのシリアルモニタを用いて出力電圧を測定した．
-実験時のセンサとArduinoの配線を図\ref{psdwd}に，
-Arduinoのプログラムを付録1に示す．
-配線にはブレッドボードを用いた．また，ポールの代わりに，
-ポールと同じ形状のスプレー缶を用いた．
+  \subsection{実験方法}
+    PSDセンサの距離-出力電圧特性を測定するため以下の手順に従い実験を行った．
+    \begin{enumerate}
+      \item PSDセンサの発光部・受光部の先端を距離$0\unit{cm}$とし，
+            近距離センサは$5\unit{cm}$から$100\unit{cm}$まで，
+            $5\unit{cm}$ずつスプレー缶を移動させ出力電圧を記録する．
+            このとき，スプレー缶の中心はPSDセンサの正面に置き測定する．
+      \item 先程と同様に，遠距離センサは$5\unit{cm}$から$170\unit{cm}$まで，
+            $5\unit{cm}$ずつスプレー缶を移動させ出力電圧を記録する．
+    \end{enumerate}
 
-\begin{figure}[t]
-  \begin{center}
-   \includegraphics[scale = 0.8]{picture/psded.eps}
-   \caption{PSD実験装置}
-   \label{psded}
-  \end{center}
-\end{figure}
+  \subsection{実験結果}
+    縦軸を出力電圧，横軸をPSDセンサ-対象物間の距離とし，
+    近距離センサの測定結果のグラフを\refig{picture/psdn.eps}に，
+    遠距離センサの測定結果のグラフを\refig{picture/psdf.eps}に示す．
+    \refig{picture/psdn.eps}より，近距離センサは出力電圧が$40\unit{cm}$までは
+    滑らかに減少しており，$40\unit{cm}$からは大きな変化は見られない．
+    対して図\refig{picture/psdf.eps}より，遠距離センサは測距可能範囲内において
+    出力電圧が$80\unit{cm}$までは滑らかに減少しており，
+    $80\unit{cm}$からは変化に乏しいことがわかる．
+    よって，近距離センサでは$40\unit{cm}$以降，遠距離センサでは$80\unit{cm}$以降の
+    距離を算出することが難しくなると考えられる．
+    ここで，今回のロボットは$40\unit{cm}$以降も距離を計測する必要がある．
+    従って適当なセンサは，遠距離センサであると考えられる．
 
-\begin{figure}
- \begin{center}
-  \includegraphics[scale = 0.8]{picture/psdwd.eps}
-  \caption{PSDセンサの配線図}
-  \label{psdwd}
- \end{center}
-\end{figure}
+    \labeledfigure{H}{0.8}{picture/psdn.eps}{近距離センサ}
+    \labeledfigure{H}{0.8}{picture/psdf.eps}{遠距離センサ}
 
+\section{センサのモデル化}
+  プログラム上でセンサから読み取った値を扱えるようにするため，モデル化を行った．
+  なお変数はそれぞれ，距離$d\unit{cm}$，加速度$a\unit{m/s^2}$，電圧$v\unit{V}$である．
+  また，変数$i$はArduinoの\texttt{analogRead}関数により$0\sim1023$の値として正規化された$0\sim5\unit{V}$の電圧である．
 
-\newpage
-\subsection{実験方法}
-PSDセンサの距離-出力電圧特性を測定するため以下の手順に従い実験を行った．
-\begin{enumerate}
- \item PSDセンサの発光部・受光部の先端を距離$0\unit{cm}$とし，
-       近距離センサは$5\unit{cm}$から$100\unit{cm}$まで，
-       $5\unit{cm}$ずつスプレー缶を移動させ出力電圧を記録する．
-       このとき，スプレー缶の中心はPSDセンサの中心の正面にくるように
-       置き測定する．
- \item 先程と同様に，遠距離センサは$5\unit{cm}$から$170\unit{cm}$まで，
-       $5\unit{cm}$ずつスプレー缶を移動させ出力電圧を記録する．
-\end{enumerate}
+  PSDセンサ（GP2Y0A21）について，モデル式を\refeq{GP2Y0A21}に示す．
+  モデル化には\refig{picture/psdf.eps}のデータを用いた．
+  \eq{GP2Y0A21}{ d = 45.514 i^{-0.822} }
 
-\subsection{実験結果}
-縦軸を出力電圧，横軸をPSDセンサ-スプレー缶間の距離とし，
-近距離センサの測定結果のグラフを図\ref{psdn}に，
-遠距離センサの測定結果のグラフを図\ref{psdf}に示す．
-図\ref{psdn}より，近距離センサは出力電圧が$40\unit{cm}$までは
-滑らかに減少しており，$40\unit{cm}$からは大きな変化は見られない．
-それに対して図\ref{psdf}より，遠距離センサは測距可能範囲内において
-出力電圧が$80\unit{cm}$までは滑らかに減少しており，
-$80\unit{cm}$からは変化に乏しいことがわかる．
-よって，近距離センサでは$40\unit{cm}$以降，遠距離センサでは$80\unit{cm}$以降の
-距離を算出することが難しくなると考えられる．
-ここで，今回のロボットは$40\unit{cm}$以降も距離を計測する必要がある．
-従って適当なセンサは，遠距離センサであると考えられる．
+  ToFセンサ（VL6180X）について，モデル式を\refeq{VL6180X}に示す．
+  \eq{VL6180X}{ d = 0.09999 i + 0.4477 }
 
-
-\newpage
-\begin{figure}[htb]
-  \begin{center}
-    \includegraphics[width=1.0\hsize]{picture/psdn.eps}
-    \caption{近距離センサ}
-    \label{psdn}
-  \end{center}
-\end{figure}
-
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=1.0\hsize]{picture/psdf.eps}
-    \caption{遠距離センサ}
-    \label{psdf}
-  \end{center}
-\end{figure}
-
-
-\subsection{モデル化}
-プログラム上でセンサから読み取った値を扱えるようにするため，モデル化を行った．
-ここでの距離，加速度，電圧の単位はそれぞれcm，$\mathrm{m}/\mathrm{s}^{2}$，Vである．
-
-\subsubsection{PSDセンサ GP2Y0A21}
-前回求めたPSDセンサの性能から距離-電圧特性は以下のようになる．
-\begin{equation}
- (距離)=45.514×(電圧)^{-0.822}
-\end{equation}
-
-\subsubsection{近接センサ VL6180X}
-前回のPSDセンサと同様な実験で，近接センサの距離と出力値の関係を求めた．
-そのときの関係を表した式を以下に示す．
-また，出力値とはarduinoで0〜255までの値で出力された値であり，
-対象物との距離が近いほど，値が小さくなるようにプログラムで処理している．
-\begin{equation}
- (距離)=0.09999×(出力値)+0.4477
-\end{equation}
-
-\subsubsection{加速度センサ KXR-94 }
-この加速度センサのモデル化するために必要な仕様を以下に示す．
-\begin{itemize}
- \item 感度：1 [V/g]
- \item オフセット：2.5 [V]
-\end{itemize}
-
-これらより，加速度と電圧の関係を以下に示す．
-\begin{equation}
- (加速度)=9.8×[(電圧)-2.5]
-\end{equation}
-
+  加速度センサ（KXR-94）について，モデル式を\refeq{KXR-94}に示す．
+  なお，電圧から減じている値はオフセット電圧である．
+  \eq{KXR-94}{ a = 9.8 (v - 2.5) }
 
 \section{制御則}
 
