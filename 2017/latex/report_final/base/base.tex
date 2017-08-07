@@ -92,154 +92,102 @@
     \labeledfigure{H}{0.4}{picture/slide_clank.eps}{消火用アーム概念図}
 
     \begin{tabular}{c}
-      \begin{minipage}{0.4\hsize}
+      \begin{minipage}{0.45\hsize}
         \labeledfigure{H}{1.0}{picture/arm_left.eps}{アーム左面}
       \end{minipage}
-      \begin{minipage}{0.4\hsize}
+      \begin{minipage}{0.45\hsize}
         \labeledfigure{H}{1.0}{picture/arm_right.eps}{アーム左面}
       \end{minipage}
     \end{tabular}
 
-\newpage
-\subsection{使用モータ}
-ローテーションモータ(図\ref{servo})の使用について示す.
+  % \subsection{使用モータ}
+  %   ローテーションモータ（\refig{picture/servo.eps}）の仕様について示す．
+  %
+  %   [GWS S35 STD]
+  %   \begin{itemize}
+  %    \item トルク        : 4.1 [kg] (@4.8 [V])
+  %    \item スピード      : 0.27 [sec]/60[deg] (@4.8 [V])
+  %    \item 重量          : 41 [g]
+  %    \item サイズ        :$39.5 \times 20 \times 35.6$[mm]
+  %   \end{itemize}
+  %
+  %   \labeledfigure{H}{0.5}{picture/servo.eps}{ローテーションモータ GWS S35 SSTD}
 
-[GWS S35 STD]
-\begin{itemize}
- \item トルク        : 4.1 [kg] (@4.8 [V])
- \item スピード      : 0.27 [sec]/60[deg] (@4.8 [V])
- \item 重量          : 41 [g]
- \item サイズ        :$39.5 \times 20 \times 35.6$[mm]
-\end{itemize}
+\section{機体} \setcounters{0} % TODO
 
-\begin{figure}[h]
-  \centering
-    \includegraphics[clip,scale=0.05]{./picture/kakeru/servo.eps}
-    \caption{ローテーションモータ [ GWS S35 SSTD ]}
-  \label{servo}
-\end{figure}
+  西田研究室では今回製作するロボカーの構成要素のうち，
+  制御手法，構成パーツ（センサなど），機体設計の順に重要度の順位を定めた．
+  そのため各パートの担当者と打ち合わせをしながら機体の設計を行った．
+  設計の際にAutodesk社のCADソフト「Autodesk Inventor Professional 2018」（以下Inventor）を使用した．
 
-\newpage
+  \subsection{1号機}
+    最初にInventorで設計した1号機を\refig{picture/first_assembly.eps}に示す．
+    機体のサイズは幅$300\unit{mm}$，高さ$120\unit{mm}$となった．
+    センサを均等に配置するために機体の形を正八角形とし，
+    一階部分を駆動系，二階部分をセンサ系，三階部分をアームやマイコン，カメラを置くスペースとした．
+    この頃の設計はロボカーの制御手法や構成パーツについてあいまいな点が多く残っていたため，
+    急な変更に対応できるようスペースを多くとるように心掛けた．
 
-\section{機体}
+    \labeledfigure{H}{0.7}{picture/first_assembly.eps}{1号機の概観}
 
-\subsection{導入}
-西田研究室では今回製作するロボカーの構成要素のうち，「制御手法」，「構成パーツ（センサなど）」，「機体設計」，の順に重要度の順位を定めた．
-そのため各パートの担当者と打ち合わせをしながら機体の設計を行った．設計の際にAutodesk社のCADソフト「Autodesk Inventor Professional 2018」（以下Inventor）を使用した．
+  \subsection{２号機}
+    制御手法や構成パーツについての考えが固まってきた段階で，1号機の設計を元に再設計を行った．
+    設計した2号機を\refig{picture/second_assembly.eps}に示す．
+    再設計を行う際に各パートからの機体の要求条件を再度リストアップしてから行った．
 
-\subsection{1号機}
-最初にInventorで設計した1号機を図\ref{assem}に示す．
-機体のサイズは幅300mm，高さ120mmとなった．センサを均等に配置するために機体の形を正八角形とし，一階部分を駆動系，二階部分をセンサ系，三階部分をアームやマイコン，カメラを置くスペースとした．
-この頃の設計はロボカーの制御手法や構成パーツについてあいまいな点が多く残っていたため，急な変更に対応できるようスペースを多くとるように心掛けた．
+    \subsubsection{設計要求}
+      ソフト班から求められる機体の構成
+      \begin{itemize}
+       \item 制御のしやすい駆動系
+       \item 回転半径の縮小
+       \item センサの測定領域の均一化
+       \item センサの取り付け位置（路面からの高さ）
+      \end{itemize}
 
-\begin{figure}[h]
-\begin{center}
-  \includegraphics[width=0.7\hsize]{../kuwano_last/Final_assem.eps}
-\end{center}
-\caption{１号機の概要}
-\label{assem}
-\end{figure}
+      回路班から求められる機体の構成
+      \begin{itemize}
+       \item 整備のしやすい設計
+       \item 配線への考慮
+      \end{itemize}
 
-\newpage
-\subsection{２号機}
+      \labeledfigure{H}{0.7}{picture/second_assembly.eps}{2号機の概観}
 
-\subsubsection{要求条件}
-制御手法や構成パーツについての考えが固まってきた段階で，1号機の設計を元に再設計を行った．設計した2号機を図\ref{assembly}に示す．
-再設計を行う際に各パートからの機体の要求条件を再度リストアップしてから行った．
+    \subsubsection{モータとエンコーダの配置}
+      一号機の駆動系を\refig{picture/kuwano3.eps}に示す．
+      一号機ではモータとエンコーダの配置を線対称としていたため，機体の幅が大きくしなければならなかった．
+      そこで二号機ではこのモータとエンコーダの配置を点対象とすることにした．
+      これによりタイヤのトレッド幅を限りなく小さくでき，機体の幅を小さくすることができた．
+      また，一号機ではモータとエンコーダをアルミ板で下から支えるようになっていた．
+      そのため，モータとエンコーダを支える以外のスペースは無駄なスペースとなっていた．
+      二号機ではこの無駄なスペースを省くために，モータとエンコーダを上から支えることにした．
+      上から支えるにしたがって，
+      モータとエンコーダの重量と機体の荷重が\refig{picture/kuwano4.eps}に示した部分に集中する恐れがあるため，
+      機体中心部分にモータおよびエンコーダを支えるパーツを3Dプリンタで作成し設置した．
+      以上により，下から支えていたアルミ板を廃止することができ，一号機での無駄なスペースを削減することができた．
 
-\
-ソフト班から求められる機体の構成
-\begin{itemize}
- \item 制御のしやすい駆動系
- \item 回転半径の縮小
- \item センサの測定領域の均一化
- \item センサの取り付け位置（路面からの高さ）
-\end{itemize}
+    \subsubsection{回路のガードについて}
+      機体の大部分はアルミでできているため，回路を露出させたまま配置するとショートする危険性がある．
+      したがって，回路をホットボンドで覆った．
+      Arduinoに関しては専用のケースが存在しないため，3Dプリンタでケースを作成した．
 
-回路班から求められる機体の構成
-\begin{itemize}
- \item 整備のしやすい設計
- \item 配線への考慮
-\end{itemize}
+    \subsubsection{タイヤについて}
+      一号機では\refig{picture/kuwano5.eps}のようなタイヤを使用していたが，
+      このタイヤは中身がスポンジになっており，機体の重量でタイヤの接地面積が増えやすく，
+      また機体の荷重移動によって機体がロールする可能性があると考えた．
+      二号機ではそういった問題を解消するべく，ナロータイヤを使用することにした．
+      使用するナロータイヤを図\refig{picture/kuwano6.eps}に示す．
+      使用するナロータイヤは非常に細いため，地面との接地面積を少なくすることができる．
+      また，ゴムのみでできているので，一号機で使用する予定であったタイヤに比べて沈む量が少なく，
+      機体の荷重移動によるロールも低減できると考えられる．
+      しかし，接地面が小さくなったことでスリップする可能性があると考えられるので，
+      キャンバー角をつけるなどして対策を考えていく．
 
-\begin{figure}[t]
-\begin{center}
-  \includegraphics[width=0.7\hsize]{../kuwano_last/Final_assembly.eps}
-\end{center}
-\caption{２号機の概要}
-\label{assembly}
-\end{figure}
+    \labeledfigure{H}{0.6}{picture/kuwano3.eps}{1号機の駆動系}
+    \labeledfigure{H}{0.6}{picture/kuwano4.eps}{最も荷重がかかる位置}
+    \labeledfigure{H}{0.6}{picture/kuwano5.eps}{1号機のタイヤ}
+    \labeledfigure{H}{0.6}{picture/kuwano6.eps}{2号機のタイヤ}
 
-\subsection{改善点}
-\subsubsection{モータとエンコーダの配置}
-一号機の駆動系を図\ref{kuwano3}に示す．一号機では，
-モータとエンコーダの配置を線対称としていたため，
-機体の幅が大きくしなければならなかった．そこで，
-二号機ではこのモータとエンコーダの配置を点対象とすることにした．
-これにより，タイヤのトレッド幅を限りなく小さくでき，
-機体の幅を小さくすることができた．
-また，一号機ではモータとエンコーダをアルミ板で下から支えるようになっていた．
-そのため，モータとエンコーダを支える以外のスペースは無駄なスペースとなっていた．
-二号機ではこの無駄なスペースを省くために，
-モータとエンコーダを上から支えることにした．上から支えるにしたがって，
-モータとエンコーダの重量と機体の荷重が図\ref{kuwano4}に示した部分に集中する恐れがあるため
-，機体中心部分にモータおよびエンコーダを支えるパーツを３Dプリンタで作成し，
-設置した．以上より，下から支えていたアルミ板を廃止することができ，
-一号機での無駄なスペースを削減することができた．
-
-\subsubsection{回路のガードについて}
-機体の大部分はアルミでできているため，回路をそのままにしておくと，
-ショートする可能性がある．したがって，回路をホットボンドで覆うことで
-ショートすることを防ぐようにした．Arduinoに関しては専用のケースが存在しないため，
-3Dプリンタでケースを作成した．
-
-\subsubsection{タイヤについて}
-一号機では図\ref{kuwano5}のようなタイヤを使用していたが，
-このタイヤは中身がスポンジになっており，機体の重量でタイヤの接地面積が増えやすく，
-また機体の荷重移動によって機体がロールする可能性があると考えた．
-二号機ではそういった問題を解消するべく，ナロータイヤを使用することにした．
-使用するナロータイヤを図\ref{kuwano6}に示す．使用するナロータイヤは非常に細いため，
-地面との接地面積を少なくすることができる．また，ゴムのみでできているので，
-一号機で使用する予定であったタイヤに比べて沈む量が少なく，
-機体の荷重移動によるロールも低減できると考えられる．
-しかし，接地面が小さくなったことでスリップする可能性があると考えられるので，
-キャンバー角をつけるなどして対策を考えていく．
-
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=0.6\hsize]{../../report_2/kuwano/picture/kuwano3.eps}
-    \caption{一号機の駆動系}
-    \label{kuwano3}
-  \end{center}
-\end{figure}
-
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=0.55\hsize]{../../report_2/kuwano/picture/kuwano4.eps}
-    \caption{最も荷重がかかる位置}
-    \label{kuwano4}
-  \end{center}
-\end{figure}
-
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=0.55\hsize]{../../report_2/kuwano/picture/kuwano5.eps}
-    \caption{一号機のタイヤ}
-    \label{kuwano5}
-  \end{center}
-\end{figure}
-
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[width=0.55\hsize]{../../report_2/kuwano/picture/kuwano6.eps}
-    \caption{二号機のナロータイヤ}
-    \label{kuwano6}
-  \end{center}
-\end{figure}
-
-\newpage
-
-\section{回路設計・作成}
+\section{回路設計・作成} % TODO
 設計・作成した回路について仕様や選定の理由について以下に示す．
 また使用する部品の一覧を表\ref{tab:c_parts}に示す．
 
@@ -291,9 +239,7 @@ Arduino用16チャンネル・アナログ・マルチプレクサを使用す�
     \caption{Arduino unoR3 接続回路図}
     \label{c_arduino}
 \end{figure}
-\newpage
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 \subsection{モータドライバ}
 モータドライバは「MD10C R3」(図\ref{MD10C})を両輪駆動用として2つ使用する.
