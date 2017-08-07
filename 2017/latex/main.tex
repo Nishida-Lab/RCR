@@ -7,36 +7,38 @@
   \input{include/titlepage.tex}
 
 \newpage
+  \tableofcontents
+
+\newpage
 \section{目的} \setcounters{0}
 
   学部3年までに学習した制御理論や電気回路・情報工学の知識を使って，競技場内を自律的に走行するロボットの製作を行う．
-  研究室でチーム一丸となってプロジェクトを進行し，共同で課題を達成することの難しさや楽しさを学び，
+  研究室で一丸となってプロジェクトを進行し，共同で課題を達成することの難しさや楽しさを学び，
   エンジニアとして仕事を進めるための素養を身に付ける．
 
-\section{競技ルール} \setcounters{0}
+\section{競技概要} \setcounters{0}
 
-  \subsection{ルール概要}
+  \subsection{ルール}
     競技場には障害物に見立てた黄色のポールや火災に見立てた赤色のポールが複数設置されている．
     ポールに接触せず，可能な限り速やかに火災を鎮火させる消防ロボット（ロボカー）を作成する．
 
-  \subsection{競技場詳細}
+  \subsection{競技場}
     競技場の全体図を\refig{picture/course.eps}に示し，以下に詳細を説明する．
 
     \begin{enumerate}
-      \item 競技場は板張りの床であり，縦・横ともに $5400\unit{mm}$である．
-      \item 競技場には黄色の固定ポールと赤色の火災ポールが設置されており，
-            スタートからゴールまで，固定ポールには接触，火災ポールには衝突することなく通過しなければならない．
+      \item 競技場は板張りの床であり，縦・横ともに$5400\unit{mm}$である．
+      \item 競技場には黄色の固定ポールと赤色の火災ポールが設置されており，スタートからゴールまで，
+            固定ポールには接触，火災ポールには衝突することなく通過しなければならない．
       \item 火災ポールは青色の鎮火ポールに赤色の幕を被せたものであり，上部におもりなどを落としたり，
             幕を剥がしたりすることで鎮火ポールに変化させる（このポールの製作も行うこと）．
       \item スタート後は右手に固定ポールを見ながら直進し，消火活動開始区間まで移動しなければならない．
             消火活動開始区間に進入後は，右折し火災ポールを発見し次第消火にあたる．
       \item すべての火災ポールを消火し，鎮火ポールに変化させた後，ゴール地点で停止する．
       \item 火災ポールの配置は競技ごとに異なる．また，鎮火ポールが存在することもある．
-      \item ポールは直径 $80\unit{mm}$・高さ $120\unit{mm}$の中空パイプであり，
-            黄・赤・青の色が付けられている．
+      \item ポールは直径$80\unit{mm}$・高さ$120\unit{mm}$の中空パイプであり，黄・赤・青の色が付けられている．
     \end{enumerate}
 
-    \labeledfigure{t}{1.0}{picture/course.eps}{2017年度 RCR走行コース}
+    \labeledfigure{t}{0.9}{picture/course.eps}{2017年度 RCR走行コース}
 
 \section{機体の概要} \setcounters{0} % TODO
 
@@ -46,6 +48,10 @@
   画像処理することで行う，また，PSD(Position Sensitive Detector)センサと
   赤外線近接センサを用いてポールとロボットの距離を測定することで，
   適切な軌道の走行とポールの消火を目指す．
+
+  % 我々は本機を，競技達成を目的としつつも，競技ルールに対して特化した機体構造としないことを念頭に置いて設計した．
+  % 競技を「障害物に衝突せず」「順路に沿って競技場を移動し」「画像により識別可能な目標物に接近して」「何らかの作用を行う」という形に抽象化し，
+  % また，機体・プログラムともに来年度以降のRCRにも最小限の修正で再利用できることも期待している．
 
 \section{消火方法} \setcounters{0} % TODO
 
@@ -100,40 +106,42 @@
       \end{minipage}
     \end{tabular}
 
-  % \subsection{使用モータ}
-  %   ローテーションモータ（\refig{picture/servo.eps}）の仕様について示す．
-  %
-  %   [GWS S35 STD]
-  %   \begin{itemize}
-  %    \item トルク        : 4.1 [kg] (@4.8 [V])
-  %    \item スピード      : 0.27 [sec]/60[deg] (@4.8 [V])
-  %    \item 重量          : 41 [g]
-  %    \item サイズ        :$39.5 \times 20 \times 35.6$[mm]
-  %   \end{itemize}
-  %
-  %   \labeledfigure{H}{0.5}{picture/servo.eps}{ローテーションモータ GWS S35 SSTD}
+    % \subsection{使用モータ}
+    %   ローテーションモータ（\refig{picture/servo.eps}）の仕様について示す．
+    %
+    %   [GWS S35 STD]
+    %   \begin{itemize}
+    %    \item トルク        : 4.1 [kg] (@4.8 [V])
+    %    \item スピード      : 0.27 [sec]/60[deg] (@4.8 [V])
+    %    \item 重量          : 41 [g]
+    %    \item サイズ        :$39.5 \times 20 \times 35.6$[mm]
+    %   \end{itemize}
+    %
+    %   \labeledfigure{H}{0.5}{picture/servo.eps}{ローテーションモータ GWS S35 SSTD}
 
-\section{機体} \setcounters{0} % TODO
+\section{機械設計} \setcounters{0} % TODO
 
-  西田研究室では今回製作するロボカーの構成要素のうち，
-  制御手法，構成パーツ（センサなど），機体設計の順に重要度の順位を定めた．
-  そのため各パートの担当者と打ち合わせをしながら機体の設計を行った．
-  設計の際にAutodesk社のCADソフト「Autodesk Inventor Professional 2018」（以下Inventor）を使用した．
+  % 西田研究室では今回製作するロボカーの構成要素のうち，
+  % 制御手法，構成パーツ（センサなど），機体設計の順に重要度の順位を定めた．
+  % そのため各パートの担当者と打ち合わせをしながら機体の設計を行った．
+  機体設計にはAutodesk社のCADソフトAutodesk Inventor Professional 2018（以下，Inventor）を使用した．
 
   \subsection{1号機}
     最初にInventorで設計した1号機を\refig{picture/first_assembly.eps}に示す．
-    機体のサイズは幅$300\unit{mm}$，高さ$120\unit{mm}$となった．
-    センサを均等に配置するために機体の形を正八角形とし，
-    一階部分を駆動系，二階部分をセンサ系，三階部分をアームやマイコン，カメラを置くスペースとした．
-    この頃の設計はロボカーの制御手法や構成パーツについてあいまいな点が多く残っていたため，
-    急な変更に対応できるようスペースを多くとるように心掛けた．
+    機体のサイズは幅$300\unit{mm}$，高さ$120\unit{mm}$とした．
+    センサを均等に配置するために機体の形を正八角柱にし，
+    1階部分を駆動系，2階部分をセンサ系，3階部分をアームやマイコン，カメラを置く空間とした．
+
+    % この頃の設計はロボカーの制御手法や構成パーツについてあいまいな点が多く残っていたため，
+    % 急な変更に対応できるようスペースを多くとるように心掛けた．
+    細かな仕様変更を想定して空間に余裕を持たせていため，1号機は2号機に比べて各寸法が大きくなっている．
 
     \labeledfigure{H}{0.7}{picture/first_assembly.eps}{1号機の概観}
 
   \subsection{２号機}
-    制御手法や構成パーツについての考えが固まってきた段階で，1号機の設計を元に再設計を行った．
-    設計した2号機を\refig{picture/second_assembly.eps}に示す．
-    再設計を行う際に各パートからの機体の要求条件を再度リストアップしてから行った．
+    % 制御手法や構成パーツについての考えが固まってきた段階で，1号機の設計を元に再設計を行った．
+    2号機の概観を\refig{picture/second_assembly.eps}に示す．
+    % 再設計を行う際に各パートからの機体の要求条件を再度リストアップしてから行った．
 
     \subsubsection{設計要求}
       ソフト班から求められる機体の構成
@@ -141,7 +149,7 @@
        \item 制御のしやすい駆動系
        \item 回転半径の縮小
        \item センサの測定領域の均一化
-       \item センサの取り付け位置（路面からの高さ）
+       \item センサの取り付け位置（床面からの高さ）
       \end{itemize}
 
       回路班から求められる機体の構成
@@ -187,7 +195,7 @@
     \labeledfigure{H}{0.6}{picture/kuwano5.eps}{1号機のタイヤ}
     \labeledfigure{H}{0.6}{picture/kuwano6.eps}{2号機のタイヤ}
 
-\section{回路設計・作成} \setcounters{0} % TODO
+\section{回路設計} \setcounters{0} % TODO
 
   設計・作成した回路について仕様や選定理由について以下に示す．
   また使用する部品の一覧を表\ref{tab:c_parts}に示す．
@@ -304,7 +312,7 @@
 
     \labeledfigure{t}{0.4}{picture/power_supply.eps}{電源回路モジュール}
 
-  \subsection{$\mathrm{I^2}C$通信}
+  \subsection{$\mathrm{I^2C}$通信}
     我々のロボットには測距センサを始めとする複数のセンサが搭載されている．
     これらの殆どがアナログ出力であるが，
     ArduinoはアナログI/Oポートは6つしか備えていないため要求を満たさない．
@@ -537,31 +545,30 @@
   \end{description}
 
 \subsection{画像処理}
-画像処理のフローについて実際の処理画像とともに説明をする．
+  画像処理のフローについて実際の処理画像とともに説明をする．
 
-\begin{enumerate}
- \item 元画像(RGB)
- \item 元画像(RGB)から上半分を削除
- \item HSV変換をしてH(色相)だけ取り出し，グレースケールで表示
- \item 色相を180度回転
- \item 赤の色相を強調するフィルタ処理を行う
- \item 上のフィルタ処理を5回反復
- \item ノイズ除去を行う
- \item エッジを抽出
- \item エッジから輪郭線を取り出す
- \item 前の画像から最大面積の輪郭線を出す
- \item 重心を求める
-\end{enumerate}
+  \begin{enumerate}
+    \item 元画像(RGB)
+    \item 元画像(RGB)から上半分を削除
+    \item HSV変換をしてH(色相)だけ取り出し，グレースケールで表示
+    \item 色相を180度回転
+    \item 赤の色相を強調するフィルタ処理を行う
+    \item 上のフィルタ処理を5回反復
+    \item ノイズ除去を行う
+    \item エッジを抽出
+    \item エッジから輪郭線を取り出す
+    \item 前の画像から最大面積の輪郭線を出す
+    \item 重心を求める
+  \end{enumerate}
 
-% \begin{figure}[h]
-%   \begin{flushleft}
-%     \includegraphics[width=0.9\hsize]{../image_processing/image_flow.eps}
-%     \caption{画像処理のフロー}
-%     \label{image_flow}
-%   \end{flushleft}
-% \end{figure}
+  % \begin{figure}[h]
+  %   \begin{flushleft}
+  %     \includegraphics[width=0.9\hsize]{../image_processing/image_flow.eps}
+  %     \caption{画像処理のフロー}
+  %     \label{image_flow}
+  %   \end{flushleft}
+  % \end{figure}
 
-\newpage
 \subsection{アルゴリズム} \setcounters{0}
 
   機体の進行方向及び速度は人工ポテンシャル法により制御を行う．
