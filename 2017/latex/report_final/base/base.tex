@@ -419,114 +419,87 @@
   なお，電圧から減じている値はオフセット電圧である．
   \eq{KXR-94}{ a = 9.8 (v - 2.5) }
 
-\section{制御則}
+\section{自己位置推定} \setcounters{0} % TODO
 
-\subsection{自己位置推定}
-\subsubsection{ジャイロセンサ}
-ジャイロセンサ(角速度センサ)を用いて，車体の角度を求める．
-角速度センサと同様に考える．
-角度を$\theta(t)$[deg]，角速度を$\omega(t)$[deg/s]とすると
+  \subsection{車体角度}
+    ジャイロセンサ（角速度センサ）を用いて，車体の角度を求める．角速度センサと同様に考える．
+    角度を$\theta(t)\unit{deg}$，角速度を$\omega(t)\unit{deg/s}$とすると
+    \eq*{ \theta(t) = \frac{t_2 - t_0}{6} (\omega(t_0) + 4 \omega(t_1) + \omega(t_2)) }
+    となる．
 
-\begin{equation}
- \theta(t)=\frac{t_2-t_0}{6}(\omega(t_0)+4\omega(t_1)+\omega(t_2) )
-\end{equation}
-となる．
+  \subsection{移動距離センサ}
+    加速度センサを用いて，移動距離を求める．
+    そのために加速度センサから，加速度とそのときの時間を得る．
+    今回は加速度を積分するために，数値積分のシンプソン公式を用いた．
+    シンプソン公式による区間$(a,b)$の$f(t)$の積分値は以下のようになる．
+    \eq*{ \int_a^b f(t) dt = \frac{b-a}{6} (f(a) + 4f (\frac{a+b}{2}) + f(b)) }
+    これを用いて，$(t_0,t_2)$の区間で積分する（ただし$t_1=\frac{t_0+t_2}{2}$）．
 
-\subsubsection{加速度センサ}
-加速度センサを用いて，移動距離を求める．
-そのために加速度センサから，加速度とそのときの時間を得る．
-今回は加速度を積分するのに，数値積分のシンプソン公式を用いた．
-シンプソン公式による区間$(a,b)$の$f(t)$の積分値は以下のようになる．
+    $a(t)\unit{m/s^2}$を加速度，$v(t)\unit{m/s}$を速度とすると
+    \eq*{ v(t) = \frac{t_2-t_0}{6} (a(t_0) + 4 a(t_1) + a(t_2)) }
+    となる．よって移動距離を$x(t)\unit{m}$とすると以下のように表せる．
+    \eq*{ x(t) = \frac{t_2-t_0}{6} (v(t_0) + 4 v(t_1) + v(t_2)) }
 
+  \subsection{アフィン変換}
+     加速度センサで得られる加速度はロボットのローカル座標系における加速度である．
+     そこで，ジャイロセンサから得られた角度を用いて三次元アフィン変換を適用しグローバル座標系における加速度を求める．\\
+     アフィン変換において，回転移動は次の行列で表される．
+     $x$軸，$y$軸，$z$軸まわりの回転行列をそれぞれ$R_x, R_y, R_z$とおくと，
 
-\begin{equation}
- \int_a^b f(t) dt = \frac{b-a}{6} ( f(a)+4f ( \frac{a+b}{2}) +f(b))
-\end{equation}
+     \begin{eqnarray}
+       R_x =
+         \left[ \begin{array}{cccc}
+           1 &        0       &       0       & 0 \\
+           0 &  \cos \theta_x & \sin \theta_x & 0 \\
+           0 & -\sin \theta_x & \cos \theta_x & 0 \\
+           0 &        0       &       0       & 1
+         \end{array} \right] \\
+       R_y =
+         \left[ \begin{array}{cccc}
+           \cos \theta_y & 0 & -\sin \theta_y & 0 \\
+                 0       & 1 &       0        & 0 \\
+           \sin \theta_y & 0 &  \cos \theta_y & 0 \\
+                 0       & 0 &       0        & 1
+         \end{array} \right] \\
+       R_z =
+         \left[ \begin{array}{cccc}
+           \cos \theta_z & \sin \theta_z & 0 & 0 \\
+          -\sin \theta_z & \cos \theta_z & 0 & 0 \\
+                 0       &       0       & 1 & 0 \\
+                 0       &       0       & 0 & 1 \\
+         \end{array} \right]
+     \end{eqnarray}
+     また，ローカル座標系の原点のグローバル座標系での座標を$(T_x, T_y, T_z)$とすると，
+     アフィン変換における平行移動は次の行列で表される．
+     \begin{equation}
+      T =
+        \left[ \begin{array}{cccc}
+           1  &  0  &  0  & 0 \\
+           0  &  1  &  0  & 0 \\
+           0  &  0  &  1  & 0 \\
+          T_x & T_y & T_z & 1 \\
+        \end{array} \right]
+     \end{equation}
+     ここで，ローカル座標系を$(x, y, z, 1)$，グローバル座標系を$(x_g, y_g, z_g, 1)$とすると
+     \eq*{ (x_g \  y_g \ z_g \ 1) = (x \ y \ z \ 1) R_z  R_x  R_y T }
+     となる．これによってローカル座標系の加速度センサで得られた加速度をグローバル座標系に変換することが出来る．
 
-これを用いて，$(t_0,t_2)$の区間で積分する(ただし$t_1=\frac{t_0+t_2}{2}$)．\\
-$a(t)[\mathrm{m}/\mathrm{s}^{2}]$を加速度，$v(t)$[m/s]を速度とすると
+  \subsection{フィルタ処理}
+    \subsubsection{ローパスフィルタ}
+      加速度センサやジャイロセンサで読み取った値は，ノイズが入り大きく上下していた．
+      そこでセンサ値の平滑化を行うためローパスフィルタを用いた．
+      ローパスフィルタの式を以下に示す．
+      \eq{low_pass}{ y[i] = py[i-1] + (1-p)x[i] }
+      ここで，$y[i]$は出力値，$y[i-1]$は前回の出力値，$x[i]$は現在のセンサ値であり，$p(0<p<1)$はパラメータである．
+      この式の特徴として，パラメータ$p$を大きくすれば滑らかになるが，位相が遅れることがわかっている．
 
-\begin{equation}
- v(t)= \frac{t_2-t_0}{6} ( a(t_0)+4a(t_1)+a(t_2) )
-\end{equation}
-
-となる．よって移動距離を$x(t)$[m]とすると以下のようになる．
-\begin{equation}
- x(t)= \frac{t_2-t_0}{6}(v(t_0)+4v(t_1)+v(t_2))
-\end{equation}
-
- \subsubsection{アフィン変換}
-   加速度センサで得られる加速度はロボットのローカル座標系における加速度である．そこで，ジャイロセンサから得られた角度を用いて三次元アフィン変換を適用しグローバル座標系における加速度を求める．\\
-   アフィン変換において，回転移動は次の行列で表される．$x$軸,$y$軸,$z$軸まわりの回転行列をそれぞれ$R_x, R_y, R_z$とおくと，
-   \begin{eqnarray}
-    R_x = \left[
-	   \begin{array}{cccc}
-	    1 &        0      &       0       & 0 \\
-	    0 & \cos \theta_x & \sin \theta_x & 0 \\
-	    0 & -\sin \theta_x& \cos \theta_x & 0 \\
-	    0 &        0      &       0       & 1
-	   \end{array}
-	  \right] \\
-    R_y = \left[
-	   \begin{array}{cccc}
-	    \cos \theta_y & 0 & -\sin \theta_y & 0 \\
-	          0       & 1 &       0        & 0 \\
-	    \sin \theta_y & 0 &  \cos \theta_y & 0 \\
-	          0       & 0 &       0        & 1
-	   \end{array}
-	  \right] \\
-    R_z = \left[
-	    \begin{array}{cccc}
-	     \cos \theta_z & \sin \theta_z & 0 & 0 \\
-	    -\sin \theta_z & \cos \theta_z & 0 & 0 \\
-		   0	   &	   0	   & 1 & 0 \\
-	           0       &       0       & 0 & 1 \\
-	    \end{array}
-	   \right]
-   \end{eqnarray}
-   また，ローカル座標系の原点のグローバル座標系での座標を$(T_x,T_y,T_z)$とすると，アフィン変換における平行移動は次の行列で表される．
-   \begin{equation}
-    T = \left[
-	    \begin{array}{cccc}
-	      1  &  0  &  0  & 0 \\
-	      0  &  1  &  0  & 0 \\
-	      0  &  0  &  1  & 0 \\
-             T_x & T_y & T_z & 1 \\
-	    \end{array}
-	   \right]
-   \end{equation}
-   ここで，ローカル座標系を$(x,y,z,1)$，グローバル座標系を$(x_g,y_g,z_g,1)$とすると
-   \begin{equation}
-    (x_g \  y_g \ z_g \ 1) = (x \ y \ z \ 1) R_z  R_x  R_y T
-   \end{equation}
-   となる．これによってローカル座標系の加速度センサで得られた加速度をグローバル座標系に変換することができた．
-
-\subsection{フィルタ処理}
- \subsubsection{ローパスフィルタ}
- 加速度センサやジャイロセンサで読み取った値は，ノイズが入り大きく上下していた．
-そこでセンサ値の平滑化を行うため，ローパスフィルタを用いた．ローパスフィルタの式は以下に示す．
-
-\begin{equation}
- y[i]=py[i-1]+(1-p)x[i]
- \label{low_pass}
-\end{equation}
-ここで，$y[i]$は出力値，$y[i-1]$は前回の出力値，$x[i]$は現在のセンサ値であり，
-$p(0<p<1)$はパラメータである．この式の特徴として，パラメータ$p$を大きくすれば滑らかになるが，
-位相が遅れることがわかっている．
-
-   \subsubsection{ハイパスフィルタ}
-センサ値をローパスフィルタで平滑化を行い，移動距離や回転角度を求めるためにその値の積分を行った．
-ここでの積分は数値積分であったため，積分誤差が生じ，時間とともに値がずれていた．
-これを解決するためにハイパスフィルタを用いた．ハイパスフィルタの式は以下に示す．
-
-\begin{equation}
- \acute{y}[i]=x[i]-y[i]
- \label{high_pass}
-\end{equation}
-ここで，$\acute{y}[i]$は出力値，$x[i]$は現在の積分したセンサ値，
-$y[i]$は積分したセンサ値をローパスフィルタに通した出力値である．
-
-
+    \subsubsection{ハイパスフィルタ}
+      センサ値をローパスフィルタで平滑化を行い，移動距離や回転角度を求めるためにその値の積分を行った．
+      ここでの積分は数値積分であったため，積分誤差が生じ，時間とともに値がずれていた．
+      これを解決するためにハイパスフィルタを用いた．ハイパスフィルタの式は以下に示す．
+      \eq{high_pass}{ \acute{y}[i] = x[i] - y[i] }
+      ここで，$\acute{y}[i]$は出力値，$x[i]$は現在の積分したセンサ値，
+      $y[i]$は積分したセンサ値をローパスフィルタに通した出力値である．
 
 \subsection{画像認識}
   炎上ポールの認識には配布されたRapspberry Pi NoIR Camera V2（以下，カメラモジュール）を使用する．
@@ -563,7 +536,6 @@ $y[i]$は積分したセンサ値をローパスフィルタに通した出力�
 
   \end{description}
 
-\newpage
 \subsection{画像処理}
 画像処理のフローについて実際の処理画像とともに説明をする．
 
@@ -581,13 +553,13 @@ $y[i]$は積分したセンサ値をローパスフィルタに通した出力�
  \item 重心を求める
 \end{enumerate}
 
-\begin{figure}[h]
-  \begin{flushleft}
-    \includegraphics[width=0.9\hsize]{../image_processing/image_flow.eps}
-    \caption{画像処理のフロー}
-    \label{image_flow}
-  \end{flushleft}
-\end{figure}
+% \begin{figure}[h]
+%   \begin{flushleft}
+%     \includegraphics[width=0.9\hsize]{../image_processing/image_flow.eps}
+%     \caption{画像処理のフロー}
+%     \label{image_flow}
+%   \end{flushleft}
+% \end{figure}
 
 \newpage
 \subsection{アルゴリズム} \setcounters{0}
@@ -634,37 +606,32 @@ $y[i]$は積分したセンサ値をローパスフィルタに通した出力�
   なお，$\bm{v}_{\rm{target}}$に$\bm{v}_{\rm{red}}$が設定された場合，機体は赤い物体の直前で$\bm{v} = [0, 0]^{T}$となり停止する．
   これを消火作業を行うための条件とし，消火作業により機体正面のカメラから赤色の物体が消えることで消火作業が終了する．
 
-
-\newpage
 \section{物品一覧}
-今回の引継ぎ品,配布品，購入品についてそれぞれ,以降の表にまとめる.ただし,購入品について※印がついた部品は,購入してテストした結果,使用しなかったものである.\\
+  本機に利用した引継ぎ品，配布品，購入品についてそれぞれ以降の表にまとめる．
+  ただし，購入品について※印がついた部品は，購入はしたが使用しなかったものである．
 
-今回ロボットにかかった合計金額は, $\yen 76,786$である.
+  合計金額は$\yen 76,786$である．
 
-\begin{table}[h]
-	\centering
-	\caption{引継ぎ品一覧}
-	\includegraphics[clip,scale=0.35]{../items/hikitsugi.eps}
- \label{hikitsugi}
-\end{table}
+  \begin{table}[h]
+    \centering
+    \caption{引継ぎ品一覧}
+    \includegraphics[width=1.0\hsize]{picture/items_inherited.eps}
+  \end{table}
 
-\begin{table}[h]
-	\centering
-	\caption{配布品一覧}
-	\includegraphics[clip,scale=0.35]{../items/haihu.eps}
-    \label{haihu}
-\end{table}
+  \begin{table}[h]
+    \centering
+    \caption{配布品一覧}
+    \includegraphics[width=1.0\hsize]{picture/items_distributed.eps}
+  \end{table}
 
-\begin{table}[h]
-	\centering
-	\caption{購入品一覧}
-	\includegraphics[clip,scale=0.35]{../items/kokunyu.eps}
-    \label{kounyu}
-\end{table}
+  \begin{table}[h]
+    \centering
+    \caption{購入品一覧}
+    \includegraphics[width=1.0\hsize]{picture/items_purchased.eps}
+  \end{table}
 
-\newpage
 \begin{thebibliography}{9}
- \bibitem{raspicam}
+  \bibitem{raspicam}
     "RaspiCam: C++ API for using Raspberry camera with/without OpenCV"，\\
     "\texttt{https://www.uco.es/investiga/grupos/ava/node/40}"，\\
     2017年5月31日最終確認．
@@ -675,13 +642,5 @@ $y[i]$は積分したセンサ値をローパスフィルタに通した出力�
     2017年5月31日最終確認．
 \end{thebibliography}
 
-
-% \newpage
-% \setcounter{page}{1}
-% \pagestyle{fancy}
-% \renewcommand{\headrulewidth}{0.0pt}
-% \rhead{付録\thepage}
-% \lhead{}
-% \cfoot{}
-% \input{./appendix.tex}
 \end{document}
+
