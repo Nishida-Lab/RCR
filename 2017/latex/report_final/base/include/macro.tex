@@ -12,17 +12,17 @@
   \hspace{1mm}\mathrm{[}{}^\circ\mathrm{C]}
 }
 
-\newcommand{\refig}[1]{図\ref{fig::#1}}
-\newcommand{\refeq}[1]{式（\ref{eq::#1}）}
-\newcommand{\reftab}[1]{表\ref{tab::#1}}
+\newcommand{\refig}[1]{図\ref{label::figure::#1}}
+\newcommand{\refeq}[1]{式（\ref{label::equation::#1}）}
+\newcommand{\reftab}[1]{表\ref{label::table::#1}}
 
-\newcommand{\fig}[5] {
+\newcommand{\labeledfigure}[4] {
   \begin{figure}[#1]
     \begin{center}
       \includegraphics[width=#2\hsize]{#3}
     \end{center}
     \caption{#4}
-    \label{fig::#5}
+    \label{label::figure::#3}
   \end{figure}
 }
 
