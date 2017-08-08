@@ -26,6 +26,11 @@
 #define DISABLE_POSITION_SENSOR
 
 
+// 可読性優先でunordered_mapに渡す文字列がリテラル文字列になっています．
+// 現状ループ毎にstd::stringのコンストラクタが走っているので，
+// static constなstd::stringを作って参照で渡すように改良する必要があります．
+
+
 static const robocar::vector<double>
   north_west {-0.707,  0.707}, north { 0.000,  1.000}, north_east { 0.707,  0.707},
         west {-1.000,  0.000},                               east { 1.000,  0.000},
@@ -189,6 +194,8 @@ int main(int argc, char** argv) try
       camera.capture(camera.untested_filter, camera.size.width, 20)
     };
 
+    // カメラが上下反転して取り付けられていたため追加した処理
+    // これで反転した扱いになるのかは動作未確認
     robocar::vector<double> reversed_toward_fire {-toward_fire[0], toward_fire[1]};
 
     robocar::vector<double> direction {
