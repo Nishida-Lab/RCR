@@ -154,7 +154,7 @@ private:
   }
 
 public:
-  static auto untested_filter(const cv::Mat3b& origin_image, std::size_t& width, std::uint8_t hue)
+  static auto untested_filter(const cv::Mat3b& origin_image, std::size_t width, std::uint8_t hue)
   {
     const cv::Mat3b cutted_image {
       origin_image,
