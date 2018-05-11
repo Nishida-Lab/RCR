@@ -57,7 +57,7 @@ def main():
                         duty = int(abs(y_new * DUTY_MAX))
                         pi.hardware_PWM(dcm_pwm_pin, freq, duty)
                     # servo motor
-                    pi.hardware_PWM(srv_pwm_pin, period2freq(PERIOD), width2duty(1.5 + (x_new * 0.6), PERIOD))
+                    pi.hardware_PWM(svm_pwm_pin, period2freq(PERIOD), width2duty(1.5 + (x_new * 0.6), PERIOD))
                     pygame.event.clear()
 
     except KeyboardInterrupt:
