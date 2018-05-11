@@ -16,7 +16,7 @@ def calc_vel(arg1, arg2):
     velocity = (count * (360 / 500)) / SAMPLING_TIME
     count = 0
 
-def count_pulse():
+def count_pulse(arg1, arg2, arg3):
     global count
     count += 1
 
@@ -28,4 +28,5 @@ pi.set_mode(ENCODER_PIN, pigpio.INPUT)
 pi.callback(ENCODER_PIN, pigpio.RISING_EDGE, count_pulse)
 
 while True:
+    time.sleep(0.15)
     print(velocity)
