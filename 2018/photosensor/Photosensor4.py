@@ -27,22 +27,37 @@ while True:
 
         sensor_charge()
         
-        
+        if count < 3:
             
-        while GPIO.input(4) == 1:
+            while GPIO.input(4) == 1:
               
-             print('BLACK')
+                print('BLACK')
                 
-        while GPIO.input(4) == 0:
+            while GPIO.input(4) == 0:
+
+                count += 1
+
+                print('WHITE',count)
+
+                usleep(1000000)
+
+                if count == 3:
+
+                    print('ChisaiMEN')
+
+                    break
 
 
-            print('WHITE')
 
-            
-
+        elif count > 3:
+             
+                 break
+         
         
           
     except KeyboardInterrupt :
         GPIO.cleanup()
         exit(0)
         
+
+

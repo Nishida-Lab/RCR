@@ -40,7 +40,7 @@ pi.callback(ENCODER_PIN, pigpio.RISING_EDGE, count_pulse)
 pi.set_mode(pwm_pin, pigpio.OUTPUT)
 pi.set_mode(dir_pin, pigpio.OUTPUT)
 pi.write(dir_pin, CW)
-pi.hardware_PWM(pwm_pin, freq, int(DUTY_MAX))
+pi.hardware_PWM(pwm_pin, freq, int(DUTY_MAX * 0.1))
 
 while True:
     try:

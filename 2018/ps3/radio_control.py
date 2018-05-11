@@ -27,16 +27,19 @@ def main():
     svm_pwm_pin = 19
 
     freq = 100
-    CW = 0
-    CCW = 1
+    CW = 1
+    CCW = 0
     DUTY_MIN, DUTY_MAX = 0.0, 999999.0
     JOYAXIS_MIN, JOYAXIS_MAX = 0.0, 1.0
     PERIOD = 20
+    dcm_powersave_coef = 0.2
 
     pi = pigpio.pi()
     pi.set_mode(dcm_pwm_pin, pigpio.OUTPUT)
     pi.set_mode(dir_pin, pigpio.OUTPUT)
 
+    # debug
+    pi.hardware_PWM(svm_pwm_pin, period2freq(PERIOD), width2duty(1.5, PERIOD))
     try:
         x_old, y_old = 0.0, 0.0
         while 1:
@@ -47,17 +50,17 @@ def main():
                     x_old , y_old = x_new, y_new
                     print('x:{}, y:{}'.format(x_new, y_new))
                     if y_new > 0:
-                        pi.write(dir_pin, CW)
-                        duty = int(y_new * DUTY_MAX)
+                        pi.write(dir_pin, CCW)
+                        duty = int(y_new * DUTY_MAX * dcm_powersave_coef)
                         pi.hardware_PWM(dcm_pwm_pin, freq, duty)
                     elif y_new == 0.0:
                         pi.hardware_PWM(dcm_pwm_pin, freq, 0)
                     else:
-                        pi.write(dir_pin, CCW)
-                        duty = int(abs(y_new * DUTY_MAX))
+                        pi.write(dir_pin, CW)
+                        duty = int(abs(y_new * DUTY_MAX * dcm_powersave_coef))
                         pi.hardware_PWM(dcm_pwm_pin, freq, duty)
                     # servo motor
-                    pi.hardware_PWM(srv_pwm_pin, period2freq(PERIOD), width2duty(1.5 + (x_new * 0.6), PERIOD))
+                    # pi.hardware_PWM(svm_pwm_pin, period2freq(PERIOD), width2duty(1.5 - (x_new * 0.6), PERIOD))
                     pygame.event.clear()
 
     except KeyboardInterrupt:
