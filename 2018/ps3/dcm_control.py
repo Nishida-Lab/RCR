@@ -12,10 +12,10 @@ try:
 except pygame.error:
     print('Joystick not found')
     exit(-1)
-    
+
 def main():
     pygame.init()
-    
+
     pwm_pin = 18
     dir_pin = 17
     freq = 100
@@ -23,11 +23,11 @@ def main():
     CCW = 1
     DUTY_MIN, DUTY_MAX = 0.0, 999999.0
     JOYAXIS_MIN, JOYAXIS_MAX = 0.0, 1.0
-    
+
     pi = pigpio.pi()
     pi.set_mode(pwm_pin, pigpio.OUTPUT)
     pi.set_mode(dir_pin, pigpio.OUTPUT)
-    
+
     try:
         x_old, y_old = 0.0, 0.0
         while 1:
@@ -41,16 +41,15 @@ def main():
                     if y_new > 0:
                         pi.write(dir_pin, CW)
                         duty = int(y_new * DUTY_MAX)
-                        time.sleep(0.01)
                         pi.hardware_PWM(pwm_pin, freq, duty)
                     elif y_new == 0.0:
                         pi.hardware_PWM(pwm_pin, freq, 0)
                     else:
                         pi.write(dir_pin, CCW)
                         duty = int(abs(y_new * DUTY_MAX))
-                        time.sleep(0.01)
                         pi.hardware_PWM(pwm_pin, freq, duty)
-                            
+                    pygame.event.clear()
+
     except KeyboardInterrupt:
         pi.set_mode(pwm_pin, pigpio.INPUT)
         pi.set_mode(dir_pin, pigpio.INPUT)
