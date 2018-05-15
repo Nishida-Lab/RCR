@@ -23,7 +23,7 @@ def main():
     pygame.init()
 
     dcm_pwm_pin = 18
-    dir_pin = 17
+    dir_pin = 23
     svm_pwm_pin = 19
 
     freq = 100
