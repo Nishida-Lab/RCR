@@ -26,8 +26,6 @@ def main():
     dir_pin = 23
     svm_pwm_pin = 19
 
-    power_save_coef = 0.1
-
     freq = 100
     CW = 0
     CCW = 1
@@ -49,17 +47,17 @@ def main():
                     x_old , y_old = x_new, y_new
                     print('x:{}, y:{}'.format(x_new, y_new))
                     if y_new > 0:
-                        pi.write(dir_pin, CCW)
+                        pi.write(dir_pin, CW)
                         duty = int(y_new * DUTY_MAX)
-                        pi.hardware_PWM(dcm_pwm_pin, freq, int(duty * power_save_coef))
+                        pi.hardware_PWM(dcm_pwm_pin, freq, duty)
                     elif y_new == 0.0:
                         pi.hardware_PWM(dcm_pwm_pin, freq, 0)
                     else:
-                        pi.write(dir_pin, CW)
+                        pi.write(dir_pin, CCW)
                         duty = int(abs(y_new * DUTY_MAX))
-                        pi.hardware_PWM(dcm_pwm_pin, freq, int(duty * power_save_coef))
+                        pi.hardware_PWM(dcm_pwm_pin, freq, duty)
                     # servo motor
-                    pi.hardware_PWM(svm_pwm_pin, period2freq(PERIOD), width2duty(1.5 - (x_new * 0.6), PERIOD))
+                    pi.hardware_PWM(srv_pwm_pin, period2freq(PERIOD), width2duty(1.5 + (x_new * 0.6), PERIOD))
                     pygame.event.clear()
 
     except KeyboardInterrupt:

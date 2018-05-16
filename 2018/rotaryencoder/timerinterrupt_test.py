@@ -4,11 +4,11 @@ import time
 import pigpio
 
 SAMPLING_TIME = 0.1
-ENCODER_PIN = 23
+ENCODER_PIN = 14
 
 # Variable for DCM drive
 pwm_pin = 18
-dir_pin = 17
+dir_pin = 23
 freq = 100
 CW = 0
 CCW = 1
