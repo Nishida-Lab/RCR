@@ -1,8 +1,0 @@
-prefix=/home/pi/ros_catkin_ws/devel_isolated/rosnode
-
-Name: rosnode
-Description: Description of rosnode
-Version: 1.12.13
-Cflags: 
-Libs: -L/home/pi/ros_catkin_ws/devel_isolated/rosnode/lib 
-Requires: 
