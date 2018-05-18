@@ -54,9 +54,11 @@ CMAKE_BINARY_DIR = /home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018
 include CMakeFiles/rcr2018_generate_messages_cpp.dir/progress.make
 
 CMakeFiles/rcr2018_generate_messages_cpp: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/include/rcr2018/TofSide.h
+CMakeFiles/rcr2018_generate_messages_cpp: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/include/rcr2018/SvmCommand.h
+CMakeFiles/rcr2018_generate_messages_cpp: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/include/rcr2018/LineCount.h
+CMakeFiles/rcr2018_generate_messages_cpp: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/include/rcr2018/DcmCommand.h
 CMakeFiles/rcr2018_generate_messages_cpp: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/include/rcr2018/TofFront.h
 CMakeFiles/rcr2018_generate_messages_cpp: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/include/rcr2018/AngVel.h
-CMakeFiles/rcr2018_generate_messages_cpp: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/include/rcr2018/LineCount.h
 
 
 /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/include/rcr2018/TofSide.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
@@ -65,29 +67,43 @@ CMakeFiles/rcr2018_generate_messages_cpp: /home/pi/RCR/2018/ros_catkin_ws/devel_
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code from rcr2018/TofSide.msg"
 	cd /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018 && /home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018/catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/TofSide.msg -Ircr2018:/home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p rcr2018 -o /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/include/rcr2018 -e /opt/ros/kinetic/share/gencpp/cmake/..
 
+/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/include/rcr2018/SvmCommand.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
+/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/include/rcr2018/SvmCommand.h: /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/SvmCommand.msg
+/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/include/rcr2018/SvmCommand.h: /opt/ros/kinetic/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating C++ code from rcr2018/SvmCommand.msg"
+	cd /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018 && /home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018/catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/SvmCommand.msg -Ircr2018:/home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p rcr2018 -o /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/include/rcr2018 -e /opt/ros/kinetic/share/gencpp/cmake/..
+
+/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/include/rcr2018/LineCount.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
+/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/include/rcr2018/LineCount.h: /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/LineCount.msg
+/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/include/rcr2018/LineCount.h: /opt/ros/kinetic/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating C++ code from rcr2018/LineCount.msg"
+	cd /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018 && /home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018/catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/LineCount.msg -Ircr2018:/home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p rcr2018 -o /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/include/rcr2018 -e /opt/ros/kinetic/share/gencpp/cmake/..
+
+/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/include/rcr2018/DcmCommand.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
+/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/include/rcr2018/DcmCommand.h: /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/DcmCommand.msg
+/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/include/rcr2018/DcmCommand.h: /opt/ros/kinetic/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating C++ code from rcr2018/DcmCommand.msg"
+	cd /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018 && /home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018/catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/DcmCommand.msg -Ircr2018:/home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p rcr2018 -o /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/include/rcr2018 -e /opt/ros/kinetic/share/gencpp/cmake/..
+
 /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/include/rcr2018/TofFront.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
 /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/include/rcr2018/TofFront.h: /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/TofFront.msg
 /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/include/rcr2018/TofFront.h: /opt/ros/kinetic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating C++ code from rcr2018/TofFront.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating C++ code from rcr2018/TofFront.msg"
 	cd /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018 && /home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018/catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/TofFront.msg -Ircr2018:/home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p rcr2018 -o /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/include/rcr2018 -e /opt/ros/kinetic/share/gencpp/cmake/..
 
 /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/include/rcr2018/AngVel.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
 /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/include/rcr2018/AngVel.h: /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/AngVel.msg
 /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/include/rcr2018/AngVel.h: /opt/ros/kinetic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating C++ code from rcr2018/AngVel.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating C++ code from rcr2018/AngVel.msg"
 	cd /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018 && /home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018/catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/AngVel.msg -Ircr2018:/home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p rcr2018 -o /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/include/rcr2018 -e /opt/ros/kinetic/share/gencpp/cmake/..
-
-/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/include/rcr2018/LineCount.h: /opt/ros/kinetic/lib/gencpp/gen_cpp.py
-/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/include/rcr2018/LineCount.h: /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/LineCount.msg
-/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/include/rcr2018/LineCount.h: /opt/ros/kinetic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating C++ code from rcr2018/LineCount.msg"
-	cd /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018 && /home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018/catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/LineCount.msg -Ircr2018:/home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p rcr2018 -o /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/include/rcr2018 -e /opt/ros/kinetic/share/gencpp/cmake/..
 
 rcr2018_generate_messages_cpp: CMakeFiles/rcr2018_generate_messages_cpp
 rcr2018_generate_messages_cpp: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/include/rcr2018/TofSide.h
+rcr2018_generate_messages_cpp: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/include/rcr2018/SvmCommand.h
+rcr2018_generate_messages_cpp: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/include/rcr2018/LineCount.h
+rcr2018_generate_messages_cpp: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/include/rcr2018/DcmCommand.h
 rcr2018_generate_messages_cpp: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/include/rcr2018/TofFront.h
 rcr2018_generate_messages_cpp: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/include/rcr2018/AngVel.h
-rcr2018_generate_messages_cpp: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/include/rcr2018/LineCount.h
 rcr2018_generate_messages_cpp: CMakeFiles/rcr2018_generate_messages_cpp.dir/build.make
 
 .PHONY : rcr2018_generate_messages_cpp

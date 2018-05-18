@@ -116,6 +116,8 @@ endif()
 
 if("${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/rcr2018/msg" TYPE FILE FILES
+    "/home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/DcmCommand.msg"
+    "/home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/SvmCommand.msg"
     "/home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/TofSide.msg"
     "/home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/LineCount.msg"
     "/home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/AngVel.msg"

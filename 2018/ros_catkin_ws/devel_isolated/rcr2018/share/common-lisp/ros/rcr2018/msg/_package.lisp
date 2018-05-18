@@ -3,8 +3,12 @@
   (:export
    "<ANGVEL>"
    "ANGVEL"
+   "<DCMCOMMAND>"
+   "DCMCOMMAND"
    "<LINECOUNT>"
    "LINECOUNT"
+   "<SVMCOMMAND>"
+   "SVMCOMMAND"
    "<TOFFRONT>"
    "TOFFRONT"
    "<TOFSIDE>"

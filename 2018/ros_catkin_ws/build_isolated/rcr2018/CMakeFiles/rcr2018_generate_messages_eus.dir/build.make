@@ -54,9 +54,11 @@ CMAKE_BINARY_DIR = /home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018
 include CMakeFiles/rcr2018_generate_messages_eus.dir/progress.make
 
 CMakeFiles/rcr2018_generate_messages_eus: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/roseus/ros/rcr2018/msg/TofSide.l
+CMakeFiles/rcr2018_generate_messages_eus: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/roseus/ros/rcr2018/msg/SvmCommand.l
+CMakeFiles/rcr2018_generate_messages_eus: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/roseus/ros/rcr2018/msg/LineCount.l
+CMakeFiles/rcr2018_generate_messages_eus: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/roseus/ros/rcr2018/msg/DcmCommand.l
 CMakeFiles/rcr2018_generate_messages_eus: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/roseus/ros/rcr2018/msg/TofFront.l
 CMakeFiles/rcr2018_generate_messages_eus: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/roseus/ros/rcr2018/msg/AngVel.l
-CMakeFiles/rcr2018_generate_messages_eus: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/roseus/ros/rcr2018/msg/LineCount.l
 CMakeFiles/rcr2018_generate_messages_eus: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/roseus/ros/rcr2018/manifest.l
 
 
@@ -65,30 +67,42 @@ CMakeFiles/rcr2018_generate_messages_eus: /home/pi/RCR/2018/ros_catkin_ws/devel_
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating EusLisp code from rcr2018/TofSide.msg"
 	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/TofSide.msg -Ircr2018:/home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p rcr2018 -o /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/roseus/ros/rcr2018/msg
 
+/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/roseus/ros/rcr2018/msg/SvmCommand.l: /opt/ros/kinetic/lib/geneus/gen_eus.py
+/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/roseus/ros/rcr2018/msg/SvmCommand.l: /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/SvmCommand.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp code from rcr2018/SvmCommand.msg"
+	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/SvmCommand.msg -Ircr2018:/home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p rcr2018 -o /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/roseus/ros/rcr2018/msg
+
+/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/roseus/ros/rcr2018/msg/LineCount.l: /opt/ros/kinetic/lib/geneus/gen_eus.py
+/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/roseus/ros/rcr2018/msg/LineCount.l: /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/LineCount.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating EusLisp code from rcr2018/LineCount.msg"
+	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/LineCount.msg -Ircr2018:/home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p rcr2018 -o /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/roseus/ros/rcr2018/msg
+
+/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/roseus/ros/rcr2018/msg/DcmCommand.l: /opt/ros/kinetic/lib/geneus/gen_eus.py
+/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/roseus/ros/rcr2018/msg/DcmCommand.l: /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/DcmCommand.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating EusLisp code from rcr2018/DcmCommand.msg"
+	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/DcmCommand.msg -Ircr2018:/home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p rcr2018 -o /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/roseus/ros/rcr2018/msg
+
 /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/roseus/ros/rcr2018/msg/TofFront.l: /opt/ros/kinetic/lib/geneus/gen_eus.py
 /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/roseus/ros/rcr2018/msg/TofFront.l: /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/TofFront.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp code from rcr2018/TofFront.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating EusLisp code from rcr2018/TofFront.msg"
 	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/TofFront.msg -Ircr2018:/home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p rcr2018 -o /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/roseus/ros/rcr2018/msg
 
 /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/roseus/ros/rcr2018/msg/AngVel.l: /opt/ros/kinetic/lib/geneus/gen_eus.py
 /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/roseus/ros/rcr2018/msg/AngVel.l: /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/AngVel.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating EusLisp code from rcr2018/AngVel.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating EusLisp code from rcr2018/AngVel.msg"
 	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/AngVel.msg -Ircr2018:/home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p rcr2018 -o /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/roseus/ros/rcr2018/msg
 
-/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/roseus/ros/rcr2018/msg/LineCount.l: /opt/ros/kinetic/lib/geneus/gen_eus.py
-/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/roseus/ros/rcr2018/msg/LineCount.l: /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/LineCount.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating EusLisp code from rcr2018/LineCount.msg"
-	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/LineCount.msg -Ircr2018:/home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p rcr2018 -o /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/roseus/ros/rcr2018/msg
-
 /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/roseus/ros/rcr2018/manifest.l: /opt/ros/kinetic/lib/geneus/gen_eus.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating EusLisp manifest code for rcr2018"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating EusLisp manifest code for rcr2018"
 	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/roseus/ros/rcr2018 rcr2018 std_msgs
 
 rcr2018_generate_messages_eus: CMakeFiles/rcr2018_generate_messages_eus
 rcr2018_generate_messages_eus: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/roseus/ros/rcr2018/msg/TofSide.l
+rcr2018_generate_messages_eus: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/roseus/ros/rcr2018/msg/SvmCommand.l
+rcr2018_generate_messages_eus: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/roseus/ros/rcr2018/msg/LineCount.l
+rcr2018_generate_messages_eus: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/roseus/ros/rcr2018/msg/DcmCommand.l
 rcr2018_generate_messages_eus: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/roseus/ros/rcr2018/msg/TofFront.l
 rcr2018_generate_messages_eus: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/roseus/ros/rcr2018/msg/AngVel.l
-rcr2018_generate_messages_eus: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/roseus/ros/rcr2018/msg/LineCount.l
 rcr2018_generate_messages_eus: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/roseus/ros/rcr2018/manifest.l
 rcr2018_generate_messages_eus: CMakeFiles/rcr2018_generate_messages_eus.dir/build.make
 

@@ -54,9 +54,11 @@ CMAKE_BINARY_DIR = /home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018
 include CMakeFiles/rcr2018_generate_messages_nodejs.dir/progress.make
 
 CMakeFiles/rcr2018_generate_messages_nodejs: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/gennodejs/ros/rcr2018/msg/TofSide.js
+CMakeFiles/rcr2018_generate_messages_nodejs: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/gennodejs/ros/rcr2018/msg/SvmCommand.js
+CMakeFiles/rcr2018_generate_messages_nodejs: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/gennodejs/ros/rcr2018/msg/LineCount.js
+CMakeFiles/rcr2018_generate_messages_nodejs: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/gennodejs/ros/rcr2018/msg/DcmCommand.js
 CMakeFiles/rcr2018_generate_messages_nodejs: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/gennodejs/ros/rcr2018/msg/TofFront.js
 CMakeFiles/rcr2018_generate_messages_nodejs: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/gennodejs/ros/rcr2018/msg/AngVel.js
-CMakeFiles/rcr2018_generate_messages_nodejs: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/gennodejs/ros/rcr2018/msg/LineCount.js
 
 
 /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/gennodejs/ros/rcr2018/msg/TofSide.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
@@ -64,26 +66,38 @@ CMakeFiles/rcr2018_generate_messages_nodejs: /home/pi/RCR/2018/ros_catkin_ws/dev
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Javascript code from rcr2018/TofSide.msg"
 	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/TofSide.msg -Ircr2018:/home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p rcr2018 -o /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/gennodejs/ros/rcr2018/msg
 
+/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/gennodejs/ros/rcr2018/msg/SvmCommand.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
+/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/gennodejs/ros/rcr2018/msg/SvmCommand.js: /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/SvmCommand.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Javascript code from rcr2018/SvmCommand.msg"
+	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/SvmCommand.msg -Ircr2018:/home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p rcr2018 -o /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/gennodejs/ros/rcr2018/msg
+
+/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/gennodejs/ros/rcr2018/msg/LineCount.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
+/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/gennodejs/ros/rcr2018/msg/LineCount.js: /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/LineCount.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Javascript code from rcr2018/LineCount.msg"
+	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/LineCount.msg -Ircr2018:/home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p rcr2018 -o /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/gennodejs/ros/rcr2018/msg
+
+/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/gennodejs/ros/rcr2018/msg/DcmCommand.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
+/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/gennodejs/ros/rcr2018/msg/DcmCommand.js: /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/DcmCommand.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Javascript code from rcr2018/DcmCommand.msg"
+	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/DcmCommand.msg -Ircr2018:/home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p rcr2018 -o /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/gennodejs/ros/rcr2018/msg
+
 /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/gennodejs/ros/rcr2018/msg/TofFront.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
 /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/gennodejs/ros/rcr2018/msg/TofFront.js: /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/TofFront.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Javascript code from rcr2018/TofFront.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Javascript code from rcr2018/TofFront.msg"
 	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/TofFront.msg -Ircr2018:/home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p rcr2018 -o /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/gennodejs/ros/rcr2018/msg
 
 /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/gennodejs/ros/rcr2018/msg/AngVel.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
 /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/gennodejs/ros/rcr2018/msg/AngVel.js: /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/AngVel.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Javascript code from rcr2018/AngVel.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating Javascript code from rcr2018/AngVel.msg"
 	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/AngVel.msg -Ircr2018:/home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p rcr2018 -o /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/gennodejs/ros/rcr2018/msg
-
-/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/gennodejs/ros/rcr2018/msg/LineCount.js: /opt/ros/kinetic/lib/gennodejs/gen_nodejs.py
-/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/gennodejs/ros/rcr2018/msg/LineCount.js: /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/LineCount.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Javascript code from rcr2018/LineCount.msg"
-	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/LineCount.msg -Ircr2018:/home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p rcr2018 -o /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/gennodejs/ros/rcr2018/msg
 
 rcr2018_generate_messages_nodejs: CMakeFiles/rcr2018_generate_messages_nodejs
 rcr2018_generate_messages_nodejs: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/gennodejs/ros/rcr2018/msg/TofSide.js
+rcr2018_generate_messages_nodejs: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/gennodejs/ros/rcr2018/msg/SvmCommand.js
+rcr2018_generate_messages_nodejs: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/gennodejs/ros/rcr2018/msg/LineCount.js
+rcr2018_generate_messages_nodejs: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/gennodejs/ros/rcr2018/msg/DcmCommand.js
 rcr2018_generate_messages_nodejs: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/gennodejs/ros/rcr2018/msg/TofFront.js
 rcr2018_generate_messages_nodejs: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/gennodejs/ros/rcr2018/msg/AngVel.js
-rcr2018_generate_messages_nodejs: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/gennodejs/ros/rcr2018/msg/LineCount.js
 rcr2018_generate_messages_nodejs: CMakeFiles/rcr2018_generate_messages_nodejs.dir/build.make
 
 .PHONY : rcr2018_generate_messages_nodejs

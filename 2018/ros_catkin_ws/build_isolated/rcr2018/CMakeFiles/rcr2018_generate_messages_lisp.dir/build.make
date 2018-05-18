@@ -54,9 +54,11 @@ CMAKE_BINARY_DIR = /home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018
 include CMakeFiles/rcr2018_generate_messages_lisp.dir/progress.make
 
 CMakeFiles/rcr2018_generate_messages_lisp: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/common-lisp/ros/rcr2018/msg/TofSide.lisp
+CMakeFiles/rcr2018_generate_messages_lisp: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/common-lisp/ros/rcr2018/msg/SvmCommand.lisp
+CMakeFiles/rcr2018_generate_messages_lisp: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/common-lisp/ros/rcr2018/msg/LineCount.lisp
+CMakeFiles/rcr2018_generate_messages_lisp: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/common-lisp/ros/rcr2018/msg/DcmCommand.lisp
 CMakeFiles/rcr2018_generate_messages_lisp: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/common-lisp/ros/rcr2018/msg/TofFront.lisp
 CMakeFiles/rcr2018_generate_messages_lisp: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/common-lisp/ros/rcr2018/msg/AngVel.lisp
-CMakeFiles/rcr2018_generate_messages_lisp: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/common-lisp/ros/rcr2018/msg/LineCount.lisp
 
 
 /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/common-lisp/ros/rcr2018/msg/TofSide.lisp: /opt/ros/kinetic/lib/genlisp/gen_lisp.py
@@ -64,26 +66,38 @@ CMakeFiles/rcr2018_generate_messages_lisp: /home/pi/RCR/2018/ros_catkin_ws/devel
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Lisp code from rcr2018/TofSide.msg"
 	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/TofSide.msg -Ircr2018:/home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p rcr2018 -o /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/common-lisp/ros/rcr2018/msg
 
+/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/common-lisp/ros/rcr2018/msg/SvmCommand.lisp: /opt/ros/kinetic/lib/genlisp/gen_lisp.py
+/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/common-lisp/ros/rcr2018/msg/SvmCommand.lisp: /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/SvmCommand.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Lisp code from rcr2018/SvmCommand.msg"
+	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/SvmCommand.msg -Ircr2018:/home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p rcr2018 -o /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/common-lisp/ros/rcr2018/msg
+
+/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/common-lisp/ros/rcr2018/msg/LineCount.lisp: /opt/ros/kinetic/lib/genlisp/gen_lisp.py
+/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/common-lisp/ros/rcr2018/msg/LineCount.lisp: /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/LineCount.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Lisp code from rcr2018/LineCount.msg"
+	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/LineCount.msg -Ircr2018:/home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p rcr2018 -o /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/common-lisp/ros/rcr2018/msg
+
+/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/common-lisp/ros/rcr2018/msg/DcmCommand.lisp: /opt/ros/kinetic/lib/genlisp/gen_lisp.py
+/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/common-lisp/ros/rcr2018/msg/DcmCommand.lisp: /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/DcmCommand.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Lisp code from rcr2018/DcmCommand.msg"
+	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/DcmCommand.msg -Ircr2018:/home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p rcr2018 -o /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/common-lisp/ros/rcr2018/msg
+
 /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/common-lisp/ros/rcr2018/msg/TofFront.lisp: /opt/ros/kinetic/lib/genlisp/gen_lisp.py
 /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/common-lisp/ros/rcr2018/msg/TofFront.lisp: /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/TofFront.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Lisp code from rcr2018/TofFront.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Lisp code from rcr2018/TofFront.msg"
 	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/TofFront.msg -Ircr2018:/home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p rcr2018 -o /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/common-lisp/ros/rcr2018/msg
 
 /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/common-lisp/ros/rcr2018/msg/AngVel.lisp: /opt/ros/kinetic/lib/genlisp/gen_lisp.py
 /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/common-lisp/ros/rcr2018/msg/AngVel.lisp: /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/AngVel.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Lisp code from rcr2018/AngVel.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating Lisp code from rcr2018/AngVel.msg"
 	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/AngVel.msg -Ircr2018:/home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p rcr2018 -o /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/common-lisp/ros/rcr2018/msg
-
-/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/common-lisp/ros/rcr2018/msg/LineCount.lisp: /opt/ros/kinetic/lib/genlisp/gen_lisp.py
-/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/common-lisp/ros/rcr2018/msg/LineCount.lisp: /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/LineCount.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Lisp code from rcr2018/LineCount.msg"
-	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/kinetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg/LineCount.msg -Ircr2018:/home/pi/RCR/2018/ros_catkin_ws/src/rcr2018/msg -Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg -p rcr2018 -o /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/common-lisp/ros/rcr2018/msg
 
 rcr2018_generate_messages_lisp: CMakeFiles/rcr2018_generate_messages_lisp
 rcr2018_generate_messages_lisp: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/common-lisp/ros/rcr2018/msg/TofSide.lisp
+rcr2018_generate_messages_lisp: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/common-lisp/ros/rcr2018/msg/SvmCommand.lisp
+rcr2018_generate_messages_lisp: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/common-lisp/ros/rcr2018/msg/LineCount.lisp
+rcr2018_generate_messages_lisp: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/common-lisp/ros/rcr2018/msg/DcmCommand.lisp
 rcr2018_generate_messages_lisp: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/common-lisp/ros/rcr2018/msg/TofFront.lisp
 rcr2018_generate_messages_lisp: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/common-lisp/ros/rcr2018/msg/AngVel.lisp
-rcr2018_generate_messages_lisp: /home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rcr2018/share/common-lisp/ros/rcr2018/msg/LineCount.lisp
 rcr2018_generate_messages_lisp: CMakeFiles/rcr2018_generate_messages_lisp.dir/build.make
 
 .PHONY : rcr2018_generate_messages_lisp
