@@ -1,0 +1,8 @@
+prefix=/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/roslang
+
+Name: roslang
+Description: Description of roslang
+Version: 1.14.3
+Cflags: 
+Libs: -L/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/roslang/lib 
+Requires: 

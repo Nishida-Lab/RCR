@@ -1,0 +1,1 @@
+/usr/bin/c++  -fPIC -O3 -DNDEBUG  -shared -Wl,-soname,libgtest.so -o libgtest.so CMakeFiles/gtest.dir/src/gtest-all.cc.o  -L/home/pi/RCR/2018/ros_catkin_ws/build_isolated/rostest/gtest/googlemock/gtest/src -Wl,-rpath,/home/pi/RCR/2018/ros_catkin_ws/build_isolated/rostest/gtest/googlemock/gtest/src -lpthread 

@@ -1,0 +1,8 @@
+prefix=/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rosclean
+
+Name: rosclean
+Description: Description of rosclean
+Version: 1.14.3
+Cflags: 
+Libs: -L/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rosclean/lib 
+Requires: 

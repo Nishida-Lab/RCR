@@ -1,0 +1,8 @@
+prefix=/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rosparam
+
+Name: rosparam
+Description: Description of rosparam
+Version: 1.12.13
+Cflags: 
+Libs: -L/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rosparam/lib 
+Requires: 
