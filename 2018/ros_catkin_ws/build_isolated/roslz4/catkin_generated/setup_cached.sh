@@ -8,5 +8,8 @@
 
 # modified environment variables
 export CMAKE_PREFIX_PATH="/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/roslz4:$CMAKE_PREFIX_PATH"
+export LD_LIBRARY_PATH="/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/roslz4/lib:$LD_LIBRARY_PATH"
+export PKG_CONFIG_PATH="/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/roslz4/lib/pkgconfig:$PKG_CONFIG_PATH"
+export PYTHONPATH="/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/roslz4/lib/python2.7/dist-packages:$PYTHONPATH"
 export ROSLISP_PACKAGE_DIRECTORIES="/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/roslz4/share/common-lisp"
 export ROS_PACKAGE_PATH="/home/pi/RCR/2018/ros_catkin_ws/src/ros_comm/roslz4:$ROS_PACKAGE_PATH"

@@ -8,5 +8,9 @@
 
 # modified environment variables
 export CMAKE_PREFIX_PATH="/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rospy:$CMAKE_PREFIX_PATH"
+export LD_LIBRARY_PATH="/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rospy/lib:$LD_LIBRARY_PATH"
+export PATH="/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rospy/bin:$PATH"
+export PKG_CONFIG_PATH="/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rospy/lib/pkgconfig:$PKG_CONFIG_PATH"
+export PYTHONPATH="/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rospy/lib/python2.7/dist-packages:$PYTHONPATH"
 export ROSLISP_PACKAGE_DIRECTORIES="/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rospy/share/common-lisp"
 export ROS_PACKAGE_PATH="/home/pi/RCR/2018/ros_catkin_ws/src/ros_comm/rospy:$ROS_PACKAGE_PATH"

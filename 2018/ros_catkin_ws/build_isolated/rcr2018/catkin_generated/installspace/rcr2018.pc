@@ -1,0 +1,8 @@
+prefix=/opt/ros/kinetic
+
+Name: rcr2018
+Description: Description of rcr2018
+Version: 0.0.0
+Cflags: -I/opt/ros/kinetic/include
+Libs: -L/opt/ros/kinetic/lib 
+Requires: roscpp rospy std_msgs message_runtime

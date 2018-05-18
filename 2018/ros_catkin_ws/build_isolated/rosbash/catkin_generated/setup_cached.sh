@@ -11,4 +11,5 @@ export CMAKE_PREFIX_PATH="/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rosbash
 export LD_LIBRARY_PATH="/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rosbash/lib:$LD_LIBRARY_PATH"
 export PATH="/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rosbash/bin:$PATH"
 export PKG_CONFIG_PATH="/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rosbash/lib/pkgconfig:$PKG_CONFIG_PATH"
+export ROSLISP_PACKAGE_DIRECTORIES="/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/rosbash/share/common-lisp"
 export ROS_PACKAGE_PATH="/home/pi/RCR/2018/ros_catkin_ws/src/ros/rosbash:$ROS_PACKAGE_PATH"

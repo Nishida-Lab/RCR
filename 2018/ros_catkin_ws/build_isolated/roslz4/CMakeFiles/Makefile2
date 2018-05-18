@@ -522,9 +522,9 @@ clean: CMakeFiles/_run_tests_roslz4_gtest.dir/clean
 # Target rules for target CMakeFiles/_run_tests_roslz4_gtest_test_roslz4.dir
 
 # All Build rule for target.
-CMakeFiles/_run_tests_roslz4_gtest_test_roslz4.dir/all: CMakeFiles/clean_test_results_roslz4.dir/all
 CMakeFiles/_run_tests_roslz4_gtest_test_roslz4.dir/all: CMakeFiles/test_roslz4.dir/all
 CMakeFiles/_run_tests_roslz4_gtest_test_roslz4.dir/all: CMakeFiles/tests.dir/all
+CMakeFiles/_run_tests_roslz4_gtest_test_roslz4.dir/all: CMakeFiles/clean_test_results_roslz4.dir/all
 	$(MAKE) -f CMakeFiles/_run_tests_roslz4_gtest_test_roslz4.dir/build.make CMakeFiles/_run_tests_roslz4_gtest_test_roslz4.dir/depend
 	$(MAKE) -f CMakeFiles/_run_tests_roslz4_gtest_test_roslz4.dir/build.make CMakeFiles/_run_tests_roslz4_gtest_test_roslz4.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/RCR/2018/ros_catkin_ws/build_isolated/roslz4/CMakeFiles --progress-num= "Built target _run_tests_roslz4_gtest_test_roslz4"

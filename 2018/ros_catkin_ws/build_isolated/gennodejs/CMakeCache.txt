@@ -270,8 +270,13 @@ genmsg_DIR:PATH=/opt/ros/kinetic/share/genmsg/cmake
 //Value Computed by CMake
 gennodejs_BINARY_DIR:STATIC=/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs
 
+gennodejs_DIR:PATH=
+
 //Value Computed by CMake
 gennodejs_SOURCE_DIR:STATIC=/home/pi/RCR/2018/ros_catkin_ws/src/gennodejs
+
+//The directory containing a CMake configuration file for genpy.
+genpy_DIR:PATH=/opt/ros/kinetic/share/genpy/cmake
 
 //Value Computed by CMake
 gmock_BINARY_DIR:STATIC=/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/gtest/googlemock

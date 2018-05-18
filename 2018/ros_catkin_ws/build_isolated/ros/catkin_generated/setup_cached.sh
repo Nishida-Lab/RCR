@@ -8,3 +8,5 @@
 
 # modified environment variables
 export CMAKE_PREFIX_PATH="/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/ros:$CMAKE_PREFIX_PATH"
+export ROSLISP_PACKAGE_DIRECTORIES="/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/ros/share/common-lisp"
+export ROS_PACKAGE_PATH="/home/pi/RCR/2018/ros_catkin_ws/src/ros/ros:$ROS_PACKAGE_PATH"
