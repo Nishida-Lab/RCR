@@ -210,6 +210,7 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/_rcr2018_generate_messages_check_deps_TofFront.dir/DependInfo.cmake"
   "CMakeFiles/roscpp_generate_messages_eus.dir/DependInfo.cmake"
   "CMakeFiles/std_msgs_generate_messages_py.dir/DependInfo.cmake"
+  "CMakeFiles/rotaryencoder.dir/DependInfo.cmake"
   "CMakeFiles/download_extra_data.dir/DependInfo.cmake"
   "CMakeFiles/tests.dir/DependInfo.cmake"
   "CMakeFiles/roscpp_generate_messages_py.dir/DependInfo.cmake"

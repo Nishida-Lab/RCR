@@ -322,6 +322,19 @@ std_msgs_generate_messages_py/fast:
 .PHONY : std_msgs_generate_messages_py/fast
 
 #=============================================================================
+# Target rules for targets named rotaryencoder
+
+# Build rule for target.
+rotaryencoder: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 rotaryencoder
+.PHONY : rotaryencoder
+
+# fast build rule for target.
+rotaryencoder/fast:
+	$(MAKE) -f CMakeFiles/rotaryencoder.dir/build.make CMakeFiles/rotaryencoder.dir/build
+.PHONY : rotaryencoder/fast
+
+#=============================================================================
 # Target rules for targets named download_extra_data
 
 # Build rule for target.
@@ -672,6 +685,33 @@ gtest_main/fast:
 	$(MAKE) -f gtest/googlemock/gtest/CMakeFiles/gtest_main.dir/build.make gtest/googlemock/gtest/CMakeFiles/gtest_main.dir/build
 .PHONY : gtest_main/fast
 
+src/rotaryencoder.o: src/rotaryencoder.cpp.o
+
+.PHONY : src/rotaryencoder.o
+
+# target to build an object file
+src/rotaryencoder.cpp.o:
+	$(MAKE) -f CMakeFiles/rotaryencoder.dir/build.make CMakeFiles/rotaryencoder.dir/src/rotaryencoder.cpp.o
+.PHONY : src/rotaryencoder.cpp.o
+
+src/rotaryencoder.i: src/rotaryencoder.cpp.i
+
+.PHONY : src/rotaryencoder.i
+
+# target to preprocess a source file
+src/rotaryencoder.cpp.i:
+	$(MAKE) -f CMakeFiles/rotaryencoder.dir/build.make CMakeFiles/rotaryencoder.dir/src/rotaryencoder.cpp.i
+.PHONY : src/rotaryencoder.cpp.i
+
+src/rotaryencoder.s: src/rotaryencoder.cpp.s
+
+.PHONY : src/rotaryencoder.s
+
+# target to generate assembly for a file
+src/rotaryencoder.cpp.s:
+	$(MAKE) -f CMakeFiles/rotaryencoder.dir/build.make CMakeFiles/rotaryencoder.dir/src/rotaryencoder.cpp.s
+.PHONY : src/rotaryencoder.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -696,6 +736,7 @@ help:
 	@echo "... roscpp_generate_messages_eus"
 	@echo "... list_install_components"
 	@echo "... std_msgs_generate_messages_py"
+	@echo "... rotaryencoder"
 	@echo "... download_extra_data"
 	@echo "... tests"
 	@echo "... roscpp_generate_messages_py"
@@ -724,6 +765,9 @@ help:
 	@echo "... gmock_main"
 	@echo "... gtest"
 	@echo "... gtest_main"
+	@echo "... src/rotaryencoder.o"
+	@echo "... src/rotaryencoder.i"
+	@echo "... src/rotaryencoder.s"
 .PHONY : help
 
 

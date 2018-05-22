@@ -1,9 +1,8 @@
-#include <iostream.h>
+#include <iostream>
 #include <time.h>
 #include <wiringPi.h>
-
-#include "ros/ros.h"
-#include "rcr2018/AngVel.h"
+#include <ros/ros.h>
+#include <rcr2018/AngVel.h>
 
 //サンプリングタイム
 const double sampling_time = 0.01;
@@ -43,8 +42,7 @@ int main(int argc, char **argv)
     データ型：AngVel
     キューサイズ：1
     *****************/
-    ros::Publisher ang_vel_pub =
-      nh.advertise<rcr2018::AngVel>("ang_vel", 1);
+    ros::Publisher ang_vel_pub = nh.advertise<rcr2018::AngVel>("ang_vel", 1);
 
     //パルスカウント数をカウントする変数
     unsigned long count = 0;

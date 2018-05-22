@@ -156,8 +156,8 @@ include_directories(
 # )
 
 add_executable(rotaryencoder src/rotaryencoder.cpp)
-target_link_libraries(rotaryencoder ${CATKIN_LIBRARIES} ${WIRINGPI_LIBRARY}
-add_dependencies(rotaryencoder wiringPi)
+add_dependencies(rotaryencoder ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS} wiringPi)
+target_link_libraries(rotaryencoder ${catkin_LIBRARIES} ${WIRINGPI_LIBRARY})
 
 #############
 ## Install ##
