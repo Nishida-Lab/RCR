@@ -17,6 +17,7 @@
 /home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018/CMakeFiles/roscpp_generate_messages_eus.dir
 /home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018/CMakeFiles/list_install_components.dir
 /home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018/CMakeFiles/std_msgs_generate_messages_py.dir
+/home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018/CMakeFiles/rotaryencoder.dir
 /home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018/CMakeFiles/download_extra_data.dir
 /home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018/CMakeFiles/_rcr2018_generate_messages_check_deps_DcmCommand.dir
 /home/pi/RCR/2018/ros_catkin_ws/build_isolated/rcr2018/CMakeFiles/tests.dir

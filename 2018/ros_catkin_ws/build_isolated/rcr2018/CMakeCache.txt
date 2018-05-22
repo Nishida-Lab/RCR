@@ -240,6 +240,9 @@ RT_LIBRARY:FILEPATH=/usr/lib/arm-linux-gnueabihf/librt.so
 //Enable debian style python package layout
 SETUPTOOLS_DEB_LAYOUT:BOOL=ON
 
+//Path to a library.
+WIRINGPI_LIBRARY:FILEPATH=/usr/local/lib/libwiringPi.so
+
 //Path to a file.
 _gmock_INCLUDES:FILEPATH=/usr/include/gmock/gmock.h
 

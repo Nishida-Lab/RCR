@@ -14,6 +14,8 @@ find_package(catkin REQUIRED COMPONENTS
   message_generation
 )
 
+FIND_LIBRARY(WIRINGPI_LIBRARY wiringPi /home/pi/wiringPi)
+
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
 
@@ -154,6 +156,10 @@ include_directories(
 # target_link_libraries(${PROJECT_NAME}_node
 #   ${catkin_LIBRARIES}
 # )
+
+add_executable(rotaryencoder src/rotaryencoder.cpp)
+add_dependencies(rotaryencoder ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS} wiringPi)
+target_link_libraries(rotaryencoder ${catkin_LIBRARIES} ${WIRINGPI_LIBRARY})
 
 #############
 ## Install ##
