@@ -89,23 +89,23 @@ while not rospy.is_shutdown():
     side_msg = TofSide()
     distance = tof.get_distance()
     if (distance > 0):
-        rospy.loginfo("sensor %d - %d mm, %d cm, iteration %d" % (tof.my_object_number, distance, (distance/10), count))
-        front_msg.front = distance / 100.0 
+        rospy.loginfo("sensor 1 - %d mm, %d cm" % (distance, (distance/10)))
+        front_msg.front = distance
     else:
-        rospy.logerr("%d - Error" % tof.my_object_number)
+        rospy.logerr("1 - Error")
 
     distance = tof1.get_distance()
     if (distance > 0):
-        rospy.loginfo("sensor %d - %d mm, %d cm, iteration %d" % (tof.my_object_number, distance, (distance/10), count))
-        side_msg.left = distance / 100.0 
+        rospy.loginfo("sensor 2 - %d mm, %d cm" % (distance, (distance/10)))
+        side_msg.left = distance 
     else:
-        rospy.logerr("%d - Error" % tof.my_object_number)
+        rospy.logerr("2 - Error")
     distance = tof2.get_distance()
     if (distance > 0):
-        rospy.loginfo("sensor %d - %d mm, %d cm, iteration %d" % (tof.my_object_number, distance, (distance/10), count))
-        side_msg.right = distance / 100.0 
+        rospy.loginfo("sensor 3 - %d mm, %d cm" % (distance, (distance/10)))
+        side_msg.right = distance 
     else:
-        rospy.logerr("%d - Error" % tof.my_object_number)
+        rospy.logerr("3 - Error")
     
     pub_front.publish(front_msg)
     pub_side.publish(side_msg)
