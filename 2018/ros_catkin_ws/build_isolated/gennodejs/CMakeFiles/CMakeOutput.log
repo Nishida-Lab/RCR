@@ -28,28 +28,28 @@ The CXX compiler identification is GNU, found in "/home/pi/RCR/2018/ros_catkin_w
 Determining if the C compiler works passed with the following output:
 Change Dir: /home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_08aac/fast"
-/usr/bin/make -f CMakeFiles/cmTC_08aac.dir/build.make CMakeFiles/cmTC_08aac.dir/build
-make[1]: ディレクトリ '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp' に入ります
-Building C object CMakeFiles/cmTC_08aac.dir/testCCompiler.c.o
-/usr/bin/cc     -o CMakeFiles/cmTC_08aac.dir/testCCompiler.c.o   -c /home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp/testCCompiler.c
-Linking C executable cmTC_08aac
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_08aac.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_08aac.dir/testCCompiler.c.o  -o cmTC_08aac -rdynamic 
-make[1]: ディレクトリ '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp' から出ます
+Run Build Command:"/usr/bin/make" "cmTC_7183d/fast"
+/usr/bin/make -f CMakeFiles/cmTC_7183d.dir/build.make CMakeFiles/cmTC_7183d.dir/build
+make[1]: Entering directory '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7183d.dir/testCCompiler.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_7183d.dir/testCCompiler.c.o   -c /home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_7183d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7183d.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_7183d.dir/testCCompiler.c.o  -o cmTC_7183d -rdynamic 
+make[1]: Leaving directory '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp'
 
 
 Detecting C compiler ABI info compiled with the following output:
 Change Dir: /home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_bec8c/fast"
-/usr/bin/make -f CMakeFiles/cmTC_bec8c.dir/build.make CMakeFiles/cmTC_bec8c.dir/build
-make[1]: ディレクトリ '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp' に入ります
-Building C object CMakeFiles/cmTC_bec8c.dir/CMakeCCompilerABI.c.o
-/usr/bin/cc     -o CMakeFiles/cmTC_bec8c.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.7/Modules/CMakeCCompilerABI.c
-Linking C executable cmTC_bec8c
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bec8c.dir/link.txt --verbose=1
-/usr/bin/cc      -v CMakeFiles/cmTC_bec8c.dir/CMakeCCompilerABI.c.o  -o cmTC_bec8c -rdynamic  
+Run Build Command:"/usr/bin/make" "cmTC_b71b2/fast"
+/usr/bin/make -f CMakeFiles/cmTC_b71b2.dir/build.make CMakeFiles/cmTC_b71b2.dir/build
+make[1]: Entering directory '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b71b2.dir/CMakeCCompilerABI.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_b71b2.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.7/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_b71b2
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b71b2.dir/link.txt --verbose=1
+/usr/bin/cc      -v CMakeFiles/cmTC_b71b2.dir/CMakeCCompilerABI.c.o  -o cmTC_b71b2 -rdynamic  
 Using built-in specs.
 COLLECT_GCC=/usr/bin/cc
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/arm-linux-gnueabihf/6/lto-wrapper
@@ -59,24 +59,24 @@ Thread model: posix
 gcc version 6.3.0 20170516 (Raspbian 6.3.0-18+rpi1+deb9u1) 
 COMPILER_PATH=/usr/lib/gcc/arm-linux-gnueabihf/6/:/usr/lib/gcc/arm-linux-gnueabihf/6/:/usr/lib/gcc/arm-linux-gnueabihf/:/usr/lib/gcc/arm-linux-gnueabihf/6/:/usr/lib/gcc/arm-linux-gnueabihf/
 LIBRARY_PATH=/usr/lib/gcc/arm-linux-gnueabihf/6/:/usr/lib/gcc/arm-linux-gnueabihf/6/../../../arm-linux-gnueabihf/:/usr/lib/gcc/arm-linux-gnueabihf/6/../../../:/lib/arm-linux-gnueabihf/:/lib/:/usr/lib/arm-linux-gnueabihf/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_bec8c' '-rdynamic' '-march=armv6' '-mfloat-abi=hard' '-mfpu=vfp' '-mtls-dialect=gnu'
- /usr/lib/gcc/arm-linux-gnueabihf/6/collect2 -plugin /usr/lib/gcc/arm-linux-gnueabihf/6/liblto_plugin.so -plugin-opt=/usr/lib/gcc/arm-linux-gnueabihf/6/lto-wrapper -plugin-opt=-fresolution=/tmp/cc4dqoWU.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -export-dynamic -dynamic-linker /lib/ld-linux-armhf.so.3 -X --hash-style=gnu -m armelf_linux_eabi -o cmTC_bec8c /usr/lib/gcc/arm-linux-gnueabihf/6/../../../arm-linux-gnueabihf/crt1.o /usr/lib/gcc/arm-linux-gnueabihf/6/../../../arm-linux-gnueabihf/crti.o /usr/lib/gcc/arm-linux-gnueabihf/6/crtbegin.o -L/usr/lib/gcc/arm-linux-gnueabihf/6 -L/usr/lib/gcc/arm-linux-gnueabihf/6/../../../arm-linux-gnueabihf -L/usr/lib/gcc/arm-linux-gnueabihf/6/../../.. -L/lib/arm-linux-gnueabihf -L/usr/lib/arm-linux-gnueabihf CMakeFiles/cmTC_bec8c.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/arm-linux-gnueabihf/6/crtend.o /usr/lib/gcc/arm-linux-gnueabihf/6/../../../arm-linux-gnueabihf/crtn.o
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_bec8c' '-rdynamic' '-march=armv6' '-mfloat-abi=hard' '-mfpu=vfp' '-mtls-dialect=gnu'
-make[1]: ディレクトリ '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp' から出ます
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_b71b2' '-rdynamic' '-march=armv6' '-mfloat-abi=hard' '-mfpu=vfp' '-mtls-dialect=gnu'
+ /usr/lib/gcc/arm-linux-gnueabihf/6/collect2 -plugin /usr/lib/gcc/arm-linux-gnueabihf/6/liblto_plugin.so -plugin-opt=/usr/lib/gcc/arm-linux-gnueabihf/6/lto-wrapper -plugin-opt=-fresolution=/tmp/cc6GsgP7.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -export-dynamic -dynamic-linker /lib/ld-linux-armhf.so.3 -X --hash-style=gnu -m armelf_linux_eabi -o cmTC_b71b2 /usr/lib/gcc/arm-linux-gnueabihf/6/../../../arm-linux-gnueabihf/crt1.o /usr/lib/gcc/arm-linux-gnueabihf/6/../../../arm-linux-gnueabihf/crti.o /usr/lib/gcc/arm-linux-gnueabihf/6/crtbegin.o -L/usr/lib/gcc/arm-linux-gnueabihf/6 -L/usr/lib/gcc/arm-linux-gnueabihf/6/../../../arm-linux-gnueabihf -L/usr/lib/gcc/arm-linux-gnueabihf/6/../../.. -L/lib/arm-linux-gnueabihf -L/usr/lib/arm-linux-gnueabihf CMakeFiles/cmTC_b71b2.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/arm-linux-gnueabihf/6/crtend.o /usr/lib/gcc/arm-linux-gnueabihf/6/../../../arm-linux-gnueabihf/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_b71b2' '-rdynamic' '-march=armv6' '-mfloat-abi=hard' '-mfpu=vfp' '-mtls-dialect=gnu'
+make[1]: Leaving directory '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp'
 
 
 Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_bec8c/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_bec8c.dir/build.make CMakeFiles/cmTC_bec8c.dir/build]
-  ignore line: [make[1]: ディレクトリ '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp' に入ります]
-  ignore line: [Building C object CMakeFiles/cmTC_bec8c.dir/CMakeCCompilerABI.c.o]
-  ignore line: [/usr/bin/cc     -o CMakeFiles/cmTC_bec8c.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.7/Modules/CMakeCCompilerABI.c]
-  ignore line: [Linking C executable cmTC_bec8c]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bec8c.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/cc      -v CMakeFiles/cmTC_bec8c.dir/CMakeCCompilerABI.c.o  -o cmTC_bec8c -rdynamic  ]
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_b71b2/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_b71b2.dir/build.make CMakeFiles/cmTC_b71b2.dir/build]
+  ignore line: [make[1]: Entering directory '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_b71b2.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/cc     -o CMakeFiles/cmTC_b71b2.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.7/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_b71b2]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b71b2.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/cc      -v CMakeFiles/cmTC_b71b2.dir/CMakeCCompilerABI.c.o  -o cmTC_b71b2 -rdynamic  ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/cc]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/arm-linux-gnueabihf/6/lto-wrapper]
@@ -86,13 +86,13 @@ Parsed C implicit link information from above output:
   ignore line: [gcc version 6.3.0 20170516 (Raspbian 6.3.0-18+rpi1+deb9u1) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/arm-linux-gnueabihf/6/:/usr/lib/gcc/arm-linux-gnueabihf/6/:/usr/lib/gcc/arm-linux-gnueabihf/:/usr/lib/gcc/arm-linux-gnueabihf/6/:/usr/lib/gcc/arm-linux-gnueabihf/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/arm-linux-gnueabihf/6/:/usr/lib/gcc/arm-linux-gnueabihf/6/../../../arm-linux-gnueabihf/:/usr/lib/gcc/arm-linux-gnueabihf/6/../../../:/lib/arm-linux-gnueabihf/:/lib/:/usr/lib/arm-linux-gnueabihf/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_bec8c' '-rdynamic' '-march=armv6' '-mfloat-abi=hard' '-mfpu=vfp' '-mtls-dialect=gnu']
-  link line: [ /usr/lib/gcc/arm-linux-gnueabihf/6/collect2 -plugin /usr/lib/gcc/arm-linux-gnueabihf/6/liblto_plugin.so -plugin-opt=/usr/lib/gcc/arm-linux-gnueabihf/6/lto-wrapper -plugin-opt=-fresolution=/tmp/cc4dqoWU.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -export-dynamic -dynamic-linker /lib/ld-linux-armhf.so.3 -X --hash-style=gnu -m armelf_linux_eabi -o cmTC_bec8c /usr/lib/gcc/arm-linux-gnueabihf/6/../../../arm-linux-gnueabihf/crt1.o /usr/lib/gcc/arm-linux-gnueabihf/6/../../../arm-linux-gnueabihf/crti.o /usr/lib/gcc/arm-linux-gnueabihf/6/crtbegin.o -L/usr/lib/gcc/arm-linux-gnueabihf/6 -L/usr/lib/gcc/arm-linux-gnueabihf/6/../../../arm-linux-gnueabihf -L/usr/lib/gcc/arm-linux-gnueabihf/6/../../.. -L/lib/arm-linux-gnueabihf -L/usr/lib/arm-linux-gnueabihf CMakeFiles/cmTC_bec8c.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/arm-linux-gnueabihf/6/crtend.o /usr/lib/gcc/arm-linux-gnueabihf/6/../../../arm-linux-gnueabihf/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_b71b2' '-rdynamic' '-march=armv6' '-mfloat-abi=hard' '-mfpu=vfp' '-mtls-dialect=gnu']
+  link line: [ /usr/lib/gcc/arm-linux-gnueabihf/6/collect2 -plugin /usr/lib/gcc/arm-linux-gnueabihf/6/liblto_plugin.so -plugin-opt=/usr/lib/gcc/arm-linux-gnueabihf/6/lto-wrapper -plugin-opt=-fresolution=/tmp/cc6GsgP7.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -export-dynamic -dynamic-linker /lib/ld-linux-armhf.so.3 -X --hash-style=gnu -m armelf_linux_eabi -o cmTC_b71b2 /usr/lib/gcc/arm-linux-gnueabihf/6/../../../arm-linux-gnueabihf/crt1.o /usr/lib/gcc/arm-linux-gnueabihf/6/../../../arm-linux-gnueabihf/crti.o /usr/lib/gcc/arm-linux-gnueabihf/6/crtbegin.o -L/usr/lib/gcc/arm-linux-gnueabihf/6 -L/usr/lib/gcc/arm-linux-gnueabihf/6/../../../arm-linux-gnueabihf -L/usr/lib/gcc/arm-linux-gnueabihf/6/../../.. -L/lib/arm-linux-gnueabihf -L/usr/lib/arm-linux-gnueabihf CMakeFiles/cmTC_b71b2.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/arm-linux-gnueabihf/6/crtend.o /usr/lib/gcc/arm-linux-gnueabihf/6/../../../arm-linux-gnueabihf/crtn.o]
     arg [/usr/lib/gcc/arm-linux-gnueabihf/6/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/lib/gcc/arm-linux-gnueabihf/6/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/lib/gcc/arm-linux-gnueabihf/6/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/cc4dqoWU.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/cc6GsgP7.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -109,7 +109,7 @@ Parsed C implicit link information from above output:
     arg [-m] ==> ignore
     arg [armelf_linux_eabi] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_bec8c] ==> ignore
+    arg [cmTC_b71b2] ==> ignore
     arg [/usr/lib/gcc/arm-linux-gnueabihf/6/../../../arm-linux-gnueabihf/crt1.o] ==> ignore
     arg [/usr/lib/gcc/arm-linux-gnueabihf/6/../../../arm-linux-gnueabihf/crti.o] ==> ignore
     arg [/usr/lib/gcc/arm-linux-gnueabihf/6/crtbegin.o] ==> ignore
@@ -118,7 +118,7 @@ Parsed C implicit link information from above output:
     arg [-L/usr/lib/gcc/arm-linux-gnueabihf/6/../../..] ==> dir [/usr/lib/gcc/arm-linux-gnueabihf/6/../../..]
     arg [-L/lib/arm-linux-gnueabihf] ==> dir [/lib/arm-linux-gnueabihf]
     arg [-L/usr/lib/arm-linux-gnueabihf] ==> dir [/usr/lib/arm-linux-gnueabihf]
-    arg [CMakeFiles/cmTC_bec8c.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [CMakeFiles/cmTC_b71b2.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [-lgcc] ==> lib [gcc]
     arg [--as-needed] ==> ignore
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -149,15 +149,15 @@ Parsed C implicit link information from above output:
 Detecting C [-std=c11] compiler features compiled with the following output:
 Change Dir: /home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_9a6d9/fast"
-/usr/bin/make -f CMakeFiles/cmTC_9a6d9.dir/build.make CMakeFiles/cmTC_9a6d9.dir/build
-make[1]: ディレクトリ '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp' に入ります
-Building C object CMakeFiles/cmTC_9a6d9.dir/feature_tests.c.o
-/usr/bin/cc    -std=c11 -o CMakeFiles/cmTC_9a6d9.dir/feature_tests.c.o   -c /home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/feature_tests.c
-Linking C executable cmTC_9a6d9
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9a6d9.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_9a6d9.dir/feature_tests.c.o  -o cmTC_9a6d9 -rdynamic 
-make[1]: ディレクトリ '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp' から出ます
+Run Build Command:"/usr/bin/make" "cmTC_7f363/fast"
+/usr/bin/make -f CMakeFiles/cmTC_7f363.dir/build.make CMakeFiles/cmTC_7f363.dir/build
+make[1]: Entering directory '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7f363.dir/feature_tests.c.o
+/usr/bin/cc    -std=c11 -o CMakeFiles/cmTC_7f363.dir/feature_tests.c.o   -c /home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/feature_tests.c
+Linking C executable cmTC_7f363
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7f363.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_7f363.dir/feature_tests.c.o  -o cmTC_7f363 -rdynamic 
+make[1]: Leaving directory '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp'
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -169,15 +169,15 @@ make[1]: ディレクトリ '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/genn
 Detecting C [-std=c99] compiler features compiled with the following output:
 Change Dir: /home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_3af96/fast"
-/usr/bin/make -f CMakeFiles/cmTC_3af96.dir/build.make CMakeFiles/cmTC_3af96.dir/build
-make[1]: ディレクトリ '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp' に入ります
-Building C object CMakeFiles/cmTC_3af96.dir/feature_tests.c.o
-/usr/bin/cc    -std=c99 -o CMakeFiles/cmTC_3af96.dir/feature_tests.c.o   -c /home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/feature_tests.c
-Linking C executable cmTC_3af96
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3af96.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_3af96.dir/feature_tests.c.o  -o cmTC_3af96 -rdynamic 
-make[1]: ディレクトリ '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp' から出ます
+Run Build Command:"/usr/bin/make" "cmTC_a7b14/fast"
+/usr/bin/make -f CMakeFiles/cmTC_a7b14.dir/build.make CMakeFiles/cmTC_a7b14.dir/build
+make[1]: Entering directory '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a7b14.dir/feature_tests.c.o
+/usr/bin/cc    -std=c99 -o CMakeFiles/cmTC_a7b14.dir/feature_tests.c.o   -c /home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/feature_tests.c
+Linking C executable cmTC_a7b14
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a7b14.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_a7b14.dir/feature_tests.c.o  -o cmTC_a7b14 -rdynamic 
+make[1]: Leaving directory '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp'
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -189,15 +189,15 @@ make[1]: ディレクトリ '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/genn
 Detecting C [-std=c90] compiler features compiled with the following output:
 Change Dir: /home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_f5055/fast"
-/usr/bin/make -f CMakeFiles/cmTC_f5055.dir/build.make CMakeFiles/cmTC_f5055.dir/build
-make[1]: ディレクトリ '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp' に入ります
-Building C object CMakeFiles/cmTC_f5055.dir/feature_tests.c.o
-/usr/bin/cc    -std=c90 -o CMakeFiles/cmTC_f5055.dir/feature_tests.c.o   -c /home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/feature_tests.c
-Linking C executable cmTC_f5055
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f5055.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_f5055.dir/feature_tests.c.o  -o cmTC_f5055 -rdynamic 
-make[1]: ディレクトリ '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp' から出ます
+Run Build Command:"/usr/bin/make" "cmTC_f8a04/fast"
+/usr/bin/make -f CMakeFiles/cmTC_f8a04.dir/build.make CMakeFiles/cmTC_f8a04.dir/build
+make[1]: Entering directory '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f8a04.dir/feature_tests.c.o
+/usr/bin/cc    -std=c90 -o CMakeFiles/cmTC_f8a04.dir/feature_tests.c.o   -c /home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/feature_tests.c
+Linking C executable cmTC_f8a04
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f8a04.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_f8a04.dir/feature_tests.c.o  -o cmTC_f8a04 -rdynamic 
+make[1]: Leaving directory '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp'
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -207,28 +207,28 @@ make[1]: ディレクトリ '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/genn
 Determining if the CXX compiler works passed with the following output:
 Change Dir: /home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_bb486/fast"
-/usr/bin/make -f CMakeFiles/cmTC_bb486.dir/build.make CMakeFiles/cmTC_bb486.dir/build
-make[1]: ディレクトリ '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp' に入ります
-Building CXX object CMakeFiles/cmTC_bb486.dir/testCXXCompiler.cxx.o
-/usr/bin/c++      -o CMakeFiles/cmTC_bb486.dir/testCXXCompiler.cxx.o -c /home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
-Linking CXX executable cmTC_bb486
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bb486.dir/link.txt --verbose=1
-/usr/bin/c++        CMakeFiles/cmTC_bb486.dir/testCXXCompiler.cxx.o  -o cmTC_bb486 -rdynamic 
-make[1]: ディレクトリ '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp' から出ます
+Run Build Command:"/usr/bin/make" "cmTC_53755/fast"
+/usr/bin/make -f CMakeFiles/cmTC_53755.dir/build.make CMakeFiles/cmTC_53755.dir/build
+make[1]: Entering directory '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_53755.dir/testCXXCompiler.cxx.o
+/usr/bin/c++      -o CMakeFiles/cmTC_53755.dir/testCXXCompiler.cxx.o -c /home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_53755
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_53755.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTC_53755.dir/testCXXCompiler.cxx.o  -o cmTC_53755 -rdynamic 
+make[1]: Leaving directory '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp'
 
 
 Detecting CXX compiler ABI info compiled with the following output:
 Change Dir: /home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_aca5a/fast"
-/usr/bin/make -f CMakeFiles/cmTC_aca5a.dir/build.make CMakeFiles/cmTC_aca5a.dir/build
-make[1]: ディレクトリ '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp' に入ります
-Building CXX object CMakeFiles/cmTC_aca5a.dir/CMakeCXXCompilerABI.cpp.o
-/usr/bin/c++      -o CMakeFiles/cmTC_aca5a.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.7/Modules/CMakeCXXCompilerABI.cpp
-Linking CXX executable cmTC_aca5a
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_aca5a.dir/link.txt --verbose=1
-/usr/bin/c++       -v CMakeFiles/cmTC_aca5a.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_aca5a -rdynamic  
+Run Build Command:"/usr/bin/make" "cmTC_79055/fast"
+/usr/bin/make -f CMakeFiles/cmTC_79055.dir/build.make CMakeFiles/cmTC_79055.dir/build
+make[1]: Entering directory '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_79055.dir/CMakeCXXCompilerABI.cpp.o
+/usr/bin/c++      -o CMakeFiles/cmTC_79055.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.7/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_79055
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_79055.dir/link.txt --verbose=1
+/usr/bin/c++       -v CMakeFiles/cmTC_79055.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_79055 -rdynamic  
 Using built-in specs.
 COLLECT_GCC=/usr/bin/c++
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/arm-linux-gnueabihf/6/lto-wrapper
@@ -238,24 +238,24 @@ Thread model: posix
 gcc version 6.3.0 20170516 (Raspbian 6.3.0-18+rpi1+deb9u1) 
 COMPILER_PATH=/usr/lib/gcc/arm-linux-gnueabihf/6/:/usr/lib/gcc/arm-linux-gnueabihf/6/:/usr/lib/gcc/arm-linux-gnueabihf/:/usr/lib/gcc/arm-linux-gnueabihf/6/:/usr/lib/gcc/arm-linux-gnueabihf/
 LIBRARY_PATH=/usr/lib/gcc/arm-linux-gnueabihf/6/:/usr/lib/gcc/arm-linux-gnueabihf/6/../../../arm-linux-gnueabihf/:/usr/lib/gcc/arm-linux-gnueabihf/6/../../../:/lib/arm-linux-gnueabihf/:/lib/:/usr/lib/arm-linux-gnueabihf/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_aca5a' '-rdynamic' '-shared-libgcc' '-march=armv6' '-mfloat-abi=hard' '-mfpu=vfp' '-mtls-dialect=gnu'
- /usr/lib/gcc/arm-linux-gnueabihf/6/collect2 -plugin /usr/lib/gcc/arm-linux-gnueabihf/6/liblto_plugin.so -plugin-opt=/usr/lib/gcc/arm-linux-gnueabihf/6/lto-wrapper -plugin-opt=-fresolution=/tmp/ccG8lIKw.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -export-dynamic -dynamic-linker /lib/ld-linux-armhf.so.3 -X --hash-style=gnu -m armelf_linux_eabi -o cmTC_aca5a /usr/lib/gcc/arm-linux-gnueabihf/6/../../../arm-linux-gnueabihf/crt1.o /usr/lib/gcc/arm-linux-gnueabihf/6/../../../arm-linux-gnueabihf/crti.o /usr/lib/gcc/arm-linux-gnueabihf/6/crtbegin.o -L/usr/lib/gcc/arm-linux-gnueabihf/6 -L/usr/lib/gcc/arm-linux-gnueabihf/6/../../../arm-linux-gnueabihf -L/usr/lib/gcc/arm-linux-gnueabihf/6/../../.. -L/lib/arm-linux-gnueabihf -L/usr/lib/arm-linux-gnueabihf CMakeFiles/cmTC_aca5a.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/arm-linux-gnueabihf/6/crtend.o /usr/lib/gcc/arm-linux-gnueabihf/6/../../../arm-linux-gnueabihf/crtn.o
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_aca5a' '-rdynamic' '-shared-libgcc' '-march=armv6' '-mfloat-abi=hard' '-mfpu=vfp' '-mtls-dialect=gnu'
-make[1]: ディレクトリ '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp' から出ます
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_79055' '-rdynamic' '-shared-libgcc' '-march=armv6' '-mfloat-abi=hard' '-mfpu=vfp' '-mtls-dialect=gnu'
+ /usr/lib/gcc/arm-linux-gnueabihf/6/collect2 -plugin /usr/lib/gcc/arm-linux-gnueabihf/6/liblto_plugin.so -plugin-opt=/usr/lib/gcc/arm-linux-gnueabihf/6/lto-wrapper -plugin-opt=-fresolution=/tmp/ccuV3FHd.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -export-dynamic -dynamic-linker /lib/ld-linux-armhf.so.3 -X --hash-style=gnu -m armelf_linux_eabi -o cmTC_79055 /usr/lib/gcc/arm-linux-gnueabihf/6/../../../arm-linux-gnueabihf/crt1.o /usr/lib/gcc/arm-linux-gnueabihf/6/../../../arm-linux-gnueabihf/crti.o /usr/lib/gcc/arm-linux-gnueabihf/6/crtbegin.o -L/usr/lib/gcc/arm-linux-gnueabihf/6 -L/usr/lib/gcc/arm-linux-gnueabihf/6/../../../arm-linux-gnueabihf -L/usr/lib/gcc/arm-linux-gnueabihf/6/../../.. -L/lib/arm-linux-gnueabihf -L/usr/lib/arm-linux-gnueabihf CMakeFiles/cmTC_79055.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/arm-linux-gnueabihf/6/crtend.o /usr/lib/gcc/arm-linux-gnueabihf/6/../../../arm-linux-gnueabihf/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_79055' '-rdynamic' '-shared-libgcc' '-march=armv6' '-mfloat-abi=hard' '-mfpu=vfp' '-mtls-dialect=gnu'
+make[1]: Leaving directory '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp'
 
 
 Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_aca5a/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_aca5a.dir/build.make CMakeFiles/cmTC_aca5a.dir/build]
-  ignore line: [make[1]: ディレクトリ '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp' に入ります]
-  ignore line: [Building CXX object CMakeFiles/cmTC_aca5a.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/usr/bin/c++      -o CMakeFiles/cmTC_aca5a.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.7/Modules/CMakeCXXCompilerABI.cpp]
-  ignore line: [Linking CXX executable cmTC_aca5a]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_aca5a.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/c++       -v CMakeFiles/cmTC_aca5a.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_aca5a -rdynamic  ]
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_79055/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_79055.dir/build.make CMakeFiles/cmTC_79055.dir/build]
+  ignore line: [make[1]: Entering directory '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp']
+  ignore line: [Building CXX object CMakeFiles/cmTC_79055.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/bin/c++      -o CMakeFiles/cmTC_79055.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.7/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTC_79055]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_79055.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/c++       -v CMakeFiles/cmTC_79055.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_79055 -rdynamic  ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/c++]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/arm-linux-gnueabihf/6/lto-wrapper]
@@ -265,13 +265,13 @@ Parsed CXX implicit link information from above output:
   ignore line: [gcc version 6.3.0 20170516 (Raspbian 6.3.0-18+rpi1+deb9u1) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/arm-linux-gnueabihf/6/:/usr/lib/gcc/arm-linux-gnueabihf/6/:/usr/lib/gcc/arm-linux-gnueabihf/:/usr/lib/gcc/arm-linux-gnueabihf/6/:/usr/lib/gcc/arm-linux-gnueabihf/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/arm-linux-gnueabihf/6/:/usr/lib/gcc/arm-linux-gnueabihf/6/../../../arm-linux-gnueabihf/:/usr/lib/gcc/arm-linux-gnueabihf/6/../../../:/lib/arm-linux-gnueabihf/:/lib/:/usr/lib/arm-linux-gnueabihf/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_aca5a' '-rdynamic' '-shared-libgcc' '-march=armv6' '-mfloat-abi=hard' '-mfpu=vfp' '-mtls-dialect=gnu']
-  link line: [ /usr/lib/gcc/arm-linux-gnueabihf/6/collect2 -plugin /usr/lib/gcc/arm-linux-gnueabihf/6/liblto_plugin.so -plugin-opt=/usr/lib/gcc/arm-linux-gnueabihf/6/lto-wrapper -plugin-opt=-fresolution=/tmp/ccG8lIKw.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -export-dynamic -dynamic-linker /lib/ld-linux-armhf.so.3 -X --hash-style=gnu -m armelf_linux_eabi -o cmTC_aca5a /usr/lib/gcc/arm-linux-gnueabihf/6/../../../arm-linux-gnueabihf/crt1.o /usr/lib/gcc/arm-linux-gnueabihf/6/../../../arm-linux-gnueabihf/crti.o /usr/lib/gcc/arm-linux-gnueabihf/6/crtbegin.o -L/usr/lib/gcc/arm-linux-gnueabihf/6 -L/usr/lib/gcc/arm-linux-gnueabihf/6/../../../arm-linux-gnueabihf -L/usr/lib/gcc/arm-linux-gnueabihf/6/../../.. -L/lib/arm-linux-gnueabihf -L/usr/lib/arm-linux-gnueabihf CMakeFiles/cmTC_aca5a.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/arm-linux-gnueabihf/6/crtend.o /usr/lib/gcc/arm-linux-gnueabihf/6/../../../arm-linux-gnueabihf/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_79055' '-rdynamic' '-shared-libgcc' '-march=armv6' '-mfloat-abi=hard' '-mfpu=vfp' '-mtls-dialect=gnu']
+  link line: [ /usr/lib/gcc/arm-linux-gnueabihf/6/collect2 -plugin /usr/lib/gcc/arm-linux-gnueabihf/6/liblto_plugin.so -plugin-opt=/usr/lib/gcc/arm-linux-gnueabihf/6/lto-wrapper -plugin-opt=-fresolution=/tmp/ccuV3FHd.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -export-dynamic -dynamic-linker /lib/ld-linux-armhf.so.3 -X --hash-style=gnu -m armelf_linux_eabi -o cmTC_79055 /usr/lib/gcc/arm-linux-gnueabihf/6/../../../arm-linux-gnueabihf/crt1.o /usr/lib/gcc/arm-linux-gnueabihf/6/../../../arm-linux-gnueabihf/crti.o /usr/lib/gcc/arm-linux-gnueabihf/6/crtbegin.o -L/usr/lib/gcc/arm-linux-gnueabihf/6 -L/usr/lib/gcc/arm-linux-gnueabihf/6/../../../arm-linux-gnueabihf -L/usr/lib/gcc/arm-linux-gnueabihf/6/../../.. -L/lib/arm-linux-gnueabihf -L/usr/lib/arm-linux-gnueabihf CMakeFiles/cmTC_79055.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/arm-linux-gnueabihf/6/crtend.o /usr/lib/gcc/arm-linux-gnueabihf/6/../../../arm-linux-gnueabihf/crtn.o]
     arg [/usr/lib/gcc/arm-linux-gnueabihf/6/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/lib/gcc/arm-linux-gnueabihf/6/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/lib/gcc/arm-linux-gnueabihf/6/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/ccG8lIKw.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccuV3FHd.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -288,7 +288,7 @@ Parsed CXX implicit link information from above output:
     arg [-m] ==> ignore
     arg [armelf_linux_eabi] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_aca5a] ==> ignore
+    arg [cmTC_79055] ==> ignore
     arg [/usr/lib/gcc/arm-linux-gnueabihf/6/../../../arm-linux-gnueabihf/crt1.o] ==> ignore
     arg [/usr/lib/gcc/arm-linux-gnueabihf/6/../../../arm-linux-gnueabihf/crti.o] ==> ignore
     arg [/usr/lib/gcc/arm-linux-gnueabihf/6/crtbegin.o] ==> ignore
@@ -297,7 +297,7 @@ Parsed CXX implicit link information from above output:
     arg [-L/usr/lib/gcc/arm-linux-gnueabihf/6/../../..] ==> dir [/usr/lib/gcc/arm-linux-gnueabihf/6/../../..]
     arg [-L/lib/arm-linux-gnueabihf] ==> dir [/lib/arm-linux-gnueabihf]
     arg [-L/usr/lib/arm-linux-gnueabihf] ==> dir [/usr/lib/arm-linux-gnueabihf]
-    arg [CMakeFiles/cmTC_aca5a.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTC_79055.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lstdc++] ==> lib [stdc++]
     arg [-lm] ==> lib [m]
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -326,15 +326,15 @@ Parsed CXX implicit link information from above output:
 Detecting CXX [-std=c++14] compiler features compiled with the following output:
 Change Dir: /home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_d9f4d/fast"
-/usr/bin/make -f CMakeFiles/cmTC_d9f4d.dir/build.make CMakeFiles/cmTC_d9f4d.dir/build
-make[1]: ディレクトリ '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp' に入ります
-Building CXX object CMakeFiles/cmTC_d9f4d.dir/feature_tests.cxx.o
-/usr/bin/c++     -std=c++14 -o CMakeFiles/cmTC_d9f4d.dir/feature_tests.cxx.o -c /home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_d9f4d
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d9f4d.dir/link.txt --verbose=1
-/usr/bin/c++        CMakeFiles/cmTC_d9f4d.dir/feature_tests.cxx.o  -o cmTC_d9f4d -rdynamic 
-make[1]: ディレクトリ '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp' から出ます
+Run Build Command:"/usr/bin/make" "cmTC_f3834/fast"
+/usr/bin/make -f CMakeFiles/cmTC_f3834.dir/build.make CMakeFiles/cmTC_f3834.dir/build
+make[1]: Entering directory '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_f3834.dir/feature_tests.cxx.o
+/usr/bin/c++     -std=c++14 -o CMakeFiles/cmTC_f3834.dir/feature_tests.cxx.o -c /home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_f3834
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f3834.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTC_f3834.dir/feature_tests.cxx.o  -o cmTC_f3834 -rdynamic 
+make[1]: Leaving directory '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp'
 
 
     Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
@@ -399,15 +399,15 @@ make[1]: ディレクトリ '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/genn
 Detecting CXX [-std=c++11] compiler features compiled with the following output:
 Change Dir: /home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_6702a/fast"
-/usr/bin/make -f CMakeFiles/cmTC_6702a.dir/build.make CMakeFiles/cmTC_6702a.dir/build
-make[1]: ディレクトリ '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp' に入ります
-Building CXX object CMakeFiles/cmTC_6702a.dir/feature_tests.cxx.o
-/usr/bin/c++     -std=c++11 -o CMakeFiles/cmTC_6702a.dir/feature_tests.cxx.o -c /home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_6702a
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6702a.dir/link.txt --verbose=1
-/usr/bin/c++        CMakeFiles/cmTC_6702a.dir/feature_tests.cxx.o  -o cmTC_6702a -rdynamic 
-make[1]: ディレクトリ '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp' から出ます
+Run Build Command:"/usr/bin/make" "cmTC_a6f3f/fast"
+/usr/bin/make -f CMakeFiles/cmTC_a6f3f.dir/build.make CMakeFiles/cmTC_a6f3f.dir/build
+make[1]: Entering directory '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_a6f3f.dir/feature_tests.cxx.o
+/usr/bin/c++     -std=c++11 -o CMakeFiles/cmTC_a6f3f.dir/feature_tests.cxx.o -c /home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_a6f3f
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a6f3f.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTC_a6f3f.dir/feature_tests.cxx.o  -o cmTC_a6f3f -rdynamic 
+make[1]: Leaving directory '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp'
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
@@ -472,15 +472,15 @@ make[1]: ディレクトリ '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/genn
 Detecting CXX [-std=c++98] compiler features compiled with the following output:
 Change Dir: /home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_642eb/fast"
-/usr/bin/make -f CMakeFiles/cmTC_642eb.dir/build.make CMakeFiles/cmTC_642eb.dir/build
-make[1]: ディレクトリ '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp' に入ります
-Building CXX object CMakeFiles/cmTC_642eb.dir/feature_tests.cxx.o
-/usr/bin/c++     -std=c++98 -o CMakeFiles/cmTC_642eb.dir/feature_tests.cxx.o -c /home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_642eb
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_642eb.dir/link.txt --verbose=1
-/usr/bin/c++        CMakeFiles/cmTC_642eb.dir/feature_tests.cxx.o  -o cmTC_642eb -rdynamic 
-make[1]: ディレクトリ '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp' から出ます
+Run Build Command:"/usr/bin/make" "cmTC_f90ba/fast"
+/usr/bin/make -f CMakeFiles/cmTC_f90ba.dir/build.make CMakeFiles/cmTC_f90ba.dir/build
+make[1]: Entering directory '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_f90ba.dir/feature_tests.cxx.o
+/usr/bin/c++     -std=c++98 -o CMakeFiles/cmTC_f90ba.dir/feature_tests.cxx.o -c /home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_f90ba
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f90ba.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTC_f90ba.dir/feature_tests.cxx.o  -o cmTC_f90ba -rdynamic 
+make[1]: Leaving directory '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp'
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
@@ -543,28 +543,28 @@ make[1]: ディレクトリ '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/genn
 Determining if the include file pthread.h exists passed with the following output:
 Change Dir: /home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_701b1/fast"
-/usr/bin/make -f CMakeFiles/cmTC_701b1.dir/build.make CMakeFiles/cmTC_701b1.dir/build
-make[1]: ディレクトリ '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp' に入ります
-Building C object CMakeFiles/cmTC_701b1.dir/CheckIncludeFile.c.o
-/usr/bin/cc     -o CMakeFiles/cmTC_701b1.dir/CheckIncludeFile.c.o   -c /home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp/CheckIncludeFile.c
-Linking C executable cmTC_701b1
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_701b1.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_701b1.dir/CheckIncludeFile.c.o  -o cmTC_701b1 -rdynamic 
-make[1]: ディレクトリ '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp' から出ます
+Run Build Command:"/usr/bin/make" "cmTC_d79f5/fast"
+/usr/bin/make -f CMakeFiles/cmTC_d79f5.dir/build.make CMakeFiles/cmTC_d79f5.dir/build
+make[1]: Entering directory '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d79f5.dir/CheckIncludeFile.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_d79f5.dir/CheckIncludeFile.c.o   -c /home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_d79f5
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d79f5.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_d79f5.dir/CheckIncludeFile.c.o  -o cmTC_d79f5 -rdynamic 
+make[1]: Leaving directory '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp'
 
 
 Determining if the function pthread_create exists in the pthread passed with the following output:
 Change Dir: /home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_6565a/fast"
-/usr/bin/make -f CMakeFiles/cmTC_6565a.dir/build.make CMakeFiles/cmTC_6565a.dir/build
-make[1]: ディレクトリ '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp' に入ります
-Building C object CMakeFiles/cmTC_6565a.dir/CheckFunctionExists.c.o
-/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_6565a.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.7/Modules/CheckFunctionExists.c
-Linking C executable cmTC_6565a
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6565a.dir/link.txt --verbose=1
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_6565a.dir/CheckFunctionExists.c.o  -o cmTC_6565a -rdynamic -lpthread 
-make[1]: ディレクトリ '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp' から出ます
+Run Build Command:"/usr/bin/make" "cmTC_6e56d/fast"
+/usr/bin/make -f CMakeFiles/cmTC_6e56d.dir/build.make CMakeFiles/cmTC_6e56d.dir/build
+make[1]: Entering directory '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6e56d.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_6e56d.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.7/Modules/CheckFunctionExists.c
+Linking C executable cmTC_6e56d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6e56d.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_6e56d.dir/CheckFunctionExists.c.o  -o cmTC_6e56d -rdynamic -lpthread 
+make[1]: Leaving directory '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/gennodejs/CMakeFiles/CMakeTmp'
 
 
