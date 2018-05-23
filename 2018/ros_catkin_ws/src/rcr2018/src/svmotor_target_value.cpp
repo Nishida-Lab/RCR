@@ -21,11 +21,11 @@ int main(int argc, char** argv)
 
   ros::NodeHandle nh; //ノードハンドル宣言
 
-  ros::Publisher svmotor_command_pub {n.advertise<rcr2018::SvmCommand>("svm_command", 1)}; //パブリッシャの設定
+  ros::Publisher svmotor_command_pub {nh.advertise<rcr2018::SvmCommand>("svm_command", 1)}; //パブリッシャの設定
 
   rcr2018::SvmCommand svm;
 
-  ros::Subscriber svmotor_command_sub {nh.subscribe("tof_side", 1, 
+  ros::Subscriber svmotor_command_sub {nh.subscribe<rcr2018::TofSide>("tof_side", 1, 
     std::function<void (const rcr2018::TofSide::ConstPtr&)>
     {
       [&](const rcr2018::TofSide::ConstPtr& constptr)

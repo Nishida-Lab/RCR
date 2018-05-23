@@ -31,10 +31,10 @@ int main(int argc, char** argv)
 
   rcr2018::DcmCommand dcm;
 
-  ros::Subscriber dcmotor_command_sub {nh.subscribe("tof_front", 1, 
+  ros::Subscriber dcmotor_command_sub {nh.subscribe<rcr2018::TofFront>("tof_front", 1, 
     std::function<void (const rcr2018::TofFront::ConstPtr&)>
     {
-      [&](const rcr2018::TofFront::ConstPtr& constptr)
+      [&](const auto& constptr)
       {
         double target_value = 0.0; //目標値の初期化
         if (is_finish)
@@ -46,7 +46,7 @@ int main(int argc, char** argv)
           target_value = 1 * std::tanh(constptr->front); //目標角速度の決定
         }
 
-        constptr.cmd_vel = target_value; //目標角速度をメッセージに代入
+        dcm.cmd_vel = target_value; //目標角速度をメッセージに代入
 
         dcmotor_command_pub.publish(dcm); //パブリッシュ
       }
