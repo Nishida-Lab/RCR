@@ -6,6 +6,8 @@
 #include <rcr2018/DcmCommand.h>
 #include <rcr2018/LineCount.h>
 
+ros::init(argc, argv, "dcmotor_target_value"); //ノード名の初期化
+
 ros::NodeHandle n; //パブリッシャのノードハンドル宣言
 
 ros::Publisher dcmotor_command_pub = n.advertise<rcr2018::DcmCommand>("dcm_command", 1); //パブリッシャの設定
@@ -48,7 +50,7 @@ int main(int argc, char** argv)
 {
   const int frequency = 100;
 
-  ros::init(argc, argv, "dcmotor_target_value"); //ノード名の初期化
+  //ros::init(argc, argv, "dcmotor_target_value"); //ノード名の初期化
 
   ros::NodeHandle nh; //ノードハンドル宣言
 

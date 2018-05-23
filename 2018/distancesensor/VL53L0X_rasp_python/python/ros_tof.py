@@ -36,11 +36,11 @@ pub_front = rospy.Publisher('tof_front', TofFront, queue_size=1)
 pub_side = rospy.Publisher('tof_side', TofSide, queue_size=1)
 
 # GPIO for Sensor 1 shutdown pin
-sensor1_shutdown = 16
+sensor1_shutdown = 27
 # GPIO for Sensor 2 shutdown pin
-sensor2_shutdown = 20
+sensor2_shutdown = 17
 # GPIO for sensor 3 shutdown pin
-sensor3_shutdown = 21
+sensor3_shutdown = 22
 GPIO.setwarnings(False)
 
 # Setup GPIO for shutdown pins on each VL53L0X
