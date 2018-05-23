@@ -1,22 +1,22 @@
 Determining if the pthread_create exist failed with the following output:
 Change Dir: /home/pi/RCR/2018/ros_catkin_ws/build_isolated/roswtf/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_02e58/fast"
-/usr/bin/make -f CMakeFiles/cmTC_02e58.dir/build.make CMakeFiles/cmTC_02e58.dir/build
-make[1]: ディレクトリ '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/roswtf/CMakeFiles/CMakeTmp' に入ります
-Building C object CMakeFiles/cmTC_02e58.dir/CheckSymbolExists.c.o
-/usr/bin/cc     -o CMakeFiles/cmTC_02e58.dir/CheckSymbolExists.c.o   -c /home/pi/RCR/2018/ros_catkin_ws/build_isolated/roswtf/CMakeFiles/CMakeTmp/CheckSymbolExists.c
-Linking C executable cmTC_02e58
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_02e58.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_02e58.dir/CheckSymbolExists.c.o  -o cmTC_02e58 -rdynamic 
-CMakeFiles/cmTC_02e58.dir/CheckSymbolExists.c.o: 関数 `main' 内:
-CheckSymbolExists.c:(.text+0x38): `pthread_create' に対する定義されていない参照です
+Run Build Command:"/usr/bin/make" "cmTC_5e016/fast"
+/usr/bin/make -f CMakeFiles/cmTC_5e016.dir/build.make CMakeFiles/cmTC_5e016.dir/build
+make[1]: Entering directory '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/roswtf/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5e016.dir/CheckSymbolExists.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_5e016.dir/CheckSymbolExists.c.o   -c /home/pi/RCR/2018/ros_catkin_ws/build_isolated/roswtf/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_5e016
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5e016.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_5e016.dir/CheckSymbolExists.c.o  -o cmTC_5e016 -rdynamic 
+CMakeFiles/cmTC_5e016.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x38): undefined reference to `pthread_create'
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_02e58.dir/build.make:97: ターゲット 'cmTC_02e58' のレシピで失敗しました
-make[1]: *** [cmTC_02e58] エラー 1
-make[1]: ディレクトリ '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/roswtf/CMakeFiles/CMakeTmp' から出ます
-Makefile:126: ターゲット 'cmTC_02e58/fast' のレシピで失敗しました
-make: *** [cmTC_02e58/fast] エラー 2
+CMakeFiles/cmTC_5e016.dir/build.make:97: recipe for target 'cmTC_5e016' failed
+make[1]: *** [cmTC_5e016] Error 1
+make[1]: Leaving directory '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/roswtf/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_5e016/fast' failed
+make: *** [cmTC_5e016/fast] Error 2
 
 File /home/pi/RCR/2018/ros_catkin_ws/build_isolated/roswtf/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
 /* */
@@ -36,20 +36,20 @@ int main(int argc, char** argv)
 Determining if the function pthread_create exists in the pthreads failed with the following output:
 Change Dir: /home/pi/RCR/2018/ros_catkin_ws/build_isolated/roswtf/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_94cfc/fast"
-/usr/bin/make -f CMakeFiles/cmTC_94cfc.dir/build.make CMakeFiles/cmTC_94cfc.dir/build
-make[1]: ディレクトリ '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/roswtf/CMakeFiles/CMakeTmp' に入ります
-Building C object CMakeFiles/cmTC_94cfc.dir/CheckFunctionExists.c.o
-/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_94cfc.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.7/Modules/CheckFunctionExists.c
-Linking C executable cmTC_94cfc
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_94cfc.dir/link.txt --verbose=1
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_94cfc.dir/CheckFunctionExists.c.o  -o cmTC_94cfc -rdynamic -lpthreads 
-/usr/bin/ld: -lpthreads が見つかりません
+Run Build Command:"/usr/bin/make" "cmTC_57c0f/fast"
+/usr/bin/make -f CMakeFiles/cmTC_57c0f.dir/build.make CMakeFiles/cmTC_57c0f.dir/build
+make[1]: Entering directory '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/roswtf/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_57c0f.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_57c0f.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.7/Modules/CheckFunctionExists.c
+Linking C executable cmTC_57c0f
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_57c0f.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_57c0f.dir/CheckFunctionExists.c.o  -o cmTC_57c0f -rdynamic -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_94cfc.dir/build.make:97: ターゲット 'cmTC_94cfc' のレシピで失敗しました
-make[1]: *** [cmTC_94cfc] エラー 1
-make[1]: ディレクトリ '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/roswtf/CMakeFiles/CMakeTmp' から出ます
-Makefile:126: ターゲット 'cmTC_94cfc/fast' のレシピで失敗しました
-make: *** [cmTC_94cfc/fast] エラー 2
+CMakeFiles/cmTC_57c0f.dir/build.make:97: recipe for target 'cmTC_57c0f' failed
+make[1]: *** [cmTC_57c0f] Error 1
+make[1]: Leaving directory '/home/pi/RCR/2018/ros_catkin_ws/build_isolated/roswtf/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_57c0f/fast' failed
+make: *** [cmTC_57c0f/fast] Error 2
 
 

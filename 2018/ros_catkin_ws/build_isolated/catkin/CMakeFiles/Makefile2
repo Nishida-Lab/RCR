@@ -159,8 +159,8 @@ clean: CMakeFiles/run_tests.dir/clean
 # Target rules for target CMakeFiles/_run_tests_catkin_nosetests_test.local_tests.dir
 
 # All Build rule for target.
-CMakeFiles/_run_tests_catkin_nosetests_test.local_tests.dir/all: CMakeFiles/clean_test_results_catkin.dir/all
 CMakeFiles/_run_tests_catkin_nosetests_test.local_tests.dir/all: CMakeFiles/tests.dir/all
+CMakeFiles/_run_tests_catkin_nosetests_test.local_tests.dir/all: CMakeFiles/clean_test_results_catkin.dir/all
 	$(MAKE) -f CMakeFiles/_run_tests_catkin_nosetests_test.local_tests.dir/build.make CMakeFiles/_run_tests_catkin_nosetests_test.local_tests.dir/depend
 	$(MAKE) -f CMakeFiles/_run_tests_catkin_nosetests_test.local_tests.dir/build.make CMakeFiles/_run_tests_catkin_nosetests_test.local_tests.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/RCR/2018/ros_catkin_ws/build_isolated/catkin/CMakeFiles --progress-num= "Built target _run_tests_catkin_nosetests_test.local_tests"
@@ -416,8 +416,8 @@ clean: CMakeFiles/run_tests_catkin_nosetests_test.local_tests.dir/clean
 # Target rules for target CMakeFiles/run_tests_catkin_nosetests.dir
 
 # All Build rule for target.
-CMakeFiles/run_tests_catkin_nosetests.dir/all: CMakeFiles/run_tests_catkin_nosetests_test.unit_tests.dir/all
 CMakeFiles/run_tests_catkin_nosetests.dir/all: CMakeFiles/run_tests_catkin_nosetests_test.local_tests.dir/all
+CMakeFiles/run_tests_catkin_nosetests.dir/all: CMakeFiles/run_tests_catkin_nosetests_test.unit_tests.dir/all
 	$(MAKE) -f CMakeFiles/run_tests_catkin_nosetests.dir/build.make CMakeFiles/run_tests_catkin_nosetests.dir/depend
 	$(MAKE) -f CMakeFiles/run_tests_catkin_nosetests.dir/build.make CMakeFiles/run_tests_catkin_nosetests.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/RCR/2018/ros_catkin_ws/build_isolated/catkin/CMakeFiles --progress-num= "Built target run_tests_catkin_nosetests"
@@ -449,8 +449,8 @@ clean: CMakeFiles/run_tests_catkin_nosetests.dir/clean
 # Target rules for target CMakeFiles/_run_tests_catkin_nosetests_test.unit_tests.dir
 
 # All Build rule for target.
-CMakeFiles/_run_tests_catkin_nosetests_test.unit_tests.dir/all: CMakeFiles/clean_test_results_catkin.dir/all
 CMakeFiles/_run_tests_catkin_nosetests_test.unit_tests.dir/all: CMakeFiles/tests.dir/all
+CMakeFiles/_run_tests_catkin_nosetests_test.unit_tests.dir/all: CMakeFiles/clean_test_results_catkin.dir/all
 	$(MAKE) -f CMakeFiles/_run_tests_catkin_nosetests_test.unit_tests.dir/build.make CMakeFiles/_run_tests_catkin_nosetests_test.unit_tests.dir/depend
 	$(MAKE) -f CMakeFiles/_run_tests_catkin_nosetests_test.unit_tests.dir/build.make CMakeFiles/_run_tests_catkin_nosetests_test.unit_tests.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/RCR/2018/ros_catkin_ws/build_isolated/catkin/CMakeFiles --progress-num= "Built target _run_tests_catkin_nosetests_test.unit_tests"
@@ -482,8 +482,8 @@ clean: CMakeFiles/_run_tests_catkin_nosetests_test.unit_tests.dir/clean
 # Target rules for target CMakeFiles/_run_tests_catkin_nosetests.dir
 
 # All Build rule for target.
-CMakeFiles/_run_tests_catkin_nosetests.dir/all: CMakeFiles/_run_tests_catkin_nosetests_test.local_tests.dir/all
 CMakeFiles/_run_tests_catkin_nosetests.dir/all: CMakeFiles/_run_tests_catkin_nosetests_test.unit_tests.dir/all
+CMakeFiles/_run_tests_catkin_nosetests.dir/all: CMakeFiles/_run_tests_catkin_nosetests_test.local_tests.dir/all
 	$(MAKE) -f CMakeFiles/_run_tests_catkin_nosetests.dir/build.make CMakeFiles/_run_tests_catkin_nosetests.dir/depend
 	$(MAKE) -f CMakeFiles/_run_tests_catkin_nosetests.dir/build.make CMakeFiles/_run_tests_catkin_nosetests.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/RCR/2018/ros_catkin_ws/build_isolated/catkin/CMakeFiles --progress-num= "Built target _run_tests_catkin_nosetests"

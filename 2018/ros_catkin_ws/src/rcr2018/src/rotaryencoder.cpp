@@ -6,6 +6,11 @@
 
 //サンプリングタイム
 const double sampling_time = 0.01;
+
+//const value
+const double pi = 3.141592653589793;
+const double gear_ratio = 2.73913043;
+
 //エンコーダ（A相）が接続されているピン番号
 const int encoder_pin = 14;
 
@@ -82,7 +87,7 @@ int main(int argc, char **argv)
         if(elapsed_time >= sampling_time)
         {
              //角速度を計算
-             ang_vel_now = ((count * 360.0) / 500.0) / elapsed_time;
+             ang_vel_now = ((count * 360.0 * pi) / (500.0 * 180.0 * gear_ratio)) / elapsed_time;
 
              //簡単なデジタルフィルタ(LPF)で角速度を平滑化しメッセージに格納
              msg.ang_vel = (alpha * ang_vel_now) + ((1 - alpha) * ang_vel_prev);

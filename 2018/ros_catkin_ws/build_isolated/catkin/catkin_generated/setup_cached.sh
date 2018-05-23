@@ -6,10 +6,9 @@
 
 # new environment variables
 export CMAKE_PREFIX_PATH="/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/catkin"
-export LD_LIBRARY_PATH="/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/catkin/lib"
-export PKG_CONFIG_PATH="/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/catkin/lib/pkgconfig"
+export LD_LIBRARY_PATH=""
+export PKG_CONFIG_PATH=""
 export PWD="/home/pi/RCR/2018/ros_catkin_ws/build_isolated/catkin"
-export PYTHONPATH="/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/catkin/lib/python2.7/dist-packages"
+export PYTHONPATH=""
 
 # modified environment variables
-export PATH="/home/pi/RCR/2018/ros_catkin_ws/devel_isolated/catkin/bin:$PATH"

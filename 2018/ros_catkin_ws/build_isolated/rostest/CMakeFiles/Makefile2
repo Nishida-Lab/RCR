@@ -845,12 +845,12 @@ clean: CMakeFiles/run_tests_rostest_rostest.dir/clean
 # Target rules for target CMakeFiles/_run_tests_rostest_rostest.dir
 
 # All Build rule for target.
-CMakeFiles/_run_tests_rostest_rostest.dir/all: CMakeFiles/_run_tests_rostest_rostest_test_param.test.dir/all
 CMakeFiles/_run_tests_rostest_rostest.dir/all: CMakeFiles/_run_tests_rostest_rostest_test_distro_version.test.dir/all
 CMakeFiles/_run_tests_rostest_rostest.dir/all: CMakeFiles/_run_tests_rostest_rostest_test_clean_master.test.dir/all
 CMakeFiles/_run_tests_rostest_rostest.dir/all: CMakeFiles/_run_tests_rostest_rostest_test_hztest0.test.dir/all
 CMakeFiles/_run_tests_rostest_rostest.dir/all: CMakeFiles/_run_tests_rostest_rostest_test_hztest.test.dir/all
 CMakeFiles/_run_tests_rostest_rostest.dir/all: CMakeFiles/_run_tests_rostest_rostest_test_publishtest.test.dir/all
+CMakeFiles/_run_tests_rostest_rostest.dir/all: CMakeFiles/_run_tests_rostest_rostest_test_param.test.dir/all
 	$(MAKE) -f CMakeFiles/_run_tests_rostest_rostest.dir/build.make CMakeFiles/_run_tests_rostest_rostest.dir/depend
 	$(MAKE) -f CMakeFiles/_run_tests_rostest_rostest.dir/build.make CMakeFiles/_run_tests_rostest_rostest.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/RCR/2018/ros_catkin_ws/build_isolated/rostest/CMakeFiles --progress-num= "Built target _run_tests_rostest_rostest"
