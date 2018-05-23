@@ -26,22 +26,22 @@ int main(){
 
   pullUpDnControl(4,PUD_UP);
 
-  while (1) {
-
+  while (1)
+  {
 
   sensor_charge();
 
 
     while (digitalRead == 1)
     {
-      printf("Black\n", );
+      printf("Black\n" );
     }
 
     while (digitalRead == 0)
     {
-      printf("While\n", );
+      printf("While\n" );
     }
 
-}
+   }
 return 0;
 }
