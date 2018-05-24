@@ -1,21 +1,17 @@
+#include <wiringPi.h>
 #include "ros/ros.h"
 #include "rcr2018/TofSide.h"
-#include "rcr2018/SvmCommand.h"
 
-ros::NodeHandle n;
+const int PWMPIN = 19;
 
-ros::publisher svmotor_command_pub = n.advertise<rcr2018::SvmCommand>("svmotor_command_msg", 1);
-
-rcr2018::SvmCommand svm;
+pinMode(PWMPIN, OUTPUT);
 
 //メッセージを受信したとき動作する関数
 void msgCallback(const rcr2018::TofSide::ConstPtr& msg)
 {
   double target_value = msg.left - msg.right; //目標値の決定
 
-  svm.cmd_ang_vel = target_value;
-
-  svmotor_command_pub.publish(svm);
+  pwmWrite(PWMPIN, target_value);
 
 }
 
