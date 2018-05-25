@@ -4,6 +4,7 @@
 #include <vl53l0x.h>
 
 
+
 //各センサのシャットダウンピン番号を定義
 const int center_shutdown = 16;
 const int left_shutdown = 20;
@@ -22,5 +23,5 @@ int main(int argc, char** argv)
   stopRanging(object_number);
 
   return 0;
-  
+
 }
