@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+#include <cstdlib>
 #include <ros/ros.h>
 #include <rcr2018/TofFront.h>
 #include <rcr2018/DcmCommand.h>
@@ -12,6 +13,7 @@ ros::Publisher dcmotor_command_pub = n.advertise<rcr2018::DcmCommand>("dcm_comma
 rcr2018::DcmCommand dcm;
 
 bool is_finish = false;
+const int dcm_pin = 18;
 
 //TofFrontメッセージを受信したとき動作する関数
 void tofmsgCallback(const rcr2018::TofFront::ConstPtr& msg)
@@ -23,7 +25,7 @@ void tofmsgCallback(const rcr2018::TofFront::ConstPtr& msg)
   }
   else
   {
-    target_value = 0 * std::tanh(msg->front); //目標角速度の決定
+    target_value = 1 * std::tanh(msg->front); //目標角速度の決定
   }
 
   dcm.cmd_vel = target_value; //目標角速度をメッセージに代入
@@ -37,13 +39,15 @@ void linemsgCallback(const rcr2018::LineCount::ConstPtr& msg)
 {
   if (msg->count > 3)
   {
-  is_finish = true;
+    is_finish = true;
   }
 }
 
 
 int main(int argc, char** argv)
 {
+  const int frequency = 100;
+
   ros::init(argc, argv, "dcmotor_target_value"); //ノード名の初期化
 
   ros::NodeHandle nh; //ノードハンドル宣言
@@ -54,5 +58,5 @@ int main(int argc, char** argv)
 
   ros::spin();
 
-  return 0;
+  return EXIT_SUCCESS;
 }
