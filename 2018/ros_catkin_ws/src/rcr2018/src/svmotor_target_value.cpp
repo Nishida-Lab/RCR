@@ -1,17 +1,23 @@
+#include <cmath>
 #include <wiringPi.h>
 #include "ros/ros.h"
 #include "rcr2018/TofSide.h"
 
-const int PWMPIN = 19;
+const int PWMPIN_S = 19; //PWMピンのピン配置を19番ピンに
 
-pinMode(PWMPIN, OUTPUT);
+pinMode(PWMPIN_S, OUTPUT); //PWMピンをセット
 
 //メッセージを受信したとき動作する関数
 void msgCallback(const rcr2018::TofSide::ConstPtr& msg)
 {
-  double target_value = msg.left - msg.right; //目標値の決定
+  double target_value = 0; //目標角度の初期化
 
-  pwmWrite(PWMPIN, target_value);
+  double difference = msg.left - msg.right; //左センサと右センサの値の差
+
+  target_value = 0.6 * std::tanh(difference); //目標角度の決定
+
+  int input_pwm_value = target_value; //入力PWM信号のデューティ比を決定
+  pwmWrite(PWMPIN_S, input_pwm_value); //サーボモータに出力
 
 }
 
@@ -21,7 +27,7 @@ int main(int argc, char** argv)
 
   ros::NodeHandle nh; //ノードハンドル宣言
 
-  ros::Subscriber svmotor_command_sub = nh.subscribe("tof_side_msg", 1, msgCallback);
+  ros::Subscriber svmotor_command_sub = nh.subscribe("tof_side_msg", 1, msgCallback); //サブスクライバの設定
 
   ros::spin();
 
