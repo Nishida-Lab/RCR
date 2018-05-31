@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 def main():
     pwm_pin = 18
-    dir_pin = 17
+    dir_pin = 23
     pi = pigpio.pi()
     pi.set_mode(pwm_pin, pigpio.OUTPUT)
     pi.set_mode(dir_pin, pigpio.OUTPUT)
