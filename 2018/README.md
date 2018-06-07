@@ -2,3 +2,5 @@
 ## servo
  - servo_test.py
    - サーボモータ(GWS03T/2BB)の動作テスト用
+ - ros_catkin_ws
+   - ROSのワークスペース
