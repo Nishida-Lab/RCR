@@ -25,7 +25,7 @@ void commandmsgCallback(const rcr2018::DcmCommand::ConstPtr& msg)
 
    double input_value = (kp * (dev_tar_out - dev_tar_out_pre)) + (ki * dev_tar_out); //PI制御器による入力値の決定
 
-   int input_pwm_value = 0; //入力PWM信号のデューティ比を決定
+   int input_pwm_value = input_value; //入力PWM信号のデューティ比を決定
 
    digitalWrite(DIRPIN, 0); //DIRピンの出力を決定
    pwmWrite(PWMPIN_D, input_pwm_value); //DCモータにPWM信号を入力

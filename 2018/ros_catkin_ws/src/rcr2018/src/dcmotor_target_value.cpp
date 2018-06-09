@@ -8,6 +8,20 @@
 
 bool is_finish = false;
 const int dcm_pin = 18;
+const int arg_vel_max = 0;
+const int sig_a = 2;
+
+double sigmoid(double x)
+{
+  double sig_value =  1 / (1 + std::exp(-sig_a * x));
+  return sig_value;
+}
+
+double normalize_sig(double front_value)
+{
+  double normaleze_value = 2 * (sigmoid(front_value) - 0.5);
+  return normalize_value;
+}
 
 //linecount callback function
 void linemsgCallback(const rcr2018::LineCount::ConstPtr& msg)
@@ -31,7 +45,7 @@ int main(int argc, char** argv)
 
   rcr2018::DcmCommand dcm;
 
-  ros::Subscriber dcmotor_command_sub {nh.subscribe<rcr2018::TofFront>("tof_front", 1, 
+  ros::Subscriber dcmotor_command_sub {nh.subscribe<rcr2018::TofFront>("tof_front", 1,
     std::function<void (const rcr2018::TofFront::ConstPtr&)>
     {
       [&](const auto& constptr)
@@ -39,11 +53,11 @@ int main(int argc, char** argv)
         double target_value = 0.0; //目標値の初期化
         if (is_finish)
         {
-        target_value = 0.0;
+          target_value = 0.0;
         }
         else
         {
-          target_value = 1 * std::tanh(constptr->front); //目標角速度の決定
+          target_value = arg_vel_max * normalize_sig(constptr->front); //目標角速度の決定
         }
 
         dcm.cmd_vel = target_value; //目標角速度をメッセージに代入
