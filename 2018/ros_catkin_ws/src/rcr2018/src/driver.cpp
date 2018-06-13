@@ -46,7 +46,7 @@ void commandmsgCallback(const rcr2018::DcmCommand::ConstPtr& msg)
   double input_pwm_value {2240.1 * input_value + 29594.0}; //入力PWM信号のデューティ比を決定
 
   gpioWrite(DIRPIN, 0); //DIRピンの出力を決定
-  gpioHardwarePWM(PWMPIN_D, frequency, static_cast<int>input_pwm_value); //DCモータにPWM信号を入力
+  gpioHardwarePWM(PWMPIN_D, frequency, static_cast<int>(input_pwm_value)); //DCモータにPWM信号を入力
   dev_tar_out_pre = dev_tar_out; //次の時点のため、現時点での値を保存
 
 }

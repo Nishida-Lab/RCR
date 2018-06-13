@@ -5,12 +5,15 @@
 #include <rcr2018/TofFront.h>
 #include <rcr2018/DcmCommand.h>
 #include <rcr2018/LineCount.h>
+#include <wiringPi.h>
 
 bool is_finish {false}; //終了判定
 const int dcm_pin {18}; //DCモータのPWMピン番号
 const int arg_vel_max {500}; //最大角速度の指定
 const int sig_a {2}; //シグモイド関数の定数
 const int frequency {100}; //DCモータへの周波数
+//TODO: Confirm actual pin number
+const int START_SW_PIN {10};
 
 double sigmoid(double x) //シグモイド関数
 {
@@ -34,6 +37,22 @@ void linemsgCallback(const rcr2018::LineCount::ConstPtr& msg) //フォトセン�
 
 int main(int argc, char** argv)
 {
+  int pin_value {0};
+
+  if (wiringPiSetupGpio() == -1)
+  {
+     std::cout << "ERROR" << std::endl;
+     return -1;
+  }
+  
+  pinMode(START_SW_PIN, INPUT);
+  
+  pin_value = digitalRead(START_SW_PIN);
+  while(pin_value != 0)
+  {
+    pin_value = digitalRead(START_SW_PIN);
+  }
+
   ros::init(argc, argv, "dcmotor_target_value"); //ノード名の初期化
 
   ros::NodeHandle nh; //ノードハンドル宣言
