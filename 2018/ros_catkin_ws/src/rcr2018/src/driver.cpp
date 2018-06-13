@@ -1,11 +1,13 @@
 #include <iostream>
 #include <cmath>
 #include <pigpio.h>
+#include <wiringPi.h>
 #include <ros/ros.h>
 #include <rcr2018/DcmCommand.h>
 #include <rcr2018/AngVel.h>
 #include <rcr2018/TofSide.h>
 #include <rcr2018/SvmCommand.h>
+#include <rcr2018/LineCount.h>
 
 const double kp {0.120}; //比例ゲインを決定
 const double ki {0.060}; //積分ゲインを決定
@@ -40,9 +42,13 @@ double pulse_change_value(double difference_value) //パルス幅
 //linecount callback function
 void linemsgCallback(const rcr2018::LineCount::ConstPtr& msg) //フォトセンサーの回数読み込み
 {
-  if (msg->count > 3) //終了指示判定
+  std::cout << "call" << std::endl;
+  if (msg->count >= 3) //終了指示判定
   {
+    std::cout << "stop" << std::endl;
     is_finish = true;
+    gpioHardwarePWM(PWMPIN_D, frequency, 0);
+    gpioHardwarePWM(PWMPIN_S, frequency_sv, static_cast<int>((1.5 / 20) * 1000000));
   }
 }
 
@@ -128,6 +134,8 @@ int main(int argc, char** argv)
       }
     }
   )}; //サブスクライバの設定
+
+  ros::Subscriber line_count_sub {nh.subscribe("line_count", 1, linemsgCallback)};
 
   ros::spin();
 
