@@ -6,27 +6,26 @@
 #include <rcr2018/DcmCommand.h>
 #include <rcr2018/LineCount.h>
 
-bool is_finish = false;
-const int dcm_pin = 18;
-const int arg_vel_max = 0;
-const int sig_a = 2;
+bool is_finish {false}; //終了判定
+const int dcm_pin {18}; //DCモータのPWMピン番号
+const int arg_vel_max {500}; //最大角速度の指定
+const int sig_a {2}; //シグモイド関数の定数
+const int frequency {100}; //DCモータへの周波数
 
-double sigmoid(double x)
+double sigmoid(double x) //シグモイド関数
 {
-  double sig_value =  1 / (1 + std::exp(-sig_a * x));
-  return sig_value;
+  return 1 / (1 + std::exp(-sig_a * x));
 }
 
-double normalize_sig(double front_value)
+double normalize_sig(double front_value) //シグモイド関数の正規化
 {
-  double normaleze_value = 2 * (sigmoid(front_value) - 0.5);
-  return normalize_value;
+  return 2 * (sigmoid(front_value) - 0.5);
 }
 
 //linecount callback function
-void linemsgCallback(const rcr2018::LineCount::ConstPtr& msg)
+void linemsgCallback(const rcr2018::LineCount::ConstPtr& msg) //フォトセンサーの回数読み込み
 {
-  if (msg->count > 3)
+  if (msg->count > 3) //終了指示判定
   {
     is_finish = true;
   }
@@ -35,8 +34,6 @@ void linemsgCallback(const rcr2018::LineCount::ConstPtr& msg)
 
 int main(int argc, char** argv)
 {
-  const int frequency = 100;
-
   ros::init(argc, argv, "dcmotor_target_value"); //ノード名の初期化
 
   ros::NodeHandle nh; //ノードハンドル宣言
@@ -50,8 +47,8 @@ int main(int argc, char** argv)
     {
       [&](const auto& constptr)
       {
-        double target_value = 0.0; //目標値の初期化
-        if (is_finish)
+        double target_value {0.0}; //目標値の初期化
+        if (is_finish) //終了判定
         {
           target_value = 0.0;
         }
