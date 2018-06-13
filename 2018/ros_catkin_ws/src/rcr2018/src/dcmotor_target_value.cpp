@@ -12,8 +12,7 @@ const int dcm_pin {18}; //DCモータのPWMピン番号
 const int arg_vel_max {500}; //最大角速度の指定
 const int sig_a {2}; //シグモイド関数の定数
 const int frequency {100}; //DCモータへの周波数
-//TODO: Confirm actual pin number
-const int START_SW_PIN {10};
+const int START_SW_PIN {25};
 
 double sigmoid(double x) //シグモイド関数
 {
@@ -44,9 +43,9 @@ int main(int argc, char** argv)
      std::cout << "ERROR" << std::endl;
      return -1;
   }
-  
+
   pinMode(START_SW_PIN, INPUT);
-  
+
   pin_value = digitalRead(START_SW_PIN);
   while(pin_value != 0)
   {
