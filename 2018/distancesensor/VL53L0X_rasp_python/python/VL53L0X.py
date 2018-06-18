@@ -34,8 +34,8 @@ VL53L0X_HIGH_SPEED_MODE         = 4   # High Speed mode
 
 i2cbus = smbus.SMBus(1)
 
-MAX_DISTANCE = 1100
-MIN_DISTANCE = 40
+MAX_DISTANCE = 1100.0
+MIN_DISTANCE = 40.0 
 # i2c bus read callback
 def i2c_read(address, reg, data_p, length):
     ret_val = 0;
@@ -112,12 +112,13 @@ class VL53L0X(object):
             return MAX_DISTANCE
     def normalized(self):
         distance = tof_lib.getDistance(self.my_object_number)
-        if (1.04*(distance)-38.4) < MIN_DISTANCE:
-            return 0
-        elif (1.04*(distance)-38.4) < MAX_DISTANCE:
-            return (1.04*(distance)-38.4) / MAX_DISTANCE
+        actual_dist = (1.04 * distance) - 38.4
+        if actual_dist < MIN_DISTANCE:
+            return 0.0
+        elif actual_dist < MAX_DISTANCE:
+            return actual_dist / MAX_DISTANCE
         else:
-            return 1
+            return 1.0
     # This function included to show how to access the ST library directly
     # from python instead of through the simplified interface
     def get_timing(self):
