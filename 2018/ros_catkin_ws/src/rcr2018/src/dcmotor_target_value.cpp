@@ -9,7 +9,7 @@
 
 bool is_finish {false}; //終了判定
 const int dcm_pin {18}; //DCモータのPWMピン番号
-const int arg_vel_max {500}; //最大角速度の指定
+const int arg_vel_max {1000}; //最大角速度の指定
 const int sig_a {2}; //シグモイド関数の定数
 const int frequency {100}; //DCモータへの周波数
 const int START_SW_PIN {25};
