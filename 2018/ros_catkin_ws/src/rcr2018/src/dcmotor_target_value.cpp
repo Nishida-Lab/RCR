@@ -72,7 +72,9 @@ int main(int argc, char** argv)
         }
         else
         {
-          target_value = arg_vel_max * normalize_sig(constptr->front); //目標角速度の決定
+          //target_value = arg_vel_max * normalize_sig(constptr->front); //目標角速度の決定
+          target_value = arg_vel_max * sigmoid(constptr->front); //目標角速度の決定
+
         }
 
         dcm.cmd_vel = target_value; //目標角速度をメッセージに代入

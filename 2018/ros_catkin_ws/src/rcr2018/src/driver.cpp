@@ -13,7 +13,7 @@ const double kp {0.120}; //比例ゲインを決定
 const double ki {0.060}; //積分ゲインを決定
 
 const int PWMPIN_S {19}; //PWMピンのピン配置を19番ピンに
-const double svm_a  {2.0}; //シグモイド関数の定数
+const double svm_a  {5.0}; //シグモイド関数の定数
 const int frequency_sv {50}; //サーボモータの周波数
 
 const int PWMPIN_D {18}; //PWMピンのピン配置を18番ピンに
@@ -68,6 +68,7 @@ void commandmsgCallback(const rcr2018::DcmCommand::ConstPtr& msg)
     double input_pwm_value {2240.1 * input_value + 29594.0}; //入力PWM信号のデューティ比を決定
 
     gpioWrite(DIRPIN, 0); //DIRピンの出力を決定
+    std::cout << "DCM:" << input_pwm_value << std::endl;
     gpioHardwarePWM(PWMPIN_D, frequency, static_cast<int>(input_pwm_value)); //DCモータにPWM信号を入力
     dev_tar_out_pre = dev_tar_out; //次の時点のため、現時点での値を保存
   }
@@ -123,11 +124,12 @@ int main(int argc, char** argv)
         {
           double pulse_target_value {0}; //目標角度の初期化
 
-          double difference { constptr->left - constptr->right }; //左センサと右センサの値の差
+          double difference { constptr->right - constptr->left }; //左センサと右センサの値の差
 
           pulse_target_value = 1.5 - pulse_change_value(difference); //目標角度の決定
 
           double input_pwm_value { 1000000 * pulse_target_value / 20 }; //入力PWM信号のデューティ比を決定
+	  std::cout << "SVM:" << input_pwm_value << std::endl;
           // pwmWrite(PWMPIN_S, input_pwm_value); //サーボモータに出力
           gpioHardwarePWM(PWMPIN_S, frequency_sv, static_cast<int>(input_pwm_value)); //RCサーボモータにPWM信号を入力
         }
