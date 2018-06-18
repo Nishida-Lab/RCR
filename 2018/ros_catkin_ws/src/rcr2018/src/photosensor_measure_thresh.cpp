@@ -2,7 +2,7 @@
 #include <wiringPi.h>
 #include <unistd.h>
 
-#define GPIO_PIN 4
+#define GPIO_PIN 10 
 
 void sensor_charge()
 {
@@ -27,13 +27,16 @@ int main(int argc, char** argv)
   unsigned long sum {0};
   const int loop_count {100};
   unsigned int thresh {0};
+  std::string hoge;
 
   // 黒色測定
   std::cout << "PRESS KEY TO MEASURE BLACK PULSE WIDTH..." << std::endl;
-  getchar();
+  std::cin >> hoge;
+ 
 
   for (int i = 0; i < loop_count; i++)
   {
+      std::cout << i << std::endl;
       sensor_charge();
       while (digitalRead(GPIO_PIN) == 1)
       {
@@ -48,11 +51,12 @@ int main(int argc, char** argv)
 
   // 白色測定
   std::cout << "PRESS KEY TO MEASURE WHITE PULSE WIDTH..." << std::endl;
-  getchar();
+  std::cin >> hoge;
   sum = 0;
 
   for (int i = 0; i < loop_count; i++)
   {
+      std::cout << i << std::endl;
       sensor_charge();
       while (digitalRead(GPIO_PIN) == 1)
       {

@@ -4,7 +4,7 @@
 #include <ros/ros.h>
 #include <rcr2018/LineCount.h>
 
-#define GPIO_PIN 4
+#define GPIO_PIN 10 
 
 void sensor_charge()
 {
@@ -19,7 +19,7 @@ const unsigned int thresh_color = 1000;
 // コントロールライン検出とみなすのに必要な連続白色検出回数
 const unsigned int thresh_read_count = 10;
 // コントロールライン検出後のスリープ時間[s]
-const unsigned int sleep_sec = 5
+const unsigned int sleep_sec = 5;
 
 int main(int argc, char** argv)
 {
@@ -56,10 +56,13 @@ int main(int argc, char** argv)
     if (pulse_width < thresh_color)
     {
       ++read_count;
+      std::cout << "white" << std::endl;
+
 
       // 既定回以上白を検出した場合コントロールライン通過とみなす
       if (read_count >= thresh_read_count)
       {
+        std::cout << "###############detected###############" << std::endl;
         msg.count = msg.count + 1;
         line_count_pub.publish(msg);
         read_count = 0;
@@ -70,6 +73,7 @@ int main(int argc, char** argv)
     // 黒色の場合
     else
     {
+      std::cout << "black" << std::endl;
       read_count = 0;
     }
 
