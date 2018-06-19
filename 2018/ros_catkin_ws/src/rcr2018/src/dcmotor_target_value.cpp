@@ -7,7 +7,7 @@
 #include <rcr2018/LineCount.h>
 #include <wiringPi.h>
 
-bool is_finish {false}; //終了判定
+bool is_finished {false}; //終了判定
 const int dcm_pin {18}; //DCモータのPWMピン番号
 const int arg_vel_max {500}; //最大角速度の指定
 const int sig_a {2}; //シグモイド関数の定数
@@ -29,7 +29,7 @@ void linemsgCallback(const rcr2018::LineCount::ConstPtr& msg) //フォトセン�
 {
   if (msg->count > 3) //終了指示判定
   {
-    is_finish = true;
+    is_finished = true;
   }
 }
 
@@ -66,7 +66,7 @@ int main(int argc, char** argv)
       [&](const auto& constptr)
       {
         double target_value {0.0}; //目標値の初期化
-        if (is_finish) //終了判定
+        if (is_finished) //終了判定
         {
           target_value = 0.0;
         }
