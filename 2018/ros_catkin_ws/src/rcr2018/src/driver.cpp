@@ -9,8 +9,8 @@
 #include <rcr2018/SvmCommand.h>
 #include <rcr2018/LineCount.h>
 
-const double kp {0.120}; //比例ゲインを決定
-const double ki {0.060}; //積分ゲインを決定
+const double kp {0.049}; //比例ゲインを決定
+const double ki {0.0049}; //積分ゲインを決定
 
 const int PWMPIN_S {19}; //PWMピンのピン配置を19番ピンに
 const double svm_a  {5.0}; //シグモイド関数の定数
@@ -18,7 +18,7 @@ const int frequency_sv {50}; //サーボモータの周波数
 
 const int PWMPIN_D {18}; //PWMピンのピン配置を18番ピンに
 const int DIRPIN {23}; //DIRピンのピン配置を23番ピンに
-const int frequency {100};
+const int frequency {500};
 
 double dev_tar_out {0.0}; //現時点での目標値と出力値の差の初期化
 double dev_tar_out_pre {0.0}; //一つ前時点での目標値と出力値の差の初期化

@@ -10,7 +10,6 @@ def period2freq(period):
 
 def width2duty(width, period):
     return int((width / period) * 1000000)
-
 pygame.joystick.init()
 try:
     j = pygame.joystick.Joystick(0)
@@ -32,7 +31,7 @@ def main():
     DUTY_MIN, DUTY_MAX = 0.0, 999999.0
     JOYAXIS_MIN, JOYAXIS_MAX = 0.0, 1.0
     PERIOD = 20
-    dcm_powersave_coef = 0.3
+    dcm_powersave_coef = 0.3 
     svm_powersave_coef = 1
 
     pi = pigpio.pi()

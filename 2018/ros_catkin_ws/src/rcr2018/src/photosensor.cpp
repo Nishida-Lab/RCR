@@ -15,9 +15,9 @@ void sensor_charge()
 }
 
 // 色判別のしきい値
-const unsigned int thresh_color = 1000;
+const unsigned int thresh_color = 2533;
 // コントロールライン検出とみなすのに必要な連続白色検出回数
-const unsigned int thresh_read_count = 10;
+const unsigned int thresh_read_count = 1;
 // コントロールライン検出後のスリープ時間[s]
 const unsigned int sleep_sec = 5;
 // スタートスイッチピン番号
