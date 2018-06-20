@@ -10,7 +10,7 @@
 #include <rcr2018/LineCount.h>
 
 const double kp {0.090}; //比例ゲインを決定
-const double ki {0.0090}; //積分ゲインを決定
+const double ki {0.045}; //積分ゲインを決定
 
 const int PWMPIN_S {19}; //PWMピンのピン配置を19番ピンに
 const double svm_a  {5.0}; //シグモイド関数の定数
