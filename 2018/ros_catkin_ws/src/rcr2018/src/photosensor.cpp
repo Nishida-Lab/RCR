@@ -15,7 +15,9 @@ void sensor_charge()
 }
 
 // 色判別のしきい値
-const unsigned int thresh_color = 2533;
+const unsigned int thresh_color = 3000;
+// タイムアウト
+const unsigned int timeout = 5000;
 // コントロールライン検出とみなすのに必要な連続白色検出回数
 const unsigned int thresh_read_count = 1;
 // コントロールライン検出後のスリープ時間[s]
@@ -69,6 +71,10 @@ int main(int argc, char** argv)
       while (digitalRead(GPIO_PIN) == 1)
       {
         ++pulse_width;
+	if (pulse_width > timeout)
+	{
+	  break;
+	}
       }
       sum += pulse_width;
       pulse_width = 0;

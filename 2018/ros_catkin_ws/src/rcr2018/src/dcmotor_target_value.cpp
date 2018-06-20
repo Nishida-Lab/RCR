@@ -9,7 +9,7 @@
 
 bool is_finished {false}; //終了判定
 const int dcm_pin {18}; //DCモータのPWMピン番号
-const int arg_vel_max {400}; //最大角速度の指定
+const int arg_vel_max {1000}; //最大角速度の指定
 const int sig_a {5}; //シグモイド関数の定数
 const int frequency {500}; //DCモータへの周波数
 const int START_SW_PIN {25};
@@ -65,6 +65,7 @@ int main(int argc, char** argv)
     {
       [&](const auto& constptr)
       {
+	std::cout << "arg_vel_max:" << arg_vel_max << std::endl;
         double target_value {0.0}; //目標値の初期化
         if (is_finished) //終了判定
         {
@@ -72,10 +73,11 @@ int main(int argc, char** argv)
         }
         else
         {
-          //target_value = arg_vel_max * normalize_sig(constptr->front); //目標角速度の決定
+          // target_value = arg_vel_max * normalize_sig(constptr->front); //目標角速度の決定
           target_value = arg_vel_max * sigmoid(constptr->front); //目標角速度の決定
 
         }
+	std::cout << "target_value:" << target_value << std::endl;
 
         dcm.cmd_vel = target_value; //目標角速度をメッセージに代入
 
