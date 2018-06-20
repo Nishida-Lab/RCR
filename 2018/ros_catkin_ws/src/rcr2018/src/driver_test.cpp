@@ -13,7 +13,7 @@ const int frequency {500}; //DCモータの周波数
 const double target_value {150.0}; //目標角速度
 
 double ang_vel {0.0}; //出力角度の初期化
-double input_value_pre {0.0};
+double input_value_pre {0.0}; //一つ前時点での入力
 double output_value_pre {0.0}; //一つ前時点での出力角速度
 double input_pwm_value_pre {0.0}; //一つ前時点での入力PWM信号
 double dev_tar_out {0.0}; //現時点での目標値と出力値の差の初期化
