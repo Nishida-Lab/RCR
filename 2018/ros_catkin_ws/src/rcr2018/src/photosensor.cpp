@@ -27,6 +27,8 @@ const int START_SW_PIN {25};
 // ループカウント数
 const int loop_count {100};
 
+const int max_round {3};
+
 int main(int argc, char** argv)
 {
 
@@ -93,6 +95,10 @@ int main(int argc, char** argv)
       {
         std::cout << "###############detected###############" << std::endl;
         msg.count = msg.count + 1;
+	if (msg.count == max_round)
+	{
+          sleep(1);
+	}
         line_count_pub.publish(msg);
         read_count = 0;
         sleep(sleep_sec);
