@@ -9,8 +9,8 @@
 #include <rcr2018/SvmCommand.h>
 #include <rcr2018/LineCount.h>
 
-const double kp {0.049}; //比例ゲインを決定
-const double ki {0.0049}; //積分ゲインを決定
+const double kp {0.090}; //比例ゲインを決定
+const double ki {0.0090}; //積分ゲインを決定
 
 const int PWMPIN_S {19}; //PWMピンのピン配置を19番ピンに
 const double svm_a  {5.0}; //シグモイド関数の定数
@@ -63,7 +63,9 @@ void commandmsgCallback(const rcr2018::DcmCommand::ConstPtr& msg)
 
     dev_tar_out = target_value - output_value; //目標角速度と出力角度の差分
 
-    double input_value {(kp * (dev_tar_out - dev_tar_out_pre)) + (ki * dev_tar_out)}; //PI制御器による入力値の決定
+    double control_value {(kp * (dev_tar_out - dev_tar_out_pre)) + (ki * dev_tar_out)}; //PI制御器による入力値の決定
+    
+    double input_value {input_value_pre + control_value};
 
     double input_pwm_value {2240.1 * input_value + 29594.0}; //入力PWM信号のデューティ比を決定
 
