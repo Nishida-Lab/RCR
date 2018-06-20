@@ -4,8 +4,8 @@
 #include <ros/ros.h>
 #include <rcr2018/AngVel.h>
 
-const double kp {0.0762}; //比例ゲインを決定
-const double ki {0.0038}; //積分ゲインを決定
+const double kp {0.090}; //比例ゲインを決定
+const double ki {0.0090}; //積分ゲインを決定
 
 const int PWMPIN_D {18}; //PWMピンのピン配置を18番ピンに
 const int DIRPIN {23}; //DIRピンのピン配置を23番ピンに
