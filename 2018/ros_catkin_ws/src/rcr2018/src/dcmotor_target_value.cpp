@@ -21,7 +21,7 @@ double sigmoid(double x) //シグモイド関数
 
 double normalize_sig(double front_value) //シグモイド関数の正規化
 {
-  return 2 * (sigmoid(front_value) - 0.5);
+  return sigmoid(front_value - 0.3);
 }
 
 //linecount callback function
@@ -73,8 +73,8 @@ int main(int argc, char** argv)
         }
         else
         {
-          // target_value = arg_vel_max * normalize_sig(constptr->front); //目標角速度の決定
-          target_value = arg_vel_max * sigmoid(constptr->front); //目標角速度の決定
+          target_value = arg_vel_max * normalize_sig(constptr->front); //目標角速度の決定
+          // target_value = arg_vel_max * sigmoid(constptr->front); //目標角速度の決定
 
         }
 	std::cout << "target_value:" << target_value << std::endl;
