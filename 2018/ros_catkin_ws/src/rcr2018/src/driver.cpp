@@ -14,11 +14,11 @@ const double ki {0.0090}; //積分ゲインを決定
 
 const int PWMPIN_S {19}; //PWMピンのピン配置を19番ピンに
 const double svm_a  {5.0}; //シグモイド関数の定数
-const int frequency_sv {50}; //サーボモータの周波数
+const int frequency_sv {50}; //サーボモータへの周波数
 
 const int PWMPIN_D {18}; //PWMピンのピン配置を18番ピンに
 const int DIRPIN {23}; //DIRピンのピン配置を23番ピンに
-const int frequency {500};
+const int frequency {500}; //DCモータへの周波数
 
 double input_value_pre {0.0}; //一つ前時点での入力値の初期化
 double dev_tar_out {0.0}; //現時点での目標値と出力値の差の初期化
@@ -27,7 +27,7 @@ double ang_vel {0.0}; //出力角度の初期化
 
 bool is_finish {false}; //終了判定
 
-const int START_SW_PIN {25};
+const int START_SW_PIN {25}; //スイッチピンのピン配置を25番ピンに
 
 
 double sigmoid(double x, double a) //シグモイド関数
