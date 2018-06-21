@@ -20,14 +20,14 @@ const int PWMPIN_D {18}; //PWMピンのピン配置を18番ピンに
 const int DIRPIN {23}; //DIRピンのピン配置を23番ピンに
 const int frequency {500};
 
-double input_value_pre {0.0};
+double input_value_pre {0.0}; //一つ前の時点での入力値の初期化
 double dev_tar_out {0.0}; //現時点での目標値と出力値の差の初期化
 double dev_tar_out_pre {0.0}; //一つ前時点での目標値と出力値の差の初期化
 double ang_vel {0.0}; //出力角度の初期化
 
 bool is_finish {false}; //終了判定
 
-const int START_SW_PIN {25};
+const int START_SW_PIN {25}; //スイッチピンのピン配置を25番ピンに
 
 
 double sigmoid(double x, double a) //シグモイド関数
@@ -65,10 +65,10 @@ void commandmsgCallback(const rcr2018::DcmCommand::ConstPtr& msg)
     dev_tar_out = target_value - output_value; //目標角速度と出力角度の差分
 
     double control_value {(kp * (dev_tar_out - dev_tar_out_pre)) + (ki * dev_tar_out)}; //PI制御器による入力値の増分の決定
-    
+
     double input_value {input_value_pre + control_value}; //PI制御器による入力値の決定
 
-    double input_pwm_value {2240.1 * input_value + 29594.0}; //入力PWM信号のデューティ比を決定
+    double input_pwm_value {2177.7 * input_value + 4176.4}; //入力PWM信号のデューティ比を決定
 
     // duty比が1を超えないようにする
     if (input_pwm_value > 1000000)
@@ -80,9 +80,9 @@ void commandmsgCallback(const rcr2018::DcmCommand::ConstPtr& msg)
     gpioWrite(DIRPIN, 0); //DIRピンの出力を決定
     std::cout << "DCM:" << input_pwm_value << std::endl;
     gpioHardwarePWM(PWMPIN_D, frequency, static_cast<int>(input_pwm_value)); //DCモータにPWM信号を入力
-    
+
     //次の時点のため、現時点での値を保存
-    input_value_pre = input_value; 
+    input_value_pre = input_value;
     dev_tar_out_pre = dev_tar_out;
   }
 
