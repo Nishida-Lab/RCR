@@ -1,8 +1,8 @@
 import pigpio
 import time
 
-PWM_PIN 19
-frequency 50
+PWM_PIN =  19
+frequency = 50
 
 pi = pigpio.pi()
 pi.set_mode(PWM_PIN, pigpio.OUTPUT)
