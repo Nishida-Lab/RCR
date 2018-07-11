@@ -70,10 +70,10 @@ void commandmsgCallback(const rcr2018::DcmCommand::ConstPtr& msg)
 
     double input_pwm_value {2177.7 * input_value + 4176.4}; //入力PWM信号のデューティ比を決定
 
-    // duty比が0.15を超えないようにする
-    if (input_pwm_value > 150000)
+    // duty比が0.12を超えないようにする
+    if (input_pwm_value > 120000)
     {
-       input_pwm_value = 150000;
+       input_pwm_value = 120000;
        std::cout << "Divergence" << std::endl;
     }
 

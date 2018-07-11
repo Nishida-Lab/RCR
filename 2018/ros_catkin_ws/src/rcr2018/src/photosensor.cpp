@@ -97,7 +97,7 @@ int main(int argc, char** argv)
         msg.count = msg.count + 1;
 	if (msg.count == max_round)
 	{
-          sleep(1);
+          sleep(0.5);
 	}
         line_count_pub.publish(msg);
         read_count = 0;
